@@ -1,0 +1,157 @@
+contract_id: G3_pose_validation_v1
+# 3EML checks removed 2026-08-04 (ADR-AIIM-036): it failed redocking at
+# every water shell and is excluded from docking. Its result is reported as
+# a negative finding, not as a gate.
+stage: pose_generation
+description: >
+  Validate the docking protocol by redocking the co-crystal reference ligand
+  (ZM241385) into each receptor structure. PASS requires rank-1 pose to achieve
+  direct heavy-atom RMSD ≤ 2.0 Å against the reference ligand in the same
+  coordinate frame. No Kabsch rotation or post-docking superimposition permitted.
+
+inputs:
+  - reference_ligand_4eiy_sdf
+  - redocked_poses_4eiy          # Vina output, all poses
+  - atom_map_4eiy_json           # Pre-registered MCS atom map (see preconditions)
+
+preconditions:
+  - G2_passed
+  - atom_map_4eiy_json_registered_before_docking
+  # The atom map MUST exist in the artifact registry with a timestamp earlier
+  # than the docking run timestamp. The contract engine verifies this ordering.
+
+evaluator: evaluators.G3_evaluator
+
+checks:
+  - id: atom_map_pre_registration
+    description: >
+      Both atom_map JSON files exist in the artifact registry with registration
+      timestamps strictly earlier than the docking run timestamp.
+      Maps must use MCS (rdkit.Chem.rdFMCS.FindMCS) with ringMatchesRingOnly=True
+      and completeRingsOnly=True. Map serialized as {ref_idx: pose_idx} JSON.
+    severity: critical
+  - id: coordinate_frame_4eiy
+    description: >
+      Reference ligand and rank-1 docked pose share the same coordinate frame
+      (4EIY receptor crystallographic frame). Verified by checking that receptor
+      Calpha atoms are at identical coordinates in both files.
+    severity: critical
+  - id: rmsd_rank1_4eiy
+    description: >
+      Direct heavy-atom RMSD of rank-1 Vina pose vs. reference ligand in 4EIY,
+      using pre-registered atom map. Must be ≤ 2.0 Å.
+      Rank-1 is pose[0] from Vina output before any filtering or reordering.
+    threshold_angstrom: 2.0
+    severity: critical
+  - id: control_representativeness
+    description: >
+      Compares the redocking control ligand with the screening library on
+      Bemis-Murcko framework overlap, ECFP4 similarity coverage, and
+      physicochemical position relative to the library's central range.
+      A redocking control demonstrates that the protocol reproduces THAT
+      ligand's pose; it does not license ranking a chemically unrelated set.
+      Where pocket hydration or induced fit is ligand-dependent, a control can
+      pass while the protocol fails for the library, with no downstream symptom
+      because scores, poses and rankings remain internally consistent.
+      Passes if the control speaks for a meaningful share of the library by
+      either similarity or scaffold. Otherwise the validation is reported as
+      not transferable and the stage escalates for an explicit human decision.
+    similarity_cutoff: 0.35
+    min_similarity_coverage: 0.50
+    min_scaffold_coverage: 0.10
+    severity: high
+  - id: retrospective_enrichment
+    description: >
+      control_representativeness answers whether the redocking control
+      resembles the screening library; it does not establish that the
+      protocol, applied to a chemically diverse library, actually separates
+      active compounds from inactive ones. This check requires that
+      separation to be measured directly: a labeled benchmark set
+      (actives + inactives/decoys) is docked under the identical protocol
+      about to be used for the screen — same receptor preparation, same
+      water-shell decision, same box, same docking parameters — and its
+      ROC-AUC / BEDROC20 evaluated against frozen thresholds. This is
+      structure-based evidence, not a ligand-similarity proxy, so it is
+      unaffected by whether the screening library resembles the redocking
+      control. When control_representativeness fails, retrospective_
+      enrichment evidence becomes mandatory before the SBDD arm may drive a
+      released ranking, and a passing result supersedes that failure; its
+      absence at that point is itself a critical failure. Thresholds
+      mirror G5b's frozen thresholds for consistency, not duplication — this
+      check verifies transferability of the specific protocol, G5b verifies
+      the docking-score signal itself. Added 2026-08-15 (ADR-AIIM-073).
+    threshold_auc_min: 0.60
+    threshold_bedroc20_min: 0.40
+    severity: critical
+  - id: per_atom_distances_recorded
+    description: >
+      For each atom pair in the atom map, the individual distance is recorded
+      in the G3 artifact. Required for auditability; not a pass/fail criterion.
+    severity: high
+  - id: best_of_n_diagnostic
+    description: >
+      RMSD values for poses 2–10 are recorded as diagnostic annotations.
+      best_of_n_rmsd appears in the artifact but must NOT be used as the
+      pass/fail criterion. Selecting a non-rank-1 pose because its RMSD is
+      lower is explicitly forbidden.
+    severity: high
+  - id: reproducibility_check_4eiy
+    description: >
+      Rank-1 RMSD for 4EIY is expected near 1.909 Å (legacy reference).
+      If outside [1.80, 2.00] Å, log an investigation note before accepting.
+      Does not by itself constitute a FAIL; triggers escalation only.
+    expected_approx: 1.909
+    tolerance_band: [1.80, 2.00]
+    severity: medium
+  - id: pocket_centroid_check
+    description: >
+      Centroid of rank-1 pose is within 5 Å of the reference ligand centroid.
+      Informational only — does not affect PASS/FAIL.
+    severity: low
+  - id: clash_count
+    description: >
+      Number of heavy-atom clashes (contact < 0.75 Å) in rank-1 pose recorded.
+      Informational; excessive clashes generate a warning.
+    severity: low
+  - id: failed_pose_accounting
+    description: >
+      For any compound where Vina returns 0 poses, docking_failure is recorded
+      in the accountability ledger.
+    severity: high
+
+thresholds:
+  pass_conditions:
+    - atom_map_pre_registration passes
+    - coordinate_frame_4eiy passes
+    - rmsd_rank1_4eiy ≤ 2.0 Å
+    - >-
+      control_representativeness passes OR retrospective_enrichment passes.
+      Added 2026-08-15, ADR-AIIM-073: structure-based evidence can supersede
+      a failed ligand-similarity proxy; see G3_evaluator.py reconciliation.
+
+severity: critical
+on_pass: continue_to_G4
+on_fail:
+  - log_failure_to_registry
+  - retry_with_frozen_alternative_engine   # DiffDock used for pose hypothesis only
+  - escalate_if_retry_fails
+  # Note: if DiffDock is used as alternative, its result is a pose HYPOTHESIS
+  # only. It cannot replace Vina as the primary ranker (ADR-AIIM-007).
+on_warn:
+  - log_investigation_note
+  - escalate_if_reproducibility_outside_band
+
+evidence:
+  - atom_map_4eiy_json
+  - rmsd_rank1_4eiy
+  - per_atom_distances_4eiy
+  - retained_water_selection
+  - best_of_n_diagnostics
+  - pose_overlay_figures    # For human inspection only; not a pass criterion
+
+version: "1.1.0"
+frozen_date: "2026-07-30"
+amended:
+  - date: "2026-08-15"
+    change: "Added retrospective_enrichment check; pass_conditions now accepts control_representativeness OR retrospective_enrichment."
+    reason: "ADR-AIIM-073: control_representativeness is a ligand-similarity proxy that cannot in principle admit a structurally novel library (E2 showed 0% coverage reproduces across six independent structural descriptor spaces). Direct structure-based evidence -- docking a labeled benchmark under the identical protocol -- answers the transferability question the proxy was standing in for, without depending on library-to-control similarity."

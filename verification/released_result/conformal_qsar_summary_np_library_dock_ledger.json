@@ -1,0 +1,40 @@
+{
+  "pipeline_path": "D:\\Agentic VS Workflow\\20_new_runs\\qsar_lbdd_2026-08-07\\qsar_pipeline_a2a.pkl",
+  "pipeline_sha256": "85f1e87364ba8107b09dfd9c39735acba7d56e2f9f36dda8c8ced41dc93ec5ed",
+  "calibration_set_n": 1217,
+  "calibration_set_source": "D:\\Agentic VS Workflow\\20_new_runs\\qsar_lbdd_2026-08-07\\chembl_a2a_training_set.csv",
+  "calibration_set_note": "identical scaffold-disjoint held-out split already used to report external AUC=0.922; reused for conformal calibration, not for re-training",
+  "method": "Mondrian (label-conditional) inductive conformal prediction",
+  "significance_levels": [
+    0.05,
+    0.1,
+    0.2
+  ],
+  "query_library": "20_new_runs\\np_library_funnel_2026-08-15\\np_library_dock_ledger.csv",
+  "n_query": 5000,
+  "exchangeability_caveat": "E2 (ADR-AIIM-073) found SNP-Lib 0% in-domain across six independent structural descriptor spaces vs. the ChEMBL training/calibration distribution; the natural-product library expansion (ADR-AIIM-079) is drawn from the same biosynthetic classes and is not independently re-verified for exchangeability here. Conformal validity requires exchangeability between calibration and query data, which this divergence calls into question for any natural-product query library. The validity check below confirms the conformal MECHANISM is correctly implemented on held-out ChEMBL data; it does not and cannot certify nominal coverage for np_library_dock_ledger specifically.",
+  "validity_check": {
+    "significance_0.05": {
+      "nominal_error_rate": 0.05,
+      "empirical_error_rate": 0.0501,
+      "n": 1217,
+      "valid": true
+    },
+    "significance_0.1": {
+      "nominal_error_rate": 0.1,
+      "empirical_error_rate": 0.1027,
+      "n": 1217,
+      "valid": true
+    },
+    "significance_0.2": {
+      "nominal_error_rate": 0.2,
+      "empirical_error_rate": 0.203,
+      "n": 1217,
+      "valid": true
+    },
+    "diagnostic_at_80pct_confidence": {
+      "empty_prediction_set_fraction": 0.1044,
+      "both_labels_fraction": 0.0
+    }
+  }
+}

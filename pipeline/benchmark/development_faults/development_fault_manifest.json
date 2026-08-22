@@ -1,0 +1,76 @@
+[
+  {
+    "fault_id": "DEV_F01",
+    "fault_class": "hash_mismatch",
+    "gate_triggered": "G0",
+    "expected_detection_gates": [
+      "G0"
+    ],
+    "injection_description": "Replace 1 byte in snp_library_validated.csv"
+  },
+  {
+    "fault_id": "DEV_F02",
+    "fault_class": "assay_column_injection",
+    "gate_triggered": "G0",
+    "expected_detection_gates": [
+      "G0",
+      "G6"
+    ],
+    "injection_description": "Add known_active column to input CSV"
+  },
+  {
+    "fault_id": "DEV_F03",
+    "fault_class": "drug_likeness_exclusion",
+    "gate_triggered": "G1",
+    "expected_detection_gates": [
+      "G1"
+    ],
+    "injection_description": "Set exclusion_reason = lipinski_fail for 5 compounds"
+  },
+  {
+    "fault_id": "DEV_F04",
+    "fault_class": "atom_map_post_docking",
+    "gate_triggered": "G3",
+    "expected_detection_gates": [
+      "G3"
+    ],
+    "injection_description": "Register atom map JSON after docking run timestamp"
+  },
+  {
+    "fault_id": "DEV_F05",
+    "fault_class": "kabsch_rmsd",
+    "gate_triggered": "G3",
+    "expected_detection_gates": [
+      "G3"
+    ],
+    "injection_description": "Use Kabsch-rotated RMSD instead of direct RMSD"
+  },
+  {
+    "fault_id": "DEV_F06",
+    "fault_class": "label_leakage",
+    "gate_triggered": "G5a",
+    "expected_detection_gates": [
+      "G5a"
+    ],
+    "injection_description": "Read benchmark labels before G5a gate start"
+  },
+  {
+    "fault_id": "DEV_F07",
+    "fault_class": "threshold_change",
+    "gate_triggered": "G5b",
+    "expected_detection_gates": [
+      "G5b",
+      "G8"
+    ],
+    "injection_description": "Lower auc_min threshold from 0.60 to 0.55 after run"
+  },
+  {
+    "fault_id": "DEV_F08",
+    "fault_class": "unregistered_result",
+    "gate_triggered": "G8",
+    "expected_detection_gates": [
+      "G8"
+    ],
+    "injection_description": "Add a numeric claim to manuscript snippets not in registry"
+  }
+]

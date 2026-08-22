@@ -1,0 +1,13 @@
+{
+  "purpose": "Pilot: does ensemble docking across water shells recover discriminative power lost in ADR-AIIM-075/076?",
+  "subset": {
+    "n_total": 100,
+    "n_active": 50,
+    "n_inactive": 50,
+    "selection": "all successfully-docked actives + 50 inactives sampled with random_state=20260815",
+    "ledger_sha256": "c339a80f7b278637216433569f8c42f9af4cd536264a95c772e6b0580ddd56b5"
+  },
+  "protocol": "re-dock the same subset at the 3A water shell (4EIY_cut3_prepared.pdbqt, 4 waters), identical box/seed/exhaustiveness as the cut5 run",
+  "comparison": "paired on the identical subset: AUC(cut5 only) vs AUC(cut3 only) vs AUC(ensemble = best Vina energy across both shells)",
+  "decision_rule_declared_before_running": "pursue full ensemble docking only if AUC(ensemble) - AUC(cut5) >= +0.05 on this subset; otherwise stop SBDD rescue and report as null"
+}

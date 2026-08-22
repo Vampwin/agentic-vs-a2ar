@@ -1,0 +1,84 @@
+{
+  "comparison": [
+    {
+      "descriptor_space": "ECFP4",
+      "n_inside_snplib": 0,
+      "n_total_snplib": 236,
+      "coverage_fraction_snplib": 0.0,
+      "n_inside_expanded": 0,
+      "n_total_expanded": 497,
+      "coverage_fraction_expanded": 0.0
+    },
+    {
+      "descriptor_space": "FCFP4",
+      "n_inside_snplib": 0,
+      "n_total_snplib": 236,
+      "coverage_fraction_snplib": 0.0,
+      "n_inside_expanded": 0,
+      "n_total_expanded": 497,
+      "coverage_fraction_expanded": 0.0
+    },
+    {
+      "descriptor_space": "MACCS",
+      "n_inside_snplib": 6,
+      "n_total_snplib": 236,
+      "coverage_fraction_snplib": 0.0254,
+      "n_inside_expanded": 46,
+      "n_total_expanded": 497,
+      "coverage_fraction_expanded": 0.0926
+    },
+    {
+      "descriptor_space": "AtomPair",
+      "n_inside_snplib": 2,
+      "n_total_snplib": 236,
+      "coverage_fraction_snplib": 0.0085,
+      "n_inside_expanded": 1,
+      "n_total_expanded": 497,
+      "coverage_fraction_expanded": 0.002
+    },
+    {
+      "descriptor_space": "TopTorsion",
+      "n_inside_snplib": 0,
+      "n_total_snplib": 236,
+      "coverage_fraction_snplib": 0.0,
+      "n_inside_expanded": 0,
+      "n_total_expanded": 497,
+      "coverage_fraction_expanded": 0.0
+    },
+    {
+      "descriptor_space": "Gobbi_Pharm2D",
+      "n_inside_snplib": 0,
+      "n_total_snplib": 236,
+      "coverage_fraction_snplib": 0.0,
+      "n_inside_expanded": 0,
+      "n_total_expanded": 497,
+      "coverage_fraction_expanded": 0.0
+    },
+    {
+      "descriptor_space": "ErG",
+      "n_inside_snplib": 1,
+      "n_total_snplib": 236,
+      "coverage_fraction_snplib": 0.0042,
+      "n_inside_expanded": 18,
+      "n_total_expanded": 497,
+      "coverage_fraction_expanded": 0.0362
+    },
+    {
+      "descriptor_space": "PhysChem",
+      "n_inside_snplib": 152,
+      "n_total_snplib": 236,
+      "coverage_fraction_snplib": 0.6441,
+      "n_inside_expanded": 429,
+      "n_total_expanded": 497,
+      "coverage_fraction_expanded": 0.8632
+    }
+  ],
+  "zero_coverage_spaces_expanded": [
+    "ECFP4",
+    "FCFP4",
+    "TopTorsion",
+    "Gobbi_Pharm2D"
+  ],
+  "key_finding": "The expanded library was SELECTED by 2D pharmacophore and 3D shape similarity to 52 known A2AR ligands, then narrowed to the top 500 by docking score. It is still 0% in-domain in ECFP4, FCFP4, topological torsion and Gobbi 2D pharmacophore space. Deliberate similarity selection did not move the structural applicability domain at all.",
+  "secondary": "Physicochemical coverage rose 64.4%->86.3% while structural coverage stayed at zero, so the two kinds of similarity are decoupled and an AD verdict is meaningless without naming the space."
+}

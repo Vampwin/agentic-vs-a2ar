@@ -1,0 +1,46 @@
+<svg viewBox="0 0 539 268" width="190.1mm" height="94.5mm" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Helvetica, Arial, sans-serif">
+  <title>Inside one gate: contract, evaluator, monitor, policy</title>
+  <desc>A frozen YAML contract and a learned risk monitor feed a policy that resolves to one of four states. A hard-contract failure cannot be overridden by a low risk score.</desc>
+  <rect width="539" height="268" fill="#FFFFFF"/>
+  <defs><marker id="a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0.5 L8,4 L0,7.5 z" fill="#6E7C74"/></marker></defs>
+  <text x="269.5" y="16" font-size="11.5" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">Inside one gate</text>
+  <text x="269.5" y="29" font-size="8" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">The deterministic contract decides first; the learned monitor can raise the state but never lower it</text>
+  <rect x="14" y="48" width="146" height="46" rx="3" fill="#FFFFFF" stroke="#1B2420" stroke-width="0.9"/>
+  <text x="87" y="63" font-size="9" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">Frozen contract</text>
+  <text x="87" y="75" font-size="7.4" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">YAML, version-controlled;</text>
+  <text x="87" y="84.472" font-size="7.4" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">checks and thresholds pre-registered</text>
+  <rect x="14" y="106" width="146" height="46" rx="3" fill="#FFFFFF" stroke="#9AA79F" stroke-width="0.7"/>
+  <text x="87" y="121" font-size="9" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">Learned risk monitor</text>
+  <text x="87" y="133" font-size="7.4" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">calibrated on pre-release</text>
+  <text x="87" y="142.472" font-size="7.4" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">workflow telemetry only</text>
+  <rect x="14" y="164" width="146" height="40" rx="3" fill="#EEF2EE" stroke="#9AA79F" stroke-width="0.7"/>
+  <text x="87" y="178" font-size="9" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">Independent evaluator</text>
+  <text x="87" y="190" font-size="7.4" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">deterministic; the agent cannot override it</text>
+  <line x1="160" y1="71" x2="196" y2="108" stroke="#6E7C74" stroke-width="0.7" marker-end="url(#a)"/>
+  <line x1="160" y1="129" x2="196" y2="124" stroke="#6E7C74" stroke-width="0.7" marker-end="url(#a)"/>
+  <line x1="160" y1="184" x2="196" y2="140" stroke="#6E7C74" stroke-width="0.7" marker-end="url(#a)"/>
+  <rect x="198" y="96" width="100" height="60" rx="3" fill="#E3EBF3" stroke="#2C5F8A" stroke-width="1"/>
+  <text x="248" y="114" font-size="9.5" fill="#2C5F8A" font-weight="bold" font-style="normal" text-anchor="middle">Policy</text>
+  <text x="248" y="127" font-size="7.3" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">t_escalate = 0.2857</text>
+  <text x="248" y="136.344" font-size="7.3" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">t_halt = 0.8958</text>
+  <text x="248" y="145.688" font-size="7.3" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">frozen before evaluation</text>
+  <rect x="328" y="62" width="78" height="30" rx="13" fill="#E7EEDC" stroke="#4F7130" stroke-width="0.9"/>
+  <text x="367" y="81" font-size="8.6" fill="#4F7130" font-weight="bold" font-style="normal" text-anchor="middle">PASS</text>
+  <line x1="298" y1="126" x2="326" y2="77" stroke="#6E7C74" stroke-width="0.65" marker-end="url(#a)"/>
+  <text x="413" y="81" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="start">continue to the next gate</text>
+  <rect x="328" y="104" width="78" height="30" rx="13" fill="#F7E9D8" stroke="#A85C18" stroke-width="0.9"/>
+  <text x="367" y="123" font-size="8.6" fill="#A85C18" font-weight="bold" font-style="normal" text-anchor="middle">AUTO_REPAIR</text>
+  <line x1="298" y1="126" x2="326" y2="119" stroke="#6E7C74" stroke-width="0.65" marker-end="url(#a)"/>
+  <text x="413" y="123" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="start">pre-specified fix, continue</text>
+  <rect x="328" y="146" width="78" height="30" rx="13" fill="#F7E9D8" stroke="#A85C18" stroke-width="0.9"/>
+  <text x="367" y="165" font-size="8.6" fill="#A85C18" font-weight="bold" font-style="normal" text-anchor="middle">ESCALATE</text>
+  <line x1="298" y1="126" x2="326" y2="161" stroke="#6E7C74" stroke-width="0.65" marker-end="url(#a)"/>
+  <text x="413" y="165" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="start">human review before release</text>
+  <rect x="328" y="188" width="78" height="30" rx="13" fill="#F7E2E2" stroke="#9B2226" stroke-width="0.9"/>
+  <text x="367" y="207" font-size="8.6" fill="#9B2226" font-weight="bold" font-style="normal" text-anchor="middle">HALT</text>
+  <line x1="298" y1="126" x2="326" y2="203" stroke="#6E7C74" stroke-width="0.65" marker-end="url(#a)"/>
+  <text x="413" y="207" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="start">workflow stops; reason logged</text>
+  <rect x="18" y="218" width="503" height="34" rx="3" fill="#FFFFFF" stroke="#9B2226" stroke-width="0.9"/>
+  <text x="269.5" y="232" font-size="8.6" fill="#9B2226" font-weight="bold" font-style="normal" text-anchor="middle">The rule that makes the architecture fail closed</text>
+  <text x="269.5" y="244" font-size="7.5" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">A hard-contract failure overrides any risk score, and a check that cannot be evaluated returns failure rather than passing unverified.</text>
+</svg>

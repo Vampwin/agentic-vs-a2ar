@@ -1,0 +1,10 @@
+# Normalise line endings in the repository. This project has already lost time
+# to CRLF breaking shell scripts under WSL, and a deposit that ships broken
+# scripts to a reviewer would repeat that at the worst moment.
+* text=auto eol=lf
+
+# Binary, never touched.
+*.png binary
+*.pdf binary
+*.gz  binary
+*.docx binary

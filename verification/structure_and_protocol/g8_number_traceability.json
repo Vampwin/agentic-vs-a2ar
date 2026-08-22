@@ -1,0 +1,446 @@
+{
+  "manuscript": "D:\\Agentic VS Workflow\\30_manuscript\\CURRENT_v5\\manuscript_AIIM_v6.md",
+  "state": "PASS",
+  "n_checks": 53,
+  "n_pass": 53,
+  "n_value_mismatch": 0,
+  "n_literal_absent": 0,
+  "checks": [
+    {
+      "check": "mutation_detection",
+      "state": "PASS",
+      "expected": 93.2,
+      "recomputed": 93.2,
+      "literal_present_in_manuscript": true,
+      "literal": "93.2 %"
+    },
+    {
+      "check": "mutation_cases",
+      "state": "PASS",
+      "expected": 133,
+      "recomputed": 133,
+      "literal_present_in_manuscript": true,
+      "literal": "133 seeded fault cases"
+    },
+    {
+      "check": "mutation_detected",
+      "state": "PASS",
+      "expected": 124,
+      "recomputed": 124,
+      "literal_present_in_manuscript": true,
+      "literal": "detected 124"
+    },
+    {
+      "check": "seer_A",
+      "state": "PASS",
+      "expected": 0.068,
+      "recomputed": 0.068,
+      "literal_present_in_manuscript": true,
+      "literal": "| **A** | on | on | **0.068** |"
+    },
+    {
+      "check": "seer_C",
+      "state": "PASS",
+      "expected": 0.992,
+      "recomputed": 0.992,
+      "literal_present_in_manuscript": true,
+      "literal": "| **C** | off | on | 0.992 |"
+    },
+    {
+      "check": "false_alarm",
+      "state": "PASS",
+      "expected": 0.0,
+      "recomputed": 0.0,
+      "literal_present_in_manuscript": true,
+      "literal": "**0.0 in every condition**"
+    },
+    {
+      "check": "gate_G4",
+      "state": "PASS",
+      "expected": 85.2,
+      "recomputed": 85.2,
+      "literal_present_in_manuscript": true,
+      "literal": "| G4 scoring | 27 | 4 | 85.2 % |"
+    },
+    {
+      "check": "gate_G6",
+      "state": "PASS",
+      "expected": 84.4,
+      "recomputed": 84.4,
+      "literal_present_in_manuscript": true,
+      "literal": "| G6 selection | 32 | 5 | 84.4 % |"
+    },
+    {
+      "check": "meta_M1",
+      "state": "PASS",
+      "expected": 25,
+      "recomputed": 25,
+      "literal_present_in_manuscript": true,
+      "literal": "25 of 25 bit-identical"
+    },
+    {
+      "check": "meta_M2_max",
+      "state": "PASS",
+      "expected": 0.974,
+      "recomputed": 0.974,
+      "literal_present_in_manuscript": true,
+      "literal": "**0.974 kcal/mol**"
+    },
+    {
+      "check": "meta_M2_mean",
+      "state": "PASS",
+      "expected": 0.166,
+      "recomputed": 0.166,
+      "literal_present_in_manuscript": true,
+      "literal": "mean 0.166"
+    },
+    {
+      "check": "meta_M2_rho",
+      "state": "PASS",
+      "expected": 0.772,
+      "recomputed": 0.772,
+      "literal_present_in_manuscript": true,
+      "literal": "Spearman correlation with the baseline ranking is 0.772"
+    },
+    {
+      "check": "meta_M2_mw",
+      "state": "PASS",
+      "expected": 0.735,
+      "recomputed": 0.735,
+      "literal_present_in_manuscript": true,
+      "literal": "\u03c1 = +0.735"
+    },
+    {
+      "check": "yr_mean",
+      "state": "PASS",
+      "expected": 0.5,
+      "recomputed": 0.5,
+      "literal_present_in_manuscript": true,
+      "literal": "mean\ncross-validated AUC 0.500"
+    },
+    {
+      "check": "yr_z",
+      "state": "PASS",
+      "expected": 21.9,
+      "recomputed": 21.9,
+      "literal_present_in_manuscript": true,
+      "literal": "z = 21.9"
+    },
+    {
+      "check": "yr_p",
+      "state": "PASS",
+      "expected": 0.0099,
+      "recomputed": 0.0099,
+      "literal_present_in_manuscript": true,
+      "literal": "empirical p = 0.0099"
+    },
+    {
+      "check": "yr_real",
+      "state": "PASS",
+      "expected": 0.911,
+      "recomputed": 0.911,
+      "literal_present_in_manuscript": true,
+      "literal": "against 0.911 for"
+    },
+    {
+      "check": "funnel_excl",
+      "state": "PASS",
+      "expected": 7.0,
+      "recomputed": 7.0,
+      "literal_present_in_manuscript": true,
+      "literal": "7.0 % reached the top-500"
+    },
+    {
+      "check": "funnel_kept",
+      "state": "PASS",
+      "expected": 10.0,
+      "recomputed": 10.0,
+      "literal_present_in_manuscript": true,
+      "literal": "against 10.0 % of the 4,999"
+    },
+    {
+      "check": "funnel_cut",
+      "state": "PASS",
+      "expected": -8.588,
+      "recomputed": -8.588,
+      "literal_present_in_manuscript": true,
+      "literal": "\u22128.588 kcal/mol"
+    },
+    {
+      "check": "funnel_p",
+      "state": "PASS",
+      "expected": 0.0097,
+      "recomputed": 0.0097,
+      "literal_present_in_manuscript": true,
+      "literal": "Mann\u2013Whitney p = 0.0097"
+    },
+    {
+      "check": "ad_phys",
+      "state": "PASS",
+      "expected": 86.3,
+      "recomputed": 86.3,
+      "literal_present_in_manuscript": true,
+      "literal": "86.3 %"
+    },
+    {
+      "check": "ad_maccs",
+      "state": "PASS",
+      "expected": 9.3,
+      "recomputed": 9.3,
+      "literal_present_in_manuscript": true,
+      "literal": "9.3 % in MACCS"
+    },
+    {
+      "check": "ad_erg",
+      "state": "PASS",
+      "expected": 3.6,
+      "recomputed": 3.6,
+      "literal_present_in_manuscript": true,
+      "literal": "3.6 % in ErG"
+    },
+    {
+      "check": "ad_ecfp4_zero",
+      "state": "PASS",
+      "expected": 0.0,
+      "recomputed": 0.0,
+      "literal_present_in_manuscript": true,
+      "literal": "0 % in ECFP4"
+    },
+    {
+      "check": "ad_max_spaces",
+      "state": "PASS",
+      "expected": 2,
+      "recomputed": 2,
+      "literal_present_in_manuscript": true,
+      "literal": "inside more than two of the eight"
+    },
+    {
+      "check": "ad_zero_spaces",
+      "state": "PASS",
+      "expected": 52,
+      "recomputed": 52,
+      "literal_present_in_manuscript": true,
+      "literal": "52 are inside none"
+    },
+    {
+      "check": "ad_phys_calls",
+      "state": "PASS",
+      "expected": [
+        429,
+        494
+      ],
+      "recomputed": [
+        429,
+        494
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "429 of the 494 in-domain calls"
+    },
+    {
+      "check": "ad_ecfp4_max",
+      "state": "PASS",
+      "expected": 0.352,
+      "recomputed": 0.352,
+      "literal_present_in_manuscript": true,
+      "literal": "similarity of 0.352"
+    },
+    {
+      "check": "tier_A",
+      "state": "PASS",
+      "expected": 3,
+      "recomputed": 3,
+      "literal_present_in_manuscript": true,
+      "literal": "| A \u2014 convergent |"
+    },
+    {
+      "check": "tier_B",
+      "state": "PASS",
+      "expected": 119,
+      "recomputed": 119,
+      "literal_present_in_manuscript": true,
+      "literal": "| B \u2014 strong structure-based |"
+    },
+    {
+      "check": "tier_C",
+      "state": "PASS",
+      "expected": 360,
+      "recomputed": 360,
+      "literal_present_in_manuscript": true,
+      "literal": "| C \u2014 supporting |"
+    },
+    {
+      "check": "n_ok",
+      "state": "PASS",
+      "expected": 497,
+      "recomputed": 497,
+      "literal_present_in_manuscript": true,
+      "literal": "497 completed"
+    },
+    {
+      "check": "n_onpocket",
+      "state": "PASS",
+      "expected": 482,
+      "recomputed": 482,
+      "literal_present_in_manuscript": true,
+      "literal": "482 produced an on-pocket pose"
+    },
+    {
+      "check": "tierA_binom",
+      "state": "PASS",
+      "expected": 0.49,
+      "recomputed": 0.49,
+      "literal_present_in_manuscript": true,
+      "literal": "binomial p = 0.49"
+    },
+    {
+      "check": "tierA_flav",
+      "state": "PASS",
+      "expected": 0.0198,
+      "recomputed": 0.0198,
+      "literal_present_in_manuscript": true,
+      "literal": "all flavones (p = 0.020)"
+    },
+    {
+      "check": "tierA_pong",
+      "state": "PASS",
+      "expected": 0.0023,
+      "recomputed": 0.0023,
+      "literal_present_in_manuscript": true,
+      "literal": "all from one species (p = 0.002)"
+    },
+    {
+      "check": "res_4eiy",
+      "state": "PASS",
+      "expected": 1.8,
+      "recomputed": 1.8,
+      "literal_present_in_manuscript": true,
+      "literal": "1.80 \u00c5 A2AR\u2013BRIL"
+    },
+    {
+      "check": "res_5olh",
+      "state": "PASS",
+      "expected": 2.6,
+      "recomputed": 2.6,
+      "literal_present_in_manuscript": true,
+      "literal": "2.60 \u00c5 A2A-StaR2-BRIL"
+    },
+    {
+      "check": "t88a",
+      "state": "PASS",
+      "expected": 5.91,
+      "recomputed": 5.91,
+      "literal_present_in_manuscript": true,
+      "literal": "T88A\n(3.36) at 5.91 \u00c5"
+    },
+    {
+      "check": "rmsd",
+      "state": "PASS",
+      "expected": 0.379,
+      "recomputed": 0.379,
+      "literal_present_in_manuscript": true,
+      "literal": "**0.379 \u00c5**"
+    },
+    {
+      "check": "stereo_snplib",
+      "state": "PASS",
+      "expected": 24,
+      "recomputed": 24,
+      "literal_present_in_manuscript": true,
+      "literal": "24 of 236 SNP-Lib"
+    },
+    {
+      "check": "stereo_top500",
+      "state": "PASS",
+      "expected": 106,
+      "recomputed": 106,
+      "literal_present_in_manuscript": true,
+      "literal": "106 of the\n500 redocked compounds"
+    },
+    {
+      "check": "box_over",
+      "state": "PASS",
+      "expected": 5,
+      "recomputed": 5,
+      "literal_present_in_manuscript": true,
+      "literal": "**five compounds exceed the 22 \u00c5\nedge**"
+    },
+    {
+      "check": "box_max",
+      "state": "PASS",
+      "expected": 24.3,
+      "recomputed": 24.3,
+      "literal_present_in_manuscript": true,
+      "literal": "maximum 24.3 \u00c5"
+    },
+    {
+      "check": "cutoff_97",
+      "state": "PASS",
+      "expected": 97.0,
+      "recomputed": 97.0,
+      "literal_present_in_manuscript": true,
+      "literal": "482 of 497 compounds\n(97.0 %)"
+    },
+    {
+      "check": "cutoff_7",
+      "state": "PASS",
+      "expected": 89.9,
+      "recomputed": 89.9,
+      "literal_present_in_manuscript": true,
+      "literal": "447 (89.9 %) at 7 \u00c5"
+    },
+    {
+      "check": "conf_valid",
+      "state": "PASS",
+      "expected": 0.0501,
+      "recomputed": 0.0501,
+      "literal_present_in_manuscript": true,
+      "literal": "empirical error\n0.0501"
+    },
+    {
+      "check": "conf_n",
+      "state": "PASS",
+      "expected": 1217,
+      "recomputed": 1217,
+      "literal_present_in_manuscript": true,
+      "literal": "(n = 1,217)"
+    },
+    {
+      "check": "conf_sets",
+      "state": "PASS",
+      "expected": 3,
+      "recomputed": 3,
+      "literal_present_in_manuscript": true,
+      "literal": "the ambiguous set {inactive, active} to 3"
+    },
+    {
+      "check": "g4_pass",
+      "state": "PASS",
+      "expected": 7,
+      "recomputed": 7,
+      "literal_present_in_manuscript": true,
+      "literal": "G4 then passed 7 of 7 checks"
+    },
+    {
+      "check": "mw_rho",
+      "state": "PASS",
+      "expected": -0.1824,
+      "recomputed": -0.1824,
+      "literal_present_in_manuscript": true,
+      "literal": "\u03c1 = \u22120.182"
+    },
+    {
+      "check": "citation_integrity",
+      "state": "PASS",
+      "expected": "every marker resolves, every entry cited, 1..N contiguous",
+      "recomputed": {
+        "n_entries": 47,
+        "n_cited": 47,
+        "dangling_markers": [],
+        "uncited_entries": [],
+        "numbering_contiguous": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "## References"
+    }
+  ]
+}

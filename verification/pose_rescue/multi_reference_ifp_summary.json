@@ -1,0 +1,66 @@
+{
+  "superposition": {
+    "n_matched_ca": 388,
+    "rmsd_A": 0.736
+  },
+  "reference_bits": {
+    "zm241385": 22,
+    "9xt": 23,
+    "union": 27,
+    "shared": 18
+  },
+  "methods": {
+    "ifp_zm_only (baseline, ADR-075)": {
+      "n": 245,
+      "n_active": 50,
+      "auc_roc": 0.4492,
+      "bedroc20": 0.4942,
+      "ef_1pct": 4.9,
+      "ef_5pct": 3.0154,
+      "ef_10pct": 1.764,
+      "auc_ci95": [
+        0.3438,
+        0.5473
+      ]
+    },
+    "ifp_9xt_only": {
+      "n": 245,
+      "n_active": 50,
+      "auc_roc": 0.4792,
+      "bedroc20": 0.4786,
+      "ef_1pct": 4.9,
+      "ef_5pct": 2.2615,
+      "ef_10pct": 1.764,
+      "auc_ci95": [
+        0.3685,
+        0.577
+      ]
+    },
+    "ifp_union_reference": {
+      "n": 245,
+      "n_active": 50,
+      "auc_roc": 0.4714,
+      "bedroc20": 0.5101,
+      "ef_1pct": 4.9,
+      "ef_5pct": 3.0154,
+      "ef_10pct": 1.764,
+      "auc_ci95": [
+        0.3641,
+        0.5703
+      ]
+    },
+    "ifp_max_of_two_references": {
+      "n": 245,
+      "n_active": 50,
+      "auc_roc": 0.4489,
+      "bedroc20": 0.4942,
+      "ef_1pct": 4.9,
+      "ef_5pct": 3.0154,
+      "ef_10pct": 1.764,
+      "auc_ci95": [
+        0.3437,
+        0.5472
+      ]
+    }
+  }
+}

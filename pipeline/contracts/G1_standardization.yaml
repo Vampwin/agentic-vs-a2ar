@@ -1,0 +1,112 @@
+contract_id: G1_standardization_v1
+stage: standardization
+description: >
+  Verify that all 236 compounds have been standardized and that the accountability
+  ledger is complete. Every compound must appear in the ledger with its final
+  disposition. Drug-likeness metrics are computed as annotations only — they must
+  not drive exclusions (ADR-AIIM-006).
+
+inputs:
+  - snp_source_ledger_csv   # Output of standardization run; one row per compound
+  - standardized_smiles_sdf # Standardized 3D-embedding-ready structures
+
+preconditions:
+  - G0_passed
+
+evaluator: evaluators.G1_evaluator
+
+checks:
+  - id: ledger_count
+    description: snp_source_ledger.csv has exactly 236 rows
+    expected_count: 236
+    severity: critical
+  - id: id_coverage
+    description: All 236 SNP IDs present in ledger; no additions or deletions
+    severity: critical
+  - id: smiles_roundtrip
+    description: >
+      For all rows with valid_smiles=True: RDKit round-trip
+      (SMILES → mol → canonical SMILES → mol) succeeds without error.
+    severity: critical
+  - id: inchikey_generated
+    description: InChIKey column populated for all valid_smiles=True rows
+    severity: high
+  - id: salt_strip_recorded
+    description: >
+      For each compound where a salt/counterion was stripped, the
+      parent_smiles and removed_fragment columns are populated.
+    severity: high
+  - id: mixture_flagged
+    description: >
+      Compounds with multiple disconnected SMILES fragments after salt stripping
+      are flagged is_mixture=True and excluded from docking with reason logged.
+    severity: high
+  - id: stereochemistry_recorded
+    description: >
+      For each compound, has_stereocenters, n_stereocenters, and
+      stereo_defined columns are populated.
+    severity: medium
+  - id: stereochemistry_preserved
+    description: >
+      A row declaring defined stereochemistry must still carry stereo markers in
+      its standardized SMILES. `stereochemistry_recorded` proves only that the
+      bookkeeping columns exist; this proves they are true. Silent stereo loss
+      leaves the metadata untouched while the structure changes, and a lost
+      centre changes which enantiomer is docked.
+    severity: critical
+  - id: salt_stripping_verified
+    description: >
+      A disconnected fragment ('.') in a standardized SMILES is permitted only
+      if the ledger recorded what was removed or flagged the row as a mixture.
+      An undeclared counter-ion changes the docked species and its molecular
+      weight.
+    severity: critical
+  - id: no_activity_columns_in_ledger
+    description: >
+      The standardized ledger contains no activity annotation of any
+      provenance (in-house assay markers, IC50/EC50/pChEMBL, or literature
+      "Biological activities"). The curated source library legitimately
+      carries such columns; they must not survive into the ledger, which is
+      what feeds ranking and selection.
+    severity: critical
+  - id: no_drug_likeness_exclusions
+    description: >
+      No compound is excluded solely because it fails Lipinski, Veber, QED,
+      or PAINS criteria. Exclusion column values must be: standardization_failure,
+      embedding_failure, docking_failure, or mixture_excluded only.
+    severity: critical
+  - id: drug_likeness_as_annotation
+    description: >
+      Lipinski, Veber, QED, and PAINS results appear as annotation columns
+      only; they must not appear in the exclusion_reason column.
+    severity: critical
+  - id: failure_accounting
+    description: >
+      All rows with valid_smiles=False have a standardization_failure_reason
+      populated. Count of failures reported in ledger summary.
+    severity: high
+  - id: duplicate_inchikey_check
+    description: >
+      Flag rows sharing the same InChIKey as potential duplicates.
+      Duplicates are annotated, not removed. Both entries remain in ledger.
+    severity: medium
+
+thresholds:
+  pass_conditions: all_critical_checks_pass
+
+severity: critical
+on_pass: continue_to_G2
+on_fail:
+  - log_failure_to_registry
+  - escalate    # Human reviews ledger before any compound proceeds to preparation
+on_warn:
+  - log_to_ledger
+
+evidence:
+  - snp_source_ledger_csv
+  - standardization_failure_log
+  - drug_likeness_annotation_table
+  - duplicate_report
+
+version: "1.0.0"
+frozen_date: "2026-07-30"

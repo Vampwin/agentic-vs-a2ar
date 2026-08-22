@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "n_scored": 245,
+    "n_missing_poses": 0,
+    "reference_receptor": "D:\\Agentic VS Workflow\\20_new_runs\\routeA_water_shell_2026-08-09\\4EIY_cut5_protein_plus_waters.pdb",
+    "reference_receptor_sha256": "692c3d89902537853b5d857f3d8f96f05b4f08ae5fa0a3085e8968f71b6e3585",
+    "reference_ifp_n_bits": 24,
+    "bootstrap_n": 1000,
+    "bootstrap_seed": 42,
+    "bedroc_alpha": 20.0,
+    "ef_fractions": [
+      0.01,
+      0.05,
+      0.1
+    ],
+    "combination_rule": "combined_zscore = z(-vina_energy) + z(max_ifp_tanimoto), 1:1 fixed weights, not fit against labels",
+    "note": "Pre-registered per ADR-AIIM-073 before this script was run against the full n=245 benchmark. Baseline for comparison: corrected-protocol Vina AUC 0.601 [0.510-0.683] (Section 3.7 of the prior manuscript draft)."
+  },
+  "methods": {
+    "vina_only": {
+      "n": 245,
+      "n_active": 50,
+      "n_inactive": 195,
+      "auc_roc": 0.6014,
+      "bedroc20": 0.2752,
+      "ef_1pct": 1.6333,
+      "ef_5pct": 1.1308,
+      "ef_10pct": 1.176,
+      "auc_ci95": [
+        0.5103,
+        0.6827
+      ]
+    },
+    "vina_at_best_ifp_pose": {
+      "n": 245,
+      "n_active": 50,
+      "n_inactive": 195,
+      "auc_roc": 0.6027,
+      "bedroc20": 0.2432,
+      "ef_1pct": 1.6333,
+      "ef_5pct": 1.1308,
+      "ef_10pct": 1.372,
+      "auc_ci95": [
+        0.5108,
+        0.6852
+      ]
+    },
+    "ifp_only": {
+      "n": 245,
+      "n_active": 50,
+      "n_inactive": 195,
+      "auc_roc": 0.4487,
+      "bedroc20": 0.4955,
+      "ef_1pct": 4.9,
+      "ef_5pct": 3.0154,
+      "ef_10pct": 1.764,
+      "auc_ci95": [
+        0.3429,
+        0.5454
+      ]
+    },
+    "asn253_filtered_vina": {
+      "n": 245,
+      "n_active": 50,
+      "n_inactive": 195,
+      "auc_roc": 0.5766,
+      "bedroc20": 0.3744,
+      "ef_1pct": 1.6333,
+      "ef_5pct": 1.8846,
+      "ef_10pct": 1.96,
+      "auc_ci95": [
+        0.4822,
+        0.6614
+      ]
+    },
+    "combined_zscore": {
+      "n": 245,
+      "n_active": 50,
+      "n_inactive": 195,
+      "auc_roc": 0.5301,
+      "bedroc20": 0.4243,
+      "ef_1pct": 3.2667,
+      "ef_5pct": 2.2615,
+      "ef_10pct": 1.764,
+      "auc_ci95": [
+        0.4325,
+        0.6299
+      ]
+    }
+  }
+}

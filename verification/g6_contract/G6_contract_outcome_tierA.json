@@ -1,0 +1,142 @@
+{
+  "contract": "G6_selection_v1",
+  "contract_version": "1.2.0",
+  "ranking_sha256": "6445601828DB09ED3490C0F2912D8225216C18664F5B620C2ABF5F8FEB223EAF",
+  "ad_source": "D:\\Agentic VS Workflow\\20_new_runs\\ad_sweep_expanded_2026-08-21\\ad_coverage_by_descriptor.csv",
+  "ad_by_space": {
+    "ECFP4": {
+      "coverage_fraction": 0.0,
+      "n_inside": 0,
+      "n_total": 497,
+      "threshold": 0.5876
+    },
+    "FCFP4": {
+      "coverage_fraction": 0.0,
+      "n_inside": 0,
+      "n_total": 497,
+      "threshold": 0.648
+    },
+    "MACCS": {
+      "coverage_fraction": 0.0926,
+      "n_inside": 46,
+      "n_total": 497,
+      "threshold": 0.8485
+    },
+    "AtomPair": {
+      "coverage_fraction": 0.002,
+      "n_inside": 1,
+      "n_total": 497,
+      "threshold": 0.624
+    },
+    "TopTorsion": {
+      "coverage_fraction": 0.0,
+      "n_inside": 0,
+      "n_total": 497,
+      "threshold": 0.6507
+    },
+    "Gobbi_Pharm2D": {
+      "coverage_fraction": 0.0,
+      "n_inside": 0,
+      "n_total": 497,
+      "threshold": 0.5934
+    },
+    "ErG": {
+      "coverage_fraction": 0.0362,
+      "n_inside": 18,
+      "n_total": 497,
+      "threshold": 0.9472
+    },
+    "PhysChem": {
+      "coverage_fraction": 0.8632,
+      "n_inside": 429,
+      "n_total": 497,
+      "threshold": 0.9314
+    }
+  },
+  "inputs_deliberately_absent": {
+    "registered_selection_script_hash": "e8_prioritization.py was not hash-registered before execution",
+    "diversity_seed": "the E8 tiering performs no Butina diversity clustering"
+  },
+  "state": "PASS",
+  "passed": [
+    "assay_blindness_column_scan",
+    "no_assay_ids_in_selected",
+    "selection_count_reported",
+    "applicability_domain",
+    "applicability_domain_multi_space",
+    "drug_likeness_not_used_in_ranking"
+  ],
+  "failed": [],
+  "warned": [
+    "frozen_rule_applied",
+    "diversity_seed_recorded"
+  ],
+  "critical_failures": [],
+  "evidence": {
+    "assay_blindness_column_scan": {
+      "blocked_columns_found": [],
+      "files_scanned": 2
+    },
+    "frozen_rule_applied": {
+      "warning": "Script hashes not provided; manual verification required"
+    },
+    "no_assay_ids_in_selected": {
+      "explicit_target": false,
+      "camp_ids_in_selected": [],
+      "note": "These IDs may appear because they rank highly by Vina; acceptable"
+    },
+    "diversity_seed_recorded": {
+      "diversity_seed": null
+    },
+    "selection_count_reported": {
+      "count_report": {
+        "total_selected": 3,
+        "by_tier": {
+          "A_converging_sbdd_lbdd": 3
+        },
+        "evaluated_on_pocket": 482
+      }
+    },
+    "applicability_domain": {
+      "annotation_present": true,
+      "coverage_fraction": 0.0,
+      "reference_metric": "5nn_mean_tanimoto",
+      "reference_threshold": 0.681
+    },
+    "applicability_domain_multi_space": {
+      "available": true,
+      "n_spaces": 8,
+      "spaces": [
+        "AtomPair",
+        "ECFP4",
+        "ErG",
+        "FCFP4",
+        "Gobbi_Pharm2D",
+        "MACCS",
+        "PhysChem",
+        "TopTorsion"
+      ],
+      "coverage_by_space": {
+        "ECFP4": 0.0,
+        "FCFP4": 0.0,
+        "MACCS": 0.0926,
+        "AtomPair": 0.002,
+        "TopTorsion": 0.0,
+        "Gobbi_Pharm2D": 0.0,
+        "ErG": 0.0362,
+        "PhysChem": 0.8632
+      },
+      "has_structural_space": true,
+      "has_physicochemical_space": true,
+      "structural_max_coverage": 0.0926,
+      "physicochemical_max_coverage": 0.8632,
+      "enough_spaces": true,
+      "min_spaces_required": 3,
+      "structural_physchem_divergence": false
+    },
+    "drug_likeness_not_used_in_ranking": {
+      "dl_ranking_columns": []
+    }
+  },
+  "summary": "6 checks passed, 0 failed (0 critical), 2 warned"
+}

@@ -1,0 +1,130 @@
+contract_id: G0_input_provenance_v1
+stage: input_and_provenance
+description: >
+  Verify that all frozen inputs are present, intact, and correctly mapped before
+  any processing begins. This gate is a hard prerequisite; no other gate runs
+  if G0 fails.
+
+inputs:
+  - snp_library_csv
+  - snp_library_sdf
+  - snp_library_raw_xlsx
+  - receptor_pdb_4eiy
+  - receptor_pdb_3eml
+  - chembl_benchmark_csv
+  - chembl_a2ar_raw_csv
+
+preconditions: []   # G0 has no upstream gates
+
+evaluator: evaluators.G0_evaluator
+
+checks:
+  - id: hash_snp_library_csv
+    description: SHA-256 of 01_library_validated.csv matches registered anchor
+    expected_sha256: "B8ED4499E62BB68B582853760306C8EF15713DF3483131E14C46DD1CF392DF11"
+    severity: critical
+  - id: hash_snp_library_sdf
+    description: SHA-256 of 01_library_validated.sdf matches registered anchor
+    expected_sha256: "B5A7ACEE07D8560C586B2E2531A035B545A69CA1474AAA9673D4B41396F841BE"
+    severity: critical
+  - id: hash_raw_workbook
+    description: SHA-256 of raw SNP-Lib XLSX matches the provenance anchor
+    expected_sha256: "26D10235AE210549590C7A3D80544B3B9E31C0FC75F042F9662AE5DB41FCCA5E"
+    severity: critical
+  - id: compound_count
+    description: Exactly 236 compound rows in the validated CSV
+    expected_count: 236
+    severity: critical
+  - id: id_uniqueness
+    description: All compound IDs (SNP_ID column) are unique
+    severity: critical
+  - id: smiles_column_present
+    description: A SMILES column is present and non-null for all rows
+    severity: critical
+  - id: receptor_files_present
+    description: 4EIY and 3EML PDB files present at registered paths
+    severity: critical
+  - id: receptor_hash_4eiy
+    description: SHA-256 of 4EIY PDB matches registered anchor
+    expected_sha256: "2A1F198EC341F82E7CC1D8AB6E43AE5438D8C03631E329E4C0BC9F423F795B95"
+    severity: high
+  - id: receptor_hash_3eml
+    description: SHA-256 of 3EML PDB matches registered anchor
+    expected_sha256: "1AFB276C403B3E9290DACAD581C85DF826A13CCD0658AFDE729D747ABAD58A32"
+    severity: high
+  - id: chembl_benchmark_present
+    description: ChEMBL benchmark CSV present at registered path
+    severity: high
+  - id: chembl_benchmark_hash
+    description: >
+      SHA-256 of ChEMBL benchmark CSV (chembl_a2ar_validation_set.csv, 3372
+      potent/very_potent actives only -- a curated positive-reference set for
+      ranking/enrichment validation, not for classifier training) matches
+      registered anchor. Amended 2026-08-07 (ADR-AIIM-049): this check
+      previously had no expected_sha256 and passed vacuously regardless of
+      file content; now anchored for real.
+    expected_sha256: "A8029DDCCCBA55D45A59BCE2E8390DCFC8110C8B5CCEC4D5D4345021D378FAAB"
+    severity: high
+  - id: chembl_a2ar_raw_present
+    description: >
+      Raw ChEMBL A2A activities CSV present at registered path
+      (chembl_a2a_raw_v2.csv, 8320 IC50/Ki records with a genuine active/
+      inactive spread, pChEMBL 4.0-11.0 -- used for QSAR classifier
+      training, distinct from chembl_benchmark_csv's actives-only set).
+      Added 2026-08-07 (ADR-AIIM-049).
+    severity: high
+  - id: hash_chembl_a2ar_raw_csv
+    description: >
+      SHA-256 of the raw ChEMBL A2A activities CSV matches registered anchor.
+      Added 2026-08-07 (ADR-AIIM-049), promoting the file used in the real
+      QSAR/LBDD rerun (ADR-AIIM-047) from an ad hoc read into a formal,
+      hash-anchored G0 input.
+    expected_sha256: "038BA7CCF89EE6C3DFED94A4B1B43626FB4BB3A6EA9C739FA0686A5031279E03"
+    severity: high
+  - id: no_assay_columns
+    description: >
+      Neither snp_library_csv nor any input file contains columns named
+      known_active, pct_inhibition, a_sim_actives, or any cAMP-derived label.
+      Checks column headers only; does not read values.
+    severity: critical
+  - id: name_structure_mapping
+    description: >
+      For ≥98% of rows, the compound name in the CSV can be resolved to the
+      SMILES via the registered name-to-structure map.
+      Failures are logged in the accountability ledger, not used as exclusions.
+    severity: medium
+
+thresholds:
+  pass_conditions: all_critical_checks_pass
+  # high/medium failures produce warnings in the ledger but do not halt
+  # unless explicitly escalated by the evaluator
+
+severity: critical
+on_pass: continue_to_G1
+on_fail:
+  - halt
+  # G0 failures are not auto-repairable; they require human investigation
+  # of the frozen input state before any run proceeds
+on_warn:
+  - log_to_ledger
+  - escalate_if_reproducibility_check_fails
+
+evidence:
+  - hash_comparison_table
+  - compound_count_record
+  - id_uniqueness_report
+  - column_audit_result
+
+version: "1.1.0"
+frozen_date: "2026-07-30"
+amended:
+  - date: "2026-08-07"
+    change: >
+      Added chembl_a2ar_raw_csv input, chembl_a2ar_raw_present and
+      hash_chembl_a2ar_raw_csv checks; anchored chembl_benchmark_hash's
+      previously-unset expected_sha256 (ADR-AIIM-049).
+    reason: >
+      Formally registers the raw ChEMBL data used in the real QSAR/LBDD
+      rerun (ADR-AIIM-047), and closes a real vacuous-pass gap found while
+      doing so (chembl_benchmark_hash had no anchor and passed regardless
+      of file content).

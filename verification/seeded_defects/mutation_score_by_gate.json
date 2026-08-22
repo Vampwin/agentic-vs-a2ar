@@ -1,0 +1,155 @@
+{
+  "source": {
+    "file": "D:\\Agentic VS Workflow\\20_new_runs\\WP4_retrain_postfix_2026-08-05\\wp4_conditions_ac_results_postfix_2026-08-05.json",
+    "sha256": "fedd827c4f4c73344b8bc34d32981b9919f7b0b516187c36e13e5c5fbd6bdc09"
+  },
+  "gate_assignment_source": "module path in 10_new_system/fault_injection/manifest.py",
+  "overall": {
+    "n_fault_cases": 133,
+    "n_escaped": 9,
+    "detection_rate": 0.9323,
+    "SEER_condition_A": 0.0677,
+    "false_escalation_rate_clean_runs": 0.0
+  },
+  "ablation_SEER": {
+    "A_contracts_and_monitor": 0.067669,
+    "B_contracts_only": 0.067669,
+    "C_monitor_only": 0.992481,
+    "D_ungoverned": 1.0
+  },
+  "by_gate": {
+    "G0": {
+      "n_fault_cases": 25,
+      "n_escaped": 0,
+      "detection_rate": 1.0
+    },
+    "G1": {
+      "n_fault_cases": 34,
+      "n_escaped": 0,
+      "detection_rate": 1.0
+    },
+    "G4": {
+      "n_fault_cases": 27,
+      "n_escaped": 4,
+      "detection_rate": 0.8519
+    },
+    "G6": {
+      "n_fault_cases": 32,
+      "n_escaped": 5,
+      "detection_rate": 0.8438
+    },
+    "G8": {
+      "n_fault_cases": 15,
+      "n_escaped": 0,
+      "detection_rate": 1.0
+    }
+  },
+  "by_family": {
+    "F01": {
+      "gate": "G0",
+      "description": "duplicate compound identifier",
+      "n_fault_cases": 10,
+      "n_escaped_condition_A": 0,
+      "detection_rate": 1.0,
+      "seer_condition_C_monitor_only": 1.0
+    },
+    "F02": {
+      "gate": "G0",
+      "description": "input hash mismatch",
+      "n_fault_cases": 15,
+      "n_escaped_condition_A": 0,
+      "detection_rate": 1.0,
+      "seer_condition_C_monitor_only": 1.0
+    },
+    "F03": {
+      "gate": "G1",
+      "description": "stereochemistry lost in standardisation",
+      "n_fault_cases": 12,
+      "n_escaped_condition_A": 0,
+      "detection_rate": 1.0,
+      "seer_condition_C_monitor_only": 1.0
+    },
+    "F04": {
+      "gate": "G1",
+      "description": "salt/counter-ion retained",
+      "n_fault_cases": 12,
+      "n_escaped_condition_A": 0,
+      "detection_rate": 1.0,
+      "seer_condition_C_monitor_only": 1.0
+    },
+    "F05": {
+      "gate": "G1",
+      "description": "invalid valence accepted",
+      "n_fault_cases": 10,
+      "n_escaped_condition_A": 0,
+      "detection_rate": 1.0,
+      "seer_condition_C_monitor_only": 1.0
+    },
+    "F09": {
+      "gate": "G4",
+      "description": "docking score sign inverted",
+      "n_fault_cases": 15,
+      "n_escaped_condition_A": 0,
+      "detection_rate": 1.0,
+      "seer_condition_C_monitor_only": 1.0
+    },
+    "F10": {
+      "gate": "G4",
+      "description": "molecular-weight/score bias introduced",
+      "n_fault_cases": 12,
+      "n_escaped_condition_A": 4,
+      "detection_rate": 0.6667,
+      "seer_condition_C_monitor_only": 1.0
+    },
+    "F13": {
+      "gate": "G6",
+      "description": "undeclared external label constraint",
+      "n_fault_cases": 20,
+      "n_escaped_condition_A": 5,
+      "detection_rate": 0.75,
+      "seer_condition_C_monitor_only": 0.95
+    },
+    "F14": {
+      "gate": "G6",
+      "description": "scaffold duplicated across selection",
+      "n_fault_cases": 12,
+      "n_escaped_condition_A": 0,
+      "detection_rate": 1.0,
+      "seer_condition_C_monitor_only": 1.0
+    },
+    "F17": {
+      "gate": "G8",
+      "description": "stale figure released",
+      "n_fault_cases": 10,
+      "n_escaped_condition_A": 0,
+      "detection_rate": 1.0,
+      "seer_condition_C_monitor_only": 1.0
+    },
+    "F18": {
+      "gate": "G8",
+      "description": "reported value does not match artifact",
+      "n_fault_cases": 5,
+      "n_escaped_condition_A": 0,
+      "detection_rate": 1.0,
+      "seer_condition_C_monitor_only": 1.0
+    }
+  },
+  "coverage_limitation": {
+    "gates_with_no_implemented_fault_family": [
+      "G2",
+      "G3",
+      "G5",
+      "G7"
+    ],
+    "stub_families": [
+      "F06",
+      "F07",
+      "F08",
+      "F11",
+      "F12",
+      "F15",
+      "F16"
+    ],
+    "note": "18 families are defined and 11 implemented. The detection rate is over the implemented families only and must not be read as a detection rate over the whole pipeline."
+  }
+}

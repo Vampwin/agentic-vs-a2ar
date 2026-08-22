@@ -1,0 +1,126 @@
+contract_id: G6_selection_v1
+stage: candidate_selection
+description: >
+  Verify that candidate selection is assay-blind and follows the frozen
+  Pareto/diversity rule (ADR-AIIM-008). The selection must use only
+  publicly derivable data (docking scores, structural descriptors).
+  Any cAMP-derived column in the selection pipeline constitutes a critical failure.
+
+inputs:
+  - final_ranking_csv         # All docked compounds ranked by Vina score
+  - selected_candidates_csv   # Output of selection step
+  - diversity_clustering_json # Butina cluster assignments (for reproducibility)
+
+preconditions:
+  - G5b_passed_or_escalated_and_human_approved
+
+evaluator: evaluators.G6_evaluator
+
+checks:
+  - id: assay_blindness_column_scan
+    description: >
+      Scan column names of every dataframe read during the selection step.
+      Any column named: known_active, a_sim_actives, pct_inhibition,
+      cAMP, assay_label, is_active, or any substring match to [cAMP, assay, inhibit]
+      constitutes a critical failure regardless of whether the column was used.
+      The scanning log is an artifact.
+    column_blocklist:
+      - known_active
+      - a_sim_actives
+      - pct_inhibition
+      - cAMP
+      - assay_label
+      - is_active
+    blocklist_substrings:
+      - cAMP
+      - assay
+      - inhibit
+    severity: critical
+  - id: frozen_rule_applied
+    description: >
+      The selection code matches the frozen rule specification in
+      05_SNP_LIB_ASSAY_BLIND_PROTOCOL.md (Pareto/diversity).
+      Verified by SHA-256 of the selection script registered before the run.
+    severity: critical
+  - id: no_assay_ids_in_selected
+    description: >
+      Selected compound IDs (SNP00183, SNP00182, SNP00063, SNP00227, SNP00235)
+      may appear if ranked highly by Vina — this is acceptable. However, their
+      presence must NOT be the reason for selection. The selection log must show
+      they were selected by the frozen Pareto rule, not by ID lookup.
+      If any selection code path references these IDs explicitly, it is a FAIL.
+    severity: critical
+  - id: diversity_seed_recorded
+    description: Butina clustering seed recorded in artifact registry
+    severity: high
+  - id: selection_count_reported
+    description: >
+      Total selected, count per Pareto tier, count per diversity cluster
+      all reported.
+    severity: high
+  - id: applicability_domain
+    description: >
+      Selected compounds annotated with applicability domain flag:
+      whether they fall within the training-set chemical space of any QSAR model
+      used in the pipeline (if applicable). When a numeric coverage fraction
+      (e.g. 5-NN mean Tanimoto vs. a frozen reference threshold) is supplied,
+      it is reported alongside the annotation flag so the confidence-tier
+      assessment (G8 `confidence_tier_assessment`,
+      00_project_control/17_CONFIDENCE_TIER_FRAMEWORK.md) has a real number
+      to rate rather than a boolean. Amended 2026-08-07 (ADR-AIIM-045) to
+      add the numeric field; the original boolean-only check remains valid
+      when no QSAR model was used.
+    severity: medium
+    ad_reference_metric: "5nn_mean_tanimoto"
+    ad_reference_threshold: 0.681
+  - id: applicability_domain_multi_space
+    description: >
+      A single-descriptor-space applicability-domain verdict cannot
+      distinguish a library that is genuinely out of domain from one that
+      is structurally novel but otherwise unremarkable. ADR-AIIM-073 (E2,
+      2026-08-15) found SNP-Lib 0% in-domain across six independent
+      structural descriptor spaces (ECFP4, FCFP4, topological torsion,
+      Gobbi 2D pharmacophore, ErG, AtomPair) — including two designed for
+      scaffold hopping — while 64.4% in-domain physicochemically. Requires
+      coverage computed in at least min_spaces independent descriptor
+      spaces, including a physicochemical space, so a structural/
+      physicochemical divergence is visible rather than hidden behind one
+      fingerprint's threshold. This check does not itself gate the
+      selection outcome: it flags when a single-space verdict is being
+      over-interpreted so the G6/G8 human decision is made with the full
+      picture. Amended 2026-08-15 (ADR-AIIM-073).
+    min_spaces: 3
+    severity: high
+  - id: drug_likeness_not_used_in_ranking
+    description: >
+      Confirm Lipinski, Veber, QED, PAINS values do not appear in the scoring
+      or ranking columns used by the selection rule.
+    severity: critical
+
+thresholds:
+  pass_conditions: all_critical_checks_pass
+
+severity: critical
+on_pass: continue_to_G7_or_G8
+on_fail:
+  - halt
+  # Assay leakage into selection is a terminal failure — requires human
+  # investigation; no auto-repair possible without compromising blindness
+on_warn:
+  - log_to_ledger
+
+evidence:
+  - column_scan_log
+  - selection_script_hash
+  - selected_candidates_csv_hash
+  - diversity_clustering_json
+
+version: "1.2.0"
+frozen_date: "2026-07-30"
+amended:
+  - date: "2026-08-07"
+    change: "applicability_domain check: added ad_reference_metric/ad_reference_threshold and a numeric coverage-fraction field (ADR-AIIM-045)."
+    reason: "Supports the new G8 confidence_tier_assessment check, which needs a real coverage number rather than a boolean annotation."
+  - date: "2026-08-15"
+    change: "Added applicability_domain_multi_space check, backed by evaluators/_domain_gate_bias_probe.py."
+    reason: "ADR-AIIM-073: single-space AD verdicts (e.g. ECFP4 alone) cannot distinguish a genuinely out-of-domain library from a structurally novel one, and 0% coverage in a similarity-based space is provably reproducible across six independent structural fingerprints regardless of which is chosen. The check surfaces structural/physicochemical divergence instead of leaving it implicit in a single reported number."

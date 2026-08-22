@@ -1,0 +1,53 @@
+<svg viewBox="0 0 511 206" width="180.3mm" height="72.7mm" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Helvetica, Arial, sans-serif">
+  <title>Agentic virtual screening against the adenosine A2A receptor</title>
+  <desc>Three stages: a natural-product library that standard applicability-domain gates reject wholesale; an agentic pipeline whose code is verified under executable contracts; and a confidence-tiered candidate set.</desc>
+  <rect width="511" height="206" fill="#FFFFFF"/>
+  <defs><marker id="a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0.5 L8,4 L0,7.5 z" fill="#6E7C74"/></marker></defs>
+  <text x="255.5" y="15" font-size="11" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">Verifying agent-generated code in A2A virtual screening</text>
+  <rect x="3" y="26" width="155" height="146" rx="3" fill="#FFFFFF" stroke="#2C5F8A" stroke-width="0.9"/>
+  <rect x="3" y="26" width="155" height="15" rx="3" fill="#E3EBF3" stroke="#2C5F8A" stroke-width="0.9"/>
+  <text x="11" y="36.5" font-size="7.4" fill="#2C5F8A" font-weight="bold" font-style="normal" text-anchor="start">1  Standard QC rejects the library</text>
+  <text x="80.5" y="68" font-size="19" fill="#2C5F8A" font-weight="bold" font-style="normal" text-anchor="middle">236</text>
+  <text x="80.5" y="79" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">Thai orchid natural products</text>
+  <text x="80.5" y="88.2" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">screened against A2AR</text>
+  <line x1="15" y1="96" x2="146" y2="96" stroke="#9AA79F" stroke-width="0.6"/>
+  <text x="80.5" y="107" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">0 % in-domain in ECFP4, FCFP4,</text>
+  <text x="80.5" y="117.224" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">topological torsion, Gobbi 2D</text>
+  <text x="80.5" y="127.448" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">86.3 % in physicochemical space</text>
+  <line x1="15" y1="134" x2="146" y2="134" stroke="#9AA79F" stroke-width="0.6"/>
+  <text x="80.5" y="145" font-size="7.4" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">The same library, the same rule.</text>
+  <text x="80.5" y="154" font-size="7" fill="#55625B" font-weight="normal" font-style="italic" text-anchor="middle">A similarity gate cannot tell</text>
+  <text x="80.5" y="162.96" font-size="7" fill="#55625B" font-weight="normal" font-style="italic" text-anchor="middle">unfamiliar from unreliable.</text>
+  <line x1="161" y1="99" x2="175" y2="99" stroke="#6E7C74" stroke-width="0.9" marker-end="url(#a)"/>
+  <rect x="178" y="26" width="155" height="146" rx="3" fill="#FFFFFF" stroke="#4F7130" stroke-width="0.9"/>
+  <rect x="178" y="26" width="155" height="15" rx="3" fill="#E7EEDC" stroke="#4F7130" stroke-width="0.9"/>
+  <text x="186" y="36.5" font-size="7.4" fill="#4F7130" font-weight="bold" font-style="normal" text-anchor="start">2  The code itself is verified</text>
+  <text x="255.5" y="68" font-size="19" fill="#4F7130" font-weight="bold" font-style="normal" text-anchor="middle">93.2 %</text>
+  <text x="255.5" y="79" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">of 133 seeded defects caught;</text>
+  <text x="255.5" y="88.2" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">0 % when run ungoverned</text>
+  <line x1="190" y1="96" x2="321" y2="96" stroke="#9AA79F" stroke-width="0.6"/>
+  <text x="255.5" y="107" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">9 gates · 10 contracts · 94 checks</text>
+  <text x="255.5" y="117.224" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">false alarms on clean runs: 0.0</text>
+  <text x="255.5" y="127.448" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">learned monitor alone: 0.8 %</text>
+  <line x1="190" y1="134" x2="321" y2="134" stroke="#9AA79F" stroke-width="0.6"/>
+  <text x="255.5" y="145" font-size="7.4" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">All 94 checks passed.</text>
+  <text x="255.5" y="154" font-size="7" fill="#55625B" font-weight="normal" font-style="italic" text-anchor="middle">One metamorphic invariant still</text>
+  <text x="255.5" y="162.96" font-size="7" fill="#55625B" font-weight="normal" font-style="italic" text-anchor="middle">found a defect none encode.</text>
+  <line x1="336" y1="99" x2="350" y2="99" stroke="#6E7C74" stroke-width="0.9" marker-end="url(#a)"/>
+  <rect x="353" y="26" width="155" height="146" rx="3" fill="#FFFFFF" stroke="#A85C18" stroke-width="0.9"/>
+  <rect x="353" y="26" width="155" height="15" rx="3" fill="#F7E9D8" stroke="#A85C18" stroke-width="0.9"/>
+  <text x="361" y="36.5" font-size="7.4" fill="#A85C18" font-weight="bold" font-style="normal" text-anchor="start">3  Corrected gates, tiered output</text>
+  <text x="430.5" y="68" font-size="19" fill="#A85C18" font-weight="bold" font-style="normal" text-anchor="middle">3</text>
+  <text x="430.5" y="79" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">convergent flavones, all from</text>
+  <text x="430.5" y="88.2" font-size="7.2" fill="#55625B" font-weight="normal" font-style="italic" text-anchor="middle">Pongamia pinnata</text>
+  <line x1="365" y1="96" x2="496" y2="96" stroke="#9AA79F" stroke-width="0.6"/>
+  <text x="430.5" y="107" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">25,604 → 500 full redocks</text>
+  <text x="430.5" y="117.224" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">structure- and ligand-based</text>
+  <text x="430.5" y="127.448" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">arms agree; p = 0.002</text>
+  <line x1="365" y1="134" x2="496" y2="134" stroke="#9AA79F" stroke-width="0.6"/>
+  <text x="430.5" y="145" font-size="7.4" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">Computational hypotheses.</text>
+  <text x="430.5" y="154" font-size="7" fill="#55625B" font-weight="normal" font-style="italic" text-anchor="middle">No wet-laboratory validation</text>
+  <text x="430.5" y="162.96" font-size="7" fill="#55625B" font-weight="normal" font-style="italic" text-anchor="middle">was performed.</text>
+  <text x="255.5" y="186" font-size="7.6" fill="#1B2420" font-weight="normal" font-style="normal" text-anchor="middle">An applicability-domain verdict is a property of the library and the descriptor space, not of the library alone.</text>
+  <text x="255.5" y="197" font-size="7.2" fill="#55625B" font-weight="normal" font-style="italic" text-anchor="middle">Contracts encode what their authors thought to check — and here the authors were the agent whose work was being checked.</text>
+</svg>

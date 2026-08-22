@@ -1,0 +1,103 @@
+contract_id: G2_preparation_v1
+stage: target_ligand_preparation
+description: >
+  Verify receptor preparation (protonation, cofactor handling, box definition)
+  and ligand 3D embedding. Box coordinates must be derived from receptor
+  structure geometry, not from assay data or prior candidate knowledge.
+
+inputs:
+  - prepared_receptor_4eiy_pdbqt
+  - reference_ligand_4eiy_sdf     # ZM241385 extracted from crystal structure
+  - ligand_pdbqt_dir              # One PDBQT per standardized compound
+  - docking_box_json              # Box center/size in receptor frame
+
+preconditions:
+  - G1_passed
+
+evaluator: evaluators.G2_evaluator
+
+checks:
+  - id: receptor_integrity_4eiy
+    description: Prepared 4EIY PDBQT has expected residue count; no chain breaks
+    severity: critical
+  # receptor_integrity_3eml removed 2026-08-04 (ADR-AIIM-036): 3EML is no
+  # longer prepared for docking, so requiring its integrity would gate the
+  # pipeline on an artifact the protocol does not produce.
+  - id: reference_ligand_present
+    description: ZM241385 reference ligand extracted from 4EIY and serialized
+    severity: critical
+  - id: box_derivation_recorded
+    description: >
+      docking_box.json records: PDB used for box center derivation, atom/residue
+      used as centroid reference, and computed center coordinates. Must not
+      reference assay compounds.
+    severity: critical
+  - id: embedding_count
+    description: >
+      Count of successfully embedded ligands equals G1 count_valid_for_docking.
+      Failures are recorded with reason.
+    severity: high
+  - id: embedding_failure_accounting
+    description: >
+      All embedding failures have embedding_failure_reason populated.
+      These compounds are excluded from docking (not from the ledger).
+    severity: high
+  - id: structural_waters_recorded
+    description: >
+      The retained-water selection is recorded: cutoff, reference ligand, count
+      of waters kept, and the fact that retention is deliberate. Water choice
+      changes the shape of the pocket, so it must be auditable rather than
+      implicit.
+    severity: high
+  - id: water_shell_selection_criterion_registered
+    description: >
+      Where more than one water-retention shell was evaluated (e.g. 3/4/5 Å
+      cutoffs), the criterion used to choose among them must be registered
+      before any admission-rate outcome was observed, and must be an
+      external structure-based recovery criterion (e.g. redocking accuracy
+      of a labeled benchmark under each candidate shell) — not the fraction
+      of the screening library the shell admits. Selecting a shell because
+      it admits more of the library is the same objection raised against
+      adopting a validating-but-non-representative receptor: it risks
+      choosing the validation that yields the desired answer. Not
+      applicable when only one shell is used. Added 2026-08-15
+      (ADR-AIIM-073).
+    allowed_criterion_bases:
+      - external_recovery
+      - retrospective_enrichment
+      - redocking_accuracy_on_labeled_benchmark
+    severity: high
+  - id: no_assay_constants_in_box
+    description: >
+      The box definition must not reference any SNP compound by ID.
+      Derived from crystallographic geometry only.
+    severity: critical
+  - id: cofactor_decision_recorded
+    description: >
+      For each HETATM group in both receptors, a decision is recorded:
+      retained, removed, or modified, with justification.
+    severity: medium
+
+thresholds:
+  pass_conditions: all_critical_checks_pass
+
+severity: critical
+on_pass: continue_to_G3
+on_fail:
+  - log_failure_to_registry
+  - escalate_to_human
+on_warn:
+  - log_to_ledger
+
+evidence:
+  - prepared_receptor_checksums
+  - docking_box_json
+  - embedding_failure_log
+  - cofactor_decision_record
+
+version: "1.1.0"
+frozen_date: "2026-07-30"
+amended:
+  - date: "2026-08-15"
+    change: "Added water_shell_selection_criterion_registered check."
+    reason: "ADR-AIIM-073: earlier work (Section 3.2 of the prior manuscript draft) selected a water-shell cutoff after observing that it admitted more of the library, which the same draft flagged as a circularity risk. This check makes the underlying rule mechanically enforceable: a water-shell choice among candidates must be justified by a pre-registered external recovery criterion, never by admission rate."

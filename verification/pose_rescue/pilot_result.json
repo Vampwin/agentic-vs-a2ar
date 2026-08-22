@@ -1,0 +1,68 @@
+{
+  "preregistration": {
+    "purpose": "Pilot: does ensemble docking across water shells recover discriminative power lost in ADR-AIIM-075/076?",
+    "subset": {
+      "n_total": 100,
+      "n_active": 50,
+      "n_inactive": 50,
+      "selection": "all successfully-docked actives + 50 inactives sampled with random_state=20260815",
+      "ledger_sha256": "c339a80f7b278637216433569f8c42f9af4cd536264a95c772e6b0580ddd56b5"
+    },
+    "protocol": "re-dock the same subset at the 3A water shell (4EIY_cut3_prepared.pdbqt, 4 waters), identical box/seed/exhaustiveness as the cut5 run",
+    "comparison": "paired on the identical subset: AUC(cut5 only) vs AUC(cut3 only) vs AUC(ensemble = best Vina energy across both shells)",
+    "decision_rule_declared_before_running": "pursue full ensemble docking only if AUC(ensemble) - AUC(cut5) >= +0.05 on this subset; otherwise stop SBDD rescue and report as null"
+  },
+  "n": 100,
+  "methods": {
+    "cut5_only (5A, 15 waters)": {
+      "n": 100,
+      "n_active": 50,
+      "n_inactive": 50,
+      "auc_roc": 0.6444,
+      "bedroc20": 0.7101,
+      "ef_1pct": 2.0,
+      "ef_5pct": 1.2,
+      "ef_10pct": 1.6,
+      "auc_ci95": [
+        0.5226,
+        0.7463
+      ]
+    },
+    "cut3_only (3A, 4 waters)": {
+      "n": 100,
+      "n_active": 50,
+      "n_inactive": 50,
+      "auc_roc": 0.6472,
+      "bedroc20": 0.722,
+      "ef_1pct": 0.0,
+      "ef_5pct": 1.6,
+      "ef_10pct": 1.6,
+      "auc_ci95": [
+        0.5366,
+        0.7472
+      ]
+    },
+    "ensemble_best_of_both": {
+      "n": 100,
+      "n_active": 50,
+      "n_inactive": 50,
+      "auc_roc": 0.6472,
+      "bedroc20": 0.6936,
+      "ef_1pct": 0.0,
+      "ef_5pct": 1.6,
+      "ef_10pct": 1.6,
+      "auc_ci95": [
+        0.5296,
+        0.7458
+      ]
+    }
+  },
+  "paired_delta_auc_ensemble_minus_cut5": 0.0028,
+  "paired_delta_ci95": [
+    -0.0568,
+    0.0588
+  ],
+  "decision_threshold": 0.05,
+  "threshold_met": false,
+  "decision": "STOP the SBDD rescue -- report as null and move to the LBDD/QSAR arm"
+}

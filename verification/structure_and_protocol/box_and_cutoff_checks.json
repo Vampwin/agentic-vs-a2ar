@@ -1,0 +1,59 @@
+{
+  "ligand_extent": {
+    "n_embedded": 500,
+    "max_L1": 24.26,
+    "median_L1": 15.43,
+    "p95_L1": 19.58,
+    "box_edge_A": 22.0,
+    "n_exceeding_box_edge": 5
+  },
+  "centroid_cutoff_sensitivity": [
+    {
+      "cutoff_A": 5,
+      "n_on_pocket": 201,
+      "pct_of_497": 40.4,
+      "tier_A_retained": 3
+    },
+    {
+      "cutoff_A": 6,
+      "n_on_pocket": 317,
+      "pct_of_497": 63.8,
+      "tier_A_retained": 3
+    },
+    {
+      "cutoff_A": 7,
+      "n_on_pocket": 447,
+      "pct_of_497": 89.9,
+      "tier_A_retained": 3
+    },
+    {
+      "cutoff_A": 8,
+      "n_on_pocket": 482,
+      "pct_of_497": 97.0,
+      "tier_A_retained": 3
+    },
+    {
+      "cutoff_A": 9,
+      "n_on_pocket": 490,
+      "pct_of_497": 98.6,
+      "tier_A_retained": 3
+    },
+    {
+      "cutoff_A": 10,
+      "n_on_pocket": 496,
+      "pct_of_497": 99.8,
+      "tier_A_retained": 3
+    },
+    {
+      "cutoff_A": 12,
+      "n_on_pocket": 497,
+      "pct_of_497": 100.0,
+      "tier_A_retained": 3
+    }
+  ],
+  "lotus_undefined_stereo": {
+    "n_parsed": 25604,
+    "n_undefined": 4749,
+    "pct": 18.55
+  }
+}

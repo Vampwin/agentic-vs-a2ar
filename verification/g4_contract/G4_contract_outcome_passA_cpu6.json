@@ -1,0 +1,64 @@
+{
+  "contract": "G4_scoring_v1",
+  "contract_version": "1.0.0",
+  "target_artifact": "D:\\Agentic VS Workflow\\20_new_runs\\g4_verification_2026-08-21\\full_scores_MERGED.csv",
+  "target_sha256": "840E232A45B19621B51998574C23BEBC0592CAC81B7EE9AA1731D642B13292A9",
+  "rerun_source": "D:\\Agentic VS Workflow\\20_new_runs\\g4_verification_2026-08-21\\rerun_passA_cpu6.csv",
+  "state": "PASS",
+  "passed": [
+    "output_completeness",
+    "score_direction",
+    "seed_repeatability",
+    "missing_output_accounting",
+    "score_distribution_sanity",
+    "mw_bias_check",
+    "no_assay_columns_in_output"
+  ],
+  "failed": [],
+  "warned": [],
+  "critical_failures": [],
+  "evidence": {
+    "output_completeness": {
+      "expected": 500,
+      "actual": 500
+    },
+    "score_direction": {
+      "score_column": "vina_score",
+      "n_scored": 497,
+      "n_positive": 0,
+      "max_score": -6.893
+    },
+    "seed_repeatability": {
+      "tolerance_kcal_mol": 0.01,
+      "n_compared": 25,
+      "max_deviation": 0.0
+    },
+    "missing_output_accounting": {
+      "n_expected": 500,
+      "n_scored": 500,
+      "n_explained": 3
+    },
+    "score_distribution_sanity": {
+      "median": -8.996,
+      "expected_range": [
+        -12.0,
+        -3.0
+      ],
+      "in_range": true
+    },
+    "mw_bias_check": {
+      "spearman_rho": -0.1824,
+      "abs_limit": 0.5,
+      "degenerate_limit": 0.95,
+      "within_limit": true,
+      "degenerate": false,
+      "mw_source": "column:mw",
+      "n": 497
+    },
+    "no_assay_columns_in_output": {
+      "blocked_columns_found": [],
+      "n_columns": 16
+    }
+  },
+  "summary": "7 checks passed, 0 failed (0 critical), 0 warned"
+}

@@ -1,0 +1,212 @@
+# Frozen feature allowlist for the calibrated risk monitor — ADR-AIIM-020
+# schema_version and frozen_date become immutable after human Gate 1 approval.
+# Any subsequent change requires an ADR amendment and a new hash registration.
+schema_version: "1.0.0"
+frozen_date: "2026-08-01"
+status: FROZEN
+target: unsafe_release
+description: >
+  Condition-independent pre-release workflow telemetry features for the calibrated
+  risk monitor. Feature names, types, and availability windows must be identical
+  across factorial conditions A–D. The categorical hard-contract decision is never
+  a model input (ADR-AIIM-018); only continuous shadow-check values are permitted.
+
+feature_families:
+
+  provenance_completeness:
+    description: "Missing hashes, unregistered inputs, unexpected file lineage"
+    availability: pre_release
+    features:
+      - name: n_missing_input_hashes
+        dtype: int
+        nullable: false
+        range_min: 0
+        description: "Number of required input hashes absent from the artifact registry"
+      - name: n_unregistered_artifacts
+        dtype: int
+        nullable: false
+        range_min: 0
+        description: "Number of workflow outputs not yet registered at this pre-release point"
+      - name: has_unexpected_lineage
+        dtype: bool
+        nullable: false
+        description: "True if any input artifact's lineage trace is incomplete or unexpected"
+
+  execution_telemetry:
+    description: "Exit status, warning counts, retry count, elapsed time, resource anomalies"
+    availability: pre_release
+    features:
+      - name: n_tool_warnings
+        dtype: int
+        nullable: false
+        range_min: 0
+        description: "Number of tool-level warning messages emitted during this workflow episode"
+      - name: n_retries
+        dtype: int
+        nullable: false
+        range_min: 0
+        description: "Number of automatic retries triggered by the orchestrator"
+      - name: elapsed_seconds
+        dtype: float
+        nullable: false
+        range_min: 0.0
+        description: "Wall-clock seconds from workflow start to this pre-release checkpoint"
+      - name: n_nonzero_exit_codes
+        dtype: int
+        nullable: false
+        range_min: 0
+        description: "Number of domain-tool invocations that returned a non-zero exit code"
+
+  artifact_integrity:
+    description: "Missing outputs, schema drift, count differences, duplicate identifiers"
+    availability: pre_release
+    features:
+      - name: n_missing_outputs
+        dtype: int
+        nullable: false
+        range_min: 0
+        description: "Number of expected output files absent at this checkpoint"
+      - name: n_schema_drift_fields
+        dtype: int
+        nullable: false
+        range_min: 0
+        description: "Number of output columns not present in the frozen per-stage schema"
+      - name: n_count_discrepancies
+        dtype: int
+        nullable: false
+        range_min: 0
+        description: "Number of stage-level record-count checks that failed"
+      - name: n_duplicate_ids
+        dtype: int
+        nullable: false
+        range_min: 0
+        description: "Number of duplicate compound or record identifiers in primary output"
+
+  cross_stage_consistency:
+    description: "Record-count reconciliation, identifier continuity, stale timestamps"
+    availability: pre_release
+    features:
+      - name: n_lost_records
+        dtype: int
+        nullable: false
+        range_min: 0
+        description: "Records present in the previous stage output that are absent from current"
+      - name: n_unexpected_records
+        dtype: int
+        nullable: false
+        range_min: 0
+        description: "Records in current output that were absent from the previous stage"
+      - name: timestamp_staleness_seconds
+        dtype: float
+        nullable: false
+        description: >
+          Age in seconds of current output relative to most recent input.
+          Negative value means the output predates the input (stale output flag).
+
+  scientific_summaries:
+    description: "Pose-failure fraction, score-distribution shift, clash counts, convergence flags"
+    availability: stage_dependent
+    features:
+      - name: pose_failure_fraction
+        dtype: float
+        nullable: true
+        range_min: 0.0
+        range_max: 1.0
+        description: "Fraction of docking attempts producing no valid pose; null before docking stage"
+      - name: score_distribution_shift
+        dtype: float
+        nullable: true
+        description: >
+          Standardized shift of score distribution vs reference; null before scoring.
+          Computed without reference to known-active or benchmark labels.
+      - name: n_steric_clashes
+        dtype: int
+        nullable: true
+        range_min: 0
+        description: "Number of poses exceeding frozen clash-count threshold; null before pose generation"
+      - name: convergence_flag
+        dtype: bool
+        nullable: true
+        description: "True if any MD/energy-minimization convergence criterion failed; null before MD stage"
+
+  shadow_check_context:
+    description: >
+      Continuous raw check values computed identically across all A-D conditions.
+      These are NOT the categorical hard-contract decision (ADR-AIIM-018).
+      Field names are prefixed with 'shadow_' to distinguish them from contract outcomes.
+    availability: pre_release
+    features:
+      - name: shadow_rmsd_best_pose
+        dtype: float
+        nullable: true
+        range_min: 0.0
+        description: "Raw RMSD (angstrom) of best pose vs reference ligand; null before pose generation"
+      - name: shadow_score_rank_rho
+        dtype: float
+        nullable: true
+        range_min: -1.0
+        range_max: 1.0
+        description: "Spearman rank correlation of scores vs reference ranking; null before scoring"
+      - name: shadow_id_match_fraction
+        dtype: float
+        nullable: false
+        range_min: 0.0
+        range_max: 1.0
+        description: "Fraction of output identifiers that match the expected identifier set"
+      - name: shadow_hash_match_all
+        dtype: bool
+        nullable: false
+        description: "True if all registered artifact hashes match current file contents"
+
+  uncertainty_context:
+    description: "Missingness indicators and applicability-domain flags"
+    availability: pre_release
+    features:
+      - name: n_null_features
+        dtype: int
+        nullable: false
+        range_min: 0
+        description: "Number of feature values that are null in this telemetry record"
+      - name: out_of_domain_flag
+        dtype: bool
+        nullable: true
+        description: >
+          True if this record falls outside the monitor's development training distribution.
+          None (null) when the applicability-domain check has not been run yet (unresolved).
+          Inference fails closed when this field is None or True.
+
+# Forbidden field patterns — applied case-insensitively to the full field name.
+# Any field whose name contains one of these substrings is rejected by leakage_guard.
+# Pattern intent is documented inline.
+forbidden_patterns:
+  # cAMP / assay data
+  - camp
+  - assay
+  # benchmark labels at inference time
+  - benchmark_label
+  - known_active
+  - known_inactive
+  # fault identity (forbidden per ADR-AIIM-020)
+  - fault_id
+  - fault_family
+  - fault_severity
+  - expected_gate
+  # experimental condition identity
+  - condition_id
+  - condition_label
+  - experimental_condition
+  # held-out partition and post-release outcomes
+  - held_out
+  - post_release
+  - evaluator_outcome
+  # categorical contract decision — shadow continuous checks are permitted, not this
+  - contract_decision
+  - contract_outcome
+  - contract_pass
+  - contract_fail
+  - gate_pass
+  - gate_fail
+  # old candidate / assay-informed selection
+  - old_candidate
+  - assay_informed
+  - similarity_to_active

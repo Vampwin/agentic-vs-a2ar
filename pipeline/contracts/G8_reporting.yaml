@@ -1,0 +1,134 @@
+contract_id: G8_reporting_v1
+stage: reporting
+description: >
+  Verify that every reported number, figure, and table traces to a registered
+  artifact whose required contracts passed or whose exceptions were explicitly
+  adjudicated by a human. The report lock prevents outputs from unregistered
+  or failed-contract artifacts.
+
+inputs:
+  - manuscript_result_snippets   # Machine-readable JSON of all numerical claims
+  - figure_manifest_json         # Source artifact for each figure
+  - table_manifest_json          # Source artifact for each table
+  - artifact_registry_snapshot   # Read-only snapshot of the full registry at report time
+
+preconditions:
+  - G6_passed
+  - G7_passed_or_skipped
+
+evaluator: evaluators.G8_evaluator
+
+checks:
+  - id: number_traceability
+    description: >
+      Every numerical value in manuscript_result_snippets traces to an artifact
+      hash in the artifact registry. Untraceable values constitute critical failures.
+    severity: critical
+  - id: contract_coverage
+    description: >
+      For each artifact cited in manuscript_result_snippets, figure_manifest,
+      or table_manifest: the artifact has a passed contract record OR a
+      human adjudication record in the artifact registry.
+    severity: critical
+  - id: figure_source_verification
+    description: >
+      Each figure in figure_manifest_json has a registered source artifact
+      with matching SHA-256 and a PASS or human-adjudicated contract outcome.
+    severity: critical
+  - id: table_source_verification
+    description: Same as figure_source_verification for tables.
+    severity: critical
+  - id: human_intervention_count
+    description: >
+      Total count of human interventions recorded in artifact registry is
+      reported as a manuscript metadata field.
+    severity: high
+  - id: ai_use_declaration_present
+    description: >
+      Manuscript metadata includes an ai_use_declaration field describing
+      all AI tools used and their roles.
+    severity: high
+  - id: no_unregistered_claims
+    description: >
+      Manuscript result snippets do not contain any value that was not
+      computed under the registered protocol (no manual edits to output files).
+    severity: critical
+  - id: internal_auc_not_cited
+    description: >
+      The internal AUC (computed within the SNP-Lib using assay labels) is NOT
+      present in any reported metric. Only ChEMBL external validation AUC is
+      reportable (under G5b caveat rules).
+    severity: critical
+  - id: confidence_tier_assessment
+    description: >
+      For every technique path attempted (SBDD and/or LBDD), a GRADE-style
+      confidence tier (HIGH/MODERATE/LOW/VERY LOW) is computed from evidence
+      already produced by earlier gates (G2/G3 pose validation and control
+      representativeness, G5b external performance, G6 applicability domain)
+      and reported alongside any ranking or prediction. Aggregation is
+      weakest-link, not averaged: see 00_project_control/
+      17_CONFIDENCE_TIER_FRAMEWORK.md. This check verifies the assessment was
+      actually computed and disclosed, not that any particular tier was
+      reached — a VERY LOW tier is a valid, reportable outcome (as in the
+      A2AR/SNP-Lib application, ADR-AIIM-037), not a check failure.
+    severity: high
+    # Frozen cut points (ADR-AIIM-046, frozen 2026-08-07). This is the
+    # authoritative copy; evaluators/_confidence_tier.py's DEFAULT_* module
+    # constants must match exactly -- test_confidence_tier_thresholds_frozen
+    # in tests/test_confidence_tier.py fails closed if they ever drift apart.
+    # Do not edit without a new ADR (fault family F07: undeclared threshold
+    # movement).
+    sbdd_pose_pass_threshold_angstrom: 2.0
+    sbdd_pose_margin_threshold_angstrom: 1.0
+    sbdd_min_similarity_coverage: 0.50
+    sbdd_min_scaffold_coverage: 0.10
+    sbdd_thin_margin_multiplier: 1.5
+    sbdd_external_auc_min: 0.60
+    sbdd_external_ef1pct_min: 3.0
+    sbdd_external_bedroc20_min: 0.40
+    lbdd_ad_coverage_high: 0.80
+    lbdd_ad_coverage_low: 0.40
+    lbdd_cv_auc_high: 0.75
+    lbdd_cv_auc_low: 0.60
+    lbdd_external_auc_min: 0.60
+    lbdd_imprecision_min_recommended: 30
+    lbdd_imprecision_min_floor: 10
+  - id: confidence_tier_threshold_immutability
+    description: >
+      The confidence_tier_assessment thresholds above match the values
+      registered before any run that used them, the same pattern G5b's
+      threshold_immutability check uses for its own thresholds.
+    severity: critical
+
+thresholds:
+  pass_conditions: all_critical_checks_pass
+
+severity: critical
+on_pass: report_released
+on_fail:
+  - halt_report_generation
+  - log_failure_to_registry
+  - escalate_to_human
+on_warn:
+  - log_to_ledger
+
+evidence:
+  - traceability_audit_table
+  - contract_coverage_report
+  - figure_manifest_json
+  - table_manifest_json
+  - human_intervention_summary
+  - ai_use_declaration
+  - confidence_tier_report
+
+version: "1.1.0"
+frozen_date: "2026-07-30"
+amended:
+  - date: "2026-08-07"
+    change: "Added confidence_tier_assessment check (ADR-AIIM-045)."
+    reason: >
+      New reporting layer synthesizing existing gate evidence into a
+      GRADE-style confidence tier per application/library, per the human
+      author's request to generalize the SNP-Lib negative-result finding
+      into a reusable, prespecified assessment rather than a one-off
+      narrative.

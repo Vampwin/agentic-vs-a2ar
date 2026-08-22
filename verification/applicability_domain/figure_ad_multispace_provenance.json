@@ -1,0 +1,70 @@
+{
+  "figure": "figure_ad_multispace_2026-08-21",
+  "generated": "2026-08-21",
+  "script": "figure_ad_multispace.py",
+  "inputs": {
+    "ad_coverage_by_descriptor.csv": "5d8c52570f245ce927195de18cbda82a206a6bed1b9ac880196083a7ab68551b",
+    "ad_per_compound.csv": "dd25d35d826c772c562a5b5270d78169b91e2ecf4ed01299ca6778d973c4df3d",
+    "comparison_vs_snplib.json": "09a0608be10f107c0a02f1e9a1499ca655608bd09ac6898185391b42da7814bf"
+  },
+  "outputs": {
+    "figure_ad_multispace_2026-08-21.png": "e19a1e2456a685ce1b6a7cd872107dc238de229256c3944069a1ef4d6c3d94fe",
+    "figure_ad_multispace_2026-08-21.svg": "0af40b4307ecb8b05853558f8f69793925d4039192315cdbd3c0166ca4bb31c2"
+  },
+  "panel_A_numbers": {
+    "ECFP4": {
+      "before_pct": 0.0,
+      "after_pct": 0.0
+    },
+    "FCFP4": {
+      "before_pct": 0.0,
+      "after_pct": 0.0
+    },
+    "TopTorsion": {
+      "before_pct": 0.0,
+      "after_pct": 0.0
+    },
+    "Gobbi_Pharm2D": {
+      "before_pct": 0.0,
+      "after_pct": 0.0
+    },
+    "AtomPair": {
+      "before_pct": 0.85,
+      "after_pct": 0.2
+    },
+    "ErG": {
+      "before_pct": 0.42,
+      "after_pct": 3.62
+    },
+    "MACCS": {
+      "before_pct": 2.54,
+      "after_pct": 9.26
+    },
+    "PhysChem": {
+      "before_pct": 64.41,
+      "after_pct": 86.32
+    }
+  },
+  "panel_B_thresholds": {
+    "ECFP4": 0.5876,
+    "FCFP4": 0.648,
+    "TopTorsion": 0.6507,
+    "Gobbi_Pharm2D": 0.5934,
+    "AtomPair": 0.624,
+    "ErG": 0.9472,
+    "MACCS": 0.8485,
+    "PhysChem": 0.9314
+  },
+  "panel_C_counts": {
+    "0": 52,
+    "1": 396,
+    "2": 49,
+    "3": 0,
+    "4": 0,
+    "5": 0,
+    "6": 0,
+    "7": 0,
+    "8": 0
+  },
+  "max_spaces_inside": 2
+}

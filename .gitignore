@@ -1,0 +1,19 @@
+# Nothing here is generated in place -- the tree is assembled by
+# 10_new_system/scripts/build_deposit.py -- so this file exists to stop
+# incidental clutter, not build output.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Trajectory and pose data are excluded by the build script; this is a second
+# line of defence in case a file is ever copied in by hand.
+*.xtc
+*.trr
+*.tpr
+*.cpt
+*.edr
+*.dcd
+
+.DS_Store
+Thumbs.db

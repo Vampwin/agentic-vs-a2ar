@@ -1,0 +1,80 @@
+contract_id: G4_scoring_v1
+stage: docking_scoring
+description: >
+  Verify docking output integrity: all expected compounds attempted, outputs
+  parseable, score direction correct (more negative = better for Vina), seed
+  repeatability confirmed for a random spot-check subset.
+
+inputs:
+  - vina_score_csv     # One row per compound; columns: snp_id, vina_score, n_poses
+  - vina_log_dir       # Per-compound Vina log files
+
+preconditions:
+  - G3_passed
+
+evaluator: evaluators.G4_evaluator
+
+checks:
+  - id: output_completeness
+    description: >
+      vina_score_csv row count equals count_for_docking from G2 artifact.
+      Docking failures are present with docking_failure reason; not omitted.
+    severity: critical
+  - id: score_direction
+    description: >
+      All non-null vina_score values are negative (Vina convention: more negative
+      = more favorable). Any positive score triggers a critical failure.
+    severity: critical
+  - id: seed_repeatability
+    description: >
+      For a randomly selected 5% subset (seeded selection, seed recorded),
+      rerun Vina with identical parameters and frozen seed. All rerun scores
+      must match original to within 0.01 kcal/mol.
+    subset_fraction: 0.05
+    seed: 20260729
+    tolerance_kcal_mol: 0.01
+    severity: critical
+  - id: missing_output_accounting
+    description: >
+      For each compound in the G2 for-docking list with no score output,
+      a docking_failure record exists in the accountability ledger.
+    severity: high
+  - id: score_distribution_sanity
+    description: >
+      Median Vina score is between -12.0 and -3.0 kcal/mol.
+      Outside this range generates a warning for human inspection.
+    expected_range_kcal_mol: [-12.0, -3.0]
+    severity: medium
+  - id: mw_bias_check
+    description: >
+      Spearman correlation between MW and Vina score is recorded.
+      |r| > 0.5 generates a warning (size bias may distort ranking).
+      Does not cause FAIL; logged as caveat.
+    severity: medium
+  - id: no_assay_columns_in_output
+    description: >
+      vina_score_csv must not contain columns named known_active,
+      a_sim_actives, pct_inhibition, or any cAMP-derived label.
+    severity: critical
+
+thresholds:
+  pass_conditions: all_critical_checks_pass
+
+severity: critical
+on_pass: continue_to_G5a
+on_fail:
+  - log_failure_to_registry
+  - rerun_with_same_frozen_parameters   # Only for seed_repeatability failures
+  - escalate_if_rerun_fails
+on_warn:
+  - log_to_ledger
+  - flag_for_human_review
+
+evidence:
+  - vina_score_csv_hash
+  - output_completeness_report
+  - seed_repeatability_result
+  - mw_bias_correlation
+
+version: "1.0.0"
+frozen_date: "2026-07-30"

@@ -1,0 +1,21 @@
+{
+  "question_1_is_the_COUNT_enriched": {
+    "tier_A_count": 3,
+    "on_pocket_evaluated": 482,
+    "observed_rate_pct": 0.622,
+    "library_baseline_rate_pct": 0.46,
+    "expected_count_if_typical": 2.22,
+    "binomial_p": 0.49,
+    "verdict": "NO. Three convergent compounds among 482 is what the library's own flag rate would predict (2.2 expected). The docking selection did not preferentially capture compounds the ligand-based model flags. This must be stated plainly; the convergence claim cannot rest on the count."
+  },
+  "question_2_is_the_IDENTITY_random": {
+    "library_flagged_total": 23,
+    "flavones_among_flagged": 7,
+    "pongamia_among_flagged": 4,
+    "p_all_three_flavones": 0.0198,
+    "p_all_three_pongamia": 0.0023,
+    "verdict": "NO. Drawing three at random from the 23 flagged compounds gives all Flavones with p=0.020 and all Pongamia pinnata with p=0.002. The structure-based arm, selecting on docking score alone, recovered a chemically coherent set."
+  },
+  "post_hoc_warning": "The Flavone/Pongamia coherence was NOTICED and then tested. It is an exploratory observation, not a pre-registered hypothesis, and must be labelled as such in the manuscript.",
+  "manuscript_framing": "Report both. The number of convergent compounds is unremarkable; their chemical coherence is not. Claiming enrichment on the count alone would not survive review."
+}

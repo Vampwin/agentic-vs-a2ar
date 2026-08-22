@@ -1,0 +1,10 @@
+{
+  "n_kept": 4999,
+  "n_excluded_ok": 499,
+  "kept_median": -6.915,
+  "excluded_median": -6.857,
+  "top500_cutoff": -8.588,
+  "excluded_reaching_cutoff_pct": 7.014028056112225,
+  "kept_pct_above_cutoff": 10.002000400080016,
+  "mannwhitney_p": 0.00974659968271773
+}

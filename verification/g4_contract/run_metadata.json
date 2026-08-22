@@ -1,0 +1,39 @@
+{
+  "purpose": "G4 contract execution over the NP-library full-protocol redock, including the seed_repeatability rerun the contract requires and a thread-count invariance test (concern 6.1: --cpu changed mid-run).",
+  "subset_rule": "5% of successfully docked compounds, numpy default_rng(20260729), per G4_scoring.yaml",
+  "n_total_ok": 497,
+  "n_subset": 25,
+  "subset_ids": [
+    "NPLIB03133",
+    "NPLIB03127",
+    "NPLIB01311",
+    "NPLIB00508",
+    "NPLIB04043",
+    "NPLIB00730",
+    "NPLIB01816",
+    "NPLIB01697",
+    "NPLIB00050",
+    "NPLIB02043",
+    "NPLIB01814",
+    "NPLIB04436",
+    "NPLIB00633",
+    "NPLIB01861",
+    "NPLIB03711",
+    "NPLIB03069",
+    "NPLIB03322",
+    "NPLIB01102",
+    "NPLIB01028",
+    "NPLIB02973",
+    "NPLIB00986",
+    "NPLIB04183",
+    "NPLIB02590",
+    "NPLIB03530",
+    "NPLIB03398"
+  ],
+  "merged_scores_sha256": "15291f5dc748ba4a773d38cbf7cdbc698352eecdb1440d3daa47b1004118d5da",
+  "passes": {
+    "A": "--cpu 6 (setting used for the later ~180 compounds)",
+    "B": "--cpu 20 (all cores; setting used for the earlier ~320)"
+  },
+  "docking_params": "8 conformers, exhaustiveness 32, 10 poses, seed 20260729 (identical to production)"
+}

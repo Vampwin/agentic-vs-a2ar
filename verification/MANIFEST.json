@@ -1,0 +1,260 @@
+{
+  "assembled": "2026-08-21",
+  "n_files": 36,
+  "total_bytes": 460382,
+  "missing_sources": [],
+  "files": [
+    {
+      "file": "seeded_defects/mutation_score_by_gate.json",
+      "source": "20_new_runs/verification_summary_2026-08-21/mutation_score_by_gate.json",
+      "supports": "Table 4 and \u00a73.1: per-gate and per-family detection, the 2x2 ablation",
+      "bytes": 4283,
+      "sha256": "79540215d501779d840348cdb5fac5665d3c98af06aa40e95f8eacd7e1c0211c"
+    },
+    {
+      "file": "seeded_defects/wp4_conditions_ac_results_postfix_2026-08-05.json",
+      "source": "20_new_runs/WP4_retrain_postfix_2026-08-05/wp4_conditions_ac_results_postfix_2026-08-05.json",
+      "supports": "the underlying run the per-gate table is derived from",
+      "bytes": 120850,
+      "sha256": "fedd827c4f4c73344b8bc34d32981b9919f7b0b516187c36e13e5c5fbd6bdc09"
+    },
+    {
+      "file": "seeded_defects/naive_baseline_summary.json",
+      "source": "20_new_runs/naive_baseline_2026-08-10/naive_baseline_summary.json",
+      "supports": "\u00a73.1: the ungoverned comparator, SEER 0.477",
+      "bytes": 608,
+      "sha256": "30f0578cb8f225a6acaccd48b628534079f3b3f0e7dbbfb41536573d95b8ff8a"
+    },
+    {
+      "file": "seeded_defects/real_artifact_replay_results.json",
+      "source": "20_new_runs/real_artifact_replay_2026-08-05/real_artifact_replay_results.json",
+      "supports": "Table 4: 4/4 real-artifact defect replay, and the 0.379 A redock RMSD",
+      "bytes": 8409,
+      "sha256": "a77dc401f4fd88e85803ae6cb1beaafbc05d0e719fa2564610d1b736a17172a3"
+    },
+    {
+      "file": "metamorphic/metamorphic_results.json",
+      "source": "20_new_runs/metamorphic_2026-08-21/metamorphic_results.json",
+      "supports": "\u00a73.1: the four invariants and the SMILES-rewriting violation",
+      "bytes": 3867,
+      "sha256": "67a01f0da4efd5eb0dc03dc4900e52db4a52a392bcc4cbd150b3bdd45f73740f"
+    },
+    {
+      "file": "metamorphic/metamorphic_inputs_metadata.json",
+      "source": "20_new_runs/metamorphic_2026-08-21/metamorphic_inputs_metadata.json",
+      "supports": "how the two input variants were constructed, with InChIKey verification",
+      "bytes": 1306,
+      "sha256": "18bcb74b2182665a07d7c2a3a791ec7b9f4d537ea0efff4394cb7c0f3987a7d1"
+    },
+    {
+      "file": "metamorphic/ledger_M1_rowshuffle.csv",
+      "source": "20_new_runs/metamorphic_2026-08-21/ledger_M1_rowshuffle.csv",
+      "supports": "M1 input",
+      "bytes": 5935,
+      "sha256": "990f651955dab3ca1e3b9c3b51fd5fd1e9738aecaceece48fa9a70abefcfbc7c"
+    },
+    {
+      "file": "metamorphic/ledger_M2_smiles_rewrite.csv",
+      "source": "20_new_runs/metamorphic_2026-08-21/ledger_M2_smiles_rewrite.csv",
+      "supports": "M2 input",
+      "bytes": 5978,
+      "sha256": "0cc5373773958c213419667b40f13d262fb7832167d14cb4c771fdfc7fe35988"
+    },
+    {
+      "file": "metamorphic/scores_M1.csv",
+      "source": "20_new_runs/metamorphic_2026-08-21/scores_M1.csv",
+      "supports": "M1 output",
+      "bytes": 1876,
+      "sha256": "c7d5d1e0cb0e486e0cb66a9272a579e9dc927b492d8a00de3f528119128a6939"
+    },
+    {
+      "file": "metamorphic/scores_M2.csv",
+      "source": "20_new_runs/metamorphic_2026-08-21/scores_M2.csv",
+      "supports": "M2 output",
+      "bytes": 1876,
+      "sha256": "589392905f6b836b9d0b2f13797df4e99abc8656cc3d9f8d313510cc23a723f9"
+    },
+    {
+      "file": "g4_contract/G4_contract_outcome_passA_cpu6.json",
+      "source": "20_new_runs/g4_verification_2026-08-21/G4_contract_outcome_passA_cpu6.json",
+      "supports": "\u00a73.1: G4 PASS 7/7, the first gate the natural-product arm passed",
+      "bytes": 1736,
+      "sha256": "0ceff6803703d5d842841e7a513d8f41a9f592c529b862fdf518fdf7f9247f3b"
+    },
+    {
+      "file": "g4_contract/run_metadata.json",
+      "source": "20_new_runs/g4_verification_2026-08-21/run_metadata.json",
+      "supports": "the seeded 5% subset rule and the two thread settings",
+      "bytes": 1221,
+      "sha256": "cbfea4b38af91a8cbe94313e56246026a23dc36e9800c8fb83a1f98e5644806f"
+    },
+    {
+      "file": "g4_contract/rerun_passA_cpu6.csv",
+      "source": "20_new_runs/g4_verification_2026-08-21/rerun_passA_cpu6.csv",
+      "supports": "6-thread rerun",
+      "bytes": 1876,
+      "sha256": "0aad1b14047fcf2999e522e59f2023bc3fe45658345ce54e44f5518ebbd00495"
+    },
+    {
+      "file": "g4_contract/rerun_passB_cpu20.csv",
+      "source": "20_new_runs/g4_verification_2026-08-21/rerun_passB_cpu20.csv",
+      "supports": "20-thread rerun",
+      "bytes": 1872,
+      "sha256": "a2439aca9364b48787b3c2662023b083af4c31ad750cdb7a6c1b3e6a21a53d1c"
+    },
+    {
+      "file": "applicability_domain/ad_coverage_by_descriptor.csv",
+      "source": "20_new_runs/ad_sweep_expanded_2026-08-21/ad_coverage_by_descriptor.csv",
+      "supports": "Figure 3A and \u00a73.4: coverage in all eight spaces",
+      "bytes": 482,
+      "sha256": "5d8c52570f245ce927195de18cbda82a206a6bed1b9ac880196083a7ab68551b"
+    },
+    {
+      "file": "applicability_domain/ad_per_compound.csv",
+      "source": "20_new_runs/ad_sweep_expanded_2026-08-21/ad_per_compound.csv",
+      "supports": "Figure 3B/3C: per-compound similarity and in-domain flags",
+      "bytes": 62731,
+      "sha256": "dd25d35d826c772c562a5b5270d78169b91e2ecf4ed01299ca6778d973c4df3d"
+    },
+    {
+      "file": "applicability_domain/comparison_vs_snplib.json",
+      "source": "20_new_runs/ad_sweep_expanded_2026-08-21/comparison_vs_snplib.json",
+      "supports": "\u00a73.4: coverage before vs after similarity selection",
+      "bytes": 2782,
+      "sha256": "09a0608be10f107c0a02f1e9a1499ca655608bd09ac6898185391b42da7814bf"
+    },
+    {
+      "file": "applicability_domain/run_metadata.json",
+      "source": "20_new_runs/ad_sweep_expanded_2026-08-21/run_metadata.json",
+      "supports": "the single rule applied identically in every space",
+      "bytes": 711,
+      "sha256": "e2cce3430769f32d9b535e83389f081bb128e333bb2335fb7dd6770cd4971305"
+    },
+    {
+      "file": "applicability_domain/figure_ad_multispace_provenance.json",
+      "source": "20_new_runs/ad_sweep_expanded_2026-08-21/figure_ad_multispace_provenance.json",
+      "supports": "Figure 3: input and output digests",
+      "bytes": 1736,
+      "sha256": "6d2bc2562c70e710c01e3beec280536f990bd441009dec1b739ba2a2ee93bb83"
+    },
+    {
+      "file": "funnel_control/exclusion_control_summary.json",
+      "source": "20_new_runs/funnel_exclusion_control_2026-08-21/exclusion_control_summary.json",
+      "supports": "\u00a73.4: 7.0% of discarded compounds reach the selection cutoff vs 10.0% kept",
+      "bytes": 274,
+      "sha256": "ed60a261aed12a5175b2ccd42f36cd65fe8b6f05cd241c784d228c21388b24b4"
+    },
+    {
+      "file": "funnel_control/control_metadata.json",
+      "source": "20_new_runs/funnel_exclusion_control_2026-08-21/control_metadata.json",
+      "supports": "how the 500 discarded compounds were sampled",
+      "bytes": 1494,
+      "sha256": "7cd4c6202975dd6bc9b088e3538e2e0cc0f330c06c910570102d373dc1deb6af"
+    },
+    {
+      "file": "funnel_control/exclusion_scores.csv",
+      "source": "20_new_runs/funnel_exclusion_control_2026-08-21/exclusion_scores.csv",
+      "supports": "the control docking scores",
+      "bytes": 32811,
+      "sha256": "2595490ede04628665b9d7af9ecf0f37769017126127d4baf92fba5be4dd6e5f"
+    },
+    {
+      "file": "g6_contract/G6_contract_outcome_tierA.json",
+      "source": "20_new_runs/g6_selection_2026-08-21/G6_contract_outcome_tierA.json",
+      "supports": "\u00a73.4: the corrected gate applied to the released selection",
+      "bytes": 3853,
+      "sha256": "cb5574003300188c1a9d138a3a5c96373823e96c41baf80e37b196a2d26a05ee"
+    },
+    {
+      "file": "y_randomisation/qsar_y_randomization.json",
+      "source": "20_new_runs/qsar_lbdd_2026-08-07/qsar_y_randomization.json",
+      "supports": "\u00a72.4: 100 permutations, z = 21.9, p = 0.0099",
+      "bytes": 1929,
+      "sha256": "b8b949497d18bd32af931fa8dd7b8633d31bcf1703111aacd734a3ac57fbff1e"
+    },
+    {
+      "file": "pose_rescue/ifp_rescoring_summary.json",
+      "source": "20_new_runs/chembl245_ifp_rescoring_2026-08-15/ifp_rescoring_summary.json",
+      "supports": "Table 1: the five pre-registered rescue methods",
+      "bytes": 2329,
+      "sha256": "b79ec920054845eb0dd3c2a5857ce818f6100e6bf52726986fd162add8e5bbc2"
+    },
+    {
+      "file": "pose_rescue/multi_reference_ifp_summary.json",
+      "source": "20_new_runs/chembl245_ifp_rescoring_2026-08-15/multi_reference_ifp_summary.json",
+      "supports": "Table 1: the second-reference variants",
+      "bytes": 1287,
+      "sha256": "5e179e7606d1022cf052b8df2824129236ce20711e173f57590073175cebc078"
+    },
+    {
+      "file": "pose_rescue/pilot_result.json",
+      "source": "20_new_runs/ensemble_shell_pilot_2026-08-15/pilot_result.json",
+      "supports": "Table 1: the water-shell ensemble pilot and its stop rule",
+      "bytes": 2093,
+      "sha256": "c3232dabda67ffdd4ea70ad64cdaa3664c303f601e34bdd470f96f34db63a733"
+    },
+    {
+      "file": "pose_rescue/PREREGISTRATION.json",
+      "source": "20_new_runs/ensemble_shell_pilot_2026-08-15/PREREGISTRATION.json",
+      "supports": "the decision rule, written down before the pilot ran",
+      "bytes": 875,
+      "sha256": "6432e1c522e13fea610b2845ef2aed0047d442d8eb0edfed1a623b6c0a20148c"
+    },
+    {
+      "file": "released_result/e8_np_library_prioritization.csv",
+      "source": "20_new_runs/np_library_funnel_2026-08-15/e8_np_library_prioritization.csv",
+      "supports": "Tables 2 and 3: the prioritisation this study releases",
+      "bytes": 125416,
+      "sha256": "6445601828db09ed3490c0f2912d8225216c18664f5b620c2abf5f8feb223eaf"
+    },
+    {
+      "file": "released_result/tierA_convergence_analysis.json",
+      "source": "20_new_runs/np_library_funnel_2026-08-15/tierA_convergence_analysis.json",
+      "supports": "\u00a73.5: the count is unremarkable, the identity is not",
+      "bytes": 1399,
+      "sha256": "917e1cbf673d80c412ec3ca5a954b57e019263ed25ed049902f009f8ae70a205"
+    },
+    {
+      "file": "released_result/tierA_literature_crosscheck.md",
+      "source": "20_new_runs/np_library_funnel_2026-08-15/tierA_literature_crosscheck.md",
+      "supports": "\u00a73.5: the post-hoc PubMed cross-check, hits and non-hits",
+      "bytes": 5374,
+      "sha256": "fefc33c13ce0ea4514b0b81ef580c415d10dae4269d51c6bd1deb39dd9833466"
+    },
+    {
+      "file": "released_result/conformal_qsar_summary_np_library_dock_ledger.json",
+      "source": "20_new_runs/np_library_funnel_2026-08-15/conformal_qsar_summary_np_library_dock_ledger.json",
+      "supports": "\u00a73.5: conformal validity and the exchangeability caveat",
+      "bytes": 2070,
+      "sha256": "ef2b7cb50a4e0e8c772726f0860f5288d78a49612a5e9fa9b121b40a798aac4b"
+    },
+    {
+      "file": "structure_and_protocol/structure_and_protocol_checks.json",
+      "source": "20_new_runs/verification_summary_2026-08-21/structure_and_protocol_checks.json",
+      "supports": "\u00a72.3/\u00a72.5: receptor constructs, redock RMSD, stereocentre counts",
+      "bytes": 3272,
+      "sha256": "a7a1401ff51fac675be776d5cdfc80e3576984b40185025a3f41fbfd506353cc"
+    },
+    {
+      "file": "structure_and_protocol/box_and_cutoff_checks.json",
+      "source": "20_new_runs/verification_summary_2026-08-21/box_and_cutoff_checks.json",
+      "supports": "\u00a72.5: ligand extent vs box, centroid-cutoff sensitivity",
+      "bytes": 1104,
+      "sha256": "094319796de293e3eb423a9e0d203ed3b9586bf53f22eefd89b605be8a9b6458"
+    },
+    {
+      "file": "structure_and_protocol/ligand_extents.csv",
+      "source": "20_new_runs/verification_summary_2026-08-21/ligand_extents.csv",
+      "supports": "\u00a72.5: per-compound principal extents",
+      "bytes": 33038,
+      "sha256": "88797b3ecc3b5723099fcc775fec27a74ac4a932ed8bb5b54a052ff7010afc67"
+    },
+    {
+      "file": "structure_and_protocol/g8_number_traceability.json",
+      "source": "20_new_runs/verification_summary_2026-08-21/g8_number_traceability.json",
+      "supports": "the G8 audit of every number in the manuscript",
+      "bytes": 11629,
+      "sha256": "badea5532452869a72d14e75b7a9057191f2bdcd52fa6af0f93a2de6cc98dd5b"
+    }
+  ]
+}

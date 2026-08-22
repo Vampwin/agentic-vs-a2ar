@@ -1,0 +1,24 @@
+{
+  "rule": {
+    "k": 5,
+    "percentile": 10,
+    "definition": "mean Tanimoto/cosine to k nearest training neighbours >= percentile of training self-similarity"
+  },
+  "inputs": {
+    "chembl_a2a_training_v3.csv": "1cafb9f4fd8707c91ea5bc5d5ca2e4e0ddf02c216ba0bf8d8507f7ed7a16fa60",
+    "redocked497_for_ad_sweep.csv": "97def39d6510288794ad0a6d64a41211b2096b7fbb321fa6bd62689e7b64badd"
+  },
+  "n_training": 5970,
+  "n_library": 497,
+  "spaces": [
+    "ECFP4",
+    "FCFP4",
+    "MACCS",
+    "AtomPair",
+    "TopTorsion",
+    "Gobbi_Pharm2D",
+    "ErG",
+    "PhysChem"
+  ],
+  "note": "Identical rule in every space; only the representation differs. No threshold was tuned and no space was preferred a priori."
+}

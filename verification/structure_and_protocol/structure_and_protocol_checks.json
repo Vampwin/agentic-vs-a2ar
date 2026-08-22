@@ -1,0 +1,107 @@
+{
+  "receptor_constructs": {
+    "4EIY": {
+      "resolution_A": 1.8,
+      "construct": "A2AR-BRIL (soluble cytochrome b562) chimera",
+      "engineered_mutations": [
+        {
+          "mutation": "M1007W",
+          "partner": "BRIL",
+          "min_dist_to_ligand_A": 50.39
+        },
+        {
+          "mutation": "H1102I",
+          "partner": "BRIL",
+          "min_dist_to_ligand_A": 51.2
+        },
+        {
+          "mutation": "R1106L",
+          "partner": "BRIL",
+          "min_dist_to_ligand_A": 45.29
+        }
+      ],
+      "mutations_in_A2AR_sequence": 0,
+      "verdict": "No engineered mutation lies in the A2AR sequence; all three are in the BRIL fusion partner, 45-51 A from the co-crystal ligand. The orthosteric site and its surroundings are wild-type.",
+      "role": "the sole production docking structure"
+    },
+    "5OLH": {
+      "resolution_A": 2.6,
+      "construct": "A2A-StaR2-BRIL chimera",
+      "engineered_mutations_in_A2AR": [
+        {
+          "mutation": "T88A",
+          "min_dist_to_ligand_A": 5.91
+        },
+        {
+          "mutation": "S277A",
+          "min_dist_to_ligand_A": 6.48
+        },
+        {
+          "mutation": "A54L",
+          "min_dist_to_ligand_A": 12.71
+        },
+        {
+          "mutation": "V239A",
+          "min_dist_to_ligand_A": 14.25
+        },
+        {
+          "mutation": "N154A",
+          "min_dist_to_ligand_A": 17.27
+        },
+        {
+          "mutation": "L235A",
+          "min_dist_to_ligand_A": 19.72
+        },
+        {
+          "mutation": "K122A",
+          "min_dist_to_ligand_A": 25.07
+        },
+        {
+          "mutation": "L202A",
+          "min_dist_to_ligand_A": 30.88
+        },
+        {
+          "mutation": "R107A",
+          "min_dist_to_ligand_A": 33.0
+        }
+      ],
+      "verdict": "Nine thermostabilising mutations lie in the A2AR sequence itself. None is a direct ligand contact (<4.5 A), but T88A (3.36) at 5.91 A and S277A at 6.48 A are adjacent to the orthosteric site.",
+      "role": "exploratory only; not used for any reported docking score"
+    },
+    "method": "minimum heavy-atom distance from each SEQADV ENGINEERED MUTATION residue to any co-crystal ligand heavy atom (ZMA in 4EIY, 9XT in 5OLH), computed on the frozen PDBs"
+  },
+  "redocking_control": {
+    "structure": "4EIY",
+    "ligand": "ZM241385",
+    "rank1_rmsd_A": 0.3788,
+    "best_of_pool_rmsd_A": 0.3515,
+    "n_poses_pooled": 80,
+    "n_heavy_atoms": 25,
+    "acceptance_threshold_A": 2.0,
+    "method": "symmetry-corrected in-place RMSD (RDKit rdMolAlign.CalcRMS), all heavy atoms, no superposition",
+    "source": "20_new_runs/real_artifact_replay_2026-08-05/real_artifact_replay_results.json"
+  },
+  "undefined_stereocentres": {
+    "SNP-Lib": {
+      "n": 236,
+      "n_undefined": 24,
+      "pct": 10.2
+    },
+    "ChEMBL A2AR training": {
+      "n": 5970,
+      "n_undefined": 505,
+      "pct": 8.5
+    },
+    "LOTUS biosynthetic pool": {
+      "n": 25604,
+      "n_undefined": 4749,
+      "pct": 18.5
+    },
+    "redocked top-500": {
+      "n": 500,
+      "n_undefined": 106,
+      "pct": 21.2
+    },
+    "tier_A_candidates_affected": 0
+  }
+}

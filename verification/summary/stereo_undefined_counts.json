@@ -1,0 +1,23 @@
+[
+  {
+    "label": "SNP-Lib",
+    "path": "/mnt/d/Agentic VS Workflow/02_frozen_inputs/snp_library/01_library_validated.csv",
+    "n_parsed": 236,
+    "n_undefined": 24,
+    "pct": 10.17
+  },
+  {
+    "label": "ChEMBL A2AR training",
+    "path": "/mnt/d/Agentic VS Workflow/02_frozen_inputs/public_benchmarks/chembl_a2ar/chembl_a2a_training_v3.csv",
+    "n_parsed": 5970,
+    "n_undefined": 505,
+    "pct": 8.46
+  },
+  {
+    "label": "Redocked top-500",
+    "path": "/mnt/d/Agentic VS Workflow/20_new_runs/np_library_funnel_2026-08-15/e8_np_library_prioritization.csv",
+    "n_parsed": 500,
+    "n_undefined": 106,
+    "pct": 21.2
+  }
+]

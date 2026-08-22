@@ -1,0 +1,79 @@
+contract_id: G7_md_energy_v1
+stage: md_energy_refinement
+description: >
+  Verify MD simulation integrity if MD is run. This gate is conditional:
+  if the human decision (WP5 checklist item "Decide whether new MD is necessary")
+  is no-MD, this gate is skipped and marked SKIPPED_BY_PROTOCOL.
+  MD for candidate selection is not permitted; MD may refine binding-pose
+  stability annotations only.
+
+inputs:
+  - md_completion_log          # Per-trajectory completion records
+  - equilibration_check_csv    # RMSD-vs-time for each trajectory
+  - md_results_csv             # Extracted binding energy estimates (if computed)
+
+preconditions:
+  - G6_passed
+  - md_decision_recorded        # Human decision in artifact registry
+
+evaluator: evaluators.G7_evaluator
+
+checks:
+  - id: md_decision_check
+    description: >
+      If md_decision_recorded = no_MD, mark all G7 checks as SKIPPED and
+      emit SKIPPED_BY_PROTOCOL. Do not run any further checks.
+    severity: critical
+  - id: trajectory_completion
+    description: >
+      All planned trajectories ran to their prespecified end time.
+      Any incomplete trajectory is logged with failure reason.
+    severity: critical
+  - id: equilibration_verified
+    description: >
+      RMSD-vs-time shows plateau in the production phase for all trajectories.
+      Equilibration period used for analysis is recorded.
+    severity: high
+  - id: replicate_consistency
+    description: >
+      If replicate trajectories were run: mean and SD of the binding stability
+      metric across replicates recorded. SD/mean < 0.3 for each compound;
+      outlier replicates logged.
+    severity: medium
+  - id: claim_boundary
+    description: >
+      Result artifact includes a required_claim_boundary field stating that
+      MD results are binding-stability annotations only and do not constitute
+      experimental validation.
+    severity: critical
+  - id: md_not_used_for_ranking
+    description: >
+      Selected_candidates_csv must not be re-ranked or re-filtered based on
+      MD output. MD results annotate but do not change the frozen selection.
+    severity: critical
+  - id: seed_recorded
+    description: MD random seed recorded in artifact registry for each trajectory
+    severity: high
+
+thresholds:
+  pass_conditions:
+    - if md_decision = no_MD: SKIPPED_BY_PROTOCOL
+    - else: all_critical_checks_pass
+
+severity: high
+on_pass: continue_to_G8
+on_skip: continue_to_G8
+on_fail:
+  - log_failure_to_registry
+  - escalate_to_human
+on_warn:
+  - log_to_ledger
+
+evidence:
+  - md_decision_record
+  - trajectory_completion_log
+  - equilibration_check_csv
+  - replicate_consistency_report
+
+version: "1.0.0"
+frozen_date: "2026-07-30"

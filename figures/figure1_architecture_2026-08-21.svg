@@ -1,0 +1,69 @@
+<svg viewBox="0 0 539 250" width="190.1mm" height="88.2mm" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Helvetica, Arial, sans-serif">
+  <title>Architecture of the audited agentic pipeline</title>
+  <desc>Frozen hash-anchored inputs feed nine sequential gates, G0 input provenance through G8 reporting integrity. Every gate writes to an append-only artifact registry.</desc>
+  <rect width="539" height="250" fill="#FFFFFF"/>
+  <defs><marker id="a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0.5 L8,4 L0,7.5 z" fill="#6E7C74"/></marker></defs>
+  <text x="269.5" y="16" font-size="11.5" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">Nine gates, ten contracts, one append-only record</text>
+  <text x="269.5" y="29" font-size="8" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">Every stage runs under a frozen contract the acting agent cannot modify</text>
+  <rect x="18" y="42" width="154" height="50" rx="3" fill="#FFFFFF" stroke="#1B2420" stroke-width="0.9"/>
+  <text x="95" y="57" font-size="9" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">Frozen inputs</text>
+  <text x="95" y="69" font-size="7.4" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">SNP-Lib natural products (n = 236)</text>
+  <text x="95" y="78.472" font-size="7.4" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">A2AR co-crystals · ChEMBL benchmark</text>
+  <text x="95" y="86" font-size="7.2" fill="#2C5F8A" font-weight="normal" font-style="italic" text-anchor="middle">hash-anchored, read-only</text>
+  <line x1="95" y1="93" x2="95" y2="104" stroke="#6E7C74" stroke-width="0.7" marker-end="url(#a)"/>
+  <rect x="12" y="106" width="51" height="48" rx="3" fill="#EEF2EE" stroke="#9AA79F" stroke-width="0.7"/>
+  <text x="37.5" y="121" font-size="9.5" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">G0</text>
+  <text x="37.5" y="133" font-size="7.4" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">Input</text>
+  <text x="37.5" y="142" font-size="7.4" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">provenance</text>
+  <line x1="37.5" y1="154" x2="37.5" y2="176" stroke="#9AA79F" stroke-width="0.6" stroke-dasharray="2 2.5"/>
+  <rect x="70" y="106" width="51" height="48" rx="3" fill="#EEF2EE" stroke="#9AA79F" stroke-width="0.7"/>
+  <text x="95.5" y="121" font-size="9.5" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">G1</text>
+  <text x="95.5" y="133" font-size="7.4" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">Standard-</text>
+  <text x="95.5" y="142" font-size="7.4" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">isation</text>
+  <line x1="63.5" y1="130" x2="68.5" y2="130" stroke="#6E7C74" stroke-width="0.65" marker-end="url(#a)"/>
+  <line x1="95.5" y1="154" x2="95.5" y2="176" stroke="#9AA79F" stroke-width="0.6" stroke-dasharray="2 2.5"/>
+  <rect x="128" y="106" width="51" height="48" rx="3" fill="#EEF2EE" stroke="#9AA79F" stroke-width="0.7"/>
+  <text x="153.5" y="121" font-size="9.5" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">G2</text>
+  <text x="153.5" y="133" font-size="7.4" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">Prepar-</text>
+  <text x="153.5" y="142" font-size="7.4" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">ation</text>
+  <line x1="121.5" y1="130" x2="126.5" y2="130" stroke="#6E7C74" stroke-width="0.65" marker-end="url(#a)"/>
+  <line x1="153.5" y1="154" x2="153.5" y2="176" stroke="#9AA79F" stroke-width="0.6" stroke-dasharray="2 2.5"/>
+  <rect x="186" y="106" width="51" height="48" rx="3" fill="#EEF2EE" stroke="#9AA79F" stroke-width="0.7"/>
+  <text x="211.5" y="121" font-size="9.5" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">G3</text>
+  <text x="211.5" y="133" font-size="7.4" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">Pose</text>
+  <text x="211.5" y="142" font-size="7.4" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">validation</text>
+  <line x1="179.5" y1="130" x2="184.5" y2="130" stroke="#6E7C74" stroke-width="0.65" marker-end="url(#a)"/>
+  <line x1="211.5" y1="154" x2="211.5" y2="176" stroke="#9AA79F" stroke-width="0.6" stroke-dasharray="2 2.5"/>
+  <rect x="244" y="106" width="51" height="48" rx="3" fill="#E3EBF3" stroke="#2C5F8A" stroke-width="1"/>
+  <text x="269.5" y="121" font-size="9.5" fill="#2C5F8A" font-weight="bold" font-style="normal" text-anchor="middle">G4</text>
+  <text x="269.5" y="133" font-size="7.4" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">Scoring</text>
+  <line x1="237.5" y1="130" x2="242.5" y2="130" stroke="#6E7C74" stroke-width="0.65" marker-end="url(#a)"/>
+  <line x1="269.5" y1="154" x2="269.5" y2="176" stroke="#9AA79F" stroke-width="0.6" stroke-dasharray="2 2.5"/>
+  <rect x="302" y="106" width="51" height="48" rx="3" fill="#EEF2EE" stroke="#9AA79F" stroke-width="0.7"/>
+  <text x="327.5" y="121" font-size="9.5" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">G5</text>
+  <text x="327.5" y="133" font-size="7.4" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">External</text>
+  <text x="327.5" y="142" font-size="7.4" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">validity</text>
+  <line x1="295.5" y1="130" x2="300.5" y2="130" stroke="#6E7C74" stroke-width="0.65" marker-end="url(#a)"/>
+  <line x1="327.5" y1="154" x2="327.5" y2="176" stroke="#9AA79F" stroke-width="0.6" stroke-dasharray="2 2.5"/>
+  <rect x="360" y="106" width="51" height="48" rx="3" fill="#E3EBF3" stroke="#2C5F8A" stroke-width="1"/>
+  <text x="385.5" y="121" font-size="9.5" fill="#2C5F8A" font-weight="bold" font-style="normal" text-anchor="middle">G6</text>
+  <text x="385.5" y="133" font-size="7.4" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">Selection</text>
+  <line x1="353.5" y1="130" x2="358.5" y2="130" stroke="#6E7C74" stroke-width="0.65" marker-end="url(#a)"/>
+  <line x1="385.5" y1="154" x2="385.5" y2="176" stroke="#9AA79F" stroke-width="0.6" stroke-dasharray="2 2.5"/>
+  <rect x="418" y="106" width="51" height="48" rx="3" fill="#EEF2EE" stroke="#9AA79F" stroke-width="0.7"/>
+  <text x="443.5" y="121" font-size="9.5" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">G7</text>
+  <text x="443.5" y="133" font-size="7.4" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">Dynamics</text>
+  <line x1="411.5" y1="130" x2="416.5" y2="130" stroke="#6E7C74" stroke-width="0.65" marker-end="url(#a)"/>
+  <line x1="443.5" y1="154" x2="443.5" y2="176" stroke="#9AA79F" stroke-width="0.6" stroke-dasharray="2 2.5"/>
+  <rect x="476" y="106" width="51" height="48" rx="3" fill="#EEF2EE" stroke="#9AA79F" stroke-width="0.7"/>
+  <text x="501.5" y="121" font-size="9.5" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">G8</text>
+  <text x="501.5" y="133" font-size="7.4" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">Reporting</text>
+  <line x1="469.5" y1="130" x2="474.5" y2="130" stroke="#6E7C74" stroke-width="0.65" marker-end="url(#a)"/>
+  <line x1="501.5" y1="154" x2="501.5" y2="176" stroke="#9AA79F" stroke-width="0.6" stroke-dasharray="2 2.5"/>
+  <text x="327.5" y="165" font-size="7.2" fill="#2C5F8A" font-weight="normal" font-style="italic" text-anchor="middle">G4 and G6: the gates the natural-product arm passed in this study</text>
+  <rect x="18" y="178" width="503" height="34" rx="3" fill="#EFE8F5" stroke="#6B4E8C" stroke-width="0.8"/>
+  <text x="269.5" y="192" font-size="9" fill="#6B4E8C" font-weight="bold" font-style="normal" text-anchor="middle">Artifact registry</text>
+  <text x="269.5" y="204" font-size="7.4" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">append-only: every file read, every artifact written with its SHA-256, every contract outcome, every human intervention</text>
+  <line x1="18" y1="226" x2="521" y2="226" stroke="#9AA79F" stroke-width="0.6"/>
+  <text x="269.5" y="238" font-size="7.6" fill="#55625B" font-weight="normal" font-style="italic" text-anchor="middle">A check that cannot be evaluated reports failure, never PASS. Figure 2 shows what happens inside one gate.</text>
+</svg>
