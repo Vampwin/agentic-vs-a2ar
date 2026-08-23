@@ -1,8 +1,8 @@
 {
   "manuscript": "D:\\Agentic VS Workflow\\30_manuscript\\CURRENT_v5\\manuscript_AIIM_v6.md",
   "state": "PASS",
-  "n_checks": 57,
-  "n_pass": 57,
+  "n_checks": 63,
+  "n_pass": 63,
   "n_value_mismatch": 0,
   "n_literal_absent": 0,
   "checks": [
@@ -461,12 +461,60 @@
       "literal": "2,357 receptor and ligand heavy atoms"
     },
     {
+      "check": "dd_control_rmsd",
+      "state": "PASS",
+      "expected": 1.92,
+      "recomputed": 1.92,
+      "literal_present_in_manuscript": true,
+      "literal": "**1.92 \u00c5**"
+    },
+    {
+      "check": "dd_control_conf",
+      "state": "PASS",
+      "expected": 0.16,
+      "recomputed": 0.16,
+      "literal_present_in_manuscript": true,
+      "literal": "control +0.16"
+    },
+    {
+      "check": "dd_rmsds",
+      "state": "PASS",
+      "expected": "6.43/8.80/9.50",
+      "recomputed": "6.43/8.80/9.50",
+      "literal_present_in_manuscript": true,
+      "literal": "6.43, 8.80 and 9.50 \u00c5"
+    },
+    {
+      "check": "dd_confs",
+      "state": "PASS",
+      "expected": "0.23/0.47/-0.50",
+      "recomputed": "0.23/0.47/-0.50",
+      "literal_present_in_manuscript": true,
+      "literal": "+0.23, +0.47 and \u22120.50"
+    },
+    {
+      "check": "dd_prediction_failed",
+      "state": "PASS",
+      "expected": false,
+      "recomputed": false,
+      "literal_present_in_manuscript": true,
+      "literal": "**failed**"
+    },
+    {
+      "check": "dd_highest_conf",
+      "state": "PASS",
+      "expected": 0.47,
+      "recomputed": 0.47,
+      "literal_present_in_manuscript": true,
+      "literal": "highest (+0.47) on NPLIB01643"
+    },
+    {
       "check": "citation_integrity",
       "state": "PASS",
       "expected": "every marker resolves, every entry cited, 1..N contiguous",
       "recomputed": {
-        "n_entries": 55,
-        "n_cited": 55,
+        "n_entries": 57,
+        "n_cited": 57,
         "dangling_markers": [],
         "uncited_entries": [],
         "numbering_contiguous": true

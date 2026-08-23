@@ -98,6 +98,7 @@ def sources() -> dict[str, object]:
                       "conformal_qsar_summary_np_library_dock_ledger.json"),
         "g4": _json(RUNS / "g4_verification_2026-08-21/G4_contract_outcome_passA_cpu6.json"),
         "md": _md_system(),
+        "dd": _json(RUNS / "diffdock_orthogonal_2026-08-23/orthogonal_check_result.json"),
     }
 
 
@@ -214,6 +215,26 @@ def build_checks(S) -> list[tuple[str, str, object, object]]:
     add("md_xtal_water", "156 crystallographic waters", 156, md["n_crystal_water"])
     add("md_restrained", "2,357 receptor and ligand heavy atoms", 2357,
         md["n_restrained"])
+
+    # --- orthogonal-engine check (ADR-AIIM-111/112), re-derived from poses ----
+    # Every number the manuscript quotes for this check is recomputed by
+    # diffdock_orthogonal_check.py from the deposited SDF poses, not copied.
+    dd = S["dd"]
+    add("dd_control_rmsd", "**1.92 Å**", 1.92, round(dd["control"]["rmsd_to_crystal_A"], 2))
+    add("dd_control_conf", "control +0.16", 0.16, dd["control"]["confidence"])
+    add("dd_rmsds", "6.43, 8.80 and 9.50 Å", "6.43/8.80/9.50",
+        "/".join(f'{dd["candidates"][c]["rmsd_to_vina_A"]:.2f}'
+                 for c in ("NPLIB01185", "NPLIB01643", "NPLIB03056")))
+    add("dd_confs", "+0.23, +0.47 and −0.50", "0.23/0.47/-0.50",
+        "/".join(f'{dd["candidates"][c]["confidence"]:.2f}'
+                 for c in ("NPLIB01185", "NPLIB01643", "NPLIB03056")))
+    # The manuscript states the pre-registered prediction failed. That claim is
+    # itself audited: if a rerun ever made it hold, this check fails loudly
+    # rather than leaving a stale sentence in the text.
+    add("dd_prediction_failed", "**failed**", False,
+        dd["preregistered_prediction"]["holds"])
+    add("dd_highest_conf", "highest (+0.47) on NPLIB01643", 0.47,
+        dd["candidates"]["NPLIB01643"]["confidence"])
     return C
 
 

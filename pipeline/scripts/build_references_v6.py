@@ -297,6 +297,14 @@ REFS: dict[str, dict[str, str]] = {
         "McNutt AT, Li Y, Meli R, Aggarwal R, Koes DR. GNINA 1.3: the next increment in "
         "molecular docking with deep learning. J Cheminform. 2025;17(1):28. "
         "doi:10.1186/s13321-025-00973-x"},
+    "corso2023": {"verified": "arxiv+iclr+dblp", "text":
+        "Corso G, Stärk H, Jing B, Barzilay R, Jaakkola TS. DiffDock: diffusion steps, "
+        "twists, and turns for molecular docking. In: International Conference on "
+        "Learning Representations (ICLR 2023). arXiv:2210.01776"},
+    "corso2024": {"verified": "arxiv+iclr+openreview", "text":
+        "Corso G, Deng A, Fry B, Polizzi N, Barzilay R, Jaakkola T. Deep confident steps "
+        "to new pockets: strategies for docking generalization. In: International "
+        "Conference on Learning Representations (ICLR 2024). arXiv:2402.18396"},
 }
 
 # --------------------------------------------------------------------------
