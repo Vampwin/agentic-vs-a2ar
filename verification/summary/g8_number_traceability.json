@@ -1,8 +1,8 @@
 {
   "manuscript": "D:\\Agentic VS Workflow\\30_manuscript\\CURRENT_v5\\manuscript_AIIM_v6.md",
   "state": "PASS",
-  "n_checks": 63,
-  "n_pass": 63,
+  "n_checks": 66,
+  "n_pass": 66,
   "n_value_mismatch": 0,
   "n_literal_absent": 0,
   "checks": [
@@ -507,6 +507,30 @@
       "recomputed": 0.47,
       "literal_present_in_manuscript": true,
       "literal": "highest (+0.47) on NPLIB01643"
+    },
+    {
+      "check": "heldout_n",
+      "state": "PASS",
+      "expected": 5,
+      "recomputed": 5,
+      "literal_present_in_manuscript": true,
+      "literal": "five cases authored by a project-blind session"
+    },
+    {
+      "check": "heldout_detected",
+      "state": "PASS",
+      "expected": 1,
+      "recomputed": 1,
+      "literal_present_in_manuscript": true,
+      "literal": "**One of the five was detected.**"
+    },
+    {
+      "check": "heldout_detected_abstract",
+      "state": "PASS",
+      "expected": 1,
+      "recomputed": 1,
+      "literal_present_in_manuscript": true,
+      "literal": "it detected one"
     },
     {
       "check": "citation_integrity",

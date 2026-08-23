@@ -82,6 +82,13 @@ TREE: list[tuple[str, str, str]] = [
     # two files; the duplicate is resolved after copying, below.
     ("20_new_runs/metamorphic_2026-08-21", "verification/metamorphic",
      "the four metamorphic invariants, their inputs and their outputs"),
+    # DELIBERATELY NOT DEPOSITED: 20_new_runs/heldout_evaluation_2026-08-08.
+    # The manuscript reports the held-out RESULT (one of five, with each miss's
+    # root cause, §3.1). The faulted workdirs are a different thing: the
+    # corrupted artifacts themselves let H01-H05 be reconstructed, which is
+    # unsealing, and CLAUDE.md requires separate explicit human approval for
+    # that. The Data Availability statement already offers them on request.
+    # Depositing them was attempted on 2026-08-23 and reverted (ADR-AIIM-113).
     ("20_new_runs/diffdock_orthogonal_2026-08-23", "verification/orthogonal_engine",
      "the pre-registered DiffDock cross-check: inputs, all predicted poses, "
      "and the machine-readable result the manuscript's numbers derive from"),

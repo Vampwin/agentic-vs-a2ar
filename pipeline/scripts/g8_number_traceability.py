@@ -99,6 +99,7 @@ def sources() -> dict[str, object]:
         "g4": _json(RUNS / "g4_verification_2026-08-21/G4_contract_outcome_passA_cpu6.json"),
         "md": _md_system(),
         "dd": _json(RUNS / "diffdock_orthogonal_2026-08-23/orthogonal_check_result.json"),
+        "ho": _json(RUNS / "heldout_evaluation_2026-08-08/heldout_evaluation_summary.json"),
     }
 
 
@@ -235,6 +236,17 @@ def build_checks(S) -> list[tuple[str, str, object, object]]:
         dd["preregistered_prediction"]["holds"])
     add("dd_highest_conf", "highest (+0.47) on NPLIB01643", 0.47,
         dd["candidates"]["NPLIB01643"]["confidence"])
+
+    # --- held-out fault cases (ADR-AIIM-060), counted from the run's own output -
+    # This is the least comfortable number in the paper, which is exactly why it
+    # is audited like every other one: if the artifact ever stops saying one of
+    # five, the manuscript sentence fails loudly instead of going stale.
+    ho = S["ho"]
+    add("heldout_n", "five cases authored by a project-blind session", 5,
+        ho["n_cases"])
+    add("heldout_detected", "**One of the five was detected.**", 1,
+        ho["n_detected"])
+    add("heldout_detected_abstract", "it detected one", 1, ho["n_detected"])
     return C
 
 

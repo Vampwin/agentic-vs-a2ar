@@ -1,7 +1,7 @@
 {
   "assembled": "2026-08-22",
   "n_files": 246,
-  "total_bytes": 3141207,
+  "total_bytes": 3143121,
   "n_files_excluded_by_rule": 141,
   "n_duplicates_removed": 24,
   "n_files_refused_by_screening": 0,
@@ -554,8 +554,8 @@
     {
       "path": "pipeline/scripts/build_deposit.py",
       "source": "10_new_system/scripts/build_deposit.py",
-      "bytes": 12338,
-      "sha256": "879fedd095ae54ca60ce10879f1ae1e26ffa5a3d9df08ebe93b96ada41bec544"
+      "bytes": 12884,
+      "sha256": "2bbe163007181de905087428c51b1988efc930533df57cd3d15bd8f5512d513b"
     },
     {
       "path": "pipeline/scripts/build_figures_1_2.py",
@@ -650,8 +650,8 @@
     {
       "path": "pipeline/scripts/g8_number_traceability.py",
       "source": "10_new_system/scripts/g8_number_traceability.py",
-      "bytes": 17682,
-      "sha256": "0faa533a2cb0df36cf8cbbbf0da0f309bccf82ece773d1af01f3e48200c64334"
+      "bytes": 18390,
+      "sha256": "eeb63de0361de2d60e022d7b76d67d5800652e045e6321fcf99984cd3702eb94"
     },
     {
       "path": "pipeline/scripts/ifp_rescore_benchmark.py",
@@ -1262,8 +1262,8 @@
     {
       "path": "verification/summary/g8_number_traceability.json",
       "source": "20_new_runs/verification_summary_2026-08-21/g8_number_traceability.json",
-      "bytes": 13808,
-      "sha256": "50b54e33ba8e259799849a1f2f876da716b70cd903ae3c9ec39d44da02af5522"
+      "bytes": 14468,
+      "sha256": "54220d0e8b241485280d100f442d17a22c7d839e2c0bee6826250a94a4eefbd1"
     },
     {
       "path": "verification/summary/stereo_undefined_counts.json",
