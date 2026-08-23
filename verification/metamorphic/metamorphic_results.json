@@ -1,0 +1,102 @@
+{
+  "tolerance_kcal_mol": 0.01,
+  "baseline": {
+    "file": "D:\\Agentic VS Workflow\\20_new_runs\\g4_verification_2026-08-21\\rerun_passA_cpu6.csv",
+    "sha256": "0aad1b14047fcf2999e522e59f2023bc3fe45658345ce54e44f5518ebbd00495",
+    "note": "already established identical to production and to the 20-thread rerun, so run-to-run noise is zero by measurement"
+  },
+  "variants": {
+    "M1": {
+      "invariant": "docking score must not depend on the order of rows in the input ledger",
+      "ledger_sha256": "990f651955dab3ca1e3b9c3b51fd5fd1e9738aecaceece48fa9a70abefcfbc7c",
+      "scores_sha256": "c7d5d1e0cb0e486e0cb66a9272a579e9dc927b492d8a00de3f528119128a6939",
+      "n_compared": 25,
+      "n_identical": 25,
+      "max_abs_deviation": 0.0,
+      "mean_abs_deviation": 0.0,
+      "verdict": "HOLDS"
+    },
+    "M2": {
+      "invariant": "docking score must not depend on which valid SMILES string is used to write the same molecule",
+      "ledger_sha256": "0cc5373773958c213419667b40f13d262fb7832167d14cb4c771fdfc7fe35988",
+      "scores_sha256": "589392905f6b836b9d0b2f13797df4e99abc8656cc3d9f8d313510cc23a723f9",
+      "n_compared": 25,
+      "n_identical": 0,
+      "max_abs_deviation": 0.974,
+      "mean_abs_deviation": 0.16592,
+      "verdict": "VIOLATED",
+      "signed_mean_shift": 0.02712,
+      "n_more_negative": 11,
+      "n_less_negative": 14,
+      "spearman_rank_correlation_with_baseline": 0.771538,
+      "score_range_of_subset": 1.739,
+      "mean_abs_deviation_as_fraction_of_range": 0.0954,
+      "rank_movement": {
+        "mean_places": 2.8,
+        "max_places": 18,
+        "n_moved_3_or_more": 9
+      },
+      "deviation_vs_size": {
+        "spearman_rho_molecular_weight": 0.7351,
+        "p_molecular_weight": 2.8e-05,
+        "spearman_rho_rotatable_bonds": 0.4487,
+        "p_rotatable_bonds": 0.024456
+      },
+      "largest_deviations": [
+        {
+          "compound_id": "NPLIB02590",
+          "baseline": -8.643,
+          "variant": -9.617,
+          "deviation": -0.974,
+          "mw": 576.5,
+          "rotatable_bonds": 4
+        },
+        {
+          "compound_id": "NPLIB03530",
+          "baseline": -9.527,
+          "variant": -8.862,
+          "deviation": 0.665,
+          "mw": 578.5,
+          "rotatable_bonds": 6
+        },
+        {
+          "compound_id": "NPLIB00730",
+          "baseline": -9.644,
+          "variant": -9.071,
+          "deviation": 0.573,
+          "mw": 624.5,
+          "rotatable_bonds": 7
+        },
+        {
+          "compound_id": "NPLIB00986",
+          "baseline": -9.538,
+          "variant": -9.228,
+          "deviation": 0.31,
+          "mw": 610.5,
+          "rotatable_bonds": 7
+        },
+        {
+          "compound_id": "NPLIB03069",
+          "baseline": -8.846,
+          "variant": -8.586,
+          "deviation": 0.26,
+          "mw": 448.4,
+          "rotatable_bonds": 3
+        },
+        {
+          "compound_id": "NPLIB01311",
+          "baseline": -9.832,
+          "variant": -10.058,
+          "deviation": -0.226,
+          "mw": 432.4,
+          "rotatable_bonds": 3
+        }
+      ],
+      "interpretation": "The deviation grows with molecular size and flexibility, which is the signature of under-sampled conformer generation: ETKDGv3 embedding depends on atom ordering, atom ordering is fixed by the SMILES traversal, and eight conformers do not sample a large flexible molecule densely enough for the choice to wash out. The reported ranking is still reproducible -- production used one frozen, standardised SMILES per compound and a fixed seed -- but the score is a property of (molecule, input representation, conformer count), not of the molecule alone."
+    }
+  },
+  "cross_check_vs_production": {
+    "M1": 0.0,
+    "M2": 0.974
+  }
+}

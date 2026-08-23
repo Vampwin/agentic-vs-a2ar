@@ -1,7 +1,7 @@
 {
   "assembled": "2026-08-22",
   "n_files": 251,
-  "total_bytes": 3810300,
+  "total_bytes": 3811525,
   "n_files_excluded_by_rule": 141,
   "n_duplicates_removed": 27,
   "n_files_refused_by_screening": 0,
@@ -554,8 +554,8 @@
     {
       "path": "pipeline/scripts/build_deposit.py",
       "source": "10_new_system/scripts/build_deposit.py",
-      "bytes": 12884,
-      "sha256": "2bbe163007181de905087428c51b1988efc930533df57cd3d15bd8f5512d513b"
+      "bytes": 14109,
+      "sha256": "5c992158e517aa71bfcd47f7cb27197d3ce56ea480c9f2178a1265c55f90783c"
     },
     {
       "path": "pipeline/scripts/build_figures_1_2.py",
@@ -1311,7 +1311,7 @@
       "path": "verification/summary/g8_number_traceability.json",
       "source": "20_new_runs/verification_summary_2026-08-21/g8_number_traceability.json",
       "bytes": 14742,
-      "sha256": "d37f399074b4ffbb5edb6a4f62fd480740b802f2b83ee094013a9c5bb51e249b"
+      "sha256": "fa1e20ce1986d70c6645486604f9e2cf8d491b412f631ff6e0c84da2eea22232"
     },
     {
       "path": "verification/summary/stereo_undefined_counts.json",

@@ -1,0 +1,26 @@
+{
+  "source_ledger": {
+    "path": "/mnt/d/Agentic VS Workflow/20_new_runs/g4_verification_2026-08-21/g4_subset_ledger.csv",
+    "sha256": "fe3c7a629e01bd4a502e940dfc66ea51f3ba288609706b6db7ccb54a17274cbb",
+    "n_rows": 25
+  },
+  "seed": 20260821,
+  "M1": {
+    "transformation": "row-order permutation at fixed seed",
+    "path": "/mnt/d/Agentic VS Workflow/20_new_runs/metamorphic_2026-08-21/ledger_M1_rowshuffle.csv",
+    "sha256": "990f651955dab3ca1e3b9c3b51fd5fd1e9738aecaceece48fa9a70abefcfbc7c",
+    "rows_moved": 22,
+    "invariant": "docking score must be identical per compound"
+  },
+  "M2": {
+    "transformation": "SMILES replaced by a different valid non-canonical SMILES for the same molecule",
+    "path": "/mnt/d/Agentic VS Workflow/20_new_runs/metamorphic_2026-08-21/ledger_M2_smiles_rewrite.csv",
+    "sha256": "0cc5373773958c213419667b40f13d262fb7832167d14cb4c771fdfc7fe35988",
+    "rows_rewritten": 25,
+    "rows_unchanged_no_alternative_found": 0,
+    "inchikey_identity_enforced": true,
+    "transformation_failures": [],
+    "invariant": "docking score must be identical per compound"
+  },
+  "baseline_for_comparison": "20_new_runs/g4_verification_2026-08-21/rerun_passA_cpu6.csv (same 25 compounds, same command, already shown identical to production and to the 20-thread rerun)"
+}

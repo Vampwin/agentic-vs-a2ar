@@ -241,10 +241,30 @@ def main() -> int:
         if len(entries) < 2:
             continue
         entries.sort(key=rank)
+        keep = entries[0]
         for drop in entries[1:]:
-            (out / drop["path"]).unlink(missing_ok=True)
+            # Two sources can map to the SAME destination path -- the S10
+            # bundle and the run directory now both supply the DiffDock
+            # artifacts under orthogonal_engine/. The second copy simply
+            # overwrote the first, so there is one physical file and two
+            # manifest entries. Unlinking "the duplicate" then deleted the
+            # very file the surviving entry points at, and the deposit lost
+            # orthogonal_check_result.json -- the artifact the manuscript
+            # says its Section 3.5 numbers derive from -- while still listing
+            # it. Only unlink when the paths actually differ.
+            if drop["path"] != keep["path"]:
+                (out / drop["path"]).unlink(missing_ok=True)
             manifest.remove(drop)
             dupes += 1
+
+    # A manifest entry pointing at a file that is not there is the failure this
+    # deposit exists to prevent, and the dedup step above silently produced
+    # exactly that once. Fail loudly rather than write a manifest that lies.
+    ghosts = [m["path"] for m in manifest if not (out / m["path"]).is_file()]
+    if ghosts:
+        raise SystemExit(
+            "manifest lists files that are not on disk -- refusing to write it:\n  "
+            + "\n  ".join(ghosts))
 
     if refused:
         print("REFUSED -- these files were not deposited:")
