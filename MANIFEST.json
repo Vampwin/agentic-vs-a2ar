@@ -1,7 +1,7 @@
 {
   "assembled": "2026-08-22",
   "n_files": 246,
-  "total_bytes": 3144157,
+  "total_bytes": 3144950,
   "n_files_excluded_by_rule": 141,
   "n_duplicates_removed": 24,
   "n_files_refused_by_screening": 0,
@@ -650,8 +650,8 @@
     {
       "path": "pipeline/scripts/g8_number_traceability.py",
       "source": "10_new_system/scripts/g8_number_traceability.py",
-      "bytes": 18390,
-      "sha256": "eeb63de0361de2d60e022d7b76d67d5800652e045e6321fcf99984cd3702eb94"
+      "bytes": 18977,
+      "sha256": "ccdd7017b187fa5b6976ecb2f35fff279f5bd5c3b0b84ecb998f2b15bc16cdcb"
     },
     {
       "path": "pipeline/scripts/ifp_rescore_benchmark.py",
@@ -1262,8 +1262,8 @@
     {
       "path": "verification/summary/g8_number_traceability.json",
       "source": "20_new_runs/verification_summary_2026-08-21/g8_number_traceability.json",
-      "bytes": 14468,
-      "sha256": "54220d0e8b241485280d100f442d17a22c7d839e2c0bee6826250a94a4eefbd1"
+      "bytes": 14674,
+      "sha256": "763bebbe52e20e4cd4aea2f46c72d6dda585e9d42cadefe532f96b9a0ede93f6"
     },
     {
       "path": "verification/summary/stereo_undefined_counts.json",

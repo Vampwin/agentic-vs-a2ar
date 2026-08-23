@@ -100,6 +100,12 @@ def sources() -> dict[str, object]:
         "md": _md_system(),
         "dd": _json(RUNS / "diffdock_orthogonal_2026-08-23/orthogonal_check_result.json"),
         "ho": _json(RUNS / "heldout_evaluation_2026-08-08/heldout_evaluation_summary.json"),
+        # Counted from the deposit itself. The Data availability section quotes
+        # a file count, and it had already gone stale once (195 against an
+        # actual 245) because rebuilding the deposit does not touch the
+        # manuscript. Recounting here is what keeps the two in step.
+        "dep": sum(1 for f in (ROOT / "40_deposit").rglob("*")
+                   if f.is_file() and ".git" not in f.parts),
     }
 
 
@@ -247,6 +253,9 @@ def build_checks(S) -> list[tuple[str, str, object, object]]:
     add("heldout_detected", "**One of the five was detected.**", 1,
         ho["n_detected"])
     add("heldout_detected_abstract", "it detected one", 1, ho["n_detected"])
+
+    # --- deposit ---------------------------------------------------------------
+    add("deposit_files", f"{S['dep']} files, 3.0 MB", S["dep"], S["dep"])
     return C
 
 
