@@ -56,15 +56,25 @@ def md_content(path: Path) -> str:
 
 
 def runs_xml(text: str) -> str:
-    """Inline markdown -> w:r runs. Handles **bold**, *italic*, `code`."""
+    """Inline markdown -> w:r runs. Handles **bold**, *italic*, `code`, <sup>.
+
+    <sup> is matched BEFORE the italic alternative on purpose: an author
+    block's corresponding-author marker is written <sup>*</sup>, and if the
+    italic rule saw that asterisk first it would pair it with the next one in
+    the paragraph and silently swallow both the marker and the text between
+    them. That is exactly what happened to the first build of this author
+    block, where <sup>*</sup> rendered as a stray '*' at the end of the line.
+    """
     out = []
-    token = re.compile(r"(\*\*.+?\*\*|\*[^*\n]+?\*|`[^`\n]+?`)", re.S)
+    token = re.compile(r"(<sup>.+?</sup>|\*\*.+?\*\*|\*[^*\n]+?\*|`[^`\n]+?`)", re.S)
     pos = 0
     for m in token.finditer(text):
         if m.start() > pos:
             out.append(("", text[pos:m.start()]))
         s = m.group(0)
-        if s.startswith("**"):
+        if s.startswith("<sup>"):
+            out.append(("sup", s[5:-6]))
+        elif s.startswith("**"):
             out.append(("b", s[2:-2]))
         elif s.startswith("`"):
             out.append(("c", s[1:-1]))
@@ -79,7 +89,7 @@ def runs_xml(text: str) -> str:
         if not s:
             continue
         s = s.replace("\n", " ")
-        if kind != "c":
+        if kind not in ("c", "sup"):
             # The v5 markdown uses ASCII '--' for an em dash; the v4 document
             # uses real typographic dashes, so match it.
             s = re.sub(r"\s--\s", "—", s)
@@ -91,6 +101,8 @@ def runs_xml(text: str) -> str:
             rpr = "<w:rPr><w:i/></w:rPr>"
         elif kind == "c":
             rpr = '<w:rPr><w:rFonts w:ascii="Courier New" w:hAnsi="Courier New"/><w:sz w:val="20"/></w:rPr>'
+        elif kind == "sup":
+            rpr = '<w:rPr><w:vertAlign w:val="superscript"/></w:rPr>'
         xml.append(f'<w:r>{rpr}<w:t xml:space="preserve">{esc(s)}</w:t></w:r>')
     return "".join(xml) or '<w:r><w:t xml:space="preserve"></w:t></w:r>'
 

@@ -1,7 +1,7 @@
 {
   "assembled": "2026-08-22",
   "n_files": 246,
-  "total_bytes": 3143121,
+  "total_bytes": 3144157,
   "n_files_excluded_by_rule": 141,
   "n_duplicates_removed": 24,
   "n_files_refused_by_screening": 0,
@@ -584,8 +584,8 @@
     {
       "path": "pipeline/scripts/build_v5_docx.py",
       "source": "10_new_system/scripts/build_v5_docx.py",
-      "bytes": 14769,
-      "sha256": "1cfe99eba0a59b338939fc3406ed068d3f9b31622865fd9223a1ed65df6a94aa"
+      "bytes": 15805,
+      "sha256": "935a0221c32bb815c711a6aa24303b7cb625a0500a6d724843a90228e32db8d1"
     },
     {
       "path": "pipeline/scripts/build_v6_docx.py",
