@@ -1,7 +1,7 @@
 {
   "assembled": "2026-08-22",
-  "n_files": 246,
-  "total_bytes": 3144950,
+  "n_files": 249,
+  "total_bytes": 3153580,
   "n_files_excluded_by_rule": 141,
   "n_duplicates_removed": 24,
   "n_files_refused_by_screening": 0,
@@ -588,6 +588,12 @@
       "sha256": "935a0221c32bb815c711a6aa24303b7cb625a0500a6d724843a90228e32db8d1"
     },
     {
+      "path": "pipeline/scripts/build_v6_clean_docx.py",
+      "source": "10_new_system/scripts/build_v6_clean_docx.py",
+      "bytes": 6386,
+      "sha256": "805b43cb3e8c76c2e9183e098837ead7eee0fb8f211cede2fa637ad9ca54fa14"
+    },
+    {
       "path": "pipeline/scripts/build_v6_docx.py",
       "source": "10_new_system/scripts/build_v6_docx.py",
       "bytes": 6048,
@@ -1066,6 +1072,18 @@
       "source": "30_manuscript/supplement/S10_verification_2026-08-21/g6_contract/G6_contract_outcome_tierA.json",
       "bytes": 3853,
       "sha256": "cb5574003300188c1a9d138a3a5c96373823e96c41baf80e37b196a2d26a05ee"
+    },
+    {
+      "path": "verification/heldout_evaluation_summary.json",
+      "source": "30_manuscript/supplement/S10_verification_2026-08-21/heldout_evaluation_summary.json",
+      "bytes": 1773,
+      "sha256": "56da16e9d2797ce319e253621fbb443755aba2a1d3a3ab32908970b5bef6ae4f"
+    },
+    {
+      "path": "verification/heldout_fix_verification_summary.json",
+      "source": "30_manuscript/supplement/S10_verification_2026-08-21/heldout_fix_verification_summary.json",
+      "bytes": 471,
+      "sha256": "d7a75ff50397650deb8edad08e3bb2d43c9ce8b884de88be0f8e88d132f6d65f"
     },
     {
       "path": "verification/incident_taxonomy/incident_taxonomy.md",

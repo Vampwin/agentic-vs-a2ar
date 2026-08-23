@@ -1,0 +1,21 @@
+{
+  "run_date": "2026-08-08",
+  "purpose": "regression check confirming H01/H02/H03 patches -- NOT a held-out re-test, see module docstring",
+  "results": [
+    {
+      "case": "H01",
+      "patch_confirmed": true,
+      "actual_state": "ESCALATE"
+    },
+    {
+      "case": "H02",
+      "patch_confirmed": true,
+      "actual_state": "ESCALATE"
+    },
+    {
+      "case": "H03",
+      "patch_confirmed": true,
+      "actual_state": "HALT"
+    }
+  ]
+}

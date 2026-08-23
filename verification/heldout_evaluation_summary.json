@@ -1,0 +1,51 @@
+{
+  "run_date": "2026-08-08",
+  "source_file": "D:\\kdss_SNP V.3\\heldout_fault_cases.md",
+  "n_cases": 5,
+  "n_detected": 1,
+  "results": [
+    {
+      "case": "H01",
+      "gate": "G0",
+      "check": "name_structure_mapping",
+      "expected": "critical -> HALT",
+      "actual_state": "PASS",
+      "detected": false
+    },
+    {
+      "case": "H02",
+      "gate": "G2",
+      "check": "structural_waters_recorded",
+      "expected": "high -> ESCALATE",
+      "actual_state": "PASS",
+      "detected": false,
+      "evaluated_at_all": false
+    },
+    {
+      "case": "H03",
+      "gate": "G3",
+      "check": "atom_map_pre_registration",
+      "expected": "high -> ESCALATE (post-hoc remap should be caught by registration-order precondition)",
+      "actual_state": "PASS",
+      "detected": false,
+      "note": "No code anywhere in kdss_audit/ enforces 'atom_map_..._registered_before_docking' timestamp ordering; grepped the whole package, found none. The evaluator checks only file existence + JSON schema (atom_map key + method=='rdkit_MCS')."
+    },
+    {
+      "case": "H04",
+      "gate": "G4",
+      "check": "output_completeness + missing_output_accounting",
+      "expected": "high -> ESCALATE (both checks fire)",
+      "actual_state": "HALT",
+      "detected": true
+    },
+    {
+      "case": "H05",
+      "gate": "G8",
+      "check": "table_source_verification + no_unregistered_claims",
+      "expected": "high -> ESCALATE",
+      "actual_state": "PASS",
+      "detected": false,
+      "note": "The fault writes to manifest key 'source'; the real evaluator's _verify_manifest() reads 'path' or 'source_path'. Whether this is detected depends on which key wins -- see actual_state/detected."
+    }
+  ]
+}
