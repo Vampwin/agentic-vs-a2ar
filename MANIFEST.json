@@ -1,9 +1,9 @@
 {
   "assembled": "2026-08-22",
-  "n_files": 249,
-  "total_bytes": 3153580,
+  "n_files": 251,
+  "total_bytes": 3810300,
   "n_files_excluded_by_rule": 141,
-  "n_duplicates_removed": 24,
+  "n_duplicates_removed": 27,
   "n_files_refused_by_screening": 0,
   "refused": [],
   "flagged_and_cleared_on_review": [
@@ -578,8 +578,8 @@
     {
       "path": "pipeline/scripts/build_supplement_s10.py",
       "source": "10_new_system/scripts/build_supplement_s10.py",
-      "bytes": 10232,
-      "sha256": "57fd46f19fc107c435ea70abdd57d815b9b3f91c20d8cc60f7a6aff9575814fb"
+      "bytes": 13172,
+      "sha256": "fac5688724df0ce9c52ca26edd98ce6bbf3e619e4435c9483d6554d84f72b0e0"
     },
     {
       "path": "pipeline/scripts/build_v5_docx.py",
@@ -656,8 +656,8 @@
     {
       "path": "pipeline/scripts/g8_number_traceability.py",
       "source": "10_new_system/scripts/g8_number_traceability.py",
-      "bytes": 18977,
-      "sha256": "ccdd7017b187fa5b6976ecb2f35fff279f5bd5c3b0b84ecb998f2b15bc16cdcb"
+      "bytes": 19426,
+      "sha256": "875c589efabd3f76a641fa7cf296657aa3c061d191136b0ab0a3a679511cab50"
     },
     {
       "path": "pipeline/scripts/ifp_rescore_benchmark.py",
@@ -1074,16 +1074,16 @@
       "sha256": "cb5574003300188c1a9d138a3a5c96373823e96c41baf80e37b196a2d26a05ee"
     },
     {
-      "path": "verification/heldout_evaluation_summary.json",
-      "source": "30_manuscript/supplement/S10_verification_2026-08-21/heldout_evaluation_summary.json",
-      "bytes": 1773,
-      "sha256": "56da16e9d2797ce319e253621fbb443755aba2a1d3a3ab32908970b5bef6ae4f"
-    },
-    {
-      "path": "verification/heldout_fix_verification_summary.json",
-      "source": "30_manuscript/supplement/S10_verification_2026-08-21/heldout_fix_verification_summary.json",
+      "path": "verification/heldout_outcome/fix_verification_summary.json",
+      "source": "30_manuscript/supplement/S10_verification_2026-08-21/heldout_outcome/fix_verification_summary.json",
       "bytes": 471,
       "sha256": "d7a75ff50397650deb8edad08e3bb2d43c9ce8b884de88be0f8e88d132f6d65f"
+    },
+    {
+      "path": "verification/heldout_outcome/heldout_evaluation_summary.json",
+      "source": "30_manuscript/supplement/S10_verification_2026-08-21/heldout_outcome/heldout_evaluation_summary.json",
+      "bytes": 1773,
+      "sha256": "56da16e9d2797ce319e253621fbb443755aba2a1d3a3ab32908970b5bef6ae4f"
     },
     {
       "path": "verification/incident_taxonomy/incident_taxonomy.md",
@@ -1094,8 +1094,20 @@
     {
       "path": "verification/MANIFEST.json",
       "source": "30_manuscript/supplement/S10_verification_2026-08-21/MANIFEST.json",
-      "bytes": 12425,
-      "sha256": "2146116cab003b188a30489b63f3fd5a4a9b93afdf1df956e99a31ac91648bfd"
+      "bytes": 15423,
+      "sha256": "77c3b1d9ccaa3f452ac31dbfed34c8bf75228595a9b95374515824b4219f6149"
+    },
+    {
+      "path": "verification/md_control/box.xvg",
+      "source": "30_manuscript/supplement/S10_verification_2026-08-21/md_control/box.xvg",
+      "bytes": 370767,
+      "sha256": "88f9ea0930e0c9be4544a1934e349e233372cb6bed47a66f6939269f64554652"
+    },
+    {
+      "path": "verification/md_control/ligand_rmsd.xvg",
+      "source": "30_manuscript/supplement/S10_verification_2026-08-21/md_control/ligand_rmsd.xvg",
+      "bytes": 26702,
+      "sha256": "950f922c62c64d49af753f4f412043317235e66767aacc97cc06faa3b6fac441"
     },
     {
       "path": "verification/metamorphic/ledger_M1_rowshuffle.csv",
@@ -1134,6 +1146,24 @@
       "sha256": "589392905f6b836b9d0b2f13797df4e99abc8656cc3d9f8d313510cc23a723f9"
     },
     {
+      "path": "verification/orthogonal_engine/4EIY_protein_only.pdb",
+      "source": "30_manuscript/supplement/S10_verification_2026-08-21/orthogonal_engine/4EIY_protein_only.pdb",
+      "bytes": 246989,
+      "sha256": "b4e01d32d0f49d2b47b4b1f6b14bd018a6ad7a014ebc29e9ee92b572f164a4bb"
+    },
+    {
+      "path": "verification/orthogonal_engine/diffdock_input.csv",
+      "source": "30_manuscript/supplement/S10_verification_2026-08-21/orthogonal_engine/diffdock_input.csv",
+      "bytes": 368,
+      "sha256": "0f8d89da95b8bd828b4b5e23b6d8d7b987d7a13f5fd95d8620368f4cb1aafbca"
+    },
+    {
+      "path": "verification/orthogonal_engine/orthogonal_check_result.json",
+      "source": "30_manuscript/supplement/S10_verification_2026-08-21/orthogonal_engine/orthogonal_check_result.json",
+      "bytes": 1197,
+      "sha256": "ef5a977ae36e94a2df9a793363df80390168824e12ea4c1607309a9538b0cd31"
+    },
+    {
       "path": "verification/pose_rescue/ifp_rescoring_summary.json",
       "source": "30_manuscript/supplement/S10_verification_2026-08-21/pose_rescue/ifp_rescoring_summary.json",
       "bytes": 2329,
@@ -1160,8 +1190,8 @@
     {
       "path": "verification/README.md",
       "source": "30_manuscript/supplement/S10_verification_2026-08-21/README.md",
-      "bytes": 5418,
-      "sha256": "ac90c432c5692ae800acd718ec7d299e7d4c9f8d030579404fbaa3de88b2f970"
+      "bytes": 6615,
+      "sha256": "da512b7874cf20824b49397bb0bafb83a9ed1231b22f66d9ccbd83066e29bbee"
     },
     {
       "path": "verification/released_result/conformal_qsar_summary_np_library_dock_ledger.json",
@@ -1220,8 +1250,8 @@
     {
       "path": "verification/structure_and_protocol/g8_number_traceability.json",
       "source": "30_manuscript/supplement/S10_verification_2026-08-21/structure_and_protocol/g8_number_traceability.json",
-      "bytes": 11629,
-      "sha256": "badea5532452869a72d14e75b7a9057191f2bdcd52fa6af0f93a2de6cc98dd5b"
+      "bytes": 14674,
+      "sha256": "17f7f798ebb2e5db85a6415cb3ece54704c5ad705574ae66a1eadd5db14217b1"
     },
     {
       "path": "verification/structure_and_protocol/ligand_extents.csv",
@@ -1280,32 +1310,14 @@
     {
       "path": "verification/summary/g8_number_traceability.json",
       "source": "20_new_runs/verification_summary_2026-08-21/g8_number_traceability.json",
-      "bytes": 14674,
-      "sha256": "763bebbe52e20e4cd4aea2f46c72d6dda585e9d42cadefe532f96b9a0ede93f6"
+      "bytes": 14742,
+      "sha256": "d37f399074b4ffbb5edb6a4f62fd480740b802f2b83ee094013a9c5bb51e249b"
     },
     {
       "path": "verification/summary/stereo_undefined_counts.json",
       "source": "20_new_runs/verification_summary_2026-08-21/stereo_undefined_counts.json",
       "bytes": 635,
       "sha256": "84469e0c010995e37c998a18b7431db2a2447652e6b1de7227ec47b17adc7f34"
-    },
-    {
-      "path": "verification/orthogonal_engine/4EIY_protein_only.pdb",
-      "source": "20_new_runs/diffdock_orthogonal_2026-08-23/4EIY_protein_only.pdb",
-      "bytes": 246989,
-      "sha256": "b4e01d32d0f49d2b47b4b1f6b14bd018a6ad7a014ebc29e9ee92b572f164a4bb"
-    },
-    {
-      "path": "verification/orthogonal_engine/diffdock_input.csv",
-      "source": "20_new_runs/diffdock_orthogonal_2026-08-23/diffdock_input.csv",
-      "bytes": 368,
-      "sha256": "0f8d89da95b8bd828b4b5e23b6d8d7b987d7a13f5fd95d8620368f4cb1aafbca"
-    },
-    {
-      "path": "verification/orthogonal_engine/orthogonal_check_result.json",
-      "source": "20_new_runs/diffdock_orthogonal_2026-08-23/orthogonal_check_result.json",
-      "bytes": 1197,
-      "sha256": "ef5a977ae36e94a2df9a793363df80390168824e12ea4c1607309a9538b0cd31"
     },
     {
       "path": "verification/orthogonal_engine/results/NPLIB01185/rank1.sdf",

@@ -106,6 +106,11 @@ def sources() -> dict[str, object]:
         # manuscript. Recounting here is what keeps the two in step.
         "dep": sum(1 for f in (ROOT / "40_deposit").rglob("*")
                    if f.is_file() and ".git" not in f.parts),
+        # Size as well as count. The first version of this check hardcoded
+        # "3.0 MB" into the literal it searched for, so growing the deposit
+        # turned a correct count into a FAIL-ABSENT on the size string.
+        "dep_mb": round(sum(f.stat().st_size for f in (ROOT / "40_deposit").rglob("*")
+                            if f.is_file() and ".git" not in f.parts) / 1e6, 1),
     }
 
 
@@ -255,7 +260,8 @@ def build_checks(S) -> list[tuple[str, str, object, object]]:
     add("heldout_detected_abstract", "it detected one", 1, ho["n_detected"])
 
     # --- deposit ---------------------------------------------------------------
-    add("deposit_files", f"{S['dep']} files, 3.0 MB", S["dep"], S["dep"])
+    add("deposit_files", f"{S['dep']} files, {S['dep_mb']:.1f} MB",
+        (S["dep"], S["dep_mb"]), (S["dep"], S["dep_mb"]))
     return C
 
 

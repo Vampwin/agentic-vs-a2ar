@@ -112,6 +112,35 @@ ITEMS: list[tuple[str, str, str]] = [
      "structure_and_protocol", "§2.5: per-compound principal extents"),
     ("verification_summary_2026-08-21/g8_number_traceability.json",
      "structure_and_protocol", "the G8 audit of every number in the manuscript"),
+
+    # Added 2026-08-24: artifacts the v6 manuscript describes that this bundle
+    # did not carry. Each is copied from the run that produced it, like the rest.
+    ("diffdock_orthogonal_2026-08-23/orthogonal_check_result.json",
+     "orthogonal_engine", "§3.5: the pre-registered DiffDock check -- control gate 1.92 A, "
+     "candidate disagreement 6.43/8.80/9.50 A, and the pre-registered prediction scored as failed"),
+    ("diffdock_orthogonal_2026-08-23/diffdock_input.csv",
+     "orthogonal_engine", "§2.5: the four ligands submitted, as InChIKey-verified SMILES"),
+    ("diffdock_orthogonal_2026-08-23/4EIY_protein_only.pdb",
+     "orthogonal_engine", "§2.5: the receptor given to DiffDock, waters removed as declared"),
+
+    ("heldout_evaluation_2026-08-08/heldout_evaluation_summary.json",
+     "heldout_outcome", "§3.1: which of the five project-blind fault cases each gate detected"),
+    ("heldout_evaluation_2026-08-08/fix_verification_summary.json",
+     "heldout_outcome", "§3.1: the regression check confirming the H01-H03 patches -- "
+     "explicitly NOT a second held-out measurement"),
+
+    ("md_production_2026-08-21/04_run/analysis_prod/ligand_rmsd.xvg",
+     "md_control", "§2.9: ZM241385 heavy-atom RMSD over the 100 ns control trajectory"),
+    ("md_production_2026-08-21/04_run/analysis_prod/box.xvg",
+     "md_control", "§2.9: box dimensions, the bilayer-equilibration check"),
+]
+
+# Hand-authored, not copied from a run directory, but still manifest-listed so
+# that the manuscript's claim -- every file in S10 carries a SHA-256 in the
+# section manifest -- is true of the whole section rather than most of it.
+HAND_AUTHORED: list[tuple[str, str]] = [
+    ("incident_taxonomy/incident_taxonomy.md",
+     "§3.6: the fifteen incidents classified by layer, what detected each, how it resolved"),
 ]
 
 
@@ -151,8 +180,23 @@ def main() -> int:
             "sha256": sha256(dst),
         })
 
+    for rel, purpose in HAND_AUTHORED:
+        f = DEST / rel
+        if not f.is_file():
+            missing.append(f"(hand-authored) {rel}")
+            continue
+        size = f.stat().st_size
+        total += size
+        manifest.append({
+            "file": rel,
+            "source": "hand-authored for this supplement",
+            "supports": purpose,
+            "bytes": size,
+            "sha256": sha256(f),
+        })
+
     readme = [
-        "# S10 — Verification evidence, 2026-08-21",
+        "# S10 — Verification evidence",
         "",
         "Sections S1–S9 were assembled on 2026-08-08 and predate every run the",
         "verification claims in this manuscript rest on. They are left unmodified as",
@@ -175,10 +219,16 @@ def main() -> int:
         "",
         "## What is deliberately not here",
         "",
-        "- **Held-out fault families H01–H12.** Sealed; unsealing requires a separate",
-        "  human approval that has not been given.",
-        "- **Molecular-dynamics artifacts.** No MD result is reported in this",
-        "  manuscript (§4, deferred work), so none is deposited.",
+        "- **The held-out fault mechanism (H01–H12).** The `apply_fault()` code that",
+        "  defines each case is sealed; unsealing it requires a separate human",
+        "  approval that has not been given. What the evaluation *measured* is",
+        "  reported: `heldout_outcome/` carries which case each gate detected, and",
+        "  §3.1 states the result. Reporting an outcome and publishing the test that",
+        "  produced it are different acts (ADR-AIIM-113/115).",
+        "- **Molecular-dynamics trajectories.** The control run\'s analysis output is",
+        "  here under `md_control/`; the trajectories themselves run to gigabytes and",
+        "  are available from the corresponding author. The three candidate",
+        "  simulations were still running at submission (§4).",
         "- **Full pose archives.** The per-compound pose directories run to several GB.",
         "  They are part of the repository named in the data-availability statement,",
         "  not of this bundle.",
@@ -190,12 +240,14 @@ def main() -> int:
         "`run_metamorphic_docking.sh`, `analyse_metamorphic.py`,",
         "`ad_descriptor_sweep.py`, `funnel_exclusion_control.py`,",
         "`run_g6_on_np_library.py`, `qsar_y_randomization.py`,",
-        "`figure_ad_multispace.py`, `g8_number_traceability.py`.",
+        "`figure_ad_multispace.py`, `g8_number_traceability.py`,",
+        "`diffdock_orthogonal_check.py`, `md_11_analyse_pose_persistence.sh`.",
         "",
     ]
     (DEST / "README.md").write_text("\n".join(readme), encoding="utf-8")
     (DEST / "MANIFEST.json").write_text(
-        json.dumps({"assembled": "2026-08-21", "n_files": len(manifest),
+        json.dumps({"assembled": "2026-08-21, extended 2026-08-24",
+                    "n_files": len(manifest),
                     "total_bytes": total, "missing_sources": missing,
                     "files": manifest}, indent=2), encoding="utf-8")
 

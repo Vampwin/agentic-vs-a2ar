@@ -1,7 +1,7 @@
 {
-  "assembled": "2026-08-21",
-  "n_files": 36,
-  "total_bytes": 460382,
+  "assembled": "2026-08-21, extended 2026-08-24",
+  "n_files": 44,
+  "total_bytes": 1115270,
   "missing_sources": [],
   "files": [
     {
@@ -253,8 +253,64 @@
       "file": "structure_and_protocol/g8_number_traceability.json",
       "source": "20_new_runs/verification_summary_2026-08-21/g8_number_traceability.json",
       "supports": "the G8 audit of every number in the manuscript",
-      "bytes": 11629,
-      "sha256": "badea5532452869a72d14e75b7a9057191f2bdcd52fa6af0f93a2de6cc98dd5b"
+      "bytes": 14674,
+      "sha256": "17f7f798ebb2e5db85a6415cb3ece54704c5ad705574ae66a1eadd5db14217b1"
+    },
+    {
+      "file": "orthogonal_engine/orthogonal_check_result.json",
+      "source": "20_new_runs/diffdock_orthogonal_2026-08-23/orthogonal_check_result.json",
+      "supports": "\u00a73.5: the pre-registered DiffDock check -- control gate 1.92 A, candidate disagreement 6.43/8.80/9.50 A, and the pre-registered prediction scored as failed",
+      "bytes": 1197,
+      "sha256": "ef5a977ae36e94a2df9a793363df80390168824e12ea4c1607309a9538b0cd31"
+    },
+    {
+      "file": "orthogonal_engine/diffdock_input.csv",
+      "source": "20_new_runs/diffdock_orthogonal_2026-08-23/diffdock_input.csv",
+      "supports": "\u00a72.5: the four ligands submitted, as InChIKey-verified SMILES",
+      "bytes": 368,
+      "sha256": "0f8d89da95b8bd828b4b5e23b6d8d7b987d7a13f5fd95d8620368f4cb1aafbca"
+    },
+    {
+      "file": "orthogonal_engine/4EIY_protein_only.pdb",
+      "source": "20_new_runs/diffdock_orthogonal_2026-08-23/4EIY_protein_only.pdb",
+      "supports": "\u00a72.5: the receptor given to DiffDock, waters removed as declared",
+      "bytes": 246989,
+      "sha256": "b4e01d32d0f49d2b47b4b1f6b14bd018a6ad7a014ebc29e9ee92b572f164a4bb"
+    },
+    {
+      "file": "heldout_outcome/heldout_evaluation_summary.json",
+      "source": "20_new_runs/heldout_evaluation_2026-08-08/heldout_evaluation_summary.json",
+      "supports": "\u00a73.1: which of the five project-blind fault cases each gate detected",
+      "bytes": 1773,
+      "sha256": "56da16e9d2797ce319e253621fbb443755aba2a1d3a3ab32908970b5bef6ae4f"
+    },
+    {
+      "file": "heldout_outcome/fix_verification_summary.json",
+      "source": "20_new_runs/heldout_evaluation_2026-08-08/fix_verification_summary.json",
+      "supports": "\u00a73.1: the regression check confirming the H01-H03 patches -- explicitly NOT a second held-out measurement",
+      "bytes": 471,
+      "sha256": "d7a75ff50397650deb8edad08e3bb2d43c9ce8b884de88be0f8e88d132f6d65f"
+    },
+    {
+      "file": "md_control/ligand_rmsd.xvg",
+      "source": "20_new_runs/md_production_2026-08-21/04_run/analysis_prod/ligand_rmsd.xvg",
+      "supports": "\u00a72.9: ZM241385 heavy-atom RMSD over the 100 ns control trajectory",
+      "bytes": 26702,
+      "sha256": "950f922c62c64d49af753f4f412043317235e66767aacc97cc06faa3b6fac441"
+    },
+    {
+      "file": "md_control/box.xvg",
+      "source": "20_new_runs/md_production_2026-08-21/04_run/analysis_prod/box.xvg",
+      "supports": "\u00a72.9: box dimensions, the bilayer-equilibration check",
+      "bytes": 370767,
+      "sha256": "88f9ea0930e0c9be4544a1934e349e233372cb6bed47a66f6939269f64554652"
+    },
+    {
+      "file": "incident_taxonomy/incident_taxonomy.md",
+      "source": "hand-authored for this supplement",
+      "supports": "\u00a73.6: the fifteen incidents classified by layer, what detected each, how it resolved",
+      "bytes": 3576,
+      "sha256": "dd3f19fb70fdbeffeb733845a4534feaacc468066e6fddb6e8c0434e87c32d79"
     }
   ]
 }

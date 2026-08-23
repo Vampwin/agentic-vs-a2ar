@@ -535,10 +535,16 @@
     {
       "check": "deposit_files",
       "state": "PASS",
-      "expected": 245,
-      "recomputed": 245,
+      "expected": [
+        247,
+        3.3
+      ],
+      "recomputed": [
+        247,
+        3.3
+      ],
       "literal_present_in_manuscript": true,
-      "literal": "245 files, 3.0 MB"
+      "literal": "247 files, 3.3 MB"
     },
     {
       "check": "citation_integrity",

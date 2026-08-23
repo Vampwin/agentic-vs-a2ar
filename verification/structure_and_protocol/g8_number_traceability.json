@@ -1,8 +1,8 @@
 {
   "manuscript": "D:\\Agentic VS Workflow\\30_manuscript\\CURRENT_v5\\manuscript_AIIM_v6.md",
   "state": "PASS",
-  "n_checks": 53,
-  "n_pass": 53,
+  "n_checks": 67,
+  "n_pass": 67,
   "n_value_mismatch": 0,
   "n_literal_absent": 0,
   "checks": [
@@ -429,12 +429,124 @@
       "literal": "\u03c1 = \u22120.182"
     },
     {
+      "check": "md_atoms",
+      "state": "PASS",
+      "expected": 93203,
+      "recomputed": 93203,
+      "literal_present_in_manuscript": true,
+      "literal": "93,203 atoms in total"
+    },
+    {
+      "check": "md_water",
+      "state": "PASS",
+      "expected": 15656,
+      "recomputed": 15656,
+      "literal_present_in_manuscript": true,
+      "literal": "15,656 OPC waters"
+    },
+    {
+      "check": "md_xtal_water",
+      "state": "PASS",
+      "expected": 156,
+      "recomputed": 156,
+      "literal_present_in_manuscript": true,
+      "literal": "156 crystallographic waters"
+    },
+    {
+      "check": "md_restrained",
+      "state": "PASS",
+      "expected": 2357,
+      "recomputed": 2357,
+      "literal_present_in_manuscript": true,
+      "literal": "2,357 receptor and ligand heavy atoms"
+    },
+    {
+      "check": "dd_control_rmsd",
+      "state": "PASS",
+      "expected": 1.92,
+      "recomputed": 1.92,
+      "literal_present_in_manuscript": true,
+      "literal": "**1.92 \u00c5**"
+    },
+    {
+      "check": "dd_control_conf",
+      "state": "PASS",
+      "expected": 0.16,
+      "recomputed": 0.16,
+      "literal_present_in_manuscript": true,
+      "literal": "control +0.16"
+    },
+    {
+      "check": "dd_rmsds",
+      "state": "PASS",
+      "expected": "6.43/8.80/9.50",
+      "recomputed": "6.43/8.80/9.50",
+      "literal_present_in_manuscript": true,
+      "literal": "6.43, 8.80 and 9.50 \u00c5"
+    },
+    {
+      "check": "dd_confs",
+      "state": "PASS",
+      "expected": "0.23/0.47/-0.50",
+      "recomputed": "0.23/0.47/-0.50",
+      "literal_present_in_manuscript": true,
+      "literal": "+0.23, +0.47 and \u22120.50"
+    },
+    {
+      "check": "dd_prediction_failed",
+      "state": "PASS",
+      "expected": false,
+      "recomputed": false,
+      "literal_present_in_manuscript": true,
+      "literal": "**failed**"
+    },
+    {
+      "check": "dd_highest_conf",
+      "state": "PASS",
+      "expected": 0.47,
+      "recomputed": 0.47,
+      "literal_present_in_manuscript": true,
+      "literal": "highest (+0.47) on NPLIB01643"
+    },
+    {
+      "check": "heldout_n",
+      "state": "PASS",
+      "expected": 5,
+      "recomputed": 5,
+      "literal_present_in_manuscript": true,
+      "literal": "five cases authored by a project-blind session"
+    },
+    {
+      "check": "heldout_detected",
+      "state": "PASS",
+      "expected": 1,
+      "recomputed": 1,
+      "literal_present_in_manuscript": true,
+      "literal": "**One of the five was detected.**"
+    },
+    {
+      "check": "heldout_detected_abstract",
+      "state": "PASS",
+      "expected": 1,
+      "recomputed": 1,
+      "literal_present_in_manuscript": true,
+      "literal": "it detected one"
+    },
+    {
+      "check": "deposit_files",
+      "state": "PASS",
+      "expected": 248,
+      "recomputed": 248,
+      "literal_present_in_manuscript": true,
+      "literal": "248 files, 3.0 MB"
+    },
+    {
       "check": "citation_integrity",
       "state": "PASS",
       "expected": "every marker resolves, every entry cited, 1..N contiguous",
       "recomputed": {
-        "n_entries": 47,
-        "n_cited": 47,
+        "n_entries": 57,
+        "n_cited": 57,
         "dangling_markers": [],
         "uncited_entries": [],
         "numbering_contiguous": true

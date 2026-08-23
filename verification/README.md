@@ -1,4 +1,4 @@
-# S10 — Verification evidence, 2026-08-21
+# S10 — Verification evidence
 
 Sections S1–S9 were assembled on 2026-08-08 and predate every run the
 verification claims in this manuscript rest on. They are left unmodified as
@@ -10,11 +10,10 @@ one, and the manifest records its SHA-256 so a reader can confirm the copy
 matches. A supplement that re-derives its own numbers demonstrates nothing
 about the run that produced them.
 
-**37 files, ~453 KB** (36 copied and hash-verified by `build_supplement_s10.py`, plus one hand-authored addition: `incident_taxonomy/incident_taxonomy.md`, the full incident table Section 3.6 of the manuscript summarises in two sentences.)
+**44 files, 1089 KB.**
 
 | File | Supports |
 |---|---|
-| `incident_taxonomy/incident_taxonomy.md` | §3.6: the fifteen-incident table, moved here to keep the main text under the AIIM length target |
 | `seeded_defects/mutation_score_by_gate.json` | Table 4 and §3.1: per-gate and per-family detection, the 2x2 ablation |
 | `seeded_defects/wp4_conditions_ac_results_postfix_2026-08-05.json` | the underlying run the per-gate table is derived from |
 | `seeded_defects/naive_baseline_summary.json` | §3.1: the ungoverned comparator, SEER 0.477 |
@@ -51,13 +50,27 @@ about the run that produced them.
 | `structure_and_protocol/box_and_cutoff_checks.json` | §2.5: ligand extent vs box, centroid-cutoff sensitivity |
 | `structure_and_protocol/ligand_extents.csv` | §2.5: per-compound principal extents |
 | `structure_and_protocol/g8_number_traceability.json` | the G8 audit of every number in the manuscript |
+| `orthogonal_engine/orthogonal_check_result.json` | §3.5: the pre-registered DiffDock check -- control gate 1.92 A, candidate disagreement 6.43/8.80/9.50 A, and the pre-registered prediction scored as failed |
+| `orthogonal_engine/diffdock_input.csv` | §2.5: the four ligands submitted, as InChIKey-verified SMILES |
+| `orthogonal_engine/4EIY_protein_only.pdb` | §2.5: the receptor given to DiffDock, waters removed as declared |
+| `heldout_outcome/heldout_evaluation_summary.json` | §3.1: which of the five project-blind fault cases each gate detected |
+| `heldout_outcome/fix_verification_summary.json` | §3.1: the regression check confirming the H01-H03 patches -- explicitly NOT a second held-out measurement |
+| `md_control/ligand_rmsd.xvg` | §2.9: ZM241385 heavy-atom RMSD over the 100 ns control trajectory |
+| `md_control/box.xvg` | §2.9: box dimensions, the bilayer-equilibration check |
+| `incident_taxonomy/incident_taxonomy.md` | §3.6: the fifteen incidents classified by layer, what detected each, how it resolved |
 
 ## What is deliberately not here
 
-- **Held-out fault families H01–H12.** Sealed; unsealing requires a separate
-  human approval that has not been given.
-- **Molecular-dynamics artifacts.** No MD result is reported in this
-  manuscript (§4, deferred work), so none is deposited.
+- **The held-out fault mechanism (H01–H12).** The `apply_fault()` code that
+  defines each case is sealed; unsealing it requires a separate human
+  approval that has not been given. What the evaluation *measured* is
+  reported: `heldout_outcome/` carries which case each gate detected, and
+  §3.1 states the result. Reporting an outcome and publishing the test that
+  produced it are different acts (ADR-AIIM-113/115).
+- **Molecular-dynamics trajectories.** The control run's analysis output is
+  here under `md_control/`; the trajectories themselves run to gigabytes and
+  are available from the corresponding author. The three candidate
+  simulations were still running at submission (§4).
 - **Full pose archives.** The per-compound pose directories run to several GB.
   They are part of the repository named in the data-availability statement,
   not of this bundle.
@@ -69,4 +82,5 @@ All under `10_new_system/scripts/`:
 `run_metamorphic_docking.sh`, `analyse_metamorphic.py`,
 `ad_descriptor_sweep.py`, `funnel_exclusion_control.py`,
 `run_g6_on_np_library.py`, `qsar_y_randomization.py`,
-`figure_ad_multispace.py`, `g8_number_traceability.py`.
+`figure_ad_multispace.py`, `g8_number_traceability.py`,
+`diffdock_orthogonal_check.py`, `md_11_analyse_pose_persistence.sh`.

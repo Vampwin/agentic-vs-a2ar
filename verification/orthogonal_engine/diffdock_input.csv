@@ -1,5 +1,0 @@
-complex_name,protein_path,ligand_description,protein_sequence
-ZM241385_control,4EIY_protein_only.pdb,Nc1nc(NCCc2ccc(O)cc2)nc2nc(-c3ccco3)nn12,
-NPLIB01185,4EIY_protein_only.pdb,COc1c2ccoc2cc2oc(-c3ccc4c(c3)OCO4)cc(=O)c12,
-NPLIB01643,4EIY_protein_only.pdb,COc1ccc(-c2cc(=O)c3cc4ccoc4cc3o2)cc1,
-NPLIB03056,4EIY_protein_only.pdb,COc1c2ccoc2cc2oc(-c3ccccc3)cc(=O)c12,
