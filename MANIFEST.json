@@ -1,9 +1,9 @@
 {
   "assembled": "2026-08-22",
-  "n_files": 260,
-  "total_bytes": 4494074,
-  "n_files_excluded_by_rule": 141,
-  "n_duplicates_removed": 29,
+  "n_files": 265,
+  "total_bytes": 7056247,
+  "n_files_excluded_by_rule": 143,
+  "n_duplicates_removed": 30,
   "n_files_refused_by_screening": 0,
   "refused": [],
   "flagged_and_cleared_on_review": [
@@ -578,8 +578,8 @@
     {
       "path": "pipeline/scripts/build_supplement_s10.py",
       "source": "10_new_system/scripts/build_supplement_s10.py",
-      "bytes": 15139,
-      "sha256": "0ab33fad2c6afcdfface72709c8da77ae1bbeee8b5c2318d5f806b0545514e5e"
+      "bytes": 15401,
+      "sha256": "ed3208c4c4446cc45efe14966651f5708f3ddc49035b4e741d93bde9900e17b4"
     },
     {
       "path": "pipeline/scripts/build_supplementary_information.py",
@@ -640,6 +640,12 @@
       "source": "10_new_system/scripts/ensure_fullprotocol_running.sh",
       "bytes": 2152,
       "sha256": "260c4f809c97218a0ab185f8e361bb237aaedf5aebc7c9cc389a7c0471d1a714"
+    },
+    {
+      "path": "pipeline/scripts/figure5_pose_overlay_compose.py",
+      "source": "10_new_system/scripts/figure5_pose_overlay_compose.py",
+      "bytes": 6331,
+      "sha256": "9230a1f713f1a9100c6d7c0f9c7df4fc55b68226568302e3c2e643e14d58f777"
     },
     {
       "path": "pipeline/scripts/figure_ad_multispace.py",
@@ -802,6 +808,12 @@
       "source": "10_new_system/scripts/real_artifact_replay_2026-08-05.py",
       "bytes": 15917,
       "sha256": "8b84d99191ee95a88880022fbc1037f54dd4363769bc90314c206c52dd5ff149"
+    },
+    {
+      "path": "pipeline/scripts/render_pose_overlay_pymol.py",
+      "source": "10_new_system/scripts/render_pose_overlay_pymol.py",
+      "bytes": 6437,
+      "sha256": "2faddff5d449e257740654f5da7e505da99ee76d05e4fec6ae14c7bd183286f5"
     },
     {
       "path": "pipeline/scripts/renumber_references.py",
@@ -1112,8 +1124,8 @@
     {
       "path": "verification/MANIFEST.json",
       "source": "30_manuscript/supplement/S10_verification_2026-08-21/MANIFEST.json",
-      "bytes": 17304,
-      "sha256": "f9ce2f866f5841981bda04fcced95b17dd7bce76069fcaa3dcc84c544b446a24"
+      "bytes": 17763,
+      "sha256": "43abf756b890a9078af8bdef103b60953fb2f25b91c9bec9f83e9e094cf15ffc"
     },
     {
       "path": "verification/md_candidate_builds/NPLIB01185_build_metadata.json",
@@ -1232,8 +1244,8 @@
     {
       "path": "verification/README.md",
       "source": "30_manuscript/supplement/S10_verification_2026-08-21/README.md",
-      "bytes": 7261,
-      "sha256": "50710dddb75339c591ebfe72f115c1a605a691088a6a274f8662b20791940810"
+      "bytes": 7474,
+      "sha256": "c9b541ad56e8ea713ef66078818773a140dd7047f29482b6acdff334ac53b5c4"
     },
     {
       "path": "verification/released_result/conformal_qsar_summary_np_library_dock_ledger.json",
@@ -1292,8 +1304,8 @@
     {
       "path": "verification/structure_and_protocol/g8_number_traceability.json",
       "source": "30_manuscript/supplement/S10_verification_2026-08-21/structure_and_protocol/g8_number_traceability.json",
-      "bytes": 15174,
-      "sha256": "24ae0d02fe9237e7ba5f2c2ba016e90b6fc34443eb0458d656f99d895cb30072"
+      "bytes": 15182,
+      "sha256": "6a8aa159d7c8d63ef97c84f986f25c88357ab1c17b7dc16fbaccae8e59cc0521"
     },
     {
       "path": "verification/structure_and_protocol/ligand_extents.csv",
@@ -1342,6 +1354,24 @@
       "source": "30_manuscript/figures/figure4_screening_performance_provenance.json",
       "bytes": 2308,
       "sha256": "a44bd87501bbd49fdd83d1a42bab7df814a4e2ab88847924c93b016248f75b5c"
+    },
+    {
+      "path": "figures/figure5_pose_overlay_2026-08-24.png",
+      "source": "30_manuscript/figures/figure5_pose_overlay_2026-08-24.png",
+      "bytes": 2279644,
+      "sha256": "72a2d5a2028096811e305be8faccdc13d0de00adae5773dbf5433630aa7aac9c"
+    },
+    {
+      "path": "figures/figure5_pose_overlay_2026-08-24.svg",
+      "source": "30_manuscript/figures/figure5_pose_overlay_2026-08-24.svg",
+      "bytes": 264283,
+      "sha256": "caa001748b2a058bcfd5473a2afd6af8c6907a77e192482742b871838b5c8e6f"
+    },
+    {
+      "path": "figures/figure5_pose_overlay_provenance.json",
+      "source": "30_manuscript/figures/figure5_pose_overlay_provenance.json",
+      "bytes": 2264,
+      "sha256": "7f29fb8332b74da4a7f4c7366257219476d5d12c24cca7b316e4428c8e0b91d2"
     },
     {
       "path": "figures/figure_ad_multispace_2026-08-21.png",

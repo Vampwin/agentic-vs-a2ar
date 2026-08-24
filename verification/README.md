@@ -10,7 +10,7 @@ one, and the manifest records its SHA-256 so a reader can confirm the copy
 matches. A supplement that re-derives its own numbers demonstrates nothing
 about the run that produced them.
 
-**49 files, 1124 KB.**
+**50 files, 1127 KB.**
 
 | File | Supports |
 |---|---|
@@ -34,6 +34,7 @@ about the run that produced them.
 | `applicability_domain/run_metadata.json` | the single rule applied identically in every space |
 | `applicability_domain/figure_ad_multispace_provenance.json` | Figure 3: input and output digests |
 | `pose_rescue/figure4_screening_performance_provenance.json` | Figure 4: input and output digests, and the AUC value under both tie conventions |
+| `orthogonal_engine/figure5_pose_overlay_provenance.json` | Figure 5: input and output digests, RMSD values and their verification method, and the chain-discontinuity note behind the pocket-local cartoon view |
 | `funnel_control/exclusion_control_summary.json` | §3.4: 7.0% of discarded compounds reach the selection cutoff vs 10.0% kept |
 | `funnel_control/control_metadata.json` | how the 500 discarded compounds were sampled |
 | `funnel_control/exclusion_scores.csv` | the control docking scores |

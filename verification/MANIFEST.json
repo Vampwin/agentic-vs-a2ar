@@ -1,7 +1,7 @@
 {
   "assembled": "2026-08-21, extended 2026-08-24",
-  "n_files": 49,
-  "total_bytes": 1151411,
+  "n_files": 50,
+  "total_bytes": 1153683,
   "missing_sources": [],
   "files": [
     {
@@ -145,6 +145,13 @@
       "sha256": "a44bd87501bbd49fdd83d1a42bab7df814a4e2ab88847924c93b016248f75b5c"
     },
     {
+      "file": "orthogonal_engine/figure5_pose_overlay_provenance.json",
+      "source": "20_new_runs/../30_manuscript/figures/figure5_pose_overlay_provenance.json",
+      "supports": "Figure 5: input and output digests, RMSD values and their verification method, and the chain-discontinuity note behind the pocket-local cartoon view",
+      "bytes": 2264,
+      "sha256": "7f29fb8332b74da4a7f4c7366257219476d5d12c24cca7b316e4428c8e0b91d2"
+    },
+    {
       "file": "funnel_control/exclusion_control_summary.json",
       "source": "20_new_runs/funnel_exclusion_control_2026-08-21/exclusion_control_summary.json",
       "supports": "\u00a73.4: 7.0% of discarded compounds reach the selection cutoff vs 10.0% kept",
@@ -267,8 +274,8 @@
       "file": "structure_and_protocol/g8_number_traceability.json",
       "source": "20_new_runs/verification_summary_2026-08-21/g8_number_traceability.json",
       "supports": "the G8 audit of every number in the manuscript",
-      "bytes": 15174,
-      "sha256": "24ae0d02fe9237e7ba5f2c2ba016e90b6fc34443eb0458d656f99d895cb30072"
+      "bytes": 15182,
+      "sha256": "6a8aa159d7c8d63ef97c84f986f25c88357ab1c17b7dc16fbaccae8e59cc0521"
     },
     {
       "file": "orthogonal_engine/orthogonal_check_result.json",

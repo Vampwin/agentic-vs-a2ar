@@ -76,6 +76,10 @@ ITEMS: list[tuple[str, str, str]] = [
     ("../30_manuscript/figures/figure4_screening_performance_provenance.json",
      "pose_rescue", "Figure 4: input and output digests, and the AUC value under both tie conventions"),
 
+    ("../30_manuscript/figures/figure5_pose_overlay_provenance.json",
+     "orthogonal_engine", "Figure 5: input and output digests, RMSD values and their verification "
+     "method, and the chain-discontinuity note behind the pocket-local cartoon view"),
+
     ("funnel_exclusion_control_2026-08-21/exclusion_control_summary.json",
      "funnel_control", "§3.4: 7.0% of discarded compounds reach the selection cutoff vs 10.0% kept"),
     ("funnel_exclusion_control_2026-08-21/control_metadata.json",
