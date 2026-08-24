@@ -1,7 +1,7 @@
 {
   "assembled": "2026-08-21, extended 2026-08-24",
-  "n_files": 44,
-  "total_bytes": 1115270,
+  "n_files": 47,
+  "total_bytes": 1118375,
   "missing_sources": [],
   "files": [
     {
@@ -253,8 +253,8 @@
       "file": "structure_and_protocol/g8_number_traceability.json",
       "source": "20_new_runs/verification_summary_2026-08-21/g8_number_traceability.json",
       "supports": "the G8 audit of every number in the manuscript",
-      "bytes": 14674,
-      "sha256": "17f7f798ebb2e5db85a6415cb3ece54704c5ad705574ae66a1eadd5db14217b1"
+      "bytes": 15174,
+      "sha256": "3b8aaf911014771940874a8c5eee6ca27a01aeb5c6a55fdc2b06c856463878bc"
     },
     {
       "file": "orthogonal_engine/orthogonal_check_result.json",
@@ -290,6 +290,27 @@
       "supports": "\u00a73.1: the regression check confirming the H01-H03 patches -- explicitly NOT a second held-out measurement",
       "bytes": 471,
       "sha256": "d7a75ff50397650deb8edad08e3bb2d43c9ce8b884de88be0f8e88d132f6d65f"
+    },
+    {
+      "file": "md_candidate_builds/NPLIB01185_build_metadata.json",
+      "source": "20_new_runs/md_candidates_2026-08-22/NPLIB01185/build_metadata.json",
+      "supports": "\u00a72.9: identity check against the frozen ledger and parmchk2 coverage",
+      "bytes": 869,
+      "sha256": "b692699a5b2a7be3c7585221a7c435fabb2e9d43e0fc0e3c0a846aec1b1641b8"
+    },
+    {
+      "file": "md_candidate_builds/NPLIB01643_build_metadata.json",
+      "source": "20_new_runs/md_candidates_2026-08-22/NPLIB01643/build_metadata.json",
+      "supports": "\u00a72.9: identity check against the frozen ledger and parmchk2 coverage",
+      "bytes": 868,
+      "sha256": "d60b3efa72d155335973bdc56dcead231770a31242922b336035b4cd0fbba723"
+    },
+    {
+      "file": "md_candidate_builds/NPLIB03056_build_metadata.json",
+      "source": "20_new_runs/md_candidates_2026-08-22/NPLIB03056/build_metadata.json",
+      "supports": "\u00a72.9: identity check against the frozen ledger and parmchk2 coverage",
+      "bytes": 868,
+      "sha256": "ade208bc43fc74383bbb691b285f0630d3a4a947d997fa2ba8f70c902c4f8bfe"
     },
     {
       "file": "md_control/ligand_rmsd.xvg",

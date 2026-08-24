@@ -129,6 +129,13 @@ ITEMS: list[tuple[str, str, str]] = [
      "heldout_outcome", "§3.1: the regression check confirming the H01-H03 patches -- "
      "explicitly NOT a second held-out measurement"),
 
+    ("md_candidates_2026-08-22/NPLIB01185/build_metadata.json",
+     "md_candidate_builds", "§2.9: identity check against the frozen ledger and parmchk2 coverage"),
+    ("md_candidates_2026-08-22/NPLIB01643/build_metadata.json",
+     "md_candidate_builds", "§2.9: identity check against the frozen ledger and parmchk2 coverage"),
+    ("md_candidates_2026-08-22/NPLIB03056/build_metadata.json",
+     "md_candidate_builds", "§2.9: identity check against the frozen ledger and parmchk2 coverage"),
+
     ("md_production_2026-08-21/04_run/analysis_prod/ligand_rmsd.xvg",
      "md_control", "§2.9: ZM241385 heavy-atom RMSD over the 100 ns control trajectory"),
     ("md_production_2026-08-21/04_run/analysis_prod/box.xvg",
@@ -161,6 +168,9 @@ def main() -> int:
     missing: list[str] = []
     total = 0
 
+    from collections import Counter
+    COLLIDING = Counter((sub, Path(rel).name) for rel, sub, _ in ITEMS)
+
     for rel, sub, purpose in ITEMS:
         src = RUNS / rel
         if not src.is_file():
@@ -168,12 +178,18 @@ def main() -> int:
             continue
         outdir = DEST / sub
         outdir.mkdir(parents=True, exist_ok=True)
-        dst = outdir / src.name
+        # Disambiguate colliding basenames by their source directory. The three
+        # candidate builds are all `build_metadata.json`; naming the copies by
+        # basename alone silently overwrote two of them. Every member of a
+        # colliding set is prefixed, not just the later ones -- otherwise one
+        # file keeps the bare name and a reader cannot tell which it belongs to.
+        dst = outdir / (f"{src.parent.name}_{src.name}"
+                        if COLLIDING[(sub, src.name)] > 1 else src.name)
         shutil.copy2(src, dst)
         size = dst.stat().st_size
         total += size
         manifest.append({
-            "file": f"{sub}/{src.name}",
+            "file": f"{sub}/{dst.name}",
             "source": f"20_new_runs/{rel}",
             "supports": purpose,
             "bytes": size,
@@ -244,6 +260,16 @@ def main() -> int:
         "`diffdock_orthogonal_check.py`, `md_11_analyse_pose_persistence.sh`.",
         "",
     ]
+    ghosts = [m["file"] for m in manifest if not (DEST / m["file"]).is_file()]
+    if ghosts:
+        raise SystemExit("manifest lists files that are not on disk -- "
+                         "refusing to write it:\n  " + "\n  ".join(ghosts))
+    dupes = [f for f in {m["file"] for m in manifest}
+             if sum(1 for m in manifest if m["file"] == f) > 1]
+    if dupes:
+        raise SystemExit("manifest lists the same path more than once:\n  "
+                         + "\n  ".join(dupes))
+
     (DEST / "README.md").write_text("\n".join(readme), encoding="utf-8")
     (DEST / "MANIFEST.json").write_text(
         json.dumps({"assembled": "2026-08-21, extended 2026-08-24",

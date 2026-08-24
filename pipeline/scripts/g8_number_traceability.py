@@ -100,6 +100,8 @@ def sources() -> dict[str, object]:
         "md": _md_system(),
         "dd": _json(RUNS / "diffdock_orthogonal_2026-08-23/orthogonal_check_result.json"),
         "ho": _json(RUNS / "heldout_evaluation_2026-08-08/heldout_evaluation_summary.json"),
+        "cand": [_json(RUNS / f"md_candidates_2026-08-22/{c}/build_metadata.json")
+                 for c in ("NPLIB01185", "NPLIB01643", "NPLIB03056")],
         # Counted from the deposit itself. The Data availability section quotes
         # a file count, and it had already gone stale once (195 against an
         # actual 245) because rebuilding the deposit does not touch the
@@ -258,6 +260,16 @@ def build_checks(S) -> list[tuple[str, str, object, object]]:
     add("heldout_detected", "**One of the five was detected.**", 1,
         ho["n_detected"])
     add("heldout_detected_abstract", "it detected one", 1, ho["n_detected"])
+
+    # --- candidate MD builds (§2.9) ----------------------------------------
+    # §2.9 states all three matched their ledger InChIKey and that parmchk2
+    # flagged nothing. Both are claims about work done, so both are recounted
+    # from each build's own metadata.
+    cand = S["cand"]
+    add("cand_attn", "`parmchk2` flagged no\nparameters for any of them", 0,
+        sum(c["parmchk2_attn_count"] for c in cand))
+    add("cand_identity", "all three matched", 3,
+        sum(1 for c in cand if c.get("identity_checked_against")))
 
     # --- deposit ---------------------------------------------------------------
     add("deposit_files", f"{S['dep']} files, {S['dep_mb']:.1f} MB",

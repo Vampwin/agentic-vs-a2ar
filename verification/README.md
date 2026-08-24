@@ -10,7 +10,7 @@ one, and the manifest records its SHA-256 so a reader can confirm the copy
 matches. A supplement that re-derives its own numbers demonstrates nothing
 about the run that produced them.
 
-**44 files, 1089 KB.**
+**47 files, 1092 KB.**
 
 | File | Supports |
 |---|---|
@@ -55,6 +55,9 @@ about the run that produced them.
 | `orthogonal_engine/4EIY_protein_only.pdb` | §2.5: the receptor given to DiffDock, waters removed as declared |
 | `heldout_outcome/heldout_evaluation_summary.json` | §3.1: which of the five project-blind fault cases each gate detected |
 | `heldout_outcome/fix_verification_summary.json` | §3.1: the regression check confirming the H01-H03 patches -- explicitly NOT a second held-out measurement |
+| `md_candidate_builds/NPLIB01185_build_metadata.json` | §2.9: identity check against the frozen ledger and parmchk2 coverage |
+| `md_candidate_builds/NPLIB01643_build_metadata.json` | §2.9: identity check against the frozen ledger and parmchk2 coverage |
+| `md_candidate_builds/NPLIB03056_build_metadata.json` | §2.9: identity check against the frozen ledger and parmchk2 coverage |
 | `md_control/ligand_rmsd.xvg` | §2.9: ZM241385 heavy-atom RMSD over the 100 ns control trajectory |
 | `md_control/box.xvg` | §2.9: box dimensions, the bilayer-equilibration check |
 | `incident_taxonomy/incident_taxonomy.md` | §3.6: the fifteen incidents classified by layer, what detected each, how it resolved |

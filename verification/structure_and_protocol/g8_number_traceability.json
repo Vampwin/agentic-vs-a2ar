@@ -1,8 +1,8 @@
 {
   "manuscript": "D:\\Agentic VS Workflow\\30_manuscript\\CURRENT_v5\\manuscript_AIIM_v6.md",
   "state": "PASS",
-  "n_checks": 67,
-  "n_pass": 67,
+  "n_checks": 69,
+  "n_pass": 69,
   "n_value_mismatch": 0,
   "n_literal_absent": 0,
   "checks": [
@@ -533,20 +533,42 @@
       "literal": "it detected one"
     },
     {
+      "check": "cand_attn",
+      "state": "PASS",
+      "expected": 0,
+      "recomputed": 0,
+      "literal_present_in_manuscript": true,
+      "literal": "`parmchk2` flagged no\nparameters for any of them"
+    },
+    {
+      "check": "cand_identity",
+      "state": "PASS",
+      "expected": 3,
+      "recomputed": 3,
+      "literal_present_in_manuscript": true,
+      "literal": "all three matched"
+    },
+    {
       "check": "deposit_files",
       "state": "PASS",
-      "expected": 248,
-      "recomputed": 248,
+      "expected": [
+        258,
+        3.6
+      ],
+      "recomputed": [
+        258,
+        3.6
+      ],
       "literal_present_in_manuscript": true,
-      "literal": "248 files, 3.0 MB"
+      "literal": "258 files, 3.6 MB"
     },
     {
       "check": "citation_integrity",
       "state": "PASS",
       "expected": "every marker resolves, every entry cited, 1..N contiguous",
       "recomputed": {
-        "n_entries": 57,
-        "n_cited": 57,
+        "n_entries": 59,
+        "n_cited": 59,
         "dangling_markers": [],
         "uncited_entries": [],
         "numbering_contiguous": true

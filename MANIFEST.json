@@ -1,9 +1,9 @@
 {
   "assembled": "2026-08-22",
-  "n_files": 253,
-  "total_bytes": 3832307,
+  "n_files": 255,
+  "total_bytes": 3839682,
   "n_files_excluded_by_rule": 141,
-  "n_duplicates_removed": 27,
+  "n_duplicates_removed": 28,
   "n_files_refused_by_screening": 0,
   "refused": [],
   "flagged_and_cleared_on_review": [
@@ -578,8 +578,8 @@
     {
       "path": "pipeline/scripts/build_supplement_s10.py",
       "source": "10_new_system/scripts/build_supplement_s10.py",
-      "bytes": 13172,
-      "sha256": "fac5688724df0ce9c52ca26edd98ce6bbf3e619e4435c9483d6554d84f72b0e0"
+      "bytes": 14795,
+      "sha256": "9f1a68a841d79299764f3102689e9bf3202b213cd437985841c45bf099ac67cc"
     },
     {
       "path": "pipeline/scripts/build_supplementary_information.py",
@@ -662,8 +662,8 @@
     {
       "path": "pipeline/scripts/g8_number_traceability.py",
       "source": "10_new_system/scripts/g8_number_traceability.py",
-      "bytes": 19426,
-      "sha256": "875c589efabd3f76a641fa7cf296657aa3c061d191136b0ab0a3a679511cab50"
+      "bytes": 20132,
+      "sha256": "372ac8d53761e403ad9795a9a8267ebf01512c2c579bd50feb3a27254f1b0c66"
     },
     {
       "path": "pipeline/scripts/ifp_rescore_benchmark.py",
@@ -1106,8 +1106,26 @@
     {
       "path": "verification/MANIFEST.json",
       "source": "30_manuscript/supplement/S10_verification_2026-08-21/MANIFEST.json",
-      "bytes": 15423,
-      "sha256": "77c3b1d9ccaa3f452ac31dbfed34c8bf75228595a9b95374515824b4219f6149"
+      "bytes": 16542,
+      "sha256": "25dd69115898b83f73ce56905b9a70ffaa1ba9e4ecf4d8fad724fc6dcf398758"
+    },
+    {
+      "path": "verification/md_candidate_builds/NPLIB01185_build_metadata.json",
+      "source": "30_manuscript/supplement/S10_verification_2026-08-21/md_candidate_builds/NPLIB01185_build_metadata.json",
+      "bytes": 869,
+      "sha256": "b692699a5b2a7be3c7585221a7c435fabb2e9d43e0fc0e3c0a846aec1b1641b8"
+    },
+    {
+      "path": "verification/md_candidate_builds/NPLIB01643_build_metadata.json",
+      "source": "30_manuscript/supplement/S10_verification_2026-08-21/md_candidate_builds/NPLIB01643_build_metadata.json",
+      "bytes": 868,
+      "sha256": "d60b3efa72d155335973bdc56dcead231770a31242922b336035b4cd0fbba723"
+    },
+    {
+      "path": "verification/md_candidate_builds/NPLIB03056_build_metadata.json",
+      "source": "30_manuscript/supplement/S10_verification_2026-08-21/md_candidate_builds/NPLIB03056_build_metadata.json",
+      "bytes": 868,
+      "sha256": "ade208bc43fc74383bbb691b285f0630d3a4a947d997fa2ba8f70c902c4f8bfe"
     },
     {
       "path": "verification/md_control/box.xvg",
@@ -1202,8 +1220,8 @@
     {
       "path": "verification/README.md",
       "source": "30_manuscript/supplement/S10_verification_2026-08-21/README.md",
-      "bytes": 6615,
-      "sha256": "da512b7874cf20824b49397bb0bafb83a9ed1231b22f66d9ccbd83066e29bbee"
+      "bytes": 7005,
+      "sha256": "ff19251a8a06307bc61a0b03e7b60a170af47b49975c056711eaef1a2207c83c"
     },
     {
       "path": "verification/released_result/conformal_qsar_summary_np_library_dock_ledger.json",
@@ -1262,8 +1280,8 @@
     {
       "path": "verification/structure_and_protocol/g8_number_traceability.json",
       "source": "30_manuscript/supplement/S10_verification_2026-08-21/structure_and_protocol/g8_number_traceability.json",
-      "bytes": 14674,
-      "sha256": "17f7f798ebb2e5db85a6415cb3ece54704c5ad705574ae66a1eadd5db14217b1"
+      "bytes": 15174,
+      "sha256": "3b8aaf911014771940874a8c5eee6ca27a01aeb5c6a55fdc2b06c856463878bc"
     },
     {
       "path": "verification/structure_and_protocol/ligand_extents.csv",
@@ -1318,12 +1336,6 @@
       "source": "30_manuscript/figures/figure_graphical_abstract_2026-08-21.svg",
       "bytes": 7276,
       "sha256": "9ca66a4d9410a579d1a1a205f2a39913213a4060e38a2258d22f7e15f302bbe3"
-    },
-    {
-      "path": "verification/summary/g8_number_traceability.json",
-      "source": "20_new_runs/verification_summary_2026-08-21/g8_number_traceability.json",
-      "bytes": 14742,
-      "sha256": "79fafcb651d4e673bbc1265edd18d91391b70571f50d3062e701d45f10c4bccd"
     },
     {
       "path": "verification/summary/stereo_undefined_counts.json",
