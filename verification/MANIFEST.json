@@ -1,7 +1,7 @@
 {
   "assembled": "2026-08-21, extended 2026-08-24",
-  "n_files": 47,
-  "total_bytes": 1118375,
+  "n_files": 49,
+  "total_bytes": 1151411,
   "missing_sources": [],
   "files": [
     {
@@ -138,6 +138,13 @@
       "sha256": "6d2bc2562c70e710c01e3beec280536f990bd441009dec1b739ba2a2ee93bb83"
     },
     {
+      "file": "pose_rescue/figure4_screening_performance_provenance.json",
+      "source": "20_new_runs/../30_manuscript/figures/figure4_screening_performance_provenance.json",
+      "supports": "Figure 4: input and output digests, and the AUC value under both tie conventions",
+      "bytes": 2308,
+      "sha256": "a44bd87501bbd49fdd83d1a42bab7df814a4e2ab88847924c93b016248f75b5c"
+    },
+    {
       "file": "funnel_control/exclusion_control_summary.json",
       "source": "20_new_runs/funnel_exclusion_control_2026-08-21/exclusion_control_summary.json",
       "supports": "\u00a73.4: 7.0% of discarded compounds reach the selection cutoff vs 10.0% kept",
@@ -178,6 +185,13 @@
       "supports": "Table 1: the five pre-registered rescue methods",
       "bytes": 2329,
       "sha256": "b79ec920054845eb0dd3c2a5857ce818f6100e6bf52726986fd162add8e5bbc2"
+    },
+    {
+      "file": "pose_rescue/ifp_rescoring_per_compound.csv",
+      "source": "20_new_runs/chembl245_ifp_rescoring_2026-08-15/ifp_rescoring_per_compound.csv",
+      "supports": "Figure 4A and 4C: per-compound scores and labels, n=245",
+      "bytes": 30728,
+      "sha256": "3b2aeae0e91dc3c72073b99ff104e53291eb7d6ffd36efff4026f5bd22492915"
     },
     {
       "file": "pose_rescue/multi_reference_ifp_summary.json",
@@ -254,7 +268,7 @@
       "source": "20_new_runs/verification_summary_2026-08-21/g8_number_traceability.json",
       "supports": "the G8 audit of every number in the manuscript",
       "bytes": 15174,
-      "sha256": "3b8aaf911014771940874a8c5eee6ca27a01aeb5c6a55fdc2b06c856463878bc"
+      "sha256": "24ae0d02fe9237e7ba5f2c2ba016e90b6fc34443eb0458d656f99d895cb30072"
     },
     {
       "file": "orthogonal_engine/orthogonal_check_result.json",

@@ -10,7 +10,7 @@ one, and the manifest records its SHA-256 so a reader can confirm the copy
 matches. A supplement that re-derives its own numbers demonstrates nothing
 about the run that produced them.
 
-**47 files, 1092 KB.**
+**49 files, 1124 KB.**
 
 | File | Supports |
 |---|---|
@@ -33,12 +33,14 @@ about the run that produced them.
 | `applicability_domain/comparison_vs_snplib.json` | §3.4: coverage before vs after similarity selection |
 | `applicability_domain/run_metadata.json` | the single rule applied identically in every space |
 | `applicability_domain/figure_ad_multispace_provenance.json` | Figure 3: input and output digests |
+| `pose_rescue/figure4_screening_performance_provenance.json` | Figure 4: input and output digests, and the AUC value under both tie conventions |
 | `funnel_control/exclusion_control_summary.json` | §3.4: 7.0% of discarded compounds reach the selection cutoff vs 10.0% kept |
 | `funnel_control/control_metadata.json` | how the 500 discarded compounds were sampled |
 | `funnel_control/exclusion_scores.csv` | the control docking scores |
 | `g6_contract/G6_contract_outcome_tierA.json` | §3.4: the corrected gate applied to the released selection |
 | `y_randomisation/qsar_y_randomization.json` | §2.4: 100 permutations, z = 21.9, p = 0.0099 |
 | `pose_rescue/ifp_rescoring_summary.json` | Table 1: the five pre-registered rescue methods |
+| `pose_rescue/ifp_rescoring_per_compound.csv` | Figure 4A and 4C: per-compound scores and labels, n=245 |
 | `pose_rescue/multi_reference_ifp_summary.json` | Table 1: the second-reference variants |
 | `pose_rescue/pilot_result.json` | Table 1: the water-shell ensemble pilot and its stop rule |
 | `pose_rescue/PREREGISTRATION.json` | the decision rule, written down before the pilot ran |

@@ -73,6 +73,9 @@ ITEMS: list[tuple[str, str, str]] = [
     ("ad_sweep_expanded_2026-08-21/figure_ad_multispace_provenance.json",
      "applicability_domain", "Figure 3: input and output digests"),
 
+    ("../30_manuscript/figures/figure4_screening_performance_provenance.json",
+     "pose_rescue", "Figure 4: input and output digests, and the AUC value under both tie conventions"),
+
     ("funnel_exclusion_control_2026-08-21/exclusion_control_summary.json",
      "funnel_control", "§3.4: 7.0% of discarded compounds reach the selection cutoff vs 10.0% kept"),
     ("funnel_exclusion_control_2026-08-21/control_metadata.json",
@@ -88,6 +91,8 @@ ITEMS: list[tuple[str, str, str]] = [
 
     ("chembl245_ifp_rescoring_2026-08-15/ifp_rescoring_summary.json",
      "pose_rescue", "Table 1: the five pre-registered rescue methods"),
+    ("chembl245_ifp_rescoring_2026-08-15/ifp_rescoring_per_compound.csv",
+     "pose_rescue", "Figure 4A and 4C: per-compound scores and labels, n=245"),
     ("chembl245_ifp_rescoring_2026-08-15/multi_reference_ifp_summary.json",
      "pose_rescue", "Table 1: the second-reference variants"),
     ("ensemble_shell_pilot_2026-08-15/pilot_result.json",
