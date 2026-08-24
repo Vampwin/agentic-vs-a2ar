@@ -1,7 +1,7 @@
 {
   "assembled": "2026-08-22",
   "n_files": 265,
-  "total_bytes": 7056247,
+  "total_bytes": 7056231,
   "n_files_excluded_by_rule": 143,
   "n_duplicates_removed": 30,
   "n_files_refused_by_screening": 0,
@@ -597,7 +597,7 @@
       "path": "pipeline/scripts/build_v6_clean_docx.py",
       "source": "10_new_system/scripts/build_v6_clean_docx.py",
       "bytes": 7199,
-      "sha256": "9679c604e8028f516e65a2f82e8a42e16b50cfaaea804db730320d287e469540"
+      "sha256": "9df7a9eb0ab84e2b83d59d37e6a53d5f39b208a17604e118e6109f59ced64aa3"
     },
     {
       "path": "pipeline/scripts/build_v6_docx.py",
@@ -1125,7 +1125,7 @@
       "path": "verification/MANIFEST.json",
       "source": "30_manuscript/supplement/S10_verification_2026-08-21/MANIFEST.json",
       "bytes": 17763,
-      "sha256": "43abf756b890a9078af8bdef103b60953fb2f25b91c9bec9f83e9e094cf15ffc"
+      "sha256": "fa51a8054f65b743d2f96af5ec39d5fa73ee374a72959affbac47c230be3090a"
     },
     {
       "path": "verification/md_candidate_builds/NPLIB01185_build_metadata.json",
@@ -1304,8 +1304,8 @@
     {
       "path": "verification/structure_and_protocol/g8_number_traceability.json",
       "source": "30_manuscript/supplement/S10_verification_2026-08-21/structure_and_protocol/g8_number_traceability.json",
-      "bytes": 15182,
-      "sha256": "6a8aa159d7c8d63ef97c84f986f25c88357ab1c17b7dc16fbaccae8e59cc0521"
+      "bytes": 15174,
+      "sha256": "9a24ffb7b653027152e143b526813aa14cc63dfa0e27fad151e6ffa984aed3af"
     },
     {
       "path": "verification/structure_and_protocol/ligand_extents.csv",

@@ -1,7 +1,7 @@
 {
   "assembled": "2026-08-21, extended 2026-08-24",
   "n_files": 50,
-  "total_bytes": 1153683,
+  "total_bytes": 1153675,
   "missing_sources": [],
   "files": [
     {
@@ -274,8 +274,8 @@
       "file": "structure_and_protocol/g8_number_traceability.json",
       "source": "20_new_runs/verification_summary_2026-08-21/g8_number_traceability.json",
       "supports": "the G8 audit of every number in the manuscript",
-      "bytes": 15182,
-      "sha256": "6a8aa159d7c8d63ef97c84f986f25c88357ab1c17b7dc16fbaccae8e59cc0521"
+      "bytes": 15174,
+      "sha256": "9a24ffb7b653027152e143b526813aa14cc63dfa0e27fad151e6ffa984aed3af"
     },
     {
       "file": "orthogonal_engine/orthogonal_check_result.json",

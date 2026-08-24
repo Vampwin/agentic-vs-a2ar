@@ -38,7 +38,7 @@ def _root() -> Path:
 ROOT = _root()
 SRC = ROOT / "30_manuscript/CURRENT_v5/manuscript_AIIM_v6_CLEAN.md"
 FIGDIR = ROOT / "30_manuscript/CURRENT_v5"
-DEFAULT_OUT = ROOT / "30_manuscript/CURRENT_v5/KDSS_A2AR_AIIM_v6_CLEAN_2026-08-23.docx"
+DEFAULT_OUT = ROOT / "30_manuscript/CURRENT_v5/KDSS_A2AR_AIIM_v6_CLEAN_2026-08-24.docx"
 
 # Full-page figures (all four here) are wider than the 6.5in text column, so
 # they are inserted at this width regardless of column and get a caption
