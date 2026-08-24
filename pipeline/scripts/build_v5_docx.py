@@ -159,6 +159,22 @@ def md_to_blocks(md: str) -> list[str]:
                 i += 1
             blocks.append(table_xml(rows))
             continue
+        # bullet list item -- ListBullet exists in the v4 template's styles.xml
+        # and carries the bullet glyph and indent, so the "- " marker is
+        # consumed rather than printed.
+        bm = re.match(r"^\s*[-*]\s+(.*)$", line)
+        if bm:
+            buf = [bm.group(1).strip()]
+            i += 1
+            # a wrapped continuation line is indented and starts no new marker
+            while (i < len(lines) and lines[i].strip()
+                   and not re.match(r"^\s*[-*]\s+", lines[i])
+                   and not lines[i].lstrip().startswith(("|", "#"))
+                   and lines[i].startswith(("  ", "\t"))):
+                buf.append(lines[i].strip())
+                i += 1
+            blocks.append(para(" ".join(buf), "ListBullet"))
+            continue
         # headings
         m = re.match(r"^(#{1,4})\s+(.*)$", line)
         if m:

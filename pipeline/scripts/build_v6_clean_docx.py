@@ -152,6 +152,21 @@ def main() -> int:
             n_tbl += 1
             continue
 
+        # bullet list item
+        bm = re.match(r"^\s*[-*]\s+(.*)$", line)
+        if bm:
+            buf = [bm.group(1).strip()]
+            i += 1
+            while (i < len(lines) and lines[i].strip()
+                   and not re.match(r"^\s*[-*]\s+", lines[i])
+                   and not lines[i].lstrip().startswith(("|", "#", "!["))
+                   and lines[i].startswith(("  ", "\t"))):
+                buf.append(lines[i].strip())
+                i += 1
+            bp = doc.add_paragraph(style="List Bullet")
+            add_runs(bp, " ".join(buf))
+            n_par += 1
+            continue
         # heading
         hm = re.match(r"^(#{1,4})\s+(.*)$", line)
         if hm:

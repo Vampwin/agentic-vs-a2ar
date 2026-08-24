@@ -1,7 +1,7 @@
 {
   "assembled": "2026-08-22",
   "n_files": 253,
-  "total_bytes": 3830689,
+  "total_bytes": 3832307,
   "n_files_excluded_by_rule": 141,
   "n_duplicates_removed": 27,
   "n_files_refused_by_screening": 0,
@@ -590,14 +590,14 @@
     {
       "path": "pipeline/scripts/build_v5_docx.py",
       "source": "10_new_system/scripts/build_v5_docx.py",
-      "bytes": 15805,
-      "sha256": "935a0221c32bb815c711a6aa24303b7cb625a0500a6d724843a90228e32db8d1"
+      "bytes": 16610,
+      "sha256": "e7e2d92eccfdf0358aabb9cb07519039b4a6a913afdcccc0e350a7c4ddbf7f68"
     },
     {
       "path": "pipeline/scripts/build_v6_clean_docx.py",
       "source": "10_new_system/scripts/build_v6_clean_docx.py",
-      "bytes": 6386,
-      "sha256": "805b43cb3e8c76c2e9183e098837ead7eee0fb8f211cede2fa637ad9ca54fa14"
+      "bytes": 7199,
+      "sha256": "9679c604e8028f516e65a2f82e8a42e16b50cfaaea804db730320d287e469540"
     },
     {
       "path": "pipeline/scripts/build_v6_docx.py",
