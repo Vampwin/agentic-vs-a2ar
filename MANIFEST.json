@@ -1323,7 +1323,7 @@
       "path": "verification/summary/g8_number_traceability.json",
       "source": "20_new_runs/verification_summary_2026-08-21/g8_number_traceability.json",
       "bytes": 14742,
-      "sha256": "f02d18d353a41fa60b88f7dde08a7073561aff14e0ca26cc0018a649456b36ca"
+      "sha256": "79fafcb651d4e673bbc1265edd18d91391b70571f50d3062e701d45f10c4bccd"
     },
     {
       "path": "verification/summary/stereo_undefined_counts.json",
