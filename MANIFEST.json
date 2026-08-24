@@ -1,7 +1,7 @@
 {
   "assembled": "2026-08-22",
-  "n_files": 251,
-  "total_bytes": 3811525,
+  "n_files": 252,
+  "total_bytes": 3826193,
   "n_files_excluded_by_rule": 141,
   "n_duplicates_removed": 27,
   "n_files_refused_by_screening": 0,
@@ -580,6 +580,12 @@
       "source": "10_new_system/scripts/build_supplement_s10.py",
       "bytes": 13172,
       "sha256": "fac5688724df0ce9c52ca26edd98ce6bbf3e619e4435c9483d6554d84f72b0e0"
+    },
+    {
+      "path": "pipeline/scripts/build_supplementary_information.py",
+      "source": "10_new_system/scripts/build_supplementary_information.py",
+      "bytes": 14668,
+      "sha256": "e9d293427bb5f4ecca432e534340f8845a9e21b588ca2551c09bc677c965e50e"
     },
     {
       "path": "pipeline/scripts/build_v5_docx.py",
@@ -1311,7 +1317,7 @@
       "path": "verification/summary/g8_number_traceability.json",
       "source": "20_new_runs/verification_summary_2026-08-21/g8_number_traceability.json",
       "bytes": 14742,
-      "sha256": "fa1e20ce1986d70c6645486604f9e2cf8d491b412f631ff6e0c84da2eea22232"
+      "sha256": "71078ad9981843c8e41b4bce02f2982d7126da0f9c79d84471fd7920d04dadd3"
     },
     {
       "path": "verification/summary/stereo_undefined_counts.json",
