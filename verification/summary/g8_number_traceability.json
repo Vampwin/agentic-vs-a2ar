@@ -551,8 +551,8 @@
       "state": "PASS",
       "expected": "every marker resolves, every entry cited, 1..N contiguous",
       "recomputed": {
-        "n_entries": 57,
-        "n_cited": 57,
+        "n_entries": 59,
+        "n_cited": 59,
         "dangling_markers": [],
         "uncited_entries": [],
         "numbering_contiguous": true

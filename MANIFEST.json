@@ -1,7 +1,7 @@
 {
   "assembled": "2026-08-22",
-  "n_files": 252,
-  "total_bytes": 3826193,
+  "n_files": 253,
+  "total_bytes": 3830689,
   "n_files_excluded_by_rule": 141,
   "n_duplicates_removed": 27,
   "n_files_refused_by_screening": 0,
@@ -572,8 +572,8 @@
     {
       "path": "pipeline/scripts/build_references_v6.py",
       "source": "10_new_system/scripts/build_references_v6.py",
-      "bytes": 31506,
-      "sha256": "83b273d36796951b19acbdd6b14193098f7b9cf4759534ffd48e2acdaa0f1970"
+      "bytes": 32145,
+      "sha256": "03aa181f1014c89776c960a56c5b6bd89c48cccf573ace201a002fb12a73d7b2"
     },
     {
       "path": "pipeline/scripts/build_supplement_s10.py",
@@ -734,14 +734,20 @@
     {
       "path": "pipeline/scripts/md_09_setup_candidate_runs.py",
       "source": "10_new_system/scripts/md_09_setup_candidate_runs.py",
-      "bytes": 9708,
-      "sha256": "f8fd00c76da0bee8a60e2c874f00c23e3be3172c8a1745ac85321da34e8fab13"
+      "bytes": 10267,
+      "sha256": "63ba396c46d73c7a26559115f5cf50b2d8e088738b0cefab4dde8598c66cd8e3"
     },
     {
       "path": "pipeline/scripts/md_10_run_candidate.sh",
       "source": "10_new_system/scripts/md_10_run_candidate.sh",
       "bytes": 3508,
       "sha256": "c6fa6dbcbb77e2407e4046fd1691395445319dc07c131c05f210d42c60adad15"
+    },
+    {
+      "path": "pipeline/scripts/md_10b_extend_candidate.sh",
+      "source": "10_new_system/scripts/md_10b_extend_candidate.sh",
+      "bytes": 3298,
+      "sha256": "a6c21e69f9c8da9e81f19beddbda68bb409872f21c810fc353dabdb755155988"
     },
     {
       "path": "pipeline/scripts/md_11_analyse_pose_persistence.sh",
@@ -1317,7 +1323,7 @@
       "path": "verification/summary/g8_number_traceability.json",
       "source": "20_new_runs/verification_summary_2026-08-21/g8_number_traceability.json",
       "bytes": 14742,
-      "sha256": "71078ad9981843c8e41b4bce02f2982d7126da0f9c79d84471fd7920d04dadd3"
+      "sha256": "f02d18d353a41fa60b88f7dde08a7073561aff14e0ca26cc0018a649456b36ca"
     },
     {
       "path": "verification/summary/stereo_undefined_counts.json",

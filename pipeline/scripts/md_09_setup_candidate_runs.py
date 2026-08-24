@@ -9,15 +9,22 @@ one, and semi-isotropic pressure coupling for a bilayer.
 
 Two differences from the control, both deliberate:
 
-**Three replicates, 50 ns each, rather than one run of 100 ns.** A single
+**Three replicates of 100 ns each, matching the control.** A single
 trajectory cannot distinguish a pose that is stable from one that happened not
 to move; replicates are the only thing that licenses a statement about
-consistency. 50 ns is shorter than the 300 ns triplicate precedent for this
-receptor (Ng et al. 2014), and that limit is reported rather than glossed --
-but a pose that is going to leave usually leaves inside 20-30 ns, so 50 ns
-answers the persistence question the paper actually asks. The control's first
-50 ns provides a length-matched comparison; its full 100 ns is reported
-separately.
+consistency. 100 ns is still shorter than the 300 ns triplicate precedent for
+this receptor (Ng et al. 2014), and that limit is reported rather than
+glossed. It was raised from an initial 50 ns after checking, not assuming,
+what duration this kind of check actually needs: two independent studies
+(Bhattarai et al., PLOS Comput Biol 2021, doi:10.1371/journal.pcbi.1008936;
+Liu & Watanabe, J Comput Aided Mol Des 2017, doi:10.1007/s10822-016-0005-2)
+report that an incorrect pose can remain stable for hundreds of ns to
+microseconds -- the earlier "50 ns is enough because a wrong pose leaves
+within 20-30 ns" reasoning had no citation behind it and does not survive
+contact with the literature. Matching the control's full 100 ns removes an
+asymmetry a reviewer would otherwise have to take on faith, without
+pretending the underlying limitation -- that pose persistence under MD is
+weak evidence of correctness at any duration tested here -- goes away.
 
 **Replicates differ only in the velocity seed**, generated fresh at the start
 of each production run from the same equilibrated structure. That isolates the
@@ -35,7 +42,7 @@ from pathlib import Path
 
 RESTRAINED = ("system1", "system2", "LIG")
 N_REPLICATES = 3
-PROD_NS = 50
+PROD_NS = 100
 SEEDS = (20260822, 20260823, 20260824)
 
 

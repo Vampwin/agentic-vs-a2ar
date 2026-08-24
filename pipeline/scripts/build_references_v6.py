@@ -305,6 +305,15 @@ REFS: dict[str, dict[str, str]] = {
         "Corso G, Deng A, Fry B, Polizzi N, Barzilay R, Jaakkola T. Deep confident steps "
         "to new pockets: strategies for docking generalization. In: International "
         "Conference on Learning Representations (ICLR 2024). arXiv:2402.18396"},
+    "kapla2021": {"verified": "web+pmc", "text":
+        "Kapla J, Rodríguez-Espigares I, Ballante F, Selent J, Carlsson J. Can "
+        "molecular dynamics simulations improve the structural accuracy and virtual "
+        "screening performance of GPCR models? PLoS Comput Biol. 2021;17(5):e1008936. "
+        "doi:10.1371/journal.pcbi.1008936"},
+    "liu2017": {"verified": "pubmed", "text":
+        "Liu K, Watanabe E, Kokubo H. Exploring the stability of ligand binding modes "
+        "to proteins by molecular dynamics simulations. J Comput Aided Mol Des. "
+        "2017;31(2):201–211. doi:10.1007/s10822-016-0005-2"},
 }
 
 # --------------------------------------------------------------------------
