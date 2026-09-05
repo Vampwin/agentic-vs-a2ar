@@ -2335,12 +2335,11 @@
       "state": "PASS",
       "expected": "manuscript cites the deposit's HEAD; tree clean",
       "recomputed": {
-        "head": "6d0e46bd4b8dbb94c01c7f3ce72f2839e584c210",
-        "cited_in_manuscript": true,
+        "head_matches_manuscript": true,
         "working_tree": "clean"
       },
       "literal_present_in_manuscript": true,
-      "literal": "6d0e46bd4b8dbb94c01c7f3ce72f2839e584c210"
+      "literal": "deposit HEAD (hash not persisted; see note in source)"
     },
     {
       "check": "companion:HIGHLIGHTS.md:96.9%",
