@@ -1,8 +1,8 @@
 {
-  "manuscript": "30_manuscript/CURRENT_v5/manuscript_AIIM_v6.md",
+  "manuscript": "D:\\Agentic VS Workflow\\30_manuscript\\CURRENT_v5\\manuscript_AIIM_v6.md",
   "state": "PASS",
-  "n_checks": 253,
-  "n_pass": 253,
+  "n_checks": 254,
+  "n_pass": 254,
   "n_value_mismatch": 0,
   "n_literal_absent": 0,
   "checks": [
@@ -2329,6 +2329,18 @@
       },
       "literal_present_in_manuscript": true,
       "literal": "## References"
+    },
+    {
+      "check": "deposit_commit",
+      "state": "PASS",
+      "expected": "manuscript cites the deposit's HEAD; tree clean",
+      "recomputed": {
+        "head": "6d0e46bd4b8dbb94c01c7f3ce72f2839e584c210",
+        "cited_in_manuscript": true,
+        "working_tree": "clean"
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "6d0e46bd4b8dbb94c01c7f3ce72f2839e584c210"
     },
     {
       "check": "companion:HIGHLIGHTS.md:96.9%",

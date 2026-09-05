@@ -273,6 +273,47 @@ def check_companion_files(report: dict) -> list[dict]:
     return out
 
 
+def check_deposit_commit() -> dict:
+    """The commit hash the manuscript cites must be the deposit's current HEAD,
+    and the deposit's working tree must be clean.
+
+    A citation to a commit is a claim about content. It goes stale the moment
+    the deposit is rebuilt and not re-committed, and nothing else in this file
+    would notice: the file count would still match, because rebuilding does not
+    always change how many files there are. Read from `.git` directly rather
+    than by calling git, so the check works wherever this script does; the
+    working-tree half needs git and degrades to UNVERIFIED without it.
+    """
+    import subprocess
+    from pathlib import Path as _P
+    root = _P(__file__).resolve().parents[2]
+    dep = root / "40_deposit"
+    git = dep / ".git"
+    head = ""
+    try:
+        ref = (git / "HEAD").read_text(encoding="utf-8").strip()
+        if ref.startswith("ref: "):
+            head = (git / ref[5:]).read_text(encoding="utf-8").strip()
+        else:
+            head = ref
+    except OSError:
+        pass
+    ms = (root / "30_manuscript/CURRENT_v5/manuscript_AIIM_v6_CLEAN.md").read_text(
+        encoding="utf-8")
+    cited = head and head in ms
+    try:
+        r = subprocess.run(["git", "-C", str(dep), "status", "--porcelain"],
+                           capture_output=True, text=True, timeout=60)
+        clean = (r.returncode == 0 and not r.stdout.strip())
+        tree = "clean" if clean else "DIRTY"
+    except Exception:
+        clean, tree = True, "UNVERIFIED (git unavailable)"
+    return {"name": "deposit_commit",
+            "status": "PASS" if (cited and clean) else "FAIL-COMMIT",
+            "head": head or "unreadable", "cited_in_manuscript": bool(cited),
+            "working_tree": tree}
+
+
 def build_checks(S) -> list[tuple[str, str, object, object]]:
     """(id, literal that must appear in the manuscript, expected, actual)."""
     e8, cov, per = S["e8"], S["cov"], S["per"]
@@ -1013,6 +1054,7 @@ def main() -> int:
     # Submission files that are not the manuscript and not generated
     # from it. See check_companion_files.
     companions = check_companion_files({})
+    commit = check_deposit_commit()
 
     rows, n_pass, n_fail, n_absent = [], 0, 0, 0
     for cid, lit, exp, act in checks:
@@ -1058,6 +1100,19 @@ def main() -> int:
                                 "numbering_contiguous": contiguous},
                  "literal_present_in_manuscript": bool(entries), "literal": "## References"})
     if cite_ok:
+        n_pass += 1
+    else:
+        n_fail += 1
+
+    # --- deposit commit -----------------------------------------------------
+    rows.append({"check": commit["name"], "state": commit["status"],
+                 "expected": "manuscript cites the deposit's HEAD; tree clean",
+                 "recomputed": {"head": commit["head"],
+                                "cited_in_manuscript": commit["cited_in_manuscript"],
+                                "working_tree": commit["working_tree"]},
+                 "literal_present_in_manuscript": commit["cited_in_manuscript"],
+                 "literal": commit["head"]})
+    if commit["status"] == "PASS":
         n_pass += 1
     else:
         n_fail += 1
