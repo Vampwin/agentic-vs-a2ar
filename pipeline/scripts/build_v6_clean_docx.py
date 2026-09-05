@@ -27,6 +27,29 @@ from docx.shared import Inches, Pt
 from docx.oxml.ns import qn
 
 
+
+def _assert_figures_current(figdir):
+    """Refuse to build if an embedded figure is older than what its script made.
+
+    Nothing connects `30_manuscript/figures/`, where the figure scripts write,
+    to `CURRENT_v5/figures_png/`, which this builder embeds: the copy is manual.
+    Figure 6 was embedded five days stale on 2026-09-03, after gaining a panel,
+    and the graphical abstract had been stale for five days once before
+    (ADR-AIIM-160). G8 audits text, not images, so nothing else catches this.
+    """
+    src = figdir.parent / "figures"
+    stale = []
+    for png in sorted((figdir / "figures_png").glob("*.png")):
+        s = src / png.name
+        if s.is_file() and s.stat().st_mtime > png.stat().st_mtime + 1:
+            stale.append(png.name)
+    if stale:
+        raise SystemExit(
+            "REFUSED: newer versions of these figures exist in "
+            "30_manuscript/figures/ than the copies this builder embeds:"
+            + "".join(chr(10) + "  " + n for n in stale)
+            + chr(10) + "Copy them into CURRENT_v5/figures_png/ and rebuild.")
+
 def _root() -> Path:
     marker = "00_project_control/08_DECISION_LOG.md"
     for cand in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
@@ -38,7 +61,14 @@ def _root() -> Path:
 ROOT = _root()
 SRC = ROOT / "30_manuscript/CURRENT_v5/manuscript_AIIM_v6_CLEAN.md"
 FIGDIR = ROOT / "30_manuscript/CURRENT_v5"
-DEFAULT_OUT = ROOT / "30_manuscript/CURRENT_v5/KDSS_A2AR_AIIM_v6_CLEAN_2026-08-24.docx"
+# No date in the name, deliberately. A date in a filename is a claim that
+# nothing verifies: this file was called `..._2026-08-24.docx` while its
+# content was rebuilt daily for twelve days, and the name was wrong for
+# eleven of them. The build date is in the file's own mtime, the version
+# is in the decision log, and both of those are checkable. An undated name
+# also means the artifact has one path, so a stale copy cannot sit beside
+# the current one wearing a different date.
+DEFAULT_OUT = ROOT / "30_manuscript/CURRENT_v5/KDSS_A2AR_AIIM_v6_CLEAN.docx"
 
 # Full-page figures (all four here) are wider than the 6.5in text column, so
 # they are inserted at this width regardless of column and get a caption
@@ -96,6 +126,7 @@ def add_table(doc: Document, rows: list[list[str]]) -> None:
 
 
 def main() -> int:
+    _assert_figures_current(FIGDIR)
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default=str(DEFAULT_OUT))
     args = ap.parse_args()

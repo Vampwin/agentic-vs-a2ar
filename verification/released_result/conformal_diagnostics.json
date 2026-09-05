@@ -1,0 +1,216 @@
+{
+  "significance_levels": [
+    0.05,
+    0.1,
+    0.2
+  ],
+  "calibration_set": {
+    "n": 1217,
+    "n_active": 1096,
+    "n_inactive": 121
+  },
+  "panels": {
+    "calibration_chembl_heldout": {
+      "p_inactive_distribution": {
+        "min": 0.011,
+        "p05": 0.011,
+        "q1": 0.0222,
+        "median": 0.0536,
+        "q3": 0.1429,
+        "p95": 0.5833,
+        "max": 1.0,
+        "mean": 0.1294
+      },
+      "p_active_distribution": {
+        "min": 0.001,
+        "p05": 0.0107,
+        "q1": 0.172,
+        "median": 0.4449,
+        "q3": 0.7386,
+        "p95": 1.0,
+        "max": 1.0,
+        "mean": 0.4637
+      },
+      "by_significance": {
+        "0.05": {
+          "n": 1217,
+          "empty_{}": 0.0,
+          "singleton_inactive_{0}": 0.1159,
+          "singleton_active_{1}": 0.4774,
+          "both_{0,1}": 0.4067,
+          "mean_set_size": 1.4067
+        },
+        "0.1": {
+          "n": 1217,
+          "empty_{}": 0.0,
+          "singleton_inactive_{0}": 0.1684,
+          "singleton_active_{1}": 0.6853,
+          "both_{0,1}": 0.1463,
+          "mean_set_size": 1.1463
+        },
+        "0.2": {
+          "n": 1217,
+          "empty_{}": 0.1044,
+          "singleton_inactive_{0}": 0.166,
+          "singleton_active_{1}": 0.7297,
+          "both_{0,1}": 0.0,
+          "mean_set_size": 0.8956
+        }
+      }
+    },
+    "snplib_236": {
+      "p_inactive_distribution": {
+        "min": 0.4098,
+        "p05": 0.4754,
+        "q1": 0.541,
+        "median": 0.6311,
+        "q3": 0.7131,
+        "p95": 0.7398,
+        "max": 0.9016,
+        "mean": 0.6204
+      },
+      "p_active_distribution": {
+        "min": 0.0009,
+        "p05": 0.0018,
+        "q1": 0.0027,
+        "median": 0.0069,
+        "q3": 0.0155,
+        "p95": 0.0228,
+        "max": 0.0337,
+        "mean": 0.0093
+      },
+      "by_significance": {
+        "0.05": {
+          "n": 236,
+          "empty_{}": 0.0,
+          "singleton_inactive_{0}": 1.0,
+          "singleton_active_{1}": 0.0,
+          "both_{0,1}": 0.0,
+          "mean_set_size": 1.0
+        },
+        "0.1": {
+          "n": 236,
+          "empty_{}": 0.0,
+          "singleton_inactive_{0}": 1.0,
+          "singleton_active_{1}": 0.0,
+          "both_{0,1}": 0.0,
+          "mean_set_size": 1.0
+        },
+        "0.2": {
+          "n": 236,
+          "empty_{}": 0.0,
+          "singleton_inactive_{0}": 1.0,
+          "singleton_active_{1}": 0.0,
+          "both_{0,1}": 0.0,
+          "mean_set_size": 1.0
+        }
+      }
+    },
+    "np_library_5000": {
+      "p_inactive_distribution": {
+        "min": 0.2623,
+        "p05": 0.3361,
+        "q1": 0.418,
+        "median": 0.4672,
+        "q3": 0.4754,
+        "p95": 0.6311,
+        "max": 0.8361,
+        "mean": 0.4606
+      },
+      "p_active_distribution": {
+        "min": 0.0009,
+        "p05": 0.0064,
+        "q1": 0.0219,
+        "median": 0.0246,
+        "q3": 0.0319,
+        "p95": 0.041,
+        "max": 0.072,
+        "mean": 0.0255
+      },
+      "by_significance": {
+        "0.05": {
+          "n": 5000,
+          "empty_{}": 0.0,
+          "singleton_inactive_{0}": 0.9954,
+          "singleton_active_{1}": 0.0,
+          "both_{0,1}": 0.0046,
+          "mean_set_size": 1.0046
+        },
+        "0.1": {
+          "n": 5000,
+          "empty_{}": 0.0,
+          "singleton_inactive_{0}": 1.0,
+          "singleton_active_{1}": 0.0,
+          "both_{0,1}": 0.0,
+          "mean_set_size": 1.0
+        },
+        "0.2": {
+          "n": 5000,
+          "empty_{}": 0.0,
+          "singleton_inactive_{0}": 1.0,
+          "singleton_active_{1}": 0.0,
+          "both_{0,1}": 0.0,
+          "mean_set_size": 1.0
+        }
+      }
+    }
+  },
+  "headline": {
+    "empty_set_rate_at_alpha_0.20": {
+      "calibration_chembl_heldout": 0.1044,
+      "snplib_236": 0.0,
+      "np_library_5000": 0.0
+    },
+    "reading": "The empty set is how a Mondrian conformal predictor says an object is atypical of BOTH classes. On held-out ChEMBL the mechanism returns it for 10.4% of compounds at alpha=0.20. On the two natural-product libraries -- which are 0% in-domain in four structural descriptor spaces against this same calibration set -- it returns it for 0.0% and 0.0%. The predictor is not abstaining on the query libraries; it is confidently assigning them to the inactive class. That is a property of the nonconformity measure off-domain, not a finding about the compounds."
+  },
+  "tier_a_criterion": {
+    "alpha": 0.05,
+    "n_flagged": 23,
+    "library_p_active_max": 0.072,
+    "library_p_active_median": 0.0246,
+    "flagged_p_active_range": [
+      0.051,
+      0.072
+    ],
+    "p_active_granularity": 0.000912,
+    "tier_a": [
+      {
+        "compound_id": "NPLIB01185",
+        "p_active_calibrated": 0.6669,
+        "conformal_p_active": 0.051,
+        "conformal_p_inactive": 0.3033,
+        "rank_by_p_active_of_5000": 14
+      },
+      {
+        "compound_id": "NPLIB01643",
+        "p_active_calibrated": 0.706,
+        "conformal_p_active": 0.0556,
+        "conformal_p_inactive": 0.2869,
+        "rank_by_p_active_of_5000": 11
+      },
+      {
+        "compound_id": "NPLIB03056",
+        "p_active_calibrated": 0.6597,
+        "conformal_p_active": 0.051,
+        "conformal_p_inactive": 0.3115,
+        "rank_by_p_active_of_5000": 14
+      }
+    ],
+    "reading": "No compound in the 5,000 reaches a conformal p_active above 0.072; the median is 0.025. The tier criterion cuts at 0.05, so the compounds it admits occupy a band 0.051-0.072 wide at the very top of a distribution that never leaves the bottom of its range. Two of the three Tier-A compounds sit two ranks above the cut. Reported beside this, the calibrated probability in the candidate table (0.66-0.71) is the more flattering of two numbers that point in opposite directions: 0.67 is a moderate probability in absolute terms and a 5th-percentile one relative to known actives."
+  },
+  "provenance": {
+    "script": "conformal_diagnostics.py",
+    "reuses": "conformal_qsar.py (mondrian_calibrate, mondrian_pvalues) -- the same functions that produced the released prediction sets",
+    "pipeline_sha256": "85f1e87364ba8107b09dfd9c39735acba7d56e2f9f36dda8c8ced41dc93ec5ed",
+    "inputs": {
+      "nplibrary_conformal_predictions.csv": "657d5cdd6f78b4d3d19cbbca1d6ab5e5544f2d79e6a9c2f54c530dda8013b11f",
+      "snplib_conformal_predictions.csv": "2a1e85868e139e0f12bb44b410c34835299cf1e6a70c555fa29365292d6dccac",
+      "chembl_a2a_training_set.csv": "1cafb9f4fd8707c91ea5bc5d5ca2e4e0ddf02c216ba0bf8d8507f7ed7a16fa60"
+    },
+    "cross_conformal": {
+      "n_folds": 5,
+      "seed": 42,
+      "grouping": "Bemis-Murcko scaffold"
+    }
+  }
+}

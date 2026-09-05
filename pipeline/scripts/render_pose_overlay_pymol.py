@@ -67,7 +67,7 @@ OUT = f"{ROOT}/30_manuscript/figures"
 
 POCKET_RADIUS = 13  # Angstrom, around all loaded ligand poses in a panel
 
-CARTOON_GREY = "0xe4e7ec"
+CARTOON_GREY = "0xc4cad4"
 REF_GREY = "0x7a7a7a"
 VINA_BLUE = "0x1f5fa8"
 DIFFDOCK_RED = "0xd6403f"
@@ -91,7 +91,10 @@ def load_receptor():
     cmd.hide("everything", "receptor")
     cmd.show("cartoon", "receptor")
     cmd.color(CARTOON_GREY, "receptor")
-    cmd.set("cartoon_transparency", 0.55, "receptor")
+    # 0.55 on a near-white cartoon left the receptor barely visible in
+    # print. Darker and less transparent; the ligands are still the
+    # only saturated thing in the frame.
+    cmd.set("cartoon_transparency", 0.35, "receptor")
 
 
 def restrict_cartoon_to_pocket(ligand_names: list[str]):
@@ -111,10 +114,37 @@ def load_ligand_flat(path, name, color, radius):
     cmd.set("stick_radius", radius, name)
 
 
-def frame_and_ray(width, height, zoom_sel, zoom_buffer, out_png):
+def label_asn253():
+    """One label, not a set. The frame is pocket-local and small, and
+    Asn253 is the residue the paper actually argues about -- it is the
+    hydrogen-bond filter of the pose-rescue attempt. Three labels would
+    crowd the poses they exist to orient the reader against."""
+    sel = "receptor and resi 253 and name CA"
+    if cmd.count_atoms(sel) == 0:
+        raise SystemExit("Asn253 CA not found -- refusing to label a "
+                         "residue that is not there")
+    cmd.show("sticks", "receptor and resi 253 and sidechain")
+    cmd.color("0x6b7280", "receptor and resi 253 and sidechain")
+    cmd.set("stick_radius", 0.07, "receptor and resi 253")
+    cmd.pseudoatom("lab253", pos=cmd.get_atom_coords(sel), label="Asn253")
+    cmd.set("label_size", 26)
+    cmd.set("label_color", "0x44484f")
+    cmd.set("label_position", (1.2, 1.2, 1.2))
+
+
+def frame_and_ray(width, height, zoom_sel, zoom_buffer, out_png, turn_y=0):
+    """turn_y rotates about the vertical axis after framing.
+
+    Panel B shows two poses 8.80 A apart that very nearly overlap on the
+    page, because most of that separation runs along the view axis. One
+    projection cannot show a three-dimensional displacement; a second at
+    90 degrees can, and without it the panel contradicts its own caption."""
     cmd.orient(zoom_sel)
     cmd.zoom(zoom_sel, zoom_buffer)
     cmd.turn("x", -15)
+    if turn_y:
+        cmd.turn("y", turn_y)
+        cmd.zoom(zoom_sel, zoom_buffer)
     cmd.ray(width, height)
     cmd.png(out_png, width=width, height=height, dpi=600)
 
@@ -128,6 +158,7 @@ def panel_a_control():
     load_ligand_flat(ZMA_DIFFDOCK, "zma_diffdock", DIFFDOCK_RED, radius=0.20)
     cmd.order("zma_vina zma_diffdock zma_crystal", location="top")
     restrict_cartoon_to_pocket(["zma_crystal", "zma_vina", "zma_diffdock"])
+    label_asn253()
     frame_and_ray(2400, 2100, "zma_crystal or zma_vina or zma_diffdock", 5,
                  f"{OUT}/_panelA_control.png")
 
@@ -138,8 +169,20 @@ def panel_b_candidate():
     load_ligand_flat(NPLIB_VINA, "n1643_vina", VINA_BLUE, radius=0.20)
     load_ligand_flat(NPLIB_DIFFDOCK, "n1643_diffdock", DIFFDOCK_RED, radius=0.20)
     restrict_cartoon_to_pocket(["n1643_vina", "n1643_diffdock"])
-    frame_and_ray(2400, 2100, "n1643_vina or n1643_diffdock", 5,
-                 f"{OUT}/_panelB_candidate.png")
+    label_asn253()
+    sel = "n1643_vina or n1643_diffdock"
+    frame_and_ray(2400, 2100, sel, 5, f"{OUT}/_panelB_candidate.png")
+
+    # An orthogonal inset was built here and then removed. The premise was that
+    # 8.80 A of separation must be visible from some angle and the panel was
+    # simply showing the wrong one. Measuring first would have saved the work:
+    # the two centroids are 3.78 A apart, less than the molecule's own radius of
+    # gyration, and the 8.80 A is almost all reorientation. There is no gap for
+    # a second viewpoint to reveal, and the render duly showed the same overlap
+    # from 90 degrees away. The panel was never contradicting its caption; the
+    # caption was describing an RMSD as though it were a displacement. Fixed in
+    # the text instead (ADR-AIIM-141), and the geometry is in
+    # pose_disagreement_geometry.py.
 
 
 panel_a_control()

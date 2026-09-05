@@ -39,6 +39,14 @@ DEFFNM="${3:?trajectory basename, e.g. prod or prod_r1}"
 LABEL="${4:-$DEFFNM}"
 
 G=/opt/gromacs/2026.3-cuda13.1-sm120/bin/gmx
+# Resolve the script's own directory BEFORE changing into the run directory.
+# $0 is a relative path, so `dirname "$0"` after the cd pointed at
+# <run>/10_new_system/scripts, which does not exist: the bilayer check silently
+# failed on all nine candidate replicates on 2026-08-31 while the RMSD numbers
+# beside it were fine. Found because the error was printed, not because
+# anything checked that the check had run.
+SCRIPTDIR="$(cd "$(dirname "$0")" && pwd)"
+AWKDIR="$SCRIPTDIR"
 cd "$RUN" || exit 1
 OUT="analysis_${DEFFNM}"
 mkdir -p "$OUT"
@@ -69,13 +77,42 @@ nca=$(awk '/^\[ Calpha \]/{f=1;next} /^\[/{f=0} f{n+=NF} END{print n+0}' "$OUT/a
 [ "$nlig" -gt 0 ] || { echo "  FATAL: ligand group '${LIGRES}' is empty"; exit 1; }
 [ "$nca" -gt 0 ] || { echo "  FATAL: no C-alpha atoms to fit on"; exit 1; }
 
-# --- PBC: whole molecules, centred on the receptor -------------------------
-# Without this a ligand that merely crossed a periodic boundary reads as a
-# ligand that left the pocket.
+# --- PBC: make molecules whole, compact cell, centre on the receptor -------
+# Order and flags both matter, and getting them wrong is not visible in any
+# summary statistic.
+#
+# `-pbc mol -center` alone writes a bound ligand into whichever image the
+# default rectangular cell puts it in. On NPLIB01185 that produced an RMSD
+# oscillating between about 5 and 60 A hundreds of times across 100 ns. It was
+# not the ligand moving: in the 400 frames whose RMSD exceeded 40 A, gmx
+# mindist -- which applies the minimum-image convention itself -- put the
+# ligand 3.03 to 4.68 A from the receptor, in van der Waals contact, exactly as
+# in the frames whose RMSD read under 8 A. A molecule cannot be sixty angstrom
+# away and touching at the same time. `-ur compact` is what keeps it adjacent.
+#
+# `-pbc nojump` was tried and is wrong here: it preserves the unwrapped path, so
+# coordinates stay outside the box and `-ur compact` can no longer bring them
+# back. The two treatments fight each other. nojump belongs to a genuinely
+# dissociating ligand; this is a bound one.
+# `-pbc cluster` was tried and refused: it requires the clustering group to
+# contain whole molecules, and C-alpha atoms are not molecules.
 if [ ! -f "$OUT/whole.xtc" ]; then
   printf 'Calpha\nSystem\n' | "$G" trjconv -s "${DEFFNM}.tpr" -f "${DEFFNM}.xtc" \
-    -n "$OUT/analysis.ndx" -o "$OUT/whole.xtc" -pbc mol -center \
+    -n "$OUT/analysis.ndx" -o "$OUT/whole.xtc" -pbc mol -ur compact -center \
     > "$OUT/trjconv.log" 2>&1
+fi
+[ -f "$OUT/whole.xtc" ] || { echo "  FATAL: trjconv produced nothing"; tail -5 "$OUT/trjconv.log"; exit 1; }
+
+# --- minimum ligand-receptor distance, which PBC cannot confuse ------------
+# An RMSD says how far the ligand is from where it was placed. This says
+# whether it is in contact with the protein at all, and gmx mindist applies
+# the minimum-image convention itself rather than trusting how the trajectory
+# was written. It is the measurement that decides bound or not; the RMSD
+# describes the pose while it is bound.
+if [ ! -f "$OUT/mindist.xvg" ]; then
+  printf 'Calpha\nLigand\n' | "$G" mindist -s "${DEFFNM}.tpr" -f "${DEFFNM}.xtc" \
+    -n "$OUT/analysis.ndx" -od "$OUT/mindist.xvg" -tu ns \
+    > "$OUT/mindist.log" 2>&1
 fi
 [ -f "$OUT/whole.xtc" ] || { echo "  FATAL: trjconv produced nothing"; tail -5 "$OUT/trjconv.log"; exit 1; }
 
@@ -110,7 +147,7 @@ awk -v label="$LABEL" '
 # The bilayer check lives in its own awk file: shell heredocs in this project
 # have repeatedly mangled backslash escapes, and a silently broken analysis is
 # worse than none.
-AWKDIR="$(cd "$(dirname "$0")" && pwd)"
+true  # AWKDIR resolved before the cd, see SCRIPTDIR above
 if [ -f "$OUT/box.xvg" ]; then
   awk -f "$AWKDIR/md_box_trend.awk" "$OUT/box.xvg"
 fi

@@ -1,0 +1,94 @@
+{
+  "what_this_is": "The naive-analyst comparator of sanity_check_baseline.py, re-run by a driver rather than transcribed. Section 3.1 reports its SEER against the governed arm's.",
+  "authority": "ADR-AIIM-131",
+  "workspaces": "Built under condition B seeds, so each workspace is byte-identical to the one the contract arm was scored on. Only the evaluator differs.",
+  "base_seed": 42,
+  "seer_point": 0.476562,
+  "n_families": 11,
+  "n_fault_cases_injected": 133,
+  "n_fault_cases_counted": 128,
+  "n_detected": 67,
+  "n_escaped": 61,
+  "n_clean_cases": 55,
+  "false_escalation": 0.0,
+  "vacuous_excluded": {
+    "n": 5,
+    "instances": [
+      "F13_007",
+      "F13_008",
+      "F13_012",
+      "F13_015",
+      "F13_016"
+    ],
+    "all_in_family": [
+      "F13"
+    ]
+  },
+  "errors": 0,
+  "per_family": {
+    "F01": {
+      "n_injected": 10,
+      "n_counted": 10,
+      "n_detected": 10
+    },
+    "F02": {
+      "n_injected": 15,
+      "n_counted": 15,
+      "n_detected": 8
+    },
+    "F03": {
+      "n_injected": 12,
+      "n_counted": 12,
+      "n_detected": 0
+    },
+    "F04": {
+      "n_injected": 12,
+      "n_counted": 12,
+      "n_detected": 0
+    },
+    "F05": {
+      "n_injected": 10,
+      "n_counted": 10,
+      "n_detected": 10
+    },
+    "F09": {
+      "n_injected": 15,
+      "n_counted": 15,
+      "n_detected": 15
+    },
+    "F10": {
+      "n_injected": 12,
+      "n_counted": 12,
+      "n_detected": 12
+    },
+    "F13": {
+      "n_injected": 20,
+      "n_counted": 15,
+      "n_detected": 12
+    },
+    "F14": {
+      "n_injected": 12,
+      "n_counted": 12,
+      "n_detected": 0
+    },
+    "F17": {
+      "n_injected": 10,
+      "n_counted": 10,
+      "n_detected": 0
+    },
+    "F18": {
+      "n_injected": 5,
+      "n_counted": 5,
+      "n_detected": 0
+    }
+  },
+  "previous_run_2026-08-10": {
+    "seer_point": 0.4765625,
+    "n_fault_cases": 128,
+    "seer_matches": true,
+    "n_cases_matches": true,
+    "per_family_matches": true,
+    "reproduced": true,
+    "note": "That run had no driver script. Agreement here is what makes its number reproducible rather than merely recorded; disagreement would itself be the finding."
+  }
+}

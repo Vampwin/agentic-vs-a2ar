@@ -1,0 +1,113 @@
+{
+  "comparison": [
+    {
+      "descriptor_space": "ECFP4",
+      "n_inside_snplib": 0,
+      "n_total_snplib": 236,
+      "coverage_fraction_snplib": 0.0,
+      "n_inside_expanded": 0,
+      "n_total_expanded": 497,
+      "coverage_fraction_expanded": 0.0,
+      "median_percentile_expanded": 0.23
+    },
+    {
+      "descriptor_space": "FCFP4",
+      "n_inside_snplib": 0,
+      "n_total_snplib": 236,
+      "coverage_fraction_snplib": 0.0,
+      "n_inside_expanded": 0,
+      "n_total_expanded": 497,
+      "coverage_fraction_expanded": 0.0,
+      "median_percentile_expanded": 0.47
+    },
+    {
+      "descriptor_space": "MACCS",
+      "n_inside_snplib": 6,
+      "n_total_snplib": 236,
+      "coverage_fraction_snplib": 0.0254,
+      "n_inside_expanded": 46,
+      "n_total_expanded": 497,
+      "coverage_fraction_expanded": 0.0926,
+      "median_percentile_expanded": 1.51
+    },
+    {
+      "descriptor_space": "AtomPair",
+      "n_inside_snplib": 2,
+      "n_total_snplib": 236,
+      "coverage_fraction_snplib": 0.0085,
+      "n_inside_expanded": 1,
+      "n_total_expanded": 497,
+      "coverage_fraction_expanded": 0.002,
+      "median_percentile_expanded": 0.34
+    },
+    {
+      "descriptor_space": "TopTorsion",
+      "n_inside_snplib": 0,
+      "n_total_snplib": 236,
+      "coverage_fraction_snplib": 0.0,
+      "n_inside_expanded": 0,
+      "n_total_expanded": 497,
+      "coverage_fraction_expanded": 0.0,
+      "median_percentile_expanded": 0.49
+    },
+    {
+      "descriptor_space": "Gobbi_Pharm2D",
+      "n_inside_snplib": 0,
+      "n_total_snplib": 236,
+      "coverage_fraction_snplib": 0.0,
+      "n_inside_expanded": 0,
+      "n_total_expanded": 497,
+      "coverage_fraction_expanded": 0.0,
+      "median_percentile_expanded": 0.94
+    },
+    {
+      "descriptor_space": "ErG",
+      "n_inside_snplib": 1,
+      "n_total_snplib": 236,
+      "coverage_fraction_snplib": 0.0042,
+      "n_inside_expanded": 18,
+      "n_total_expanded": 497,
+      "coverage_fraction_expanded": 0.0362,
+      "median_percentile_expanded": 3.82
+    },
+    {
+      "descriptor_space": "PhysChem",
+      "n_inside_snplib": 152,
+      "n_total_snplib": 236,
+      "coverage_fraction_snplib": 0.6441,
+      "n_inside_expanded": 429,
+      "n_total_expanded": 497,
+      "coverage_fraction_expanded": 0.8632,
+      "median_percentile_expanded": 36.93
+    }
+  ],
+  "zero_coverage_spaces_expanded": [
+    "ECFP4",
+    "FCFP4",
+    "TopTorsion",
+    "Gobbi_Pharm2D"
+  ],
+  "structural_median_percentile_range": [
+    0.23,
+    3.82
+  ],
+  "n_below_10th_percentile_in_all_structural_spaces": 432,
+  "n_expanded": 497,
+  "key_finding": "Two natural-product libraries under one frozen rule. The expanded library was selected by 2D pharmacophore and 3D shape similarity to 52 known A2AR ligands and then by docking score; it is still 0% in-domain in ECFP4, FCFP4, topological torsion and Gobbi 2D pharmacophore space. Deliberate similarity selection toward known A2AR chemistry did not move the structural applicability domain. These are two libraries, not one library before and after a filter.",
+  "secondary": "Read as ranks rather than as admission rates, the seven structural and pharmacophoric spaces agree: the median expanded-library compound sits between percentile 0.23 and 3.82 of the training set's own self-similarity, and 432 of 497 compounds fall below the 10th percentile in all seven at once. The spread in admission rates (0% against 9.3% in MACCS) is where each space's threshold happens to fall in a differently shaped distribution, not a disagreement about the compounds. The one real division is structural against physicochemical, and that is what an applicability-domain verdict must name to be interpretable (ADR-AIIM-128).",
+  "provenance": {
+    "script": "build_ad_comparison.py",
+    "note": "Written 2026-08-25. Before this, no script produced this file; it was hand-assembled and then deposited.",
+    "inputs": {
+      "snplib_sweep": {
+        "path": "20_new_runs/ad_descriptor_sweep_2026-08-15",
+        "ad_coverage_by_descriptor.csv": "45cd0ddab9e5ad101262c3fe90560f3a05ac08ac42429bad5c7379f85bd21b8b"
+      },
+      "expanded_sweep": {
+        "path": "20_new_runs/ad_sweep_selfsim_2026-08-25",
+        "ad_coverage_by_descriptor.csv": "3d6b3ae50eea9654e40fb635a9200d55601bd21320f107bcbb95c61d4b806407",
+        "ad_percentile_position.csv": "edd7215c898cc4f16101dec156ebfe7c875e6bd1f94f31d45e90350febbbae8b"
+      }
+    }
+  }
+}

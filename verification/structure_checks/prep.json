@@ -1,0 +1,18 @@
+{
+  "4EIY": {
+    "n_shared_CA": 299,
+    "superposition_rmsd_A": 0.0,
+    "water_shell_around": "ZMA",
+    "waters_retained": 15,
+    "pdbfixer": "atoms: 6195 waters: 15",
+    "pdbqt_ok": true
+  },
+  "5OLH": {
+    "n_shared_CA": 297,
+    "superposition_rmsd_A": 0.388,
+    "water_shell_around": "9XT",
+    "waters_retained": 10,
+    "pdbfixer": "atoms: 6126 waters: 10",
+    "pdbqt_ok": true
+  }
+}

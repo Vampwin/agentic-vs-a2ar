@@ -1,0 +1,86 @@
+{
+  "pre_registration": "ADR-AIIM-133",
+  "criteria": {
+    "control_tolerance_kcal": 0.001,
+    "ratio_sampling_artefact_at_or_below": 0.1,
+    "ratio_not_explained_at_or_above": 0.5,
+    "tost_margin_kcal": 0.096,
+    "d8_previously_measured": 0.166
+  },
+  "control": {
+    "canonical": {
+      "reference": "20_new_runs/g4_verification_2026-08-21/rerun_passA_cpu6.csv",
+      "reference_sha256": "0aad1b14047fcf2999e522e59f2023bc3fe45658345ce54e44f5518ebbd00495",
+      "n_compared": 25,
+      "max_abs_deviation": 0.0,
+      "passes": true
+    },
+    "rewritten": {
+      "reference": "20_new_runs/metamorphic_2026-08-21/scores_M2.csv",
+      "reference_sha256": "589392905f6b836b9d0b2f13797df4e99abc8656cc3d9f8d313510cc23a723f9",
+      "n_compared": 25,
+      "max_abs_deviation": 0.0,
+      "passes": true
+    }
+  },
+  "control_passed": true,
+  "by_conformer_budget": {
+    "8": {
+      "n_compared": 25,
+      "mean_abs_deviation": 0.16592,
+      "max_abs_deviation": 0.974,
+      "n_identical": 0,
+      "spearman_vs_canonical": 0.7715
+    },
+    "32": {
+      "n_compared": 25,
+      "mean_abs_deviation": 0.07892,
+      "max_abs_deviation": 0.348,
+      "n_identical": 0,
+      "spearman_vs_canonical": 0.8986
+    },
+    "128": {
+      "n_compared": 25,
+      "mean_abs_deviation": 0.0814,
+      "max_abs_deviation": 0.423,
+      "n_identical": 1,
+      "spearman_vs_canonical": 0.9129
+    }
+  },
+  "primary": {
+    "d8": 0.16592,
+    "d128": 0.0814,
+    "ratio_d128_over_d8": 0.4906,
+    "outcome": "PARTIAL"
+  },
+  "secondary_tost_at_128": {
+    "n": 25,
+    "mean_difference": 0.00684,
+    "se": 0.025773,
+    "p_lower": 0.00027,
+    "p_upper": 0.001018,
+    "equivalent_at_margin": true
+  },
+  "monotonicity": {
+    "mean_abs_deviation_by_budget": {
+      "8": 0.16592,
+      "32": 0.07892,
+      "128": 0.0814
+    },
+    "max_abs_deviation_by_budget": {
+      "8": 0.974,
+      "32": 0.348,
+      "128": 0.423
+    },
+    "mean_monotonic_decreasing": false,
+    "max_monotonic_decreasing": false
+  },
+  "inputs": {
+    "canonical_c8": "145ce78f22aaf69af9853cb644cfc012d2649f0c35b1d5c16508b4e0e7499a3c",
+    "rewritten_c8": "713f02236f74d39f22b44c0c3318a06e7c8cc45078eea3a843d8e6090809964a",
+    "canonical_c32": "e81a5a6dbc0f498da44fc7332379075bc3cf030cfe1c8ac5c1e3b424a4d02c15",
+    "rewritten_c32": "8c71b98a03463a31912c88f041ab6e27bef5ba846fa687c889ddde5148589f52",
+    "canonical_c128": "71ee3f2166d64b5c03df558abe29f4cf8d827af81f8298243334a9c8087bcd1e",
+    "rewritten_c128": "7124edb107d374bc9507ad2856633c9e260279fcfa5aea5c702e99c074332efe"
+  }
+}

@@ -1,0 +1,233 @@
+{
+  "what_changed": "The denominator, and only the denominator. 124 cases are detected before and after. Five F13 instances were counted as escapes by an export that had dropped the vacuous flag; in each of them the injector matched nothing and the workspace was left byte-unchanged, so there was no fault to escape.",
+  "rule": "pilot_runner.py's own: a fault case counts when a fault was actually injected. Applied identically to all four conditions.",
+  "authority": "ADR-AIIM-131",
+  "sources": {
+    "conditions_A_and_C": {
+      "file": "20_new_runs/WP4_retrain_postfix_2026-08-05/wp4_conditions_ac_results_postfix_2026-08-05.json",
+      "sha256": "fedd827c4f4c73344b8bc34d32981b9919f7b0b516187c36e13e5c5fbd6bdc09"
+    },
+    "conditions_B_and_D_and_the_vacuity_flags": {
+      "file": "20_new_runs/WP2.5_WP3A_readiness_2026-07-30/pilot_postfix_2026-08-04.json",
+      "sha256": "85acdcd26c918080298af22573ab585f720557737e4ba12b5a8a4ddc41c0b7db"
+    },
+    "superseded": {
+      "file": "20_new_runs/verification_summary_2026-08-21/mutation_score_by_gate.json",
+      "sha256": "79540215d501779d840348cdb5fac5665d3c98af06aa40e95f8eacd7e1c0211c"
+    }
+  },
+  "gate_assignment_source": "module path in 10_new_system/fault_injection/manifest.py",
+  "vacuous_excluded": {
+    "n": 5,
+    "instances": [
+      "F13_007",
+      "F13_008",
+      "F13_012",
+      "F13_016",
+      "F13_020"
+    ],
+    "all_in_family": [
+      "F13"
+    ],
+    "meaning": "Injection parameters matched nothing in the workspace; no bytes changed. Recorded by pilot_runner.py at injection time and preserved in pilot_postfix_2026-08-04.json."
+  },
+  "overall": {
+    "n_fault_cases_injected": 133,
+    "n_fault_cases_counted": 128,
+    "n_escaped": 4,
+    "detection_rate": 0.9688,
+    "SEER_condition_A": 0.03125,
+    "false_escalation_rate_clean_runs": 0.0,
+    "n_clean_cases": 55
+  },
+  "ablation_SEER": {
+    "A_contracts_and_monitor": 0.03125,
+    "C_monitor_only": 0.992188,
+    "B_contracts_only": 0.03125,
+    "D_ungoverned": 1.0
+  },
+  "n_counted_by_condition": {
+    "A": 128,
+    "C": 128,
+    "B": 128,
+    "D": 128
+  },
+  "by_gate": {
+    "G0": {
+      "n_fault_cases": 25,
+      "n_escaped": 0,
+      "detection_rate": 1.0
+    },
+    "G1": {
+      "n_fault_cases": 34,
+      "n_escaped": 0,
+      "detection_rate": 1.0
+    },
+    "G4": {
+      "n_fault_cases": 27,
+      "n_escaped": 4,
+      "detection_rate": 0.8519
+    },
+    "G6": {
+      "n_fault_cases": 27,
+      "n_escaped": 0,
+      "detection_rate": 1.0
+    },
+    "G8": {
+      "n_fault_cases": 15,
+      "n_escaped": 0,
+      "detection_rate": 1.0
+    }
+  },
+  "by_family": {
+    "F01": {
+      "gate": "G0",
+      "description": "duplicate compound identifier",
+      "n_fault_cases": 10,
+      "n_escaped_condition_A": 0,
+      "n_vacuous_excluded": 0,
+      "detection_rate": 1.0
+    },
+    "F02": {
+      "gate": "G0",
+      "description": "input hash mismatch",
+      "n_fault_cases": 15,
+      "n_escaped_condition_A": 0,
+      "n_vacuous_excluded": 0,
+      "detection_rate": 1.0
+    },
+    "F03": {
+      "gate": "G1",
+      "description": "stereochemistry lost in standardisation",
+      "n_fault_cases": 12,
+      "n_escaped_condition_A": 0,
+      "n_vacuous_excluded": 0,
+      "detection_rate": 1.0
+    },
+    "F04": {
+      "gate": "G1",
+      "description": "salt/counter-ion retained",
+      "n_fault_cases": 12,
+      "n_escaped_condition_A": 0,
+      "n_vacuous_excluded": 0,
+      "detection_rate": 1.0
+    },
+    "F05": {
+      "gate": "G1",
+      "description": "invalid valence accepted",
+      "n_fault_cases": 10,
+      "n_escaped_condition_A": 0,
+      "n_vacuous_excluded": 0,
+      "detection_rate": 1.0
+    },
+    "F09": {
+      "gate": "G4",
+      "description": "docking score sign inverted",
+      "n_fault_cases": 15,
+      "n_escaped_condition_A": 0,
+      "n_vacuous_excluded": 0,
+      "detection_rate": 1.0
+    },
+    "F10": {
+      "gate": "G4",
+      "description": "molecular-weight/score bias introduced",
+      "n_fault_cases": 12,
+      "n_escaped_condition_A": 4,
+      "n_vacuous_excluded": 0,
+      "detection_rate": 0.6667
+    },
+    "F13": {
+      "gate": "G6",
+      "description": "undeclared external label constraint",
+      "n_fault_cases": 15,
+      "n_escaped_condition_A": 0,
+      "n_vacuous_excluded": 5,
+      "detection_rate": 1.0
+    },
+    "F14": {
+      "gate": "G6",
+      "description": "scaffold duplicated across selection",
+      "n_fault_cases": 12,
+      "n_escaped_condition_A": 0,
+      "n_vacuous_excluded": 0,
+      "detection_rate": 1.0
+    },
+    "F17": {
+      "gate": "G8",
+      "description": "stale figure released",
+      "n_fault_cases": 10,
+      "n_escaped_condition_A": 0,
+      "n_vacuous_excluded": 0,
+      "detection_rate": 1.0
+    },
+    "F18": {
+      "gate": "G8",
+      "description": "reported value does not match artifact",
+      "n_fault_cases": 5,
+      "n_escaped_condition_A": 0,
+      "n_vacuous_excluded": 0,
+      "detection_rate": 1.0
+    }
+  },
+  "coverage_limitation": {
+    "gates_with_no_implemented_fault_family": [
+      "G2",
+      "G3",
+      "G5",
+      "G7"
+    ],
+    "stub_families": [
+      "F06",
+      "F07",
+      "F08",
+      "F11",
+      "F12",
+      "F15",
+      "F16"
+    ],
+    "note": "18 families are defined and 11 implemented. The detection rate is over the implemented families only and must not be read as a detection rate over the whole pipeline."
+  },
+  "as_previously_reported": {
+    "overall": {
+      "n_fault_cases": 133,
+      "n_escaped": 9,
+      "detection_rate": 0.9323,
+      "SEER_condition_A": 0.0677,
+      "false_escalation_rate_clean_runs": 0.0
+    },
+    "ablation_SEER": {
+      "A_contracts_and_monitor": 0.067669,
+      "B_contracts_only": 0.067669,
+      "C_monitor_only": 0.992481,
+      "D_ungoverned": 1.0
+    },
+    "by_gate": {
+      "G0": {
+        "n_fault_cases": 25,
+        "n_escaped": 0,
+        "detection_rate": 1.0
+      },
+      "G1": {
+        "n_fault_cases": 34,
+        "n_escaped": 0,
+        "detection_rate": 1.0
+      },
+      "G4": {
+        "n_fault_cases": 27,
+        "n_escaped": 4,
+        "detection_rate": 0.8519
+      },
+      "G6": {
+        "n_fault_cases": 32,
+        "n_escaped": 5,
+        "detection_rate": 0.8438
+      },
+      "G8": {
+        "n_fault_cases": 15,
+        "n_escaped": 0,
+        "detection_rate": 1.0
+      }
+    },
+    "note": "Published in the manuscript until 2026-08-29. Divided by 133 rather than 128 because the 2026-08-05 re-export had dropped the vacuous field."
+  }
+}

@@ -1,0 +1,203 @@
+{
+  "question": "Are the docked poses physically valid? A separate question from whether they rank well, and one nothing else in this project asks.",
+  "tool": {
+    "name": "posebusters",
+    "version": "0.6.5",
+    "config": "dock",
+    "defaults": "unmodified",
+    "reference": "Buttenschoen, Morris & Deane, Chem Sci 2024"
+  },
+  "descriptive_only": "No pass/fail rule is applied to compound selection. No threshold was tuned. The tool's own defaults decide every check.",
+  "receptor": {
+    "file": "20_new_runs/diffdock_orthogonal_2026-08-23/4EIY_protein_only.pdb",
+    "sha256": "b4e01d32d0f49d2b47b4b1f6b14bd018a6ad7a014ebc29e9ee92b572f164a4bb"
+  },
+  "checks_applied": [
+    "all_atoms_connected",
+    "no_radicals",
+    "bond_lengths",
+    "bond_angles",
+    "internal_steric_clash",
+    "aromatic_ring_flatness",
+    "non-aromatic_ring_non-flatness",
+    "double_bond_flatness",
+    "internal_energy",
+    "protein-ligand_maximum_distance",
+    "minimum_distance_to_protein",
+    "minimum_distance_to_organic_cofactors",
+    "minimum_distance_to_inorganic_cofactors",
+    "minimum_distance_to_waters",
+    "volume_overlap_with_protein",
+    "volume_overlap_with_organic_cofactors",
+    "volume_overlap_with_inorganic_cofactors",
+    "volume_overlap_with_waters"
+  ],
+  "checks_excluded_from_verdict": [
+    "inchi_convertible",
+    "mol_cond_loaded",
+    "mol_pred_loaded",
+    "sanitization"
+  ],
+  "by_set": {
+    "vina_screen": {
+      "n_poses": 4916,
+      "n_compounds": 497,
+      "n_poses_all_checks_pass": 4812,
+      "fraction_valid": 0.9788,
+      "failures_by_check": {
+        "minimum_distance_to_protein": 59,
+        "internal_steric_clash": 36,
+        "bond_lengths": 14,
+        "bond_angles": 14
+      },
+      "compounds_with_any_failing_pose": [
+        "NPLIB00054",
+        "NPLIB00068",
+        "NPLIB00076",
+        "NPLIB00137",
+        "NPLIB00239",
+        "NPLIB00342",
+        "NPLIB00410",
+        "NPLIB00504",
+        "NPLIB00810",
+        "NPLIB00837",
+        "NPLIB00943",
+        "NPLIB01082",
+        "NPLIB01230",
+        "NPLIB01320",
+        "NPLIB01330",
+        "NPLIB01339",
+        "NPLIB01376",
+        "NPLIB01437",
+        "NPLIB01515",
+        "NPLIB01679",
+        "NPLIB01820",
+        "NPLIB01910",
+        "NPLIB01997",
+        "NPLIB02062",
+        "NPLIB02199",
+        "NPLIB02202",
+        "NPLIB02306",
+        "NPLIB02515",
+        "NPLIB02612",
+        "NPLIB02965",
+        "NPLIB03198",
+        "NPLIB03267",
+        "NPLIB03530",
+        "NPLIB03612",
+        "NPLIB03858",
+        "NPLIB03911",
+        "NPLIB04199",
+        "NPLIB04242",
+        "NPLIB04297",
+        "NPLIB04437",
+        "NPLIB04533",
+        "NPLIB04555",
+        "NPLIB04561",
+        "NPLIB04588",
+        "NPLIB04633",
+        "NPLIB04775",
+        "NPLIB04947"
+      ],
+      "n_compounds_with_any_failing_pose": 47,
+      "rank1_fraction_valid": 0.9698
+    },
+    "diffdock": {
+      "n_poses": 4,
+      "n_compounds": 4,
+      "n_poses_all_checks_pass": 2,
+      "fraction_valid": 0.5,
+      "failures_by_check": {
+        "minimum_distance_to_protein": 2
+      },
+      "compounds_with_any_failing_pose": [
+        "NPLIB03056",
+        "ZM241385_control"
+      ],
+      "n_compounds_with_any_failing_pose": 2,
+      "rank1_fraction_valid": 0.5
+    },
+    "control_vina_redock": {
+      "n_poses": 80,
+      "n_compounds": 1,
+      "n_poses_all_checks_pass": 80,
+      "fraction_valid": 1.0,
+      "failures_by_check": {},
+      "compounds_with_any_failing_pose": [],
+      "n_compounds_with_any_failing_pose": 0,
+      "rank1_fraction_valid": 1.0
+    }
+  },
+  "candidates": {
+    "NPLIB01185": {
+      "vina": {
+        "n_poses": 10,
+        "n_compounds": 1,
+        "n_poses_all_checks_pass": 10,
+        "fraction_valid": 1.0,
+        "failures_by_check": {},
+        "compounds_with_any_failing_pose": [],
+        "n_compounds_with_any_failing_pose": 0,
+        "rank1_fraction_valid": 1.0
+      },
+      "diffdock": {
+        "n_poses": 1,
+        "n_compounds": 1,
+        "n_poses_all_checks_pass": 1,
+        "fraction_valid": 1.0,
+        "failures_by_check": {},
+        "compounds_with_any_failing_pose": [],
+        "n_compounds_with_any_failing_pose": 0,
+        "rank1_fraction_valid": 1.0
+      }
+    },
+    "NPLIB01643": {
+      "vina": {
+        "n_poses": 8,
+        "n_compounds": 1,
+        "n_poses_all_checks_pass": 8,
+        "fraction_valid": 1.0,
+        "failures_by_check": {},
+        "compounds_with_any_failing_pose": [],
+        "n_compounds_with_any_failing_pose": 0,
+        "rank1_fraction_valid": 1.0
+      },
+      "diffdock": {
+        "n_poses": 1,
+        "n_compounds": 1,
+        "n_poses_all_checks_pass": 1,
+        "fraction_valid": 1.0,
+        "failures_by_check": {},
+        "compounds_with_any_failing_pose": [],
+        "n_compounds_with_any_failing_pose": 0,
+        "rank1_fraction_valid": 1.0
+      }
+    },
+    "NPLIB03056": {
+      "vina": {
+        "n_poses": 9,
+        "n_compounds": 1,
+        "n_poses_all_checks_pass": 9,
+        "fraction_valid": 1.0,
+        "failures_by_check": {},
+        "compounds_with_any_failing_pose": [],
+        "n_compounds_with_any_failing_pose": 0,
+        "rank1_fraction_valid": 1.0
+      },
+      "diffdock": {
+        "n_poses": 1,
+        "n_compounds": 1,
+        "n_poses_all_checks_pass": 0,
+        "fraction_valid": 0.0,
+        "failures_by_check": {
+          "minimum_distance_to_protein": 1
+        },
+        "compounds_with_any_failing_pose": [
+          "NPLIB03056"
+        ],
+        "n_compounds_with_any_failing_pose": 1,
+        "rank1_fraction_valid": 0.0
+      }
+    }
+  }
+}

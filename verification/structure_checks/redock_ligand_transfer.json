@@ -1,0 +1,109 @@
+{
+  "question": "Does redocking accuracy survive a change of LIGAND? Every structure in ADR-AIIM-162 was solved with ZM241385.",
+  "authority": "ADR-AIIM-168, criteria fixed before the run",
+  "recipe": {
+    "preparation": "production G2, transcribed: chain A + waters within 5.0 A of that structure's OWN co-crystal ligand -> pdbfixer (missing atoms, hydrogens at pH 7.4, keepWater=True) -> obabel -xr",
+    "docking": "8 conformers, exhaustiveness 32, 10 poses, seed 20260729",
+    "water_shell_ligand": {
+      "4EIY": "ZMA",
+      "5OLH": "9XT"
+    },
+    "arms": [
+      {
+        "arm": "control",
+        "compound": "ZM241385",
+        "resn": "ZMA",
+        "reference_from": "4EIY",
+        "docked_into": "4EIY"
+      },
+      {
+        "arm": "T1",
+        "compound": "9XT",
+        "resn": "9XT",
+        "reference_from": "5OLH",
+        "docked_into": "5OLH"
+      },
+      {
+        "arm": "T2",
+        "compound": "9XT",
+        "resn": "9XT",
+        "reference_from": "5OLH",
+        "docked_into": "4EIY"
+      }
+    ]
+  },
+  "control": {
+    "arm": "control",
+    "compound": "ZM241385",
+    "receptor": "4EIY",
+    "max_rmsd_A": 1.0,
+    "observed_rmsd_A": 0.398,
+    "passed": true
+  },
+  "by_arm": {
+    "control": {
+      "available": true,
+      "compound": "ZM241385",
+      "docked_into": "4EIY",
+      "reference_from": "4EIY",
+      "n_poses": 10,
+      "rank1_rmsd_A": 0.398,
+      "best_rmsd_A": 0.398,
+      "all_rmsd_A": [
+        0.398,
+        0.588,
+        0.594,
+        0.795,
+        10.308,
+        10.282,
+        6.02,
+        10.427,
+        6.036,
+        1.051
+      ],
+      "within_2A": true
+    },
+    "T1": {
+      "available": true,
+      "compound": "9XT",
+      "docked_into": "5OLH",
+      "reference_from": "5OLH",
+      "n_poses": 2,
+      "rank1_rmsd_A": 0.216,
+      "best_rmsd_A": 0.204,
+      "all_rmsd_A": [
+        0.216,
+        0.204
+      ],
+      "within_2A": true
+    },
+    "T2": {
+      "available": true,
+      "compound": "9XT",
+      "docked_into": "4EIY",
+      "reference_from": "5OLH",
+      "n_poses": 10,
+      "rank1_rmsd_A": 9.606,
+      "best_rmsd_A": 9.15,
+      "all_rmsd_A": [
+        9.606,
+        9.672,
+        9.15,
+        9.164,
+        10.46,
+        10.607,
+        11.082,
+        9.415,
+        9.417,
+        15.193
+      ],
+      "within_2A": false
+    }
+  },
+  "declared_reading": {
+    "T1_within_2A": "redocking accuracy transfers to a chemically distinct ligand; the geometric licence extends beyond ZM241385",
+    "T1_beyond_2A": "it does not transfer; 0.318-0.709 A describes ZM241385, not the protocol",
+    "T2": "reported either way, gates nothing"
+  },
+  "outcome": "TRANSFERS"
+}

@@ -73,7 +73,7 @@ def main() -> int:
     axB.axis("off")
     axB.set_title("B  Tier-A candidate: NPLIB01643", loc="left",
                   fontsize=8.6, weight="bold", pad=5)
-    axB.text(0.5, -0.045, "Vina vs DiffDock: 8.80 \u00c5 apart, both on-pocket",
+    axB.text(0.5, -0.045, "Vina vs DiffDock: 8.80 \u00c5 RMSD, centroids 3.78 \u00c5 apart",
              transform=axB.transAxes, ha="center", va="top", fontsize=MIN_PT)
 
     legend_elems = [

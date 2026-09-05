@@ -175,7 +175,7 @@ def main() -> int:
     binary = ["ECFP4", "FCFP4", "MACCS", "AtomPair", "TopTorsion", "Gobbi_Pharm2D"]
     real = ["ErG", "PhysChem"]
 
-    rows, per_compound = [], {}
+    rows, per_compound, self_sims = [], {}, {}
     for kind in binary + real:
         if kind in binary:
             A = bitvec_matrix(tr_mols, kind)
@@ -194,6 +194,15 @@ def main() -> int:
 
         self_sim = knn_mean(S_tr.copy(), K, exclude_self=True)
         thr = float(np.percentile(self_sim, PCTL))
+        # Additive, ADR-AIIM-126. This vector is the only thing that makes
+        # coverage comparable ACROSS spaces, and until now it was computed on
+        # the line above and thrown away. Collapsed to a single percentile, each
+        # space's threshold sits at an unknown position in its own similarity
+        # distribution -- so "0 % in ECFP4, 86 % in PhysChem" cannot be
+        # separated from those two distributions simply having different
+        # shapes. Retained in full below; nothing above this comment changes,
+        # and the three legacy outputs are byte-identical as a result.
+        self_sims[kind] = self_sim
         lib_sim = knn_mean(S_sn.copy(), K, exclude_self=False)
         inside = lib_sim >= thr
 
@@ -235,6 +244,41 @@ def main() -> int:
              "No threshold was tuned and no space was preferred a priori.",
     )
     (outdir / "run_metadata.json").write_text(json.dumps(meta, indent=2))
+
+    # ---- additive outputs (ADR-AIIM-126) ----------------------------------
+    # Written AFTER run_metadata.json so the three legacy artifacts are
+    # produced by exactly the code path that produced them before.
+    np.savez_compressed(outdir / "self_sim_by_space.npz",
+                        **{k: v.astype(np.float64) for k, v in self_sims.items()})
+
+    # Where does each library compound sit inside the training set's own
+    # self-similarity distribution, in that same space? This is a rank, so it
+    # is comparable between spaces in a way the raw similarities are not.
+    pct = pd.DataFrame({"compound_id": sn_ids, "group": sn_grp})
+    for kind, ss in self_sims.items():
+        ss_sorted = np.sort(ss)
+        lib = np.asarray(per_compound[kind]["sim"], dtype=np.float64)
+        pct[f"{kind}_pctile"] = np.round(
+            np.searchsorted(ss_sorted, lib, side="left") / len(ss_sorted) * 100.0, 4)
+    pct.to_csv(outdir / "ad_percentile_position.csv", index=False)
+
+    # Provenance the original run did not record. run_metadata.json is left
+    # exactly as it was so it stays byte-comparable; this is a separate file.
+    import platform, sys as _sys, os as _os, rdkit
+    (outdir / "run_provenance.json").write_text(json.dumps(dict(
+        argv=_sys.argv,
+        python=_sys.version,
+        platform=platform.platform(),
+        rdkit=rdkit.__version__,
+        numpy=np.__version__,
+        pandas=pd.__version__,
+        thread_env={k: _os.environ.get(k) for k in
+                    ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS",
+                     "MKL_NUM_THREADS", "NUMEXPR_NUM_THREADS")},
+        note="Recorded because the 2026-08-21 run recorded neither tooling "
+             "versions nor the command line, and two RDKit installations "
+             "differ across this project.",
+    ), indent=2))
 
     print(f"\nby group, spaces-in-domain (max {len(per_compound)}):")
     print(pc.groupby("group")["n_spaces_inside"].agg(["mean", "max", "count"])

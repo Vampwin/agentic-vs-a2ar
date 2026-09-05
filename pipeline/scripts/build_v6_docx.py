@@ -54,7 +54,14 @@ ROOT = _root()
 SRC = ROOT / "30_manuscript/CURRENT_v5/manuscript_AIIM_v6.md"
 TEMPLATE = ROOT / ("30_manuscript/archive_v4/docx/"
                    "KDSS_A2AR_AIIM_Submission_v4_2026-08-11_reviewed.docx")
-DEFAULT_OUT = ROOT / "30_manuscript/CURRENT_v5/KDSS_A2AR_AIIM_v6_2026-08-21_draft.docx"
+# No date in the name, deliberately. A date in a filename is a claim that
+# nothing verifies: this file was called `..._2026-08-24.docx` while its
+# content was rebuilt daily for twelve days, and the name was wrong for
+# eleven of them. The build date is in the file's own mtime, the version
+# is in the decision log, and both of those are checkable. An undated name
+# also means the artifact has one path, so a stale copy cannot sit beside
+# the current one wearing a different date.
+DEFAULT_OUT = ROOT / "30_manuscript/CURRENT_v5/KDSS_A2AR_AIIM_v6_draft.docx"
 
 
 def manuscript_markdown() -> str:

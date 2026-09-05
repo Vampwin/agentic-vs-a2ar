@@ -1,0 +1,51 @@
+{
+  "declared_inputs": {
+    "docking_box.json": {
+      "from": "20_new_runs/snp_screen_2026-08-04/G2_preparation/docking_box.json",
+      "sha256": "f5149ff0cb07e7d12c0b88bfaf7c9ac729a52e1f7a9e9617906806259c9ecd2e"
+    },
+    "reference_template.json": {
+      "from": "20_new_runs/snp_screen_2026-08-04/G3_redocking/reference_template.json",
+      "sha256": "2d7b2a640f5ba23eb3852337c199d9e7eb2a5f242a7702a5ad30bd756e8bf652"
+    },
+    "4EIY.pdb": {
+      "from": "02_frozen_inputs/a2ar_structures/4EIY.pdb",
+      "sha256": "2a1f198ec341f82e7cc1d8ab6e43ae5438d8c03631e329e4c0bc9f423f795b95"
+    },
+    "5OLH.pdb": {
+      "from": "02_frozen_inputs/a2ar_structures/5OLH.pdb",
+      "sha256": "615b3c88c851b04a4a541e90b64d76df6df881914aed836f8b79b3f750ec6e94"
+    }
+  },
+  "recipe": {
+    "preparation": "production G2, transcribed: chain A + waters within 5.0 A of that structure's OWN co-crystal ligand -> pdbfixer (missing atoms, hydrogens at pH 7.4, keepWater=True) -> obabel -xr",
+    "docking": "8 conformers, exhaustiveness 32, 10 poses, seed 20260729",
+    "water_shell_ligand": {
+      "4EIY": "ZMA",
+      "5OLH": "9XT"
+    },
+    "arms": [
+      {
+        "arm": "control",
+        "compound": "ZM241385",
+        "resn": "ZMA",
+        "reference_from": "4EIY",
+        "docked_into": "4EIY"
+      },
+      {
+        "arm": "T1",
+        "compound": "9XT",
+        "resn": "9XT",
+        "reference_from": "5OLH",
+        "docked_into": "5OLH"
+      },
+      {
+        "arm": "T2",
+        "compound": "9XT",
+        "resn": "9XT",
+        "reference_from": "5OLH",
+        "docked_into": "4EIY"
+      }
+    ]
+  }
+}

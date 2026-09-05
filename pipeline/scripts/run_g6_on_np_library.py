@@ -47,8 +47,38 @@ from kdss_audit.artifact_registry import (  # noqa: E402
 
 FUNNEL = ROOT / "20_new_runs/np_library_funnel_2026-08-15"
 ADSWEEP = ROOT / "20_new_runs/ad_sweep_expanded_2026-08-21"
-RUN = ROOT / "20_new_runs/g6_selection_2026-08-21"
+# The 2026-08-21 run stays as it is (ADR-AIIM-092). This one runs the
+# contract at v1.3.0, which the earlier run predates.
+RUN = ROOT / "20_new_runs/g6_selection_2026-09-02"
 CONTRACT = ROOT / "10_new_system/contracts/G6_selection.yaml"
+
+
+def _false_refusal_inputs() -> dict:
+    """Feed the G6 false-refusal check from the probe's own deposited output.
+
+    Returns an empty mapping if the probe has not been run, which makes the
+    check WARN rather than pass. The gate must not be able to report a
+    false-refusal result that no run produced.
+    """
+    src = (ROOT / "20_new_runs/domain_gate_false_refusal_2026-08-29"
+                  "/domain_gate_false_refusal.json")
+    if not src.is_file():
+        return {}
+    d = json.loads(src.read_text(encoding="utf-8"))["false_refusal"]
+    if not d.get("available"):
+        return {}
+    # The evaluator wants per-space boolean flags; the artifact stores counts.
+    # Reconstructing flags from n_panel and n_refused preserves the rate
+    # exactly, which is the only quantity either side uses.
+    flags = {}
+    for space, v in d["by_space"].items():
+        n, refused = v["n_panel"], v["n_refused"]
+        flags[space] = [False] * refused + [True] * (n - refused)
+    return {
+        "false_refusal_by_space": flags,
+        "false_refusal_separation": d["separation"],
+        "false_refusal_panel": d["panel"],
+    }
 
 
 def main() -> int:
@@ -110,6 +140,11 @@ def main() -> int:
             "evaluated_on_pocket": int(((df.status == "ok") & (df.on_pocket == True)).sum()),  # noqa: E712
         },
         "selection_script_hash": sha256_file(ROOT / "10_new_system/scripts/e8_prioritization.py"),
+        # applicability_domain_false_refusal, added to the contract at
+        # v1.3.0 (ADR-AIIM-147). Panel and separation statement come from
+        # the probe's own run rather than being restated here, so the gate
+        # reports the measurement that was actually made.
+        **_false_refusal_inputs(),
         # Deliberately NOT supplied, because they do not exist for this selection:
         #   registered_selection_script_hash  - e8_prioritization.py was not
         #       hash-registered before it ran

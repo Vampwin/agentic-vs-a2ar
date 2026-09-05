@@ -109,13 +109,39 @@ def main() -> int:
     summary = json.loads(SUMMARY.read_text(encoding="utf-8"))["methods"]
     yr = json.loads(YRAND.read_text(encoding="utf-8"))
 
-    fig = plt.figure(figsize=(7.48, 3.05))
+    # Taller than the panels need, to leave a strip under panel A for its
+    # legend. Five near-chance ROC curves cross most of the unit square, so
+    # there is no interior region a five-entry legend can sit in without
+    # covering data -- the upper left looks empty until the curves reach it.
+    fig = plt.figure(figsize=(7.48, 3.62))
     gs = fig.add_gridspec(1, 3, width_ratios=[1.06, 1.0, 1.0], wspace=0.40,
-                          left=0.062, right=0.988, top=0.83, bottom=0.16)
+                          left=0.062, right=0.988, top=0.86, bottom=0.30)
 
     # ---- A: ROC ----------------------------------------------------------
     axA = fig.add_subplot(gs[0, 0])
     axA.plot([0, 1], [0, 1], color="#999999", lw=0.8, ls=(0, (3, 3)), zorder=1)
+
+    # A pointwise bootstrap band on the baseline, and only the baseline.
+    # Five bands would be mush, and the claim the band has to support is not
+    # "each curve has an interval" but "these curves are not distinguishable":
+    # every other method lies inside the baseline's band over almost its whole
+    # range. Drawing it once makes that visible; drawing it five times hides it.
+    # Resampling matches the benchmark's own bootstrap (n=1000, seed 42) as
+    # recorded in ifp_rescoring_summary.json.
+    grid = np.linspace(0, 1, 201)
+    rng = np.random.default_rng(42)
+    base_s = (-d[METHODS[0][1]]).values.astype(float)
+    curves = []
+    for _ in range(1000):
+        idx = rng.integers(0, len(y), len(y))
+        if len(np.unique(y[idx])) < 2:
+            continue
+        f, t, _ = roc_curve(y[idx], base_s[idx])
+        curves.append(np.interp(grid, f, t))
+    band = np.percentile(np.vstack(curves), [2.5, 97.5], axis=0)
+    axA.fill_between(grid, band[0], band[1], color=METHODS[0][3], alpha=0.13,
+                     linewidth=0, zorder=1.5)
+
     provenance = {}
     for label, col, neg, colour, lw in METHODS:
         s = (-d[col] if neg else d[col]).values.astype(float)
@@ -131,13 +157,15 @@ def main() -> int:
     axA.set_xlabel("false positive rate", fontsize=7.4)
     axA.set_ylabel("true positive rate", fontsize=7.4)
     axA.tick_params(labelsize=6.8)
-    axA.legend(fontsize=5.7, frameon=False, loc="lower right", handlelength=1.3,
-               borderpad=0.15, labelspacing=0.22,
-               bbox_to_anchor=(1.02, -0.015))
+    axA.legend(fontsize=6.0, frameon=False, loc="upper left", handlelength=1.5,
+               borderpad=0.0, labelspacing=0.28, handletextpad=0.5,
+               bbox_to_anchor=(-0.015, -0.235))
     axA.set_title("A  Rescue attempts (ROC)", loc="left",
                   fontsize=8.4, weight="bold", pad=6)
-    axA.text(0.035, 0.955, "diagonal = chance", transform=axA.transAxes,
-             fontsize=6.2, color="#777777", va="top")
+    # The band and the diagonal are explained in the caption; only the one note
+    # that fits without touching a curve stays on the panel.
+    axA.text(0.975, 0.045, "diagonal = chance", transform=axA.transAxes,
+             fontsize=6.2, color="#777777", ha="right", va="bottom")
 
     # ---- B: y-randomisation ----------------------------------------------
     axB = fig.add_subplot(gs[0, 1])

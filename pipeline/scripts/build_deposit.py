@@ -111,8 +111,24 @@ SKIP_NAMES = {
 
 # Working files created while debugging, prefixed with an underscore by
 # convention in this project. They are not deliverables.
-def _is_scratch(name: str) -> bool:
-    return name.startswith("_") and name not in {"__init__.py"}
+#
+# Evaluator helper modules are the exception, and getting this wrong was not
+# cosmetic. They follow the same underscore convention but ARE deliverables:
+# excluding them removed _domain_gate_bias_probe.py -- which the manuscript
+# offers as a contract "directly transferable to any screening campaign" -- and
+# _assay_blindness.py, which implements a stated safety boundary, from every
+# deposit ever built. A reader following the Data availability statement could
+# not obtain either one. Found by the internal review of 2026-08-25
+# (ADR-AIIM-127).
+_KEEP_UNDERSCORED_IN = {"evaluators"}
+
+
+def _is_scratch(f: Path) -> bool:
+    if f.name == "__init__.py":
+        return False
+    if f.parent.name in _KEEP_UNDERSCORED_IN and f.suffix == ".py":
+        return False
+    return f.name.startswith("_")
 
 # Screening lives in its own module: getting these patterns right matters
 # more than anything else here, and it carries a self-test.
@@ -195,7 +211,7 @@ def main() -> int:
             if f.suffix.lower() in SKIP_SUFFIX:
                 skipped += 1
                 continue
-            if f.name in SKIP_NAMES or _is_scratch(f.name):
+            if f.name in SKIP_NAMES or _is_scratch(f):
                 skipped += 1
                 continue
             rel_src = str(f.relative_to(ROOT).as_posix())

@@ -1,0 +1,49 @@
+{
+  "run_date": "2026-08-02",
+  "approval": "cross_fitted_calibration_approved_2026-08-02",
+  "base_artifact_id": "logistic_l2_dev_2026-08-02",
+  "n_cal": 188,
+  "n_groups": 11,
+  "n_cal_folds": 3,
+  "protocol_preferred": "sigmoid",
+  "selected": "isotonic",
+  "selection_reason": "isotonic wins on both Brier and ECE (overrides sigmoid preference)",
+  "isotonic": {
+    "brier_score": 0.13123733535967577,
+    "ece": 1.249000902703301e-16,
+    "fraction_of_positives": [
+      0.0,
+      0.2857142857142857,
+      0.8958333333333334,
+      1.0
+    ],
+    "mean_predicted_value": [
+      0.0,
+      0.28571428571428564,
+      0.8958333333333329,
+      1.0
+    ]
+  },
+  "sigmoid": {
+    "brier_score": 0.13139776418444754,
+    "ece": 0.014040093203470588,
+    "fraction_of_positives": [
+      0.0,
+      0.2857142857142857,
+      0.8958333333333334,
+      1.0
+    ],
+    "mean_predicted_value": [
+      0.03693629580033041,
+      0.2880422433514421,
+      0.8906386319491731,
+      0.9882985820077647
+    ]
+  },
+  "registered_artifact": {
+    "artifact_id": "logistic_l2_cal_isotonic_dev_2026-08-02",
+    "sha256": "8B6E36CE68E8AA7DC1655B2A887E8E0BFEBE8E5997449EB8B86FE2CB4037C091",
+    "schema_sha256": "558BA52AC952375C6C79B3175A21B954EB04169AC421CD5B90AA773D67811A05",
+    "registered_at": "2026-08-02T05:47:51.178860+00:00"
+  }
+}

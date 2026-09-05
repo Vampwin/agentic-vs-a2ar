@@ -1,0 +1,120 @@
+{
+  "purpose": "M4 / ADR-AIIM-135. The five blind cases are reported as a qualitative case study. This artifact records why a rate is the wrong summary of them, in numbers, so that the decision not to quote one is itself checkable.",
+  "authority": "ADR-AIIM-135",
+  "sources": {
+    "heldout_evaluation": {
+      "file": "20_new_runs/heldout_evaluation_2026-08-08/heldout_evaluation_summary.json",
+      "sha256": "56da16e9d2797ce319e253621fbb443755aba2a1d3a3ab32908970b5bef6ae4f"
+    },
+    "development_benchmark": {
+      "file": "20_new_runs/seeded_defect_recount_2026-08-29/mutation_score_by_gate_recounted.json",
+      "sha256": "34b915a757543c1dd8141192ba798c0deef04f6d409d76f6c520f4b470a084af"
+    }
+  },
+  "disclosure": "Per-case gate, contract check name and observed state only -- what the evaluation measured. No fault mechanism is described here. The faulted workdirs remain sealed (ADR-AIIM-113); H06-H12 have never been exposed.",
+  "n_cases": 5,
+  "n_detected": 1,
+  "point_estimate": 0.2,
+  "wilson_95_ci": [
+    0.036,
+    0.624
+  ],
+  "ci_width": 0.588,
+  "why_no_rate_is_reported": "A 95 % Wilson interval of [0.036, 0.624] spans 59 percentage points. It excludes neither a system that detects almost nothing nor one that detects most things, so quoting 20 % beside a development figure measured on 128 cases compares an estimate with a number.",
+  "gate_coverage_confound": {
+    "gates_with_no_implemented_development_family": [
+      "G2",
+      "G3",
+      "G5",
+      "G7"
+    ],
+    "n_cases_on_such_gates": 2,
+    "cases_on_such_gates": [
+      "H02",
+      "H03"
+    ],
+    "gates_of_those_cases": [
+      "G2",
+      "G3"
+    ],
+    "reading": "For these cases the contrast is not between anticipated and unanticipated fault mechanisms but between a gate the benchmark exercised and one it never did. They cannot speak to generalisation across mechanisms."
+  },
+  "the_uncomfortable_part": {
+    "n_missed_at_gates_scoring_100pc_on_development": 2,
+    "cases": [
+      {
+        "case": "H01",
+        "gate": "G0",
+        "development_cases_at_this_gate": 25
+      },
+      {
+        "case": "H05",
+        "gate": "G8",
+        "development_cases_at_this_gate": 15
+      }
+    ],
+    "reading": "These are the cases the confound does not explain. The gate was exercised by the development benchmark, scored perfectly there, and still missed a case authored blind to it. That is the finding the case study carries."
+  },
+  "cases": [
+    {
+      "case": "H01",
+      "gate": "G0",
+      "contract_check": "name_structure_mapping",
+      "expected": "critical -> HALT",
+      "observed": "PASS",
+      "detected": false,
+      "evaluator_ran": true,
+      "gate_exercised_by_development_benchmark": true,
+      "development_detection_rate_at_this_gate": 1.0,
+      "development_cases_at_this_gate": 25
+    },
+    {
+      "case": "H02",
+      "gate": "G2",
+      "contract_check": "structural_waters_recorded",
+      "expected": "high -> ESCALATE",
+      "observed": "PASS",
+      "detected": false,
+      "evaluator_ran": false,
+      "gate_exercised_by_development_benchmark": false,
+      "development_detection_rate_at_this_gate": null,
+      "development_cases_at_this_gate": 0
+    },
+    {
+      "case": "H03",
+      "gate": "G3",
+      "contract_check": "atom_map_pre_registration",
+      "expected": "high -> ESCALATE (post-hoc remap should be caught by registration-order precondition)",
+      "observed": "PASS",
+      "detected": false,
+      "evaluator_ran": true,
+      "gate_exercised_by_development_benchmark": false,
+      "development_detection_rate_at_this_gate": null,
+      "development_cases_at_this_gate": 0
+    },
+    {
+      "case": "H04",
+      "gate": "G4",
+      "contract_check": "output_completeness + missing_output_accounting",
+      "expected": "high -> ESCALATE (both checks fire)",
+      "observed": "HALT",
+      "detected": true,
+      "evaluator_ran": true,
+      "gate_exercised_by_development_benchmark": true,
+      "development_detection_rate_at_this_gate": 0.8519,
+      "development_cases_at_this_gate": 27
+    },
+    {
+      "case": "H05",
+      "gate": "G8",
+      "contract_check": "table_source_verification + no_unregistered_claims",
+      "expected": "high -> ESCALATE",
+      "observed": "PASS",
+      "detected": false,
+      "evaluator_ran": true,
+      "gate_exercised_by_development_benchmark": true,
+      "development_detection_rate_at_this_gate": 1.0,
+      "development_cases_at_this_gate": 15
+    }
+  ]
+}

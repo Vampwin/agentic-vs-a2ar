@@ -1,10 +1,14 @@
 # Incident taxonomy
 
-Referenced from Section 3.6 of `manuscript_AIIM_v6.md`. Fifteen incidents
+Referenced from Section 3.7 of `manuscript_AIIM_v6.md`. Fifteen incidents
 recorded in the project decision log (Supplementary S5) during construction
 and execution of the pipeline, classified by the layer each occurred in, what
 detected it, and how it resolved. Three are scientific, six are
 infrastructure, six are agent-reasoning errors.
+
+A sixteenth is listed separately below. It was found during revision rather
+than during construction, so folding it into the fifteen would misdate it;
+its failure class is the same and Section 3.7 reports it in full.
 
 | Layer | Incident | Detector | Resolution |
 |---|---|---|---|
@@ -23,6 +27,15 @@ infrastructure, six are agent-reasoning errors.
 | Agent reasoning | "This force field reports no parameter-penalty score" | Tool output read directly | Corrected; one ligand torsion scores 87.0 |
 | Agent reasoning | "The simulation package is not installed" | Only one of four guest environments had been checked | Corrected |
 | Agent reasoning | A membrane-build failure attributed to the packing stage on the strength of a clash count measured on the *post*-parameterisation file, not the packing output | The two files measured separately | Attribution corrected — the packing output held 28 sub-0.7 Å contacts, the parameterised file 119; most were introduced when hydrogens and virtual sites were built onto it |
+
+## Found during revision
+
+| Layer | Incident | Detector | Resolution |
+|---|---|---|---|
+| Infrastructure | A re-export of per-case fault-injection rows silently dropped the `vacuous` field. Five instances in which the injector had matched nothing — no bytes changed, no fault present — were thereafter counted as escapes, and four downstream analyses and the manuscript divided by 133 rather than 128 for three weeks | Reconciliation of two case counts prompted by a reviewer's question; no check fired | Figures regenerated from the file that still carried the field (`recount_seeded_defects.py`), not edited in place, so the defective export cannot propagate again. Detection 93.2 % → 96.9 %, SEER 0.068 → 0.031 (ADR-AIIM-131) |
+
+This one ran in the authors' favour, which is why it is reported with its
+provenance rather than substituted quietly.
 
 ## Two patterns
 

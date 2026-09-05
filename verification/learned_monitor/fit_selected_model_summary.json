@@ -1,0 +1,47 @@
+{
+  "run_date": "2026-08-02",
+  "approval": "logistic_l2_approved_2026-08-02_ADR-AIIM-028",
+  "model_name": "logistic_l2",
+  "dataset": {
+    "n_rows": 188,
+    "n_features": 24,
+    "n_positive": 113,
+    "positive_rate": 0.601063829787234,
+    "n_groups": 11
+  },
+  "artifact": {
+    "artifact_id": "logistic_l2_dev_2026-08-02",
+    "model_path": "D:\\Agentic VS Workflow\\20_new_runs\\WP2.5_WP3A_readiness_2026-07-30\\models\\logistic_l2_dev_2026-08-02.joblib",
+    "sha256": "8971003D5FBE88B3BA489E9B9B99C919B70D50574E706706474AB410BE4AA53A",
+    "feature_order_sha256": "84DE5BF7C200D01EB49E7CF0793BFBC9D5F37AB196E4E49E3709E3FAE1D9C09C",
+    "schema_sha256": "558BA52AC952375C6C79B3175A21B954EB04169AC421CD5B90AA773D67811A05",
+    "schema_version": "1.0.0",
+    "registered_at": "2026-08-02T05:15:40.888547+00:00"
+  },
+  "feature_order": [
+    "n_missing_input_hashes",
+    "n_unregistered_artifacts",
+    "has_unexpected_lineage",
+    "n_tool_warnings",
+    "n_retries",
+    "elapsed_seconds",
+    "n_nonzero_exit_codes",
+    "n_missing_outputs",
+    "n_schema_drift_fields",
+    "n_count_discrepancies",
+    "n_duplicate_ids",
+    "n_lost_records",
+    "n_unexpected_records",
+    "timestamp_staleness_seconds",
+    "pose_failure_fraction",
+    "score_distribution_shift",
+    "n_steric_clashes",
+    "convergence_flag",
+    "shadow_rmsd_best_pose",
+    "shadow_score_rank_rho",
+    "shadow_id_match_fraction",
+    "shadow_hash_match_all",
+    "out_of_domain_flag",
+    "n_null_features"
+  ]
+}

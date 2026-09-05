@@ -293,17 +293,17 @@ def graphical_abstract(out: Path) -> Path:
          "The same library, the same rule.",
          ["A similarity gate cannot tell", "unfamiliar from unreliable."]),
         (MOSS, MOSS_F, "2  The code itself is verified",
-         "93.2 %", ["of 133 seeded defects caught;", "0 % when run ungoverned"],
+         "96.9 %", ["of 128 seeded defects caught;", "a naive analyst misses 48 %"],
          ["9 gates · 10 contracts · 94 checks", "false alarms on clean runs: 0.0",
           "learned monitor alone: 0.8 %"],
          "All 94 checks passed.",
          ["One metamorphic invariant still", "found a defect none encode."]),
         (AMBER, AMBER_F, "3  Corrected gates, tiered output",
-         "3", ["convergent flavones, all from", "Pongamia pinnata"],
+         "3", ["convergent flavones, all from", "the genus Pongamia"],
          ["25,604 → 500 full redocks", "structure- and ligand-based",
-          "arms agree; p = 0.002"],
+          "arms agree independently"],
          "Computational hypotheses.",
-         ["No wet-laboratory validation", "was performed."]),
+         ["No assay was performed; dynamics", "keep the poses but not the geometry."]),
     ]
 
     for i, (col, fil, head, big, note, bullets, kicker, caveat) in enumerate(cols):

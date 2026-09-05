@@ -2,20 +2,32 @@
 figure_ad_multispace.py -- the applicability-domain figure.
 
 The claim this figure supports is narrow and should stay narrow: an
-applicability-domain verdict is not a property of a library, it is a property
-of a library *and a descriptor space*, and reporting one without the other is
-uninterpretable. Nothing here says which space is correct.
+applicability-domain verdict is interpretable only when the *kind* of
+descriptor is named. Structural exclusion and physicochemical admission are
+both true of this library and are not in conflict; neither is about activity.
+Nothing here says which space is correct.
+
+Revised 2026-08-25 under ADR-AIIM-136. The earlier version argued from eight
+admission rates spanning 0% to 86.3%, which reads as eight spaces disagreeing.
+ADR-AIIM-126 showed that is wrong: seven of them agree closely once the
+quantity the rule thresholds is shown directly. Panel B was rebuilt to show it.
 
 Three panels, each answering a different objection:
 
-  A  "Maybe the library is simply exotic."     -> Deliberate 2D-pharmacophore
-     and 3D-shape selection toward 52 known A2AR ligands (236 -> 497
-     compounds) moved physicochemical coverage 64.4% -> 86.3% and moved
-     structural coverage not at all. The two are decoupled.
+  A  "Maybe the library is simply exotic."     -> A second library, anchored to
+     the same biosynthetic superclasses and then selected toward 52 known A2AR
+     ligands, raised physicochemical coverage 64.4% -> 86.3% and structural
+     coverage not at all. These are two libraries, not one before and after a
+     filter; if similarity selection could move a structural applicability
+     domain, it would have moved it here.
 
-  B  "Maybe they are just below an arbitrary threshold."  -> The whole
-     distribution is shown against the threshold, so how far outside is
-     visible, not merely that it is outside.
+  B  "Then the spaces contradict each other."  -> They do not. A Tanimoto of
+     0.24 in ECFP4 and 0.91 in ErG are not the same quantity and cannot share
+     an axis. A percentile inside each space's own training self-similarity
+     distribution can, and on that axis seven of the eight spaces put the
+     median compound between 0.23 and 3.82, all below one shared threshold
+     line. The spread in admission rates is where each threshold happens to
+     fall in a differently shaped distribution.
 
   C  "Maybe one space is unlucky."  -> Per-compound count of spaces inside.
 
@@ -46,7 +58,13 @@ def _root() -> Path:
 
 
 ROOT = _root()
-SWEEP = ROOT / "20_new_runs/ad_sweep_expanded_2026-08-21"
+# Repointed 2026-08-25 (ADR-AIIM-136). The 2026-08-25 sweep reproduces the
+# 2026-08-21 outputs byte-for-byte after normalising line endings (ADR-AIIM-126)
+# and additionally carries the per-space training self-similarity distribution
+# that panel B now needs. G6 and Supplementary S10 continue to read the older
+# directory, which is correct: the contents are identical and re-pointing them
+# would force a re-freeze for no change in any number.
+SWEEP = ROOT / "20_new_runs/ad_sweep_selfsim_2026-08-25"
 
 # Ordered so the four zero-coverage structural spaces lead and PhysChem --
 # the space that disagrees with all of them -- sits last. The ordering is
@@ -86,6 +104,7 @@ def main() -> int:
     comp = pd.DataFrame(
         json.loads((SWEEP / "comparison_vs_snplib.json").read_text(encoding="utf-8"))["comparison"]
     ).set_index("descriptor_space")
+    pct = pd.read_csv(SWEEP / "ad_percentile_position.csv")
 
     # 7.48 in = 190 mm, Elsevier double-column: draw at final size so no
     # rescaling shrinks the type below the 7 pt floor.
@@ -115,43 +134,66 @@ def main() -> int:
     axA.set_ylim(0, 100)
     axA.spines[["top", "right"]].set_visible(False)
     handles = [Patch(facecolor="#c9c9c9", edgecolor="#555555",
-                     label="before selection (n = 236)"),
-               Patch(facecolor="#2c5f8a", edgecolor="#333333", label="structural"),
+                     label="SNP-Lib (n = 236)"),
+               Patch(facecolor="#2c5f8a", edgecolor="#333333",
+                     label="LOTUS expansion, redocked (n = 497):  structural"),
                Patch(facecolor="#7a9a3c", edgecolor="#333333", label="pharmacophoric"),
                Patch(facecolor="#b5651d", edgecolor="#333333", label="physicochemical")]
-    axA.legend(handles=handles, ncol=4, fontsize=6.9, frameon=False,
-               loc="upper left", bbox_to_anchor=(0.0, 1.19), columnspacing=1.4)
-    axA.set_title("A   Similarity selection moved physicochemical coverage by 21.9 points\n"
-                  "     and structural coverage by none",
+    axA.legend(handles=handles, ncol=4, fontsize=6.6, frameon=False,
+               loc="upper left", bbox_to_anchor=(0.0, 1.19), columnspacing=1.1)
+    # Not "before and after". These are two libraries: the second was anchored
+    # to the biosynthetic superclasses that dominate the first, then selected
+    # toward 52 known A2AR ligands. If similarity selection could move a
+    # structural applicability domain, it would have moved it here.
+    axA.set_title("A   Selecting a second library toward known A2AR ligands raised\n"
+                  "     physicochemical coverage by 21.9 points and structural coverage by none",
                   loc="left", fontsize=8.4, weight="bold", pad=22)
 
-    # ---- Panel B : full similarity distribution against each threshold -----
+    # ---- Panel B : percentile position inside each space's own distribution -
+    # A Tanimoto of 0.24 in ECFP4 and one of 0.91 in ErG are not the same
+    # quantity and cannot share an axis, which is why the previous version of
+    # this panel could not support the comparison the text was drawing from it.
+    # A percentile can: it says where a compound sits inside the training set's
+    # own self-similarity distribution, in that same space. The rule admits at
+    # the 10th percentile everywhere, so one horizontal line serves all eight.
     axB = fig.add_subplot(gs[1, 0])
+    # Log axis cannot show zero. Three compounds sit at percentile 0 exactly
+    # (two in ECFP4, one physicochemical): less similar to the training set
+    # than any training compound is to its own neighbours. The floor is set
+    # below the smallest non-zero value the data can take, 1/5970 = 0.0168,
+    # so only those three are moved, and the caption says so.
+    FLOOR = 0.01
+    med_pct = {}
     for i, s in enumerate(ORDER):
-        v = per[f"{s}_sim"].to_numpy()
-        thr = float(cov.loc[s, "threshold"])
-        parts = axB.violinplot([v], positions=[i], widths=0.72,
+        v = np.clip(pct[f"{s}_pctile"].to_numpy(), FLOOR, 100.0)
+        med_pct[s] = float(np.median(v))
+        lv = np.log10(v)
+        parts = axB.violinplot([lv], positions=[i], widths=0.72,
                                showextrema=False, showmedians=False)
         for b in parts["bodies"]:
             b.set_facecolor(CKIND[KIND[s]])
             b.set_alpha(0.34)
             b.set_edgecolor(CKIND[KIND[s]])
             b.set_linewidth(0.6)
-        q1, med, q3 = np.percentile(v, [25, 50, 75])
+        q1, m, q3 = np.percentile(lv, [25, 50, 75])
         axB.vlines(i, q1, q3, color=CKIND[KIND[s]], linewidth=2.6)
-        axB.plot(i, med, "o", ms=2.6, color="white", zorder=4,
+        axB.plot(i, m, "o", ms=2.6, color="white", zorder=4,
                  markeredgecolor=CKIND[KIND[s]], markeredgewidth=0.6)
-        axB.hlines(thr, i - 0.40, i + 0.40, color="#b00020", linewidth=1.3, zorder=5)
+    axB.axhline(np.log10(10.0), color="#b00020", linewidth=1.3, zorder=5)
     axB.set_xticks(range(len(ORDER)))
     axB.set_xticklabels([LABEL[s].replace("\n", " ") for s in ORDER],
                         fontsize=6.8, rotation=38, ha="right")
-    axB.set_ylabel("mean similarity to 5 nearest\nChEMBL A2AR training neighbours")
-    axB.set_ylim(0, 1.02)
+    ticks = [0.1, 0.3, 1, 3, 10, 30, 100]
+    axB.set_yticks([np.log10(t) for t in ticks])
+    axB.set_yticklabels([("%g" % t) for t in ticks], fontsize=6.8)
+    axB.set_ylim(np.log10(FLOOR * 0.8), np.log10(140))
+    axB.set_ylabel("percentile of the compound inside the\n"
+                   "training set's own self-similarity (log)")
     axB.spines[["top", "right"]].set_visible(False)
     axB.plot([], [], color="#b00020", linewidth=1.3,
-             label="domain threshold (10th percentile\nof training self-similarity)")
-    axB.legend(fontsize=6.8, frameon=False, loc="lower left")
-    axB.set_title("B   Distance from the domain, not merely in or out",
+             label="the domain threshold, now one line\nfor all eight spaces (10th percentile)")
+    axB.legend(fontsize=6.8, frameon=False, loc="upper left")
+    axB.set_title("B   On a comparable axis, seven of the eight spaces agree",
                   loc="left", fontsize=8.4, weight="bold", pad=6)
 
     # ---- Panel C : how many spaces call a compound in-domain ---------------
@@ -183,27 +225,32 @@ def main() -> int:
     axC.set_title(f"C   No compound is inside\n     more than {n_max} of the 8 spaces",
                   loc="left", fontsize=8.4, weight="bold", pad=6)
 
-    stem = out / "figure_ad_multispace_2026-08-21"
+    stem = out / "figure_ad_multispace_2026-08-25"
     fig.savefig(stem.with_suffix(".png"), bbox_inches="tight")
     fig.savefig(stem.with_suffix(".svg"), bbox_inches="tight")
     plt.close(fig)
 
     prov = {
         "figure": stem.name,
-        "generated": "2026-08-21",
+        "generated": "2026-08-25",
         "script": "figure_ad_multispace.py",
+        "supersedes": "figure_ad_multispace_2026-08-21",
+        "adr": "ADR-AIIM-136",
+        "sweep_dir": str(SWEEP.relative_to(ROOT).as_posix()),
         "inputs": {
             "ad_coverage_by_descriptor.csv": sha256(SWEEP / "ad_coverage_by_descriptor.csv"),
             "ad_per_compound.csv": sha256(SWEEP / "ad_per_compound.csv"),
+            "ad_percentile_position.csv": sha256(SWEEP / "ad_percentile_position.csv"),
             "comparison_vs_snplib.json": sha256(SWEEP / "comparison_vs_snplib.json"),
         },
         "outputs": {p.name: sha256(p) for p in
                     (stem.with_suffix(".png"), stem.with_suffix(".svg"))},
         "panel_A_numbers": {
-            s: {"before_pct": round(float(comp.loc[s, "coverage_fraction_snplib"]) * 100, 2),
-                "after_pct": round(float(comp.loc[s, "coverage_fraction_expanded"]) * 100, 2)}
+            s: {"snplib_pct": round(float(comp.loc[s, "coverage_fraction_snplib"]) * 100, 2),
+                "expanded_pct": round(float(comp.loc[s, "coverage_fraction_expanded"]) * 100, 2)}
             for s in ORDER},
-        "panel_B_thresholds": {s: float(cov.loc[s, "threshold"]) for s in ORDER},
+        "panel_B_median_percentile": {s: round(med_pct[s], 2) for s in ORDER},
+        "panel_B_threshold_percentile": 10,
         "panel_C_counts": {int(k): int(v) for k, v in counts.items()},
         "max_spaces_inside": n_max,
     }

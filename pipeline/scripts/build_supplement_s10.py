@@ -36,15 +36,197 @@ RUNS = ROOT / "20_new_runs"
 DEST = ROOT / "30_manuscript/supplement/S10_verification_2026-08-21"
 
 # (source relative to 20_new_runs, subfolder in S10, what it supports)
+def not_here_block() -> list[str]:
+    """The exclusions, rendered from the one place they are decided.
+
+    This section was three hand-written bullets until 2026-08-29. The same
+    decisions were also recorded in comments in build_deposit.py and in prose in
+    two governance files, and the four copies had begun to disagree -- the
+    bullets said the candidate simulations "were still running at submission",
+    which stopped being true, and said nothing at all about the runs this
+    project performed and then set aside. `evidence_not_used.py` is now the one
+    place a decision to leave something out is written down, and this is one of
+    its two readers (ADR-AIIM-142).
+
+    Only `artifacts_only` entries name something a reader might expect to find
+    in this bundle. `whole_run` entries are runs the manuscript does not rest on
+    at all; they are listed too, compactly, because a supplement that shows only
+    the work that worked is not a complete account of the work.
+    """
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(
+        "evidence_not_used", Path(__file__).with_name("evidence_not_used.py"))
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    mod.self_test()
+
+    withheld = {k: v for k, v in mod.NOT_USED.items()
+                if v.get("scope") == "artifacts_only"}
+    unused = {k: v for k, v in mod.NOT_USED.items()
+              if v.get("scope", "whole_run") == "whole_run"}
+
+    L = ["## What is deliberately not here", "",
+         "Generated from `10_new_system/scripts/evidence_not_used.py`, which is "
+         "where each of these decisions is recorded with its reason and the "
+         "decision record that made it. Nothing here is summarised.", "",
+         "### Reported, but the material is withheld", ""]
+    for run, e in sorted(withheld.items()):
+        L.append(f"**`{run}`** — {e['kind'].replace('_', ' ')}, excluded from "
+                 f"{' and '.join(e.get('excluded_from', []))} "
+                 f"({', '.join(e.get('adr', []))}).")
+        L.append("")
+        L.append(e["reason"])
+        if e.get("published_anyway"):
+            L.append("")
+            L.append("Published anyway: "
+                     + ", ".join(f"`{q}`" for q in e["published_anyway"]) + ".")
+        L.append("")
+    L += ["### Runs this manuscript does not rest on", "",
+          "Produced during this study and not used. Listed so that the work "
+          "which did not survive is visible beside the work that did.", "",
+          "| Run | Why |", "|---|---|"]
+    for run, e in sorted(unused.items()):
+        # Not truncated to a first sentence. The heading three lines above
+        # promises nothing here is summarised, and for several of these the
+        # reason the run was set aside is in the second sentence, not the first.
+        why = " ".join(e["reason"].split())
+        if e.get("superseded_by"):
+            why += f" Superseded by `{e['superseded_by']}`."
+        L.append(f"| `{run}` | {why} |")
+    L.append("")
+    return L
+
+
 ITEMS: list[tuple[str, str, str]] = [
+    ("seeded_defect_recount_2026-08-29/mutation_score_by_gate_recounted.json",
+     "seeded_defects", "Table 1 and §3.1: per-gate and per-family detection and the "
+     "2x2 ablation, over the 128 cases in which a fault was actually injected. "
+     "Carries the superseded figures beside the corrected ones (ADR-AIIM-131)"),
     ("verification_summary_2026-08-21/mutation_score_by_gate.json",
-     "seeded_defects", "Table 4 and §3.1: per-gate and per-family detection, the 2x2 ablation"),
+     "seeded_defects", "SUPERSEDED 2026-08-29. The same analysis divided by 133 "
+     "rather than 128, because the export it read had dropped the vacuous flag. "
+     "Published so the correction can be checked against what it replaced"),
     ("WP4_retrain_postfix_2026-08-05/wp4_conditions_ac_results_postfix_2026-08-05.json",
      "seeded_defects", "the underlying run the per-gate table is derived from"),
+    ("naive_baseline_2026-08-29/naive_baseline_summary.json",
+     "seeded_defects", "§3.1: the naive-analyst comparator, SEER 0.477 over the "
+     "same 128 cases as the governed arm. Re-run by a driver script "
+     "(ADR-AIIM-131); reproduces the 2026-08-10 result exactly, family by family"),
+    ("naive_baseline_2026-08-29/naive_baseline_outcomes.csv",
+     "seeded_defects", "per-case outcomes of that comparator"),
     ("naive_baseline_2026-08-10/naive_baseline_summary.json",
-     "seeded_defects", "§3.1: the ungoverned comparator, SEER 0.477"),
+     "seeded_defects", "the original 2026-08-10 run, which had no driver script. "
+     "Kept so the reproduction can be checked against what it reproduces"),
     ("real_artifact_replay_2026-08-05/real_artifact_replay_results.json",
      "seeded_defects", "Table 4: 4/4 real-artifact defect replay, and the 0.379 A redock RMSD"),
+    ("control_pose_fragments_2026-08-28/control_pose_fragments.json",
+     "structure_checks", "§3.6 and Figure 5: the 1.92 Å control-pose RMSD "
+     "decomposed into core 1.03, furanyl 2.88 and tail 2.00 Å"),
+    ("pose_disagreement_2026-08-29/pose_disagreement_geometry.json",
+     "structure_checks", "§3.6 and Figure 5B: centroid separation beside "
+     "in-place RMSD — the 8.80 Å disagreement is reorientation, not displacement"),
+    ("WP2.5_WP3A_readiness_2026-07-30/fit_selected_model_summary.json",
+     "learned_monitor", "§4: the fitted risk monitor, 188 rows and 24 features"),
+    ("WP2.5_WP3A_readiness_2026-07-30/calibration_comparison.json",
+     "learned_monitor", "§4: isotonic against sigmoid; isotonic on 188 rows "
+     "collapses the probability to four values"),
+    ("WP2.5_WP3A_readiness_2026-07-30/compare_models_dev_data.json",
+     "learned_monitor", "§4: the family-grouped nested-CV model comparison and "
+     "the prespecification override of gradient boosting"),
+    ("WP2.5_WP3A_readiness_2026-07-30/policy_config.json",
+     "learned_monitor", "§4: the two policy thresholds, which are two of the "
+     "four probabilities isotonic can emit"),
+    ("smiles_redock_500_2026-08-26/r2_results.json",
+     "metamorphic", "§3.2 and §3.6: all 500 re-docked from rewritten SMILES. "
+     "Tier-A identity unchanged; 3 of 497 scores identical, ρ = 0.767; the three "
+     "reported convergence failures all completed (ADR-AIIM-157)"),
+    ("funnel_recall_fullprotocol_2026-09-01/r4_results.json",
+     "applicability_domain", "§3.5: the discarded sample at the production "
+     "protocol. 10.76 % weighted against the fast pass's 7.41 %, and the "
+     "protocol-shift decomposition showing the fast pass under-scored what it "
+     "rejected three times as much as what it kept (ADR-AIIM-158)"),
+    ("md_pose_persistence_2026-08-31/pocket_occupancy.json",
+     "structure_checks", "§3.6: the PBC-proof measurement of whether each "
+     "ligand stayed in the site it was docked into (ADR-AIIM-156)"),
+    ("trivial_baseline_2026-09-03/trivial_baseline.json",
+     "screening_performance", "§3.4, §4, §5: what Table 5's baseline is worth. "
+     "Vina 0.601 recomputed as a self-check, heavy-atom count 0.584 on the same "
+     "245 rows, paired difference +0.018 (p = 0.722). Not pre-registered and "
+     "labelled so (ADR-AIIM-164)"),
+    ("pose_validity_2026-09-03/pose_validity.json",
+     "structure_checks", "§3.5, §3.6: PoseBusters over all 4,916 "
+     "full-protocol poses, tool defaults unmodified. 97.88 % valid; the DiffDock "
+     "control that passed the 2.0 A gate overlaps the receptor (ADR-AIIM-166)"),
+    ("clinical_reference_2026-09-03/clinical_reference.json",
+     "screening_performance", "§3.5, §4: ten A2A ligands of known affinity "
+     "docked under the production protocol. None of the seven clinical and "
+     "reference antagonists is placed in the Asn253 hydrogen bond; the apparent "
+     "score-affinity correlation is carried by two agonists (ADR-AIIM-163)"),
+    ("crossdock_zma_2026-09-03/crossdock_zma.json",
+     "structure_checks", "§3.6: does redocking accuracy survive a change of "
+     "receptor conformation? Control 0.397 A; one clean cross-dock at 0.318 A; "
+     "the frozen structure set cannot answer the question (ADR-AIIM-162)"),
+    ("redock_9xt_2026-09-05/redock_ligand_transfer.json",
+     "structure_checks", "§3.6, §4: does redocking accuracy survive a change of "
+     "*ligand*? Every structure in the cross-docking study was solved with "
+     "ZM241385. 9XT redocks into its own crystal at 0.216 A and into 4EIY at "
+     "9.606 A, with no native-like pose among ten. Criteria and the reading of "
+     "each outcome fixed before the run (ADR-AIIM-168)"),
+    ("redock_9xt_2026-09-05/prep.json",
+     "structure_checks", "receptor preparation for that run: shared-CA "
+     "superposition, the water shell selected around each structure's own "
+     "co-crystal ligand, and the pdbfixer atom and water counts"),
+    ("redock_9xt_2026-09-05/manifest.json",
+     "structure_checks", "every input to that run, hashed before anything was "
+     "computed"),
+    ("validation_matrix_2026-09-05/validation_matrix.json",
+     "screening_performance", "Table 7: every technique on five capability "
+     "axes, following CASF's decomposition with physical validity added. Each "
+     "cell names the artifact it was read from, or says *not measured*; the "
+     "file computes nothing itself (ADR-AIIM-169)"),
+    ("md_recognition_motif_2026-09-02/recognition_motif.json",
+     "structure_checks", "§3.6, §4: Asn253 hydrogen-bond persistence for all "
+     "nine candidate replicates against the ZM241385 control simulated "
+     "identically. Criteria pre-registered in ADR-AIIM-161 before any "
+     "trajectory was read; PARTIAL for all three. Carries both "
+     "pre-registered secondaries, neither of which could discriminate"),
+    ("g6_selection_2026-09-02/G6_contract_outcome_tierA.json",
+     "g4_contract", "§2.6: the G6 selection contract at v1.3.0, the version "
+     "that carries the false-refusal check. Supersedes the 2026-08-21 outcome, "
+     "which ran v1.2.0 and is kept beside it (ADR-AIIM-159)"),
+    ("funnel_recall_reweighted_2026-08-31/funnel_recall_reweighted.json",
+     "applicability_domain", "§3.5: the funnel's exclusions weighted by stratum "
+     "— 7.41 % against the pooled 7.0 %, and about 1,251 discarded compounds "
+     "reaching the cutoff against 500 selected (ADR-AIIM-150)"),
+    ("md_pose_persistence_2026-08-31/md_pose_persistence.json",
+     "structure_checks", "§3.6, §4 and §5: pose persistence over nine candidate "
+     "replicates. NPLIB01185 leaves the pocket in all three; the other two "
+     "remain at 4.73 and 5.22 Å from their docked poses against the control's "
+     "2.59 Å. No verdict attached — no threshold was pre-registered"),
+    ("domain_gate_false_refusal_2026-08-29/domain_gate_false_refusal.json",
+     "applicability_domain", "§2.6 and §4: what the applicability-domain gate "
+     "does to 1,096 known A2A actives whose scaffolds define no part of the "
+     "domain. 5.8-15.0 % refused, against 0 % of the natural-product library "
+     "admitted in every structural space (ADR-AIIM-147)"),
+    ("conformer_budget_sweep_2026-08-27/r3_results.json",
+     "metamorphic", "§3.1: how much of the SMILES dependence is the conformer "
+     "budget. Six arms at 8/32/128 conformers, criteria fixed before the run "
+     "(ADR-AIIM-133); outcome PARTIAL, ratio 0.491"),
+    ("tierA_conditioned_null_2026-08-29/tierA_conditioned_null.json",
+     "seeded_defects", "§3.6 and §4: the chemical-coherence claim tested two ways. "
+     "The docking-conditioned permutation (unchanged at p = 0.0023) and the "
+     "multiplicity-aware version (p = 0.126 at genus, 0.182 at superclass). "
+     "Reconstructs the 23-compound reference set the frozen artifact never "
+     "documented (ADR-AIIM-145)"),
+    ("heldout_case_analysis_2026-08-29/heldout_case_analysis.json",
+     "seeded_defects", "§3.1: why the five blind cases are reported as a case "
+     "study and not a rate — the Wilson interval, the two cases on gates with no "
+     "development fault family, and the two missed at gates scoring 100 % "
+     "(ADR-AIIM-135). Per-case gate and observed state only; no fault mechanism"),
+    ("gate_reproducibility_2026-08-29/gate_reproducibility.json",
+     "seeded_defects", "S3.1 and Table 1: the two-execution comparison. Four "
+     "contract outcomes identical, nine of thirteen artifacts byte-identical, "
+     "and the receptor non-determinism that leaves the decisions unchanged"),
 
     ("metamorphic_2026-08-21/metamorphic_results.json",
      "metamorphic", "§3.1: the four invariants and the SMILES-rewriting violation"),
@@ -149,6 +331,40 @@ ITEMS: list[tuple[str, str, str]] = [
      "md_control", "§2.9: ZM241385 heavy-atom RMSD over the 100 ns control trajectory"),
     ("md_production_2026-08-21/04_run/analysis_prod/box.xvg",
      "md_control", "§2.9: box dimensions, the bilayer-equilibration check"),
+
+    # --- added by the 2026-08-25/26 remediation. Each is load-bearing for a
+    # number in the manuscript and was, until now, carried by no manifest.
+    ("ad_sweep_selfsim_2026-08-25/ad_percentile_position.csv",
+     "applicability_domain", "§3.5 and Figure 4B: where each compound sits inside its "
+     "own space's training self-similarity distribution -- the rank view the "
+     "admission rates are a threshold on (ADR-AIIM-126)"),
+    ("ad_sweep_selfsim_2026-08-25/comparison_vs_snplib.json",
+     "applicability_domain", "Figure 4A: the two libraries side by side, now with a "
+     "producer script rather than hand-assembled (ADR-AIIM-136)"),
+    ("ad_sweep_selfsim_2026-08-25/run_provenance.json",
+     "applicability_domain", "§2.1: tooling versions and command line for the sweep, "
+     "which the 2026-08-21 run did not record"),
+
+    ("conformal_diagnostics_2026-08-25/conformal_diagnostics.json",
+     "released_result", "§3.6: empty-set rate, prediction-set size and per-class "
+     "p-value distributions on and off domain, and where the Tier-A criterion sits "
+     "in the distribution it thresholds (ADR-AIIM-137)"),
+    ("conformal_diagnostics_2026-08-25/calibration_pvalues.csv",
+     "released_result", "§3.6: per-compound cross-conformal p-values on the held-out "
+     "set, the in-domain comparator for the query libraries"),
+
+    ("fastpass_correlation_2026-08-25/fastpass_correlation.json",
+     "funnel_control", "§3.5: agreement between the fast-pass and full-protocol "
+     "scores, and the residual spread against the selection boundary (ADR-AIIM-137)"),
+    ("fastpass_correlation_2026-08-25/fastpass_vs_fullprotocol.csv",
+     "funnel_control", "§3.5: the per-compound pairing behind that comparison"),
+
+    ("qsar_calibration_2026-08-26/qsar_calibration.json",
+     "qsar_calibration", "§2.4: Brier score, reliability curve and the reconciliation "
+     "of the three AUC figures the manuscript quotes (ADR-AIIM-140)"),
+    ("qsar_calibration_2026-08-26/reliability_curve.csv",
+     "qsar_calibration", "§2.4: the ten-bin reliability curve, including the two bins "
+     "the Tier-A probabilities fall in"),
 ]
 
 # Hand-authored, not copied from a run directory, but still manifest-listed so
@@ -242,22 +458,7 @@ def main() -> int:
         readme.append(f"| `{m['file']}` | {m['supports']} |")
     readme += [
         "",
-        "## What is deliberately not here",
-        "",
-        "- **The held-out fault mechanism (H01–H12).** The `apply_fault()` code that",
-        "  defines each case is sealed; unsealing it requires a separate human",
-        "  approval that has not been given. What the evaluation *measured* is",
-        "  reported: `heldout_outcome/` carries which case each gate detected, and",
-        "  §3.1 states the result. Reporting an outcome and publishing the test that",
-        "  produced it are different acts (ADR-AIIM-113/115).",
-        "- **Molecular-dynamics trajectories.** The control run\'s analysis output is",
-        "  here under `md_control/`; the trajectories themselves run to gigabytes and",
-        "  are available from the corresponding author. The three candidate",
-        "  simulations were still running at submission (§4).",
-        "- **Full pose archives.** The per-compound pose directories run to several GB.",
-        "  They are part of the repository named in the data-availability statement,",
-        "  not of this bundle.",
-        "",
+        *not_here_block(),
         "## Scripts that produced these artifacts",
         "",
         "All under `10_new_system/scripts/`:",
@@ -273,6 +474,25 @@ def main() -> int:
     if ghosts:
         raise SystemExit("manifest lists files that are not on disk -- "
                          "refusing to write it:\n  " + "\n  ".join(ghosts))
+    # Orphans: a file under DEST that the manifest does not list. The ghost
+    # check above catches a manifest that promises a file it does not have;
+    # this catches the opposite, which is worse, because build_deposit.py
+    # copies this whole tree recursively -- an unlisted file gets published
+    # with no provenance record and no SHA-256. It happens whenever an ITEMS
+    # entry is renamed, removed, or picks up a collision prefix: the previous
+    # copy is simply left behind. Found 2026-08-28, when adding a second
+    # comparison_vs_snplib.json triggered the collision rule and stranded the
+    # unprefixed original.
+    listed = {m["file"] for m in manifest}
+    orphans = sorted(
+        str(p.relative_to(DEST).as_posix())
+        for p in DEST.rglob("*")
+        if p.is_file() and p.name not in ("MANIFEST.json", "README.md")
+        and str(p.relative_to(DEST).as_posix()) not in listed)
+    for o in orphans:
+        (DEST / o).unlink()
+        print(f"removed stale file not in the manifest: {o}")
+
     dupes = [f for f in {m["file"] for m in manifest}
              if sum(1 for m in manifest if m["file"] == f) > 1]
     if dupes:

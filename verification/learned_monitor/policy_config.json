@@ -1,0 +1,40 @@
+{
+  "policy_version": "1.0.0",
+  "derived_on": "2026-08-02",
+  "approved_by": "adisorn.siric@gmail.com",
+  "artifact_id": "logistic_l2_cal_isotonic_dev_2026-08-02",
+  "thresholds": {
+    "t_escalate": 0.28571529,
+    "t_halt": 0.89583333
+  },
+  "budget": {
+    "fe_budget": 0.1
+  },
+  "derivation": {
+    "t_escalate_method": "smallest threshold with FE rate \u2264 10% on development clean cases",
+    "t_halt_method": "25th percentile of escaped-fault predicted probabilities, clamped \u2265 t_escalate",
+    "n_clean": 55,
+    "n_escaped_fault": 113,
+    "actual_fe_clean": 0.0
+  },
+  "development_simulation": {
+    "clean": {
+      "n": 55,
+      "continue_rate": 1.0,
+      "escalate_rate": 0.0,
+      "halt_rate": 0.0
+    },
+    "escaped_fault": {
+      "n": 113,
+      "halt_rate": 0.8053,
+      "escalate_rate": 0.0,
+      "continue_rate": 0.1947
+    },
+    "caught_fault": {
+      "n": 20,
+      "halt_rate": 1.0,
+      "note": "contracts always HALT; model not consulted"
+    }
+  },
+  "sha256": "AA3E5C4A90896B9D2EB63DBE391400554B6D531876C510C99FD2DFAF8485F263"
+}

@@ -1,0 +1,39 @@
+{
+  "method": "In-place symmetry-corrected RMSD (rdMolAlign.CalcRMS), the same convention used throughout, beside the separation of the two heavy-atom centroids. Neither pose is superposed.",
+  "reading": "The ratio is the part of the disagreement that is a displacement. NPLIB01643, the compound Figure 5B shows and the one DiffDock scores highest, is the least displaced of the three: its centroids are closer together than the molecule's own radius of gyration, so the two engines put it in the same place facing differently. NPLIB03056 is the most displaced. Reporting one RMSD each had made them look alike.",
+  "candidates": {
+    "NPLIB01185": {
+      "vina_pose": "20_new_runs/np_library_funnel_2026-08-15/full_poses_chunk1/NPLIB01185.sdf",
+      "vina_sha256": "08b5c5f33830a35cd267c8d2831bc5f05a6432ede65ad125c3f15997f8834b1a",
+      "diffdock_pose": "20_new_runs/diffdock_orthogonal_2026-08-23/results/NPLIB01185/rank1.sdf",
+      "diffdock_sha256": "4f88889f889a805da8f342a39110cd39525e5ba7487c808ad1f38f04fc1c4aa9",
+      "n_heavy_atoms": 25,
+      "rmsd_in_place": 6.43,
+      "centroid_separation": 5.83,
+      "radius_of_gyration_vina": 4.15,
+      "translated_fraction": 0.91
+    },
+    "NPLIB01643": {
+      "vina_pose": "20_new_runs/np_library_funnel_2026-08-15/full_poses_chunk1/NPLIB01643.sdf",
+      "vina_sha256": "da0ef7b655b0d0a23298491f08ad96350cc3fb3d60ce22267feb00d20468935a",
+      "diffdock_pose": "20_new_runs/diffdock_orthogonal_2026-08-23/results/NPLIB01643/rank1.sdf",
+      "diffdock_sha256": "1dbbeca4f7e54a0e29adf0c781c37dfbf62e84c69caeee2bf772e210c74ebfde",
+      "n_heavy_atoms": 22,
+      "rmsd_in_place": 8.8,
+      "centroid_separation": 3.78,
+      "radius_of_gyration_vina": 4.03,
+      "translated_fraction": 0.43
+    },
+    "NPLIB03056": {
+      "vina_pose": "20_new_runs/np_library_funnel_2026-08-15/full_poses_chunk1/NPLIB03056.sdf",
+      "vina_sha256": "1cb8280688bf3a29dc78bdc26ba2ce89182213c2340c9b420f787aa81d5e3db1",
+      "diffdock_pose": "20_new_runs/diffdock_orthogonal_2026-08-23/results/NPLIB03056/rank1.sdf",
+      "diffdock_sha256": "95d9ea754b53dcfb2b34e7a565cbf6deec18d66537cb8265a2624af79c97783c",
+      "n_heavy_atoms": 22,
+      "rmsd_in_place": 9.5,
+      "centroid_separation": 6.78,
+      "radius_of_gyration_vina": 3.65,
+      "translated_fraction": 0.71
+    }
+  }
+}

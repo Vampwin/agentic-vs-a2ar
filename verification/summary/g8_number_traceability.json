@@ -1,0 +1,2370 @@
+{
+  "manuscript": "30_manuscript/CURRENT_v5/manuscript_AIIM_v6.md",
+  "state": "PASS",
+  "n_checks": 253,
+  "n_pass": 253,
+  "n_value_mismatch": 0,
+  "n_literal_absent": 0,
+  "checks": [
+    {
+      "check": "mutation_detection",
+      "state": "PASS",
+      "expected": 96.9,
+      "recomputed": 96.9,
+      "literal_present_in_manuscript": true,
+      "literal": "96.9 %"
+    },
+    {
+      "check": "mutation_cases",
+      "state": "PASS",
+      "expected": 128,
+      "recomputed": 128,
+      "literal_present_in_manuscript": true,
+      "literal": "128 seeded fault cases"
+    },
+    {
+      "check": "mutation_injected",
+      "state": "PASS",
+      "expected": 133,
+      "recomputed": 133,
+      "literal_present_in_manuscript": true,
+      "literal": "One hundred and thirty-three cases were injected"
+    },
+    {
+      "check": "mutation_vacuous",
+      "state": "PASS",
+      "expected": 5,
+      "recomputed": 5,
+      "literal_present_in_manuscript": true,
+      "literal": "in five the injector matched nothing"
+    },
+    {
+      "check": "mutation_detected",
+      "state": "PASS",
+      "expected": 124,
+      "recomputed": 124,
+      "literal_present_in_manuscript": true,
+      "literal": "detected 124"
+    },
+    {
+      "check": "seer_A",
+      "state": "PASS",
+      "expected": 0.031,
+      "recomputed": 0.031,
+      "literal_present_in_manuscript": true,
+      "literal": "| **A** | on | on | **0.031** |"
+    },
+    {
+      "check": "seer_C",
+      "state": "PASS",
+      "expected": 0.992,
+      "recomputed": 0.992,
+      "literal_present_in_manuscript": true,
+      "literal": "| **C** | off | on | 0.992 |"
+    },
+    {
+      "check": "seer_table_row",
+      "state": "PASS",
+      "expected": [
+        124,
+        128,
+        0.031
+      ],
+      "recomputed": [
+        124,
+        128,
+        0.031
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "(124 of 128 cases; SEER 0.031)"
+    },
+    {
+      "check": "false_alarm",
+      "state": "PASS",
+      "expected": 0.0,
+      "recomputed": 0.0,
+      "literal_present_in_manuscript": true,
+      "literal": "**0.0 in every condition**"
+    },
+    {
+      "check": "gate_G4",
+      "state": "PASS",
+      "expected": 85.2,
+      "recomputed": 85.2,
+      "literal_present_in_manuscript": true,
+      "literal": "| G4 scoring | 27 | 4 | 85.2 % |"
+    },
+    {
+      "check": "gate_G6",
+      "state": "PASS",
+      "expected": 100.0,
+      "recomputed": 100.0,
+      "literal_present_in_manuscript": true,
+      "literal": "| G6 selection | 27 | 0 | 100 % |"
+    },
+    {
+      "check": "meta_M1",
+      "state": "PASS",
+      "expected": 25,
+      "recomputed": 25,
+      "literal_present_in_manuscript": true,
+      "literal": "25 of 25 bit-identical"
+    },
+    {
+      "check": "meta_M2_max",
+      "state": "PASS",
+      "expected": 0.974,
+      "recomputed": 0.974,
+      "literal_present_in_manuscript": true,
+      "literal": "**0.974 kcal/mol**"
+    },
+    {
+      "check": "meta_M2_mean",
+      "state": "PASS",
+      "expected": 0.166,
+      "recomputed": 0.166,
+      "literal_present_in_manuscript": true,
+      "literal": "mean 0.166"
+    },
+    {
+      "check": "meta_M2_rho",
+      "state": "PASS",
+      "expected": 0.772,
+      "recomputed": 0.772,
+      "literal_present_in_manuscript": true,
+      "literal": "Spearman correlation with the baseline ranking is 0.772"
+    },
+    {
+      "check": "meta_M2_mw",
+      "state": "PASS",
+      "expected": 0.735,
+      "recomputed": 0.735,
+      "literal_present_in_manuscript": true,
+      "literal": "\u03c1 = +0.735"
+    },
+    {
+      "check": "yr_mean",
+      "state": "PASS",
+      "expected": 0.5,
+      "recomputed": 0.5,
+      "literal_present_in_manuscript": true,
+      "literal": "mean\ncross-validated AUC 0.500"
+    },
+    {
+      "check": "yr_z",
+      "state": "PASS",
+      "expected": 21.9,
+      "recomputed": 21.9,
+      "literal_present_in_manuscript": true,
+      "literal": "z = 21.9"
+    },
+    {
+      "check": "yr_p",
+      "state": "PASS",
+      "expected": 0.0099,
+      "recomputed": 0.0099,
+      "literal_present_in_manuscript": true,
+      "literal": "empirical p = 0.0099"
+    },
+    {
+      "check": "yr_real",
+      "state": "PASS",
+      "expected": 0.911,
+      "recomputed": 0.911,
+      "literal_present_in_manuscript": true,
+      "literal": "against 0.911 for"
+    },
+    {
+      "check": "funnel_excl",
+      "state": "PASS",
+      "expected": 7.0,
+      "recomputed": 7.0,
+      "literal_present_in_manuscript": true,
+      "literal": "7.0 % reached the top-500"
+    },
+    {
+      "check": "funnel_kept",
+      "state": "PASS",
+      "expected": 10.0,
+      "recomputed": 10.0,
+      "literal_present_in_manuscript": true,
+      "literal": "against 10.0 % of the 4,999"
+    },
+    {
+      "check": "funnel_cut",
+      "state": "PASS",
+      "expected": -8.588,
+      "recomputed": -8.588,
+      "literal_present_in_manuscript": true,
+      "literal": "\u22128.588 kcal/mol"
+    },
+    {
+      "check": "funnel_p",
+      "state": "PASS",
+      "expected": 0.0097,
+      "recomputed": 0.0097,
+      "literal_present_in_manuscript": true,
+      "literal": "Mann\u2013Whitney p = 0.0097"
+    },
+    {
+      "check": "ad_phys",
+      "state": "PASS",
+      "expected": 86.3,
+      "recomputed": 86.3,
+      "literal_present_in_manuscript": true,
+      "literal": "86.3 %"
+    },
+    {
+      "check": "ad_maccs",
+      "state": "PASS",
+      "expected": 9.3,
+      "recomputed": 9.3,
+      "literal_present_in_manuscript": true,
+      "literal": "9.3 % in MACCS"
+    },
+    {
+      "check": "ad_erg",
+      "state": "PASS",
+      "expected": 3.6,
+      "recomputed": 3.6,
+      "literal_present_in_manuscript": true,
+      "literal": "3.6 % in ErG"
+    },
+    {
+      "check": "ad_ecfp4_zero",
+      "state": "PASS",
+      "expected": 0.0,
+      "recomputed": 0.0,
+      "literal_present_in_manuscript": true,
+      "literal": "0 % in ECFP4"
+    },
+    {
+      "check": "ad_max_spaces",
+      "state": "PASS",
+      "expected": 2,
+      "recomputed": 2,
+      "literal_present_in_manuscript": true,
+      "literal": "inside more than two of the eight"
+    },
+    {
+      "check": "ad_zero_spaces",
+      "state": "PASS",
+      "expected": 52,
+      "recomputed": 52,
+      "literal_present_in_manuscript": true,
+      "literal": "52 are inside none"
+    },
+    {
+      "check": "ad_phys_calls",
+      "state": "PASS",
+      "expected": [
+        429,
+        494
+      ],
+      "recomputed": [
+        429,
+        494
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "429 of the 494 in-domain calls"
+    },
+    {
+      "check": "ad_ecfp4_max",
+      "state": "PASS",
+      "expected": 0.352,
+      "recomputed": 0.352,
+      "literal_present_in_manuscript": true,
+      "literal": "similarity of 0.352"
+    },
+    {
+      "check": "pct_ecfp4",
+      "state": "PASS",
+      "expected": 0.23,
+      "recomputed": 0.23,
+      "literal_present_in_manuscript": true,
+      "literal": "percentile 0.23 in ECFP4"
+    },
+    {
+      "check": "pct_atompair",
+      "state": "PASS",
+      "expected": 0.34,
+      "recomputed": 0.34,
+      "literal_present_in_manuscript": true,
+      "literal": "0.34 in atom-pair"
+    },
+    {
+      "check": "pct_fcfp4",
+      "state": "PASS",
+      "expected": 0.47,
+      "recomputed": 0.47,
+      "literal_present_in_manuscript": true,
+      "literal": "0.47 in FCFP4"
+    },
+    {
+      "check": "pct_toptorsion",
+      "state": "PASS",
+      "expected": 0.49,
+      "recomputed": 0.49,
+      "literal_present_in_manuscript": true,
+      "literal": "0.49 in topological torsion"
+    },
+    {
+      "check": "pct_gobbi",
+      "state": "PASS",
+      "expected": 0.94,
+      "recomputed": 0.94,
+      "literal_present_in_manuscript": true,
+      "literal": "0.94 in Gobbi"
+    },
+    {
+      "check": "pct_maccs",
+      "state": "PASS",
+      "expected": 1.51,
+      "recomputed": 1.51,
+      "literal_present_in_manuscript": true,
+      "literal": "1.51 in MACCS"
+    },
+    {
+      "check": "pct_erg",
+      "state": "PASS",
+      "expected": 3.82,
+      "recomputed": 3.82,
+      "literal_present_in_manuscript": true,
+      "literal": "3.82 in ErG"
+    },
+    {
+      "check": "pct_spread",
+      "state": "PASS",
+      "expected": 3.6,
+      "recomputed": 3.6,
+      "literal_present_in_manuscript": true,
+      "literal": "spread of 3.6\npercentile points"
+    },
+    {
+      "check": "pct_all7_n",
+      "state": "PASS",
+      "expected": 432,
+      "recomputed": 432,
+      "literal_present_in_manuscript": true,
+      "literal": "432 of the 497 compounds"
+    },
+    {
+      "check": "pct_all7_frac",
+      "state": "PASS",
+      "expected": 86.9,
+      "recomputed": 86.9,
+      "literal_present_in_manuscript": true,
+      "literal": "(86.9 %) fall below the tenth percentile"
+    },
+    {
+      "check": "pct_best_median",
+      "state": "PASS",
+      "expected": 4.54,
+      "recomputed": 4.54,
+      "literal_present_in_manuscript": true,
+      "literal": "median at percentile 4.54"
+    },
+    {
+      "check": "pct_phys_median",
+      "state": "PASS",
+      "expected": 36.93,
+      "recomputed": 36.93,
+      "literal_present_in_manuscript": true,
+      "literal": "percentile 36.93"
+    },
+    {
+      "check": "pct_phys_p90",
+      "state": "PASS",
+      "expected": 60.2,
+      "recomputed": 60.2,
+      "literal_present_in_manuscript": true,
+      "literal": "ninetieth at 60.20"
+    },
+    {
+      "check": "pct_ecfp4_max",
+      "state": "PASS",
+      "expected": 1.46,
+      "recomputed": 1.46,
+      "literal_present_in_manuscript": true,
+      "literal": "the 1.46th\npercentile"
+    },
+    {
+      "check": "conf_empty_cal",
+      "state": "PASS",
+      "expected": 10.4,
+      "recomputed": 10.4,
+      "literal_present_in_manuscript": true,
+      "literal": "does so for 10.4 % of compounds"
+    },
+    {
+      "check": "conf_both_cal",
+      "state": "PASS",
+      "expected": 40.7,
+      "recomputed": 40.7,
+      "literal_present_in_manuscript": true,
+      "literal": "ambiguous set for 40.7 %"
+    },
+    {
+      "check": "conf_size_cal",
+      "state": "PASS",
+      "expected": 1.407,
+      "recomputed": 1.407,
+      "literal_present_in_manuscript": true,
+      "literal": "prediction-set\nsize of 1.407"
+    },
+    {
+      "check": "conf_size_query",
+      "state": "PASS",
+      "expected": 1.0,
+      "recomputed": 1.0,
+      "literal_present_in_manuscript": true,
+      "literal": "mean set size is\n1.000"
+    },
+    {
+      "check": "conf_pin_cal",
+      "state": "PASS",
+      "expected": 0.054,
+      "recomputed": 0.054,
+      "literal_present_in_manuscript": true,
+      "literal": "0.054 on calibration data"
+    },
+    {
+      "check": "conf_pin_np",
+      "state": "PASS",
+      "expected": 0.467,
+      "recomputed": 0.467,
+      "literal_present_in_manuscript": true,
+      "literal": "0.467 on the query library"
+    },
+    {
+      "check": "conf_pin_snp",
+      "state": "PASS",
+      "expected": 0.631,
+      "recomputed": 0.631,
+      "literal_present_in_manuscript": true,
+      "literal": "0.631 on SNP-Lib"
+    },
+    {
+      "check": "conf_cal_classes",
+      "state": "PASS",
+      "expected": [
+        121,
+        1096
+      ],
+      "recomputed": [
+        121,
+        1096
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "rests on 121 points against 1,096"
+    },
+    {
+      "check": "tierA_pa_max",
+      "state": "PASS",
+      "expected": 0.072,
+      "recomputed": 0.072,
+      "literal_present_in_manuscript": true,
+      "literal": "the 5,000 reaches 0.072"
+    },
+    {
+      "check": "tierA_pa_med",
+      "state": "PASS",
+      "expected": 0.0246,
+      "recomputed": 0.0246,
+      "literal_present_in_manuscript": true,
+      "literal": "the median is 0.0246"
+    },
+    {
+      "check": "tierA_granularity",
+      "state": "PASS",
+      "expected": 0.000912,
+      "recomputed": 0.000912,
+      "literal_present_in_manuscript": true,
+      "literal": "is 0.000912"
+    },
+    {
+      "check": "tierA_band",
+      "state": "PASS",
+      "expected": [
+        0.051,
+        0.072
+      ],
+      "recomputed": [
+        0.051,
+        0.072
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "band from 0.051 to 0.072"
+    },
+    {
+      "check": "tierA_pa_1643",
+      "state": "PASS",
+      "expected": 0.0556,
+      "recomputed": 0.0556,
+      "literal_present_in_manuscript": true,
+      "literal": "| 0.0556 |"
+    },
+    {
+      "check": "fp_rho",
+      "state": "PASS",
+      "expected": 0.769,
+      "recomputed": 0.769,
+      "literal_present_in_manuscript": true,
+      "literal": "Spearman \u03c1 = 0.769"
+    },
+    {
+      "check": "fp_rho_ci",
+      "state": "PASS",
+      "expected": [
+        0.712,
+        0.817
+      ],
+      "recomputed": [
+        0.712,
+        0.817
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "95 % CI 0.712\u20130.817"
+    },
+    {
+      "check": "fp_resid",
+      "state": "PASS",
+      "expected": 0.273,
+      "recomputed": 0.2728,
+      "literal_present_in_manuscript": true,
+      "literal": "standard deviation of 0.273 kcal/mol"
+    },
+    {
+      "check": "fp_within1",
+      "state": "PASS",
+      "expected": 277,
+      "recomputed": 277,
+      "literal_present_in_manuscript": true,
+      "literal": "277 unselected compounds"
+    },
+    {
+      "check": "fp_within2",
+      "state": "PASS",
+      "expected": 603,
+      "recomputed": 603,
+      "literal_present_in_manuscript": true,
+      "literal": "603 within two"
+    },
+    {
+      "check": "mon_rows",
+      "state": "PASS",
+      "expected": 188,
+      "recomputed": 188,
+      "literal_present_in_manuscript": true,
+      "literal": "fitted on 188 governed runs"
+    },
+    {
+      "check": "mon_features",
+      "state": "PASS",
+      "expected": 24,
+      "recomputed": 24,
+      "literal_present_in_manuscript": true,
+      "literal": "24 telemetry features"
+    },
+    {
+      "check": "mon_pos",
+      "state": "PASS",
+      "expected": 113,
+      "recomputed": 113,
+      "literal_present_in_manuscript": true,
+      "literal": "113 unsafe-release positives"
+    },
+    {
+      "check": "mon_neg",
+      "state": "PASS",
+      "expected": 75,
+      "recomputed": 75,
+      "literal_present_in_manuscript": true,
+      "literal": "against 75 negatives"
+    },
+    {
+      "check": "mon_groups",
+      "state": "PASS",
+      "expected": 11,
+      "recomputed": 11,
+      "literal_present_in_manuscript": true,
+      "literal": "spanning 11 fault families"
+    },
+    {
+      "check": "mon_brier_gb",
+      "state": "PASS",
+      "expected": [
+        0.203,
+        0.091
+      ],
+      "recomputed": [
+        0.203,
+        0.091
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "(0.203 \u00b1 0.091"
+    },
+    {
+      "check": "mon_brier_lr",
+      "state": "PASS",
+      "expected": [
+        0.205,
+        0.08
+      ],
+      "recomputed": [
+        0.205,
+        0.08
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "against 0.205 \u00b1 0.080)"
+    },
+    {
+      "check": "mon_iso_steps",
+      "state": "PASS",
+      "expected": [
+        0.0,
+        0.2857,
+        0.8958,
+        1.0
+      ],
+      "recomputed": [
+        0.0,
+        0.2857,
+        0.8958,
+        1.0
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "four distinct values: 0, 0.2857, 0.8958 and 1"
+    },
+    {
+      "check": "mon_t_halt",
+      "state": "PASS",
+      "expected": 0.8958,
+      "recomputed": 0.8958,
+      "literal_present_in_manuscript": true,
+      "literal": "t_halt is the third of"
+    },
+    {
+      "check": "mon_t_escalate_above",
+      "state": "PASS",
+      "expected": true,
+      "recomputed": true,
+      "literal_present_in_manuscript": true,
+      "literal": "t_escalate sits immediately above the second"
+    },
+    {
+      "check": "vina_auc",
+      "state": "PASS",
+      "expected": 0.601,
+      "recomputed": 0.601,
+      "literal_present_in_manuscript": true,
+      "literal": "ROC-AUC 0.601"
+    },
+    {
+      "check": "vina_auc_ci",
+      "state": "PASS",
+      "expected": [
+        0.51,
+        0.683
+      ],
+      "recomputed": [
+        0.51,
+        0.683
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "interval of 0.510\u20130.683"
+    },
+    {
+      "check": "vina_bedroc",
+      "state": "PASS",
+      "expected": 0.275,
+      "recomputed": 0.275,
+      "literal_present_in_manuscript": true,
+      "literal": "BEDROC20 of 0.275"
+    },
+    {
+      "check": "qsar_brier",
+      "state": "PASS",
+      "expected": 0.0488,
+      "recomputed": 0.0488,
+      "literal_present_in_manuscript": true,
+      "literal": "Brier score of 0.0488"
+    },
+    {
+      "check": "qsar_brier_base",
+      "state": "PASS",
+      "expected": 0.0895,
+      "recomputed": 0.0895,
+      "literal_present_in_manuscript": true,
+      "literal": "against 0.0895 for"
+    },
+    {
+      "check": "qsar_bss",
+      "state": "PASS",
+      "expected": 0.455,
+      "recomputed": 0.4548,
+      "literal_present_in_manuscript": true,
+      "literal": "skill score of +0.455"
+    },
+    {
+      "check": "qsar_ece",
+      "state": "PASS",
+      "expected": 0.016,
+      "recomputed": 0.016,
+      "literal_present_in_manuscript": true,
+      "literal": "calibration error of 0.016"
+    },
+    {
+      "check": "qsar_mce",
+      "state": "PASS",
+      "expected": 0.197,
+      "recomputed": 0.1974,
+      "literal_present_in_manuscript": true,
+      "literal": "curve is 0.197"
+    },
+    {
+      "check": "qsar_top_bin_n",
+      "state": "PASS",
+      "expected": 983,
+      "recomputed": 983,
+      "literal_present_in_manuscript": true,
+      "literal": "983 of the 1,217 held-out"
+    },
+    {
+      "check": "qsar_top_bin",
+      "state": "PASS",
+      "expected": [
+        0.977,
+        0.981
+      ],
+      "recomputed": [
+        0.977,
+        0.981
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "0.977 predicted against 0.981 observed"
+    },
+    {
+      "check": "qsar_cand_bins",
+      "state": "PASS",
+      "expected": [
+        22,
+        28
+      ],
+      "recomputed": [
+        22,
+        28
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "supported by 22 and 28 held-out compounds"
+    },
+    {
+      "check": "qsar_cand_gaps",
+      "state": "PASS",
+      "expected": [
+        0.081,
+        0.067
+      ],
+      "recomputed": [
+        0.081,
+        0.067
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "differ by 0.081 and 0.067"
+    },
+    {
+      "check": "frag_dd",
+      "state": "PASS",
+      "expected": [
+        1.03,
+        2.88,
+        2.0
+      ],
+      "recomputed": [
+        1.03,
+        2.88,
+        2.0
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "gives 1.03, **2.88** and 2.00 \u00c5"
+    },
+    {
+      "check": "frag_vina",
+      "state": "PASS",
+      "expected": [
+        0.2,
+        0.27,
+        0.53
+      ],
+      "recomputed": [
+        0.2,
+        0.27,
+        0.53
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "is 0.20, 0.27 and 0.53 \u00c5"
+    },
+    {
+      "check": "pose_centroids",
+      "state": "PASS",
+      "expected": [
+        5.83,
+        3.78,
+        6.78
+      ],
+      "recomputed": [
+        5.83,
+        3.78,
+        6.78
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "centroids are 5.83, **3.78** and 6.78 \u00c5 apart"
+    },
+    {
+      "check": "pose_disp_frac",
+      "state": "PASS",
+      "expected": [
+        0.91,
+        0.43
+      ],
+      "recomputed": [
+        0.91,
+        0.43
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "runs from 0.91 down to 0.43"
+    },
+    {
+      "check": "frw_pop_2d",
+      "state": "PASS",
+      "expected": 13882,
+      "recomputed": 13882,
+      "literal_present_in_manuscript": true,
+      "literal": "discards 13,882 compounds"
+    },
+    {
+      "check": "frw_pop_3d",
+      "state": "PASS",
+      "expected": 3000,
+      "recomputed": 3000,
+      "literal_present_in_manuscript": true,
+      "literal": "a further 3,000"
+    },
+    {
+      "check": "frw_weighted",
+      "state": "PASS",
+      "expected": 7.41,
+      "recomputed": 7.41,
+      "literal_present_in_manuscript": true,
+      "literal": "the rate is **7.41 %**"
+    },
+    {
+      "check": "frw_rates",
+      "state": "PASS",
+      "expected": [
+        7.63,
+        6.4
+      ],
+      "recomputed": [
+        7.63,
+        6.4
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "7.63 % of the 2D-rejected arm and 6.40 %"
+    },
+    {
+      "check": "frw_implied",
+      "state": "PASS",
+      "expected": [
+        1251,
+        16882
+      ],
+      "recomputed": [
+        1251,
+        16882
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "roughly 1,251 of the 16,882 discarded compounds"
+    },
+    {
+      "check": "frw_ratio",
+      "state": "PASS",
+      "expected": 2.5,
+      "recomputed": 2.5,
+      "literal_present_in_manuscript": true,
+      "literal": "two and a half times the 500"
+    },
+    {
+      "check": "frw_enrichment",
+      "state": "PASS",
+      "expected": 1.35,
+      "recomputed": 1.35,
+      "literal_present_in_manuscript": true,
+      "literal": "a factor of 1.35 once the"
+    },
+    {
+      "check": "mdp_1643_mean",
+      "state": "PASS",
+      "expected": 4.73,
+      "recomputed": 4.73,
+      "literal_present_in_manuscript": true,
+      "literal": "averages **4.73 \u00c5**"
+    },
+    {
+      "check": "mdp_3056_mean",
+      "state": "PASS",
+      "expected": 5.22,
+      "recomputed": 5.22,
+      "literal_present_in_manuscript": true,
+      "literal": "and **5.22 \u00c5**"
+    },
+    {
+      "check": "mdp_below4",
+      "state": "PASS",
+      "expected": [
+        0.08,
+        0.29,
+        0.02,
+        0.03
+      ],
+      "recomputed": [
+        0.08,
+        0.29,
+        0.02,
+        0.03
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "these keep 8\u201329 % and 2\u20133 %"
+    },
+    {
+      "check": "mdp_bilayer",
+      "state": "PASS",
+      "expected": 3.35,
+      "recomputed": 3.35,
+      "literal_present_in_manuscript": true,
+      "literal": "box area changing by at most 3.35 %"
+    },
+    {
+      "check": "occ_range",
+      "state": "PASS",
+      "expected": [
+        2.58,
+        5.47
+      ],
+      "recomputed": [
+        2.58,
+        5.47
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "stayed between 2.58 and 5.47 \u00c5"
+    },
+    {
+      "check": "occ_frames",
+      "state": "PASS",
+      "expected": 18009,
+      "recomputed": 18009,
+      "literal_present_in_manuscript": true,
+      "literal": "across all 18,009 frames"
+    },
+    {
+      "check": "occ_beyond",
+      "state": "PASS",
+      "expected": 0,
+      "recomputed": 0,
+      "literal_present_in_manuscript": true,
+      "literal": "no frame in any replicate beyond 10 \u00c5"
+    },
+    {
+      "check": "motif_control",
+      "state": "PASS",
+      "expected": 97.4,
+      "recomputed": 97.4,
+      "literal_present_in_manuscript": true,
+      "literal": "holds that hydrogen bond in **97.4 %** of frames"
+    },
+    {
+      "check": "motif_control_median",
+      "state": "PASS",
+      "expected": 2.88,
+      "recomputed": 2.88,
+      "literal_present_in_manuscript": true,
+      "literal": "at a median distance of 2.88 \u00c5"
+    },
+    {
+      "check": "motif_max_rep",
+      "state": "PASS",
+      "expected": 41,
+      "recomputed": 41,
+      "literal_present_in_manuscript": true,
+      "literal": "No candidate holds it in more than 41 % of any replicate"
+    },
+    {
+      "check": "motif_means",
+      "state": "PASS",
+      "expected": [
+        0.14,
+        0.241,
+        0.316
+      ],
+      "recomputed": [
+        0.14,
+        0.241,
+        0.316
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "averages 0.140, 0.241 and 0.316"
+    },
+    {
+      "check": "motif_rho",
+      "state": "PASS",
+      "expected": [
+        0.14,
+        0.25,
+        0.33
+      ],
+      "recomputed": [
+        0.14,
+        0.25,
+        0.33
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "ratios of 0.14, 0.25 and 0.33"
+    },
+    {
+      "check": "motif_partial",
+      "state": "PASS",
+      "expected": 3,
+      "recomputed": 3,
+      "literal_present_in_manuscript": true,
+      "literal": "PARTIAL for all three"
+    },
+    {
+      "check": "motif_median_range",
+      "state": "PASS",
+      "expected": [
+        3.61,
+        4.33
+      ],
+      "recomputed": [
+        3.61,
+        4.33
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "to Asn253 is 3.61 to 4.33 \u00c5"
+    },
+    {
+      "check": "motif_window",
+      "state": "PASS",
+      "expected": 0.05,
+      "recomputed": 0.05,
+      "literal_present_in_manuscript": true,
+      "literal": "differ by at most 0.05 anywhere"
+    },
+    {
+      "check": "motif_glu_control",
+      "state": "PASS",
+      "expected": 6.4,
+      "recomputed": 6.4,
+      "literal_present_in_manuscript": true,
+      "literal": "held by the *control* in only 6.4 % of frames"
+    },
+    {
+      "check": "motif_phe_range",
+      "state": "PASS",
+      "expected": [
+        99.6,
+        100.0
+      ],
+      "recomputed": [
+        99.6,
+        100.0
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "satisfied in 99.6\u2013100 % of frames by all ten systems"
+    },
+    {
+      "check": "motif_n_systems",
+      "state": "PASS",
+      "expected": 10,
+      "recomputed": 10,
+      "literal_present_in_manuscript": true,
+      "literal": "by all ten systems"
+    },
+    {
+      "check": "tbase_selfcheck",
+      "state": "PASS",
+      "expected": 0.601,
+      "recomputed": 0.601,
+      "literal_present_in_manuscript": true,
+      "literal": "Vina alone (baseline)** | **0.601"
+    },
+    {
+      "check": "tbase_heavy",
+      "state": "PASS",
+      "expected": 0.584,
+      "recomputed": 0.584,
+      "literal_present_in_manuscript": true,
+      "literal": "heavy-atom count\nalone reaches AUC 0.584"
+    },
+    {
+      "check": "tbase_delta",
+      "state": "PASS",
+      "expected": [
+        0.018,
+        -0.077,
+        0.111,
+        0.722
+      ],
+      "recomputed": [
+        0.018,
+        -0.077,
+        0.111,
+        0.722
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "+0.018 (95 % CI \u22120.077 to +0.111, p = 0.722)"
+    },
+    {
+      "check": "tbase_mw_logp",
+      "state": "PASS",
+      "expected": [
+        0.578,
+        0.574
+      ],
+      "recomputed": [
+        0.578,
+        0.574
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "Molecular weight (0.578) and\ncLogP (0.574)"
+    },
+    {
+      "check": "tbase_n214",
+      "state": "PASS",
+      "expected": 214,
+      "recomputed": 214,
+      "literal_present_in_manuscript": true,
+      "literal": "the 214 compounds whose SMILES resolve"
+    },
+    {
+      "check": "tbase_n245",
+      "state": "PASS",
+      "expected": 245,
+      "recomputed": 245,
+      "literal_present_in_manuscript": true,
+      "literal": "Scored on the same 245 rows"
+    },
+    {
+      "check": "pval_frac",
+      "state": "PASS",
+      "expected": 97.88,
+      "recomputed": 97.88,
+      "literal_present_in_manuscript": true,
+      "literal": "97.88 % of 4,916 poses pass all 18 checks"
+    },
+    {
+      "check": "pval_n",
+      "state": "PASS",
+      "expected": 4916,
+      "recomputed": 4916,
+      "literal_present_in_manuscript": true,
+      "literal": "97.88 % of 4,916 poses"
+    },
+    {
+      "check": "pval_checks",
+      "state": "PASS",
+      "expected": 18,
+      "recomputed": 18,
+      "literal_present_in_manuscript": true,
+      "literal": "pass all 18 checks"
+    },
+    {
+      "check": "pval_rank1",
+      "state": "PASS",
+      "expected": 96.98,
+      "recomputed": 96.98,
+      "literal_present_in_manuscript": true,
+      "literal": "96.98 % of the 497 rank-1 poses do"
+    },
+    {
+      "check": "pval_ncomp",
+      "state": "PASS",
+      "expected": 497,
+      "recomputed": 497,
+      "literal_present_in_manuscript": true,
+      "literal": "96.98 % of the 497 rank-1 poses"
+    },
+    {
+      "check": "pval_fail",
+      "state": "PASS",
+      "expected": 15,
+      "recomputed": 15,
+      "literal_present_in_manuscript": true,
+      "literal": "The fifteen compounds whose top pose\nfails"
+    },
+    {
+      "check": "pval_control",
+      "state": "PASS",
+      "expected": 80,
+      "recomputed": 80,
+      "literal_present_in_manuscript": true,
+      "literal": "passes on all 80 of its poses"
+    },
+    {
+      "check": "clin_control",
+      "state": "PASS",
+      "expected": 0.398,
+      "recomputed": 0.398,
+      "literal_present_in_manuscript": true,
+      "literal": "ZM241385 redocking at 0.398 \u00c5 as the control"
+    },
+    {
+      "check": "clin_zero_of_seven",
+      "state": "PASS",
+      "expected": 0,
+      "recomputed": 0,
+      "literal_present_in_manuscript": true,
+      "literal": "Not one of the seven clinical and reference\nantagonists is placed in the"
+    },
+    {
+      "check": "clin_seven",
+      "state": "PASS",
+      "expected": 7,
+      "recomputed": 7,
+      "literal_present_in_manuscript": true,
+      "literal": "seven clinical and reference"
+    },
+    {
+      "check": "clin_range",
+      "state": "PASS",
+      "expected": [
+        4.44,
+        14.92
+      ],
+      "recomputed": [
+        4.44,
+        14.92
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "4.44 to 14.92 \u00c5"
+    },
+    {
+      "check": "clin_zma",
+      "state": "PASS",
+      "expected": 2.71,
+      "recomputed": 2.71,
+      "literal_present_in_manuscript": true,
+      "literal": "against 2.71 \u00c5 for the co-crystal ligand"
+    },
+    {
+      "check": "clin_cand",
+      "state": "PASS",
+      "expected": 3.29,
+      "recomputed": 3.29,
+      "literal_present_in_manuscript": true,
+      "literal": "3.29 \u00c5 for two of\nthe three candidates"
+    },
+    {
+      "check": "clin_pchembl",
+      "state": "PASS",
+      "expected": [
+        6.82,
+        9.17
+      ],
+      "recomputed": [
+        6.82,
+        9.17
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "spanning pChEMBL 6.82 to 9.17"
+    },
+    {
+      "check": "clin_rho_all",
+      "state": "PASS",
+      "expected": -0.673,
+      "recomputed": -0.673,
+      "literal_present_in_manuscript": true,
+      "literal": "Spearman \u22120.673, p = 0.033"
+    },
+    {
+      "check": "clin_best_worst",
+      "state": "PASS",
+      "expected": [
+        -9.2,
+        -8.713
+      ],
+      "recomputed": [
+        -9.2,
+        -8.713
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "\u22129.200 kcal/mol against the best clinical antagonist, SCH-58261, at \u22128.713"
+    },
+    {
+      "check": "xdock_control",
+      "state": "PASS",
+      "expected": 0.397,
+      "recomputed": 0.397,
+      "literal_present_in_manuscript": true,
+      "literal": "into 4EIY at 0.397 \u00c5"
+    },
+    {
+      "check": "xdock_clean",
+      "state": "PASS",
+      "expected": 0.318,
+      "recomputed": 0.318,
+      "literal_present_in_manuscript": true,
+      "literal": "into 5OLG at 0.318 \u00c5"
+    },
+    {
+      "check": "xdock_3eml",
+      "state": "PASS",
+      "expected": 0.709,
+      "recomputed": 0.709,
+      "literal_present_in_manuscript": true,
+      "literal": "into 3EML at 0.709 \u00c5"
+    },
+    {
+      "check": "ltr_control",
+      "state": "PASS",
+      "expected": 0.398,
+      "recomputed": 0.398,
+      "literal_present_in_manuscript": true,
+      "literal": "ZM241385 control at 0.398 \u00c5"
+    },
+    {
+      "check": "ltr_t1",
+      "state": "PASS",
+      "expected": 0.216,
+      "recomputed": 0.216,
+      "literal_present_in_manuscript": true,
+      "literal": "9XT redocks into 5OLH at 0.216 \u00c5"
+    },
+    {
+      "check": "ltr_t2",
+      "state": "PASS",
+      "expected": 9.606,
+      "recomputed": 9.606,
+      "literal_present_in_manuscript": true,
+      "literal": "docked into 4EIY misses by 9.606 \u00c5"
+    },
+    {
+      "check": "ltr_t2_best",
+      "state": "PASS",
+      "expected": 9.15,
+      "recomputed": 9.15,
+      "literal_present_in_manuscript": true,
+      "literal": "the ten run from 9.15"
+    },
+    {
+      "check": "ltr_t2_worst",
+      "state": "PASS",
+      "expected": 15.19,
+      "recomputed": 15.19,
+      "literal_present_in_manuscript": true,
+      "literal": "to 15.19 \u00c5"
+    },
+    {
+      "check": "ltr_t2_rank3",
+      "state": "PASS",
+      "expected": 9.15,
+      "recomputed": 9.15,
+      "literal_present_in_manuscript": true,
+      "literal": "rank 3 at 9.150 \u00c5"
+    },
+    {
+      "check": "ltr_super",
+      "state": "PASS",
+      "expected": 0.388,
+      "recomputed": 0.388,
+      "literal_present_in_manuscript": true,
+      "literal": "superposing at 0.388 \u00c5"
+    },
+    {
+      "check": "ltr_score_own",
+      "state": "PASS",
+      "expected": -11.217,
+      "recomputed": -11.217,
+      "literal_present_in_manuscript": true,
+      "literal": "9XT scores \u221211.217 kcal/mol in 5OLH"
+    },
+    {
+      "check": "ltr_score_wrong",
+      "state": "PASS",
+      "expected": -7.426,
+      "recomputed": -7.426,
+      "literal_present_in_manuscript": true,
+      "literal": "against \u22127.426 in 4EIY"
+    },
+    {
+      "check": "ltr_score_gap",
+      "state": "PASS",
+      "expected": 3.79,
+      "recomputed": 3.79,
+      "literal_present_in_manuscript": true,
+      "literal": "by 3.79 kcal/mol"
+    },
+    {
+      "check": "ltr_t2_spread",
+      "state": "PASS",
+      "expected": 0.478,
+      "recomputed": 0.478,
+      "literal_present_in_manuscript": true,
+      "literal": "spread of 0.478 kcal/mol"
+    },
+    {
+      "check": "score_power_ant_r",
+      "state": "PASS",
+      "expected": -0.481,
+      "recomputed": -0.481,
+      "literal_present_in_manuscript": true,
+      "literal": "r = \u22120.481"
+    },
+    {
+      "check": "score_power_ant_p",
+      "state": "PASS",
+      "expected": 0.228,
+      "recomputed": 0.228,
+      "literal_present_in_manuscript": true,
+      "literal": "(p = 0.228)"
+    },
+    {
+      "check": "score_power_all_r",
+      "state": "PASS",
+      "expected": -0.657,
+      "recomputed": -0.657,
+      "literal_present_in_manuscript": true,
+      "literal": "r = \u22120.657"
+    },
+    {
+      "check": "score_power_all_p",
+      "state": "PASS",
+      "expected": 0.039,
+      "recomputed": 0.039,
+      "literal_present_in_manuscript": true,
+      "literal": "(p = 0.039)"
+    },
+    {
+      "check": "bench_split",
+      "state": "PASS",
+      "expected": [
+        50,
+        195
+      ],
+      "recomputed": [
+        50,
+        195
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "50 actives at a median pChEMBL of 10.0 and 195 inactives"
+    },
+    {
+      "check": "bench_medians",
+      "state": "PASS",
+      "expected": [
+        10.0,
+        4.76
+      ],
+      "recomputed": [
+        10.0,
+        4.76
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "median pChEMBL of 10.0 and 195 inactives at a\nmedian of 4.76"
+    },
+    {
+      "check": "bench_pools",
+      "state": "PASS",
+      "expected": [
+        5244,
+        699
+      ],
+      "recomputed": [
+        5244,
+        699
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "drawn from pools of 5,244 and 699"
+    },
+    {
+      "check": "motif_discussion",
+      "state": "PASS",
+      "expected": [
+        14,
+        32,
+        97
+      ],
+      "recomputed": [
+        14,
+        32,
+        97
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "bond in 14 to 32 % of frames against the crystal ligand's 97 %"
+    },
+    {
+      "check": "test_count",
+      "state": "PASS",
+      "expected": 682,
+      "recomputed": 682,
+      "literal_present_in_manuscript": true,
+      "literal": "682 collected, 682 pass"
+    },
+    {
+      "check": "test_count_prose",
+      "state": "PASS",
+      "expected": 682,
+      "recomputed": 682,
+      "literal_present_in_manuscript": true,
+      "literal": "expand to 682 cases under parametrisation"
+    },
+    {
+      "check": "fref_panel",
+      "state": "PASS",
+      "expected": 1096,
+      "recomputed": 1096,
+      "literal_present_in_manuscript": true,
+      "literal": "1,096 A2A actives whose scaffolds are"
+    },
+    {
+      "check": "fref_range",
+      "state": "PASS",
+      "expected": [
+        0.058,
+        0.15
+      ],
+      "recomputed": [
+        0.058,
+        0.15
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "refuses **between 5.8 % and 15.0 % of them**"
+    },
+    {
+      "check": "fref_maccs",
+      "state": "PASS",
+      "expected": 0.15,
+      "recomputed": 0.15,
+      "literal_present_in_manuscript": true,
+      "literal": "15.0 % in MACCS"
+    },
+    {
+      "check": "fref_ecfp4",
+      "state": "PASS",
+      "expected": 0.149,
+      "recomputed": 0.149,
+      "literal_present_in_manuscript": true,
+      "literal": "14.9 % in ECFP4"
+    },
+    {
+      "check": "fref_physchem",
+      "state": "PASS",
+      "expected": 0.058,
+      "recomputed": 0.058,
+      "literal_present_in_manuscript": true,
+      "literal": "5.8 % physicochemically"
+    },
+    {
+      "check": "fref_none_above_half",
+      "state": "PASS",
+      "expected": [],
+      "recomputed": [],
+      "literal_present_in_manuscript": true,
+      "literal": "no space above half"
+    },
+    {
+      "check": "fref_validation_overlap",
+      "state": "PASS",
+      "expected": 3307,
+      "recomputed": 3307,
+      "literal_present_in_manuscript": true,
+      "literal": "shares 3,307 of its 3,372 compounds"
+    },
+    {
+      "check": "fref_np_full",
+      "state": "PASS",
+      "expected": 4,
+      "recomputed": 4,
+      "literal_present_in_manuscript": true,
+      "literal": "100 % in four of the seven structural spaces"
+    },
+    {
+      "check": "fref_np_range",
+      "state": "PASS",
+      "expected": [
+        0.878,
+        1.0
+      ],
+      "recomputed": [
+        0.878,
+        1.0
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "between 88 and 100 %"
+    },
+    {
+      "check": "fref_np_physchem",
+      "state": "PASS",
+      "expected": 0.29,
+      "recomputed": 0.29,
+      "literal_present_in_manuscript": true,
+      "literal": "29.0 % of the natural-product library"
+    },
+    {
+      "check": "r4_weighted",
+      "state": "PASS",
+      "expected": [
+        0.0741,
+        0.1076
+      ],
+      "recomputed": [
+        0.0741,
+        0.1076
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "rate rises from 7.41 % to 10.76 %"
+    },
+    {
+      "check": "r4_implied",
+      "state": "PASS",
+      "expected": [
+        1817,
+        16882
+      ],
+      "recomputed": [
+        1817,
+        16882
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "an implied **1,817** of the 16,882"
+    },
+    {
+      "check": "r4_ratio",
+      "state": "PASS",
+      "expected": 3.6,
+      "recomputed": 3.6,
+      "literal_present_in_manuscript": true,
+      "literal": "3.6 times the 500"
+    },
+    {
+      "check": "r4_shift_sel",
+      "state": "PASS",
+      "expected": 0.122,
+      "recomputed": 0.122,
+      "literal_present_in_manuscript": true,
+      "literal": "**selected** compounds by 0.122 kcal/mol"
+    },
+    {
+      "check": "r4_shift_dis",
+      "state": "PASS",
+      "expected": 0.361,
+      "recomputed": 0.361,
+      "literal_present_in_manuscript": true,
+      "literal": "**discarded** ones by **0.361**"
+    },
+    {
+      "check": "r4_expected",
+      "state": "PASS",
+      "expected": 0.088,
+      "recomputed": 0.088,
+      "literal_present_in_manuscript": true,
+      "literal": "would predict 8.8 %"
+    },
+    {
+      "check": "r4_observed",
+      "state": "PASS",
+      "expected": 0.106,
+      "recomputed": 0.106,
+      "literal_present_in_manuscript": true,
+      "literal": "observed figure is 10.6 %"
+    },
+    {
+      "check": "r2_identical",
+      "state": "PASS",
+      "expected": [
+        3,
+        497
+      ],
+      "recomputed": [
+        3,
+        497
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "Only **3 of 497** paired scores are identical"
+    },
+    {
+      "check": "r2_mean",
+      "state": "PASS",
+      "expected": 0.17,
+      "recomputed": 0.1701,
+      "literal_present_in_manuscript": true,
+      "literal": "mean absolute deviation is **0.170 kcal/mol**"
+    },
+    {
+      "check": "r2_max",
+      "state": "PASS",
+      "expected": 1.469,
+      "recomputed": 1.469,
+      "literal_present_in_manuscript": true,
+      "literal": "the maximum **1.469**"
+    },
+    {
+      "check": "r2_rho",
+      "state": "PASS",
+      "expected": 0.767,
+      "recomputed": 0.767,
+      "literal_present_in_manuscript": true,
+      "literal": "**\u03c1 = 0.767**"
+    },
+    {
+      "check": "r2_flips",
+      "state": "PASS",
+      "expected": 13,
+      "recomputed": 13,
+      "literal_present_in_manuscript": true,
+      "literal": "Thirteen compounds change their on-pocket status"
+    },
+    {
+      "check": "r2_moves",
+      "state": "PASS",
+      "expected": [
+        6,
+        4,
+        19
+      ],
+      "recomputed": [
+        6,
+        4,
+        19
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "move 6, 4 and 19 places"
+    },
+    {
+      "check": "r2_tierA_same",
+      "state": "PASS",
+      "expected": true,
+      "recomputed": true,
+      "literal_present_in_manuscript": true,
+      "literal": "the same three compounds"
+    },
+    {
+      "check": "r3_means",
+      "state": "PASS",
+      "expected": [
+        0.166,
+        0.079
+      ],
+      "recomputed": [
+        0.166,
+        0.079
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "from 0.166 kcal/mol at eight conformers to 0.079 at thirty-two"
+    },
+    {
+      "check": "r3_mean_128",
+      "state": "PASS",
+      "expected": 0.081,
+      "recomputed": 0.081,
+      "literal_present_in_manuscript": true,
+      "literal": "does not fall further at 128, where it is 0.081"
+    },
+    {
+      "check": "r3_ratio",
+      "state": "PASS",
+      "expected": 0.491,
+      "recomputed": 0.491,
+      "literal_present_in_manuscript": true,
+      "literal": "eight-conformer one is 0.491"
+    },
+    {
+      "check": "r3_outcome",
+      "state": "PASS",
+      "expected": "PARTIAL",
+      "recomputed": "PARTIAL",
+      "literal_present_in_manuscript": true,
+      "literal": "the outcome is the middle one"
+    },
+    {
+      "check": "r3_still_differ",
+      "state": "PASS",
+      "expected": 24,
+      "recomputed": 24,
+      "literal_present_in_manuscript": true,
+      "literal": "24 of the 25 compounds still score differently"
+    },
+    {
+      "check": "r3_max_128",
+      "state": "PASS",
+      "expected": 0.423,
+      "recomputed": 0.423,
+      "literal_present_in_manuscript": true,
+      "literal": "maximum deviation of 0.423 kcal/mol"
+    },
+    {
+      "check": "r3_tost_margin",
+      "state": "PASS",
+      "expected": 0.096,
+      "recomputed": 0.096,
+      "literal_present_in_manuscript": true,
+      "literal": "0.096 kcal/mol, with a mean difference of +0.007"
+    },
+    {
+      "check": "r3_control",
+      "state": "PASS",
+      "expected": [
+        0.0,
+        0.0
+      ],
+      "recomputed": [
+        0.0,
+        0.0
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "maximum absolute deviation 0.000000 kcal/mol"
+    },
+    {
+      "check": "naive_seer",
+      "state": "PASS",
+      "expected": 0.477,
+      "recomputed": 0.477,
+      "literal_present_in_manuscript": true,
+      "literal": "gives SEER 0.477"
+    },
+    {
+      "check": "naive_cases",
+      "state": "PASS",
+      "expected": 128,
+      "recomputed": 128,
+      "literal_present_in_manuscript": true,
+      "literal": "over the same 128 cases"
+    },
+    {
+      "check": "naive_reproduced",
+      "state": "PASS",
+      "expected": true,
+      "recomputed": true,
+      "literal_present_in_manuscript": true,
+      "literal": "gives SEER 0.477"
+    },
+    {
+      "check": "repro_contracts",
+      "state": "PASS",
+      "expected": [
+        4,
+        true
+      ],
+      "recomputed": [
+        4,
+        true
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "All four matched, including the G3 escalation."
+    },
+    {
+      "check": "repro_files",
+      "state": "PASS",
+      "expected": [
+        9,
+        13
+      ],
+      "recomputed": [
+        9,
+        13
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "Nine of thirteen files were"
+    },
+    {
+      "check": "repro_hydrogens",
+      "state": "PASS",
+      "expected": 679,
+      "recomputed": 679,
+      "literal_present_in_manuscript": true,
+      "literal": "differing in 679\npolar-hydrogen coordinates"
+    },
+    {
+      "check": "repro_types",
+      "state": "PASS",
+      "expected": 3,
+      "recomputed": 3,
+      "literal_present_in_manuscript": true,
+      "literal": "at three atoms of one histidine"
+    },
+    {
+      "check": "repro_distance",
+      "state": "PASS",
+      "expected": 18.05,
+      "recomputed": 18.05,
+      "literal_present_in_manuscript": true,
+      "literal": "lie 18.05 \u00c5 from the nearest atom of any"
+    },
+    {
+      "check": "repro_table_row",
+      "state": "PASS",
+      "expected": [
+        4,
+        9,
+        13
+      ],
+      "recomputed": [
+        4,
+        9,
+        13
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "| Gate-decision reproducibility | 4 of 4 contract outcomes identical; **9 of 13 artifacts byte-identical** |"
+    },
+    {
+      "check": "tier_A",
+      "state": "PASS",
+      "expected": 3,
+      "recomputed": 3,
+      "literal_present_in_manuscript": true,
+      "literal": "| A \u2014 convergent |"
+    },
+    {
+      "check": "tier_B",
+      "state": "PASS",
+      "expected": 119,
+      "recomputed": 119,
+      "literal_present_in_manuscript": true,
+      "literal": "| B \u2014 strong structure-based |"
+    },
+    {
+      "check": "tier_C",
+      "state": "PASS",
+      "expected": 360,
+      "recomputed": 360,
+      "literal_present_in_manuscript": true,
+      "literal": "| C \u2014 supporting |"
+    },
+    {
+      "check": "n_ok",
+      "state": "PASS",
+      "expected": 497,
+      "recomputed": 497,
+      "literal_present_in_manuscript": true,
+      "literal": "497 completed"
+    },
+    {
+      "check": "n_onpocket",
+      "state": "PASS",
+      "expected": 482,
+      "recomputed": 482,
+      "literal_present_in_manuscript": true,
+      "literal": "482 produced an on-pocket pose"
+    },
+    {
+      "check": "tierA_binom",
+      "state": "PASS",
+      "expected": 0.49,
+      "recomputed": 0.49,
+      "literal_present_in_manuscript": true,
+      "literal": "binomial p = 0.49"
+    },
+    {
+      "check": "tierA_flagged_n",
+      "state": "PASS",
+      "expected": 23,
+      "recomputed": 23,
+      "literal_present_in_manuscript": true,
+      "literal": "Of the 23 compounds the"
+    },
+    {
+      "check": "tierA_uniform_pong",
+      "state": "PASS",
+      "expected": 0.002259,
+      "recomputed": 0.002259,
+      "literal_present_in_manuscript": true,
+      "literal": "all *Pongamia* p = 0.002"
+    },
+    {
+      "check": "tierA_uniform_flav",
+      "state": "PASS",
+      "expected": 0.019763,
+      "recomputed": 0.019763,
+      "literal_present_in_manuscript": true,
+      "literal": "obtaining all flavones has p = 0.020"
+    },
+    {
+      "check": "tierA_gap",
+      "state": "PASS",
+      "expected": 0.956,
+      "recomputed": 0.956,
+      "literal_present_in_manuscript": true,
+      "literal": "ahead of the fourth by 0.956 kcal/mol"
+    },
+    {
+      "check": "tierA_conditioned",
+      "state": "PASS",
+      "expected": 0.0023,
+      "recomputed": 0.0023,
+      "literal_present_in_manuscript": true,
+      "literal": "permutations gives p = 0.0023"
+    },
+    {
+      "check": "tierA_any_genus",
+      "state": "PASS",
+      "expected": 0.126,
+      "recomputed": 0.126,
+      "literal_present_in_manuscript": true,
+      "literal": "p = 0.126 at genus level"
+    },
+    {
+      "check": "tierA_any_superclass",
+      "state": "PASS",
+      "expected": 0.182,
+      "recomputed": 0.182,
+      "literal_present_in_manuscript": true,
+      "literal": "p = 0.182 at structural superclass"
+    },
+    {
+      "check": "res_4eiy",
+      "state": "PASS",
+      "expected": 1.8,
+      "recomputed": 1.8,
+      "literal_present_in_manuscript": true,
+      "literal": "1.80 \u00c5 A2AR\u2013BRIL"
+    },
+    {
+      "check": "res_5olh",
+      "state": "PASS",
+      "expected": 2.6,
+      "recomputed": 2.6,
+      "literal_present_in_manuscript": true,
+      "literal": "2.60 \u00c5 A2A-StaR2-BRIL"
+    },
+    {
+      "check": "t88a",
+      "state": "PASS",
+      "expected": 5.91,
+      "recomputed": 5.91,
+      "literal_present_in_manuscript": true,
+      "literal": "T88A\n(3.36) at 5.91 \u00c5"
+    },
+    {
+      "check": "rmsd",
+      "state": "PASS",
+      "expected": 0.379,
+      "recomputed": 0.379,
+      "literal_present_in_manuscript": true,
+      "literal": "**0.379 \u00c5**"
+    },
+    {
+      "check": "stereo_snplib",
+      "state": "PASS",
+      "expected": 24,
+      "recomputed": 24,
+      "literal_present_in_manuscript": true,
+      "literal": "24 of 236 SNP-Lib"
+    },
+    {
+      "check": "stereo_top500",
+      "state": "PASS",
+      "expected": 106,
+      "recomputed": 106,
+      "literal_present_in_manuscript": true,
+      "literal": "106 of the\n500 redocked compounds"
+    },
+    {
+      "check": "box_over",
+      "state": "PASS",
+      "expected": 5,
+      "recomputed": 5,
+      "literal_present_in_manuscript": true,
+      "literal": "**five compounds exceed the 22 \u00c5\nedge**"
+    },
+    {
+      "check": "box_max",
+      "state": "PASS",
+      "expected": 24.3,
+      "recomputed": 24.3,
+      "literal_present_in_manuscript": true,
+      "literal": "maximum 24.3 \u00c5"
+    },
+    {
+      "check": "cutoff_97",
+      "state": "PASS",
+      "expected": 97.0,
+      "recomputed": 97.0,
+      "literal_present_in_manuscript": true,
+      "literal": "482 of 497 compounds\n(97.0 %)"
+    },
+    {
+      "check": "cutoff_7",
+      "state": "PASS",
+      "expected": 89.9,
+      "recomputed": 89.9,
+      "literal_present_in_manuscript": true,
+      "literal": "447 (89.9 %) at 7 \u00c5"
+    },
+    {
+      "check": "conf_valid",
+      "state": "PASS",
+      "expected": 0.0501,
+      "recomputed": 0.0501,
+      "literal_present_in_manuscript": true,
+      "literal": "empirical error\n0.0501"
+    },
+    {
+      "check": "conf_n",
+      "state": "PASS",
+      "expected": 1217,
+      "recomputed": 1217,
+      "literal_present_in_manuscript": true,
+      "literal": "(n = 1,217)"
+    },
+    {
+      "check": "conf_sets",
+      "state": "PASS",
+      "expected": 3,
+      "recomputed": 3,
+      "literal_present_in_manuscript": true,
+      "literal": "the ambiguous set {inactive, active} to 3"
+    },
+    {
+      "check": "g4_pass",
+      "state": "PASS",
+      "expected": 7,
+      "recomputed": 7,
+      "literal_present_in_manuscript": true,
+      "literal": "G4 then passed 7 of 7 checks"
+    },
+    {
+      "check": "mw_rho",
+      "state": "PASS",
+      "expected": -0.1824,
+      "recomputed": -0.1824,
+      "literal_present_in_manuscript": true,
+      "literal": "\u03c1 = \u22120.182"
+    },
+    {
+      "check": "md_atoms",
+      "state": "PASS",
+      "expected": 93203,
+      "recomputed": 93203,
+      "literal_present_in_manuscript": true,
+      "literal": "93,203 atoms in total"
+    },
+    {
+      "check": "md_water",
+      "state": "PASS",
+      "expected": 15656,
+      "recomputed": 15656,
+      "literal_present_in_manuscript": true,
+      "literal": "15,656 OPC waters"
+    },
+    {
+      "check": "md_xtal_water",
+      "state": "PASS",
+      "expected": 156,
+      "recomputed": 156,
+      "literal_present_in_manuscript": true,
+      "literal": "156 crystallographic waters"
+    },
+    {
+      "check": "md_restrained",
+      "state": "PASS",
+      "expected": 2357,
+      "recomputed": 2357,
+      "literal_present_in_manuscript": true,
+      "literal": "2,357 receptor and ligand heavy atoms"
+    },
+    {
+      "check": "dd_control_rmsd",
+      "state": "PASS",
+      "expected": 1.92,
+      "recomputed": 1.92,
+      "literal_present_in_manuscript": true,
+      "literal": "**1.92 \u00c5**"
+    },
+    {
+      "check": "dd_control_conf",
+      "state": "PASS",
+      "expected": 0.16,
+      "recomputed": 0.16,
+      "literal_present_in_manuscript": true,
+      "literal": "control +0.16"
+    },
+    {
+      "check": "dd_rmsds",
+      "state": "PASS",
+      "expected": "6.43/8.80/9.50",
+      "recomputed": "6.43/8.80/9.50",
+      "literal_present_in_manuscript": true,
+      "literal": "6.43, 8.80 and 9.50 \u00c5"
+    },
+    {
+      "check": "dd_confs",
+      "state": "PASS",
+      "expected": "0.23/0.47/-0.50",
+      "recomputed": "0.23/0.47/-0.50",
+      "literal_present_in_manuscript": true,
+      "literal": "+0.23, +0.47 and \u22120.50"
+    },
+    {
+      "check": "dd_prediction_failed",
+      "state": "PASS",
+      "expected": false,
+      "recomputed": false,
+      "literal_present_in_manuscript": true,
+      "literal": "**failed**"
+    },
+    {
+      "check": "dd_highest_conf",
+      "state": "PASS",
+      "expected": 0.47,
+      "recomputed": 0.47,
+      "literal_present_in_manuscript": true,
+      "literal": "highest (+0.47) on NPLIB01643"
+    },
+    {
+      "check": "heldout_n",
+      "state": "PASS",
+      "expected": 5,
+      "recomputed": 5,
+      "literal_present_in_manuscript": true,
+      "literal": "five cases authored by a project-blind session"
+    },
+    {
+      "check": "heldout_ci",
+      "state": "PASS",
+      "expected": [
+        0.036,
+        0.624
+      ],
+      "recomputed": [
+        0.036,
+        0.624
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "95 % Wilson interval of 0.036 to 0.624"
+    },
+    {
+      "check": "heldout_confounded",
+      "state": "PASS",
+      "expected": 2,
+      "recomputed": 2,
+      "literal_present_in_manuscript": true,
+      "literal": "two of them, at G2 and G3"
+    },
+    {
+      "check": "heldout_confounded_gates",
+      "state": "PASS",
+      "expected": [
+        "G2",
+        "G3"
+      ],
+      "recomputed": [
+        "G2",
+        "G3"
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "at G2 and G3"
+    },
+    {
+      "check": "heldout_perfect_gate_misses",
+      "state": "PASS",
+      "expected": 2,
+      "recomputed": 2,
+      "literal_present_in_manuscript": true,
+      "literal": "**Two of the three remaining cases were missed at gates the benchmark scores at 100 %**"
+    },
+    {
+      "check": "heldout_perfect_gate_n",
+      "state": "PASS",
+      "expected": [
+        25,
+        15
+      ],
+      "recomputed": [
+        25,
+        15
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "G0 on 25 cases and G8 on 15"
+    },
+    {
+      "check": "cand_attn",
+      "state": "PASS",
+      "expected": 0,
+      "recomputed": 0,
+      "literal_present_in_manuscript": true,
+      "literal": "`parmchk2` flagged no\nparameters for any of them"
+    },
+    {
+      "check": "cand_identity",
+      "state": "PASS",
+      "expected": 3,
+      "recomputed": 3,
+      "literal_present_in_manuscript": true,
+      "literal": "all three matched"
+    },
+    {
+      "check": "deposit_files",
+      "state": "PASS",
+      "expected": [
+        358,
+        12.6
+      ],
+      "recomputed": [
+        358,
+        12.6
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "358 files, 12.6 MB"
+    },
+    {
+      "check": "citation_integrity",
+      "state": "PASS",
+      "expected": "every marker resolves, every entry cited, 1..N contiguous",
+      "recomputed": {
+        "n_entries": 66,
+        "n_cited": 66,
+        "dangling_markers": [],
+        "uncited_entries": [],
+        "numbering_contiguous": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "## References"
+    },
+    {
+      "check": "companion:HIGHLIGHTS.md:96.9%",
+      "state": "PASS",
+      "expected": "96.9% present, 93.2% absent",
+      "recomputed": {
+        "file": "HIGHLIGHTS.md",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "96.9%"
+    },
+    {
+      "check": "companion:COVER_LETTER_DRAFT.md:96.9%",
+      "state": "PASS",
+      "expected": "96.9% present, 93.2% absent",
+      "recomputed": {
+        "file": "COVER_LETTER_DRAFT.md",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "96.9%"
+    },
+    {
+      "check": "companion:COVER_LETTER_DRAFT.md:128 seeded",
+      "state": "PASS",
+      "expected": "128 seeded present, 133 seeded absent",
+      "recomputed": {
+        "file": "COVER_LETTER_DRAFT.md",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "128 seeded"
+    }
+  ]
+}

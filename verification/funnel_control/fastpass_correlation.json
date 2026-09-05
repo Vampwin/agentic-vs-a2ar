@@ -1,0 +1,50 @@
+{
+  "n_with_both_scores": 497,
+  "agreement_within_the_selected_500": {
+    "spearman_rho": 0.769,
+    "spearman_95CI": [
+      0.7123,
+      0.8168
+    ],
+    "pearson_r": 0.7617,
+    "pearson_95CI": [
+      0.6768,
+      0.8308
+    ],
+    "caveat": "Range-restricted by construction: these 497 are the top 500 by fast-pass score, so both correlations are attenuated and are lower bounds on the agreement over the full 5,000. The unrestricted estimate needs full-protocol scores outside the selection (R4)."
+  },
+  "residual_spread": {
+    "regression": {
+      "slope": 0.9657,
+      "intercept": -0.4117
+    },
+    "residual_sd_kcal_per_mol": 0.2728,
+    "meaning": "Spread of the full-protocol score around what the fast-pass score predicts, on the selected compounds."
+  },
+  "selection_boundary": {
+    "fastpass_cutoff_rank500_kcal_per_mol": -8.588,
+    "fastpass_range_selected": [
+      -10.512,
+      -8.588
+    ],
+    "fastpass_range_all_scored": [
+      -10.512,
+      3.49
+    ],
+    "n_scored_total": 4999,
+    "n_unselected_within_1_residual_sd_of_cutoff": 277,
+    "n_unselected_within_2_residual_sd_of_cutoff": 603,
+    "reading": "The fast-pass score at the cutoff is separated from the compounds just below it by far less than the 0.27 kcal/mol of residual spread between the two protocols. 277 unselected compounds lie within one residual SD of the cutoff and 603 within two, so at the boundary the fast pass is not resolving which compounds deserved the full protocol. This bounds the reliability of the selection, not of any reported score."
+  },
+  "provenance": {
+    "script": "fastpass_correlation.py",
+    "bootstrap": {
+      "n": 2000,
+      "seed": 20260825
+    },
+    "inputs": {
+      "full_scores_MERGED.csv": "840e232a45b19621b51998574c23bebc0592cac81b7ee9aa1731d642b13292a9",
+      "fastpass_scores_MERGED.csv": "db1d8f6dc2cdfe0efb278e48a437c6758bd20ecd3d09d1c966a53d88dc22e561"
+    }
+  }
+}

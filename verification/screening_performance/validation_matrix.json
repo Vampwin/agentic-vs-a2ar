@@ -1,0 +1,155 @@
+{
+  "question": "What was each method validated FOR? A single ROC-AUC answers one of five questions, and ADR-AIIM-164 showed that one was asked against an uninformative baseline.",
+  "authority": "ADR-AIIM-169",
+  "framework": {
+    "axes": {
+      "pose_accuracy": "Docking power: RMSD to a crystallographic pose",
+      "physical_validity": "Physical plausibility: PoseBusters, tool defaults",
+      "interaction_recovery": "Does the pose reproduce the Asn253 anchor?",
+      "screening_power": "Ranking actives above inactives: ROC-AUC",
+      "scoring_power": "Correlation with measured affinity"
+    },
+    "references": {
+      "CASF-2016": "Su, Yang, Li, Liu, Han, Wang. Comparative Assessment of Scoring Functions: The CASF-2016 Update. J Chem Inf Model 2019;59(2):895-913. Decouples scoring / ranking / docking / screening power; reports docking power as the strongest of the four for current functions.",
+      "PoseBusters": "Buttenschoen, Morris, Deane. PoseBusters: AI-based docking methods fail to generate physically valid poses or generalise to novel sequences. Chem Sci 2024;15:3130-3139.",
+      "DL-limits": "Li, et al. Decoding the limits of deep learning in molecular docking for drug discovery. Chem Sci 2025. Five dimensions: pose accuracy, physical plausibility, interaction recovery, virtual-screening efficacy, generalisation.",
+      "MMGBSA-rescoring": "Sahakyan. Improving virtual screening results with MM/GBSA and MM/PBSA rescoring. J Comput Aided Mol Des 2021;35:731-736; and Zhang et al., J Chem Inf Model 2014;54:324-337, which reports MM/GBSA rescoring raising AUC over Vina across 38 DUD-E targets while remaining target-dependent and limited by pose quality."
+    }
+  },
+  "computes_nothing": "Every value is read from a frozen artifact named beside it. This file is an index, not a result.",
+  "rows": [
+    {
+      "method": "AutoDock Vina (pose generation)",
+      "pose_accuracy": {
+        "value": "0.397 A (4EIY), 0.318 A (5OLG), 0.709 A (3EML)",
+        "caveat": "all three structures were solved with ZM241385: the receptor changed, the ligand never did",
+        "source": "crossdock_zma_2026-09-03 / ADR-AIIM-162",
+        "ligand_transfer": {
+          "value": "0.216 A redocking 9XT, a chemically distinct antagonist, into its own crystal (5OLH); 9.606 A into 4EIY",
+          "source": "redock_9xt_2026-09-05 / ADR-AIIM-168"
+        }
+      },
+      "physical_validity": {
+        "value": "97.88 % of 4916 poses; 100 % of 80 control poses",
+        "source": "pose_validity_2026-09-03 / ADR-AIIM-166"
+      },
+      "interaction_recovery": {
+        "value": "2.71 A on the redocked control (contact); 0 of 7 other known antagonists placed in the contact",
+        "source": "clinical_reference_2026-09-03 / ADR-AIIM-163"
+      },
+      "screening_power": {
+        "value": "AUC 0.601 (95 % CI 0.510-0.683), against 0.584 for heavy-atom count alone, paired p = 0.722",
+        "source": "trivial_baseline_2026-09-03 / ADR-AIIM-164"
+      },
+      "scoring_power": {
+        "value": "r = -0.481 (p = 0.228) against measured pChEMBL over 8 antagonists; -0.657 (p = 0.039) over all 10 reference ligands, carried by two agonists",
+        "source": "clinical_reference_2026-09-03 / ADR-AIIM-163"
+      },
+      "licence": "Geometry, for ZM241385-like chemotypes. Not ranking, not affinity."
+    },
+    {
+      "method": "DiffDock (pose generation)",
+      "pose_accuracy": {
+        "value": "1.917 A on the ZM241385 control, passing a 2.0 A gate by 0.083 A",
+        "source": "diffdock_orthogonal_2026-08-23 / ADR-AIIM-111"
+      },
+      "physical_validity": {
+        "value": "2 of 4 rank-1 poses valid; the control is among the failures",
+        "note": "the pose that passed the RMSD gate overlaps the receptor. RMSD and validity disagree on the same pose, which is the PoseBusters result reproduced on a GPCR target.",
+        "source": "pose_validity_2026-09-03 / ADR-AIIM-166"
+      },
+      "interaction_recovery": {
+        "value": "not measured"
+      },
+      "screening_power": {
+        "value": "not measured: DiffDock was run on four compounds as an orthogonal pose check, never over the benchmark"
+      },
+      "scoring_power": {
+        "value": "not measured"
+      },
+      "licence": "Nothing. Its one validated pose is physically invalid, so the RMSD it passed on does not certify it."
+    },
+    {
+      "method": "MM-GBSA rescoring",
+      "pose_accuracy": {
+        "value": "n/a -- rescores poses, does not make them"
+      },
+      "physical_validity": {
+        "value": "n/a"
+      },
+      "interaction_recovery": {
+        "value": "not measured"
+      },
+      "screening_power": {
+        "value": "AUC 0.533 (95 % CI 0.439-0.631), an interval containing 0.5",
+        "note": "published expectation is the opposite: MM/GBSA rescoring usually raises AUC over docking alone, though it is target-dependent and bounded by the quality of the poses it rescores. The pose-validity and interaction-recovery cells in the Vina row are where that bound bites here.",
+        "source": "exp3b_harmonized_metrics.csv; provenance caveat in ADR-AIIM-048 (equilibration and seed records incomplete)"
+      },
+      "scoring_power": {
+        "value": "not measured on this target"
+      },
+      "licence": "Nothing, on this target, at this pose quality. Reported as a measurement rather than omitted."
+    },
+    {
+      "method": "Interaction-fingerprint (IFP) rescoring",
+      "pose_accuracy": {
+        "value": "n/a -- reselects among existing poses"
+      },
+      "physical_validity": {
+        "value": "n/a"
+      },
+      "interaction_recovery": {
+        "value": "the Asn253 filter carried weak signal in isolation (27 % of compounds forming the contact were active against 19 % of those that did not)",
+        "source": "Table 5"
+      },
+      "screening_power": {
+        "value": "AUC 0.449 (95 % CI 0.343-0.545), below chance, with BEDROC20 0.495 against the baseline's 0.275",
+        "source": "chembl245_ifp_rescoring_2026-08-15"
+      },
+      "scoring_power": {
+        "value": "not measured"
+      },
+      "licence": "Early recognition only, and not claimed: at n = 245 the 1 % cut is 2.45 compounds."
+    },
+    {
+      "method": "Water-shell ensemble docking",
+      "pose_accuracy": {
+        "value": "not measured across shells"
+      },
+      "physical_validity": {
+        "value": "not measured"
+      },
+      "interaction_recovery": {
+        "value": "not measured"
+      },
+      "screening_power": {
+        "value": "paired dAUC +0.0028 (95 % CI -0.0568 to +0.0588) against a threshold of +0.05 fixed before the pilot",
+        "source": "ensemble_shell_pilot_2026-08-15"
+      },
+      "scoring_power": {
+        "value": "not measured"
+      },
+      "licence": "Stopped by a pre-registered rule, not by a verdict on the method."
+    },
+    {
+      "method": "Random forest (ligand-based)",
+      "pose_accuracy": {
+        "value": "n/a -- uses no structure"
+      },
+      "physical_validity": {
+        "value": "n/a"
+      },
+      "interaction_recovery": {
+        "value": "n/a"
+      },
+      "screening_power": {
+        "value": "nested cross-validated AUC 0.909 +/- 0.020, with Y-randomisation over 100 label permutations",
+        "source": "qsar_lbdd_2026-08-07, Figure 3B"
+      },
+      "scoring_power": {
+        "value": "not measured"
+      },
+      "licence": "Ranking, inside its applicability domain -- which excludes this library in four of eight spaces."
+    }
+  ]
+}

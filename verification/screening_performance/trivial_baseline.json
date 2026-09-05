@@ -1,0 +1,70 @@
+{
+  "authority": "ADR-AIIM-164",
+  "not_pre_registered": "the headline number was computed exploratively before the ADR was written; reported as a descriptive measurement, not as a test",
+  "inputs": {
+    "scores.csv": {
+      "path": "20_new_runs/chembl245_ifp_rescoring_2026-08-15/scores.csv",
+      "sha256": "caa4a34c54d813d5b4c6e7ce1c9e7e01d7ad9f1725901d14e535264979491c12"
+    },
+    "ifp_rescoring_per_compound.csv": {
+      "path": "20_new_runs/chembl245_ifp_rescoring_2026-08-15/ifp_rescoring_per_compound.csv",
+      "sha256": "3b2aeae0e91dc3c72073b99ff104e53291eb7d6ffd36efff4026f5bd22492915"
+    }
+  },
+  "n": 245,
+  "n_actives": 50,
+  "self_check": {
+    "table5_vina_auc": 0.601,
+    "recomputed": 0.601,
+    "tolerance": 0.002,
+    "reproduced": true
+  },
+  "vina_auc": 0.601,
+  "descriptor_baselines": {
+    "n_heavy_atoms": {
+      "available": true,
+      "n": 245,
+      "auc": 0.584,
+      "vina_auc_on_same_rows": 0.601,
+      "vina_minus_this": {
+        "delta_auc": 0.018,
+        "ci95": [
+          -0.077,
+          0.111
+        ],
+        "p": 0.722
+      }
+    },
+    "mol_weight": {
+      "available": true,
+      "n": 214,
+      "auc": 0.578,
+      "vina_auc_on_same_rows": 0.594,
+      "vina_minus_this": {
+        "delta_auc": 0.016,
+        "ci95": [
+          -0.091,
+          0.125
+        ],
+        "p": 0.775
+      }
+    },
+    "clogp": {
+      "available": true,
+      "n": 214,
+      "auc": 0.574,
+      "vina_auc_on_same_rows": 0.594,
+      "vina_minus_this": {
+        "delta_auc": 0.02,
+        "ci95": [
+          -0.113,
+          0.151
+        ],
+        "p": 0.77
+      }
+    }
+  },
+  "method": "paired bootstrap of the AUC difference, 10000 resamples, seed 1. Overlapping confidence intervals are not used to assess a difference.",
+  "outcome": "NOT_SEPARABLE_FROM_TRIVIAL_DESCRIPTORS",
+  "reading": "The baseline against which \u00a73.4's three rescue techniques were judged null is itself not distinguishable from molecular size. This is not a claim that docking is uninformative in general; it is a statement that on this benchmark, at this target, a technique failing to beat the baseline has been measured against very little."
+}

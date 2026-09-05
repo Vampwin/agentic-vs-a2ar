@@ -205,6 +205,25 @@ def evaluate(
                 # decision at G6/G8.
                 passed.append(cid)
 
+        elif cid == "applicability_domain_false_refusal":
+            # Reported, never gating: the rate is evidence for the human
+            # decision at G6/G8. A gate that refused a selection because a
+            # panel of known actives scored badly would be gating on the
+            # measurement of its own bias, which is not what this check is for.
+            fr = inputs.get("false_refusal_by_space")
+            sep = inputs.get("false_refusal_separation", "")
+            panel = inputs.get("false_refusal_panel", "")
+            report = _domain_gate_bias_probe.assess_false_refusal(
+                fr or {}, sep, panel,
+                concerning_at=float(check.get(
+                    "concerning_at",
+                    _domain_gate_bias_probe.FALSE_REFUSAL_CONCERNING)))
+            evidence[cid] = report
+            if not report.get("available"):
+                warned.append(cid)
+            else:
+                passed.append(cid)
+
         elif cid == "drug_likeness_not_used_in_ranking":
             # Check that ranking_csv columns used for selection do not include DL metrics
             ranking_cols = _get_column_names(ranking_csv)
@@ -218,6 +237,29 @@ def evaluate(
             (passed if ok else failed).append(cid)
             if not ok and sev == "critical":
                 critical_failures.append(cid)
+
+    # A contract check with no branch above falls through the if/elif chain and
+    # is neither passed, failed nor warned -- it simply disappears from the
+    # outcome. That is the defect class this whole project reports: a contract
+    # asserting more than its evaluator performs, reporting success by omission.
+    # It happened here on 2026-09-02, when applicability_domain_false_refusal
+    # was added to G6_selection.yaml v1.3.0 before this branch existed, and the
+    # gate would have gone on passing without ever evaluating it.
+    #
+    # An unimplemented check is now a critical failure. A gate cannot pass by
+    # not knowing what it was asked to do.
+    seen = set(passed) | set(failed) | set(warned)
+    unimplemented = [c["id"] for c in contract.get("checks", [])
+                     if c["id"] not in seen]
+    if unimplemented:
+        for cid in unimplemented:
+            failed.append(cid)
+            critical_failures.append(cid)
+            evidence[cid] = {
+                "available": False,
+                "reason": "declared in the contract and not implemented in this "
+                          "evaluator; the gate cannot report on it",
+            }
 
     # Critical breaches halt; non-critical failures still require a human
     # decision. Returning PASS while `failed` is non-empty would let a

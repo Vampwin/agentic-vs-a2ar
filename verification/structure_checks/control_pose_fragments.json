@@ -1,0 +1,35 @@
+{
+  "reference": {
+    "path": "20_new_runs/snp_screen_2026-08-04/G2_preparation/ZMA_reference_4EIY.sdf",
+    "sha256": "17b272d5bcd46ce6998b8ba9921a72ba52f57b2e0cc394700b759a2921ae3857",
+    "n_heavy_atoms": 25
+  },
+  "note": "In-place, symmetry-corrected where the whole molecule is compared; per-fragment values are in-place over the matched atom subset. No superposition anywhere.",
+  "poses": {
+    "vina": {
+      "path": "20_new_runs/snp_screen_2026-08-04/G3_redocking/ZMA_redocked_4EIY.sdf",
+      "sha256": "821b54da645b84d80c69176ad50b2f23ef28bf0bb155b9207095a0bfeee87504",
+      "whole_molecule_rmsd": 0.379,
+      "core_rmsd": 0.197,
+      "furan_rmsd": 0.265,
+      "tail_rmsd": 0.533
+    },
+    "diffdock": {
+      "path": "20_new_runs/diffdock_orthogonal_2026-08-23/results/ZM241385_control/rank1.sdf",
+      "sha256": "1fd5fa47086ba8b0aa762133072b72384a8caf71559df20dd659466417033330",
+      "whole_molecule_rmsd": 1.917,
+      "core_rmsd": 1.03,
+      "furan_rmsd": 2.88,
+      "tail_rmsd": 1.996
+    }
+  },
+  "fragments": {
+    "tail_smarts": "NCCc1ccc(O)cc1",
+    "n_tail_atoms": 10,
+    "furan_smarts": "c1ccoc1",
+    "n_furan_atoms": 5,
+    "n_core_atoms": 10,
+    "core_definition": "every heavy atom claimed by neither substituent",
+    "total_check": 25
+  }
+}

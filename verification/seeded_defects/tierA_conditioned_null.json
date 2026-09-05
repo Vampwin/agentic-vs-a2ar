@@ -1,0 +1,321 @@
+{
+  "question": "The three convergent candidates are all Pongamia flavones. How surprising is that, once it is asked the way a reader hears it?",
+  "authority": "ADR-AIIM-145",
+  "reference_set": {
+    "rule": "conformal_p_active > 0.05",
+    "over": "the 5,000-compound docked library",
+    "n": 23,
+    "note": "Reconstructed here for the first time. tierA_convergence_analysis.json has no producer script and its reference set was not identifiable from any deposited table until this reconstruction. Both frozen p-values are reproduced exactly before anything else runs.",
+    "reproduces_frozen_artifact": {
+      "file": "20_new_runs/np_library_funnel_2026-08-15/tierA_convergence_analysis.json",
+      "sha256": "917e1cbf673d80c412ec3ca5a954b57e019263ed25ed049902f009f8ae70a205",
+      "n_flagged": 23,
+      "n_pongamia": 4,
+      "n_flavonoids": 7,
+      "p_all_three_pongamia": 0.002259,
+      "p_all_three_flavones": 0.019763
+    }
+  },
+  "how_the_three_were_selected": {
+    "n_of_the_flagged_that_reached_full_protocol": 3,
+    "selected_are_the_top_three_by_fastpass_docking": true,
+    "selected_scores": [
+      -9.409,
+      -9.391,
+      -9.207
+    ],
+    "gap_to_the_fourth_kcal_per_mol": 0.956,
+    "reading": "Selection among the flagged set was by docking score alone: only three of the flagged compounds reached the full protocol at all, and they are the three best fast-pass scores, ahead of the fourth by a clear margin."
+  },
+  "uniform_null_as_published": {
+    "p_all_three_pongamia": 0.002259,
+    "note": "Kept and reported as published (ADR-AIIM-133). It draws three uniformly from the flagged set and ignores that the three were chosen by docking score."
+  },
+  "docking_conditioned_null": {
+    "design": "Fast-pass scores stay with their compounds; the chemical labels are permuted across the flagged set; the actual selection rule -- the three best scores -- is re-applied to each permutation.",
+    "n_permutations": 200000,
+    "seed": 20260829,
+    "p_all_three_pongamia": 0.0023,
+    "reading": "Indistinguishable from the uniform value. Conditioning on docking changes nothing, because under the null being tested -- chemical identity independent of docking rank -- the selected positions are fixed and permuting labels over them reproduces the hypergeometric. The objection is answered, and the answer is that it does not matter."
+  },
+  "multiplicity": {
+    "why": "p = 0.002 tests a label chosen after seeing the compounds. A reader hears the broader claim that the three are chemically coherent, which could have been noticed at any level. Summing over every label with at least three members is the test that matches that claim.",
+    "levels": {
+      "species": {
+        "n_distinct_labels": 13,
+        "labels_with_at_least_three_members": {
+          "Styrax agrestis": 5,
+          "Pongamia pinnata": 3
+        },
+        "observed_label_of_the_selected": null,
+        "p_all_three_share_the_observed_label": null,
+        "p_all_three_share_ANY_label": 0.006211
+      },
+      "genus": {
+        "n_distinct_labels": 8,
+        "labels_with_at_least_three_members": {
+          "Styrax": 12,
+          "Pongamia": 4
+        },
+        "observed_label_of_the_selected": "Pongamia",
+        "p_all_three_share_the_observed_label": 0.002259,
+        "p_all_three_share_ANY_label": 0.126482
+      },
+      "superclass": {
+        "n_distinct_labels": 3,
+        "labels_with_at_least_three_members": {
+          "Lignans": 13,
+          "Flavonoids": 7,
+          "Isoflavonoids": 3
+        },
+        "observed_label_of_the_selected": "Flavonoids",
+        "p_all_three_share_the_observed_label": 0.019763,
+        "p_all_three_share_ANY_label": 0.181818
+      }
+    }
+  },
+  "does_chemistry_predict_docking_here": {
+    "pongamia_fastpass_ranks_within_the_flagged_set": [
+      1,
+      2,
+      3,
+      7
+    ],
+    "n_flagged": 23,
+    "pongamia_median": -9.299,
+    "other_median": -7.663,
+    "reading": "The fourth Pongamia compound sits mid-set, so the genus is not uniformly better docking; three of its four members simply occupy the top three places."
+  },
+  "flagged_set": [
+    {
+      "compound_id": "NPLIB01643",
+      "species": "Pongamia pinnata",
+      "genus": "Pongamia",
+      "superclass": "Flavonoids",
+      "conformal_p_active": 0.0556,
+      "fastpass_score": -9.409,
+      "on_pocket": true,
+      "selected": true
+    },
+    {
+      "compound_id": "NPLIB01185",
+      "species": "Pongamia pinnata",
+      "genus": "Pongamia",
+      "superclass": "Flavonoids",
+      "conformal_p_active": 0.051,
+      "fastpass_score": -9.391,
+      "on_pocket": true,
+      "selected": true
+    },
+    {
+      "compound_id": "NPLIB03056",
+      "species": "Pongamia pinnata var. pinnata",
+      "genus": "Pongamia",
+      "superclass": "Flavonoids",
+      "conformal_p_active": 0.051,
+      "fastpass_score": -9.207,
+      "on_pocket": true,
+      "selected": true
+    },
+    {
+      "compound_id": "NPLIB00687",
+      "species": "Styrax officinalis",
+      "genus": "Styrax",
+      "superclass": "Lignans",
+      "conformal_p_active": 0.0574,
+      "fastpass_score": -8.251,
+      "on_pocket": true,
+      "selected": false
+    },
+    {
+      "compound_id": "NPLIB02138",
+      "species": "Styrax obassia",
+      "genus": "Styrax",
+      "superclass": "Lignans",
+      "conformal_p_active": 0.072,
+      "fastpass_score": -8.149,
+      "on_pocket": true,
+      "selected": false
+    },
+    {
+      "compound_id": "NPLIB04111",
+      "species": "Styrax agrestis",
+      "genus": "Styrax",
+      "superclass": "Lignans",
+      "conformal_p_active": 0.0593,
+      "fastpass_score": -8.131,
+      "on_pocket": true,
+      "selected": false
+    },
+    {
+      "compound_id": "NPLIB03295",
+      "species": "Pongamia pinnata",
+      "genus": "Pongamia",
+      "superclass": "Flavonoids",
+      "conformal_p_active": 0.072,
+      "fastpass_score": -8.126,
+      "on_pocket": true,
+      "selected": false
+    },
+    {
+      "compound_id": "NPLIB04193",
+      "species": "Styrax agrestis",
+      "genus": "Styrax",
+      "superclass": "Lignans",
+      "conformal_p_active": 0.0593,
+      "fastpass_score": -8.046,
+      "on_pocket": true,
+      "selected": false
+    },
+    {
+      "compound_id": "NPLIB00888",
+      "species": "Styrax perkinsiae",
+      "genus": "Styrax",
+      "superclass": "Lignans",
+      "conformal_p_active": 0.052,
+      "fastpass_score": -8.006,
+      "on_pocket": true,
+      "selected": false
+    },
+    {
+      "compound_id": "NPLIB00771",
+      "species": "Styrax agrestis",
+      "genus": "Styrax",
+      "superclass": "Lignans",
+      "conformal_p_active": 0.0593,
+      "fastpass_score": -7.969,
+      "on_pocket": true,
+      "selected": false
+    },
+    {
+      "compound_id": "NPLIB02054",
+      "species": "Styrax agrestis",
+      "genus": "Styrax",
+      "superclass": "Lignans",
+      "conformal_p_active": 0.0593,
+      "fastpass_score": -7.912,
+      "on_pocket": true,
+      "selected": false
+    },
+    {
+      "compound_id": "NPLIB00675",
+      "species": "Styrax agrestis",
+      "genus": "Styrax",
+      "superclass": "Lignans",
+      "conformal_p_active": 0.0574,
+      "fastpass_score": -7.793,
+      "on_pocket": true,
+      "selected": false
+    },
+    {
+      "compound_id": "NPLIB03484",
+      "species": "Anaxagorea crassipetala",
+      "genus": "Anaxagorea",
+      "superclass": "Lignans",
+      "conformal_p_active": 0.051,
+      "fastpass_score": -7.722,
+      "on_pocket": true,
+      "selected": false
+    },
+    {
+      "compound_id": "NPLIB00156",
+      "species": "Styrax obassia",
+      "genus": "Styrax",
+      "superclass": "Lignans",
+      "conformal_p_active": 0.062,
+      "fastpass_score": -7.663,
+      "on_pocket": true,
+      "selected": false
+    },
+    {
+      "compound_id": "NPLIB03297",
+      "species": "Styrax hookeri",
+      "genus": "Styrax",
+      "superclass": "Lignans",
+      "conformal_p_active": 0.051,
+      "fastpass_score": -7.657,
+      "on_pocket": true,
+      "selected": false
+    },
+    {
+      "compound_id": "NPLIB03933",
+      "species": "Dirca palustris",
+      "genus": "Dirca",
+      "superclass": "Flavonoids",
+      "conformal_p_active": 0.051,
+      "fastpass_score": -7.61,
+      "on_pocket": true,
+      "selected": false
+    },
+    {
+      "compound_id": "NPLIB01608",
+      "species": "Morus alba",
+      "genus": "Morus",
+      "superclass": "Isoflavonoids",
+      "conformal_p_active": 0.051,
+      "fastpass_score": -7.327,
+      "on_pocket": false,
+      "selected": false
+    },
+    {
+      "compound_id": "NPLIB00020",
+      "species": "Dirca palustris",
+      "genus": "Dirca",
+      "superclass": "Flavonoids",
+      "conformal_p_active": 0.051,
+      "fastpass_score": -7.304,
+      "on_pocket": false,
+      "selected": false
+    },
+    {
+      "compound_id": "NPLIB01462",
+      "species": "Styrax perkinsiae",
+      "genus": "Styrax",
+      "superclass": "Lignans",
+      "conformal_p_active": 0.0602,
+      "fastpass_score": -7.284,
+      "on_pocket": true,
+      "selected": false
+    },
+    {
+      "compound_id": "NPLIB00394",
+      "species": "Lespedeza homoloba",
+      "genus": "Lespedeza",
+      "superclass": "Isoflavonoids",
+      "conformal_p_active": 0.051,
+      "fastpass_score": -7.271,
+      "on_pocket": true,
+      "selected": false
+    },
+    {
+      "compound_id": "NPLIB00091",
+      "species": "Paullinia pinnata",
+      "genus": "Paullinia",
+      "superclass": "Flavonoids",
+      "conformal_p_active": 0.051,
+      "fastpass_score": -7.176,
+      "on_pocket": true,
+      "selected": false
+    },
+    {
+      "compound_id": "NPLIB02593",
+      "species": "Styrax officinalis",
+      "genus": "Styrax",
+      "superclass": "Lignans",
+      "conformal_p_active": 0.0547,
+      "fastpass_score": -7.089,
+      "on_pocket": true,
+      "selected": false
+    },
+    {
+      "compound_id": "NPLIB02335",
+      "species": "Brya ebenus",
+      "genus": "Brya",
+      "superclass": "Isoflavonoids",
+      "conformal_p_active": 0.051,
+      "fastpass_score": -6.07,
+      "on_pocket": true,
+      "selected": false
+    }
+  ]
+}

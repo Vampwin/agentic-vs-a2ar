@@ -1,0 +1,61 @@
+{
+  "question": "Of the compounds the expansion funnel discarded, what fraction would have scored well enough to enter the top-500 -- estimated over the population rather than over an equal sample from unequal strata?",
+  "authority": "ADR-AIIM-150",
+  "closes": "M9, the reweighting and the absolute number. R4 remains open and answers the different question of recall at full protocol.",
+  "sources": {
+    "ledger": {
+      "file": "20_new_runs/funnel_exclusion_control_2026-08-21/exclusion_control_ledger.csv",
+      "sha256": "cd43ccccb40c381deef4541fb3b8087a5ddb86c6fa9cbb704bf123c917510840"
+    },
+    "scores": {
+      "file": "20_new_runs/funnel_exclusion_control_2026-08-21/exclusion_scores.csv",
+      "sha256": "2595490ede04628665b9d7af9ecf0f37769017126127d4baf92fba5be4dd6e5f"
+    }
+  },
+  "cutoff_kcal_per_mol": -8.588,
+  "protocol": "fast pass -- two conformers, exhaustiveness 8 -- identical to the screen that chose the top 500. Not the full protocol those 500 later received.",
+  "as_published_pooled": {
+    "n": 499,
+    "n_reaching_cutoff": 35,
+    "rate": 0.0701,
+    "why_it_is_biased": "250 were drawn from each arm, but the arms hold 13,882 and 3,000 compounds. The pooled figure weights the smaller stratum 4.6 times too heavily."
+  },
+  "by_stratum": {
+    "arm_2d": {
+      "rejected_by": "2D pharmacophore / ErG screen, 21,882 -> 8,000",
+      "population": 13882,
+      "n_sampled": 249,
+      "n_docked_ok": 249,
+      "n_reaching_cutoff": 19,
+      "rate": 0.0763,
+      "wilson_95_ci": [
+        0.0494,
+        0.1161
+      ],
+      "implied_population_count": 1059,
+      "weight_in_population": 0.8223
+    },
+    "arm_3d": {
+      "rejected_by": "3D shape / pharmacophore refinement, 8,000 -> 5,000",
+      "population": 3000,
+      "n_sampled": 250,
+      "n_docked_ok": 250,
+      "n_reaching_cutoff": 16,
+      "rate": 0.064,
+      "wilson_95_ci": [
+        0.0398,
+        0.1014
+      ],
+      "implied_population_count": 192,
+      "weight_in_population": 0.1777
+    }
+  },
+  "population_estimate": {
+    "total_rejected": 16882,
+    "weighted_rate": 0.0741,
+    "implied_count": 1251,
+    "against_n_selected": 500,
+    "ratio_to_selected": 2.5
+  },
+  "review_comment_correction": "M9 describes strata of about 16,882 and 3,000. 16,882 is the total rejected -- 13,882 plus 3,000 -- and is not a stratum. Applying the pooled 7.0 % to it compounds two errors that partly cancel."
+}

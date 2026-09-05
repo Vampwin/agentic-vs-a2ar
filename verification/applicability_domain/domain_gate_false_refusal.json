@@ -1,0 +1,179 @@
+{
+  "question": "How many compounds known to bind A2A does the applicability-domain gate refuse, in each descriptor space, when it has never seen their scaffolds?",
+  "authority": "ADR-AIIM-147",
+  "closes": "M3 -- the mechanism the G6 contract names and no code performed",
+  "rule": {
+    "k": 5,
+    "percentile": 10,
+    "definition": "in-domain if mean Tanimoto (or cosine) to k nearest reference neighbours >= the given percentile of reference self-similarity",
+    "source": "ad_descriptor_sweep.py, unchanged"
+  },
+  "reference_set": {
+    "n": 4753,
+    "source": "02_frozen_inputs/public_benchmarks/chembl_a2ar/chembl_a2a_training_v3.csv",
+    "sha256": "1cafb9f4fd8707c91ea5bc5d5ca2e4e0ddf02c216ba0bf8d8507f7ed7a16fa60",
+    "split": "scaffold_train_test_split, training half"
+  },
+  "panels_rejected_before_the_run": {
+    "chembl_a2ar_validation_set.csv": "3,307 of its 3,372 compounds are in the training file",
+    "clinical A2A antagonists": "istradefylline, preladenant, tozadenant and vipadenant are all in the training file and therefore in-domain by construction"
+  },
+  "per_space_detail": {
+    "ECFP4": {
+      "threshold": 0.56535,
+      "panel_mean_similarity": 0.663209,
+      "reference_self_similarity_median": 0.725864
+    },
+    "FCFP4": {
+      "threshold": 0.624928,
+      "panel_mean_similarity": 0.732253,
+      "reference_self_similarity_median": 0.808759
+    },
+    "MACCS": {
+      "threshold": 0.838458,
+      "panel_mean_similarity": 0.904618,
+      "reference_self_similarity_median": 0.931231
+    },
+    "AtomPair": {
+      "threshold": 0.610026,
+      "panel_mean_similarity": 0.710386,
+      "reference_self_similarity_median": 0.756245
+    },
+    "TopTorsion": {
+      "threshold": 0.622714,
+      "panel_mean_similarity": 0.723923,
+      "reference_self_similarity_median": 0.793392
+    },
+    "Gobbi_Pharm2D": {
+      "threshold": 0.567051,
+      "panel_mean_similarity": 0.733212,
+      "reference_self_similarity_median": 0.816631
+    },
+    "ErG": {
+      "threshold": 0.942157,
+      "panel_mean_similarity": 0.972275,
+      "reference_self_similarity_median": 0.985151
+    },
+    "PhysChem": {
+      "threshold": 0.999982,
+      "panel_mean_similarity": 0.999991,
+      "reference_self_similarity_median": 0.999992
+    }
+  },
+  "false_refusal": {
+    "available": true,
+    "panel": "1,096 ChEMBL A2A receptor actives (pChEMBL >= 6.0) whose Murcko scaffolds are absent from the compounds defining the domain.",
+    "panel_size": 1096,
+    "separation": "The panel and the reference set are the two halves of scaffold_train_test_split() in run_qsar_lbdd_2026-08-07.py, applied to chembl_a2a_training_v3.csv. They share no Murcko scaffold: 4,753 compounds define the domain, 1,217 are held out, and the panel is the 1,096 actives among the held-out half. The gate's production reference set is all 5,970, which contains the panel; measuring a refusal rate against that would return zero by construction.",
+    "by_space": {
+      "ECFP4": {
+        "n_panel": 1096,
+        "n_refused": 163,
+        "false_refusal_rate": 0.1487,
+        "is_physicochemical": false
+      },
+      "FCFP4": {
+        "n_panel": 1096,
+        "n_refused": 146,
+        "false_refusal_rate": 0.1332,
+        "is_physicochemical": false
+      },
+      "MACCS": {
+        "n_panel": 1096,
+        "n_refused": 164,
+        "false_refusal_rate": 0.1496,
+        "is_physicochemical": false
+      },
+      "AtomPair": {
+        "n_panel": 1096,
+        "n_refused": 160,
+        "false_refusal_rate": 0.146,
+        "is_physicochemical": false
+      },
+      "TopTorsion": {
+        "n_panel": 1096,
+        "n_refused": 155,
+        "false_refusal_rate": 0.1414,
+        "is_physicochemical": false
+      },
+      "Gobbi_Pharm2D": {
+        "n_panel": 1096,
+        "n_refused": 134,
+        "false_refusal_rate": 0.1223,
+        "is_physicochemical": false
+      },
+      "ErG": {
+        "n_panel": 1096,
+        "n_refused": 138,
+        "false_refusal_rate": 0.1259,
+        "is_physicochemical": false
+      },
+      "PhysChem": {
+        "n_panel": 1096,
+        "n_refused": 64,
+        "false_refusal_rate": 0.0584,
+        "is_physicochemical": true
+      }
+    },
+    "worst_space": "MACCS",
+    "best_space": "PhysChem",
+    "worst_rate": 0.1496,
+    "best_rate": 0.0584,
+    "spread": 0.0912,
+    "concerning_threshold": 0.5,
+    "spaces_above_threshold": [],
+    "interpretation": "No space refuses half or more of the known-active panel. The gate admits unfamiliar actives at a rate that does not by itself explain an exclusion.",
+    "structural_vs_physicochemical": {
+      "structural_worst": 0.1496,
+      "physicochemical_worst": 0.0584,
+      "difference": 0.0912
+    }
+  },
+  "natural_product_library_same_reference": {
+    "n": 500,
+    "source": "20_new_runs/np_library_funnel_2026-08-15/e8_np_library_prioritization.csv",
+    "why": "Scored against the same 4,753-compound reference as the known-active panel, so the two refusal rates are comparable. The published coverage figures use the full 5,970-compound reference and are not repointed.",
+    "by_space": {
+      "ECFP4": {
+        "n": 500,
+        "n_refused": 500,
+        "refusal_rate": 1.0
+      },
+      "FCFP4": {
+        "n": 500,
+        "n_refused": 500,
+        "refusal_rate": 1.0
+      },
+      "MACCS": {
+        "n": 500,
+        "n_refused": 439,
+        "refusal_rate": 0.878
+      },
+      "AtomPair": {
+        "n": 500,
+        "n_refused": 499,
+        "refusal_rate": 0.998
+      },
+      "TopTorsion": {
+        "n": 500,
+        "n_refused": 500,
+        "refusal_rate": 1.0
+      },
+      "Gobbi_Pharm2D": {
+        "n": 500,
+        "n_refused": 500,
+        "refusal_rate": 1.0
+      },
+      "ErG": {
+        "n": 500,
+        "n_refused": 478,
+        "refusal_rate": 0.956
+      },
+      "PhysChem": {
+        "n": 500,
+        "n_refused": 145,
+        "refusal_rate": 0.29
+      }
+    }
+  }
+}

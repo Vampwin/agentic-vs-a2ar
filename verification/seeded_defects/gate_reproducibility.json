@@ -1,0 +1,325 @@
+{
+  "question": "Two executions of the same gate pipeline on the same frozen inputs. What is reproducible, and what is not?",
+  "runs": {
+    "run1": "snp_screen_repro_run1_2026-08-15",
+    "run2": "snp_screen_repro_run2_2026-08-15"
+  },
+  "criterion": "The manuscript's claim is about contract outcomes. Those are compared after removing `timestamp` and `record_id`, the two fields carrying a wall-clock reading, and nothing else. Everything below the contract check is reported as found, without a threshold.",
+  "contract_outcomes": {
+    "n_records_run1": 4,
+    "n_records_run2": 4,
+    "identical_after_stripping_timestamps": true,
+    "records": [
+      {
+        "adjudication_note": "",
+        "artifact_ids": [
+          "G0::snp_library_csv",
+          "G0::snp_library_sdf",
+          "G0::snp_library_raw_xlsx",
+          "G0::receptor_pdb_4eiy",
+          "G0::receptor_pdb_3eml",
+          "G0::chembl_benchmark_csv",
+          "G0::chembl_a2ar_raw_csv"
+        ],
+        "checks_failed": [],
+        "checks_passed": [
+          "hash_snp_library_csv",
+          "hash_snp_library_sdf",
+          "hash_raw_workbook",
+          "compound_count",
+          "id_uniqueness",
+          "smiles_column_present",
+          "receptor_files_present",
+          "receptor_hash_4eiy",
+          "receptor_hash_3eml",
+          "chembl_benchmark_present",
+          "chembl_benchmark_hash",
+          "chembl_a2ar_raw_present",
+          "hash_chembl_a2ar_raw_csv",
+          "no_assay_columns",
+          "name_structure_mapping"
+        ],
+        "checks_warned": [],
+        "contract_id": "G0_input_provenance_v1",
+        "gate": "G0_input_provenance_v1",
+        "human_adjudicated": false,
+        "outcome": "PASS",
+        "record_type": "contract_outcome",
+        "state_history": [
+          {
+            "evidence": [
+              "hash_snp_library_csv",
+              "hash_snp_library_sdf",
+              "hash_raw_workbook",
+              "compound_count",
+              "id_uniqueness",
+              "smiles_column_present",
+              "receptor_files_present",
+              "receptor_hash_4eiy",
+              "receptor_hash_3eml",
+              "chembl_benchmark_present",
+              "chembl_benchmark_hash",
+              "chembl_a2ar_raw_present",
+              "hash_chembl_a2ar_raw_csv",
+              "no_assay_columns",
+              "name_structure_mapping"
+            ],
+            "from_state": "PASS",
+            "human_initiated": false,
+            "reason": "15 checks passed, 0 failed (0 critical), 0 warned",
+            "to_state": "PASS"
+          }
+        ]
+      },
+      {
+        "adjudication_note": "",
+        "artifact_ids": [
+          "G1::snp_source_ledger_csv",
+          "G1::snp_source_ledger_meta_json"
+        ],
+        "checks_failed": [],
+        "checks_passed": [
+          "ledger_count",
+          "id_coverage",
+          "smiles_roundtrip",
+          "inchikey_generated",
+          "salt_strip_recorded",
+          "mixture_flagged",
+          "stereochemistry_recorded",
+          "stereochemistry_preserved",
+          "salt_stripping_verified",
+          "no_activity_columns_in_ledger",
+          "no_drug_likeness_exclusions",
+          "drug_likeness_as_annotation",
+          "failure_accounting"
+        ],
+        "checks_warned": [
+          "duplicate_inchikey_check"
+        ],
+        "contract_id": "G1_standardization_v1",
+        "gate": "G1_standardization_v1",
+        "human_adjudicated": false,
+        "outcome": "PASS",
+        "record_type": "contract_outcome",
+        "state_history": [
+          {
+            "evidence": [
+              "ledger_count",
+              "id_coverage",
+              "smiles_roundtrip",
+              "inchikey_generated",
+              "salt_strip_recorded",
+              "mixture_flagged",
+              "stereochemistry_recorded",
+              "stereochemistry_preserved",
+              "salt_stripping_verified",
+              "no_activity_columns_in_ledger",
+              "no_drug_likeness_exclusions",
+              "drug_likeness_as_annotation",
+              "failure_accounting",
+              "duplicate_inchikey_check"
+            ],
+            "from_state": "PASS",
+            "human_initiated": false,
+            "reason": "13 checks passed, 0 failed (0 critical), 1 warned",
+            "to_state": "PASS"
+          }
+        ]
+      },
+      {
+        "adjudication_note": "",
+        "artifact_ids": [
+          "G2::prepared_receptor_4eiy_pdbqt",
+          "G2::reference_ligand_4eiy_sdf",
+          "G2::docking_box_json"
+        ],
+        "checks_failed": [],
+        "checks_passed": [
+          "receptor_integrity_4eiy",
+          "reference_ligand_present",
+          "box_derivation_recorded",
+          "water_shell_selection_criterion_registered",
+          "no_assay_constants_in_box"
+        ],
+        "checks_warned": [
+          "embedding_count",
+          "embedding_failure_accounting",
+          "structural_waters_recorded",
+          "cofactor_decision_recorded"
+        ],
+        "contract_id": "G2_preparation_v1",
+        "gate": "G2_preparation_v1",
+        "human_adjudicated": false,
+        "outcome": "PASS",
+        "record_type": "contract_outcome",
+        "state_history": [
+          {
+            "evidence": [
+              "receptor_integrity_4eiy",
+              "reference_ligand_present",
+              "box_derivation_recorded",
+              "embedding_count",
+              "embedding_failure_accounting",
+              "structural_waters_recorded",
+              "water_shell_selection_criterion_registered",
+              "no_assay_constants_in_box",
+              "cofactor_decision_recorded"
+            ],
+            "from_state": "PASS",
+            "human_initiated": false,
+            "reason": "5 checks passed, 0 failed (0 critical), 4 warned",
+            "to_state": "PASS"
+          }
+        ]
+      },
+      {
+        "adjudication_note": "",
+        "artifact_ids": [
+          "G3::reference_ligand_4eiy_sdf",
+          "G3::redocked_poses_4eiy",
+          "G3::atom_map_4eiy_json",
+          "G3::docking_input_conformer_sdf"
+        ],
+        "checks_failed": [
+          "control_representativeness"
+        ],
+        "checks_passed": [
+          "atom_map_pre_registration",
+          "coordinate_frame_4eiy",
+          "rmsd_rank1_4eiy",
+          "best_of_n_diagnostic",
+          "retrospective_enrichment",
+          "pocket_centroid_check",
+          "clash_count",
+          "failed_pose_accounting"
+        ],
+        "checks_warned": [
+          "per_atom_distances_recorded_4EIY",
+          "reproducibility_check_4eiy"
+        ],
+        "contract_id": "G3_pose_validation_v1",
+        "gate": "G3_pose_validation_v1",
+        "human_adjudicated": false,
+        "outcome": "ESCALATE",
+        "record_type": "contract_outcome",
+        "state_history": [
+          {
+            "evidence": [
+              "atom_map_pre_registration",
+              "coordinate_frame_4eiy",
+              "rmsd_rank1_4eiy",
+              "per_atom_distances_recorded_4EIY",
+              "reproducibility_check_4eiy",
+              "control_representativeness",
+              "retrospective_enrichment",
+              "pocket_centroid_check",
+              "clash_count",
+              "failed_pose_accounting"
+            ],
+            "from_state": "ESCALATE",
+            "human_initiated": false,
+            "reason": "8 checks passed/informational, 1 failed (0 critical), 2 warned",
+            "to_state": "ESCALATE"
+          }
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "n_files": 13,
+    "n_identical_raw": 9,
+    "n_differing": 4,
+    "differing": [
+      "G1_standardization/snp_source_ledger_meta.json",
+      "G2_preparation/4EIY_fixed.pdb",
+      "G2_preparation/4EIY_prepared.pdbqt",
+      "artifact_registry.jsonl"
+    ],
+    "detail": [
+      {
+        "file": "G1_standardization/snp_source_ledger_meta.json",
+        "sha256_run1": "b8c1c9f6687fec515e99365fcd9e7748bdefe3ee240a71bc3d1d572561380644",
+        "sha256_run2": "6c6154cf5aecc983329c282733e7816909ad8ed40975bea70223839949966081",
+        "identical_raw": false,
+        "difference": {
+          "identical_after_stripping_timestamps_and_paths": true,
+          "differing_keys": []
+        }
+      },
+      {
+        "file": "G2_preparation/4EIY_fixed.pdb",
+        "sha256_run1": "75f7f89a964f142ec99d6af12590de39d2cc8ad235f79a20255d09bdf3dd7f3c",
+        "sha256_run2": "379f2201d6ce16f991b2807fda8d165333800eab76ba4f5f7d800ced8fb298fd",
+        "identical_raw": false
+      },
+      {
+        "file": "G2_preparation/4EIY_prepared.pdbqt",
+        "sha256_run1": "4dccbb1578c1794eade6eae5f8eb0651391c1dd5284cab494cffbc4194a23e43",
+        "sha256_run2": "db12d29ffd98a87a295332c5a048ee3d2ca808874c32c1609e26b51795081eb6",
+        "identical_raw": false,
+        "difference": {
+          "comparable": true,
+          "path_only_remark_lines": 18,
+          "coordinate_differences": 679,
+          "coordinate_differences_by_autodock_type": {
+            "HD": 679
+          },
+          "atom_type_differences": [
+            {
+              "atom": "CG",
+              "residue": "HIS A77",
+              "type_run1": "A",
+              "type_run2": "C",
+              "xyz": "-12.124 10.427 31.653"
+            },
+            {
+              "atom": "CD2",
+              "residue": "HIS A77",
+              "type_run1": "A",
+              "type_run2": "C",
+              "xyz": "-11.299 9.696 32.434"
+            },
+            {
+              "atom": "CE1",
+              "residue": "HIS A77",
+              "type_run1": "A",
+              "type_run2": "C",
+              "xyz": "-11.050 11.801 33.001"
+            }
+          ],
+          "unclassified_differences": 0
+        }
+      },
+      {
+        "file": "artifact_registry.jsonl",
+        "sha256_run1": "74621287c97ae1eb79ef993fd309b7c96cb14f244a3fd9a6629e220501042b0b",
+        "sha256_run2": "a0160bacc8710c33a9bbece1ae414cd15cb3507c7c156d75c4bb562150ac2ddf",
+        "identical_raw": false
+      }
+    ]
+  },
+  "reach_of_the_typing_difference": {
+    "measured": true,
+    "n_pose_atoms": 2000,
+    "cutoff_used": 8.0,
+    "atoms": [
+      {
+        "atom": "CG",
+        "residue": "HIS A77",
+        "min_distance_to_any_pose_atom": 18.05
+      },
+      {
+        "atom": "CD2",
+        "residue": "HIS A77",
+        "min_distance_to_any_pose_atom": 18.11
+      },
+      {
+        "atom": "CE1",
+        "residue": "HIS A77",
+        "min_distance_to_any_pose_atom": 18.71
+      }
+    ],
+    "all_beyond_cutoff": true
+  },
+  "reading": "The four contract outcomes are identical across the two runs once timestamps are removed, which is what Section 3.1 claims. The artifacts are not: 4 of 13 files differ, including the prepared receptor, where 679 atom coordinates and 3 AutoDock atom types differ between two runs of the same code on the same input. The gate decisions are therefore invariant under an upstream non-determinism this project had not documented. That is a stronger result than bit-identical files would have been, and a different one from what the prose implied."
+}

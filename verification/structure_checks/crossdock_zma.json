@@ -1,0 +1,104 @@
+{
+  "question": "Does redocking accuracy survive a change of receptor conformation?",
+  "authority": "ADR-AIIM-162",
+  "recipe": {
+    "preparation": "production G2, transcribed: _write_receptor_with_waters (chain A + waters within 5.0 A of the co-crystal ligand) -> pdbfixer (missing atoms, hydrogens at pH 7.4, keepWater=True) -> obabel -xr",
+    "docking": "8 conformers, exhaustiveness 32, 10 poses, seed 20260729",
+    "excluded": {
+      "5OLH": "solved with 9XT, so it has no ZM241385 of its own: the reference pose would be constructed and the water shell selected around a different ligand"
+    },
+    "confirms_prior_decision": {
+      "3EML": "ADR-AIIM-036 excluded it on 2026-08-04"
+    }
+  },
+  "control": {
+    "receptor": "4EIY",
+    "max_rmsd_A": 1.0,
+    "observed_rmsd_A": 0.397,
+    "passed": true
+  },
+  "by_receptor": {
+    "3EML": {
+      "available": true,
+      "n_poses": 10,
+      "rank1_rmsd_A": 0.709,
+      "best_rmsd_A": 0.695,
+      "all_rmsd_A": [
+        0.709,
+        0.695,
+        0.702,
+        3.222,
+        0.711,
+        3.233,
+        0.806,
+        0.803,
+        1.891,
+        2.037
+      ],
+      "within_2A": true,
+      "confirms": "ADR-AIIM-036 excluded it on 2026-08-04"
+    },
+    "4EIY": {
+      "available": true,
+      "n_poses": 10,
+      "rank1_rmsd_A": 0.397,
+      "best_rmsd_A": 0.397,
+      "all_rmsd_A": [
+        0.397,
+        0.603,
+        0.625,
+        0.812,
+        10.274,
+        10.277,
+        6.005,
+        10.434,
+        10.413,
+        6.026
+      ],
+      "within_2A": true,
+      "confirms": null
+    },
+    "5OLG": {
+      "available": true,
+      "n_poses": 10,
+      "rank1_rmsd_A": 0.318,
+      "best_rmsd_A": 0.318,
+      "all_rmsd_A": [
+        0.318,
+        0.428,
+        0.396,
+        5.953,
+        5.96,
+        5.953,
+        5.982,
+        10.284,
+        10.274,
+        0.724
+      ],
+      "within_2A": true,
+      "confirms": null
+    },
+    "6MH8": {
+      "available": true,
+      "n_poses": 10,
+      "rank1_rmsd_A": 9.083,
+      "best_rmsd_A": 5.398,
+      "all_rmsd_A": [
+        9.083,
+        9.081,
+        5.398,
+        5.546,
+        10.034,
+        10.038,
+        10.022,
+        10.06,
+        10.017,
+        10.033
+      ],
+      "within_2A": false,
+      "confirms": null
+    }
+  },
+  "outcome": "DEGRADES",
+  "n_passing_of_cross": "2 of 3"
+}

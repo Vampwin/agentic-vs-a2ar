@@ -1,0 +1,148 @@
+{
+  "run_date": "2026-08-02",
+  "approval": "feature_allowlist_approved_2026-08-02",
+  "dataset": {
+    "n_rows": 188,
+    "n_features": 24,
+    "n_positive": 113,
+    "n_negative": 75,
+    "positive_rate": 0.601063829787234,
+    "n_groups": 11
+  },
+  "cv_results": [
+    {
+      "model_name": "gradient_boosting",
+      "mean_brier": 0.20258635720230322,
+      "std_brier": 0.09111679111743963,
+      "mean_auprc": 0.7889296909986564,
+      "std_auprc": 0.1667910700643643,
+      "fold_details": [
+        {
+          "fold": 0,
+          "n_train": 148,
+          "n_val": 40,
+          "brier": 0.24712591776066906,
+          "auprc": 0.6666666666666666,
+          "n_val_positive": 20,
+          "best_params": {
+            "clf__max_depth": 2,
+            "clf__n_estimators": 50
+          }
+        },
+        {
+          "fold": 1,
+          "n_train": 153,
+          "n_val": 35,
+          "brier": 0.1924081280519056,
+          "auprc": 0.8857142857142857,
+          "n_val_positive": 25,
+          "best_params": {
+            "clf__max_depth": 3,
+            "clf__n_estimators": 50
+          }
+        },
+        {
+          "fold": 2,
+          "n_train": 153,
+          "n_val": 35,
+          "brier": 0.3319521578292547,
+          "auprc": 0.5333333333333333,
+          "n_val_positive": 15,
+          "best_params": {
+            "clf__max_depth": 2,
+            "clf__n_estimators": 50
+          }
+        },
+        {
+          "fold": 3,
+          "n_train": 144,
+          "n_val": 44,
+          "brier": 0.1888593528103141,
+          "auprc": 0.8589341692789969,
+          "n_val_positive": 29,
+          "best_params": {
+            "clf__max_depth": 2,
+            "clf__n_estimators": 50
+          }
+        },
+        {
+          "fold": 4,
+          "n_train": 154,
+          "n_val": 34,
+          "brier": 0.052586229559372734,
+          "auprc": 1.0,
+          "n_val_positive": 24,
+          "best_params": {
+            "clf__max_depth": 2,
+            "clf__n_estimators": 50
+          }
+        }
+      ]
+    },
+    {
+      "model_name": "logistic_l2",
+      "mean_brier": 0.2050870770899345,
+      "std_brier": 0.0800214450713267,
+      "mean_auprc": 0.7889296909986564,
+      "std_auprc": 0.1667910700643643,
+      "fold_details": [
+        {
+          "fold": 0,
+          "n_train": 148,
+          "n_val": 40,
+          "brier": 0.22372504428919132,
+          "auprc": 0.6666666666666666,
+          "n_val_positive": 20,
+          "best_params": {
+            "clf__C": 0.01
+          }
+        },
+        {
+          "fold": 1,
+          "n_train": 153,
+          "n_val": 35,
+          "brier": 0.21102985054854798,
+          "auprc": 0.8857142857142857,
+          "n_val_positive": 25,
+          "best_params": {
+            "clf__C": 0.1
+          }
+        },
+        {
+          "fold": 2,
+          "n_train": 153,
+          "n_val": 35,
+          "brier": 0.3165077577218576,
+          "auprc": 0.5333333333333333,
+          "n_val_positive": 15,
+          "best_params": {
+            "clf__C": 0.1
+          }
+        },
+        {
+          "fold": 3,
+          "n_train": 144,
+          "n_val": 44,
+          "brier": 0.20769694146717194,
+          "auprc": 0.8589341692789969,
+          "n_val_positive": 29,
+          "best_params": {
+            "clf__C": 0.1
+          }
+        },
+        {
+          "fold": 4,
+          "n_train": 154,
+          "n_val": 34,
+          "brier": 0.06647579142290368,
+          "auprc": 1.0,
+          "n_val_positive": 24,
+          "best_params": {
+            "clf__C": 0.1
+          }
+        }
+      ]
+    }
+  ],
+  "preferred_model": "gradient_boosting"
+}

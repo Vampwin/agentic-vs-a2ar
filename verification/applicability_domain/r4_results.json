@@ -1,0 +1,70 @@
+{
+  "pre_registration": {
+    "criteria_fixed": "before the R4 docking, from ADR-AIIM-132 and ADR-AIIM-150",
+    "rate_funnel_vindicated_at_or_below": 0.01,
+    "rate_unchanged_at_or_above": 0.05,
+    "strata": {
+      "arm_2d": 13882,
+      "arm_3d": 3000
+    },
+    "cutoff_source": "top500_cutoff in exclusion_control_summary.json (fast pass)"
+  },
+  "protocol": "8 conformers, exhaustiveness 32, 10 poses \u2014 the protocol the 500 selected compounds received. The fast-pass figures are ADR-AIIM-150's and are not superseded; they answer a different question.",
+  "cutoff_kcal_per_mol": -8.588,
+  "inputs": {
+    "ledger": {
+      "file": "20_new_runs/funnel_exclusion_control_2026-08-21/exclusion_control_ledger.csv",
+      "sha256": "cd43ccccb40c381deef4541fb3b8087a5ddb86c6fa9cbb704bf123c917510840"
+    },
+    "n_docked": 499,
+    "n_missing_or_failed": 2
+  },
+  "by_stratum": {
+    "arm_2d": {
+      "population": 13882,
+      "n_docked": 249,
+      "n_reaching_cutoff": 27,
+      "rate": 0.1084,
+      "wilson_95_ci": [
+        0.0756,
+        0.1532
+      ],
+      "implied_population_count": 1505,
+      "fastpass_rate": 0.0763
+    },
+    "arm_3d": {
+      "population": 3000,
+      "n_docked": 250,
+      "n_reaching_cutoff": 26,
+      "rate": 0.104,
+      "wilson_95_ci": [
+        0.072,
+        0.148
+      ],
+      "implied_population_count": 312,
+      "fastpass_rate": 0.064
+    }
+  },
+  "population_estimate": {
+    "total_rejected": 16882,
+    "weighted_rate": 0.1076,
+    "implied_count": 1817,
+    "against_n_selected": 500,
+    "ratio_to_selected": 3.63
+  },
+  "fastpass_comparison": {
+    "weighted_rate": 0.0741,
+    "implied_count": 1251
+  },
+  "outcome": "UNCHANGED",
+  "protocol_shift": {
+    "why": "Part of the rise from the fast-pass rate is the protocol finding better minima, not the compounds being better. This separates them.",
+    "selected_median_shift_kcal": -0.122,
+    "discarded_median_shift_kcal": -0.361,
+    "expected_rate_if_only_the_selected_shift_applied": 0.0882,
+    "observed_rate": 0.1062,
+    "fastpass_rate_same_compounds": 0.0701,
+    "reading": "The fast pass under-scored the compounds it rejected three times as much as the ones it kept."
+  },
+  "no_full_protocol_enrichment": "The 4,999 compounds the funnel kept were never docked at the full protocol, so no matching denominator exists and no full-protocol enrichment factor is computed. The released 1.43 is a fast-pass figure and is not restated."
+}

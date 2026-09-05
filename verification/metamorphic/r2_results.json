@@ -1,0 +1,95 @@
+{
+  "pre_registration": "ADR-AIIM-133",
+  "released_claims": {
+    "tier_a_identity": {
+      "released": [
+        "NPLIB01185",
+        "NPLIB01643",
+        "NPLIB03056"
+      ],
+      "r2": [
+        "NPLIB01185",
+        "NPLIB01643",
+        "NPLIB03056"
+      ],
+      "unchanged": true
+    },
+    "n_scored": {
+      "released": 497,
+      "r2": 500,
+      "unchanged": false
+    },
+    "n_on_pocket": {
+      "released": 482,
+      "r2": 485,
+      "unchanged": false
+    },
+    "n_failed": {
+      "released": 3,
+      "r2": 0,
+      "unchanged": false
+    },
+    "tier_counts": {
+      "released": {
+        "A": 3,
+        "B": 119,
+        "C": 360,
+        "off_pocket": 15,
+        "failed": 3
+      },
+      "r2": {
+        "A": 3,
+        "B": 120,
+        "C": 362,
+        "off_pocket": 15,
+        "failed": 0
+      },
+      "unchanged": false
+    },
+    "strongest_raw_score_not_in_tier_a": {
+      "released": true,
+      "r2": true,
+      "unchanged": true
+    }
+  },
+  "all_released_claims_unchanged": false,
+  "verdict": "CHANGED -- at least one released claim differs; \u00a73.6 must report it",
+  "descriptive": {
+    "n_paired": 497,
+    "mean_abs_deviation": 0.1701,
+    "max_abs_deviation": 1.469,
+    "n_identical": 3,
+    "spearman": 0.7668,
+    "on_pocket_flips": 13,
+    "tier_a_rank_movement": {
+      "NPLIB01185": {
+        "rank_production": 61,
+        "rank_r2": 55,
+        "moved": -6
+      },
+      "NPLIB01643": {
+        "rank_production": 75,
+        "rank_r2": 79,
+        "moved": 4
+      },
+      "NPLIB03056": {
+        "rank_production": 148,
+        "rank_r2": 129,
+        "moved": -19
+      }
+    },
+    "comparison_on_25_compounds": {
+      "mean": 0.166,
+      "max": 0.974
+    },
+    "note": "Reported without a verdict attached, per ADR-AIIM-133."
+  },
+  "inputs": {
+    "production": "840e232a45b19621b51998574c23bebc0592cac81b7ee9aa1731d642b13292a9",
+    "r2_scores": [
+      "b500c861498ef881eaa3828c26f62e7fa91b1bbbaa398bab62bc4caead4db464",
+      "e95dbfed5d9cf10acebc1eb78561aadf5255e139b2347af6e3ab121a795ce68b",
+      "af943ebbe1a4a5873a819a4cff1fdc4b7e3fb33265a99771d62df19d18dbc318"
+    ]
+  }
+}

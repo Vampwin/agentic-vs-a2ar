@@ -1,0 +1,194 @@
+{
+  "question": "What does the docking score say about compounds whose affinity is already known?",
+  "authority": "ADR-AIIM-163, pre-registered before any docking was run",
+  "recipe": {
+    "receptor": "4EIY",
+    "preparation": "chain A + structural waters within 5.0 A -> pdbfixer (pH 7.4, keepWater) -> obabel -xr",
+    "docking": "8 conformers, exhaustiveness 32, 10 poses, seed 20260729"
+  },
+  "control": {
+    "compound": "ZM241385",
+    "max_rmsd_A": 1.0,
+    "observed_rmsd_A": 0.398,
+    "passed": true
+  },
+  "by_compound": {
+    "istradefylline": {
+      "chembl_id": "CHEMBL431770",
+      "class": "reference ligand",
+      "pchembl_median": 7.44,
+      "vina_score": -6.72,
+      "asn253": {
+        "available": true,
+        "min_distance_A": 4.44,
+        "contact": false
+      },
+      "posebusters_rank1_valid": true
+    },
+    "preladenant": {
+      "chembl_id": "CHEMBL240624",
+      "class": "reference ligand",
+      "pchembl_median": 8.96,
+      "vina_score": -8.645,
+      "asn253": {
+        "available": true,
+        "min_distance_A": 6.29,
+        "contact": false
+      },
+      "posebusters_rank1_valid": true
+    },
+    "tozadenant": {
+      "chembl_id": "CHEMBL2105747",
+      "class": "reference ligand",
+      "pchembl_median": 8.3,
+      "vina_score": -6.727,
+      "asn253": {
+        "available": true,
+        "min_distance_A": 6.41,
+        "contact": false
+      },
+      "posebusters_rank1_valid": true
+    },
+    "vipadenant": {
+      "chembl_id": "CHEMBL447664",
+      "class": "reference ligand",
+      "pchembl_median": 8.89,
+      "vina_score": -7.487,
+      "asn253": {
+        "available": true,
+        "min_distance_A": 6.83,
+        "contact": false
+      },
+      "posebusters_rank1_valid": true
+    },
+    "imaradenant": {
+      "chembl_id": "CHEMBL4594442",
+      "class": "reference ligand",
+      "pchembl_median": 8.76,
+      "vina_score": -6.461,
+      "asn253": {
+        "available": true,
+        "min_distance_A": 14.92,
+        "contact": false
+      },
+      "posebusters_rank1_valid": true
+    },
+    "SCH-58261": {
+      "chembl_id": "CHEMBL17127",
+      "class": "reference ligand",
+      "pchembl_median": 8.71,
+      "vina_score": -8.713,
+      "asn253": {
+        "available": true,
+        "min_distance_A": 6.55,
+        "contact": false
+      },
+      "posebusters_rank1_valid": true
+    },
+    "CGS-15943": {
+      "chembl_id": "CHEMBL16687",
+      "class": "reference ligand",
+      "pchembl_median": 9.17,
+      "vina_score": -8.092,
+      "asn253": {
+        "available": true,
+        "min_distance_A": 6.85,
+        "contact": false
+      },
+      "posebusters_rank1_valid": true
+    },
+    "ZM241385": {
+      "chembl_id": "CHEMBL113142",
+      "class": "reference ligand",
+      "pchembl_median": 8.8,
+      "vina_score": -10.08,
+      "asn253": {
+        "available": true,
+        "min_distance_A": 2.71,
+        "contact": true
+      },
+      "posebusters_rank1_valid": true,
+      "rmsd_to_crystal_A": 0.398
+    },
+    "NECA": {
+      "chembl_id": "CHEMBL464859",
+      "class": "reference ligand",
+      "pchembl_median": 7.7,
+      "vina_score": -6.141,
+      "asn253": {
+        "available": true,
+        "min_distance_A": 6.76,
+        "contact": false
+      },
+      "posebusters_rank1_valid": true
+    },
+    "adenosine": {
+      "chembl_id": "CHEMBL477",
+      "class": "reference ligand",
+      "pchembl_median": 6.82,
+      "vina_score": -6.12,
+      "asn253": {
+        "available": true,
+        "min_distance_A": 6.87,
+        "contact": false
+      },
+      "posebusters_rank1_valid": true
+    },
+    "NPLIB01185": {
+      "chembl_id": "",
+      "class": "candidate, never assayed",
+      "pchembl_median": NaN,
+      "vina_score": -9.571,
+      "asn253": {
+        "available": true,
+        "min_distance_A": 3.29,
+        "contact": true
+      },
+      "posebusters_rank1_valid": true
+    },
+    "NPLIB01643": {
+      "chembl_id": "",
+      "class": "candidate, never assayed",
+      "pchembl_median": NaN,
+      "vina_score": -9.475,
+      "asn253": {
+        "available": true,
+        "min_distance_A": 3.29,
+        "contact": true
+      },
+      "posebusters_rank1_valid": true
+    },
+    "NPLIB03056": {
+      "chembl_id": "",
+      "class": "candidate, never assayed",
+      "pchembl_median": NaN,
+      "vina_score": -9.2,
+      "asn253": {
+        "available": true,
+        "min_distance_A": 6.15,
+        "contact": false
+      },
+      "posebusters_rank1_valid": true
+    }
+  },
+  "outcome": "MEASURED",
+  "summary": {
+    "n_known": 10,
+    "n_candidates": 3,
+    "pchembl_range": [
+      6.82,
+      9.17
+    ],
+    "vina_range_known": [
+      -10.08,
+      -6.12
+    ],
+    "vina_range_candidates": [
+      -9.571,
+      -9.2
+    ],
+    "spearman_score_vs_pchembl": -0.673,
+    "spearman_n": 10,
+    "no_significance_claim": "n is 10; the correlation is descriptive and is reported with its n"
+  }
+}

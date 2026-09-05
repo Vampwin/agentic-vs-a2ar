@@ -24,8 +24,10 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 import re
+import statistics
 from pathlib import Path
 
 from docx import Document
@@ -44,7 +46,14 @@ def _root() -> Path:
 ROOT = _root()
 SUP = ROOT / "30_manuscript/supplement"
 S10 = SUP / "S10_verification_2026-08-21"
-DEFAULT_OUT = ROOT / "30_manuscript/CURRENT_v5/Supplementary_Information_2026-08-24.docx"
+# No date in the name, deliberately. A date in a filename is a claim that
+# nothing verifies: this file was called `..._2026-08-24.docx` while its
+# content was rebuilt daily for twelve days, and the name was wrong for
+# eleven of them. The build date is in the file's own mtime, the version
+# is in the decision log, and both of those are checkable. An undated name
+# also means the artifact has one path, so a stale copy cannot sit beside
+# the current one wearing a different date.
+DEFAULT_OUT = ROOT / "30_manuscript/CURRENT_v5/Supplementary_Information.docx"
 
 # (label, folder, caption). The caption is what AIIM asks for: concise,
 # descriptive, one per supplementary file.
@@ -88,13 +97,13 @@ SECTIONS = [
     ("S9", "S9_environment_and_artifact_manifest",
      "The four per-run artifact registries that exist. Four of the runs "
      "reported here used the registry mechanism; the rest recorded results as "
-     "direct artifacts, which is stated rather than glossed."),
+     "direct artifacts."),
     ("S10", "S10_verification_2026-08-21",
      "The verification evidence Sections 2 and 3 rest on: seeded-defect "
      "results, the four metamorphic invariants with their inputs and outputs, "
      "the G4 and G6 contract outcomes, the eight-space applicability sweep "
-     "behind Figure 3, the funnel-exclusion control, y-randomisation, the "
-     "pose-rescue results behind Table 1, the released prioritisation, the "
+     "behind Figure 4, the funnel-exclusion control, y-randomisation, the "
+     "pose-rescue results behind Table 2, the released prioritisation, the "
      "incident taxonomy reproduced below, the pre-registered orthogonal-engine "
      "check, the held-out per-case outcome, and the control simulation's RMSD "
      "and bilayer traces. Every file carries its SHA-256 in MANIFEST.json."),
@@ -175,8 +184,8 @@ def main() -> int:
 
     doc.add_paragraph(
         "This document describes the ten supplementary sections accompanying "
-        "the article and reproduces three tables that the main text cites but "
-        "is too short to carry. The sections themselves are supplied as a "
+        "the article and reproduces the tables the main text cites or rests on "
+        "but is too short to carry. The sections themselves are supplied as a "
         "separate archive; the complete code and verification data are also in "
         "the public repository named in the Data availability statement.")
 
@@ -242,7 +251,10 @@ def main() -> int:
         "Referenced from Section 3.6. Fifteen incidents recorded in the "
         "decision log during construction and execution, classified by the "
         "layer each occurred in, what detected it, and how it resolved: three "
-        "scientific, six infrastructure, six agent-reasoning.")
+        "scientific, six infrastructure, six agent-reasoning. A "
+        "sixteenth, found during revision rather than construction, is listed "
+        "separately: a re-export that dropped a field and made the reported "
+        "detection rate too low for three weeks (ADR-AIIM-131).")
     md_table(doc, extract_table(tax), font_pt=8.0)
 
     doc.add_paragraph()
@@ -285,6 +297,132 @@ def main() -> int:
             add_runs(lp, f"**{LABELS[i]}**")
         md_table(doc, tb.strip().split("\n"), font_pt=8.0)
         doc.add_paragraph()
+
+    # ---- 5. per-family detection ------------------------------------------
+    # The article gives detection per gate. Per family is where the two
+    # incomplete gates resolve into the two families that cause them, and a
+    # reviewer cannot see it anywhere else.
+    doc.add_page_break()
+    doc.add_paragraph(style="Heading 1").add_run(
+        "5. Seeded-defect detection, per fault family")
+    mut = json.loads((S10 / "seeded_defects/mutation_score_by_gate.json")
+                     .read_text(encoding="utf-8"))
+    ov, cl = mut["overall"], mut["coverage_limitation"]
+    doc.add_paragraph(
+        f"Reproduced from S10. {ov['n_fault_cases']} fault cases across the "
+        f"{len(cl['stub_families']) and 11} implemented families, "
+        f"{ov['n_escaped']} escaped, detection {ov['detection_rate']:.1%} at a "
+        f"false-escalation rate of {ov['false_escalation_rate_clean_runs']} on "
+        f"clean runs. The rightmost column is the same family under the learned "
+        f"monitor alone, which is where the ablation's condition C comes from.")
+    rows = ["| Family | Gate | Fault mechanism | Cases | Escaped | Detection | "
+            "SEER, monitor only |", "|---|---|---|---|---|---|---|"]
+    for fam, v in sorted(mut["by_family"].items()):
+        rows.append(f"| {fam} | {v['gate']} | {v['description']} | "
+                    f"{v['n_fault_cases']} | {v['n_escaped_condition_A']} | "
+                    f"{v['detection_rate']:.1%} | "
+                    f"{v['seer_condition_C_monitor_only']:.3f} |")
+    md_table(doc, rows, font_pt=8.0)
+    doc.add_paragraph()
+    p = doc.add_paragraph()
+    add_runs(p, "**Coverage limitation.** " + cl["note"] + " Gates "
+             + ", ".join(cl["gates_with_no_implemented_fault_family"])
+             + " carry no implemented family; the stubs awaiting them are "
+             + ", ".join(cl["stub_families"]) + ".")
+
+    # ---- 6. the metamorphic invariants ------------------------------------
+    doc.add_page_break()
+    doc.add_paragraph(style="Heading 1").add_run(
+        "6. Metamorphic invariants: inputs, outputs and verdicts")
+    meta = json.loads((S10 / "metamorphic/metamorphic_results.json")
+                      .read_text(encoding="utf-8"))
+    doc.add_paragraph(
+        f"Each invariant states a relation that must hold between two runs whose "
+        f"inputs differ in a way that cannot change the answer, so no oracle is "
+        f"needed. Both variants below are compared against the same 25-compound "
+        f"baseline, already shown identical to production and to the 20-thread "
+        f"rerun, so run-to-run noise is zero by measurement rather than by "
+        f"assumption. Tolerance {meta['tolerance_kcal_mol']} kcal/mol. The "
+        f"ledgers and score files are in S10/metamorphic with their SHA-256.")
+    rows = ["| Variant | Invariant | Compared | Identical | max |Δ| | mean |Δ| | Verdict |",
+            "|---|---|---|---|---|---|---|"]
+    for k, v in meta["variants"].items():
+        rows.append(f"| {k} | {v['invariant']} | {v['n_compared']} | "
+                    f"{v['n_identical']}/{v['n_compared']} | "
+                    f"{v['max_abs_deviation']:.4f} | {v['mean_abs_deviation']:.4f} | "
+                    f"**{v['verdict']}** |")
+    md_table(doc, rows, font_pt=8.0)
+
+    # ---- 7. applicability domain, eight spaces ----------------------------
+    doc.add_page_break()
+    doc.add_paragraph(style="Heading 1").add_run(
+        "7. Applicability domain across eight descriptor spaces")
+    cov = list(csv.DictReader(
+        (S10 / "applicability_domain/ad_coverage_by_descriptor.csv")
+        .read_text(encoding="utf-8").splitlines()))
+    pct = list(csv.DictReader(
+        (S10 / "applicability_domain/ad_percentile_position.csv")
+        .read_text(encoding="utf-8").splitlines()))
+    doc.add_paragraph(
+        "One rule in eight representations: a compound is in-domain if its mean "
+        "similarity to its five nearest ChEMBL A2AR training neighbours reaches "
+        "the tenth percentile of that training set's own self-similarity. The "
+        "last column is the same quantity as a rank, which is what makes the "
+        "spaces comparable; the admission rate is that rank thresholded at 10.")
+    rows = ["| Space | Threshold | Library mean similarity | In-domain | "
+            "Median percentile |", "|---|---|---|---|---|"]
+    for r in cov:
+        s = r["descriptor_space"]
+        col = f"{s}_pctile"
+        vals = sorted(float(x[col]) for x in pct) if pct and col in pct[0] else []
+        med = f"{statistics.median(vals):.2f}" if vals else "--"
+        rows.append(f"| {s} | {float(r['threshold']):.4f} | "
+                    f"{float(r['snplib_mean_knn_sim']):.4f} | "
+                    f"{r['n_inside']}/{r['n_total']} "
+                    f"({100 * float(r['coverage_fraction']):.1f} %) | {med} |")
+    md_table(doc, rows, font_pt=8.0)
+
+    # ---- 8. conformal diagnostics -----------------------------------------
+    doc.add_page_break()
+    doc.add_paragraph(style="Heading 1").add_run(
+        "8. Conformal prediction: behaviour on and off domain")
+    cd = json.loads((S10 / "released_result/conformal_diagnostics.json")
+                    .read_text(encoding="utf-8"))
+    cs = cd["calibration_set"]
+    doc.add_paragraph(
+        f"The empty set is how a Mondrian conformal predictor says an object is "
+        f"atypical of both classes. The same mechanism was run on the "
+        f"calibration data it was built for and on the two natural-product query "
+        f"libraries. The per-class guarantee rests on {cs['n_inactive']} inactive "
+        f"and {cs['n_active']} active calibration compounds, which is the "
+        f"asymmetry the article's Section 3.6 traces the behaviour to.")
+    rows = ["| Panel | α | empty {} | {inactive} | {active} | {both} | "
+            "Mean set size |", "|---|---|---|---|---|---|---|"]
+    for name, panel in cd["panels"].items():
+        for sig in ("0.05", "0.1", "0.2"):
+            b = panel["by_significance"][sig]
+            rows.append(f"| {name.replace('_', ' ')} | {sig} | "
+                        f"{100 * b['empty_{}']:.1f} % | "
+                        f"{100 * b['singleton_inactive_{0}']:.1f} % | "
+                        f"{100 * b['singleton_active_{1}']:.1f} % | "
+                        f"{100 * b['both_{0,1}']:.1f} % | {b['mean_set_size']:.3f} |")
+    md_table(doc, rows, font_pt=8.0)
+    ta = cd["tier_a_criterion"]
+    doc.add_paragraph()
+    p = doc.add_paragraph()
+    add_runs(p, f"**Where the Tier-A criterion sits.** The rule admits a compound "
+                f"at conformal *p*(active) above {ta['alpha']}. No compound of the "
+                f"library reaches {ta['library_p_active_max']}; the median is "
+                f"{ta['library_p_active_median']}; the granularity is "
+                f"{ta['p_active_granularity']}. The {ta['n_flagged']} admitted "
+                f"compounds occupy "
+                f"{ta['flagged_p_active_range'][0]}–{ta['flagged_p_active_range'][1]}.")
+    rows = ["| Compound | Calibrated P(active) | Conformal *p*(active) | "
+            "Rank of 5,000 |", "|---|---|---|---|"]
+    for c in ta["tier_a"]:
+        rows.append(f"| {c['compound_id']} | {c['p_active_calibrated']} | "
+                    f"{c['conformal_p_active']} | {c['rank_by_p_active_of_5000']} |")
+    md_table(doc, rows, font_pt=8.5)
 
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)

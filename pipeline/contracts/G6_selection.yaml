@@ -91,6 +91,27 @@ checks:
       picture. Amended 2026-08-15 (ADR-AIIM-073).
     min_spaces: 3
     severity: high
+  - id: applicability_domain_false_refusal
+    description: >
+      The multi-space check above says how many spaces a verdict rests on. It
+      does not say whether the gate is right. This one does: a panel of
+      compounds known to bind the target, whose scaffolds are absent from the
+      set defining the domain, is put through the identical rule and the
+      fraction refused is reported per space. A gate that refuses compounds
+      that demonstrably bind is not measuring bindability; it is measuring
+      familiarity, and an exclusion resting on it carries no evidence about
+      the compounds. Added 2026-08-29 (ADR-AIIM-147) after an internal review
+      found the manuscript describing this mechanism while no contract named
+      it and no code performed it — the paper's own defect class, found in
+      the paper. Reported, never gating: the rate is evidence for the human
+      decision at G6/G8, and this check does not itself refuse a selection.
+      The panel's activity labels come from a public benchmark (ChEMBL
+      pChEMBL) and never from this project's own assay data; the
+      known_active column prohibited above is a different thing and stays
+      prohibited.
+    concerning_at: 0.50
+    panel_must_be_scaffold_disjoint_from_reference: true
+    severity: high
   - id: drug_likeness_not_used_in_ranking
     description: >
       Confirm Lipinski, Veber, QED, PAINS values do not appear in the scoring
@@ -115,12 +136,15 @@ evidence:
   - selected_candidates_csv_hash
   - diversity_clustering_json
 
-version: "1.2.0"
+version: "1.3.0"
 frozen_date: "2026-07-30"
 amended:
   - date: "2026-08-07"
     change: "applicability_domain check: added ad_reference_metric/ad_reference_threshold and a numeric coverage-fraction field (ADR-AIIM-045)."
     reason: "Supports the new G8 confidence_tier_assessment check, which needs a real coverage number rather than a boolean annotation."
+  - date: "2026-08-29"
+    change: "Added applicability_domain_false_refusal check and version 1.2.0 -> 1.3.0, backed by evaluators/_domain_gate_bias_probe.assess_false_refusal()."
+    reason: "ADR-AIIM-147 / review comment M3. The manuscript described a known-active panel run through the gate to measure a false-refusal rate; no contract named that mechanism and no code performed it. Both are now true. The measurement requires the panel to be scaffold-disjoint from the set defining the domain, because scoring the reference set against itself returns zero by construction -- the evaluator refuses to report a rate without a written statement of how that separation was achieved."
   - date: "2026-08-15"
     change: "Added applicability_domain_multi_space check, backed by evaluators/_domain_gate_bias_probe.py."
     reason: "ADR-AIIM-073: single-space AD verdicts (e.g. ECFP4 alone) cannot distinguish a genuinely out-of-domain library from a structurally novel one, and 0% coverage in a similarity-based space is provably reproducible across six independent structural fingerprints regardless of which is chosen. The check surfaces structural/physicochemical divergence instead of leaving it implicit in a single reported number."

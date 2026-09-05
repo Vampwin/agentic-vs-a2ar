@@ -1,0 +1,34 @@
+{
+  "figure": "Figure 6, pose persistence",
+  "authority": "ADR-AIIM-149",
+  "summary_artifact": {
+    "file": "20_new_runs/md_pose_persistence_2026-08-31/md_pose_persistence.json",
+    "sha256": "48871542138af65e062e03e15af65e0b94f752438ce7a7d31e799d1c5affb719"
+  },
+  "trajectory_analyses": {
+    "NPLIB01185_r1": "033f7e23bde9155f303a225b9fea3c4d3716c022e83212c237b674654842043d",
+    "NPLIB01185_r2": "ccb07e7c586adc6c5d8b116499ed05ed44c507b48703c7e1a57a65edd957063e",
+    "NPLIB01185_r3": "3472a7544ef404e9538587abc49b5e39ad3e8dabfd3b0eb4c438e527fb58ca6b",
+    "NPLIB01643_r1": "5589f6edb95f64ae9a3a1210932e29f88ef37282cd02bc3ec68fd118bf39fc0c",
+    "NPLIB01643_r2": "aa95c41c04e00ac87c9c2fe16a972fd083292f83caa8b8d30924344469db2d08",
+    "NPLIB01643_r3": "4e081dae7d704a29efeafa6c3ecf120167995884addcd0f2cd8441e9acd2c6fb",
+    "NPLIB03056_r1": "106ccced73da6be7d40749553f8f0113dba42c4cffd18a86201a3fc905fabf94",
+    "NPLIB03056_r2": "c42b94f2ab8f9e1e2694f7b4037a7e5a1222992e5a3e09650d7e8c2dfeba5302",
+    "NPLIB03056_r3": "c47447c83c06c4431ef4b1eb592e09abcc1bd7e76c96ee55bcc50d970d5311a7"
+  },
+  "control": {
+    "mean_A": 2.59,
+    "sd_A": 0.51,
+    "n_replicates": 1,
+    "note": "drawn as a band and labelled as one trajectory, because it is not three"
+  },
+  "panel_C": {
+    "source": "20_new_runs/md_recognition_motif_2026-09-02",
+    "authority": "ADR-AIIM-161",
+    "measured_by": "gmx mindist, minimum-image convention applied by the tool itself",
+    "cutoff_A": 3.5,
+    "why_a_line_is_drawn_here_and_not_in_B": "3.5 A was fixed before the measurement ran and matches the \u00a72.5 polar-contact definition. No pose-persistence RMSD threshold was ever pre-registered, so panel B draws none.",
+    "covers_all_three": "unlike panel B, which cannot show NPLIB01185"
+  },
+  "no_threshold_drawn": "This project pre-registered no pose-persistence criterion. A horizontal line at 2 or 4 A would read as a pass mark and none exists."
+}
