@@ -133,6 +133,24 @@ def render() -> str:
     a(f"| Deposit | **{len(dfiles)} files on disk**, {dmb:.1f} MB "
       f"(the build copies {dep['n_files']}; the rest are its own manifests "
       f"and READMEs). This is the figure the manuscript cites. |")
+    # STATUS.md is not itself deposited, so it can carry the hash without the
+    # circularity that forced it out of G8's report: nothing here changes what
+    # is in the deposit. `build_status.py` IS deposited, so a change to this
+    # script must be committed before the final STATUS.md is generated.
+    import subprocess
+    head, tree = "unreadable", "UNVERIFIED"
+    try:
+        ref = (ROOT / "40_deposit/.git/HEAD").read_text(encoding="utf-8").strip()
+        head = ((ROOT / "40_deposit/.git" / ref[5:]).read_text(encoding="utf-8").strip()
+                if ref.startswith("ref: ") else ref)
+        r = subprocess.run(["git", "-C", str(ROOT / "40_deposit"), "status", "--porcelain"],
+                           capture_output=True, text=True, timeout=60)
+        tree = "clean" if (r.returncode == 0 and not r.stdout.strip()) else "**DIRTY**"
+    except Exception:
+        pass
+    cited = head in (MS / "manuscript_AIIM_v6_CLEAN.md").read_text(encoding="utf-8")
+    a(f"| Deposit commit | `{head[:12]}`, working tree {tree}, cited in the "
+      f"manuscript: {'yes' if cited else '**NO**'} |")
     a(f"| Abstract | {abstract_words(clean)} words (AIIM cap: 250) |")
     a(f"| Placeholders in CLEAN | {ph} |")
     a(f"| Decision log | latest **ADR-AIIM-{max(adrs)}**, {len(adrs)} numbered "

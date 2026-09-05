@@ -1,7 +1,7 @@
 {
   "assembled": "2026-08-22",
   "n_files": 353,
-  "total_bytes": 12765415,
+  "total_bytes": 12766543,
   "n_files_excluded_by_rule": 152,
   "n_duplicates_removed": 29,
   "n_files_refused_by_screening": 0,
@@ -638,8 +638,8 @@
     {
       "path": "pipeline/scripts/build_status.py",
       "source": "10_new_system/scripts/build_status.py",
-      "bytes": 11536,
-      "sha256": "269e07403fcdc57aede9c4fa3f719c920afce42d893f2ee2d9b3b45baebb79f3"
+      "bytes": 12664,
+      "sha256": "588ddc42f48e9a476cb09da21292d27d438122efed4312545f5cf3cb8dc0152a"
     },
     {
       "path": "pipeline/scripts/build_supplement_s10.py",
