@@ -1,0 +1,65 @@
+{
+  "question": "Does the frozen applicability-domain detector flag telemetry that is genuinely outside its training distribution? Every number recorded for it until now was in-distribution.",
+  "authority": "ADR-AIIM-171, criteria fixed before the run",
+  "artifact": {
+    "id": "ood_isoforest_dev_2026-08-02",
+    "sha256_verified": true,
+    "refitted": false,
+    "contamination": 0.01,
+    "n_features_declared": 24,
+    "n_features_non_null": 17,
+    "n_features_perturbed": 15
+  },
+  "method": "Every non-null numeric telemetry feature multiplied by k. k=1 is the negative control. No re-fitting; the registered artifact is loaded and hash-checked. Leakage guard run over the perturbed columns before scoring.",
+  "negative_control": {
+    "k": 1,
+    "observed_rate": 0.00532,
+    "recorded_training_rate": 0.00532,
+    "tolerance": 0.01,
+    "passed": true
+  },
+  "by_k": [
+    {
+      "k": 1,
+      "n_flagged": 1,
+      "n_total": 188,
+      "flag_rate": 0.00532
+    },
+    {
+      "k": 2,
+      "n_flagged": 5,
+      "n_total": 188,
+      "flag_rate": 0.0266
+    },
+    {
+      "k": 5,
+      "n_flagged": 10,
+      "n_total": 188,
+      "flag_rate": 0.05319
+    },
+    {
+      "k": 10,
+      "n_flagged": 10,
+      "n_total": 188,
+      "flag_rate": 0.05319
+    },
+    {
+      "k": 100,
+      "n_flagged": 10,
+      "n_total": 188,
+      "flag_rate": 0.05319
+    },
+    {
+      "k": 1000,
+      "n_flagged": 10,
+      "n_total": 188,
+      "flag_rate": 0.05319
+    }
+  ],
+  "k_at_50pc": null,
+  "declared_reading": {
+    "approaches_100pc_by_k10": "the detector does what its fail-closed role requires",
+    "stays_at_contamination_floor": "it cannot distinguish telemetry a thousandfold outside its training range from telemetry inside it; section 2.1's description must be narrowed to what it demonstrably does"
+  },
+  "outcome": "DOES_NOT_DETECT"
+}

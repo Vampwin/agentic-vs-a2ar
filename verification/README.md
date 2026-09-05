@@ -10,7 +10,7 @@ one, and the manifest records its SHA-256 so a reader can confirm the copy
 matches. A supplement that re-derives its own numbers demonstrates nothing
 about the run that produced them.
 
-**88 files, 1486 KB.**
+**89 files, 1491 KB.**
 
 | File | Supports |
 |---|---|
@@ -34,6 +34,7 @@ about the run that produced them.
 | `structure_checks/pose_validity.json` | §3.5, §3.6: PoseBusters over all 4,916 full-protocol poses, tool defaults unmodified. 97.88 % valid; the DiffDock control that passed the 2.0 A gate overlaps the receptor (ADR-AIIM-166) |
 | `screening_performance/clinical_reference.json` | §3.5, §4: ten A2A ligands of known affinity docked under the production protocol. None of the seven clinical and reference antagonists is placed in the Asn253 hydrogen bond; the apparent score-affinity correlation is carried by two agonists (ADR-AIIM-163) |
 | `structure_checks/crossdock_zma.json` | §3.6: does redocking accuracy survive a change of receptor conformation? Control 0.397 A; one clean cross-dock at 0.318 A; the frozen structure set cannot answer the question (ADR-AIIM-162) |
+| `seeded_defects/ood_sensitivity.json` | §2.1, §4: sensitivity of the frozen applicability-domain detector, which had only ever been measured in-distribution. Flag rate against displacement factor k; saturates at 5.32 % and does not move at k=1000. Negative control at k=1 reproduces the recorded training rate (ADR-AIIM-171) |
 | `structure_checks/redock_ligand_transfer.json` | §3.6, §4: does redocking accuracy survive a change of *ligand*? Every structure in the cross-docking study was solved with ZM241385. 9XT redocks into its own crystal at 0.216 A and into 4EIY at 9.606 A, with no native-like pose among ten. Criteria and the reading of each outcome fixed before the run (ADR-AIIM-168) |
 | `structure_checks/prep.json` | receptor preparation for that run: shared-CA superposition, the water shell selected around each structure's own co-crystal ligand, and the pdbfixer atom and water counts |
 | `structure_checks/manifest.json` | every input to that run, hashed before anything was computed |
@@ -139,6 +140,7 @@ Produced during this study and not used. Listed so that the work which did not s
 | `md_mmgbsa_audit_2026-08-07` | Audit of the MM-GBSA rescoring arm. That arm was dropped from v6 and its Methods and Results sections were cut, so nothing here is cited. Kept because the decision to drop it should remain inspectable. |
 | `mmgbsa_pilot_2026-08-10` | The MM-GBSA pilot itself, 501 files. Same decision as the audit above. The largest not-used directory in the project. |
 | `reference_check_2026-09-03` | A correctness check on the reference list, not a source of any reported number. It found and fixed a citation that pointed at the wrong paper (ADR-AIIM-165); the fix lives in the manuscript, and nothing in §3 depends on this run. |
+| `reference_check_2026-09-05` | The reference audit re-run after four citations were added for the capability decomposition. Like its 2026-09-03 predecessor it is a correctness check on the reference list, not a source of any reported number (ADR-AIIM-169). |
 | `validation_matrix_2026-09-05` | A derived index, not a measurement. Table 7 is built from it, but every cell restates a number that G8 already audits against the artifact that produced it, so nothing in the manuscript depends on this run's own output. Kept because the decomposition it applies -- what each technique was validated FOR -- is the argument of section 3.6, and the mapping from claim to artifact should be inspectable (ADR-AIIM-169). |
 
 ## Scripts that produced these artifacts

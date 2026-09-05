@@ -1,7 +1,7 @@
 {
   "assembled": "2026-08-22",
-  "n_files": 353,
-  "total_bytes": 12766543,
+  "n_files": 355,
+  "total_bytes": 12785476,
   "n_files_excluded_by_rule": 152,
   "n_duplicates_removed": 29,
   "n_files_refused_by_screening": 0,
@@ -644,8 +644,8 @@
     {
       "path": "pipeline/scripts/build_supplement_s10.py",
       "source": "10_new_system/scripts/build_supplement_s10.py",
-      "bytes": 29482,
-      "sha256": "0a4083b49e60a2c18256873d564b51f41f400226171538553dde2f40195a0152"
+      "bytes": 29890,
+      "sha256": "82373e7fc69d7b40ddaaf9b129954c929ff8642a2207441f0cbc71b94a762d22"
     },
     {
       "path": "pipeline/scripts/build_supplementary_information.py",
@@ -800,8 +800,8 @@
     {
       "path": "pipeline/scripts/g8_number_traceability.py",
       "source": "10_new_system/scripts/g8_number_traceability.py",
-      "bytes": 66511,
-      "sha256": "c772ae28420fe2e13576ecc7565a3ac991df07d1748519bd28e6aebb2f18489b"
+      "bytes": 68658,
+      "sha256": "cc74efd8a999ad1f67b90c7078a18000266fa91e6b2ef9767d3edaab577d2bb3"
     },
     {
       "path": "pipeline/scripts/heldout_case_analysis.py",
@@ -952,6 +952,12 @@
       "source": "10_new_system/scripts/np_library_prefilter.py",
       "bytes": 13902,
       "sha256": "7694f18b6f73126c0a219f6e85616ab0f6464069c0f28f13db2c0ea84c6e37af"
+    },
+    {
+      "path": "pipeline/scripts/ood_sensitivity_probe.py",
+      "source": "10_new_system/scripts/ood_sensitivity_probe.py",
+      "bytes": 7956,
+      "sha256": "eda93fcbf616d47313e2c058e4573a27ca227975d370a0d9d72caf660339a7b7"
     },
     {
       "path": "pipeline/scripts/pose_disagreement_geometry.py",
@@ -1478,8 +1484,8 @@
     {
       "path": "verification/MANIFEST.json",
       "source": "30_manuscript/supplement/S10_verification_2026-08-21/MANIFEST.json",
-      "bytes": 35675,
-      "sha256": "00b7dc6dfb28058a0f68270313a4a92db25a37063e3a5133caa90a845d512fb3"
+      "bytes": 36247,
+      "sha256": "f5137caee2ea59abf75b4d1c8f0baf91597bb221225f4532205402f530e44733"
     },
     {
       "path": "verification/md_candidate_builds/NPLIB01185_build_metadata.json",
@@ -1622,8 +1628,8 @@
     {
       "path": "verification/README.md",
       "source": "30_manuscript/supplement/S10_verification_2026-08-21/README.md",
-      "bytes": 20342,
-      "sha256": "9065ebb412a0c5f65ae3a1fbc977ec6b9bdf6d77d85c0960ee480dd4aa81bcc7"
+      "bytes": 20936,
+      "sha256": "01491e98227116df1419816363eb57c49adf80bda5e574aaf172ae2f70dc8949"
     },
     {
       "path": "verification/released_result/calibration_pvalues.csv",
@@ -1722,6 +1728,12 @@
       "sha256": "3a507b48844007dfd94922ee4a271012a8639e0e37ce377577c82bedb2dea2d7"
     },
     {
+      "path": "verification/seeded_defects/ood_sensitivity.json",
+      "source": "30_manuscript/supplement/S10_verification_2026-08-21/seeded_defects/ood_sensitivity.json",
+      "bytes": 1928,
+      "sha256": "6ce0419559e3e398822ec77535eeac88bd93435a48cb7c635a885170c7459cc8"
+    },
+    {
       "path": "verification/seeded_defects/real_artifact_replay_results.json",
       "source": "30_manuscript/supplement/S10_verification_2026-08-21/seeded_defects/real_artifact_replay_results.json",
       "bytes": 8409,
@@ -1748,8 +1760,8 @@
     {
       "path": "verification/structure_and_protocol/g8_number_traceability.json",
       "source": "30_manuscript/supplement/S10_verification_2026-08-21/structure_and_protocol/g8_number_traceability.json",
-      "bytes": 59964,
-      "sha256": "7d59a68cf77287a5184e9258326ab4a071f98ea32d3580a83596cd6be9beb82a"
+      "bytes": 62806,
+      "sha256": "a2df207dee6930f402bc346f17aef0d6b0f6f95bc4e00b079526d33a1acc782a"
     },
     {
       "path": "verification/structure_and_protocol/ligand_extents.csv",
@@ -1922,8 +1934,8 @@
     {
       "path": "verification/summary/g8_number_traceability.json",
       "source": "20_new_runs/verification_summary_2026-08-21/g8_number_traceability.json",
-      "bytes": 60335,
-      "sha256": "ada2a450f58423b83367ab1adee8df9d93ae8d994bb6cd6f701b13ef6a446bbd"
+      "bytes": 62821,
+      "sha256": "16325721aebb5de535356a44f6221b2b5ff3486f6512bb83efde8ade7c5248be"
     },
     {
       "path": "verification/summary/stereo_undefined_counts.json",

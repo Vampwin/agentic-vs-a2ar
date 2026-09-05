@@ -1,7 +1,7 @@
 {
   "assembled": "2026-08-21, extended 2026-08-24",
-  "n_files": 88,
-  "total_bytes": 1522148,
+  "n_files": 89,
+  "total_bytes": 1526918,
   "missing_sources": [],
   "files": [
     {
@@ -143,6 +143,13 @@
       "supports": "\u00a73.6: does redocking accuracy survive a change of receptor conformation? Control 0.397 A; one clean cross-dock at 0.318 A; the frozen structure set cannot answer the question (ADR-AIIM-162)",
       "bytes": 2462,
       "sha256": "d0b2b609036b73fdf19ef29aef545d9d8282f4ab7b48e4df0da7be1ec9c5da0d"
+    },
+    {
+      "file": "seeded_defects/ood_sensitivity.json",
+      "source": "20_new_runs/ood_sensitivity_2026-09-05/ood_sensitivity.json",
+      "supports": "\u00a72.1, \u00a74: sensitivity of the frozen applicability-domain detector, which had only ever been measured in-distribution. Flag rate against displacement factor k; saturates at 5.32 % and does not move at k=1000. Negative control at k=1 reproduces the recorded training rate (ADR-AIIM-171)",
+      "bytes": 1928,
+      "sha256": "6ce0419559e3e398822ec77535eeac88bd93435a48cb7c635a885170c7459cc8"
     },
     {
       "file": "structure_checks/redock_ligand_transfer.json",
@@ -477,8 +484,8 @@
       "file": "structure_and_protocol/g8_number_traceability.json",
       "source": "20_new_runs/verification_summary_2026-08-21/g8_number_traceability.json",
       "supports": "the G8 audit of every number in the manuscript",
-      "bytes": 59964,
-      "sha256": "7d59a68cf77287a5184e9258326ab4a071f98ea32d3580a83596cd6be9beb82a"
+      "bytes": 62806,
+      "sha256": "a2df207dee6930f402bc346f17aef0d6b0f6f95bc4e00b079526d33a1acc782a"
     },
     {
       "file": "orthogonal_engine/orthogonal_check_result.json",

@@ -1,8 +1,8 @@
 {
   "manuscript": "D:\\Agentic VS Workflow\\30_manuscript\\CURRENT_v5\\manuscript_AIIM_v6.md",
   "state": "PASS",
-  "n_checks": 253,
-  "n_pass": 253,
+  "n_checks": 265,
+  "n_pass": 265,
   "n_value_mismatch": 0,
   "n_literal_absent": 0,
   "checks": [
@@ -1413,6 +1413,94 @@
       "literal": "spread of 0.478 kcal/mol"
     },
     {
+      "check": "ood_neg_control",
+      "state": "PASS",
+      "expected": 0.53,
+      "recomputed": 0.53,
+      "literal_present_in_manuscript": true,
+      "literal": "reproduces its recorded **0.53 %**"
+    },
+    {
+      "check": "ood_k2",
+      "state": "PASS",
+      "expected": 2.66,
+      "recomputed": 2.66,
+      "literal_present_in_manuscript": true,
+      "literal": "rises to **2.66 %** at"
+    },
+    {
+      "check": "ood_saturation",
+      "state": "PASS",
+      "expected": 5.32,
+      "recomputed": 5.32,
+      "literal_present_in_manuscript": true,
+      "literal": "saturates at 5.32 % from"
+    },
+    {
+      "check": "ood_k1000",
+      "state": "PASS",
+      "expected": 5.32,
+      "recomputed": 5.32,
+      "literal_present_in_manuscript": true,
+      "literal": "moving no further at *k* = 100 or *k* = 1000"
+    },
+    {
+      "check": "ood_admitted",
+      "state": "PASS",
+      "expected": 94.7,
+      "recomputed": 94.7,
+      "literal_present_in_manuscript": true,
+      "literal": "admitted as in-domain 94.7 % of the time"
+    },
+    {
+      "check": "ood_unflagged",
+      "state": "PASS",
+      "expected": 178,
+      "recomputed": 178,
+      "literal_present_in_manuscript": true,
+      "literal": "the ten rows that are flagged from the 178"
+    },
+    {
+      "check": "ood_contamination",
+      "state": "PASS",
+      "expected": 0.01,
+      "recomputed": 0.01,
+      "literal_present_in_manuscript": true,
+      "literal": "was set to 0.01"
+    },
+    {
+      "check": "ood_train_flag",
+      "state": "PASS",
+      "expected": 1,
+      "recomputed": 1,
+      "literal_present_in_manuscript": true,
+      "literal": "it flagged 1 of 188 development rows"
+    },
+    {
+      "check": "ood_null_features",
+      "state": "PASS",
+      "expected": 7,
+      "recomputed": 7,
+      "literal_present_in_manuscript": true,
+      "literal": "**7 of the 24 declared features are entirely null"
+    },
+    {
+      "check": "ood_deployed_features",
+      "state": "PASS",
+      "expected": 17,
+      "recomputed": 17,
+      "literal_present_in_manuscript": true,
+      "literal": "the deployed detector is a 17-feature"
+    },
+    {
+      "check": "ood_ablation",
+      "state": "PASS",
+      "expected": 376,
+      "recomputed": 376,
+      "literal_present_in_manuscript": true,
+      "literal": "2 of 376 evaluations across the ablation"
+    },
+    {
       "check": "score_power_ant_r",
       "state": "PASS",
       "expected": -0.481,
@@ -2306,15 +2394,15 @@
       "check": "deposit_files",
       "state": "PASS",
       "expected": [
-        350,
-        12.4
+        358,
+        12.6
       ],
       "recomputed": [
-        350,
-        12.4
+        358,
+        12.6
       ],
       "literal_present_in_manuscript": true,
-      "literal": "350 files, 12.4 MB"
+      "literal": "358 files, 12.6 MB"
     },
     {
       "check": "citation_integrity",
@@ -2329,6 +2417,17 @@
       },
       "literal_present_in_manuscript": true,
       "literal": "## References"
+    },
+    {
+      "check": "deposit_commit",
+      "state": "PASS",
+      "expected": "manuscript cites the deposit's HEAD; tree clean",
+      "recomputed": {
+        "head_matches_manuscript": true,
+        "working_tree": "clean"
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "deposit HEAD (hash not persisted; see note in source)"
     },
     {
       "check": "companion:HIGHLIGHTS.md:96.9%",

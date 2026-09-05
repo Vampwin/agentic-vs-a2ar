@@ -168,6 +168,11 @@ def sources() -> dict[str, object]:
             "T2": pd.read_csv(RUNS / "redock_9xt_2026-09-05/scores_T2.csv"),
         },
         "ltrposes": (RUNS / "redock_9xt_2026-09-05/poses_T2/9XT.sdf"),
+        # Applicability-domain detector: what it was, and was not, able to
+        # detect. ADR-AIIM-171. Sections 2.1 and 4.
+        "oodp": _json(RUNS / "ood_sensitivity_2026-09-05/ood_sensitivity.json"),
+        "oodfit": _json(RUNS / "WP2.5_WP3A_readiness_2026-07-30/ood_fit_summary.json"),
+        "oodabl": (RUNS / "WP2.5_WP3A_readiness_2026-07-30/wp4_conditions_ac_results.json"),
         "bench": pd.read_csv(ROOT / "02_frozen_inputs/public_benchmarks/"
                              "chembl_a2ar/chembl_a2a_raw_v2.csv"),
         "benchlab": pd.read_csv(RUNS / "chembl245_ifp_rescoring_2026-08-15/"
@@ -725,6 +730,35 @@ def build_checks(S) -> list[tuple[str, str, object, object]]:
     _en = [float(b.splitlines()[1]) for b in _sdf]
     add("ltr_t2_spread", "spread of 0.478 kcal/mol", 0.478,
         round(max(_en) - min(_en), 3))
+
+    # ---- applicability-domain detector sensitivity (ADR-AIIM-171) ----------
+    op = S["oodp"]
+    _by = {r["k"]: r for r in op["by_k"]}
+    add("ood_neg_control", "reproduces its recorded **0.53 %**", 0.53,
+        round(_by[1]["flag_rate"] * 100, 2))
+    add("ood_k2", "rises to **2.66 %** at", 2.66, round(_by[2]["flag_rate"] * 100, 2))
+    add("ood_saturation", "saturates at 5.32 % from", 5.32,
+        round(_by[5]["flag_rate"] * 100, 2))
+    add("ood_k1000", "moving no further at *k* = 100 or *k* = 1000", 5.32,
+        round(_by[1000]["flag_rate"] * 100, 2))
+    add("ood_admitted", "admitted as in-domain 94.7 % of the time", 94.7,
+        round(100 - _by[1000]["flag_rate"] * 100, 1))
+    add("ood_unflagged", "the ten rows that are flagged from the 178", 178,
+        _by[1000]["n_total"] - _by[1000]["n_flagged"])
+    add("ood_contamination", "was set to 0.01", 0.01,
+        S["oodfit"]["hyperparameters"]["contamination"])
+    add("ood_train_flag", "it flagged 1 of 188 development rows", 1,
+        S["oodfit"]["training_self_check"]["n_ood"])
+    add("ood_null_features", "**7 of the 24 declared features are entirely null", 7,
+        S["oodfit"]["dataset"]["n_features_total"]
+        - S["oodfit"]["dataset"]["n_features_non_null"])
+    add("ood_deployed_features", "the deployed detector is a 17-feature", 17,
+        S["oodfit"]["dataset"]["n_features_non_null"])
+    # The ablation's own flags, counted from the results file rather than
+    # restated: a literal typed in twice is not traceability.
+    _abl = S["oodabl"].read_text(encoding="utf-8")
+    add("ood_ablation", "2 of 376 evaluations across the ablation", 376,
+        _abl.count('"ood_flag": true') + _abl.count('"ood_flag": false'))
 
     # ---- scoring power, never measured before (ADR-AIIM-169) ---------------
     import math as _math

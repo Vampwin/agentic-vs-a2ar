@@ -166,6 +166,12 @@ ITEMS: list[tuple[str, str, str]] = [
      "structure_checks", "§3.6: does redocking accuracy survive a change of "
      "receptor conformation? Control 0.397 A; one clean cross-dock at 0.318 A; "
      "the frozen structure set cannot answer the question (ADR-AIIM-162)"),
+    ("ood_sensitivity_2026-09-05/ood_sensitivity.json",
+     "seeded_defects", "§2.1, §4: sensitivity of the frozen "
+     "applicability-domain detector, which had only ever been measured "
+     "in-distribution. Flag rate against displacement factor k; saturates at "
+     "5.32 % and does not move at k=1000. Negative control at k=1 reproduces "
+     "the recorded training rate (ADR-AIIM-171)"),
     ("redock_9xt_2026-09-05/redock_ligand_transfer.json",
      "structure_checks", "§3.6, §4: does redocking accuracy survive a change of "
      "*ligand*? Every structure in the cross-docking study was solved with "
