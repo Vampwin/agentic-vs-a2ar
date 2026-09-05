@@ -1138,26 +1138,18 @@ def main() -> int:
     else:
         n_fail += 1
 
-    # --- deposit commit -----------------------------------------------------
-    # The hash itself is deliberately NOT recorded here. This report is written
-    # into the deposit, so a row containing the head hash would change on every
-    # commit, dirty the tree, force another commit, and change the hash again --
-    # the check could never be satisfied. Recording only whether it matched
-    # keeps this file byte-stable across commits, which is what lets the deposit
-    # reach a fixpoint at all. The hash is printed to stdout for a human and
-    # lives in the manuscript, STATUS.md and git itself.
-    rows.append({"check": commit["name"], "state": commit["status"],
-                 "expected": "manuscript cites the deposit's HEAD; tree clean",
-                 "recomputed": {"head_matches_manuscript": commit["cited_in_manuscript"],
-                                "working_tree": commit["working_tree"]},
-                 "literal_present_in_manuscript": commit["cited_in_manuscript"],
-                 "literal": "deposit HEAD (hash not persisted; see note in source)"})
+    # --- deposit commit, checked live and NEVER persisted -------------------
+    # This report is itself deposited, so anything written here about the
+    # deposit's own state cannot converge. Recording the head hash made every
+    # commit change the row, dirty the tree and force another commit; removing
+    # the hash but keeping `working_tree` only moved the oscillation, because
+    # the row would say "clean", the deposit would copy it, and the tree was
+    # dirty again on the next build. The check therefore runs live -- printed,
+    # and it sets the exit status -- and contributes no row and no count to the
+    # persisted report. Its result belongs in the terminal, in STATUS.md and in
+    # git, none of which sit inside the artifact being described.
     print(f"  deposit HEAD {commit['head'][:12]}  tree {commit['working_tree']}  "
-          f"cited={commit['cited_in_manuscript']}")
-    if commit["status"] == "PASS":
-        n_pass += 1
-    else:
-        n_fail += 1
+          f"cited={commit['cited_in_manuscript']}  -> {commit['status']}")
 
     # --- companion submission files ----------------------------------------
     for c in companions:
@@ -1190,6 +1182,10 @@ def main() -> int:
         "checks": rows,
     }, indent=2, default=str), encoding="utf-8")
     print(f"written -> {outp}")
+    if commit["status"] != "PASS":
+        print("  deposit_commit FAILED: the manuscript's commit citation "
+              "or the deposit's working tree is out of step")
+        return 1
     return 0
 
 

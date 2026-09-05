@@ -1,10 +1,10 @@
 {
   "manuscript": "D:\\Agentic VS Workflow\\30_manuscript\\CURRENT_v5\\manuscript_AIIM_v6.md",
-  "state": "FAIL",
-  "n_checks": 265,
+  "state": "PASS",
+  "n_checks": 264,
   "n_pass": 264,
   "n_value_mismatch": 0,
-  "n_literal_absent": 1,
+  "n_literal_absent": 0,
   "checks": [
     {
       "check": "mutation_detection",
@@ -2392,7 +2392,7 @@
     },
     {
       "check": "deposit_files",
-      "state": "FAIL-ABSENT",
+      "state": "PASS",
       "expected": [
         360,
         12.6
@@ -2401,7 +2401,7 @@
         360,
         12.6
       ],
-      "literal_present_in_manuscript": false,
+      "literal_present_in_manuscript": true,
       "literal": "360 files, 12.6 MB"
     },
     {
@@ -2417,17 +2417,6 @@
       },
       "literal_present_in_manuscript": true,
       "literal": "## References"
-    },
-    {
-      "check": "deposit_commit",
-      "state": "PASS",
-      "expected": "manuscript cites the deposit's HEAD; tree clean",
-      "recomputed": {
-        "head_matches_manuscript": true,
-        "working_tree": "clean"
-      },
-      "literal_present_in_manuscript": true,
-      "literal": "deposit HEAD (hash not persisted; see note in source)"
     },
     {
       "check": "companion:HIGHLIGHTS.md:96.9%",
