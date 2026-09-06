@@ -62,19 +62,12 @@ def main() -> int:
     axA = fig.add_subplot(gs[0, 0])
     axA.imshow(imgA)
     axA.axis("off")
-    axA.set_title("A  Positive control: ZM241385", loc="left",
-                  fontsize=8.6, weight="bold", pad=5)
-    axA.text(0.5, -0.045,
-             "Vina 0.379 \u00c5  \u00b7  DiffDock 1.92 \u00c5  (both vs crystal)",
-             transform=axA.transAxes, ha="center", va="top", fontsize=MIN_PT)
+    axA.set_title("A", loc="left", fontsize=8.6, weight="bold", pad=5)
 
     axB = fig.add_subplot(gs[0, 1])
     axB.imshow(imgB)
     axB.axis("off")
-    axB.set_title("B  Tier-A candidate: NPLIB01643", loc="left",
-                  fontsize=8.6, weight="bold", pad=5)
-    axB.text(0.5, -0.045, "Vina vs DiffDock: 8.80 \u00c5 RMSD, centroids 3.78 \u00c5 apart",
-             transform=axB.transAxes, ha="center", va="top", fontsize=MIN_PT)
+    axB.set_title("B", loc="left", fontsize=8.6, weight="bold", pad=5)
 
     legend_elems = [
         Line2D([0], [0], color=REF_GREY, lw=1.5, label="crystallographic pose (thin = reference)"),

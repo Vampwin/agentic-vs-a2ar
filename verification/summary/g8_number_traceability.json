@@ -1,10 +1,10 @@
 {
   "manuscript": "D:\\Agentic VS Workflow\\30_manuscript\\CURRENT_v5\\manuscript_AIIM_v6.md",
-  "state": "PASS",
+  "state": "FAIL",
   "n_checks": 264,
-  "n_pass": 264,
+  "n_pass": 263,
   "n_value_mismatch": 0,
-  "n_literal_absent": 0,
+  "n_literal_absent": 1,
   "checks": [
     {
       "check": "mutation_detection",
@@ -2392,17 +2392,17 @@
     },
     {
       "check": "deposit_files",
-      "state": "PASS",
+      "state": "FAIL-ABSENT",
       "expected": [
-        360,
-        12.6
+        364,
+        12.5
       ],
       "recomputed": [
-        360,
-        12.6
+        364,
+        12.5
       ],
-      "literal_present_in_manuscript": true,
-      "literal": "360 files, 12.6 MB"
+      "literal_present_in_manuscript": false,
+      "literal": "364 files, 12.5 MB"
     },
     {
       "check": "citation_integrity",

@@ -160,12 +160,8 @@ def main() -> int:
     axA.legend(fontsize=6.0, frameon=False, loc="upper left", handlelength=1.5,
                borderpad=0.0, labelspacing=0.28, handletextpad=0.5,
                bbox_to_anchor=(-0.015, -0.235))
-    axA.set_title("A  Rescue attempts (ROC)", loc="left",
+    axA.set_title("A", loc="left",
                   fontsize=8.4, weight="bold", pad=6)
-    # The band and the diagonal are explained in the caption; only the one note
-    # that fits without touching a curve stays on the panel.
-    axA.text(0.975, 0.045, "diagonal = chance", transform=axA.transAxes,
-             fontsize=6.2, color="#777777", ha="right", va="bottom")
 
     # ---- B: y-randomisation ----------------------------------------------
     axB = fig.add_subplot(gs[0, 1])
@@ -174,25 +170,12 @@ def main() -> int:
     axB.axvline(0.5, color="#999999", lw=0.8, ls=(0, (3, 3)))
     axB.axvline(yr["real_cv_auc"], color="#c1272d", lw=1.8)
     _top = axB.get_ylim()[1]
-    axB.set_ylim(0, _top * 1.26)
-    axB.annotate(f"real model\n{yr['real_cv_auc']:.3f}",
-                 xy=(yr["real_cv_auc"], _top * 1.10),
-                 xytext=(-6, 0), textcoords="offset points",
-                 fontsize=6.4, color="#c1272d", ha="right", va="center",
-                 weight="bold")
-    axB.annotate(f"{yr['n_permutations']} permuted\nmean {yr['permuted_mean']:.3f}",
-                 xy=(perm.mean(), _top * 1.10),
-                 xytext=(6, 0), textcoords="offset points",
-                 fontsize=6.4, color="#555555", ha="left", va="center")
+    axB.set_ylim(0, _top * 1.06)
     axB.set_xlabel("cross-validated ROC-AUC", fontsize=7.4)
     axB.set_ylabel("permutations", fontsize=7.4)
     axB.tick_params(labelsize=6.8)
-    axB.set_title("B  Y-randomisation", loc="left",
+    axB.set_title("B", loc="left",
                   fontsize=8.4, weight="bold", pad=6)
-    axB.text(0.97, 0.06,
-             f"z = {yr['z_vs_permuted']:.1f}\nempirical p = {float(yr['empirical_p']):.4f}",
-             transform=axB.transAxes, fontsize=6.4, ha="right", va="bottom",
-             color="#333333")
 
     # ---- C: early recognition --------------------------------------------
     axC = fig.add_subplot(gs[0, 2])
@@ -205,11 +188,8 @@ def main() -> int:
         fx, fy = enrichment_curve(s, y)
         key = "vina_only" if "baseline" in label else "ifp_only"
         axC.plot(fx, fy, color=colour, lw=2.0,
-                 label=f"{label}\nBEDROC20 {summary[key]['bedroc20']:.3f}, "
-                       f"EF1% {summary[key]['ef_1pct']:.2f}")
+                 label=label)
     axC.axvline(0.01, color="#c1272d", lw=0.7, ls=(0, (2, 2)), alpha=0.7)
-    axC.text(0.0115, 0.99, "1 % cut\n= 2.45 compounds", fontsize=6.0,
-             color="#c1272d", va="top")
     axC.set_xscale("log")
     axC.set_xlim(1/len(y), 1); axC.set_ylim(0, 1)
     axC.set_xticks([0.01, 0.05, 0.1, 1.0])
@@ -220,7 +200,7 @@ def main() -> int:
     axC.legend(fontsize=6.0, frameon=False, loc="upper left",
                handlelength=1.4, borderpad=0.2, labelspacing=0.45,
                bbox_to_anchor=(0.02, 0.82))
-    axC.set_title("C  Early recognition", loc="left",
+    axC.set_title("C", loc="left",
                   fontsize=8.4, weight="bold", pad=6)
 
     out = Path(args.out)

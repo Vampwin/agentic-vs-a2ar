@@ -145,9 +145,7 @@ def main() -> int:
     # to the biosynthetic superclasses that dominate the first, then selected
     # toward 52 known A2AR ligands. If similarity selection could move a
     # structural applicability domain, it would have moved it here.
-    axA.set_title("A   Selecting a second library toward known A2AR ligands raised\n"
-                  "     physicochemical coverage by 21.9 points and structural coverage by none",
-                  loc="left", fontsize=8.4, weight="bold", pad=22)
+    axA.set_title("A", loc="left", fontsize=8.4, weight="bold", pad=8)
 
     # ---- Panel B : percentile position inside each space's own distribution -
     # A Tanimoto of 0.24 in ECFP4 and one of 0.91 in ErG are not the same
@@ -193,8 +191,7 @@ def main() -> int:
     axB.plot([], [], color="#b00020", linewidth=1.3,
              label="the domain threshold, now one line\nfor all eight spaces (10th percentile)")
     axB.legend(fontsize=6.8, frameon=False, loc="upper left")
-    axB.set_title("B   On a comparable axis, seven of the eight spaces agree",
-                  loc="left", fontsize=8.4, weight="bold", pad=6)
+    axB.set_title("B", loc="left", fontsize=8.4, weight="bold", pad=6)
 
     # ---- Panel C : how many spaces call a compound in-domain ---------------
     axC = fig.add_subplot(gs[1, 1])
@@ -218,12 +215,7 @@ def main() -> int:
     inside_cols = [f"{s}_inside" for s in ORDER]
     n_calls = int(per[inside_cols].sum().sum())
     n_phys = int(per["PhysChem_inside"].sum())
-    axC.text(0.97, 0.80, f"{n_phys} of the {n_calls}\nin-domain calls come\n"
-                         f"from the physico-\nchemical space",
-             transform=axC.transAxes, ha="right", va="top", fontsize=6.8,
-             color="#b5651d", linespacing=1.35)
-    axC.set_title(f"C   No compound is inside\n     more than {n_max} of the 8 spaces",
-                  loc="left", fontsize=8.4, weight="bold", pad=6)
+    axC.set_title("C", loc="left", fontsize=8.4, weight="bold", pad=6)
 
     stem = out / "figure_ad_multispace_2026-08-25"
     fig.savefig(stem.with_suffix(".png"), bbox_inches="tight")

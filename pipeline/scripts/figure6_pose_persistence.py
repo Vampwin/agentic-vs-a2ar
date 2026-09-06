@@ -116,9 +116,9 @@ def main() -> int:
     out.mkdir(parents=True, exist_ok=True)
     summ = json.loads(SUMMARY.read_text(encoding="utf-8"))["candidates"]
 
-    fig = plt.figure(figsize=(7.48, 6.3))
+    fig = plt.figure(figsize=(7.48, 5.6))
     gs = fig.add_gridspec(2, 2, width_ratios=[1.75, 1.0],
-                          height_ratios=[1.0, 0.92], wspace=0.24, hspace=0.52,
+                          height_ratios=[1.0, 0.92], wspace=0.24, hspace=0.28,
                           left=0.075, right=0.985, top=0.925, bottom=0.085)
     axA, axB = fig.add_subplot(gs[0, 0]), fig.add_subplot(gs[0, 1])
     axC = fig.add_subplot(gs[1, :])
@@ -130,8 +130,6 @@ def main() -> int:
             axA.plot(t, v, color=CCOL[cid], lw=0.55, alpha=0.85, zorder=3,
                      linestyle=DASH[r])
     axA.axhline(10.0, color="#666666", lw=0.8, dashes=(4, 2), zorder=1)
-    axA.text(1.5, 10.4, "no frame of any replicate reaches this line",
-             fontsize=6.6, color="#555555", va="bottom")
     axA.set_ylim(0, 12)
     axA.set_xlim(0, 100)
     axA.set_yticks([0, 2, 4, 6, 8, 10, 12])
@@ -142,8 +140,7 @@ def main() -> int:
     axA.set_ylabel("distance to the docked binding site (Å)", fontsize=7.6)
     for sp in ("top", "right"):
         axA.spines[sp].set_visible(False)
-    axA.set_title("A   The pose is occupied throughout, in all nine replicates",
-                  loc="left", fontsize=8.4, weight="bold", pad=6)
+    axA.set_title("A", loc="left", fontsize=8.4, weight="bold", pad=6)
     handles = [plt.Line2D([], [], color=CCOL[c], lw=1.4, label=c)
                for c in COMPOUNDS]
     axA.legend(handles=handles, fontsize=6.6, frameon=False, loc="lower right",
@@ -162,22 +159,15 @@ def main() -> int:
             axB.plot([xs[j] + (i - 0.5) * width] * 3, f, ".", ms=2.6,
                      color="#222222", zorder=3)
     axB.axhline(100, color="#666666", lw=0.8, zorder=1)
-    axB.text(len(LADDER) - 0.52, 101.5, "control: 100 % below 4 Å",
-             fontsize=6.6, color="#555555", ha="right", va="bottom")
     axB.set_xticks(xs)
     axB.set_xticklabels([f"< {L} Å" for L in LADDER], fontsize=7)
-    axB.set_ylim(0, 115)
+    axB.set_ylim(0, 104)
     axB.set_yticks([0, 25, 50, 75, 100])
     axB.set_yticklabels(["0", "25", "50", "75", "100"], fontsize=7)
     axB.set_ylabel("frames below the threshold (%)", fontsize=7.6)
     for sp in ("top", "right"):
         axB.spines[sp].set_visible(False)
-    axB.set_title("B   RMSD ladder, where the RMSD is trustworthy",
-                  loc="left", fontsize=8.4, weight="bold", pad=6)
-    axB.text(0.5, -0.185, "bars are the mean of three replicates; dots are the "
-             "replicates.\nNPLIB01185 is absent: its RMSD is a periodic-image "
-             "artefact (§3.6)", transform=axB.transAxes, ha="center", va="top",
-             fontsize=6.6, color="#555555")
+    axB.set_title("B", loc="left", fontsize=8.4, weight="bold", pad=6)
 
     # ---- C: the interaction that defines antagonism, over time -------------
     def read_motif(system):
@@ -201,14 +191,6 @@ def main() -> int:
     tc, vc = read_motif("control_ZM241385")
     axC.axhline(HBOND_CUTOFF_A, color="#c0392b", lw=1.0, dashes=(5, 2), zorder=5)
     axC.plot(tc, vc, color="#111111", lw=1.25, alpha=1.0, zorder=6)
-    axC.annotate(f"{HBOND_CUTOFF_A} \u00c5 hydrogen-bond cutoff, fixed before "
-                 "the measurement (ADR-AIIM-161)",
-                 xy=(88, HBOND_CUTOFF_A), xytext=(99, 6.9),
-                 fontsize=6.6, color="#c0392b", ha="right", va="bottom",
-                 arrowprops=dict(arrowstyle="-", color="#c0392b", lw=0.7,
-                                 shrinkA=1, shrinkB=1),
-                 bbox=dict(boxstyle="round,pad=0.25", fc="white",
-                           ec="none", alpha=0.85), zorder=7)
     axC.set_xlim(0, 100)
     axC.set_ylim(1.8, 10.2)
     axC.set_xticks([0, 20, 40, 60, 80, 100])
@@ -219,10 +201,9 @@ def main() -> int:
     axC.set_ylabel("ligand to Asn253 sidechain (\u00c5)", fontsize=7.6)
     for sp in ("top", "right"):
         axC.spines[sp].set_visible(False)
-    axC.set_title("C   The contact that defines antagonism is sampled, not held",
-                  loc="left", fontsize=8.4, weight="bold", pad=6)
+    axC.set_title("C", loc="left", fontsize=8.4, weight="bold", pad=6)
     hC = ([plt.Line2D([], [], color="#333333", lw=1.4,
-                      label="ZM241385 control (97.4 % of frames)")]
+                      label="ZM241385 control")]
           + [plt.Line2D([], [], color=CCOL[c], lw=1.4, label=c) for c in COMPOUNDS])
     axC.legend(handles=hC, fontsize=6.6, frameon=False, loc="upper left",
                ncol=4, handlelength=1.8, borderaxespad=0.3)

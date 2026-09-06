@@ -1,7 +1,7 @@
 <svg viewBox="0 0 511 206" width="180.3mm" height="72.7mm" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Helvetica, Arial, sans-serif">
   <title>Agentic virtual screening against the adenosine A2A receptor</title>
   <desc>Three stages: a natural-product library that standard applicability-domain gates reject wholesale; an agentic pipeline whose code is verified under executable contracts; and a confidence-tiered candidate set.</desc>
-  <rect width="511" height="206" fill="#FFFFFF"/>
+  <rect x="0" y="0" width="511" height="206" fill="#FFFFFF"/>
   <defs><marker id="a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0.5 L8,4 L0,7.5 z" fill="#6E7C74"/></marker></defs>
   <text x="255.5" y="15" font-size="11" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">Verifying agent-generated code in A2A virtual screening</text>
   <rect x="3" y="26" width="155" height="146" rx="3" fill="#FFFFFF" stroke="#2C5F8A" stroke-width="0.9"/>
@@ -46,8 +46,8 @@
   <text x="430.5" y="127.448" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">arms agree independently</text>
   <line x1="365" y1="134" x2="496" y2="134" stroke="#9AA79F" stroke-width="0.6"/>
   <text x="430.5" y="145" font-size="7.4" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">Computational hypotheses.</text>
-  <text x="430.5" y="154" font-size="7" fill="#55625B" font-weight="normal" font-style="italic" text-anchor="middle">No assay was performed, and one</text>
-  <text x="430.5" y="162.96" font-size="7" fill="#55625B" font-weight="normal" font-style="italic" text-anchor="middle">of the three does not stay bound.</text>
+  <text x="430.5" y="154" font-size="7" fill="#55625B" font-weight="normal" font-style="italic" text-anchor="middle">No assay was performed; dynamics</text>
+  <text x="430.5" y="162.96" font-size="7" fill="#55625B" font-weight="normal" font-style="italic" text-anchor="middle">keep the poses but not the geometry.</text>
   <text x="255.5" y="186" font-size="7.6" fill="#1B2420" font-weight="normal" font-style="normal" text-anchor="middle">An applicability-domain verdict is a property of the library and the descriptor space, not of the library alone.</text>
   <text x="255.5" y="197" font-size="7.2" fill="#55625B" font-weight="normal" font-style="italic" text-anchor="middle">Contracts encode what their authors thought to check — and here the authors were the agent whose work was being checked.</text>
 </svg>

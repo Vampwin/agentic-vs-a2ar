@@ -28,6 +28,28 @@ from docx.oxml.ns import qn
 
 
 
+def _add_continuous_line_numbers(section) -> None:
+    """Continuous line numbering down the left margin, restarting at no page.
+
+    `python-docx` exposes no API for this, so the `w:lnNumType` element is
+    written into the section properties directly. `countBy="1"` numbers every
+    line, `restart="continuous"` keeps one sequence across the whole document
+    rather than restarting each page, and `distance` is in twentieths of a
+    point, so 360 is a quarter inch clear of the text.
+    """
+    from docx.oxml.ns import qn
+    from docx.oxml import OxmlElement
+    sectPr = section._sectPr
+    for existing in sectPr.findall(qn("w:lnNumType")):
+        sectPr.remove(existing)
+    ln = OxmlElement("w:lnNumType")
+    ln.set(qn("w:countBy"), "1")
+    ln.set(qn("w:start"), "1")
+    ln.set(qn("w:restart"), "continuous")
+    ln.set(qn("w:distance"), "360")
+    sectPr.append(ln)
+
+
 def _assert_figures_current(figdir):
     """Refuse to build if an embedded figure is older than what its script made.
 
@@ -138,11 +160,18 @@ def main() -> int:
     normal = doc.styles["Normal"]
     normal.font.name = "Times New Roman"
     normal.font.size = Pt(12)
+    # Elsevier's Your Paper Your Way sets no strict layout for a first
+    # submission, but it does ask for continuous line numbering, and reviewers
+    # of a manuscript this long need double spacing to write on it. Both are
+    # set here rather than left to the author to add by hand in Word.
+    normal.paragraph_format.line_spacing = 2.0
+    normal.paragraph_format.space_after = Pt(0)
     section = doc.sections[0]
     section.page_width = Inches(8.5)
     section.page_height = Inches(11)
     for m in ("top", "bottom", "left", "right"):
         setattr(section, f"{m}_margin", Inches(1))
+    _add_continuous_line_numbers(section)
 
     n_par = n_tbl = n_img = 0
     i = 0

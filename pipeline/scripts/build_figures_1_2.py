@@ -58,15 +58,22 @@ def esc(t: str) -> str:
 
 
 class Svg:
-    def __init__(self, w: float, h: float, title: str, desc: str):
+    def __init__(self, w: float, h: float, title: str, desc: str, y0: float = 0):
+        """`y0` crops the top of the drawing without moving anything in it.
+
+        The panel titles these figures used to carry are legend content, and
+        removing them left a band of empty canvas. Shifting every coordinate in
+        a hand-laid-out schematic invites transcription errors, so the viewBox
+        starts at `y0` instead and `h` is the height of what remains visible.
+        """
         self.h = h
         self.parts: list[str] = []
         self.head = (
-            f'<svg viewBox="0 0 {w:g} {h:g}" width="{w/72*25.4:.1f}mm" '
+            f'<svg viewBox="0 {y0:g} {w:g} {h:g}" width="{w/72*25.4:.1f}mm" '
             f'height="{h/72*25.4:.1f}mm" xmlns="http://www.w3.org/2000/svg" '
             f'role="img" font-family="{FONT}">\n'
             f"  <title>{esc(title)}</title>\n  <desc>{esc(desc)}</desc>\n"
-            f'  <rect width="{w:g}" height="{h:g}" fill="#FFFFFF"/>\n'
+            f'  <rect x="0" y="{y0:g}" width="{w:g}" height="{h:g}" fill="#FFFFFF"/>\n'
             '  <defs><marker id="a" viewBox="0 0 8 8" refX="7" refY="4" '
             'markerWidth="6" markerHeight="6" orient="auto-start-reverse">'
             f'<path d="M0,0.5 L8,4 L0,7.5 z" fill="{LINE}"/></marker></defs>\n'
@@ -109,16 +116,11 @@ class Svg:
 
 # ---------------------------------------------------------------- Figure 1
 def figure1(out: Path) -> Path:
-    s = Svg(W, 250,
-            "Architecture of the audited agentic pipeline",
+    # y0 = 36 drops the title band; 178 ends above the closing caption band.
+    s = Svg(W, 178, "Architecture of the audited agentic pipeline",
             "Frozen hash-anchored inputs feed nine sequential gates, G0 input "
             "provenance through G8 reporting integrity. Every gate writes to an "
-            "append-only artifact registry.")
-
-    s.text(W / 2, 16, "Nine gates, ten contracts, one append-only record", size=11.5,
-           weight="bold")
-    s.text(W / 2, 29, "Every stage runs under a frozen contract the acting agent cannot modify",
-           size=8, fill=SOFT)
+            "append-only artifact registry.", y0=36)
 
     # frozen inputs
     s.box(18, 42, 154, 50, fill="#FFFFFF", stroke=INK, sw=0.9)
@@ -150,22 +152,12 @@ def figure1(out: Path) -> Path:
             s.arrow(x - gap + 0.5, gy + gh / 2, x - 1.5, gy + gh / 2, sw=0.65)
         s.line(x + gw / 2, gy + gh, x + gw / 2, 176, dash="2 2.5")
 
-    s.text(x0 + gw / 2 + 5 * (gw + gap), gy + gh + 11,
-           "G4 and G6: the gates the natural-product arm passed in this study",
-           size=7.2, fill=BLUE, style="italic")
-
     # registry band
     s.box(18, 178, W - 36, 34, fill=VIOLET_F, stroke=VIOLET, sw=0.8)
     s.text(W / 2, 192, "Artifact registry", size=9, weight="bold", fill=VIOLET)
     s.text(W / 2, 204,
            "append-only: every file read, every artifact written with its SHA-256, "
            "every contract outcome, every human intervention", size=7.4, fill=SOFT)
-
-    s.line(18, 226, W - 18, 226)
-    s.text(W / 2, 238,
-           "A check that cannot be evaluated reports failure, never PASS. "
-           "Figure 2 shows what happens inside one gate.",
-           size=7.6, fill=SOFT, style="italic")
 
     p = out / "figure1_architecture_2026-08-21.svg"
     s.save(p)
@@ -174,16 +166,11 @@ def figure1(out: Path) -> Path:
 
 # ---------------------------------------------------------------- Figure 2
 def figure2(out: Path) -> Path:
-    s = Svg(W, 268,
+    s = Svg(W, 240,
             "Inside one gate: contract, evaluator, monitor, policy",
             "A frozen YAML contract and a learned risk monitor feed a policy that "
             "resolves to one of four states. A hard-contract failure cannot be "
-            "overridden by a low risk score.")
-
-    s.text(W / 2, 16, "Inside one gate", size=11.5, weight="bold")
-    s.text(W / 2, 29,
-           "The deterministic contract decides first; the learned monitor can raise the "
-           "state but never lower it", size=8, fill=SOFT)
+            "overridden by a low risk score.", y0=36)
 
     # inputs
     s.box(14, 48, 146, 46, fill="#FFFFFF", stroke=INK, sw=0.9)
@@ -197,7 +184,8 @@ def figure2(out: Path) -> Path:
 
     s.box(14, 164, 146, 40, fill=FILL, stroke=RULE, sw=0.7)
     s.text(87, 178, "Independent evaluator", size=9, weight="bold")
-    s.text(87, 190, "deterministic; the agent cannot override it", size=7.4, fill=SOFT)
+    s.lines(87, 190, ["deterministic;", "the agent cannot override it"],
+            size=7.4)
 
     s.arrow(160, 71, 196, 108)
     s.arrow(160, 129, 196, 124)
@@ -223,10 +211,10 @@ def figure2(out: Path) -> Path:
         s.text(sx + sw_ + 7, y + 19, note, size=7.2, fill=SOFT, anchor="start")
 
     # fail-closed rule
-    s.box(18, 218, W - 36, 34, fill="#FFFFFF", stroke=ALERT, sw=0.9)
-    s.text(W / 2, 232, "The rule that makes the architecture fail closed", size=8.6,
+    s.box(18, 226, W - 36, 34, fill="#FFFFFF", stroke=ALERT, sw=0.9)
+    s.text(W / 2, 240, "The rule that makes the architecture fail closed", size=8.6,
            weight="bold", fill=ALERT)
-    s.text(W / 2, 244,
+    s.text(W / 2, 252,
            "A hard-contract failure overrides any risk score, and a check that cannot be "
            "evaluated returns failure rather than passing unverified.",
            size=7.5, fill=SOFT)

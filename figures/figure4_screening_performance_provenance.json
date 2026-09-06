@@ -53,7 +53,7 @@
   },
   "tie_handling_note": "Table 1 quotes RDKit Scoring.CalcAUC. Panel A is a ROC curve and is labelled with the tie-averaged area. The two agree to <0.001 except for max_ifp_tanimoto, which takes only 90 distinct values across 245 compounds: 0.4487 (RDKit) vs 0.4422 (tie-averaged). Both are below chance.",
   "outputs": {
-    "figure4_screening_performance_2026-08-24.png": "079ef7a8d6ecdb635568795f51207d7c2eb45012f8ae2b67c666f9821ab5b949",
-    "figure4_screening_performance_2026-08-24.svg": "bdf9db7d08f1b31b180fa7fa660fa69850b1001846e1e675cf154ac3e7cd76f5"
+    "figure4_screening_performance_2026-08-24.png": "a1371608ece8d3fb8523c9115de8be5109fba88e7eb5b0179a76da67323a9d88",
+    "figure4_screening_performance_2026-08-24.svg": "38d52c2c201f9e94fcbe765b7d4c500835df2165c54c7b76f9386179b844cd65"
   }
 }
