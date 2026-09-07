@@ -2394,15 +2394,15 @@
       "check": "deposit_files",
       "state": "PASS",
       "expected": [
-        364,
-        12.5
+        365,
+        13.0
       ],
       "recomputed": [
-        364,
-        12.5
+        365,
+        13.0
       ],
       "literal_present_in_manuscript": true,
-      "literal": "364 files, 12.5 MB"
+      "literal": "365 files, 13.0 MB"
     },
     {
       "check": "citation_integrity",
