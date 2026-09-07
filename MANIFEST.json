@@ -1,7 +1,7 @@
 {
   "assembled": "2026-08-22",
   "n_files": 360,
-  "total_bytes": 13245971,
+  "total_bytes": 13245456,
   "n_files_excluded_by_rule": 152,
   "n_duplicates_removed": 27,
   "n_files_refused_by_screening": 0,
@@ -614,8 +614,8 @@
     {
       "path": "pipeline/scripts/build_figures_1_2.py",
       "source": "10_new_system/scripts/build_figures_1_2.py",
-      "bytes": 16681,
-      "sha256": "83db9519bbdb23b06168a77c47e02e9733e773175a851b1e56032f82d2ab676a"
+      "bytes": 16683,
+      "sha256": "076c7ccbc5a3e96c93ef5c71a0f5db38927fa949701aa234524f5e76767ae65d"
     },
     {
       "path": "pipeline/scripts/build_metamorphic_ledgers.py",
@@ -1952,20 +1952,20 @@
     {
       "path": "figures/figure_graphical_abstract_2026-08-21.png",
       "source": "30_manuscript/figures/figure_graphical_abstract_2026-08-21.png",
-      "bytes": 495311,
-      "sha256": "82adc2e6108362a1725ef58026c95530d31479a2968313465a7ef896c86bd380"
+      "bytes": 494765,
+      "sha256": "21b21369b8902d732a4c861a62fb3077057ea2339840b139bdb4a566cfb03215"
     },
     {
       "path": "figures/figure_graphical_abstract_2026-08-21.svg",
       "source": "30_manuscript/figures/figure_graphical_abstract_2026-08-21.svg",
-      "bytes": 7324,
-      "sha256": "b8877b93acb1e11e1cc62e25581c46bbb164e47cdadba17287d35a016eca08f7"
+      "bytes": 7326,
+      "sha256": "7f659133d49910610092a7fabd3eff02e612d95865e990354684222c513f6e50"
     },
     {
       "path": "verification/summary/g8_number_traceability.json",
       "source": "20_new_runs/verification_summary_2026-08-21/g8_number_traceability.json",
-      "bytes": 62408,
-      "sha256": "4743526505aaa20116cab18a0e25e1c5306c17149144fe5b677ac0efc691ce05"
+      "bytes": 62435,
+      "sha256": "65427f0d9ec8b4914cb01fcc79f89956bead13c3df421d63c08ff43feca4ac07"
     },
     {
       "path": "verification/summary/stereo_undefined_counts.json",

@@ -281,7 +281,7 @@ def graphical_abstract(out: Path) -> Path:
          "The same library, the same rule.",
          ["A similarity gate cannot tell", "unfamiliar from unreliable."]),
         (MOSS, MOSS_F, "2  The code itself is verified",
-         "96.9 %", ["of 128 seeded defects caught;", "a naive analyst misses 48 %"],
+         "96.9 %", ["of 128 seeded defects caught;", "a naive analyst misses 47.7 %"],
          ["9 gates · 10 contracts · 94 checks", "false alarms on clean runs: 0.0",
           "learned monitor alone: 0.8 %"],
          "All 94 checks passed.",

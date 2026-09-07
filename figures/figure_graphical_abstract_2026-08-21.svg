@@ -24,7 +24,7 @@
   <text x="186" y="36.5" font-size="7.4" fill="#4F7130" font-weight="bold" font-style="normal" text-anchor="start">2  The code itself is verified</text>
   <text x="255.5" y="68" font-size="19" fill="#4F7130" font-weight="bold" font-style="normal" text-anchor="middle">96.9 %</text>
   <text x="255.5" y="79" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">of 128 seeded defects caught;</text>
-  <text x="255.5" y="88.2" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">a naive analyst misses 48 %</text>
+  <text x="255.5" y="88.2" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">a naive analyst misses 47.7 %</text>
   <line x1="190" y1="96" x2="321" y2="96" stroke="#9AA79F" stroke-width="0.6"/>
   <text x="255.5" y="107" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">9 gates · 10 contracts · 94 checks</text>
   <text x="255.5" y="117.224" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">false alarms on clean runs: 0.0</text>
