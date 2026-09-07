@@ -288,8 +288,8 @@ def graphical_abstract(out: Path) -> Path:
          ["One metamorphic invariant still", "found a defect none encode."]),
         (AMBER, AMBER_F, "3  Corrected gates, tiered output",
          "3", ["convergent flavones, all from", "the genus Pongamia"],
-         ["25,604 → 500 full redocks", "structure- and ligand-based",
-          "arms agree independently"],
+         ["25,604 → 500 full redocks", "ranked by a score not separable",
+          "from heavy-atom count"],
          "Computational hypotheses.",
          ["No assay was performed; dynamics", "keep the poses but not the geometry."]),
     ]

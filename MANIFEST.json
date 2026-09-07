@@ -1,7 +1,7 @@
 {
   "assembled": "2026-08-22",
-  "n_files": 359,
-  "total_bytes": 12750117,
+  "n_files": 360,
+  "total_bytes": 13245998,
   "n_files_excluded_by_rule": 152,
   "n_duplicates_removed": 27,
   "n_files_refused_by_screening": 0,
@@ -614,8 +614,8 @@
     {
       "path": "pipeline/scripts/build_figures_1_2.py",
       "source": "10_new_system/scripts/build_figures_1_2.py",
-      "bytes": 16680,
-      "sha256": "845c1fa8228c7472e1954901e59f2df6b096f54478be3834282a6d27fde1444c"
+      "bytes": 16681,
+      "sha256": "83db9519bbdb23b06168a77c47e02e9733e773175a851b1e56032f82d2ab676a"
     },
     {
       "path": "pipeline/scripts/build_metamorphic_ledgers.py",
@@ -662,8 +662,8 @@
     {
       "path": "pipeline/scripts/build_v6_clean_docx.py",
       "source": "10_new_system/scripts/build_v6_clean_docx.py",
-      "bytes": 10172,
-      "sha256": "05ca469c97aee64b847c2e87d5a28ab84079e3141ccc4b4f5888b540802b4319"
+      "bytes": 10740,
+      "sha256": "02d08fb66eca36782ba9078c7b72f0c6da6b077c365b9944462179df336b6dc4"
     },
     {
       "path": "pipeline/scripts/build_v6_docx.py",
@@ -1950,10 +1950,16 @@
       "sha256": "1f93683f0ac87bcc9b9d3af5c67408cc7df51a78616ea48de45f79abada307a2"
     },
     {
+      "path": "figures/figure_graphical_abstract_2026-08-21.png",
+      "source": "30_manuscript/figures/figure_graphical_abstract_2026-08-21.png",
+      "bytes": 495311,
+      "sha256": "82adc2e6108362a1725ef58026c95530d31479a2968313465a7ef896c86bd380"
+    },
+    {
       "path": "figures/figure_graphical_abstract_2026-08-21.svg",
       "source": "30_manuscript/figures/figure_graphical_abstract_2026-08-21.svg",
-      "bytes": 7323,
-      "sha256": "fdcb23f289d99ced2b7e3235ad092ee4feae8ff4504db407db23ecb5dd97846d"
+      "bytes": 7324,
+      "sha256": "b8877b93acb1e11e1cc62e25581c46bbb164e47cdadba17287d35a016eca08f7"
     },
     {
       "path": "verification/summary/g8_number_traceability.json",

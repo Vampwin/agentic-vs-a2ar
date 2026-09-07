@@ -62,8 +62,17 @@ def _assert_figures_current(figdir):
     src = figdir.parent / "figures"
     stale = []
     for png in sorted((figdir / "figures_png").glob("*.png")):
-        s = src / png.name
-        if s.is_file() and s.stat().st_mtime > png.stat().st_mtime + 1:
+        # Compare against the source PNG when one exists, and otherwise against
+        # the SVG the generators actually emit. Without the SVG fallback this
+        # check is blind exactly where it is needed most: the graphical abstract
+        # had no source PNG for six days, so its embedded copy went stale and
+        # nothing said so.
+        cands = [c for c in (src / png.name, (src / png.name).with_suffix(".svg"))
+                 if c.is_file()]
+        if not cands:
+            stale.append(f"{png.name}  (no source in 30_manuscript/figures/)")
+            continue
+        if max(c.stat().st_mtime for c in cands) > png.stat().st_mtime + 1:
             stale.append(png.name)
     if stale:
         raise SystemExit(
