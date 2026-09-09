@@ -277,7 +277,7 @@ def graphical_abstract(out: Path) -> Path:
         (BLUE, BLUE_F, "1  Standard QC rejects the library",
          "236", ["Thai orchid natural products", "screened against A2AR"],
          ["0 % in-domain in ECFP4, FCFP4,", "topological torsion, Gobbi 2D",
-          "86.3 % in physicochemical space"],
+          "64.4 % in physicochemical space"],
          "The same library, the same rule.",
          ["A similarity gate cannot tell", "unfamiliar from unreliable."]),
         (MOSS, MOSS_F, "2  The code itself is verified",

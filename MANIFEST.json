@@ -1,7 +1,7 @@
 {
   "assembled": "2026-08-22",
   "n_files": 360,
-  "total_bytes": 13246626,
+  "total_bytes": 13248358,
   "n_files_excluded_by_rule": 152,
   "n_duplicates_removed": 27,
   "n_files_refused_by_screening": 0,
@@ -615,7 +615,7 @@
       "path": "pipeline/scripts/build_figures_1_2.py",
       "source": "10_new_system/scripts/build_figures_1_2.py",
       "bytes": 16683,
-      "sha256": "076c7ccbc5a3e96c93ef5c71a0f5db38927fa949701aa234524f5e76767ae65d"
+      "sha256": "e4b89250d006a78b8f63cf092683670fa0dc2c48713d028fd49d06639c25299c"
     },
     {
       "path": "pipeline/scripts/build_metamorphic_ledgers.py",
@@ -800,8 +800,8 @@
     {
       "path": "pipeline/scripts/g8_number_traceability.py",
       "source": "10_new_system/scripts/g8_number_traceability.py",
-      "bytes": 69022,
-      "sha256": "b6e2304ecb3aa88c24bd1c9afccb177909634ee4d5810cf90b8a3a6ae565f42e"
+      "bytes": 70064,
+      "sha256": "b7450571085c0ca7c99afc1ab82ee7d86f364f1beb508c16388dffc7beaf4e49"
     },
     {
       "path": "pipeline/scripts/heldout_case_analysis.py",
@@ -1959,13 +1959,13 @@
       "path": "figures/figure_graphical_abstract_2026-08-21.svg",
       "source": "30_manuscript/figures/figure_graphical_abstract_2026-08-21.svg",
       "bytes": 7326,
-      "sha256": "7f659133d49910610092a7fabd3eff02e612d95865e990354684222c513f6e50"
+      "sha256": "948215e8aa301459a013dfad3fe89388316034e48a5ed4216a1314519c13ff86"
     },
     {
       "path": "verification/summary/g8_number_traceability.json",
       "source": "20_new_runs/verification_summary_2026-08-21/g8_number_traceability.json",
-      "bytes": 63044,
-      "sha256": "75d8ce6e8862f775550ae5db12384361d4ec7f9a1cd1fc0a99e0956cd7e93aac"
+      "bytes": 63734,
+      "sha256": "82d43de4c5dbd87b6e2ac3c98c869d4394c3d7f30f386e65270439e4e1562f94"
     },
     {
       "path": "verification/summary/stereo_undefined_counts.json",

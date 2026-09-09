@@ -13,7 +13,7 @@
   <line x1="15" y1="96" x2="146" y2="96" stroke="#9AA79F" stroke-width="0.6"/>
   <text x="80.5" y="107" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">0 % in-domain in ECFP4, FCFP4,</text>
   <text x="80.5" y="117.224" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">topological torsion, Gobbi 2D</text>
-  <text x="80.5" y="127.448" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">86.3 % in physicochemical space</text>
+  <text x="80.5" y="127.448" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">64.4 % in physicochemical space</text>
   <line x1="15" y1="134" x2="146" y2="134" stroke="#9AA79F" stroke-width="0.6"/>
   <text x="80.5" y="145" font-size="7.4" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">The same library, the same rule.</text>
   <text x="80.5" y="154" font-size="7" fill="#55625B" font-weight="normal" font-style="italic" text-anchor="middle">A similarity gate cannot tell</text>

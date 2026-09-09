@@ -105,9 +105,17 @@ def sources() -> dict[str, object]:
     # 2026-08-21 outputs exactly, so this file is an addition to that run
     # rather than a replacement for it.
     pct = pd.read_csv(RUNS / "ad_sweep_selfsim_2026-08-25/ad_percentile_position.csv")
+    # The 236-compound orchid library's own sweep. Distinct from `cov`, which is
+    # the 497-compound expanded selection: the two share their four structural
+    # zeros but not their physicochemical coverage (64.4 % against 86.3 %), and
+    # an unaudited graphical abstract carried the expanded number against the
+    # 236 library until 2026-09-10.
+    cov236 = pd.read_csv(RUNS / "ad_descriptor_sweep_2026-08-15/ad_coverage_by_descriptor.csv"
+                         ).set_index("descriptor_space")
     return {
         "e8": e8,
         "cov": cov,
+        "cov236": cov236,
         "per": per,
         "pct": pct,
         "mut": _json(RUNS / "seeded_defect_recount_2026-08-29/"
@@ -378,6 +386,14 @@ def build_checks(S) -> list[tuple[str, str, object, object]]:
 
     # --- applicability domain -------------------------------------------------
     add("ad_phys", "86.3 %", 86.3, round(float(cov.loc["PhysChem", "coverage_fraction"]) * 100, 1))
+    # --- the 236-compound library, as reported in 3.3 and the graphical abstract
+    c236 = S["cov236"]
+    add("ad236_phys", "64.4 %", 64.4,
+        round(float(c236.loc["PhysChem", "coverage_fraction"]) * 100, 1))
+    add("ad236_phys_n", "152 of 236", (152, 236),
+        (int(c236.loc["PhysChem", "n_inside"]), int(c236.loc["PhysChem", "n_total"])))
+    add("ad236_struct_zero", "0 of 236 compounds", 0,
+        int(c236.loc[["ECFP4", "FCFP4", "TopTorsion", "Gobbi_Pharm2D"], "n_inside"].sum()))
     add("ad_maccs", "9.3 % in MACCS", 9.3, round(float(cov.loc["MACCS", "coverage_fraction"]) * 100, 1))
     add("ad_erg", "3.6 % in ErG", 3.6, round(float(cov.loc["ErG", "coverage_fraction"]) * 100, 1))
     add("ad_ecfp4_zero", "0 % in ECFP4", 0.0, round(float(cov.loc["ECFP4", "coverage_fraction"]) * 100, 1))
@@ -1027,7 +1043,7 @@ def build_checks(S) -> list[tuple[str, str, object, object]]:
     # is audited like every other one: if the artifact ever stops saying one of
     # five, the manuscript sentence fails loudly instead of going stale.
     ho = S["ho"]
-    add("heldout_n", "five cases authored by a project-blind session", 5,
+    add("heldout_n", "five cases authored blind to the project", 5,
         ho["n_cases"])
     # heldout_detected and heldout_detected_abstract retired 2026-08-29 with the
     # sentences they audited (ADR-AIIM-135). A check left passing against text

@@ -1,8 +1,8 @@
 {
-  "manuscript": "30_manuscript/CURRENT_v5/manuscript_AIIM_v6.md",
+  "manuscript": "D:/Agentic VS Workflow/30_manuscript/CURRENT_v5/manuscript_AIIM_v6_CLEAN.md",
   "state": "PASS",
-  "n_checks": 267,
-  "n_pass": 267,
+  "n_checks": 270,
+  "n_pass": 270,
   "n_value_mismatch": 0,
   "n_literal_absent": 0,
   "checks": [
@@ -213,6 +213,36 @@
       "recomputed": 86.3,
       "literal_present_in_manuscript": true,
       "literal": "86.3 %"
+    },
+    {
+      "check": "ad236_phys",
+      "state": "PASS",
+      "expected": 64.4,
+      "recomputed": 64.4,
+      "literal_present_in_manuscript": true,
+      "literal": "64.4 %"
+    },
+    {
+      "check": "ad236_phys_n",
+      "state": "PASS",
+      "expected": [
+        152,
+        236
+      ],
+      "recomputed": [
+        152,
+        236
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "152 of 236"
+    },
+    {
+      "check": "ad236_struct_zero",
+      "state": "PASS",
+      "expected": 0,
+      "recomputed": 0,
+      "literal_present_in_manuscript": true,
+      "literal": "0 of 236 compounds"
     },
     {
       "check": "ad_maccs",
@@ -2338,7 +2368,7 @@
       "expected": 5,
       "recomputed": 5,
       "literal_present_in_manuscript": true,
-      "literal": "five cases authored by a project-blind session"
+      "literal": "five cases authored blind to the project"
     },
     {
       "check": "heldout_ci",
