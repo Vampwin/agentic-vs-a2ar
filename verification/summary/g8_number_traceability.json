@@ -1,8 +1,8 @@
 {
   "manuscript": "D:\\Agentic VS Workflow\\30_manuscript\\CURRENT_v5\\manuscript_AIIM_v6.md",
   "state": "PASS",
-  "n_checks": 264,
-  "n_pass": 264,
+  "n_checks": 267,
+  "n_pass": 267,
   "n_value_mismatch": 0,
   "n_literal_absent": 0,
   "checks": [
@@ -1411,6 +1411,30 @@
       "recomputed": 0.478,
       "literal_present_in_manuscript": true,
       "literal": "spread of 0.478 kcal/mol"
+    },
+    {
+      "check": "filter_mw",
+      "state": "PASS",
+      "expected": 700.0,
+      "recomputed": 700.0,
+      "literal_present_in_manuscript": true,
+      "literal": "a ceiling of 700 Da"
+    },
+    {
+      "check": "filter_rotb",
+      "state": "PASS",
+      "expected": 10,
+      "recomputed": 10,
+      "literal_present_in_manuscript": true,
+      "literal": "and ten rotatable bonds"
+    },
+    {
+      "check": "filter_out",
+      "state": "PASS",
+      "expected": 21882,
+      "recomputed": 21882,
+      "literal_present_in_manuscript": true,
+      "literal": "takes 25,604 records to 21,882"
     },
     {
       "check": "ood_neg_control",

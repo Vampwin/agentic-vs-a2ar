@@ -171,6 +171,9 @@ def sources() -> dict[str, object]:
         # Applicability-domain detector: what it was, and was not, able to
         # detect. ADR-AIIM-171. Sections 2.1 and 4.
         "oodp": _json(RUNS / "ood_sensitivity_2026-09-05/ood_sensitivity.json"),
+        # The one property filter in this work, and what it removed.
+        # ADR-AIIM-006 forbids drug-likeness exclusions; section 2.3.
+        "fmeta": _json(RUNS / "np_library_funnel_2026-08-15/funnel_metadata.json"),
         "oodfit": _json(RUNS / "WP2.5_WP3A_readiness_2026-07-30/ood_fit_summary.json"),
         "oodabl": (RUNS / "WP2.5_WP3A_readiness_2026-07-30/wp4_conditions_ac_results.json"),
         "bench": pd.read_csv(ROOT / "02_frozen_inputs/public_benchmarks/"
@@ -730,6 +733,12 @@ def build_checks(S) -> list[tuple[str, str, object, object]]:
     _en = [float(b.splitlines()[1]) for b in _sdf]
     add("ltr_t2_spread", "spread of 0.478 kcal/mol", 0.478,
         round(max(_en) - min(_en), 3))
+
+    # ---- the one property filter, section 2.3 (ADR-AIIM-006) ---------------
+    _fn = S["fmeta"]
+    add("filter_mw", "a ceiling of 700 Da", 700.0, _fn["mw_max"])
+    add("filter_rotb", "and ten rotatable bonds", 10, _fn["rotatable_bonds_max"])
+    add("filter_out", "takes 25,604 records to 21,882", 21882, _fn["n_stage1"])
 
     # ---- applicability-domain detector sensitivity (ADR-AIIM-171) ----------
     op = S["oodp"]
