@@ -320,6 +320,110 @@ def check_companion_files(report: dict) -> list[dict]:
     return out
 
 
+def check_figure_provenance() -> list[dict]:
+    """A figure's provenance file is a claim about which bytes it was drawn
+    from, and nothing checked it until 2026-09-12.
+
+    Three things are verified. Every input and output a provenance file
+    declares is re-hashed and compared. Every figure PNG exists in two places
+    -- `30_manuscript/figures/`, which the deposit copies, and
+    `CURRENT_v5/figures_png/`, which the DOCX embeds -- and the two must be
+    byte-identical. And no PNG may be older than the SVG beside it.
+
+    The second and third exist because of what they caught on the day they
+    were written. The graphical abstract was corrected from 86.3 % to 64.4 %,
+    the SVG was regenerated in both locations and the PNG in only one, so the
+    deposit shipped an SVG and a PNG of the same figure that disagreed -- with
+    the PNG carrying the number the article had just retired. The DOCX
+    staleness guard could not see it: it refuses when `figures/` is newer than
+    `figures_png/`, and this was the opposite direction.
+    """
+    import hashlib as _hl
+    figs = ROOT / "30_manuscript/figures"
+    embed = ROOT / "30_manuscript/CURRENT_v5/figures_png"
+    runs = ROOT / "20_new_runs"
+
+    def _sha(fp: Path) -> str:
+        h = _hl.sha256()
+        with fp.open("rb") as fh:
+            for chunk in iter(lambda: fh.read(1 << 20), b""):
+                h.update(chunk)
+        return h.hexdigest()
+
+    def _verify(pairs: list[tuple[Path, str]]) -> tuple[int, list[str]]:
+        bad = []
+        for fp, declared in pairs:
+            if not fp.is_file():
+                bad.append(f"missing {fp.name}")
+            elif _sha(fp) != declared:
+                bad.append(f"hash moved {fp.name}")
+        return len(pairs), bad
+
+    out: list[dict] = []
+
+    def _row(name: str, n: int, bad: list[str]) -> None:
+        out.append({"name": name, "status": "PASS" if not bad else "FAIL-FIGURE",
+                    "n_checked": n, "problems": bad})
+
+    # -- figure 4: paths recorded with Windows separators, relative to root
+    j = _json(figs / "figure4_screening_performance_provenance.json")
+    pairs = [(ROOT / s["path"].replace("\\", "/"), s["sha256"])
+             for s in j["inputs"].values()]
+    pairs += [(figs / k, v) for k, v in j["outputs"].items()]
+    _row("figprov:figure4", *_verify(pairs))
+
+    # -- figure 5: paths and hashes in parallel dicts
+    j = _json(figs / "figure5_pose_overlay_provenance.json")
+    pairs = [(ROOT / rel, j["input_sha256"][k]) for k, rel in j["inputs"].items()]
+    pairs += [(figs / k, v) for k, v in j["outputs"].items()]
+    _row("figprov:figure5", *_verify(pairs))
+
+    # -- figure 6: per-replicate hashes carry no path; the layout is the
+    #    builder's, and figure6_pose_persistence.py is its only record.
+    j = _json(figs / "figure6_pose_persistence_provenance.json")
+    pairs = [(ROOT / j["summary_artifact"]["file"], j["summary_artifact"]["sha256"])]
+    cand = runs / "md_candidates_2026-08-22"
+    for key, digest in j["trajectory_analyses"].items():
+        cid, rep = key.rsplit("_r", 1)
+        pairs.append((cand / cid / "04_run" / f"analysis_prod_r{rep}"
+                      / "ligand_rmsd.xvg", digest))
+    n, bad = _verify(pairs)
+    if not (ROOT / j["panel_C"]["source"]).is_dir():
+        bad.append("panel C source directory missing")
+    _row("figprov:figure6", n, bad)
+
+    # -- figure 3, the applicability-domain multispace sweep
+    prov = runs / "ad_sweep_selfsim_2026-08-25/figure_ad_multispace_provenance.json"
+    j = _json(prov)
+    sweep = ROOT / j["sweep_dir"]
+    pairs = [(sweep / k, v) for k, v in j["inputs"].items()]
+    pairs += [(figs / k, v) for k, v in j["outputs"].items()]
+    _row("figprov:figure_ad", *_verify(pairs))
+
+    # -- the two copies of every figure must agree
+    bad, n = [], 0
+    for emb in sorted(embed.glob("*.png")):
+        src = figs / emb.name
+        n += 1
+        if not src.is_file():
+            bad.append(f"no source for {emb.name}")
+        elif _sha(src) != _sha(emb):
+            bad.append(f"copies differ: {emb.name}")
+    _row("figcopies_identical", n, bad)
+
+    # -- and no PNG may be older than the SVG it was rendered from
+    bad, n = [], 0
+    for svg in sorted(figs.glob("*.svg")):
+        png = svg.with_suffix(".png")
+        if not png.is_file():
+            continue
+        n += 1
+        if png.stat().st_mtime < svg.stat().st_mtime - 1:
+            bad.append(f"PNG older than SVG: {png.name}")
+    _row("figpng_not_stale", n, bad)
+    return out
+
+
 def check_deposit_commit() -> dict:
     """The commit hash the manuscript cites must be the deposit's current HEAD,
     and the deposit's working tree must be clean.
@@ -1173,6 +1277,7 @@ def main() -> int:
     # Submission files that are not the manuscript and not generated
     # from it. See check_companion_files.
     companions = check_companion_files({})
+    figures = check_figure_provenance()
     commit = check_deposit_commit()
 
     rows, n_pass, n_fail, n_absent = [], 0, 0, 0
@@ -1246,6 +1351,18 @@ def main() -> int:
                      "literal_present_in_manuscript": c["current_present"],
                      "literal": c["current"]})
         if c["status"] == "PASS":
+            n_pass += 1
+        else:
+            n_fail += 1
+
+    # --- figure provenance --------------------------------------------------
+    for f in figures:
+        rows.append({"check": f["name"], "state": f["status"],
+                     "expected": f"{f['n_checked']} artifacts re-hash",
+                     "recomputed": f["problems"] or "all match",
+                     "literal_present_in_manuscript": True,
+                     "literal": f["name"]})
+        if f["status"] == "PASS":
             n_pass += 1
         else:
             n_fail += 1

@@ -103,10 +103,12 @@ SECTIONS = [
      "results, the four metamorphic invariants with their inputs and outputs, "
      "the G4 and G6 contract outcomes, the eight-space applicability sweep "
      "behind Figure 4, the funnel-exclusion control, y-randomisation, the "
-     "pose-rescue results behind Table 2, the released prioritisation, the "
+     "pose-rescue results behind Table 5, the released prioritisation, the "
      "incident taxonomy reproduced below, the pre-registered orthogonal-engine "
      "check, the held-out per-case outcome, and the control simulation's RMSD "
-     "and bilayer traces. Every file carries its SHA-256 in MANIFEST.json."),
+     "and bilayer traces. 89 of its 91 files carry a SHA-256 in "
+     "MANIFEST.json; the manifest hashes neither itself nor this "
+     "section's README."),
 ]
 
 

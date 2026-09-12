@@ -1,7 +1,7 @@
 {
   "assembled": "2026-08-22",
   "n_files": 360,
-  "total_bytes": 13255673,
+  "total_bytes": 13261469,
   "n_files_excluded_by_rule": 153,
   "n_duplicates_removed": 27,
   "n_files_refused_by_screening": 0,
@@ -650,8 +650,8 @@
     {
       "path": "pipeline/scripts/build_supplementary_information.py",
       "source": "10_new_system/scripts/build_supplementary_information.py",
-      "bytes": 24237,
-      "sha256": "8cc8ebbd0723855c089e960bf046386387fdbf56f5485e321e68350b393a1307"
+      "bytes": 24321,
+      "sha256": "5bf888d97385e22115754598f3d5f8c8eb03e1bd3bc200b7e6664d4882b3cdad"
     },
     {
       "path": "pipeline/scripts/build_v5_docx.py",
@@ -776,8 +776,8 @@
     {
       "path": "pipeline/scripts/figure_lbdd_sbdd_performance.py",
       "source": "10_new_system/scripts/figure_lbdd_sbdd_performance.py",
-      "bytes": 11653,
-      "sha256": "c9837f073c7898ea141da4818c2af231b4a19cb4991e7a7b4b0babdb4f2c7d3d"
+      "bytes": 11901,
+      "sha256": "a04976c8719d3e24df4bd778dd8fd8615106764b450c89b5a70171110b770bd8"
     },
     {
       "path": "pipeline/scripts/funnel_exclusion_control.py",
@@ -800,8 +800,8 @@
     {
       "path": "pipeline/scripts/g8_number_traceability.py",
       "source": "10_new_system/scripts/g8_number_traceability.py",
-      "bytes": 73556,
-      "sha256": "920d21f96067c3bbfe9f90a1ef354b5f991a7f8317ee52528745d1d3b527c2ac"
+      "bytes": 78740,
+      "sha256": "3558a13bd9ccbdd00a7bd400a0cf31d8f060c23f9527ab1ccbcb928a786a3eef"
     },
     {
       "path": "pipeline/scripts/heldout_case_analysis.py",
@@ -1892,8 +1892,8 @@
     {
       "path": "figures/figure4_screening_performance_provenance.json",
       "source": "30_manuscript/figures/figure4_screening_performance_provenance.json",
-      "bytes": 2308,
-      "sha256": "bce72b6e0ee5f8dade0be7a56805c6045728b5ac46e0202c64ba934293f85203"
+      "bytes": 2235,
+      "sha256": "801c2749bc3d1ee7d18c72a536526f537a6b036e66606b13df5b30df8d63d62c"
     },
     {
       "path": "figures/figure5_pose_overlay_2026-08-24.png",
@@ -1952,8 +1952,8 @@
     {
       "path": "figures/figure_graphical_abstract_2026-08-21.png",
       "source": "30_manuscript/figures/figure_graphical_abstract_2026-08-21.png",
-      "bytes": 494765,
-      "sha256": "21b21369b8902d732a4c861a62fb3077057ea2339840b139bdb4a566cfb03215"
+      "bytes": 493711,
+      "sha256": "b4eb5a5244372a5ee4ed392fb15eafbf17b0111c62e14066c65e887b01aa1ffe"
     },
     {
       "path": "figures/figure_graphical_abstract_2026-08-21.svg",
@@ -1964,8 +1964,8 @@
     {
       "path": "verification/summary/g8_number_traceability.json",
       "source": "20_new_runs/verification_summary_2026-08-21/g8_number_traceability.json",
-      "bytes": 66239,
-      "sha256": "48b1ddcf0c79b0da59f774012b01df2ca46954458e03e35c1151c665426ebdce"
+      "bytes": 67646,
+      "sha256": "564528495fe97f15b30b8bf9a7cf835fc92e791dbf5e0567392c9d7dba061a5a"
     },
     {
       "path": "verification/summary/stereo_undefined_counts.json",

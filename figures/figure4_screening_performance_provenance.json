@@ -1,59 +1,59 @@
 {
-  "figure": "Figure 4 -- screening performance",
-  "generated": "2026-08-24",
-  "inputs": {
-    "ifp_per_compound": {
-      "path": "20_new_runs\\chembl245_ifp_rescoring_2026-08-15\\ifp_rescoring_per_compound.csv",
-      "sha256": "3b2aeae0e91dc3c72073b99ff104e53291eb7d6ffd36efff4026f5bd22492915",
-      "n_rows": 245,
-      "n_active": 50,
-      "n_inactive": 195
-    },
-    "ifp_summary": {
-      "path": "20_new_runs\\chembl245_ifp_rescoring_2026-08-15\\ifp_rescoring_summary.json",
-      "sha256": "b79ec920054845eb0dd3c2a5857ce818f6100e6bf52726986fd162add8e5bbc2"
-    },
-    "y_randomisation": {
-      "path": "20_new_runs\\qsar_lbdd_2026-08-07\\qsar_y_randomization.json",
-      "sha256": "b8b949497d18bd32af931fa8dd7b8633d31bcf1703111aacd734a3ac57fbff1e",
-      "n_permutations": 100
-    }
+ "figure": "Figure 3 in the manuscript -- screening performance (file stem figure4_screening_performance)",
+ "generated": "2026-08-24",
+ "inputs": {
+  "ifp_per_compound": {
+   "path": "20_new_runs\\chembl245_ifp_rescoring_2026-08-15\\ifp_rescoring_per_compound.csv",
+   "sha256": "3b2aeae0e91dc3c72073b99ff104e53291eb7d6ffd36efff4026f5bd22492915",
+   "n_rows": 245,
+   "n_active": 50,
+   "n_inactive": 195
   },
-  "panelA_auc_by_convention": {
-    "Vina alone (baseline)": {
-      "column": "vina_score",
-      "negated": true,
-      "auc_tie_averaged": 0.6012,
-      "auc_rdkit_calcauc": 0.6014
-    },
-    "Vina at best-IFP pose": {
-      "column": "vina_at_best_ifp_pose",
-      "negated": true,
-      "auc_tie_averaged": 0.6025,
-      "auc_rdkit_calcauc": 0.6027
-    },
-    "Asn253 H-bond filter + Vina": {
-      "column": "asn253_filtered_score",
-      "negated": false,
-      "auc_tie_averaged": 0.5765,
-      "auc_rdkit_calcauc": 0.5766
-    },
-    "Equal-weight z-score ensemble": {
-      "column": "combined_zscore",
-      "negated": false,
-      "auc_tie_averaged": 0.5301,
-      "auc_rdkit_calcauc": 0.5301
-    },
-    "IFP similarity alone": {
-      "column": "max_ifp_tanimoto",
-      "negated": false,
-      "auc_tie_averaged": 0.4422,
-      "auc_rdkit_calcauc": 0.4487
-    }
+  "ifp_summary": {
+   "path": "20_new_runs\\chembl245_ifp_rescoring_2026-08-15\\ifp_rescoring_summary.json",
+   "sha256": "b79ec920054845eb0dd3c2a5857ce818f6100e6bf52726986fd162add8e5bbc2"
   },
-  "tie_handling_note": "Table 1 quotes RDKit Scoring.CalcAUC. Panel A is a ROC curve and is labelled with the tie-averaged area. The two agree to <0.001 except for max_ifp_tanimoto, which takes only 90 distinct values across 245 compounds: 0.4487 (RDKit) vs 0.4422 (tie-averaged). Both are below chance.",
-  "outputs": {
-    "figure4_screening_performance_2026-08-24.png": "a1371608ece8d3fb8523c9115de8be5109fba88e7eb5b0179a76da67323a9d88",
-    "figure4_screening_performance_2026-08-24.svg": "38d52c2c201f9e94fcbe765b7d4c500835df2165c54c7b76f9386179b844cd65"
+  "y_randomisation": {
+   "path": "20_new_runs\\qsar_lbdd_2026-08-07\\qsar_y_randomization.json",
+   "sha256": "b8b949497d18bd32af931fa8dd7b8633d31bcf1703111aacd734a3ac57fbff1e",
+   "n_permutations": 100
   }
+ },
+ "panelA_auc_by_convention": {
+  "Vina alone (baseline)": {
+   "column": "vina_score",
+   "negated": true,
+   "auc_tie_averaged": 0.6012,
+   "auc_rdkit_calcauc": 0.6014
+  },
+  "Vina at best-IFP pose": {
+   "column": "vina_at_best_ifp_pose",
+   "negated": true,
+   "auc_tie_averaged": 0.6025,
+   "auc_rdkit_calcauc": 0.6027
+  },
+  "Asn253 H-bond filter + Vina": {
+   "column": "asn253_filtered_score",
+   "negated": false,
+   "auc_tie_averaged": 0.5765,
+   "auc_rdkit_calcauc": 0.5766
+  },
+  "Equal-weight z-score ensemble": {
+   "column": "combined_zscore",
+   "negated": false,
+   "auc_tie_averaged": 0.5301,
+   "auc_rdkit_calcauc": 0.5301
+  },
+  "IFP similarity alone": {
+   "column": "max_ifp_tanimoto",
+   "negated": false,
+   "auc_tie_averaged": 0.4422,
+   "auc_rdkit_calcauc": 0.4487
+  }
+ },
+ "tie_handling_note": "Table 1 quotes RDKit Scoring.CalcAUC. Panel A is a ROC curve and is labelled with the tie-averaged area. The two agree to <0.001 except for max_ifp_tanimoto, which takes only 90 distinct values across 245 compounds: 0.4487 (RDKit) vs 0.4422 (tie-averaged). Both are below chance.",
+ "outputs": {
+  "figure4_screening_performance_2026-08-24.png": "a1371608ece8d3fb8523c9115de8be5109fba88e7eb5b0179a76da67323a9d88",
+  "figure4_screening_performance_2026-08-24.svg": "38d52c2c201f9e94fcbe765b7d4c500835df2165c54c7b76f9386179b844cd65"
+ }
 }

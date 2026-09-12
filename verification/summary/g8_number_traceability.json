@@ -1,8 +1,8 @@
 {
   "manuscript": "D:/Agentic VS Workflow/30_manuscript/CURRENT_v5/manuscript_AIIM_v6.md",
   "state": "PASS",
-  "n_checks": 280,
-  "n_pass": 280,
+  "n_checks": 286,
+  "n_pass": 286,
   "n_value_mismatch": 0,
   "n_literal_absent": 0,
   "checks": [
@@ -2489,14 +2489,14 @@
       "state": "PASS",
       "expected": [
         365,
-        13.0
+        13.1
       ],
       "recomputed": [
         365,
-        13.0
+        13.1
       ],
       "literal_present_in_manuscript": true,
-      "literal": "365 files, 13.0 MB"
+      "literal": "365 files, 13.1 MB"
     },
     {
       "check": "deposit_manifest_n",
@@ -2595,6 +2595,54 @@
       },
       "literal_present_in_manuscript": true,
       "literal": "128 fault cases"
+    },
+    {
+      "check": "figprov:figure4",
+      "state": "PASS",
+      "expected": "5 artifacts re-hash",
+      "recomputed": "all match",
+      "literal_present_in_manuscript": true,
+      "literal": "figprov:figure4"
+    },
+    {
+      "check": "figprov:figure5",
+      "state": "PASS",
+      "expected": "8 artifacts re-hash",
+      "recomputed": "all match",
+      "literal_present_in_manuscript": true,
+      "literal": "figprov:figure5"
+    },
+    {
+      "check": "figprov:figure6",
+      "state": "PASS",
+      "expected": "10 artifacts re-hash",
+      "recomputed": "all match",
+      "literal_present_in_manuscript": true,
+      "literal": "figprov:figure6"
+    },
+    {
+      "check": "figprov:figure_ad",
+      "state": "PASS",
+      "expected": "6 artifacts re-hash",
+      "recomputed": "all match",
+      "literal_present_in_manuscript": true,
+      "literal": "figprov:figure_ad"
+    },
+    {
+      "check": "figcopies_identical",
+      "state": "PASS",
+      "expected": "7 artifacts re-hash",
+      "recomputed": "all match",
+      "literal_present_in_manuscript": true,
+      "literal": "figcopies_identical"
+    },
+    {
+      "check": "figpng_not_stale",
+      "state": "PASS",
+      "expected": "7 artifacts re-hash",
+      "recomputed": "all match",
+      "literal_present_in_manuscript": true,
+      "literal": "figpng_not_stale"
     }
   ]
 }

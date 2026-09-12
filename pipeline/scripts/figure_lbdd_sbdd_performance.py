@@ -210,7 +210,10 @@ def main() -> int:
     fig.savefig(stem.with_suffix(".svg"), bbox_inches="tight")
 
     prov = {
-        "figure": "Figure 4 -- screening performance",
+        # Figure 3 in the manuscript. The file stem says 4 for historical reasons
+        # and the applicability-domain figure is the real Figure 4, so name both.
+        "figure": "Figure 3 in the manuscript -- screening performance "
+                  "(file stem figure4_screening_performance)",
         "generated": "2026-08-24",
         "inputs": {
             "ifp_per_compound": {"path": str(IFP.relative_to(ROOT)),
