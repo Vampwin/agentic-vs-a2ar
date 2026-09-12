@@ -855,8 +855,22 @@ def build_checks(S) -> list[tuple[str, str, object, object]]:
         (0.878, 1.0),
         (round(min(v["refusal_rate"] for v in _struct.values()), 3),
          round(max(v["refusal_rate"] for v in _struct.values()), 3)))
-    add("fref_np_physchem", "29.0 % of the natural-product library", 0.29,
+    add("fref_np_physchem", "29.0 % of those 500", 0.29,
         round(_np["PhysChem"]["refusal_rate"], 3))
+    # The three §4 rates that carried no check until 2026-09-12, and the set
+    # size itself: this comparison runs on the 500 top-ranked compounds, not on
+    # the 236-compound library, and the manuscript said "the natural-product
+    # library" for both until the same ambiguity was found in the graphical
+    # abstract.
+    add("fref_np_n", "500 top-ranked natural products", 500,
+        S["fref"]["natural_product_library_same_reference"]["n"])
+    add("fref_np_erg", "95.6 % in ErG", 0.956, round(_np["ErG"]["refusal_rate"], 3))
+    add("fref_np_maccs", "87.8 % in MACCS", 0.878, round(_np["MACCS"]["refusal_rate"], 3))
+    # "costs about 14 %" summarises the seven structural spaces of the
+    # known-active panel; anchored on their median rather than on any one space.
+    _fr_struct = sorted(v["false_refusal_rate"] for k, v in _bs.items() if k != "PhysChem")
+    add("fref_panel_median", "costs about 14 %", 14,
+        int(round(_fr_struct[len(_fr_struct) // 2] * 100)))
 
     # --- R4, the discarded sample at the full protocol (M9) -----------------
     r4 = S["r4res"]
@@ -967,6 +981,10 @@ def build_checks(S) -> list[tuple[str, str, object, object]]:
     cn = S["cnull"]
     _rep = cn["reference_set"]["reproduces_frozen_artifact"]
     add("tierA_flagged_n", "Of the 23 compounds the", 23, _rep["n_flagged"])
+    # §4 states the complement of that count. Derived, so it drifts silently if
+    # either side moves; now it cannot.
+    add("tierA_excluded_n", "4,977 of 5,000 compounds were excluded", 4977,
+        5000 - _rep["n_flagged"])
     add("tierA_uniform_pong", "all *Pongamia* p = 0.002", 0.002259,
         _rep["p_all_three_pongamia"])
     add("tierA_uniform_flav", "obtaining all flavones has p = 0.020", 0.019763,

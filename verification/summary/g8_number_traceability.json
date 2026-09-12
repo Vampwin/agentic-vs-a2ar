@@ -1,8 +1,8 @@
 {
-  "manuscript": "D:/Agentic VS Workflow/30_manuscript/CURRENT_v5/manuscript_AIIM_v6_CLEAN.md",
+  "manuscript": "D:/Agentic VS Workflow/30_manuscript/CURRENT_v5/manuscript_AIIM_v6.md",
   "state": "PASS",
-  "n_checks": 270,
-  "n_pass": 270,
+  "n_checks": 275,
+  "n_pass": 275,
   "n_value_mismatch": 0,
   "n_literal_absent": 0,
   "checks": [
@@ -1750,7 +1750,39 @@
       "expected": 0.29,
       "recomputed": 0.29,
       "literal_present_in_manuscript": true,
-      "literal": "29.0 % of the natural-product library"
+      "literal": "29.0 % of those 500"
+    },
+    {
+      "check": "fref_np_n",
+      "state": "PASS",
+      "expected": 500,
+      "recomputed": 500,
+      "literal_present_in_manuscript": true,
+      "literal": "500 top-ranked natural products"
+    },
+    {
+      "check": "fref_np_erg",
+      "state": "PASS",
+      "expected": 0.956,
+      "recomputed": 0.956,
+      "literal_present_in_manuscript": true,
+      "literal": "95.6 % in ErG"
+    },
+    {
+      "check": "fref_np_maccs",
+      "state": "PASS",
+      "expected": 0.878,
+      "recomputed": 0.878,
+      "literal_present_in_manuscript": true,
+      "literal": "87.8 % in MACCS"
+    },
+    {
+      "check": "fref_panel_median",
+      "state": "PASS",
+      "expected": 14,
+      "recomputed": 14,
+      "literal_present_in_manuscript": true,
+      "literal": "costs about 14 %"
     },
     {
       "check": "r4_weighted",
@@ -2113,6 +2145,14 @@
       "recomputed": 23,
       "literal_present_in_manuscript": true,
       "literal": "Of the 23 compounds the"
+    },
+    {
+      "check": "tierA_excluded_n",
+      "state": "PASS",
+      "expected": 4977,
+      "recomputed": 4977,
+      "literal_present_in_manuscript": true,
+      "literal": "4,977 of 5,000 compounds were excluded"
     },
     {
       "check": "tierA_uniform_pong",
