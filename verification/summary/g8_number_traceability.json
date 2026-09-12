@@ -1,9 +1,9 @@
 {
-  "manuscript": "D:/Agentic VS Workflow/30_manuscript/CURRENT_v5/manuscript_AIIM_v6.md",
-  "state": "PASS",
-  "n_checks": 286,
-  "n_pass": 286,
-  "n_value_mismatch": 0,
+  "manuscript": "D:/Agentic VS Workflow/30_manuscript/CURRENT_v5/manuscript_AIIM_v6_CLEAN.md",
+  "state": "FAIL",
+  "n_checks": 288,
+  "n_pass": 287,
+  "n_value_mismatch": 1,
   "n_literal_absent": 0,
   "checks": [
     {
@@ -2643,6 +2643,24 @@
       "recomputed": "all match",
       "literal_present_in_manuscript": true,
       "literal": "figpng_not_stale"
+    },
+    {
+      "check": "supp_sections_resolve",
+      "state": "PASS",
+      "expected": "10 Supplementary S<n> pointers resolve",
+      "recomputed": "all match",
+      "literal_present_in_manuscript": true,
+      "literal": "supp_sections_resolve"
+    },
+    {
+      "check": "supp_reference_lists_resolve",
+      "state": "FAIL-SUPP",
+      "expected": "1 Supplementary Reference S<n> list(s) ship",
+      "recomputed": [
+        "S1 is cited but no such list ships (reference [13]: the 38 SNP-Lib isolation-source reports) -- author action"
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "supp_reference_lists_resolve"
     }
   ]
 }

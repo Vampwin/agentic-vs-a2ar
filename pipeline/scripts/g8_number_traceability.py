@@ -424,6 +424,51 @@ def check_figure_provenance() -> list[dict]:
     return out
 
 
+def check_supplementary_pointers(text: str) -> list[dict]:
+    """Every "Supplementary S<n>" the manuscript cites must be a section that
+    ships, and every "Supplementary Reference S<n>" must be a list that ships.
+
+    Twelve of the thirteen pointers resolve. The exception is reference [13],
+    which carries the provenance of the whole 236-compound library -- where the
+    natural products were isolated from and by whom -- and ends "The 38 primary
+    reports are listed in full in Supplementary Reference S1." No such item
+    exists anywhere in this project, and "Supplementary Reference S1" is a
+    different thing from "Supplementary S1", which is contracts and evaluators.
+
+    Only the author can close this: the list comes from one research group's
+    publication record. Until it ships, this check fails, which is the correct
+    state for a manuscript that promises a reader something it does not supply.
+    """
+    import re as _re
+    sup = ROOT / "30_manuscript/supplement"
+    have = {d.name.split("_")[0] for d in sup.glob("S*") if d.is_dir()}
+    out: list[dict] = []
+
+    sections = sorted(set(_re.findall(r"Supplementary (S\d+)\b", text)))
+    missing = [s for s in sections if s not in have]
+    out.append({"expected": f"{len(sections)} Supplementary S<n> pointers resolve",
+                "name": "supp_sections_resolve",
+                "status": "PASS" if not missing else "FAIL-SUPP",
+                "n_checked": len(sections),
+                "problems": [f"no bundle section {s}" for s in missing]})
+
+    # "Supplementary Reference S<n>" is a separate namespace and nothing in the
+    # bundle answers to it. Recorded as a named file so the day it ships, this
+    # check turns green on its own.
+    refs = sorted(set(_re.findall(r"Supplementary Reference (S\d+)\b", text)))
+    bad = []
+    for s in refs:
+        hits = list(sup.glob(f"**/*{s}*reference*")) + list(sup.glob(f"**/reference*{s}*"))             + list(sup.glob(f"Supplementary_Reference_{s}.*"))
+        if not hits:
+            bad.append(f"{s} is cited but no such list ships (reference [13]: "
+                       f"the 38 SNP-Lib isolation-source reports) -- author action")
+    out.append({"expected": f"{len(refs)} Supplementary Reference S<n> list(s) ship",
+                "name": "supp_reference_lists_resolve",
+                "status": "PASS" if not bad else "FAIL-SUPP",
+                "n_checked": len(refs), "problems": bad})
+    return out
+
+
 def check_deposit_commit() -> dict:
     """The commit hash the manuscript cites must be the deposit's current HEAD,
     and the deposit's working tree must be clean.
@@ -1278,6 +1323,7 @@ def main() -> int:
     # from it. See check_companion_files.
     companions = check_companion_files({})
     figures = check_figure_provenance()
+    figures += check_supplementary_pointers(text)
     commit = check_deposit_commit()
 
     rows, n_pass, n_fail, n_absent = [], 0, 0, 0
@@ -1358,7 +1404,8 @@ def main() -> int:
     # --- figure provenance --------------------------------------------------
     for f in figures:
         rows.append({"check": f["name"], "state": f["status"],
-                     "expected": f"{f['n_checked']} artifacts re-hash",
+                     "expected": f.get("expected",
+                                       f"{f['n_checked']} artifacts re-hash"),
                      "recomputed": f["problems"] or "all match",
                      "literal_present_in_manuscript": True,
                      "literal": f["name"]})
