@@ -59,6 +59,21 @@ SCOPES = {"whole_run", "artifacts_only"}
 # author approved that day. Every entry here is also labelled in
 # 20_new_runs/RUN_INDEX.md; build_evidence_index.py fails if the two disagree.
 NOT_USED: dict[str, dict] = {
+    "snplib_source_audit_2026-09-12": {
+        "kind": "verification_only",
+        "reason": "Asks whether reference [13]'s promised list of 38 primary "
+                  "isolation reports can be assembled from anything this "
+                  "project holds. It cannot: the frozen SNP-Lib spreadsheet "
+                  "carries journal, year and source species but no author, "
+                  "title, volume, page or DOI. Reports no number the "
+                  "manuscript states -- its 36 and 39 groupings are the two "
+                  "reconstructions that bracket the stated 38 and match "
+                  "neither, which is the finding rather than a result "
+                  "(ADR-AIIM-180).",
+        "adr": ["ADR-AIIM-180"],
+        "decided": "2026-09-12",
+    },
+
     "reference_check_2026-09-05": {
         "kind": "verification_only",
         "reason": "The reference audit re-run after four citations were added "

@@ -461,7 +461,8 @@ def check_supplementary_pointers(text: str) -> list[dict]:
         hits = list(sup.glob(f"**/*{s}*reference*")) + list(sup.glob(f"**/reference*{s}*"))             + list(sup.glob(f"Supplementary_Reference_{s}.*"))
         if not hits:
             bad.append(f"{s} is cited but no such list ships (reference [13]: "
-                       f"the 38 SNP-Lib isolation-source reports) -- author action")
+                       f"the 38 SNP-Lib isolation-source reports) -- author "
+                       f"action; see 20_new_runs/snplib_source_audit_2026-09-12")
     out.append({"expected": f"{len(refs)} Supplementary Reference S<n> list(s) ship",
                 "name": "supp_reference_lists_resolve",
                 "status": "PASS" if not bad else "FAIL-SUPP",
