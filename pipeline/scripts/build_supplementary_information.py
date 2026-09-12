@@ -305,23 +305,44 @@ def main() -> int:
     doc.add_page_break()
     doc.add_paragraph(style="Heading 1").add_run(
         "5. Seeded-defect detection, per fault family")
-    mut = json.loads((S10 / "seeded_defects/mutation_score_by_gate.json")
+    # The recounted file, not its predecessor. Both sit in the S10 bundle and
+    # they disagree: the older one counts five vacuous F13 injections as
+    # escapes, giving 133 cases at 93.2 %, which is what this document reported
+    # until 2026-09-12 while the article reported 128 at 96.9 %. ADR-AIIM-131
+    # is the authority; `as_previously_reported` inside the file preserves the
+    # superseded numbers.
+    mut = json.loads((S10 / "seeded_defects/mutation_score_by_gate_recounted.json")
                      .read_text(encoding="utf-8"))
     ov, cl = mut["overall"], mut["coverage_limitation"]
+    vac = mut["vacuous_excluded"]
     doc.add_paragraph(
-        f"Reproduced from S10. {ov['n_fault_cases']} fault cases across the "
-        f"{len(cl['stub_families']) and 11} implemented families, "
+        f"Reproduced from S10. {ov['n_fault_cases_counted']} fault cases across "
+        f"the {len(cl['stub_families']) and 11} implemented families, "
         f"{ov['n_escaped']} escaped, detection {ov['detection_rate']:.1%} at a "
         f"false-escalation rate of {ov['false_escalation_rate_clean_runs']} on "
-        f"clean runs. The rightmost column is the same family under the learned "
-        f"monitor alone, which is where the ablation's condition C comes from.")
+        f"clean runs.")
+    p_vac = doc.add_paragraph()
+    add_runs(p_vac,
+             f"**The denominator, and only the denominator.** "
+             f"{ov['n_fault_cases_injected']} cases were injected and "
+             f"{ov['n_fault_cases_counted']} are counted. In "
+             f"{vac['n']} {', '.join(vac['all_in_family'])} instances the "
+             f"injector matched nothing and the workspace was left "
+             f"byte-unchanged, so there was no fault to escape; an export that "
+             f"had dropped the vacuity flag had recorded them as escapes "
+             f"({mut['authority']}). 124 cases are detected before and after. "
+             f"The superseded figures are preserved inside the artifact under "
+             f"`as_previously_reported`. Condition C, the learned monitor "
+             f"alone, is given for the whole benchmark in the article's "
+             f"ablation table; the recount did not re-derive it per family, so "
+             f"it is not tabulated here.")
     rows = ["| Family | Gate | Fault mechanism | Cases | Escaped | Detection | "
-            "SEER, monitor only |", "|---|---|---|---|---|---|---|"]
+            "Vacuous, excluded |", "|---|---|---|---|---|---|---|"]
     for fam, v in sorted(mut["by_family"].items()):
         rows.append(f"| {fam} | {v['gate']} | {v['description']} | "
                     f"{v['n_fault_cases']} | {v['n_escaped_condition_A']} | "
                     f"{v['detection_rate']:.1%} | "
-                    f"{v['seer_condition_C_monitor_only']:.3f} |")
+                    f"{v['n_vacuous_excluded']} |")
     md_table(doc, rows, font_pt=8.0)
     doc.add_paragraph()
     p = doc.add_paragraph()

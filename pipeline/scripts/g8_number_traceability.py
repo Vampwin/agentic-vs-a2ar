@@ -249,6 +249,13 @@ def sources() -> dict[str, object]:
         # turned a correct count into a FAIL-ABSENT on the size string.
         "dep_mb": round(sum(f.stat().st_size for f in (ROOT / "40_deposit").rglob("*")
                             if f.is_file() and ".git" not in f.parts) / 1e6, 1),
+        # How many of those files the manifest actually hashes. The Data
+        # availability section said "the SHA-256 of every file" until
+        # 2026-09-12; it is 360 of 365, the gap being the manifest itself, the
+        # README, the licence and two git control files. A claim wider than the
+        # artifact is the defect class §4 names, and it was in this paper.
+        "dep_manifest": len(_json(ROOT / "40_deposit/MANIFEST.json").get(
+            "files", _json(ROOT / "40_deposit/MANIFEST.json"))),
     }
 
 
@@ -269,15 +276,39 @@ def check_companion_files(report: dict) -> list[dict]:
     from pathlib import Path as _P
     docs = _P(__file__).resolve().parents[2] / "30_manuscript/CURRENT_v5"
     out = []
+
+    def _text(path: _P) -> str:
+        """Plain text of a .md or a .docx, without adding a dependency.
+
+        The supplement is only ever a built .docx, so a check that read
+        markdown alone could not see it -- and it carried the retired 93.2 %
+        of 133 for two weeks after the manuscript stopped saying it, because
+        its builder read `mutation_score_by_gate.json` while the manuscript
+        read the recounted file beside it. Both are in the deposit, so the
+        published evidence supported both readings.
+        """
+        if not path.is_file():
+            return ""
+        if path.suffix != ".docx":
+            return path.read_text(encoding="utf-8")
+        import re as _re, zipfile as _zip
+        with _zip.ZipFile(path) as z:
+            xml = z.read("word/document.xml").decode("utf-8")
+        # paragraph and cell breaks become spaces so adjacent cells do not fuse
+        xml = _re.sub(r"</w:(p|tc)>", " ", xml)
+        return _re.sub(r"<[^>]+>", "", xml)
+
     # (file, superseded literal, current literal)
     PAIRS = [
         ("HIGHLIGHTS.md", "93.2%", "96.9%"),
         ("COVER_LETTER_DRAFT.md", "93.2%", "96.9%"),
         ("COVER_LETTER_DRAFT.md", "133 seeded", "128 seeded"),
+        ("Supplementary_Information.docx", "93.2%", "96.9%"),
+        ("Supplementary_Information.docx", "133 fault cases", "128 fault cases"),
     ]
     for fname, stale, current in PAIRS:
         p = docs / fname
-        txt = p.read_text(encoding="utf-8") if p.is_file() else ""
+        txt = _text(p)
         ok = bool(txt) and stale not in txt and current in txt
         out.append({
             "name": f"companion:{fname}:{current}",
@@ -1094,6 +1125,17 @@ def build_checks(S) -> list[tuple[str, str, object, object]]:
     # --- deposit ---------------------------------------------------------------
     add("deposit_files", f"{S['dep']} files, {S['dep_mb']:.1f} MB",
         (S["dep"], S["dep_mb"]), (S["dep"], S["dep_mb"]))
+    add("deposit_manifest_n", "SHA-256 of each of the 360 deposited artifacts",
+        360, S["dep_manifest"])
+    add("deposit_manifest_gap", "the five files it omits", 5,
+        S["dep"] - S["dep_manifest"])
+    # Same claim, one level down: S10's own manifest. The article said "every
+    # file in S10" carries a SHA-256; the manifest cannot hash itself and does
+    # not cover the section README.
+    _s10 = ROOT / "30_manuscript/supplement/S10_verification_2026-08-21"
+    _s10m = _json(_s10 / "MANIFEST.json")
+    add("s10_manifest_n", "89 entries covering", 89,
+        len(_s10m.get("files", _s10m)))
     return C
 
 

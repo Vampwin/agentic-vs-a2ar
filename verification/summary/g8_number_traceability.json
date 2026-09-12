@@ -1,8 +1,8 @@
 {
   "manuscript": "D:/Agentic VS Workflow/30_manuscript/CURRENT_v5/manuscript_AIIM_v6.md",
   "state": "PASS",
-  "n_checks": 275,
-  "n_pass": 275,
+  "n_checks": 280,
+  "n_pass": 280,
   "n_value_mismatch": 0,
   "n_literal_absent": 0,
   "checks": [
@@ -2499,6 +2499,30 @@
       "literal": "365 files, 13.0 MB"
     },
     {
+      "check": "deposit_manifest_n",
+      "state": "PASS",
+      "expected": 360,
+      "recomputed": 360,
+      "literal_present_in_manuscript": true,
+      "literal": "SHA-256 of each of the 360 deposited artifacts"
+    },
+    {
+      "check": "deposit_manifest_gap",
+      "state": "PASS",
+      "expected": 5,
+      "recomputed": 5,
+      "literal_present_in_manuscript": true,
+      "literal": "the five files it omits"
+    },
+    {
+      "check": "s10_manifest_n",
+      "state": "PASS",
+      "expected": 89,
+      "recomputed": 89,
+      "literal_present_in_manuscript": true,
+      "literal": "89 entries covering"
+    },
+    {
       "check": "citation_integrity",
       "state": "PASS",
       "expected": "every marker resolves, every entry cited, 1..N contiguous",
@@ -2547,6 +2571,30 @@
       },
       "literal_present_in_manuscript": true,
       "literal": "128 seeded"
+    },
+    {
+      "check": "companion:Supplementary_Information.docx:96.9%",
+      "state": "PASS",
+      "expected": "96.9% present, 93.2% absent",
+      "recomputed": {
+        "file": "Supplementary_Information.docx",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "96.9%"
+    },
+    {
+      "check": "companion:Supplementary_Information.docx:128 fault cases",
+      "state": "PASS",
+      "expected": "128 fault cases present, 133 fault cases absent",
+      "recomputed": {
+        "file": "Supplementary_Information.docx",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "128 fault cases"
     }
   ]
 }
