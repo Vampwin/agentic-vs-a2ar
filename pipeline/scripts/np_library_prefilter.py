@@ -52,6 +52,7 @@ import json
 import multiprocessing as mp
 import os
 from pathlib import Path
+from kdss_paths import project_root, resolve, under
 
 import numpy as np
 import pandas as pd
@@ -63,10 +64,10 @@ from rdkit.Chem.MolStandardize import rdMolStandardize
 
 RDLogger.DisableLog("rdApp.*")
 
-ROOT = Path(r"D:\Agentic VS Workflow")
-CHEMBL_TRAINING = ROOT / "02_frozen_inputs/public_benchmarks/chembl_a2ar/chembl_a2a_training_v3.csv"
+ROOT = project_root()
+CHEMBL_TRAINING = resolve("02_frozen_inputs/public_benchmarks/chembl_a2ar/chembl_a2a_training_v3.csv")
 ZM241385_SMILES = "Nc1nc(NCCc2ccc(O)cc2)nc2nc(-c3ccco3)nn12"
-STRUCT_DIR = ROOT / "02_frozen_inputs/a2ar_structures"
+STRUCT_DIR = resolve("02_frozen_inputs/a2ar_structures")
 
 MW_MAX = 700.0
 ROTB_MAX = 10

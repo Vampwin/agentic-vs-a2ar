@@ -1,0 +1,49 @@
+{
+  "run_date": "2026-08-02",
+  "approval": "ood_method_approved_2026-08-02_ADR-AIIM-031",
+  "method": "IsolationForest",
+  "hyperparameters": {
+    "contamination": 0.01,
+    "n_estimators": 100,
+    "random_state": 20260729
+  },
+  "dataset": {
+    "n_rows": 188,
+    "n_features_total": 24,
+    "n_features_non_null": 17,
+    "non_null_features": [
+      "n_missing_input_hashes",
+      "n_unregistered_artifacts",
+      "has_unexpected_lineage",
+      "n_tool_warnings",
+      "n_retries",
+      "elapsed_seconds",
+      "n_nonzero_exit_codes",
+      "n_missing_outputs",
+      "n_schema_drift_fields",
+      "n_count_discrepancies",
+      "n_duplicate_ids",
+      "n_lost_records",
+      "n_unexpected_records",
+      "timestamp_staleness_seconds",
+      "shadow_id_match_fraction",
+      "shadow_hash_match_all",
+      "n_null_features"
+    ],
+    "n_groups": 11
+  },
+  "training_self_check": {
+    "n_ood": 1,
+    "n_total": 188,
+    "ood_rate": 0.005319148936170213
+  },
+  "artifact": {
+    "artifact_id": "ood_isoforest_dev_2026-08-02",
+    "model_path": "D:\\Agentic VS Workflow\\20_new_runs\\WP2.5_WP3A_readiness_2026-07-30\\models\\ood_isoforest_dev_2026-08-02.joblib",
+    "sha256": "DE18FC09DBB93624087F31A34359D73C1677ABAE5711EB268409C5BB2E91ABC1",
+    "feature_order_sha256": "DCB4D25EB59E7C7BABB51407E8B27268A195ED60B90D93BBAE240B984179DD75",
+    "schema_sha256": "558BA52AC952375C6C79B3175A21B954EB04169AC421CD5B90AA773D67811A05",
+    "schema_version": "1.0.0",
+    "registered_at": "2026-08-02T06:10:24.380575+00:00"
+  }
+}

@@ -20,6 +20,7 @@ import hashlib
 import json
 import sys
 from pathlib import Path
+from kdss_paths import project_root, resolve, under, dev_dir
 from datetime import datetime, timezone
 
 import pandas as pd
@@ -36,11 +37,11 @@ except ImportError:
 
 
 # ── Paths ──────────────────────────────────────────────────────────────────────
-ROOT = Path(__file__).parent.parent.parent          # D:\Agentic VS Workflow
-INPUT_CSV = ROOT / "02_frozen_inputs" / "snp_library" / "01_library_validated.csv"
-OUTPUT_DIR = ROOT / "20_new_runs" / "WP0_WP1_audit_2026-07-29"
-OUTPUT_LEDGER = OUTPUT_DIR / "snp_source_ledger.csv"
-OUTPUT_META = OUTPUT_DIR / "snp_source_ledger_meta.json"
+ROOT = Path(__file__).parent.parent.parent          # the project root
+INPUT_CSV = dev_dir("02_frozen_inputs") / "snp_library" / "01_library_validated.csv"
+OUTPUT_DIR = dev_dir("20_new_runs") / "WP0_WP1_audit_2026-07-29"
+OUTPUT_LEDGER = under("20_new_runs", "snp_source_ledger.csv")
+OUTPUT_META = under("20_new_runs", "snp_source_ledger_meta.json")
 
 EXPECTED_COUNT = 236
 

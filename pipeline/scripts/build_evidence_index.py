@@ -32,23 +32,25 @@ import json
 import re
 import sys
 from pathlib import Path
+from kdss_paths import project_root, resolve, under, dev_dir
 
 
 def _root() -> Path:
-    marker = "00_project_control/08_DECISION_LOG.md"
-    for cand in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (cand / marker).is_file():
-            return cand
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-RUNS = ROOT / "20_new_runs"
-SCRIPTS = ROOT / "10_new_system/scripts"
-RUN_INDEX = RUNS / "RUN_INDEX.md"
-DECISION_LOG = ROOT / "00_project_control/08_DECISION_LOG.md"
-OUT_MD = ROOT / "00_project_control/28_EVIDENCE_INDEX.md"
-OUT_JSON = ROOT / "00_project_control/28_EVIDENCE_INDEX.json"
+RUNS = dev_dir("20_new_runs")
+SCRIPTS = resolve("10_new_system/scripts")
+RUN_INDEX = under("20_new_runs", "RUN_INDEX.md")
+DECISION_LOG = resolve("00_project_control/08_DECISION_LOG.md")
+OUT_MD = resolve("00_project_control/28_EVIDENCE_INDEX.md")
+OUT_JSON = resolve("00_project_control/28_EVIDENCE_INDEX.json")
 
 LABELS = {"CORE", "USED", "INPUT", "PENDING", "ADMIN", "V4-ONLY", "DO-NOT-REUSE"}
 NOT_V6 = {"V4-ONLY", "DO-NOT-REUSE"}
@@ -71,7 +73,10 @@ PRODUCER_GLOBS = ("*.py", "*.sh")
 PRODUCER_SKIP = {"g8_number_traceability.py", "build_supplement_s10.py",
                  "build_deposit.py", "build_evidence_index.py"}
 RUN_DIR_RE = re.compile(r"20_new_runs[/\\]([A-Za-z0-9_.-]+_20\d\d-\d\d-\d\d)")
-BARE_NAME_RE = re.compile(r"""["']([A-Za-z0-9_.-]+_20\d\d-\d\d-\d\d)["']""")
+# Either the whole literal, or the first segment of one -- since the paths
+# moved to under("20_new_runs", "<dir>/<file>") the run name opens the string
+# rather than closing it.
+BARE_NAME_RE = re.compile(r"""["']([A-Za-z0-9_.-]+_20\d\d-\d\d-\d\d)(?:["']|/)""")
 
 
 def parse_producers(scripts: Path, on_disk: set[str]) -> dict[str, list[str]]:
@@ -111,8 +116,51 @@ def load_module(name: str, path: Path):
 
 
 # ---------------------------------------------------------------- sources()
+def _literal_head(node: ast.AST) -> str | None:
+    """The literal part of a string or f-string argument, or None."""
+    if isinstance(node, ast.Constant) and isinstance(node.value, str):
+        return node.value
+    if isinstance(node, ast.JoinedStr):
+        head = node.values[0] if node.values else None
+        if isinstance(head, ast.Constant) and isinstance(head.value, str):
+            return head.value.split("{")[0]
+    return None
+
+
 def _path_from_expr(node: ast.AST) -> str | None:
-    """RUNS / "a/b.json"  ->  "a/b.json".  Returns None if not that shape."""
+    """under("20_new_runs", "a/b.json")  ->  "a/b.json".  Returns None if not that shape.
+
+    Three shapes, because the scripts moved off `ROOT / "..."` on 2026-09-13 so
+    that a deposit resolves its own layout: `under(prefix, parts...)`,
+    `resolve("path")`, and the original `RUNS / "..."`, which survives in code
+    this rewrite did not reach.
+    """
+    if isinstance(node, ast.Call) and isinstance(node.func, ast.Name):
+        if node.func.id == "under" and node.args:
+            prefix = _literal_head(node.args[0])
+            if prefix is None:
+                return None
+            parts = []
+            for a in node.args[1:]:
+                h = _literal_head(a)
+                if h is None:
+                    return None
+                parts.append(h)
+            tail = "/".join(x.strip("/") for x in parts if x)
+            if prefix.strip("/") == "20_new_runs":
+                return tail
+            return "@ROOT@/" + "/".join(x for x in (prefix.strip("/"), tail) if x)
+        if node.func.id == "resolve" and node.args:
+            v = _literal_head(node.args[0])
+            if v is None:
+                return None
+            v = v.strip("/")
+            if v.startswith("20_new_runs/"):
+                return v[len("20_new_runs/"):]
+            if v == "20_new_runs":
+                return ""
+            return "@ROOT@/" + v
+        return None
     if not isinstance(node, ast.BinOp) or not isinstance(node.op, ast.Div):
         return None
     left, right = node.left, node.right
@@ -160,7 +208,7 @@ def parse_sources(path: Path) -> tuple[dict[str, list[str]], list[str]]:
                 found.append(q)
         return found
 
-    # Locals bound before the return -- e8 = pd.read_csv(RUNS / "..."), and so
+    # Locals bound before the return -- e8 = pd.read_csv(under("20_new_runs", "...")), and so
     # on. The return dict then refers to them by name, so without this the
     # extractor silently loses every key that is not an inline expression. It
     # lost five, including the sweep eight Section 3.5 numbers depend on, and
@@ -312,7 +360,7 @@ def hash_run(run_dir: Path, dep) -> tuple[list[dict], dict[str, int]]:
 
 
 def build_index(on_disk, labels, used, not_used, exempt, E, W) -> dict:
-    dep = load_module("build_deposit", SCRIPTS / "build_deposit.py")
+    dep = load_module("build_deposit", under("10_new_system/scripts", "build_deposit.py"))
     runs, tot = {}, {"files_hashed": 0, "files_skipped_size": 0,
                      "files_skipped_suffix": 0}
     for name in on_disk:
@@ -502,13 +550,13 @@ def main() -> int:
     ap.add_argument("--check", action="store_true")
     args = ap.parse_args()
 
-    nu_mod = load_module("evidence_not_used", SCRIPTS / "evidence_not_used.py")
+    nu_mod = load_module("evidence_not_used", under("10_new_system/scripts", "evidence_not_used.py"))
     nu_mod.self_test()
     NOT_USED = nu_mod.NOT_USED
 
-    s10 = load_module("build_supplement_s10", SCRIPTS / "build_supplement_s10.py")
-    dep = load_module("build_deposit", SCRIPTS / "build_deposit.py")
-    src_keys, unresolved = parse_sources(SCRIPTS / "g8_number_traceability.py")
+    s10 = load_module("build_supplement_s10", under("10_new_system/scripts", "build_supplement_s10.py"))
+    dep = load_module("build_deposit", under("10_new_system/scripts", "build_deposit.py"))
+    src_keys, unresolved = parse_sources(under("10_new_system/scripts", "g8_number_traceability.py"))
 
     # run directory -> which machinery references it
     used: dict[str, dict] = {}

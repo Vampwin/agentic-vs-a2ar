@@ -20,6 +20,7 @@ import argparse
 import re
 import sys
 from pathlib import Path
+from kdss_paths import project_root, resolve, under
 
 from docx import Document
 from docx.enum.text import WD_ALIGN_PARAGRAPH
@@ -82,16 +83,17 @@ def _assert_figures_current(figdir):
             + chr(10) + "Copy them into CURRENT_v5/figures_png/ and rebuild.")
 
 def _root() -> Path:
-    marker = "00_project_control/08_DECISION_LOG.md"
-    for cand in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (cand / marker).is_file():
-            return cand
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-SRC = ROOT / "30_manuscript/CURRENT_v5/manuscript_AIIM_v6_CLEAN.md"
-FIGDIR = ROOT / "30_manuscript/CURRENT_v5"
+SRC = resolve("30_manuscript/CURRENT_v5/manuscript_AIIM_v6_CLEAN.md")
+FIGDIR = resolve("30_manuscript/CURRENT_v5")
 # No date in the name, deliberately. A date in a filename is a claim that
 # nothing verifies: this file was called `..._2026-08-24.docx` while its
 # content was rebuilt daily for twelve days, and the name was wrong for
@@ -99,7 +101,7 @@ FIGDIR = ROOT / "30_manuscript/CURRENT_v5"
 # is in the decision log, and both of those are checkable. An undated name
 # also means the artifact has one path, so a stale copy cannot sit beside
 # the current one wearing a different date.
-DEFAULT_OUT = ROOT / "30_manuscript/CURRENT_v5/KDSS_A2AR_AIIM_v6_CLEAN.docx"
+DEFAULT_OUT = resolve("30_manuscript/CURRENT_v5/KDSS_A2AR_AIIM_v6_CLEAN.docx")
 
 # Full-page figures (all four here) are wider than the 6.5in text column, so
 # they are inserted at this width regardless of column and get a caption

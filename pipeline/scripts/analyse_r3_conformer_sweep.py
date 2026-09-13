@@ -23,6 +23,7 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+from kdss_paths import project_root, resolve, under, dev_dir
 
 import numpy as np
 import pandas as pd
@@ -38,17 +39,18 @@ D8_PRIOR = 0.166             # mean deviation already measured at 8 conformers
 
 
 def _root() -> Path:
-    marker = "00_project_control/08_DECISION_LOG.md"
-    for cand in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (cand / marker).is_file():
-            return cand
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-RUNS = ROOT / "20_new_runs"
-CTRL_CANON = RUNS / "g4_verification_2026-08-21/rerun_passA_cpu6.csv"
-CTRL_REWRITTEN = RUNS / "metamorphic_2026-08-21/scores_M2.csv"
+RUNS = dev_dir("20_new_runs")
+CTRL_CANON = under("20_new_runs", "g4_verification_2026-08-21/rerun_passA_cpu6.csv")
+CTRL_REWRITTEN = under("20_new_runs", "metamorphic_2026-08-21/scores_M2.csv")
 
 
 def sha256(p: Path) -> str:
@@ -82,7 +84,7 @@ def tost(diff: np.ndarray, margin: float, alpha: float = 0.05) -> dict:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--run", default=str(RUNS / "conformer_budget_sweep_2026-08-27"))
+    ap.add_argument("--run", default=str(under("20_new_runs", "conformer_budget_sweep_2026-08-27")))
     # The control gate decides whether the remaining arms are worth waiting
     # for, so it has to be runnable before they exist.
     ap.add_argument("--control-only", action="store_true",

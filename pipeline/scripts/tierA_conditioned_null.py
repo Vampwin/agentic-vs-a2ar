@@ -47,6 +47,7 @@ import json
 import math
 from itertools import combinations
 from pathlib import Path
+from kdss_paths import project_root, resolve, under, dev_dir
 
 import numpy as np
 import pandas as pd
@@ -62,16 +63,17 @@ LABEL_LEVELS = ("species", "genus", "superclass")
 
 
 def _root() -> Path:
-    marker = "00_project_control/08_DECISION_LOG.md"
-    for cand in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (cand / marker).is_file():
-            return cand
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-RUNS = ROOT / "20_new_runs"
-FUNNEL = RUNS / "np_library_funnel_2026-08-15"
+RUNS = dev_dir("20_new_runs")
+FUNNEL = under("20_new_runs", "np_library_funnel_2026-08-15")
 FROZEN = FUNNEL / "tierA_convergence_analysis.json"
 
 
@@ -109,7 +111,7 @@ def hypergeom_all_same(counts: dict[str, int], n: int, k: int) -> float:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--out", default=str(RUNS / "tierA_conditioned_null_2026-08-29"))
+    ap.add_argument("--out", default=str(under("20_new_runs", "tierA_conditioned_null_2026-08-29")))
     ap.add_argument("--n-permutations", type=int, default=N_PERMUTATIONS)
     args = ap.parse_args()
     out = Path(args.out)

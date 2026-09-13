@@ -22,14 +22,15 @@ import argparse
 import re
 import xml.etree.ElementTree as ET
 from pathlib import Path
+from kdss_paths import project_root, resolve, under
 
 W = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
 WNS = "{%s}" % W
 ET.register_namespace("w", W)
 
-ROOT = Path(r"D:\Agentic VS Workflow")
-MS = ROOT / "30_manuscript/CURRENT_v5/sections"
-V4_TEMPLATE = ROOT / "30_manuscript/archive_v4/docx/KDSS_A2AR_AIIM_Submission_v4_2026-08-11_reviewed.docx"
+ROOT = project_root()
+MS = resolve("30_manuscript/CURRENT_v5/sections")
+V4_TEMPLATE = resolve("30_manuscript/archive_v4/docx/KDSS_A2AR_AIIM_Submission_v4_2026-08-11_reviewed.docx")
 
 TABLE_WIDTH = 9360
 
@@ -274,10 +275,10 @@ def main() -> int:
     kids = list(body)
 
     # ---- load v5 prose ----
-    abs_intro = md_content(MS / "01_abstract_and_introduction_DRAFT_v5.md")
-    arch = md_content(MS / "02a_agentic_architecture_and_skills_DRAFT_v5.md")
-    related = md_content(MS / "02b_related_work_DRAFT_v5.md")
-    libexp = md_content(MS / "02c_library_expansion_methods_DRAFT_v5.md")
+    abs_intro = md_content(under("30_manuscript/CURRENT_v5/sections", "01_abstract_and_introduction_DRAFT_v5.md"))
+    arch = md_content(under("30_manuscript/CURRENT_v5/sections", "02a_agentic_architecture_and_skills_DRAFT_v5.md"))
+    related = md_content(under("30_manuscript/CURRENT_v5/sections", "02b_related_work_DRAFT_v5.md"))
+    libexp = md_content(under("30_manuscript/CURRENT_v5/sections", "02c_library_expansion_methods_DRAFT_v5.md"))
     # resolve 02c's open placeholder (value established by ADR-AIIM-085/086)
     libexp = libexp.replace(
         "[AUTHOR ACTION / RESULT PENDING: the top N compounds by\nfast-pass score]",
@@ -286,9 +287,9 @@ def main() -> int:
         "[AUTHOR ACTION / RESULT PENDING: the top N compounds by fast-pass score]",
         "the top 500 compounds by fast-pass score",
     )
-    sbdd = md_content(MS / "03a_sbdd_rescue_null_result_DRAFT_v5.md")
-    final = md_content(MS / "03b_final_prioritization_results_DRAFT_v5.md")
-    disc = md_content(MS / "04_discussion_and_conclusion_DRAFT_v5.md")
+    sbdd = md_content(under("30_manuscript/CURRENT_v5/sections", "03a_sbdd_rescue_null_result_DRAFT_v5.md"))
+    final = md_content(under("30_manuscript/CURRENT_v5/sections", "03b_final_prioritization_results_DRAFT_v5.md"))
+    disc = md_content(under("30_manuscript/CURRENT_v5/sections", "04_discussion_and_conclusion_DRAFT_v5.md"))
 
     log = []
 

@@ -17,6 +17,7 @@ from __future__ import annotations
 import json
 import re
 from pathlib import Path
+from kdss_paths import project_root, resolve, under
 
 import numpy as np
 from rdkit import Chem, RDLogger
@@ -24,10 +25,10 @@ from rdkit.Chem import AllChem, rdMolAlign
 
 RDLogger.DisableLog("rdApp.*")
 
-ROOT = Path(r"D:\Agentic VS Workflow")
-RUN = ROOT / "20_new_runs/diffdock_orthogonal_2026-08-23"
-PREP = ROOT / "20_new_runs/snp_screen_2026-08-04/G2_preparation"
-POSES = ROOT / "20_new_runs/np_library_funnel_2026-08-15/full_poses_chunk1"
+ROOT = project_root()
+RUN = resolve("20_new_runs/diffdock_orthogonal_2026-08-23")
+PREP = resolve("20_new_runs/snp_screen_2026-08-04/G2_preparation")
+POSES = resolve("20_new_runs/np_library_funnel_2026-08-15/full_poses_chunk1")
 
 CONTROL_GATE_A = 2.0        # ADR-AIIM-111 Rule 1, the Section 2.5 convention
 AGREEMENT_A = 2.0           # ADR-AIIM-111 Rule 2
@@ -38,7 +39,7 @@ ZMA_TEMPLATE = "Nc1nc(NCCc2ccc(O)cc2)nc2nc(-c3ccco3)nn12"
 
 def rank1(cid: str) -> tuple[Chem.Mol, float]:
     """DiffDock's top pose and its confidence, read from the filename."""
-    d = RUN / "results" / cid
+    d = under("20_new_runs/diffdock_orthogonal_2026-08-23", "results") / cid
     hit = [p for p in d.iterdir() if re.match(r"^rank1_confidence", p.name)]
     if len(hit) != 1:
         raise SystemExit(f"{cid}: expected one rank1_confidence file, found {len(hit)}")
@@ -59,12 +60,12 @@ def centroid(m: Chem.Mol) -> np.ndarray:
 
 
 def main() -> int:
-    box = json.loads((PREP / "docking_box.json").read_text())
+    box = json.loads((under("20_new_runs/snp_screen_2026-08-04/G2_preparation", "docking_box.json")).read_text())
     pocket = np.array(box["center"])
     out: dict = {"adr": "ADR-AIIM-111", "rules_applied_verbatim": True}
 
     # ---- Rule 1: the control gate -----------------------------------------
-    crystal = Chem.MolFromMolFile(str(PREP / "ZMA_reference_4EIY.sdf"))
+    crystal = Chem.MolFromMolFile(str(under("20_new_runs/snp_screen_2026-08-04/G2_preparation", "ZMA_reference_4EIY.sdf")))
     crystal = AllChem.AssignBondOrdersFromTemplate(
         Chem.MolFromSmiles(ZMA_TEMPLATE), crystal)
     dd_ctrl, conf_ctrl = rank1("ZM241385_control")
@@ -150,7 +151,7 @@ def main() -> int:
         "candidate_confidences": dict(zip(CANDIDATES, cand_conf)),
     }
 
-    (RUN / "orthogonal_check_result.json").write_text(json.dumps(out, indent=2))
+    (under("20_new_runs/diffdock_orthogonal_2026-08-23", "orthogonal_check_result.json")).write_text(json.dumps(out, indent=2))
     print(f"\nwritten -> {(RUN / 'orthogonal_check_result.json').relative_to(ROOT)}")
     return 0
 

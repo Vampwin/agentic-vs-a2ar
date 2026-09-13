@@ -40,6 +40,7 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+from kdss_paths import project_root, resolve, under
 
 import matplotlib
 matplotlib.use("Agg")
@@ -50,11 +51,12 @@ from matplotlib.patches import Patch
 
 
 def _root() -> Path:
-    marker = "00_project_control/08_DECISION_LOG.md"
-    for cand in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (cand / marker).is_file():
-            return cand
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
@@ -64,7 +66,7 @@ ROOT = _root()
 # that panel B now needs. G6 and Supplementary S10 continue to read the older
 # directory, which is correct: the contents are identical and re-pointing them
 # would force a re-freeze for no change in any number.
-SWEEP = ROOT / "20_new_runs/ad_sweep_selfsim_2026-08-25"
+SWEEP = resolve("20_new_runs/ad_sweep_selfsim_2026-08-25")
 
 # Ordered so the four zero-coverage structural spaces lead and PhysChem --
 # the space that disagrees with all of them -- sits last. The ordering is
@@ -94,17 +96,17 @@ def sha256(p: Path) -> str:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--out", default=str(ROOT / "30_manuscript/figures"))
+    ap.add_argument("--out", default=str(resolve("30_manuscript/figures")))
     args = ap.parse_args()
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
 
-    cov = pd.read_csv(SWEEP / "ad_coverage_by_descriptor.csv").set_index("descriptor_space")
-    per = pd.read_csv(SWEEP / "ad_per_compound.csv")
+    cov = pd.read_csv(under("20_new_runs/ad_sweep_selfsim_2026-08-25", "ad_coverage_by_descriptor.csv")).set_index("descriptor_space")
+    per = pd.read_csv(under("20_new_runs/ad_sweep_selfsim_2026-08-25", "ad_per_compound.csv"))
     comp = pd.DataFrame(
-        json.loads((SWEEP / "comparison_vs_snplib.json").read_text(encoding="utf-8"))["comparison"]
+        json.loads((under("20_new_runs/ad_sweep_selfsim_2026-08-25", "comparison_vs_snplib.json")).read_text(encoding="utf-8"))["comparison"]
     ).set_index("descriptor_space")
-    pct = pd.read_csv(SWEEP / "ad_percentile_position.csv")
+    pct = pd.read_csv(under("20_new_runs/ad_sweep_selfsim_2026-08-25", "ad_percentile_position.csv"))
 
     # 7.48 in = 190 mm, Elsevier double-column: draw at final size so no
     # rescaling shrinks the type below the 7 pt floor.
@@ -230,10 +232,10 @@ def main() -> int:
         "adr": "ADR-AIIM-136",
         "sweep_dir": str(SWEEP.relative_to(ROOT).as_posix()),
         "inputs": {
-            "ad_coverage_by_descriptor.csv": sha256(SWEEP / "ad_coverage_by_descriptor.csv"),
-            "ad_per_compound.csv": sha256(SWEEP / "ad_per_compound.csv"),
-            "ad_percentile_position.csv": sha256(SWEEP / "ad_percentile_position.csv"),
-            "comparison_vs_snplib.json": sha256(SWEEP / "comparison_vs_snplib.json"),
+            "ad_coverage_by_descriptor.csv": sha256(under("20_new_runs/ad_sweep_selfsim_2026-08-25", "ad_coverage_by_descriptor.csv")),
+            "ad_per_compound.csv": sha256(under("20_new_runs/ad_sweep_selfsim_2026-08-25", "ad_per_compound.csv")),
+            "ad_percentile_position.csv": sha256(under("20_new_runs/ad_sweep_selfsim_2026-08-25", "ad_percentile_position.csv")),
+            "comparison_vs_snplib.json": sha256(under("20_new_runs/ad_sweep_selfsim_2026-08-25", "comparison_vs_snplib.json")),
         },
         "outputs": {p.name: sha256(p) for p in
                     (stem.with_suffix(".png"), stem.with_suffix(".svg"))},
@@ -246,7 +248,7 @@ def main() -> int:
         "panel_C_counts": {int(k): int(v) for k, v in counts.items()},
         "max_spaces_inside": n_max,
     }
-    (SWEEP / "figure_ad_multispace_provenance.json").write_text(
+    (under("20_new_runs/ad_sweep_selfsim_2026-08-25", "figure_ad_multispace_provenance.json")).write_text(
         json.dumps(prov, indent=2), encoding="utf-8")
 
     print("panel C counts:", {int(k): int(v) for k, v in counts.items() if v})

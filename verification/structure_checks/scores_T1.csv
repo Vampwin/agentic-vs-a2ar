@@ -1,0 +1,2 @@
+compound_id,status,failure_reason,vina_score,vina_mean_top3,n_conformers_generated,n_poses_pooled,best_conformer_index,centroid_dist_A,on_pocket,mol_formula,n_heavy_atoms,n_rotatable_bonds,elapsed_s
+9XT,ok,,-11.217,-11.186,2,2,1,2.7,True,C16H15N7O,24,3,20.9

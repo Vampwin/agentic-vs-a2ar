@@ -38,6 +38,7 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
+from kdss_paths import project_root, resolve, under
 
 import numpy as np
 import pandas as pd
@@ -47,16 +48,17 @@ RDLogger.DisableLog("rdApp.*")
 
 
 def _root() -> Path:
-    marker = "00_project_control/08_DECISION_LOG.md"
-    for cand in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (cand / marker).is_file():
-            return cand
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-SRC = ROOT / "20_new_runs/g4_verification_2026-08-21/g4_subset_ledger.csv"
-RUN = ROOT / "20_new_runs/metamorphic_2026-08-21"
+SRC = resolve("20_new_runs/g4_verification_2026-08-21/g4_subset_ledger.csv")
+RUN = resolve("20_new_runs/metamorphic_2026-08-21")
 SEED = 20260821
 
 
@@ -72,7 +74,7 @@ def main() -> int:
     rng = np.random.default_rng(SEED)
     order = rng.permutation(len(df))
     m1 = df.iloc[order].reset_index(drop=True)
-    p_m1 = RUN / "ledger_M1_rowshuffle.csv"
+    p_m1 = under("20_new_runs/metamorphic_2026-08-21", "ledger_M1_rowshuffle.csv")
     m1.to_csv(p_m1, index=False)
     moved = int((np.asarray(order) != np.arange(len(df))).sum())
 
@@ -108,7 +110,7 @@ def main() -> int:
             new = smi
         rewritten.append(new)
     m2["SMILES"] = rewritten
-    p_m2 = RUN / "ledger_M2_smiles_rewrite.csv"
+    p_m2 = under("20_new_runs/metamorphic_2026-08-21", "ledger_M2_smiles_rewrite.csv")
     m2.to_csv(p_m2, index=False)
 
     n_diff = int((m2.SMILES.values != df.SMILES.values).sum())
@@ -133,7 +135,7 @@ def main() -> int:
             "(same 25 compounds, same command, already shown identical to "
             "production and to the 20-thread rerun)",
     }
-    (RUN / "metamorphic_inputs_metadata.json").write_text(
+    (under("20_new_runs/metamorphic_2026-08-21", "metamorphic_inputs_metadata.json")).write_text(
         json.dumps(meta, indent=2), encoding="utf-8")
 
     print(f"M1 rows moved            : {moved}/{len(df)}")

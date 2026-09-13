@@ -20,22 +20,24 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
+from kdss_paths import project_root, resolve, under
 
 import pandas as pd
 from scipy import stats
 
 
 def _root() -> Path:
-    marker = "00_project_control/08_DECISION_LOG.md"
-    for cand in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (cand / marker).is_file():
-            return cand
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-G4 = ROOT / "20_new_runs/g4_verification_2026-08-21"
-RUN = ROOT / "20_new_runs/metamorphic_2026-08-21"
+G4 = resolve("20_new_runs/g4_verification_2026-08-21")
+RUN = resolve("20_new_runs/metamorphic_2026-08-21")
 TOL = 0.01          # kcal/mol; the tolerance G4's seed_repeatability check uses
 
 INVARIANT = {
@@ -50,15 +52,15 @@ def sha256(p: Path) -> str:
 
 
 def main() -> int:
-    base = pd.read_csv(G4 / "rerun_passA_cpu6.csv").set_index("compound_id")["vina_score"]
-    prod = pd.read_csv(G4 / "full_scores_MERGED.csv").set_index("compound_id")["vina_score"]
-    led = pd.read_csv(G4 / "g4_subset_ledger.csv").set_index("compound_id")
+    base = pd.read_csv(under("20_new_runs/g4_verification_2026-08-21", "rerun_passA_cpu6.csv")).set_index("compound_id")["vina_score"]
+    prod = pd.read_csv(under("20_new_runs/g4_verification_2026-08-21", "full_scores_MERGED.csv")).set_index("compound_id")["vina_score"]
+    led = pd.read_csv(under("20_new_runs/g4_verification_2026-08-21", "g4_subset_ledger.csv")).set_index("compound_id")
 
     out: dict[str, object] = {
         "tolerance_kcal_mol": TOL,
         "baseline": {
-            "file": str(G4 / "rerun_passA_cpu6.csv"),
-            "sha256": sha256(G4 / "rerun_passA_cpu6.csv"),
+            "file": str(under("20_new_runs/g4_verification_2026-08-21", "rerun_passA_cpu6.csv")),
+            "sha256": sha256(under("20_new_runs/g4_verification_2026-08-21", "rerun_passA_cpu6.csv")),
             "note": "already established identical to production and to the "
                     "20-thread rerun, so run-to-run noise is zero by measurement",
         },
@@ -147,7 +149,7 @@ def main() -> int:
                         .set_index("compound_id")["vina_score"] - prod).abs().max()), 6)
         for v in ("M1", "M2")}
 
-    p = RUN / "metamorphic_results.json"
+    p = under("20_new_runs/metamorphic_2026-08-21", "metamorphic_results.json")
     p.write_text(json.dumps(out, indent=2), encoding="utf-8")
     print(f"written -> {p}")
     return 0

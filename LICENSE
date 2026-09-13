@@ -1,0 +1,69 @@
+This repository is released under two licences, because it holds two kinds of
+thing and they carry different obligations. `CITATION_AND_LICENCE.md` records
+the audit this follows from, traced from import statements and data files
+rather than assumed.
+
+    pipeline/                     MIT
+    verification/, figures/       CC BY 4.0
+    MANIFEST.json, PATH_MAP.json,
+    README.md, this file          CC BY 4.0
+
+Nothing copyleft is linked into the code. GROMACS, AmberTools, Open Babel and
+pdb2pqr are invoked as separate executables through subprocess and never
+imported, so no copyleft term propagates. Every in-process import is
+BSD-3-Clause, MIT or Apache-2.0 -- including Meeko 0.3.3, confirmed Apache-2.0
+from the installed distribution's own metadata on 2026-09-13.
+
+**Attribution required for the data.** Files under `verification/` carry
+structures, InChIKeys and organism names derived from LOTUS v11
+(doi:10.5281/zenodo.19360665), which is CC BY 4.0. LOTUS must be credited
+wherever those files are reused.
+
+**A note for anyone extending this.** ChEMBL is CC BY-SA 3.0 and is share-alike.
+No ChEMBL records are deposited here -- only aggregate statistics from models
+trained on them -- so share-alike is not triggered. If the frozen ChEMBL extract
+is ever added, that portion must be released under CC BY-SA 3.0 and not under
+CC BY 4.0.
+
+--------------------------------------------------------------------------
+MIT License -- applies to pipeline/
+--------------------------------------------------------------------------
+
+Copyright (c) 2026 Adisorn Sirichotejirakul, Monsin Sangsawat,
+Yasintha Lakshan Ranasinghe Ranepura Hewage, Pornchai Rojsitthisak,
+Worathat Thitikornpong
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+--------------------------------------------------------------------------
+Creative Commons Attribution 4.0 International -- applies to verification/
+and figures/
+--------------------------------------------------------------------------
+
+Copyright (c) 2026 the authors named above.
+
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. You are free to share and adapt the material for any purpose, including
+commercially, provided you give appropriate credit, provide a link to the
+licence, and indicate if changes were made.
+
+Full text: https://creativecommons.org/licenses/by/4.0/legalcode
+Summary:   https://creativecommons.org/licenses/by/4.0/
+
+Portions are derived from LOTUS v11 (CC BY 4.0); see the attribution note above.

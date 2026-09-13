@@ -32,21 +32,23 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+from kdss_paths import project_root, resolve, under
 
 import pandas as pd
 
 
 def _root() -> Path:
-    marker = "00_project_control/08_DECISION_LOG.md"
-    for cand in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (cand / marker).is_file():
-            return cand
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-SNPLIB_SWEEP = ROOT / "20_new_runs/ad_descriptor_sweep_2026-08-15"
-EXPANDED_SWEEP = ROOT / "20_new_runs/ad_sweep_selfsim_2026-08-25"
+SNPLIB_SWEEP = resolve("20_new_runs/ad_descriptor_sweep_2026-08-15")
+EXPANDED_SWEEP = resolve("20_new_runs/ad_sweep_selfsim_2026-08-25")
 
 ORDER = ["ECFP4", "FCFP4", "MACCS", "AtomPair", "TopTorsion",
          "Gobbi_Pharm2D", "ErG", "PhysChem"]
@@ -64,9 +66,9 @@ def main() -> int:
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
 
-    a = pd.read_csv(SNPLIB_SWEEP / "ad_coverage_by_descriptor.csv").set_index("descriptor_space")
-    b = pd.read_csv(EXPANDED_SWEEP / "ad_coverage_by_descriptor.csv").set_index("descriptor_space")
-    pct = pd.read_csv(EXPANDED_SWEEP / "ad_percentile_position.csv")
+    a = pd.read_csv(under("20_new_runs/ad_descriptor_sweep_2026-08-15", "ad_coverage_by_descriptor.csv")).set_index("descriptor_space")
+    b = pd.read_csv(under("20_new_runs/ad_sweep_selfsim_2026-08-25", "ad_coverage_by_descriptor.csv")).set_index("descriptor_space")
+    pct = pd.read_csv(under("20_new_runs/ad_sweep_selfsim_2026-08-25", "ad_percentile_position.csv"))
 
     comparison = []
     for s in ORDER:
@@ -120,13 +122,13 @@ def main() -> int:
                 "snplib_sweep": {
                     "path": str(SNPLIB_SWEEP.relative_to(ROOT).as_posix()),
                     "ad_coverage_by_descriptor.csv":
-                        sha256(SNPLIB_SWEEP / "ad_coverage_by_descriptor.csv")},
+                        sha256(under("20_new_runs/ad_descriptor_sweep_2026-08-15", "ad_coverage_by_descriptor.csv"))},
                 "expanded_sweep": {
                     "path": str(EXPANDED_SWEEP.relative_to(ROOT).as_posix()),
                     "ad_coverage_by_descriptor.csv":
-                        sha256(EXPANDED_SWEEP / "ad_coverage_by_descriptor.csv"),
+                        sha256(under("20_new_runs/ad_sweep_selfsim_2026-08-25", "ad_coverage_by_descriptor.csv")),
                     "ad_percentile_position.csv":
-                        sha256(EXPANDED_SWEEP / "ad_percentile_position.csv")},
+                        sha256(under("20_new_runs/ad_sweep_selfsim_2026-08-25", "ad_percentile_position.csv"))},
             },
         },
     }

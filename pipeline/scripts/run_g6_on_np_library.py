@@ -24,17 +24,19 @@ import hashlib
 import json
 import sys
 from pathlib import Path
+from kdss_paths import project_root, resolve, under
 
 import pandas as pd
 import yaml
 
 
 def _root() -> Path:
-    marker = "00_project_control/08_DECISION_LOG.md"
-    for cand in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (cand / marker).is_file():
-            return cand
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
@@ -45,12 +47,12 @@ from kdss_audit.artifact_registry import (  # noqa: E402
     ArtifactEntry, ArtifactRegistry, ContractOutcomeEntry, FileAccessEntry, sha256_file,
 )
 
-FUNNEL = ROOT / "20_new_runs/np_library_funnel_2026-08-15"
-ADSWEEP = ROOT / "20_new_runs/ad_sweep_expanded_2026-08-21"
+FUNNEL = resolve("20_new_runs/np_library_funnel_2026-08-15")
+ADSWEEP = resolve("20_new_runs/ad_sweep_expanded_2026-08-21")
 # The 2026-08-21 run stays as it is (ADR-AIIM-092). This one runs the
 # contract at v1.3.0, which the earlier run predates.
-RUN = ROOT / "20_new_runs/g6_selection_2026-09-02"
-CONTRACT = ROOT / "10_new_system/contracts/G6_selection.yaml"
+RUN = resolve("20_new_runs/g6_selection_2026-09-02")
+CONTRACT = resolve("10_new_system/contracts/G6_selection.yaml")
 
 
 def _false_refusal_inputs() -> dict:
@@ -60,8 +62,8 @@ def _false_refusal_inputs() -> dict:
     check WARN rather than pass. The gate must not be able to report a
     false-refusal result that no run produced.
     """
-    src = (ROOT / "20_new_runs/domain_gate_false_refusal_2026-08-29"
-                  "/domain_gate_false_refusal.json")
+    src = (resolve("20_new_runs/domain_gate_false_refusal_2026-08-29"
+                  "/domain_gate_false_refusal.json"))
     if not src.is_file():
         return {}
     d = json.loads(src.read_text(encoding="utf-8"))["false_refusal"]
@@ -87,14 +89,14 @@ def main() -> int:
                     help="which tier(s) constitute the released selection")
     args = ap.parse_args()
     RUN.mkdir(parents=True, exist_ok=True)
-    registry = ArtifactRegistry(RUN / "artifact_registry.jsonl")
+    registry = ArtifactRegistry(under("20_new_runs/g6_selection_2026-09-02", "artifact_registry.jsonl"))
 
     contract = yaml.safe_load(CONTRACT.read_text(encoding="utf-8"))
     registry.record_file_access(FileAccessEntry(
         reader="run_g6_on_np_library", file_path=str(CONTRACT),
         purpose="G6 contract definition"))
 
-    ranking = FUNNEL / "e8_np_library_prioritization.csv"
+    ranking = under("20_new_runs/np_library_funnel_2026-08-15", "e8_np_library_prioritization.csv")
     df = pd.read_csv(ranking)
     sel_tiers = (["A_converging_sbdd_lbdd"] if args.tier == "A"
                  else ["A_converging_sbdd_lbdd", "B_strong_sbdd_lbdd_null"])
@@ -114,7 +116,7 @@ def main() -> int:
 
     # Multi-space applicability, computed on the redocked compounds themselves
     # (ad_sweep_expanded_2026-08-21), not inherited from the 236-compound run.
-    cov = pd.read_csv(ADSWEEP / "ad_coverage_by_descriptor.csv")
+    cov = pd.read_csv(under("20_new_runs/ad_sweep_expanded_2026-08-21", "ad_coverage_by_descriptor.csv"))
     # _domain_gate_bias_probe expects one dict per space, not a bare float --
     # it is written against the row shape ad_descriptor_sweep.py emits.
     by_space = {
@@ -139,7 +141,7 @@ def main() -> int:
             "by_tier": selected.tier.value_counts().to_dict(),
             "evaluated_on_pocket": int(((df.status == "ok") & (df.on_pocket == True)).sum()),  # noqa: E712
         },
-        "selection_script_hash": sha256_file(ROOT / "10_new_system/scripts/e8_prioritization.py"),
+        "selection_script_hash": sha256_file(resolve("10_new_system/scripts/e8_prioritization.py")),
         # applicability_domain_false_refusal, added to the contract at
         # v1.3.0 (ADR-AIIM-147). Panel and separation statement come from
         # the probe's own run rather than being restated here, so the gate
@@ -165,7 +167,7 @@ def main() -> int:
         "contract": contract.get("contract_id"),
         "contract_version": contract.get("version"),
         "ranking_sha256": sha256_file(ranking),
-        "ad_source": str(ADSWEEP / "ad_coverage_by_descriptor.csv"),
+        "ad_source": str(under("20_new_runs/ad_sweep_expanded_2026-08-21", "ad_coverage_by_descriptor.csv")),
         "ad_by_space": by_space,
         "inputs_deliberately_absent": {
             "registered_selection_script_hash":

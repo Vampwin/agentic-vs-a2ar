@@ -29,7 +29,7 @@ so no copyleft term propagates to the code in `pipeline/`.
 | matplotlib | PSF-derived (BSD-compatible) | none |
 | PyYAML, pytest | MIT | none |
 | AutoDock Vina Python bindings | Apache-2.0 | none; retain the NOTICE if Vina source is ever vendored |
-| Meeko | **[CONFIRM]** — believed LGPL-2.1 | if LGPL, importing it is dynamic linking, which LGPL permits for non-LGPL code; confirm before publishing |
+| Meeko 0.3.3 | Apache-2.0 | none. **Confirmed 2026-09-13** by reading the installed distribution's own metadata in the WSL `diffdock` environment, which is where it runs. The earlier entry here guessed LGPL-2.1; it is not, so the concern it raised does not arise. Meeko is imported in process by `g4_dock_library.py` and `run_snp_screen.py`, so this mattered. |
 
 **The data question is the one that actually bites.**
 

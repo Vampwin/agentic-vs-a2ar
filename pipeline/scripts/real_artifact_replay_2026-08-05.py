@@ -43,6 +43,7 @@ import json
 import shutil
 import sys
 from pathlib import Path
+from kdss_paths import project_root, resolve, under, dev_dir
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
@@ -51,11 +52,11 @@ from rdkit import Chem
 
 from evaluators import G0_evaluator, G1_evaluator, G3_evaluator, G4_evaluator
 
-FROZEN = Path(r"D:/Agentic VS Workflow/02_frozen_inputs")
-PROD_RUN = Path(r"D:/Agentic VS Workflow/20_new_runs/snp_screen_2026-08-04")
-CALIB_DIR = Path(r"D:/Agentic VS Workflow/20_new_runs/g3_validation_study_2026-08-04")
-OUT_DIR = Path(r"D:/Agentic VS Workflow/20_new_runs/real_artifact_replay_2026-08-05")
-CONTRACTS = Path(r"D:/Agentic VS Workflow/10_new_system/contracts")
+FROZEN = dev_dir("02_frozen_inputs")
+PROD_RUN = resolve("20_new_runs/snp_screen_2026-08-04")
+CALIB_DIR = resolve("20_new_runs/g3_validation_study_2026-08-04")
+OUT_DIR = resolve("20_new_runs/real_artifact_replay_2026-08-05")
+CONTRACTS = resolve("10_new_system/contracts")
 
 import yaml
 
@@ -206,7 +207,7 @@ def replay_g3() -> None:
     ws.mkdir(parents=True, exist_ok=True)
     g3_dir = PROD_RUN / "G3_redocking"
     real_poses_sdf = g3_dir / "ZMA_redocked_4EIY.sdf"
-    reference_sdf = Path(r"D:/Agentic VS Workflow/04_legacy_evidence/redocking/ZMA_crystal_4EIY.sdf")
+    reference_sdf = resolve("04_legacy_evidence/redocking/ZMA_crystal_4EIY.sdf")
     if not reference_sdf.is_file():
         log("G3: could not locate ZMA_crystal_4EIY.sdf; skipping")
         return

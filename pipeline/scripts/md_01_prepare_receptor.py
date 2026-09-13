@@ -34,9 +34,10 @@ import hashlib
 import json
 from collections import Counter
 from pathlib import Path
+from kdss_paths import project_root, resolve, under
 
-ROOT = Path(r"D:\Agentic VS Workflow")
-PDB_IN = ROOT / "02_frozen_inputs/a2ar_structures/4EIY.pdb"
+ROOT = project_root()
+PDB_IN = resolve("02_frozen_inputs/a2ar_structures/4EIY.pdb")
 
 BRIL_RANGE = (1001, 1106)          # read from SEQADV/ATOM blocks, see §1.1
 DROP_HET = {"OLA", "OLC", "OLB", "PEG", "CLR"}
@@ -50,7 +51,7 @@ def sha256(path: Path) -> str:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--out", default=str(ROOT / "20_new_runs/md_benchmark_2026-08-21/01_receptor"))
+    ap.add_argument("--out", default=str(resolve("20_new_runs/md_benchmark_2026-08-21/01_receptor")))
     args = ap.parse_args()
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)

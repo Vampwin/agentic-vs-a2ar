@@ -31,18 +31,20 @@ import argparse
 import json
 import subprocess
 from pathlib import Path
+from kdss_paths import project_root, resolve, under, wsl_root
 
 
 def _root() -> Path:
-    marker = "00_project_control/08_DECISION_LOG.md"
-    for cand in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (cand / marker).is_file():
-            return cand
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-BASE = ROOT / "20_new_runs/md_candidates_2026-08-22"
+BASE = resolve("20_new_runs/md_candidates_2026-08-22")
 COMPOUNDS = ["NPLIB01185", "NPLIB01643", "NPLIB03056"]
 REPS = [1, 2, 3]
 GMX = "/opt/gromacs/2026.3-cuda13.1-sm120/bin/gmx"
@@ -107,7 +109,7 @@ def main() -> int:
                 encoding="utf-8")
             xvg = d / "pocket_start_dist.xvg"
             if not xvg.is_file():
-                cmd = ("cd '/mnt/d/Agentic VS Workflow' && printf 'Pocket\\nLigand\\n' | "
+                cmd = ("cd {wsl_root()!r} && printf 'Pocket\\nLigand\\n' | "
                        f"{GMX} mindist -s '{(run / f'prod_r{r}.tpr').relative_to(ROOT).as_posix()}' "
                        f"-f '{(run / f'prod_r{r}.xtc').relative_to(ROOT).as_posix()}' "
                        f"-n '{ndx.relative_to(ROOT).as_posix()}' "
@@ -135,7 +137,7 @@ def main() -> int:
                   f"max {s['max_A']:.2f}  final {s['final_A']:.2f} Å   "
                   f"beyond 10 Å: {s['frames_beyond_10A']} of {s['n_frames']}")
 
-    out = ROOT / "20_new_runs/md_pose_persistence_2026-08-31"
+    out = resolve("20_new_runs/md_pose_persistence_2026-08-31")
     out.mkdir(parents=True, exist_ok=True)
     (out / "pocket_occupancy.json").write_text(json.dumps({
         "question": "Is the ligand still in the site it was docked into?",

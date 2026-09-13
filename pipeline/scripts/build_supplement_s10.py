@@ -21,19 +21,21 @@ import hashlib
 import json
 import shutil
 from pathlib import Path
+from kdss_paths import project_root, resolve, under, dev_dir
 
 
 def _root() -> Path:
-    marker = "00_project_control/08_DECISION_LOG.md"
-    for cand in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (cand / marker).is_file():
-            return cand
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-RUNS = ROOT / "20_new_runs"
-DEST = ROOT / "30_manuscript/supplement/S10_verification_2026-08-21"
+RUNS = dev_dir("20_new_runs")
+DEST = resolve("30_manuscript/supplement/S10_verification_2026-08-21")
 
 # (source relative to 20_new_runs, subfolder in S10, what it supports)
 def not_here_block() -> list[str]:
@@ -371,9 +373,45 @@ ITEMS: list[tuple[str, str, str]] = [
     ("qsar_calibration_2026-08-26/reliability_curve.csv",
      "qsar_calibration", "§2.4: the ten-bin reliability curve, including the two bins "
      "the Tier-A probabilities fall in"),
-]
-
-# Hand-authored, not copied from a run directory, but still manifest-listed so
+    # --- added 2026-09-13: read by g8_number_traceability.py but not shipped -
+    ("ad_descriptor_sweep_2026-08-15/ad_coverage_by_descriptor.csv",
+     "applicability_domain", "§3.3 and the graphical abstract: per-space coverage "
+     "for the 236-compound SNP-Lib itself -- 0 % in four structural spaces and "
+     "152 of 236 (64.4 %) physicochemically. Distinct from the expanded "
+     "selection's table beside it, and the file the graphical abstract was "
+     "corrected against (ADR-AIIM-175)"),
+    ("redock_9xt_2026-09-05/scores_control.csv",
+     "structure_checks", "§3.6: the ZM241385 control arm that gates the "
+     "ligand-transfer redocking"),
+    ("redock_9xt_2026-09-05/scores_T1.csv",
+     "structure_checks", "§3.6: 9XT redocked into 5OLH, the structure solved "
+     "with it -- 0.216 A"),
+    ("redock_9xt_2026-09-05/scores_T2.csv",
+     "structure_checks", "§3.6: the same ligand into 4EIY, a structure solved "
+     "with a different one -- 9.606 A"),
+    ("redock_9xt_2026-09-05/poses_T2/9XT.sdf",
+     "structure_checks", "§3.6: the failing pose itself, so the 9.606 A is a "
+     "geometry a reader can inspect rather than a number to accept"),
+    ("WP2.5_WP3A_readiness_2026-07-30/ood_fit_summary.json",
+     "learned_monitor", "§3.2: the isolation-forest applicability-domain "
+     "detector as fitted, including the contamination setting its saturation "
+     "behaviour follows from"),
+    ("WP2.5_WP3A_readiness_2026-07-30/wp4_conditions_ac_results.json",
+     "seeded_defects", "the pre-recount conditions A and C, published so the "
+     "denominator correction of ADR-AIIM-131 can be checked against its input"),
+    ("np_library_funnel_2026-08-15/funnel_metadata.json",
+     "released_result", "§2.6: the funnel's own record of what entered each "
+     "stage and what the cutoffs were"),
+    ("md_production_2026-08-21/03_build/system_gmx.gro",
+     "structure_checks", "§2.9: the assembled membrane system the simulation "
+     "reads. The atom, lipid, water and restraint counts the Methods quote are "
+     "counted from this file rather than reported from the build log"),
+    ("snp_screen_2026-08-04/G1_standardization/snp_source_ledger.csv",
+     "released_result", "the 236-compound SNP-Lib accountability ledger as G1 "
+     "produced it. Deposited 2026-09-13 because 42 tests in the fault-injection "
+     "suite seed their workspaces from it: without it the suite cannot run from "
+     "this deposit, which is the only place a reader can run it"),
+]# Hand-authored, not copied from a run directory, but still manifest-listed so
 # that the manuscript's claim -- every file in S10 carries a SHA-256 in the
 # section manifest -- is true of the whole section rather than most of it.
 HAND_AUTHORED: list[tuple[str, str]] = [
@@ -505,8 +543,8 @@ def main() -> int:
         raise SystemExit("manifest lists the same path more than once:\n  "
                          + "\n  ".join(dupes))
 
-    (DEST / "README.md").write_text("\n".join(readme), encoding="utf-8")
-    (DEST / "MANIFEST.json").write_text(
+    (under("30_manuscript/supplement/S10_verification_2026-08-21", "README.md")).write_text("\n".join(readme), encoding="utf-8")
+    (under("30_manuscript/supplement/S10_verification_2026-08-21", "MANIFEST.json")).write_text(
         json.dumps({"assembled": "2026-08-21, extended 2026-08-24",
                     "n_files": len(manifest),
                     "total_bytes": total, "missing_sources": missing,
@@ -522,3 +560,26 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+
+def origin_map() -> dict[str, str]:
+    """S10-relative path -> the development-tree path it was copied from.
+
+    The deposit reaches most of its evidence through this bundle rather than
+    from `20_new_runs/` directly, so a reader who has only the deposit cannot
+    get from a path the scripts name to the file that answers to it. This is
+    the missing half of that chain; `build_deposit.py` writes it out as
+    `PATH_MAP.json` and `kdss_paths.resolve()` reads it.
+
+    The destination-naming rule is the one `main()` applies, including the
+    prefixing of colliding basenames, and is derived from `ITEMS` rather than
+    restated, so the two cannot drift apart.
+    """
+    from collections import Counter
+    colliding = Counter((sub, Path(rel).name) for rel, sub, _ in ITEMS)
+    out: dict[str, str] = {}
+    for rel, sub, _ in ITEMS:
+        name = Path(rel).name
+        dst = f"{Path(rel).parent.name}_{name}" if colliding[(sub, name)] > 1 else name
+        out[f"{sub}/{dst}"] = f"20_new_runs/{rel}"
+    return out

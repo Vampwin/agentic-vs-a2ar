@@ -53,18 +53,20 @@ from __future__ import annotations
 import argparse
 import re
 from pathlib import Path
+from kdss_paths import project_root, resolve, under
 
 
 def _root() -> Path:
-    marker = "00_project_control/08_DECISION_LOG.md"
-    for cand in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (cand / marker).is_file():
-            return cand
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-MS = ROOT / "30_manuscript/CURRENT_v5/manuscript_AIIM_v6.md"
+MS = resolve("30_manuscript/CURRENT_v5/manuscript_AIIM_v6.md")
 
 # --------------------------------------------------------------------------
 # The bibliography. Keys are the markers used in CITES below.

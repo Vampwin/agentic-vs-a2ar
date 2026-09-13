@@ -40,6 +40,7 @@ import shutil
 import sys
 import tempfile
 from pathlib import Path
+from kdss_paths import project_root, resolve, under, dev_dir
 
 import pandas as pd
 
@@ -55,16 +56,17 @@ DETECTED_STATES = {"HALT"}
 
 
 def _root() -> Path:
-    marker = "00_project_control/08_DECISION_LOG.md"
-    for cand in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (cand / marker).is_file():
-            return cand
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-RUNS = ROOT / "20_new_runs"
-PREVIOUS = RUNS / "naive_baseline_2026-08-10"
+RUNS = dev_dir("20_new_runs")
+PREVIOUS = under("20_new_runs", "naive_baseline_2026-08-10")
 sys.path.insert(0, str(ROOT / "10_new_system"))
 
 from fault_injection import pilot_runner as pr           # noqa: E402
@@ -107,7 +109,7 @@ def run_case(family_id: str, idx: int, is_clean: bool, ws_parent: Path) -> dict:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--out", default=str(RUNS / "naive_baseline_2026-08-29"))
+    ap.add_argument("--out", default=str(under("20_new_runs", "naive_baseline_2026-08-29")))
     ap.add_argument("--keep-workspaces", action="store_true")
     args = ap.parse_args()
     out = Path(args.out)

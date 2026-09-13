@@ -1,5 +1,5 @@
 {
-  "manuscript": "D:/Agentic VS Workflow/30_manuscript/CURRENT_v5/manuscript_AIIM_v6.md",
+  "manuscript": "30_manuscript/CURRENT_v5/manuscript_AIIM_v6.md",
   "state": "FAIL",
   "n_checks": 290,
   "n_pass": 289,
@@ -2488,39 +2488,39 @@
       "check": "deposit_files",
       "state": "PASS",
       "expected": [
-        365,
-        13.1
+        377,
+        17.6
       ],
       "recomputed": [
-        365,
-        13.1
+        377,
+        17.6
       ],
       "literal_present_in_manuscript": true,
-      "literal": "365 files, 13.1 MB"
+      "literal": "377 files, 17.6 MB"
     },
     {
       "check": "deposit_manifest_n",
       "state": "PASS",
-      "expected": 360,
-      "recomputed": 360,
+      "expected": 369,
+      "recomputed": 369,
       "literal_present_in_manuscript": true,
-      "literal": "SHA-256 of each of the 360 deposited artifacts"
+      "literal": "SHA-256 of each of the 369 deposited artifacts"
     },
     {
       "check": "deposit_manifest_gap",
       "state": "PASS",
-      "expected": 5,
-      "recomputed": 5,
+      "expected": 8,
+      "recomputed": 8,
       "literal_present_in_manuscript": true,
-      "literal": "the five files it omits"
+      "literal": "the 8 files it omits"
     },
     {
       "check": "s10_manifest_n",
       "state": "PASS",
-      "expected": 89,
-      "recomputed": 89,
+      "expected": 99,
+      "recomputed": 99,
       "literal_present_in_manuscript": true,
-      "literal": "89 entries covering"
+      "literal": "99 entries covering"
     },
     {
       "check": "citation_integrity",

@@ -55,8 +55,9 @@ Run inside PyMOL (not as a plain Python script):
     pymol -cq render_pose_overlay_pymol.py
 """
 from pymol import cmd
+from kdss_paths import project_root, resolve, under
 
-ROOT = "/mnt/d/Agentic VS Workflow"
+ROOT = wsl_root()
 RECEPTOR = f"{ROOT}/20_new_runs/snp_screen_2026-08-04/G2_preparation/4EIY_protein_plus_waters.pdb"
 ZMA_CRYSTAL = f"{ROOT}/20_new_runs/snp_screen_2026-08-04/G2_preparation/ZMA_reference_4EIY.sdf"
 ZMA_VINA = f"{ROOT}/20_new_runs/snp_screen_2026-08-04/G3_redocking/ZMA_redocked_4EIY.sdf"

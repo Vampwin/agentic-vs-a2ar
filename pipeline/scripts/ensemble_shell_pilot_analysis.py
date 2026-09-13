@@ -26,14 +26,15 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+from kdss_paths import project_root, resolve, under
 
 import numpy as np
 import pandas as pd
 from rdkit.ML.Scoring import Scoring
 
-ROOT = Path(r"D:\Agentic VS Workflow")
-PILOT = ROOT / "20_new_runs/ensemble_shell_pilot_2026-08-15"
-CUT5_SCORES = ROOT / "20_new_runs/chembl245_ifp_rescoring_2026-08-15/scores.csv"
+ROOT = project_root()
+PILOT = resolve("20_new_runs/ensemble_shell_pilot_2026-08-15")
+CUT5_SCORES = resolve("20_new_runs/chembl245_ifp_rescoring_2026-08-15/scores.csv")
 
 BOOTSTRAP_N, BOOTSTRAP_SEED = 1000, 42
 EF_FRACTIONS = [0.01, 0.05, 0.10]
@@ -99,11 +100,11 @@ def paired_delta_ci(sl_a, sl_b, n_boot=BOOTSTRAP_N, seed=BOOTSTRAP_SEED):
 
 
 def main() -> int:
-    prereg = json.loads((PILOT / "PREREGISTRATION.json").read_text())
-    ledger = pd.read_csv(PILOT / "pilot_ledger.csv")
+    prereg = json.loads((under("20_new_runs/ensemble_shell_pilot_2026-08-15", "PREREGISTRATION.json")).read_text())
+    ledger = pd.read_csv(under("20_new_runs/ensemble_shell_pilot_2026-08-15", "pilot_ledger.csv"))
     labels = dict(zip(ledger["compound_id"].astype(str), ledger["label"].astype(int)))
 
-    cut3 = pd.read_csv(PILOT / "scores_cut3.csv")
+    cut3 = pd.read_csv(under("20_new_runs/ensemble_shell_pilot_2026-08-15", "scores_cut3.csv"))
     cut3 = cut3[cut3["status"] == "ok"][["compound_id", "vina_score"]]
     cut3.columns = ["compound_id", "vina_cut3"]
 
@@ -171,8 +172,8 @@ def main() -> int:
         "threshold_met": bool(meets),
         "decision": verdict,
     }
-    (PILOT / "pilot_result.json").write_text(json.dumps(out, indent=2, default=str))
-    df.to_csv(PILOT / "pilot_per_compound.csv", index=False)
+    (under("20_new_runs/ensemble_shell_pilot_2026-08-15", "pilot_result.json")).write_text(json.dumps(out, indent=2, default=str))
+    df.to_csv(under("20_new_runs/ensemble_shell_pilot_2026-08-15", "pilot_per_compound.csv"), index=False)
     print(f"\nwritten -> {PILOT}")
     return 0
 

@@ -21,21 +21,29 @@ import json
 import re
 import sys
 from pathlib import Path
+from kdss_paths import PathNotInDeposit, project_root, resolve, under, dev_dir
 
 import pandas as pd
 
 
 def _root() -> Path:
-    marker = "00_project_control/08_DECISION_LOG.md"
-    for cand in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (cand / marker).is_file():
-            return cand
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-RUNS = ROOT / "20_new_runs"
-DEFAULT_MS = ROOT / "30_manuscript/CURRENT_v5/manuscript_AIIM_v6.md"
+RUNS = dev_dir("20_new_runs")
+# The manuscript is not part of the deposit and cannot be: this script checks
+# the manuscript's text against the artifacts, so in a deposit the text is the
+# half a reader brings. `--manuscript` is then required rather than defaulted.
+try:
+    DEFAULT_MS = resolve("30_manuscript/CURRENT_v5/manuscript_AIIM_v6.md")
+except PathNotInDeposit:
+    DEFAULT_MS = None
 
 
 def _json(p: Path):
@@ -48,7 +56,7 @@ def _md_system() -> dict:
     The Methods section quotes an atom count, a lipid count, a water count and
     a restraint count. None of those is taken on trust here: each is counted
     from the file the simulation actually reads."""
-    b = RUNS / "md_production_2026-08-21/03_build"
+    b = under("20_new_runs", "md_production_2026-08-21/03_build")
     gro = (b / "system_gmx.gro").read_text(encoding="utf-8").splitlines()
     n = int(gro[1])
     resnames = [gro[2 + i][5:10].strip() for i in range(n)]
@@ -66,8 +74,9 @@ def _md_system() -> dict:
     # indistinguishable from bulk solvent by the time the system is
     # parameterised. The count belongs to the receptor-preparation step, and
     # is read from that step's own metadata.
-    prep = _json(RUNS / "md_production_2026-08-21/01_receptor/"
-                        "receptor_prep_v2_metadata.json")
+    prep = _json(under("20_new_runs",
+                       "md_production_2026-08-21/01_receptor/"
+                       "receptor_prep_v2_metadata.json"))
     return {"n_atoms": n,
             "n_popc_headgroups": resnames.count("PC"),
             "n_water": n_water_atoms // 4,
@@ -82,9 +91,13 @@ def _md_system() -> dict:
 def _collect_test_count() -> int:
     """Ask pytest how many tests it collects. Not a transcribed number."""
     import subprocess
+    # `10_new_system/` here, `pipeline/` in a deposit: the directory holding
+    # `tests/`, which is also the one the suite expects as its working
+    # directory because several tests open contract files by relative path.
+    suite = Path(__file__).resolve().parent.parent
     r = subprocess.run(
         [sys.executable, "-m", "pytest", "--collect-only", "-q", "tests/"],
-        cwd=str(ROOT / "10_new_system"), capture_output=True, text=True)
+        cwd=str(suite), capture_output=True, text=True)
     for line in reversed(r.stdout.splitlines()):
         if "test" in line and "collected" in line:
             return int(line.split()[0])
@@ -96,21 +109,21 @@ def _collect_test_count() -> int:
 
 
 def sources() -> dict[str, object]:
-    e8 = pd.read_csv(RUNS / "np_library_funnel_2026-08-15/e8_np_library_prioritization.csv")
-    cov = pd.read_csv(RUNS / "ad_sweep_expanded_2026-08-21/ad_coverage_by_descriptor.csv"
+    e8 = pd.read_csv(under("20_new_runs", "np_library_funnel_2026-08-15/e8_np_library_prioritization.csv"))
+    cov = pd.read_csv(under("20_new_runs", "ad_sweep_expanded_2026-08-21/ad_coverage_by_descriptor.csv")
                       ).set_index("descriptor_space")
-    per = pd.read_csv(RUNS / "ad_sweep_expanded_2026-08-21/ad_per_compound.csv")
+    per = pd.read_csv(under("20_new_runs", "ad_sweep_expanded_2026-08-21/ad_per_compound.csv"))
     # Percentile positions inside each space's own training self-similarity
     # distribution. ADR-AIIM-126: the 2026-08-25 re-run reproduces the
     # 2026-08-21 outputs exactly, so this file is an addition to that run
     # rather than a replacement for it.
-    pct = pd.read_csv(RUNS / "ad_sweep_selfsim_2026-08-25/ad_percentile_position.csv")
+    pct = pd.read_csv(under("20_new_runs", "ad_sweep_selfsim_2026-08-25/ad_percentile_position.csv"))
     # The 236-compound orchid library's own sweep. Distinct from `cov`, which is
     # the 497-compound expanded selection: the two share their four structural
     # zeros but not their physicochemical coverage (64.4 % against 86.3 %), and
     # an unaudited graphical abstract carried the expanded number against the
     # 236 library until 2026-09-10.
-    cov236 = pd.read_csv(RUNS / "ad_descriptor_sweep_2026-08-15/ad_coverage_by_descriptor.csv"
+    cov236 = pd.read_csv(under("20_new_runs", "ad_descriptor_sweep_2026-08-15/ad_coverage_by_descriptor.csv")
                          ).set_index("descriptor_space")
     return {
         "e8": e8,
@@ -118,125 +131,125 @@ def sources() -> dict[str, object]:
         "cov236": cov236,
         "per": per,
         "pct": pct,
-        "mut": _json(RUNS / "seeded_defect_recount_2026-08-29/"
-                     "mutation_score_by_gate_recounted.json"),
-        "meta": _json(RUNS / "metamorphic_2026-08-21/metamorphic_results.json"),
-        "yrand": _json(RUNS / "qsar_lbdd_2026-08-07/qsar_y_randomization.json"),
-        "funnel": _json(RUNS / "funnel_exclusion_control_2026-08-21/exclusion_control_summary.json"),
-        "tierA": _json(RUNS / "np_library_funnel_2026-08-15/tierA_convergence_analysis.json"),
-        "struct": _json(RUNS / "verification_summary_2026-08-21/structure_and_protocol_checks.json"),
-        "boxchk": _json(RUNS / "verification_summary_2026-08-21/box_and_cutoff_checks.json"),
-        "conf": _json(RUNS / "np_library_funnel_2026-08-15/"
-                      "conformal_qsar_summary_np_library_dock_ledger.json"),
+        "mut": _json(under("20_new_runs", "seeded_defect_recount_2026-08-29/"
+                     "mutation_score_by_gate_recounted.json")),
+        "meta": _json(under("20_new_runs", "metamorphic_2026-08-21/metamorphic_results.json")),
+        "yrand": _json(under("20_new_runs", "qsar_lbdd_2026-08-07/qsar_y_randomization.json")),
+        "funnel": _json(under("20_new_runs", "funnel_exclusion_control_2026-08-21/exclusion_control_summary.json")),
+        "tierA": _json(under("20_new_runs", "np_library_funnel_2026-08-15/tierA_convergence_analysis.json")),
+        "struct": _json(under("20_new_runs", "verification_summary_2026-08-21/structure_and_protocol_checks.json")),
+        "boxchk": _json(under("20_new_runs", "verification_summary_2026-08-21/box_and_cutoff_checks.json")),
+        "conf": _json(under("20_new_runs", "np_library_funnel_2026-08-15/"
+                      "conformal_qsar_summary_np_library_dock_ledger.json")),
         # C3 / C4, ADR-AIIM-137
-        "cdiag": _json(RUNS / "conformal_diagnostics_2026-08-25/"
-                       "conformal_diagnostics.json"),
-        "fpcorr": _json(RUNS / "fastpass_correlation_2026-08-25/"
-                        "fastpass_correlation.json"),
+        "cdiag": _json(under("20_new_runs", "conformal_diagnostics_2026-08-25/"
+                       "conformal_diagnostics.json")),
+        "fpcorr": _json(under("20_new_runs", "fastpass_correlation_2026-08-25/"
+                        "fastpass_correlation.json")),
         # m4 / m5, ADR-AIIM-140
-        "qcal": _json(RUNS / "qsar_calibration_2026-08-26/qsar_calibration.json"),
+        "qcal": _json(under("20_new_runs", "qsar_calibration_2026-08-26/qsar_calibration.json")),
         # m11, fragment decomposition of the DiffDock control gate
-        "frag": _json(RUNS / "control_pose_fragments_2026-08-28/"
-                      "control_pose_fragments.json"),
+        "frag": _json(under("20_new_runs", "control_pose_fragments_2026-08-28/"
+                      "control_pose_fragments.json")),
         # m10, what kind of disagreement each RMSD describes
-        "posegeom": _json(RUNS / "pose_disagreement_2026-08-29/"
-                          "pose_disagreement_geometry.json"),
+        "posegeom": _json(under("20_new_runs", "pose_disagreement_2026-08-29/"
+                          "pose_disagreement_geometry.json")),
         # Collected by pytest itself. The manuscript quotes this figure in
         # three places and nothing checked it; it was 675 and silently became
         # 681 when C1 added tests.
         "ntests": _collect_test_count(),
         # M9, the reweighting half. ADR-AIIM-150; R4 still answers recall
         # at full protocol and is not superseded by this.
-        "frw": _json(RUNS / "funnel_recall_reweighted_2026-08-31/"
-                     "funnel_recall_reweighted.json"),
+        "frw": _json(under("20_new_runs", "funnel_recall_reweighted_2026-08-31/"
+                     "funnel_recall_reweighted.json")),
         # Pose persistence of the three candidates, nine replicates
         # (ADR-AIIM-146 decision 2). Section 3.6, 4 and 5.
-        "mdp": _json(RUNS / "md_pose_persistence_2026-08-31/"
-                     "md_pose_persistence.json"),
+        "mdp": _json(under("20_new_runs", "md_pose_persistence_2026-08-31/"
+                     "md_pose_persistence.json")),
         # Pocket occupancy, the PBC-proof measurement (ADR-AIIM-156).
-        "occ": _json(RUNS / "md_pose_persistence_2026-08-31/"
-                     "pocket_occupancy.json"),
-        "motif": _json(RUNS / "md_recognition_motif_2026-09-02/"
-                       "recognition_motif.json"),
-        "tbase": _json(RUNS / "trivial_baseline_2026-09-03/trivial_baseline.json"),
-        "pval": _json(RUNS / "pose_validity_2026-09-03/pose_validity.json"),
-        "clin": _json(RUNS / "clinical_reference_2026-09-03/clinical_reference.json"),
-        "xdock": _json(RUNS / "crossdock_zma_2026-09-03/crossdock_zma.json"),
+        "occ": _json(under("20_new_runs", "md_pose_persistence_2026-08-31/"
+                     "pocket_occupancy.json")),
+        "motif": _json(under("20_new_runs", "md_recognition_motif_2026-09-02/"
+                       "recognition_motif.json")),
+        "tbase": _json(under("20_new_runs", "trivial_baseline_2026-09-03/trivial_baseline.json")),
+        "pval": _json(under("20_new_runs", "pose_validity_2026-09-03/pose_validity.json")),
+        "clin": _json(under("20_new_runs", "clinical_reference_2026-09-03/clinical_reference.json")),
+        "xdock": _json(under("20_new_runs", "crossdock_zma_2026-09-03/crossdock_zma.json")),
         # Redocking with the LIGAND changed, not the receptor.
         # ADR-AIIM-168. Sections 3.6 and 4.
-        "ltr": _json(RUNS / "redock_9xt_2026-09-05/"
-                     "redock_ligand_transfer.json"),
-        "ltrprep": _json(RUNS / "redock_9xt_2026-09-05/prep.json"),
+        "ltr": _json(under("20_new_runs", "redock_9xt_2026-09-05/"
+                     "redock_ligand_transfer.json")),
+        "ltrprep": _json(under("20_new_runs", "redock_9xt_2026-09-05/prep.json")),
         # Written out rather than built with an f-string: the evidence index
         # resolves these paths statically, and a computed name is invisible to
         # it (E7 on 2026-09-05).
         "ltrs": {
-            "control": pd.read_csv(RUNS / "redock_9xt_2026-09-05/scores_control.csv"),
-            "T1": pd.read_csv(RUNS / "redock_9xt_2026-09-05/scores_T1.csv"),
-            "T2": pd.read_csv(RUNS / "redock_9xt_2026-09-05/scores_T2.csv"),
+            "control": pd.read_csv(under("20_new_runs", "redock_9xt_2026-09-05/scores_control.csv")),
+            "T1": pd.read_csv(under("20_new_runs", "redock_9xt_2026-09-05/scores_T1.csv")),
+            "T2": pd.read_csv(under("20_new_runs", "redock_9xt_2026-09-05/scores_T2.csv")),
         },
-        "ltrposes": (RUNS / "redock_9xt_2026-09-05/poses_T2/9XT.sdf"),
+        "ltrposes": (under("20_new_runs", "redock_9xt_2026-09-05/poses_T2/9XT.sdf")),
         # Applicability-domain detector: what it was, and was not, able to
         # detect. ADR-AIIM-171. Sections 2.1 and 4.
-        "oodp": _json(RUNS / "ood_sensitivity_2026-09-05/ood_sensitivity.json"),
+        "oodp": _json(under("20_new_runs", "ood_sensitivity_2026-09-05/ood_sensitivity.json")),
         # The one property filter in this work, and what it removed.
         # ADR-AIIM-006 forbids drug-likeness exclusions; section 2.3.
-        "fmeta": _json(RUNS / "np_library_funnel_2026-08-15/funnel_metadata.json"),
-        "oodfit": _json(RUNS / "WP2.5_WP3A_readiness_2026-07-30/ood_fit_summary.json"),
-        "oodabl": (RUNS / "WP2.5_WP3A_readiness_2026-07-30/wp4_conditions_ac_results.json"),
-        "bench": pd.read_csv(ROOT / "02_frozen_inputs/public_benchmarks/"
-                             "chembl_a2ar/chembl_a2a_raw_v2.csv"),
-        "benchlab": pd.read_csv(RUNS / "chembl245_ifp_rescoring_2026-08-15/"
-                                "ifp_rescoring_per_compound.csv"),
+        "fmeta": _json(under("20_new_runs", "np_library_funnel_2026-08-15/funnel_metadata.json")),
+        "oodfit": _json(under("20_new_runs", "WP2.5_WP3A_readiness_2026-07-30/ood_fit_summary.json")),
+        "oodabl": (under("20_new_runs", "WP2.5_WP3A_readiness_2026-07-30/wp4_conditions_ac_results.json")),
+        "bench": pd.read_csv(resolve("02_frozen_inputs/public_benchmarks/"
+                             "chembl_a2ar/chembl_a2a_raw_v2.csv")),
+        "benchlab": pd.read_csv(under("20_new_runs", "chembl245_ifp_rescoring_2026-08-15/"
+                                "ifp_rescoring_per_compound.csv")),
         # C1 / ADR-AIIM-147. What the applicability-domain gate does to known
         # actives whose scaffolds it has never seen -- the mechanism the
         # manuscript described and no code performed until 2026-08-29.
-        "fref": _json(RUNS / "domain_gate_false_refusal_2026-08-29/"
-                      "domain_gate_false_refusal.json"),
+        "fref": _json(under("20_new_runs", "domain_gate_false_refusal_2026-08-29/"
+                      "domain_gate_false_refusal.json")),
         # R4, the discarded sample at the production protocol (M9).
-        "r4res": _json(RUNS / "funnel_recall_fullprotocol_2026-09-01/"
-                       "r4_results.json"),
+        "r4res": _json(under("20_new_runs", "funnel_recall_fullprotocol_2026-09-01/"
+                       "r4_results.json")),
         # R2, the 500-compound re-representation (M6). ADR-AIIM-133 fixed
         # the criteria before the run.
-        "r2res": _json(RUNS / "smiles_redock_500_2026-08-26/r2_results.json"),
+        "r2res": _json(under("20_new_runs", "smiles_redock_500_2026-08-26/r2_results.json")),
         # R3, the conformer-budget sweep. ADR-AIIM-133 fixed the criteria
         # before the run; these are the numbers Section 3.1 now reports.
-        "r3": _json(RUNS / "conformer_budget_sweep_2026-08-27/r3_results.json"),
+        "r3": _json(under("20_new_runs", "conformer_budget_sweep_2026-08-27/r3_results.json")),
         # M11 / ADR-AIIM-145. The conditioned and multiplicity-aware versions
         # of the chemical-coherence claim. tierA_pong keeps reading the frozen
         # artifact, as ADR-AIIM-133 requires.
-        "cnull": _json(RUNS / "tierA_conditioned_null_2026-08-29/"
-                       "tierA_conditioned_null.json"),
+        "cnull": _json(under("20_new_runs", "tierA_conditioned_null_2026-08-29/"
+                       "tierA_conditioned_null.json")),
         # The naive-analyst comparator, M1 / ADR-AIIM-131. Section 3.1 sets it
         # against the governed arm in preference to condition D, so it stopped
         # being a footnote and became a load-bearing number.
-        "naive": _json(RUNS / "naive_baseline_2026-08-29/"
-                       "naive_baseline_summary.json"),
+        "naive": _json(under("20_new_runs", "naive_baseline_2026-08-29/"
+                       "naive_baseline_summary.json")),
         # The gate-decision reproducibility claim, checked rather than asserted
         # (ADR-AIIM-142). Section 3.1 and Table 1.
-        "grepro": _json(RUNS / "gate_reproducibility_2026-08-29/"
-                        "gate_reproducibility.json"),
+        "grepro": _json(under("20_new_runs", "gate_reproducibility_2026-08-29/"
+                        "gate_reproducibility.json")),
         # The learned monitor, M10 (ADR-AIIM-137). Section 4 describes it in
         # full for the first time, so its numbers become load-bearing.
-        "mfit": _json(RUNS / "WP2.5_WP3A_readiness_2026-07-30/"
-                      "fit_selected_model_summary.json"),
-        "mcal": _json(RUNS / "WP2.5_WP3A_readiness_2026-07-30/"
-                      "calibration_comparison.json"),
-        "mcmp": _json(RUNS / "WP2.5_WP3A_readiness_2026-07-30/"
-                      "compare_models_dev_data.json"),
-        "mpol": _json(RUNS / "WP2.5_WP3A_readiness_2026-07-30/policy_config.json"),
+        "mfit": _json(under("20_new_runs", "WP2.5_WP3A_readiness_2026-07-30/"
+                      "fit_selected_model_summary.json")),
+        "mcal": _json(under("20_new_runs", "WP2.5_WP3A_readiness_2026-07-30/"
+                      "calibration_comparison.json")),
+        "mcmp": _json(under("20_new_runs", "WP2.5_WP3A_readiness_2026-07-30/"
+                      "compare_models_dev_data.json")),
+        "mpol": _json(under("20_new_runs", "WP2.5_WP3A_readiness_2026-07-30/policy_config.json")),
         # The pose-rescue benchmark behind the Vina baseline, M7.
-        "rescue": _json(RUNS / "chembl245_ifp_rescoring_2026-08-15/"
-                        "ifp_rescoring_summary.json"),
-        "g4": _json(RUNS / "g4_verification_2026-08-21/G4_contract_outcome_passA_cpu6.json"),
+        "rescue": _json(under("20_new_runs", "chembl245_ifp_rescoring_2026-08-15/"
+                        "ifp_rescoring_summary.json")),
+        "g4": _json(under("20_new_runs", "g4_verification_2026-08-21/G4_contract_outcome_passA_cpu6.json")),
         "md": _md_system(),
-        "dd": _json(RUNS / "diffdock_orthogonal_2026-08-23/orthogonal_check_result.json"),
-        "ho": _json(RUNS / "heldout_evaluation_2026-08-08/heldout_evaluation_summary.json"),
+        "dd": _json(under("20_new_runs", "diffdock_orthogonal_2026-08-23/orthogonal_check_result.json")),
+        "ho": _json(under("20_new_runs", "heldout_evaluation_2026-08-08/heldout_evaluation_summary.json")),
         # M4 / ADR-AIIM-135. The five blind cases became a case study, so the
         # checks moved from a rate to the two reasons a rate was wrong.
-        "hocase": _json(RUNS / "heldout_case_analysis_2026-08-29/"
-                        "heldout_case_analysis.json"),
-        "cand": [_json(RUNS / f"md_candidates_2026-08-22/{c}/build_metadata.json")
+        "hocase": _json(under("20_new_runs", "heldout_case_analysis_2026-08-29/"
+                        "heldout_case_analysis.json")),
+        "cand": [_json(under("20_new_runs", f"md_candidates_2026-08-22/{c}/build_metadata.json"))
                  for c in ("NPLIB01185", "NPLIB01643", "NPLIB03056")],
         # Counted from the deposit itself. The Data availability section quotes
         # a file count, and it had already gone stale once (195 against an
@@ -254,8 +267,8 @@ def sources() -> dict[str, object]:
         # 2026-09-12; it is 360 of 365, the gap being the manifest itself, the
         # README, the licence and two git control files. A claim wider than the
         # artifact is the defect class §4 names, and it was in this paper.
-        "dep_manifest": len(_json(ROOT / "40_deposit/MANIFEST.json").get(
-            "files", _json(ROOT / "40_deposit/MANIFEST.json"))),
+        "dep_manifest": len(_json(resolve("40_deposit/MANIFEST.json")).get(
+            "files", _json(resolve("40_deposit/MANIFEST.json")))),
     }
 
 
@@ -348,8 +361,8 @@ def check_figure_provenance() -> list[dict]:
     `figures_png/`, and this was the opposite direction.
     """
     import hashlib as _hl
-    figs = ROOT / "30_manuscript/figures"
-    embed = ROOT / "30_manuscript/CURRENT_v5/figures_png"
+    figs = resolve("30_manuscript/figures")
+    embed = resolve("30_manuscript/CURRENT_v5/figures_png")
     runs = ROOT / "20_new_runs"
 
     def _sha(fp: Path) -> str:
@@ -449,7 +462,7 @@ def check_supplementary_pointers(text: str) -> list[dict]:
     state for a manuscript that promises a reader something it does not supply.
     """
     import re as _re
-    sup = ROOT / "30_manuscript/supplement"
+    sup = resolve("30_manuscript/supplement")
     have = {d.name.split("_")[0] for d in sup.glob("S*") if d.is_dir()}
     out: list[dict] = []
 
@@ -1284,16 +1297,16 @@ def build_checks(S) -> list[tuple[str, str, object, object]]:
     # --- deposit ---------------------------------------------------------------
     add("deposit_files", f"{S['dep']} files, {S['dep_mb']:.1f} MB",
         (S["dep"], S["dep_mb"]), (S["dep"], S["dep_mb"]))
-    add("deposit_manifest_n", "SHA-256 of each of the 360 deposited artifacts",
-        360, S["dep_manifest"])
-    add("deposit_manifest_gap", "the five files it omits", 5,
+    add("deposit_manifest_n", "SHA-256 of each of the 369 deposited artifacts",
+        369, S["dep_manifest"])
+    add("deposit_manifest_gap", "the 8 files it omits", 8,
         S["dep"] - S["dep_manifest"])
     # Same claim, one level down: S10's own manifest. The article said "every
     # file in S10" carries a SHA-256; the manifest cannot hash itself and does
     # not cover the section README.
-    _s10 = ROOT / "30_manuscript/supplement/S10_verification_2026-08-21"
+    _s10 = resolve("30_manuscript/supplement/S10_verification_2026-08-21")
     _s10m = _json(_s10 / "MANIFEST.json")
-    add("s10_manifest_n", "89 entries covering", 89,
+    add("s10_manifest_n", "99 entries covering", 99,
         len(_s10m.get("files", _s10m)))
     return C
 
@@ -1321,7 +1334,10 @@ def strip_non_manuscript(text: str) -> str:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--manuscript", default=str(DEFAULT_MS))
+    ap.add_argument("--manuscript", default=str(DEFAULT_MS) if DEFAULT_MS else None,
+                    required=DEFAULT_MS is None,
+                    help="the manuscript to check. Required in a deposit, "
+                         "which does not carry one.")
     args = ap.parse_args()
     text = Path(args.manuscript).read_text(encoding="utf-8")
     text = strip_non_manuscript(text)
@@ -1432,7 +1448,7 @@ def main() -> int:
           f"{n_absent} value correct but literal not found in the text")
     print(f"total checks: {len(rows)}")
 
-    outp = RUNS / "verification_summary_2026-08-21/g8_number_traceability.json"
+    outp = under("20_new_runs", "verification_summary_2026-08-21/g8_number_traceability.json")
     outp.write_text(json.dumps({
         "manuscript": args.manuscript,
         "state": "PASS" if (n_fail == 0 and n_absent == 0) else "FAIL",

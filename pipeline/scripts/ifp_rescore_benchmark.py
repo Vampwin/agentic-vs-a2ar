@@ -52,6 +52,7 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+from kdss_paths import project_root, resolve, under
 
 import numpy as np
 import pandas as pd
@@ -60,11 +61,11 @@ from rdkit.ML.Scoring import Scoring
 
 RDLogger.DisableLog("rdApp.*")
 
-ROOT = Path(r"D:\Agentic VS Workflow")
-CRYSTAL_PDB = ROOT / "02_frozen_inputs/a2ar_structures/4EIY.pdb"
-RECEPTOR_PDB = (ROOT / "20_new_runs/routeA_water_shell_2026-08-09"
+ROOT = project_root()
+CRYSTAL_PDB = resolve("02_frozen_inputs/a2ar_structures/4EIY.pdb")
+RECEPTOR_PDB = (resolve("20_new_runs/routeA_water_shell_2026-08-09")
                 / "4EIY_cut5_protein_plus_waters.pdb")
-TEMPLATE_SDF = (ROOT / "20_new_runs/routeA_water_shell_2026-08-09"
+TEMPLATE_SDF = (resolve("20_new_runs/routeA_water_shell_2026-08-09")
                / "ZMA_redocked_4EIY_cut5.sdf")
 
 CONTACT, HB = 4.5, 3.5      # frozen geometric cutoffs, see _domain_gate_bias_probe siblings

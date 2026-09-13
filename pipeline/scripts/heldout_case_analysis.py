@@ -40,22 +40,24 @@ import hashlib
 import json
 import math
 from pathlib import Path
+from kdss_paths import project_root, resolve, under, dev_dir
 
 CONFIDENCE = 0.95
 Z = 1.959963984540054   # two-sided normal quantile at 0.95
 
 
 def _root() -> Path:
-    marker = "00_project_control/08_DECISION_LOG.md"
-    for cand in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (cand / marker).is_file():
-            return cand
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-RUNS = ROOT / "20_new_runs"
-HELDOUT = RUNS / "heldout_evaluation_2026-08-08/heldout_evaluation_summary.json"
+RUNS = dev_dir("20_new_runs")
+HELDOUT = under("20_new_runs", "heldout_evaluation_2026-08-08/heldout_evaluation_summary.json")
 RECOUNT = RUNS / ("seeded_defect_recount_2026-08-29/"
                   "mutation_score_by_gate_recounted.json")
 
@@ -78,7 +80,7 @@ def wilson(k: int, n: int, z: float = Z) -> tuple[float, float]:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--out", default=str(RUNS / "heldout_case_analysis_2026-08-29"))
+    ap.add_argument("--out", default=str(under("20_new_runs", "heldout_case_analysis_2026-08-29")))
     args = ap.parse_args()
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)

@@ -30,28 +30,24 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+from kdss_paths import project_root, resolve, under
 
 import numpy as np
 import pandas as pd
 
 def _root() -> Path:
-    """Resolve the project root on either side of the WSL boundary — this
-    script's RDKit dependency lives in the WSL env, but the same code is run
-    from Windows for the analysis half."""
-    # Probe for a known file, not just a directory: running a Windows path
-    # from inside WSL silently CREATES a literal directory of that name, so an
-    # is_dir() test passes against a directory the script itself just made.
-    marker = "00_project_control/08_DECISION_LOG.md"
-    for cand in (Path("/mnt/d/Agentic VS Workflow"), Path(r"D:\Agentic VS Workflow")):
-        if (cand / marker).is_file():
-            return cand
-    raise SystemExit("project root not found on either Windows or WSL path")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-FUNNEL = ROOT / "20_new_runs/np_library_funnel_2026-08-15"
-POOL = ROOT / "02_frozen_inputs/lotus_np_library/lotus_pool_biosynthetic_25604.csv"
-OUT = ROOT / "20_new_runs/funnel_exclusion_control_2026-08-21"
+FUNNEL = resolve("20_new_runs/np_library_funnel_2026-08-15")
+POOL = resolve("02_frozen_inputs/lotus_np_library/lotus_pool_biosynthetic_25604.csv")
+OUT = resolve("20_new_runs/funnel_exclusion_control_2026-08-21")
 
 MW_MAX = 700.0          # identical to the funnel's stage-1 rule
 ROTB_MAX = 10
@@ -98,8 +94,8 @@ def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     rng = np.random.default_rng(args.seed)
 
-    stage2 = pd.read_csv(FUNNEL / "np_library_stage2_2d_ranked.csv")
-    shortlist = pd.read_csv(FUNNEL / "np_library_docking_shortlist.csv")
+    stage2 = pd.read_csv(under("20_new_runs/np_library_funnel_2026-08-15", "np_library_stage2_2d_ranked.csv"))
+    shortlist = pd.read_csv(under("20_new_runs/np_library_funnel_2026-08-15", "np_library_docking_shortlist.csv"))
     kept = set(shortlist["inchikey_standardized"])
 
     # --- arm_3d: in the 8,000 but not the 5,000 -----------------------------
@@ -129,7 +125,7 @@ def main() -> int:
     both = pd.concat([arm2[cols], arm3[cols]], ignore_index=True)
     both.insert(0, "compound_id", [f"EXCL{i:05d}" for i in range(1, len(both) + 1)])
     both = both.rename(columns={"smiles_standardized": "SMILES"})
-    ledger = OUT / "exclusion_control_ledger.csv"
+    ledger = under("20_new_runs/funnel_exclusion_control_2026-08-21", "exclusion_control_ledger.csv")
     both.to_csv(ledger, index=False)
 
     meta = {
@@ -148,13 +144,13 @@ def main() -> int:
                    "population": "the 3,000 stage-2 survivors dropped by the 3D O3A refinement",
                    "population_size": int(len(excl3))},
         "inputs": {"pool": {"path": str(POOL), "sha256": sha256(POOL)},
-                   "stage2": str(FUNNEL / "np_library_stage2_2d_ranked.csv"),
-                   "shortlist": str(FUNNEL / "np_library_docking_shortlist.csv")},
+                   "stage2": str(under("20_new_runs/np_library_funnel_2026-08-15", "np_library_stage2_2d_ranked.csv")),
+                   "shortlist": str(under("20_new_runs/np_library_funnel_2026-08-15", "np_library_docking_shortlist.csv"))},
         "ledger": {"path": str(ledger), "sha256": sha256(ledger)},
         "docking_protocol": "fast pass, identical to the expansion screen: "
                             "2 ETKDGv3 conformers, exhaustiveness 8, same receptor and box",
     }
-    (OUT / "control_metadata.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
+    (under("20_new_runs/funnel_exclusion_control_2026-08-21", "control_metadata.json")).write_text(json.dumps(meta, indent=2), encoding="utf-8")
 
     print(f"arm_2d : {int((both.arm=='arm_2d').sum())} compounds "
           f"(from {len(cand)} never-reached, oversampled {over})")

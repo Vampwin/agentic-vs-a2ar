@@ -40,6 +40,7 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+from kdss_paths import project_root, resolve, under, dev_dir
 
 import matplotlib
 matplotlib.use("Agg")
@@ -51,18 +52,19 @@ from sklearn.metrics import roc_auc_score, roc_curve
 
 
 def _root() -> Path:
-    marker = "00_project_control/08_DECISION_LOG.md"
-    for cand in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (cand / marker).is_file():
-            return cand
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-RUNS = ROOT / "20_new_runs"
-IFP = RUNS / "chembl245_ifp_rescoring_2026-08-15/ifp_rescoring_per_compound.csv"
-SUMMARY = RUNS / "chembl245_ifp_rescoring_2026-08-15/ifp_rescoring_summary.json"
-YRAND = RUNS / "qsar_lbdd_2026-08-07/qsar_y_randomization.json"
+RUNS = dev_dir("20_new_runs")
+IFP = under("20_new_runs", "chembl245_ifp_rescoring_2026-08-15/ifp_rescoring_per_compound.csv")
+SUMMARY = under("20_new_runs", "chembl245_ifp_rescoring_2026-08-15/ifp_rescoring_summary.json")
+YRAND = under("20_new_runs", "qsar_lbdd_2026-08-07/qsar_y_randomization.json")
 
 # (label, column, negate) -- negate where a more negative score is better
 METHODS = [
@@ -101,7 +103,7 @@ def enrichment_curve(score: np.ndarray, y: np.ndarray):
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--out", default=str(ROOT / "30_manuscript/figures"))
+    ap.add_argument("--out", default=str(resolve("30_manuscript/figures")))
     args = ap.parse_args()
 
     d = pd.read_csv(IFP)

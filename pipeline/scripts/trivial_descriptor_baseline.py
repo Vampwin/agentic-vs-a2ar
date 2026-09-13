@@ -26,6 +26,7 @@ import hashlib
 import json
 import warnings
 from pathlib import Path
+from kdss_paths import project_root, resolve, under
 
 warnings.filterwarnings("ignore")
 
@@ -42,17 +43,19 @@ DESCRIPTORS = ["n_heavy_atoms", "mol_weight", "clogp"]
 
 
 def _root() -> Path:
-    for c in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (c / "00_project_control/08_DECISION_LOG.md").is_file():
-            return c
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-RUN = ROOT / "20_new_runs/chembl245_ifp_rescoring_2026-08-15"
-SCORES = RUN / "scores.csv"
-PERCOMP = RUN / "ifp_rescoring_per_compound.csv"
-BENCH = ROOT / "02_frozen_inputs/public_benchmarks/chembl_a2ar"
+RUN = resolve("20_new_runs/chembl245_ifp_rescoring_2026-08-15")
+SCORES = under("20_new_runs/chembl245_ifp_rescoring_2026-08-15", "scores.csv")
+PERCOMP = under("20_new_runs/chembl245_ifp_rescoring_2026-08-15", "ifp_rescoring_per_compound.csv")
+BENCH = resolve("02_frozen_inputs/public_benchmarks/chembl_a2ar")
 
 
 def sha256(p: Path) -> str:

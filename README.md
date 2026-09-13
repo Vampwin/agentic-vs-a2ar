@@ -43,12 +43,10 @@ be checked rather than taken on trust:
 
 ## What can be re-run here, and what cannot
 
-Stated precisely, because the distinction matters and testing it is the point
-of this repository. **The deposit was copied to a clean directory and each of
-these was run there**, rather than asserted.
+Established by copying this repository to a clean directory and running each
+step there, rather than asserted.
 
-**The test suite runs and passes.** It is the executable part of the claim that
-the evaluators behave as the manuscript describes.
+**The test suite runs and passes.**
 
 ```
 cd pipeline
@@ -58,25 +56,28 @@ python -m pytest -q          # 682 passed
 The working directory matters: several tests open contract files by relative
 path, so running from the repository root fails at collection.
 
-**The analysis and figure scripts are deposited for reading, not as a turnkey
-pipeline.** They were written against the development tree and resolve their
-inputs from its layout — `20_new_runs/`, `30_manuscript/`, a marker file under
-`00_project_control/` — none of which is part of this deposit, which
-reorganises the same evidence under `verification/`. Run from a clean checkout
-they exit rather than producing a wrong answer quietly. What they are for is
-reading the exact computation the manuscript reports, alongside the artifact in
-`verification/` it produced; every number in the manuscript can be traced to a
-file here by hand.
+**The analysis scripts resolve their own layout.** They name their inputs by
+the development tree's paths -- `20_new_runs/<run>/<file>` -- while this
+repository regroups the same evidence by subject under `verification/`.
+`pipeline/scripts/kdss_paths.py` maps between the two using `PATH_MAP.json`,
+which `build_deposit.py` writes from the manifest and from the supplement
+bundle's own record of where each file came from. Nothing in that chain is
+guessed; a path the map does not carry raises, naming the file, rather than
+resolving to something that is not it.
 
-`g8_number_traceability.py` is the clearest case. It checks the manuscript's
-numbers against the artifacts, and the manuscript is not deposited, so it
-cannot run here by construction. Its output is: `verification/summary/g8_number_traceability.json`
-records every check, its expected and recomputed value, and whether the literal
-was found in the draft — 288 checks at the time of this snapshot.
+Until 2026-09-13 these scripts held two absolute paths on the first author's
+machine and exited if neither existed. On that machine a copy of this
+repository silently read -- and wrote -- the development tree instead of
+itself; anywhere else they stopped. Both are fixed.
 
-Making the analysis scripts runnable from the deposit would mean a path-mapping
-layer between the two layouts. It is not done, and this section says so rather
-than leaving a reader to discover it.
+**Four things still cannot be re-run here, each for a stated reason.**
+
+| Not runnable | Why |
+|---|---|
+| `g8_number_traceability.py` end to end | It checks the manuscript's text against the artifacts. The manuscript is not deposited, and one input it reads is a ChEMBL extract that cannot be (below). Its full output is `verification/summary/g8_number_traceability.json`. |
+| Anything reading ChEMBL records | ChEMBL is CC BY-SA 3.0. Depositing records would put a share-alike term on evidence released under CC BY 4.0, so only aggregate statistics are here. |
+| Docking and DiffDock | Need Vina, DiffDock, a GPU and the receptor preparations. This repository supplies the resulting poses and scores instead. |
+| Molecular dynamics | Trajectories run to gigabytes. The assembled starting structure is deposited, because four numbers in the Methods are counted from it; the trajectories are available from the corresponding author. |
 
 ## Environment
 
@@ -152,11 +153,7 @@ cleared: the screen itself, which trips on its own self-test fixtures.
 
 ## Licence
 
-**[AUTHOR ACTION — not yet set.]** The intended pairing is MIT for the code
-under `pipeline/` and CC BY 4.0 for the data under `verification/` and
-`figures/`, which is the usual arrangement for this kind of deposit and is
-compatible with the licences of the external inputs listed above. Confirm and
-add `LICENSE` before making the repository public.
+The pairing is **MIT for the code** under `pipeline/` and **CC BY 4.0 for the data** under `verification/` and `figures/`; `LICENSE` carries both and `CITATION_AND_LICENCE.md` the audit they follow from. Nothing copyleft is linked in: GROMACS, AmberTools, Open Babel and pdb2pqr are run as separate executables, never imported, and every in-process import is BSD, MIT or Apache-2.0. **LOTUS must be attributed** wherever the files under `verification/` are reused.
 
 ## Citation
 

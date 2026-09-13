@@ -35,6 +35,7 @@ import tempfile
 import xml.etree.ElementTree as ET
 import zipfile
 from pathlib import Path
+from kdss_paths import project_root, resolve, under
 
 sys.path.insert(0, str(Path(__file__).parent))
 from build_v5_docx import (  # noqa: E402
@@ -43,15 +44,16 @@ from build_v5_docx import (  # noqa: E402
 
 
 def _root() -> Path:
-    marker = "00_project_control/08_DECISION_LOG.md"
-    for cand in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (cand / marker).is_file():
-            return cand
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-SRC = ROOT / "30_manuscript/CURRENT_v5/manuscript_AIIM_v6.md"
+SRC = resolve("30_manuscript/CURRENT_v5/manuscript_AIIM_v6.md")
 TEMPLATE = ROOT / ("30_manuscript/archive_v4/docx/"
                    "KDSS_A2AR_AIIM_Submission_v4_2026-08-11_reviewed.docx")
 # No date in the name, deliberately. A date in a filename is a claim that
@@ -61,7 +63,7 @@ TEMPLATE = ROOT / ("30_manuscript/archive_v4/docx/"
 # is in the decision log, and both of those are checkable. An undated name
 # also means the artifact has one path, so a stale copy cannot sit beside
 # the current one wearing a different date.
-DEFAULT_OUT = ROOT / "30_manuscript/CURRENT_v5/KDSS_A2AR_AIIM_v6_draft.docx"
+DEFAULT_OUT = resolve("30_manuscript/CURRENT_v5/KDSS_A2AR_AIIM_v6_draft.docx")
 
 
 def manuscript_markdown() -> str:

@@ -30,18 +30,21 @@ import json
 import re
 from datetime import date
 from pathlib import Path
+from kdss_paths import project_root, resolve, under
 
 
 def _root() -> Path:
-    for c in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (c / "00_project_control/08_DECISION_LOG.md").is_file():
-            return c
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
 OUT = ROOT / "STATUS.md"
-MS = ROOT / "30_manuscript/CURRENT_v5"
+MS = resolve("30_manuscript/CURRENT_v5")
 PLACEHOLDER = re.compile(r"PLACEHOLDER|\[MODEL|\[EMAIL|\[ORCID|\[AFFIL|\[REPOSITORY|\[COMMIT")
 
 
@@ -64,18 +67,18 @@ def abstract_words(p: Path) -> int:
 
 
 def render() -> str:
-    g8 = json.loads((ROOT / "20_new_runs/verification_summary_2026-08-21/"
-                     "g8_number_traceability.json").read_text(encoding="utf-8"))
-    idx = json.loads((ROOT / "00_project_control/28_EVIDENCE_INDEX.json")
+    g8 = json.loads((resolve("20_new_runs/verification_summary_2026-08-21/"
+                     "g8_number_traceability.json")).read_text(encoding="utf-8"))
+    idx = json.loads((resolve("00_project_control/28_EVIDENCE_INDEX.json"))
                      .read_text(encoding="utf-8"))
-    dep = json.loads((ROOT / "40_deposit/MANIFEST.json").read_text(encoding="utf-8"))
-    nu = _load("evidence_not_used", ROOT / "10_new_system/scripts/evidence_not_used.py")
+    dep = json.loads((resolve("40_deposit/MANIFEST.json")).read_text(encoding="utf-8"))
+    nu = _load("evidence_not_used", resolve("10_new_system/scripts/evidence_not_used.py"))
 
-    log = (ROOT / "00_project_control/08_DECISION_LOG.md").read_text(encoding="utf-8")
+    log = (resolve("00_project_control/08_DECISION_LOG.md")).read_text(encoding="utf-8")
     adrs = [int(m) for m in re.findall(r"^## ADR-AIIM-(\d+)", log, flags=re.M)]
 
-    clean = MS / "manuscript_AIIM_v6_CLEAN.md"
-    other = MS / "manuscript_AIIM_v6.md"
+    clean = under("30_manuscript/CURRENT_v5", "manuscript_AIIM_v6_CLEAN.md")
+    other = under("30_manuscript/CURRENT_v5", "manuscript_AIIM_v6.md")
     ph = len(PLACEHOLDER.findall(clean.read_text(encoding="utf-8")))
 
     labels: dict[str, int] = {}
@@ -140,15 +143,15 @@ def render() -> str:
     import subprocess
     head, tree = "unreadable", "UNVERIFIED"
     try:
-        ref = (ROOT / "40_deposit/.git/HEAD").read_text(encoding="utf-8").strip()
-        head = ((ROOT / "40_deposit/.git" / ref[5:]).read_text(encoding="utf-8").strip()
+        ref = (resolve("40_deposit/.git/HEAD")).read_text(encoding="utf-8").strip()
+        head = ((resolve("40_deposit/.git") / ref[5:]).read_text(encoding="utf-8").strip()
                 if ref.startswith("ref: ") else ref)
         r = subprocess.run(["git", "-C", str(ROOT / "40_deposit"), "status", "--porcelain"],
                            capture_output=True, text=True, timeout=60)
         tree = "clean" if (r.returncode == 0 and not r.stdout.strip()) else "**DIRTY**"
     except Exception:
         pass
-    cited = head in (MS / "manuscript_AIIM_v6_CLEAN.md").read_text(encoding="utf-8")
+    cited = head in (under("30_manuscript/CURRENT_v5", "manuscript_AIIM_v6_CLEAN.md")).read_text(encoding="utf-8")
     a(f"| Deposit commit | `{head[:12]}`, working tree {tree}, cited in the "
       f"manuscript: {'yes' if cited else '**NO**'} |")
     a(f"| Abstract | {abstract_words(clean)} words (AIIM cap: 250) |")

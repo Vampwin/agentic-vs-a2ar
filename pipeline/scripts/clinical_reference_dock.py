@@ -32,6 +32,7 @@ import shlex
 import shutil
 import subprocess
 from pathlib import Path
+from kdss_paths import project_root, resolve, under, wsl_root
 
 import numpy as np
 
@@ -61,21 +62,23 @@ CANDIDATES = ["NPLIB01185", "NPLIB01643", "NPLIB03056"]
 
 
 def _root() -> Path:
-    for c in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (c / "00_project_control/08_DECISION_LOG.md").is_file():
-            return c
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-SCRIPTS = ROOT / "10_new_system/scripts"
-STRUCT = ROOT / "02_frozen_inputs/a2ar_structures"
-BENCH = ROOT / "02_frozen_inputs/public_benchmarks/chembl_a2ar"
-VALIDATION_SET = BENCH / "chembl_a2ar_validation_set.csv"
-RAW_SET = BENCH / "chembl_a2a_raw_v2.csv"
-BOX_SRC = ROOT / "20_new_runs/snp_screen_2026-08-04/G2_preparation/docking_box.json"
-TEMPLATE_SRC = ROOT / "20_new_runs/snp_screen_2026-08-04/G3_redocking/reference_template.json"
-NP_LEDGER = ROOT / "20_new_runs/np_library_funnel_2026-08-15/e8_np_library_prioritization.csv"
+SCRIPTS = resolve("10_new_system/scripts")
+STRUCT = resolve("02_frozen_inputs/a2ar_structures")
+BENCH = resolve("02_frozen_inputs/public_benchmarks/chembl_a2ar")
+VALIDATION_SET = under("02_frozen_inputs/public_benchmarks/chembl_a2ar", "chembl_a2ar_validation_set.csv")
+RAW_SET = under("02_frozen_inputs/public_benchmarks/chembl_a2ar", "chembl_a2a_raw_v2.csv")
+BOX_SRC = resolve("20_new_runs/snp_screen_2026-08-04/G2_preparation/docking_box.json")
+TEMPLATE_SRC = resolve("20_new_runs/snp_screen_2026-08-04/G3_redocking/reference_template.json")
+NP_LEDGER = resolve("20_new_runs/np_library_funnel_2026-08-15/e8_np_library_prioritization.csv")
 PDBFIXER_ENV = "mdenv"
 WSL_DISTRO, CONDA_ENV = "Ubuntu-22.04", "diffdock"
 
@@ -92,8 +95,8 @@ def _load(name, path):
     return m
 
 
-CD = _load("crossdock_zma", SCRIPTS / "crossdock_zma.py")
-RSS = _load("run_snp_screen", SCRIPTS / "run_snp_screen.py")
+CD = _load("crossdock_zma", under("10_new_system/scripts", "crossdock_zma.py"))
+RSS = _load("run_snp_screen", under("10_new_system/scripts", "run_snp_screen.py"))
 
 
 def sha256(p: Path) -> str:
@@ -106,7 +109,7 @@ def sha256(p: Path) -> str:
 
 def wsl(cmd, timeout=14400):
     full = (f"source ~/miniconda3/etc/profile.d/conda.sh && conda activate {CONDA_ENV} "
-            f"&& cd '/mnt/d/Agentic VS Workflow' && {cmd}")
+            f"&& cd {wsl_root()!r} && {cmd}")
     return subprocess.run(["wsl", "-d", WSL_DISTRO, "--", "bash", "-lc", full],
                           capture_output=True, text=True, timeout=timeout)
 

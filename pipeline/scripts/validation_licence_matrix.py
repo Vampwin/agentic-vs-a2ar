@@ -34,19 +34,22 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
+from kdss_paths import project_root, resolve, under, dev_dir
 
 import pandas as pd
 
 
 def _root() -> Path:
-    for c in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (c / "00_project_control/08_DECISION_LOG.md").is_file():
-            return c
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-RUNS = ROOT / "20_new_runs"
+RUNS = dev_dir("20_new_runs")
 
 # The five capabilities, named as the literature names them.
 AXES = [
@@ -91,8 +94,8 @@ def build() -> dict:
     cr = _load("clinical_reference_2026-09-03/clinical_reference.json")
     dd = _load("diffdock_orthogonal_2026-08-23/orthogonal_check_result.json")
 
-    mm = pd.read_csv(ROOT / "04_legacy_evidence/external_validation/"
-                     "exp3b_harmonized_metrics.csv")
+    mm = pd.read_csv(resolve("04_legacy_evidence/external_validation/"
+                     "exp3b_harmonized_metrics.csv"))
     mm_auc = mm[(mm.method.str.startswith("MM-GBSA")) & (mm.metric == "AUC")].iloc[0]
 
     # scoring power: Vina score against measured pChEMBL on the clinical panel.

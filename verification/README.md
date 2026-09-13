@@ -10,7 +10,7 @@ one, and the manifest records its SHA-256 so a reader can confirm the copy
 matches. A supplement that re-derives its own numbers demonstrates nothing
 about the run that produced them.
 
-**89 files, 1491 KB.**
+**99 files, 5806 KB.**
 
 | File | Supports |
 |---|---|
@@ -58,7 +58,7 @@ about the run that produced them.
 | `g4_contract/run_metadata.json` | the seeded 5% subset rule and the two thread settings |
 | `g4_contract/rerun_passA_cpu6.csv` | 6-thread rerun |
 | `g4_contract/rerun_passB_cpu20.csv` | 20-thread rerun |
-| `applicability_domain/ad_coverage_by_descriptor.csv` | Figure 3A and §3.4: coverage in all eight spaces |
+| `applicability_domain/ad_sweep_expanded_2026-08-21_ad_coverage_by_descriptor.csv` | Figure 3A and §3.4: coverage in all eight spaces |
 | `applicability_domain/ad_per_compound.csv` | Figure 3B/3C: per-compound similarity and in-domain flags |
 | `applicability_domain/ad_sweep_expanded_2026-08-21_comparison_vs_snplib.json` | §3.4: coverage before vs after similarity selection |
 | `applicability_domain/run_metadata.json` | the single rule applied identically in every space |
@@ -102,6 +102,16 @@ about the run that produced them.
 | `funnel_control/fastpass_vs_fullprotocol.csv` | §3.5: the per-compound pairing behind that comparison |
 | `qsar_calibration/qsar_calibration.json` | §2.4: Brier score, reliability curve and the reconciliation of the three AUC figures the manuscript quotes (ADR-AIIM-140) |
 | `qsar_calibration/reliability_curve.csv` | §2.4: the ten-bin reliability curve, including the two bins the Tier-A probabilities fall in |
+| `applicability_domain/ad_descriptor_sweep_2026-08-15_ad_coverage_by_descriptor.csv` | §3.3 and the graphical abstract: per-space coverage for the 236-compound SNP-Lib itself -- 0 % in four structural spaces and 152 of 236 (64.4 %) physicochemically. Distinct from the expanded selection's table beside it, and the file the graphical abstract was corrected against (ADR-AIIM-175) |
+| `structure_checks/scores_control.csv` | §3.6: the ZM241385 control arm that gates the ligand-transfer redocking |
+| `structure_checks/scores_T1.csv` | §3.6: 9XT redocked into 5OLH, the structure solved with it -- 0.216 A |
+| `structure_checks/scores_T2.csv` | §3.6: the same ligand into 4EIY, a structure solved with a different one -- 9.606 A |
+| `structure_checks/9XT.sdf` | §3.6: the failing pose itself, so the 9.606 A is a geometry a reader can inspect rather than a number to accept |
+| `learned_monitor/ood_fit_summary.json` | §3.2: the isolation-forest applicability-domain detector as fitted, including the contamination setting its saturation behaviour follows from |
+| `seeded_defects/wp4_conditions_ac_results.json` | the pre-recount conditions A and C, published so the denominator correction of ADR-AIIM-131 can be checked against its input |
+| `released_result/funnel_metadata.json` | §2.6: the funnel's own record of what entered each stage and what the cutoffs were |
+| `structure_checks/system_gmx.gro` | §2.9: the assembled membrane system the simulation reads. The atom, lipid, water and restraint counts the Methods quote are counted from this file rather than reported from the build log |
+| `released_result/snp_source_ledger.csv` | the 236-compound SNP-Lib accountability ledger as G1 produced it. Deposited 2026-09-13 because 42 tests in the fault-injection suite seed their workspaces from it: without it the suite cannot run from this deposit, which is the only place a reader can run it |
 | `incident_taxonomy/incident_taxonomy.md` | §3.6: the fifteen incidents classified by layer, what detected each, how it resolved |
 
 ## What is deliberately not here
@@ -141,6 +151,7 @@ Produced during this study and not used. Listed so that the work which did not s
 | `mmgbsa_pilot_2026-08-10` | The MM-GBSA pilot itself, 501 files. Same decision as the audit above. The largest not-used directory in the project. |
 | `reference_check_2026-09-03` | A correctness check on the reference list, not a source of any reported number. It found and fixed a citation that pointed at the wrong paper (ADR-AIIM-165); the fix lives in the manuscript, and nothing in §3 depends on this run. |
 | `reference_check_2026-09-05` | The reference audit re-run after four citations were added for the capability decomposition. Like its 2026-09-03 predecessor it is a correctness check on the reference list, not a source of any reported number (ADR-AIIM-169). |
+| `snplib_source_audit_2026-09-12` | Asks whether reference [13]'s promised list of 38 primary isolation reports can be assembled from anything this project holds. It cannot: the frozen SNP-Lib spreadsheet carries journal, year and source species but no author, title, volume, page or DOI. Reports no number the manuscript states -- its 36 and 39 groupings are the two reconstructions that bracket the stated 38 and match neither, which is the finding rather than a result (ADR-AIIM-180). |
 | `validation_matrix_2026-09-05` | A derived index, not a measurement. Table 7 is built from it, but every cell restates a number that G8 already audits against the artifact that produced it, so nothing in the manuscript depends on this run's own output. Kept because the decomposition it applies -- what each technique was validated FOR -- is the argument of section 3.6, and the mapping from claim to artifact should be inspectable (ADR-AIIM-169). |
 
 ## Scripts that produced these artifacts

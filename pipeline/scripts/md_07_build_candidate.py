@@ -36,6 +36,7 @@ import json
 import shutil
 import subprocess
 from pathlib import Path
+from kdss_paths import project_root, resolve, under
 
 import pandas as pd
 from rdkit import Chem
@@ -47,17 +48,18 @@ AMBER = "/home/a2amd/A2A_MD/ambertools26_env"
 
 
 def _root() -> Path:
-    marker = "00_project_control/08_DECISION_LOG.md"
-    for cand in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (cand / marker).is_file():
-            return cand
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-FUNNEL = ROOT / "20_new_runs/np_library_funnel_2026-08-15"
-CONTROL = ROOT / "20_new_runs/md_production_2026-08-21"
-DEST = ROOT / "20_new_runs/md_candidates_2026-08-22"
+FUNNEL = resolve("20_new_runs/np_library_funnel_2026-08-15")
+CONTROL = resolve("20_new_runs/md_production_2026-08-21")
+DEST = resolve("20_new_runs/md_candidates_2026-08-22")
 
 
 def sha256(p: Path) -> str:
@@ -70,7 +72,7 @@ def wsl(cmd: str) -> tuple[int, str]:
     Written to a file rather than passed inline: nested quoting through
     wsl.exe has silently mangled `$VAR` expansions in this project before.
     """
-    tmp = DEST / "_cmd.sh"
+    tmp = under("20_new_runs/md_candidates_2026-08-22", "_cmd.sh")
     tmp.parent.mkdir(parents=True, exist_ok=True)
     body = (f"#!/bin/bash\nexport AMBERHOME={AMBER}\n"
             f"export PATH=$AMBERHOME/bin:$PATH\n{cmd}\n")
@@ -106,7 +108,7 @@ def main() -> int:
         raise SystemExit(f"{sdf.name} parsed to zero molecules")
     pose = mols[0]                       # rank-1; the pose the ranking reports
 
-    ledger = pd.read_csv(FUNNEL / "e8_np_library_prioritization.csv").set_index("compound_id")
+    ledger = pd.read_csv(under("20_new_runs/np_library_funnel_2026-08-15", "e8_np_library_prioritization.csv")).set_index("compound_id")
     want = Chem.MolToInchiKey(Chem.MolFromSmiles(ledger.loc[cid, "SMILES"]))
     got = Chem.MolToInchiKey(Chem.RemoveHs(pose))
     if want != got:
@@ -160,7 +162,7 @@ def main() -> int:
     # ---- 3. complex.pdb: shared receptor + this ligand ---------------------
     # The receptor, its caps, its 156 retained waters and the allosteric Na+
     # are byte-identical to the control's. Only the ligand differs.
-    receptor_src = CONTROL / "03_build/complex.pdb"
+    receptor_src = under("20_new_runs/md_production_2026-08-21", "03_build/complex.pdb")
     rec_lines = receptor_src.read_text(encoding="utf-8", errors="replace").splitlines()
 
     # ORDER MATTERS, and getting it wrong is silent. The control's layout is

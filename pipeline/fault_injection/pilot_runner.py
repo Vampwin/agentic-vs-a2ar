@@ -41,6 +41,19 @@ import pandas as pd
 
 from fault_injection.manifest import FAULT_REGISTRY, implementable_families
 
+# kdss_paths sits beside the scripts, one directory over, in both the
+# development tree and the deposit. Reaching it from __file__ rather than
+# from the working directory is what lets this module resolve its inputs
+# when a test runner imports it from anywhere.
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
+from kdss_paths import project_root, resolve, under  # noqa: E402
+
+# kdss_paths lives beside the scripts, one directory over, in both the
+# development tree and the deposit. Reaching it from __file__ rather than
+# from the working directory is what lets this module resolve its inputs
+# when it is imported by a test runner started anywhere.
+
 logger = logging.getLogger(__name__)
 
 # ─── Workspace constants ──────────────────────────────────────────────────────
@@ -135,9 +148,21 @@ class PilotResults:
 # right shape. Column names and schemas are unchanged, so every evaluator and
 # every existing workspace test still applies unmodified.
 
-_REAL_LEDGER_PATH = Path(
-    r"D:/Agentic VS Workflow/20_new_runs/snp_screen_2026-08-04/G1_standardization/snp_source_ledger.csv"
-)
+def _optional(rel: str) -> Path:
+    """Bind a path that may not exist here, without failing at import.
+
+    Both callers check `is_file()` and raise a message naming the path, so a
+    deposit -- which carries neither of these tables -- should reach that
+    message rather than an ImportError during test collection.
+    """
+    try:
+        return Path(str(resolve(rel)))
+    except Exception:
+        return project_root() / "_not_in_this_deposit" / rel
+
+
+_REAL_LEDGER_PATH = _optional(
+    "20_new_runs/snp_screen_2026-08-04/G1_standardization/snp_source_ledger.csv")
 _REAL_VINA_SCORES_PATH = Path(
     r"D:/kdss_SNP v2/KDSS_A2AR_Code_Data_Package_2026-08-03/data/output/mmgbsa/15_mmgbsa_scores.csv"
 )

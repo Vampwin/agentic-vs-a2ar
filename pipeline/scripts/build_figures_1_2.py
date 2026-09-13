@@ -30,6 +30,7 @@ from __future__ import annotations
 
 import argparse
 from pathlib import Path
+from kdss_paths import project_root, resolve, under
 
 W = 539.0          # 190 mm in points: Elsevier double-column width
 MIN_PT = 7.0       # nothing below this
@@ -340,8 +341,8 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default=None)
     args = ap.parse_args()
-    root = next((c for c in (Path(r"D:\Agentic VS Workflow"),
-                             Path("/mnt/d/Agentic VS Workflow"))
+    root = next((c for c in (project_root(),
+                             Path(wsl_root()))
                  if (c / "00_project_control/08_DECISION_LOG.md").is_file()), None)
     if root is None:
         raise SystemExit("project root not found")

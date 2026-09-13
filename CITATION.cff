@@ -1,0 +1,68 @@
+cff-version: 1.2.0
+title: >-
+  Agentic virtual screening against the adenosine A2A receptor:
+  code and verification data
+message: >-
+  If you use this repository, cite it by the commit you used rather than by a
+  branch. A branch moves; a commit hash does not, and every number in the
+  accompanying manuscript is checked against the artifacts at a specific commit.
+type: software
+authors:
+  - given-names: Adisorn
+    family-names: Sirichotejirakul
+    orcid: https://orcid.org/0009-0008-0962-0966
+    affiliation: >-
+      Pharmaceutical Sciences and Technology Program, Faculty of Pharmaceutical
+      Sciences, Chulalongkorn University, Bangkok 10330, Thailand
+  - given-names: Monsin
+    family-names: Sangsawat
+    affiliation: >-
+      Pharmaceutical Sciences and Technology Program, Faculty of Pharmaceutical
+      Sciences, Chulalongkorn University, Bangkok 10330, Thailand
+  - given-names: Yasintha Lakshan
+    family-names: Ranasinghe Ranepura Hewage
+    affiliation: >-
+      Pharmaceutical Sciences and Technology Program, Faculty of Pharmaceutical
+      Sciences, Chulalongkorn University, Bangkok 10330, Thailand
+  - given-names: Pornchai
+    family-names: Rojsitthisak
+    orcid: https://orcid.org/0000-0003-1391-6993
+    affiliation: >-
+      Department of Food and Pharmaceutical Chemistry, Faculty of Pharmaceutical
+      Sciences, Chulalongkorn University, Bangkok 10330, Thailand
+  - given-names: Worathat
+    family-names: Thitikornpong
+    orcid: https://orcid.org/0000-0002-3537-3646
+    affiliation: >-
+      Faculty of Pharmaceutical Sciences, Chulalongkorn University,
+      Bangkok 10330, Thailand
+license-expression: MIT AND CC-BY-4.0
+license-url: >-
+  https://github.com/OWNER/REPOSITORY/blob/main/LICENSE
+keywords:
+  - agentic AI
+  - virtual screening
+  - software verification
+  - applicability domain
+  - conformal prediction
+  - natural products
+  - adenosine A2A receptor
+abstract: >-
+  Code, contracts, deterministic evaluators, the seeded-defect benchmark and the
+  verification evidence behind a study in which an agentic virtual-screening
+  pipeline was run against the adenosine A2A receptor and the verification of
+  the agent-written code is reported as a result rather than assumed. No
+  compound reported is supported by any wet-laboratory assay.
+references:
+  - type: data
+    title: LOTUS natural products database, v11 frozen snapshot
+    doi: 10.5281/zenodo.19360665
+    notes: >-
+      CC BY 4.0. Structures and organism names under verification/ derive from
+      it and attribution is required wherever they are reused.
+  - type: article
+    title: 'ChEMBL: towards direct deposition of bioassay data'
+    doi: 10.1093/nar/gky1075
+    notes: >-
+      CC BY-SA 3.0. No ChEMBL records are deposited here, only aggregate
+      statistics from models trained on them.

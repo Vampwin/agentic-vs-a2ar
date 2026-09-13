@@ -35,6 +35,7 @@ import json
 import os
 import time
 from pathlib import Path
+from kdss_paths import project_root, resolve, under, dev_dir
 
 for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS"):
     os.environ.setdefault(_v, "3")
@@ -50,11 +51,11 @@ from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import RandomizedSearchCV, StratifiedGroupKFold, StratifiedKFold
 from sklearn.pipeline import Pipeline
 
-ROOT = Path(r"D:\Agentic VS Workflow")
-FROZEN = ROOT / "02_frozen_inputs"
-CHEMBL_RAW_SOURCE = FROZEN / "public_benchmarks/chembl_a2ar/chembl_a2a_raw_v2.csv"
-SNPLIB_LEDGER = ROOT / "20_new_runs/snp_screen_2026-08-04/G1_standardization/snp_source_ledger.csv"
-NPLIB_LEDGER = ROOT / "20_new_runs/np_library_funnel_2026-08-15/np_library_dock_ledger.csv"
+ROOT = project_root()
+FROZEN = dev_dir("02_frozen_inputs")
+CHEMBL_RAW_SOURCE = under("02_frozen_inputs", "public_benchmarks/chembl_a2ar/chembl_a2a_raw_v2.csv")
+SNPLIB_LEDGER = resolve("20_new_runs/snp_screen_2026-08-04/G1_standardization/snp_source_ledger.csv")
+NPLIB_LEDGER = resolve("20_new_runs/np_library_funnel_2026-08-15/np_library_dock_ledger.csv")
 
 # Frozen (original, medicinal-chemistry-calibrated) regime
 FROZEN_ACTIVE, FROZEN_INACTIVE = 6.0, 5.5
@@ -217,7 +218,7 @@ def run_regime(name: str, active_cut: float, inactive_cut: float, raw: pd.DataFr
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--out", default=str(ROOT / "20_new_runs/qsar_lbdd_2026-08-07"))
+    ap.add_argument("--out", default=str(resolve("20_new_runs/qsar_lbdd_2026-08-07")))
     args = ap.parse_args()
     outdir = Path(args.out)
     outdir.mkdir(parents=True, exist_ok=True)

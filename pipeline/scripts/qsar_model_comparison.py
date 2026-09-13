@@ -39,6 +39,7 @@ import json
 import os
 import time
 from pathlib import Path
+from kdss_paths import project_root, resolve, under
 
 # Cap thread usage globally (must be set before numpy/sklearn import): the
 # SBDD full-protocol redock is running concurrently on the same physical CPU
@@ -60,9 +61,9 @@ from sklearn.pipeline import Pipeline
 from sklearn.svm import LinearSVC
 from sklearn.calibration import CalibratedClassifierCV
 
-ROOT = Path(r"D:\Agentic VS Workflow")
-QSAR_RUN = ROOT / "20_new_runs/qsar_lbdd_2026-08-07"
-TRAINING_SET_CSV = QSAR_RUN / "chembl_a2a_training_set.csv"
+ROOT = project_root()
+QSAR_RUN = resolve("20_new_runs/qsar_lbdd_2026-08-07")
+TRAINING_SET_CSV = under("20_new_runs/qsar_lbdd_2026-08-07", "chembl_a2a_training_set.csv")
 
 VAR_THRESHOLD = 0.01
 N_OUTER_FOLDS = 5

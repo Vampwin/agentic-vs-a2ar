@@ -61,16 +61,17 @@ import importlib.util
 import json
 import random
 from pathlib import Path
+from kdss_paths import project_root, resolve, under
 
 import joblib
 import numpy as np
 import pandas as pd
 
-ROOT = Path(r"D:\Agentic VS Workflow")
-QSAR_RUN = ROOT / "20_new_runs/qsar_lbdd_2026-08-07"
-PIPELINE_PATH = QSAR_RUN / "qsar_pipeline_a2a.pkl"
-TRAINING_SET_CSV = QSAR_RUN / "chembl_a2a_training_set.csv"
-SNPLIB_LEDGER = ROOT / "20_new_runs/snp_screen_2026-08-04/G1_standardization/snp_source_ledger.csv"
+ROOT = project_root()
+QSAR_RUN = resolve("20_new_runs/qsar_lbdd_2026-08-07")
+PIPELINE_PATH = under("20_new_runs/qsar_lbdd_2026-08-07", "qsar_pipeline_a2a.pkl")
+TRAINING_SET_CSV = under("20_new_runs/qsar_lbdd_2026-08-07", "chembl_a2a_training_set.csv")
+SNPLIB_LEDGER = resolve("20_new_runs/snp_screen_2026-08-04/G1_standardization/snp_source_ledger.csv")
 
 SIGNIFICANCE_LEVELS = [0.05, 0.10, 0.20]   # 95% / 90% / 80% nominal confidence
 N_VALIDITY_FOLDS = 5

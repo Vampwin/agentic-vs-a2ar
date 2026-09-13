@@ -45,6 +45,7 @@ import importlib.util
 import json
 import sys
 from pathlib import Path
+from kdss_paths import project_root, resolve, under
 
 import numpy as np
 import pandas as pd
@@ -54,16 +55,17 @@ RDLogger.DisableLog("rdApp.*")
 
 
 def _root() -> Path:
-    marker = "00_project_control/08_DECISION_LOG.md"
-    for cand in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (cand / marker).is_file():
-            return cand
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-SCRIPTS = ROOT / "10_new_system/scripts"
-TRAIN = ROOT / "02_frozen_inputs/public_benchmarks/chembl_a2ar/chembl_a2a_training_v3.csv"
+SCRIPTS = resolve("10_new_system/scripts")
+TRAIN = resolve("02_frozen_inputs/public_benchmarks/chembl_a2ar/chembl_a2a_training_v3.csv")
 sys.path.insert(0, str(ROOT / "10_new_system"))
 
 from evaluators import _domain_gate_bias_probe as probe   # noqa: E402
@@ -91,8 +93,8 @@ def main() -> int:
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
 
-    sweep = _load("ad_sweep", SCRIPTS / "ad_descriptor_sweep.py")
-    qsar = _load("qsar", SCRIPTS / "run_qsar_lbdd_2026-08-07.py")
+    sweep = _load("ad_sweep", under("10_new_system/scripts", "ad_descriptor_sweep.py"))
+    qsar = _load("qsar", under("10_new_system/scripts", "run_qsar_lbdd_2026-08-07.py"))
 
     df = pd.read_csv(TRAIN)
     smiles = df["canonical_smiles"].astype(str).tolist()
@@ -153,8 +155,8 @@ def main() -> int:
     # call them the same gate. They are the same rule; they were not the same
     # reference. Scoring both against 4,753 makes the comparison exact instead
     # of caveated.
-    nplib = pd.read_csv(ROOT / "20_new_runs/np_library_funnel_2026-08-15/"
-                               "e8_np_library_prioritization.csv", low_memory=False)
+    nplib = pd.read_csv(resolve("20_new_runs/np_library_funnel_2026-08-15/"
+                               "e8_np_library_prioritization.csv"), low_memory=False)
     np_mols = []
     for s in nplib["SMILES"].astype(str):
         m = Chem.MolFromSmiles(s)

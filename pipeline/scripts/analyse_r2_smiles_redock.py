@@ -25,6 +25,7 @@ import glob
 import hashlib
 import json
 from pathlib import Path
+from kdss_paths import project_root, resolve, under, dev_dir
 
 import numpy as np
 import pandas as pd
@@ -32,17 +33,18 @@ from scipy import stats
 
 
 def _root() -> Path:
-    marker = "00_project_control/08_DECISION_LOG.md"
-    for cand in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (cand / marker).is_file():
-            return cand
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-RUNS = ROOT / "20_new_runs"
-PROD = RUNS / "g4_verification_2026-08-21/full_scores_MERGED.csv"
-E8 = RUNS / "np_library_funnel_2026-08-15/e8_np_library_prioritization.csv"
+RUNS = dev_dir("20_new_runs")
+PROD = under("20_new_runs", "g4_verification_2026-08-21/full_scores_MERGED.csv")
+E8 = under("20_new_runs", "np_library_funnel_2026-08-15/e8_np_library_prioritization.csv")
 ON_POCKET_CUTOFF = 8.0
 
 # released claims, ADR-AIIM-133
@@ -56,7 +58,7 @@ def sha256(p: Path) -> str:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--run", default=str(RUNS / "smiles_redock_500_2026-08-26"))
+    ap.add_argument("--run", default=str(under("20_new_runs", "smiles_redock_500_2026-08-26")))
     args = ap.parse_args()
     run = Path(args.run)
 

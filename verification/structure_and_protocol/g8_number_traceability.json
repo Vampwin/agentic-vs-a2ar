@@ -1,9 +1,9 @@
 {
-  "manuscript": "D:\\Agentic VS Workflow\\30_manuscript\\CURRENT_v5\\manuscript_AIIM_v6.md",
-  "state": "PASS",
-  "n_checks": 265,
-  "n_pass": 265,
-  "n_value_mismatch": 0,
+  "manuscript": "30_manuscript/CURRENT_v5/manuscript_AIIM_v6.md",
+  "state": "FAIL",
+  "n_checks": 290,
+  "n_pass": 289,
+  "n_value_mismatch": 1,
   "n_literal_absent": 0,
   "checks": [
     {
@@ -213,6 +213,36 @@
       "recomputed": 86.3,
       "literal_present_in_manuscript": true,
       "literal": "86.3 %"
+    },
+    {
+      "check": "ad236_phys",
+      "state": "PASS",
+      "expected": 64.4,
+      "recomputed": 64.4,
+      "literal_present_in_manuscript": true,
+      "literal": "64.4 %"
+    },
+    {
+      "check": "ad236_phys_n",
+      "state": "PASS",
+      "expected": [
+        152,
+        236
+      ],
+      "recomputed": [
+        152,
+        236
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "152 of 236"
+    },
+    {
+      "check": "ad236_struct_zero",
+      "state": "PASS",
+      "expected": 0,
+      "recomputed": 0,
+      "literal_present_in_manuscript": true,
+      "literal": "0 of 236 compounds"
     },
     {
       "check": "ad_maccs",
@@ -1413,6 +1443,30 @@
       "literal": "spread of 0.478 kcal/mol"
     },
     {
+      "check": "filter_mw",
+      "state": "PASS",
+      "expected": 700.0,
+      "recomputed": 700.0,
+      "literal_present_in_manuscript": true,
+      "literal": "a ceiling of 700 Da"
+    },
+    {
+      "check": "filter_rotb",
+      "state": "PASS",
+      "expected": 10,
+      "recomputed": 10,
+      "literal_present_in_manuscript": true,
+      "literal": "and ten rotatable bonds"
+    },
+    {
+      "check": "filter_out",
+      "state": "PASS",
+      "expected": 21882,
+      "recomputed": 21882,
+      "literal_present_in_manuscript": true,
+      "literal": "takes 25,604 records to 21,882"
+    },
+    {
       "check": "ood_neg_control",
       "state": "PASS",
       "expected": 0.53,
@@ -1696,7 +1750,39 @@
       "expected": 0.29,
       "recomputed": 0.29,
       "literal_present_in_manuscript": true,
-      "literal": "29.0 % of the natural-product library"
+      "literal": "29.0 % of those 500"
+    },
+    {
+      "check": "fref_np_n",
+      "state": "PASS",
+      "expected": 500,
+      "recomputed": 500,
+      "literal_present_in_manuscript": true,
+      "literal": "500 top-ranked natural products"
+    },
+    {
+      "check": "fref_np_erg",
+      "state": "PASS",
+      "expected": 0.956,
+      "recomputed": 0.956,
+      "literal_present_in_manuscript": true,
+      "literal": "95.6 % in ErG"
+    },
+    {
+      "check": "fref_np_maccs",
+      "state": "PASS",
+      "expected": 0.878,
+      "recomputed": 0.878,
+      "literal_present_in_manuscript": true,
+      "literal": "87.8 % in MACCS"
+    },
+    {
+      "check": "fref_panel_median",
+      "state": "PASS",
+      "expected": 14,
+      "recomputed": 14,
+      "literal_present_in_manuscript": true,
+      "literal": "costs about 14 %"
     },
     {
       "check": "r4_weighted",
@@ -2061,6 +2147,14 @@
       "literal": "Of the 23 compounds the"
     },
     {
+      "check": "tierA_excluded_n",
+      "state": "PASS",
+      "expected": 4977,
+      "recomputed": 4977,
+      "literal_present_in_manuscript": true,
+      "literal": "4,977 of 5,000 compounds were excluded"
+    },
+    {
       "check": "tierA_uniform_pong",
       "state": "PASS",
       "expected": 0.002259,
@@ -2314,7 +2408,7 @@
       "expected": 5,
       "recomputed": 5,
       "literal_present_in_manuscript": true,
-      "literal": "five cases authored by a project-blind session"
+      "literal": "five cases authored blind to the project"
     },
     {
       "check": "heldout_ci",
@@ -2394,15 +2488,39 @@
       "check": "deposit_files",
       "state": "PASS",
       "expected": [
-        358,
-        12.6
+        374,
+        17.5
       ],
       "recomputed": [
-        358,
-        12.6
+        374,
+        17.5
       ],
       "literal_present_in_manuscript": true,
-      "literal": "358 files, 12.6 MB"
+      "literal": "374 files, 17.5 MB"
+    },
+    {
+      "check": "deposit_manifest_n",
+      "state": "PASS",
+      "expected": 368,
+      "recomputed": 368,
+      "literal_present_in_manuscript": true,
+      "literal": "SHA-256 of each of the 368 deposited artifacts"
+    },
+    {
+      "check": "deposit_manifest_gap",
+      "state": "PASS",
+      "expected": 6,
+      "recomputed": 6,
+      "literal_present_in_manuscript": true,
+      "literal": "the 6 files it omits"
+    },
+    {
+      "check": "s10_manifest_n",
+      "state": "PASS",
+      "expected": 98,
+      "recomputed": 98,
+      "literal_present_in_manuscript": true,
+      "literal": "98 entries covering"
     },
     {
       "check": "citation_integrity",
@@ -2417,17 +2535,6 @@
       },
       "literal_present_in_manuscript": true,
       "literal": "## References"
-    },
-    {
-      "check": "deposit_commit",
-      "state": "PASS",
-      "expected": "manuscript cites the deposit's HEAD; tree clean",
-      "recomputed": {
-        "head_matches_manuscript": true,
-        "working_tree": "clean"
-      },
-      "literal_present_in_manuscript": true,
-      "literal": "deposit HEAD (hash not persisted; see note in source)"
     },
     {
       "check": "companion:HIGHLIGHTS.md:96.9%",
@@ -2464,6 +2571,120 @@
       },
       "literal_present_in_manuscript": true,
       "literal": "128 seeded"
+    },
+    {
+      "check": "companion:Supplementary_Information.docx:96.9%",
+      "state": "PASS",
+      "expected": "96.9% present, 93.2% absent",
+      "recomputed": {
+        "file": "Supplementary_Information.docx",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "96.9%"
+    },
+    {
+      "check": "companion:Supplementary_Information.docx:128 fault cases",
+      "state": "PASS",
+      "expected": "128 fault cases present, 133 fault cases absent",
+      "recomputed": {
+        "file": "Supplementary_Information.docx",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "128 fault cases"
+    },
+    {
+      "check": "companion:../../40_deposit/README.md:682 tests",
+      "state": "PASS",
+      "expected": "682 tests present, 675 tests absent",
+      "recomputed": {
+        "file": "../../40_deposit/README.md",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "682 tests"
+    },
+    {
+      "check": "companion:../../40_deposit/README.md:64.4 % in-domain in physicochemical space",
+      "state": "PASS",
+      "expected": "64.4 % in-domain in physicochemical space present, 86.3 % in-domain in physicochemical space absent",
+      "recomputed": {
+        "file": "../../40_deposit/README.md",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "64.4 % in-domain in physicochemical space"
+    },
+    {
+      "check": "figprov:figure4",
+      "state": "PASS",
+      "expected": "5 artifacts re-hash",
+      "recomputed": "all match",
+      "literal_present_in_manuscript": true,
+      "literal": "figprov:figure4"
+    },
+    {
+      "check": "figprov:figure5",
+      "state": "PASS",
+      "expected": "8 artifacts re-hash",
+      "recomputed": "all match",
+      "literal_present_in_manuscript": true,
+      "literal": "figprov:figure5"
+    },
+    {
+      "check": "figprov:figure6",
+      "state": "PASS",
+      "expected": "10 artifacts re-hash",
+      "recomputed": "all match",
+      "literal_present_in_manuscript": true,
+      "literal": "figprov:figure6"
+    },
+    {
+      "check": "figprov:figure_ad",
+      "state": "PASS",
+      "expected": "6 artifacts re-hash",
+      "recomputed": "all match",
+      "literal_present_in_manuscript": true,
+      "literal": "figprov:figure_ad"
+    },
+    {
+      "check": "figcopies_identical",
+      "state": "PASS",
+      "expected": "7 artifacts re-hash",
+      "recomputed": "all match",
+      "literal_present_in_manuscript": true,
+      "literal": "figcopies_identical"
+    },
+    {
+      "check": "figpng_not_stale",
+      "state": "PASS",
+      "expected": "7 artifacts re-hash",
+      "recomputed": "all match",
+      "literal_present_in_manuscript": true,
+      "literal": "figpng_not_stale"
+    },
+    {
+      "check": "supp_sections_resolve",
+      "state": "PASS",
+      "expected": "10 Supplementary S<n> pointers resolve",
+      "recomputed": "all match",
+      "literal_present_in_manuscript": true,
+      "literal": "supp_sections_resolve"
+    },
+    {
+      "check": "supp_reference_lists_resolve",
+      "state": "FAIL-SUPP",
+      "expected": "1 Supplementary Reference S<n> list(s) ship",
+      "recomputed": [
+        "S1 is cited but no such list ships (reference [13]: the 38 SNP-Lib isolation-source reports) -- author action; see 20_new_runs/snplib_source_audit_2026-09-12"
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "supp_reference_lists_resolve"
     }
   ]
 }

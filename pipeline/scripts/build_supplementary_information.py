@@ -29,6 +29,7 @@ import json
 import re
 import statistics
 from pathlib import Path
+from kdss_paths import project_root, resolve, under
 
 from docx import Document
 from docx.enum.text import WD_ALIGN_PARAGRAPH
@@ -36,16 +37,17 @@ from docx.shared import Inches, Pt
 
 
 def _root() -> Path:
-    marker = "00_project_control/08_DECISION_LOG.md"
-    for cand in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (cand / marker).is_file():
-            return cand
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-SUP = ROOT / "30_manuscript/supplement"
-S10 = SUP / "S10_verification_2026-08-21"
+SUP = resolve("30_manuscript/supplement")
+S10 = under("30_manuscript/supplement", "S10_verification_2026-08-21")
 # No date in the name, deliberately. A date in a filename is a claim that
 # nothing verifies: this file was called `..._2026-08-24.docx` while its
 # content was rebuilt daily for twelve days, and the name was wrong for
@@ -53,7 +55,7 @@ S10 = SUP / "S10_verification_2026-08-21"
 # is in the decision log, and both of those are checkable. An undated name
 # also means the artifact has one path, so a stale copy cannot sit beside
 # the current one wearing a different date.
-DEFAULT_OUT = ROOT / "30_manuscript/CURRENT_v5/Supplementary_Information.docx"
+DEFAULT_OUT = resolve("30_manuscript/CURRENT_v5/Supplementary_Information.docx")
 
 # (label, folder, caption). The caption is what AIIM asks for: concise,
 # descriptive, one per supplementary file.
@@ -106,7 +108,7 @@ SECTIONS = [
      "pose-rescue results behind Table 5, the released prioritisation, the "
      "incident taxonomy reproduced below, the pre-registered orthogonal-engine "
      "check, the held-out per-case outcome, and the control simulation's RMSD "
-     "and bilayer traces. 89 of its 91 files carry a SHA-256 in "
+     "and bilayer traces. 99 of its 101 files carry a SHA-256 in "
      "MANIFEST.json; the manifest hashes neither itself nor this "
      "section's README."),
 ]
@@ -274,7 +276,7 @@ def main() -> int:
     # ---- environment ------------------------------------------------------
     doc.add_page_break()
     doc.add_paragraph(style="Heading 1").add_run("4. Software environment")
-    env = (SUP / "S4_prompts_and_versions/environment_versions.md").read_text(encoding="utf-8")
+    env = (under("30_manuscript/supplement", "S4_prompts_and_versions/environment_versions.md")).read_text(encoding="utf-8")
     doc.add_paragraph(
         "Reproduced from S4. Versions are read from each run's own logs or from "
         "the installed binary, not from memory; the force-field entries are the "
@@ -380,8 +382,13 @@ def main() -> int:
     doc.add_page_break()
     doc.add_paragraph(style="Heading 1").add_run(
         "7. Applicability domain across eight descriptor spaces")
+    # The expanded selection's table, named by its run: depositing the
+    # 236-compound library's own sweep beside it made both basenames collide,
+    # and S10 prefixes every member of a colliding set rather than only the
+    # later one, precisely so a reader cannot mistake which is which.
     cov = list(csv.DictReader(
-        (S10 / "applicability_domain/ad_coverage_by_descriptor.csv")
+        (S10 / "applicability_domain"
+              / "ad_sweep_expanded_2026-08-21_ad_coverage_by_descriptor.csv")
         .read_text(encoding="utf-8").splitlines()))
     pct = list(csv.DictReader(
         (S10 / "applicability_domain/ad_percentile_position.csv")

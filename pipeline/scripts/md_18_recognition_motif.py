@@ -40,6 +40,7 @@ import json
 import math
 import subprocess
 from pathlib import Path
+from kdss_paths import project_root, resolve, under, wsl_root, dev_dir
 
 # --- pre-registered, ADR-AIIM-161 -------------------------------------------
 HBOND_CUTOFF_A = 3.5          # heavy-atom donor-acceptor, conventional
@@ -72,17 +73,18 @@ REPS = [1, 2, 3]
 
 
 def _root() -> Path:
-    marker = "00_project_control/08_DECISION_LOG.md"
-    for cand in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (cand / marker).is_file():
-            return cand
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-RUNS = ROOT / "20_new_runs"
-CAND_BASE = RUNS / "md_candidates_2026-08-22"
-CONTROL = RUNS / "md_production_2026-08-21/04_run"
+RUNS = dev_dir("20_new_runs")
+CAND_BASE = under("20_new_runs", "md_candidates_2026-08-22")
+CONTROL = under("20_new_runs", "md_production_2026-08-21/04_run")
 
 
 def sha256(p: Path) -> str:
@@ -185,7 +187,7 @@ def run_mindist(tpr: Path, xtc: Path, ndx: Path, group: str, out_xvg: Path,
     if out_xvg.is_file() and out_xvg.stat().st_size > 0:
         return True
     rel = lambda p: p.relative_to(ROOT).as_posix()
-    cmd = (f"cd '/mnt/d/Agentic VS Workflow' && printf '{group}\\nLigand\\n' | "
+    cmd = (f"cd {wsl_root()!r} && printf '{group}\\nLigand\\n' | "
            f"{GMX} mindist -s '{rel(tpr)}' -f '{rel(xtc)}' -n '{rel(ndx)}' "
            f"-od '{rel(out_xvg)}' -tu ns > '{rel(log)}' 2>&1")
     subprocess.run(["wsl", "-d", WSL_DISTRO, "--", "bash", "-c", cmd],
@@ -273,7 +275,7 @@ def analyse_system(tag, gro: Path, tpr: Path, xtc: Path, workdir: Path,
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--out", default=str(RUNS / "md_recognition_motif_2026-09-02"))
+    ap.add_argument("--out", default=str(under("20_new_runs", "md_recognition_motif_2026-09-02")))
     args = ap.parse_args()
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)

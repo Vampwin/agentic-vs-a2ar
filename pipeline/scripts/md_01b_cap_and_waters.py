@@ -31,20 +31,22 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+from kdss_paths import project_root, resolve, under
 
 import numpy as np
 
 
 def _root() -> Path:
-    marker = "00_project_control/08_DECISION_LOG.md"
-    for cand in (Path("/mnt/d/Agentic VS Workflow"), Path(r"D:\Agentic VS Workflow")):
-        if (cand / marker).is_file():
-            return cand
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-BENCH = ROOT / "20_new_runs/md_benchmark_2026-08-21/01_receptor"
+BENCH = resolve("20_new_runs/md_benchmark_2026-08-21/01_receptor")
 WATER_CUTOFF = 5.0      # A from any receptor heavy atom
 BOND_MAX = 2.0          # A; a real peptide C-N bond is ~1.33 A
 
@@ -72,9 +74,9 @@ def fmt(record: str, serial: int, name: str, resname: str, chain: str,
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--receptor", default=str(BENCH / "4eiy_prep_keepion.pdb"))
-    ap.add_argument("--waters", default=str(BENCH / "crystal_waters.pdb"))
-    ap.add_argument("--out", default=str(ROOT / "20_new_runs/md_production_2026-08-21/01_receptor"))
+    ap.add_argument("--receptor", default=str(under("20_new_runs/md_benchmark_2026-08-21/01_receptor", "4eiy_prep_keepion.pdb")))
+    ap.add_argument("--waters", default=str(under("20_new_runs/md_benchmark_2026-08-21/01_receptor", "crystal_waters.pdb")))
+    ap.add_argument("--out", default=str(resolve("20_new_runs/md_production_2026-08-21/01_receptor")))
     args = ap.parse_args()
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)

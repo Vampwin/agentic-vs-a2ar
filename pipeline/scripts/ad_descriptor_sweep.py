@@ -19,6 +19,7 @@ import argparse
 import json
 import hashlib
 from pathlib import Path
+from kdss_paths import project_root, resolve, under
 
 import numpy as np
 import pandas as pd
@@ -29,20 +30,17 @@ from rdkit.Chem.Pharm2D import Generate, Gobbi_Pharm2D
 RDLogger.DisableLog("rdApp.*")
 
 def _root() -> Path:
-    """Resolve the project root on Windows or WSL. Probe for a known FILE:
-    a Windows path used inside WSL silently creates a literal directory of
-    that name, so an is_dir() test would pass against a directory this very
-    call just made."""
-    marker = "00_project_control/08_DECISION_LOG.md"
-    for cand in (Path("/mnt/d/Agentic VS Workflow"), Path(r"D:\Agentic VS Workflow")):
-        if (cand / marker).is_file():
-            return cand
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-TRAIN = ROOT / "02_frozen_inputs/public_benchmarks/chembl_a2ar/chembl_a2a_training_v3.csv"
-SNPLIB = ROOT / "02_frozen_inputs/snp_library/01_library_validated.csv"
+TRAIN = resolve("02_frozen_inputs/public_benchmarks/chembl_a2ar/chembl_a2a_training_v3.csv")
+SNPLIB = resolve("02_frozen_inputs/snp_library/01_library_validated.csv")
 
 K = 5            # frozen: 5 nearest neighbours
 PCTL = 10        # frozen: 10th percentile of training self-similarity

@@ -35,6 +35,7 @@ import hashlib
 import json
 import sys
 from pathlib import Path
+from kdss_paths import project_root, resolve, under, dev_dir
 from types import SimpleNamespace
 
 import numpy as np
@@ -47,15 +48,17 @@ ARTIFACT_ID = "ood_isoforest_dev_2026-08-02"
 
 
 def _root() -> Path:
-    for c in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (c / "00_project_control/08_DECISION_LOG.md").is_file():
-            return c
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-SYS = ROOT / "10_new_system"
-READY = ROOT / "20_new_runs/WP2.5_WP3A_readiness_2026-07-30"
+SYS = dev_dir("10_new_system")
+READY = resolve("20_new_runs/WP2.5_WP3A_readiness_2026-07-30")
 PILOT_JSON = READY / "pilot_postfix_2026-08-04.json"
 OOD_SUMMARY = READY / "ood_fit_summary.json"
 MODEL = READY / "models" / f"{ARTIFACT_ID}.joblib"

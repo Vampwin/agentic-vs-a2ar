@@ -29,6 +29,7 @@ import re
 import time
 from difflib import SequenceMatcher
 from pathlib import Path
+from kdss_paths import project_root, resolve, under
 
 import requests
 
@@ -65,14 +66,16 @@ ADJUDICATED = {
 
 
 def _root() -> Path:
-    for c in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (c / "00_project_control/08_DECISION_LOG.md").is_file():
-            return c
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-MANUSCRIPT = ROOT / "30_manuscript/CURRENT_v5/manuscript_AIIM_v6_CLEAN.md"
+MANUSCRIPT = resolve("30_manuscript/CURRENT_v5/manuscript_AIIM_v6_CLEAN.md")
 
 
 def norm(s: str) -> str:

@@ -33,6 +33,7 @@ import hashlib
 import json
 import math
 from pathlib import Path
+from kdss_paths import project_root, resolve, under, dev_dir
 
 import pandas as pd
 
@@ -51,18 +52,19 @@ Z = 1.959963984540054
 
 
 def _root() -> Path:
-    marker = "00_project_control/08_DECISION_LOG.md"
-    for cand in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (cand / marker).is_file():
-            return cand
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-RUNS = ROOT / "20_new_runs"
-CTRL = RUNS / "funnel_exclusion_control_2026-08-21"
-R4 = RUNS / "funnel_recall_fullprotocol_2026-09-01"
-FASTPASS = RUNS / "funnel_recall_reweighted_2026-08-31/funnel_recall_reweighted.json"
+RUNS = dev_dir("20_new_runs")
+CTRL = under("20_new_runs", "funnel_exclusion_control_2026-08-21")
+R4 = under("20_new_runs", "funnel_recall_fullprotocol_2026-09-01")
+FASTPASS = under("20_new_runs", "funnel_recall_reweighted_2026-08-31/funnel_recall_reweighted.json")
 
 
 def sha256(p: Path) -> str:

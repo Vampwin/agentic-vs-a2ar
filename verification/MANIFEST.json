@@ -1,7 +1,7 @@
 {
   "assembled": "2026-08-21, extended 2026-08-24",
-  "n_files": 89,
-  "total_bytes": 1526918,
+  "n_files": 99,
+  "total_bytes": 5945552,
   "missing_sources": [],
   "files": [
     {
@@ -313,7 +313,7 @@
       "sha256": "a2439aca9364b48787b3c2662023b083af4c31ad750cdb7a6c1b3e6a21a53d1c"
     },
     {
-      "file": "applicability_domain/ad_coverage_by_descriptor.csv",
+      "file": "applicability_domain/ad_sweep_expanded_2026-08-21_ad_coverage_by_descriptor.csv",
       "source": "20_new_runs/ad_sweep_expanded_2026-08-21/ad_coverage_by_descriptor.csv",
       "supports": "Figure 3A and \u00a73.4: coverage in all eight spaces",
       "bytes": 482,
@@ -351,15 +351,15 @@
       "file": "pose_rescue/figure4_screening_performance_provenance.json",
       "source": "20_new_runs/../30_manuscript/figures/figure4_screening_performance_provenance.json",
       "supports": "Figure 4: input and output digests, and the AUC value under both tie conventions",
-      "bytes": 2308,
-      "sha256": "73977ae987fefe467747be7429d46bc4a76320314521967f2072306e0373a2b1"
+      "bytes": 2235,
+      "sha256": "801c2749bc3d1ee7d18c72a536526f537a6b036e66606b13df5b30df8d63d62c"
     },
     {
       "file": "orthogonal_engine/figure5_pose_overlay_provenance.json",
       "source": "20_new_runs/../30_manuscript/figures/figure5_pose_overlay_provenance.json",
       "supports": "Figure 5: input and output digests, RMSD values and their verification method, and the chain-discontinuity note behind the pocket-local cartoon view",
       "bytes": 2264,
-      "sha256": "1c1aa76de82140148556884c20af0df2356e9f18b363e884a63324ff5da28f83"
+      "sha256": "2d15f6ca74d929e3132f66b57fc88ebddd2bfae3ce0faf6627ef61ef2a76bd25"
     },
     {
       "file": "funnel_control/exclusion_control_summary.json",
@@ -484,8 +484,8 @@
       "file": "structure_and_protocol/g8_number_traceability.json",
       "source": "20_new_runs/verification_summary_2026-08-21/g8_number_traceability.json",
       "supports": "the G8 audit of every number in the manuscript",
-      "bytes": 62806,
-      "sha256": "a2df207dee6930f402bc346f17aef0d6b0f6f95bc4e00b079526d33a1acc782a"
+      "bytes": 69242,
+      "sha256": "72f82a8bd3bf2be664c7a4a955b7c336086b0fb3d964b536f809e3d29fbf4775"
     },
     {
       "file": "orthogonal_engine/orthogonal_check_result.json",
@@ -619,6 +619,76 @@
       "supports": "\u00a72.4: the ten-bin reliability curve, including the two bins the Tier-A probabilities fall in",
       "bytes": 411,
       "sha256": "60bb1e2d1fcbe91e8a1035a2c22226fe209926b6f25a40b3e4c9157d0d684316"
+    },
+    {
+      "file": "applicability_domain/ad_descriptor_sweep_2026-08-15_ad_coverage_by_descriptor.csv",
+      "source": "20_new_runs/ad_descriptor_sweep_2026-08-15/ad_coverage_by_descriptor.csv",
+      "supports": "\u00a73.3 and the graphical abstract: per-space coverage for the 236-compound SNP-Lib itself -- 0 % in four structural spaces and 152 of 236 (64.4 %) physicochemically. Distinct from the expanded selection's table beside it, and the file the graphical abstract was corrected against (ADR-AIIM-175)",
+      "bytes": 493,
+      "sha256": "45cd0ddab9e5ad101262c3fe90560f3a05ac08ac42429bad5c7379f85bd21b8b"
+    },
+    {
+      "file": "structure_checks/scores_control.csv",
+      "source": "20_new_runs/redock_9xt_2026-09-05/scores_control.csv",
+      "supports": "\u00a73.6: the ZM241385 control arm that gates the ligand-transfer redocking",
+      "bytes": 265,
+      "sha256": "2e04589f50bc59654a925271dd5b424a826f3c46ad59a202d392fd0b0c86284b"
+    },
+    {
+      "file": "structure_checks/scores_T1.csv",
+      "source": "20_new_runs/redock_9xt_2026-09-05/scores_T1.csv",
+      "supports": "\u00a73.6: 9XT redocked into 5OLH, the structure solved with it -- 0.216 A",
+      "bytes": 260,
+      "sha256": "727568e5d5595065025b7ab34722677abe3d9511a680528427521b312dd027f3"
+    },
+    {
+      "file": "structure_checks/scores_T2.csv",
+      "source": "20_new_runs/redock_9xt_2026-09-05/scores_T2.csv",
+      "supports": "\u00a73.6: the same ligand into 4EIY, a structure solved with a different one -- 9.606 A",
+      "bytes": 259,
+      "sha256": "7cd7cc058b6bb49dab718b03f8071a901497a06fdebbbbffb2162c6a8e8396fa"
+    },
+    {
+      "file": "structure_checks/9XT.sdf",
+      "source": "20_new_runs/redock_9xt_2026-09-05/poses_T2/9XT.sdf",
+      "supports": "\u00a73.6: the failing pose itself, so the 9.606 A is a geometry a reader can inspect rather than a number to accept",
+      "bytes": 22142,
+      "sha256": "bfe3b883af8523d6e1848dd4932f6d215b6617f8f0a71500cb9e17bbc75acb15"
+    },
+    {
+      "file": "learned_monitor/ood_fit_summary.json",
+      "source": "20_new_runs/WP2.5_WP3A_readiness_2026-07-30/ood_fit_summary.json",
+      "supports": "\u00a73.2: the isolation-forest applicability-domain detector as fitted, including the contamination setting its saturation behaviour follows from",
+      "bytes": 1588,
+      "sha256": "95a7dc88d9e7c9c11de2210571a7f70a28f46a283f1f63688373de224f45b6ce"
+    },
+    {
+      "file": "seeded_defects/wp4_conditions_ac_results.json",
+      "source": "20_new_runs/WP2.5_WP3A_readiness_2026-07-30/wp4_conditions_ac_results.json",
+      "supports": "the pre-recount conditions A and C, published so the denominator correction of ADR-AIIM-131 can be checked against its input",
+      "bytes": 113668,
+      "sha256": "ce595b6142e72af4e383081626873ac3541bdf6a47c4486ccc0d93e3cd6f78e3"
+    },
+    {
+      "file": "released_result/funnel_metadata.json",
+      "source": "20_new_runs/np_library_funnel_2026-08-15/funnel_metadata.json",
+      "supports": "\u00a72.6: the funnel's own record of what entered each stage and what the cutoffs were",
+      "bytes": 3894,
+      "sha256": "22f46d23b4efde821d3cecd6ece18a2357a2509cdf7dfdda70674efbfefdb3a6"
+    },
+    {
+      "file": "structure_checks/system_gmx.gro",
+      "source": "20_new_runs/md_production_2026-08-21/03_build/system_gmx.gro",
+      "supports": "\u00a72.9: the assembled membrane system the simulation reads. The atom, lipid, water and restraint counts the Methods quote are counted from this file rather than reported from the build log",
+      "bytes": 4194214,
+      "sha256": "a2bea4be260f10c1d1802cb00ae424ff711f17e745446f1cb9fd9ce0dfe86ad8"
+    },
+    {
+      "file": "released_result/snp_source_ledger.csv",
+      "source": "20_new_runs/snp_screen_2026-08-04/G1_standardization/snp_source_ledger.csv",
+      "supports": "the 236-compound SNP-Lib accountability ledger as G1 produced it. Deposited 2026-09-13 because 42 tests in the fault-injection suite seed their workspaces from it: without it the suite cannot run from this deposit, which is the only place a reader can run it",
+      "bytes": 75488,
+      "sha256": "67c0458874b2dcd11f7c255c1b558f54f02c1565cd124736eaf1c5f8e9d4f4be"
     },
     {
       "file": "incident_taxonomy/incident_taxonomy.md",

@@ -24,6 +24,7 @@ import json
 import os
 import time
 from pathlib import Path
+from kdss_paths import project_root, resolve, under
 
 for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS"):
     os.environ.setdefault(_v, "4")
@@ -38,23 +39,24 @@ from sklearn.pipeline import Pipeline
 
 
 def _root() -> Path:
-    marker = "00_project_control/08_DECISION_LOG.md"
-    for cand in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (cand / marker).is_file():
-            return cand
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-QSAR_RUN = ROOT / "20_new_runs/qsar_lbdd_2026-08-07"
-TRAIN_CSV = QSAR_RUN / "chembl_a2a_training_set.csv"
+QSAR_RUN = resolve("20_new_runs/qsar_lbdd_2026-08-07")
+TRAIN_CSV = under("20_new_runs/qsar_lbdd_2026-08-07", "chembl_a2a_training_set.csv")
 VAR_THRESHOLD = 0.01
 N_FOLDS = 5
 RANDOM_STATE = 42
 
 
 def _load_qsar_module():
-    path = ROOT / "10_new_system/scripts/run_qsar_lbdd_2026-08-07.py"
+    path = resolve("10_new_system/scripts/run_qsar_lbdd_2026-08-07.py")
     spec = importlib.util.spec_from_file_location("_qsar_src", path)
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)

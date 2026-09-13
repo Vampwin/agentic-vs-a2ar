@@ -22,11 +22,12 @@ import argparse
 import json
 import sys
 from pathlib import Path
+from kdss_paths import project_root, resolve, under
 
 import pandas as pd
 import yaml
 
-ROOT = Path(r"D:\Agentic VS Workflow")
+ROOT = project_root()
 sys.path.insert(0, str(ROOT / "10_new_system"))
 
 from evaluators import G4_evaluator  # noqa: E402
@@ -38,9 +39,9 @@ from kdss_audit.artifact_registry import (  # noqa: E402
     sha256_file,
 )
 
-FUNNEL = ROOT / "20_new_runs/np_library_funnel_2026-08-15"
-RUN = ROOT / "20_new_runs/g4_verification_2026-08-21"
-CONTRACT = ROOT / "10_new_system/contracts/G4_scoring.yaml"
+FUNNEL = resolve("20_new_runs/np_library_funnel_2026-08-15")
+RUN = resolve("20_new_runs/g4_verification_2026-08-21")
+CONTRACT = resolve("10_new_system/contracts/G4_scoring.yaml")
 
 
 def _read(registry: ArtifactRegistry, path: Path, purpose: str) -> Path:
@@ -52,19 +53,19 @@ def _read(registry: ArtifactRegistry, path: Path, purpose: str) -> Path:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--rerun-csv", default=str(RUN / "rerun_passA_cpu6.csv"),
+    ap.add_argument("--rerun-csv", default=str(under("20_new_runs/g4_verification_2026-08-21", "rerun_passA_cpu6.csv")),
                     help="seed_repeatability rerun output; if absent the check "
                          "fails closed, which is the contract's intent")
     ap.add_argument("--label", default="passA_cpu6")
     args = ap.parse_args()
 
     RUN.mkdir(parents=True, exist_ok=True)
-    registry = ArtifactRegistry(RUN / "artifact_registry.jsonl")
+    registry = ArtifactRegistry(under("20_new_runs/g4_verification_2026-08-21", "artifact_registry.jsonl"))
 
     contract = yaml.safe_load(CONTRACT.read_text(encoding="utf-8"))
     _read(registry, CONTRACT, "G4 contract definition")
 
-    merged = _read(registry, RUN / "full_scores_MERGED.csv",
+    merged = _read(registry, under("20_new_runs/g4_verification_2026-08-21", "full_scores_MERGED.csv"),
                    "G4 input: merged full-protocol docking scores")
     if not merged.is_file():
         print(f"ERROR: {merged} not found", file=sys.stderr)

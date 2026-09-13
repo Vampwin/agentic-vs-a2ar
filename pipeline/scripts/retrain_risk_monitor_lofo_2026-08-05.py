@@ -42,6 +42,7 @@ import hashlib
 import json
 import sys
 from pathlib import Path
+from kdss_paths import project_root, resolve, under
 from types import SimpleNamespace
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -62,8 +63,8 @@ from risk_monitor.policy import PolicyAction
 from telemetry.ood_detector import OutOfDomainDetector
 from telemetry.leakage_guard import check_field_names, check_allowlist
 
-BASE = Path(r"D:/Agentic VS Workflow/20_new_runs/WP2.5_WP3A_readiness_2026-07-30")
-OUT_DIR = Path(r"D:/Agentic VS Workflow/20_new_runs/WP4_retrain_lofo_2026-08-05")
+BASE = resolve("20_new_runs/WP2.5_WP3A_readiness_2026-07-30")
+OUT_DIR = resolve("20_new_runs/WP4_retrain_lofo_2026-08-05")
 MODELS_DIR = OUT_DIR / "models"
 REGISTRY_PATH = BASE / "model_registry.json"
 APPROVED_BY = "adisorn.siric@gmail.com"

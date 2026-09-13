@@ -25,6 +25,7 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+from kdss_paths import project_root, resolve, under
 
 import numpy as np
 import pandas as pd
@@ -34,15 +35,16 @@ RDLogger.DisableLog("rdApp.*")
 
 
 def _root() -> Path:
-    marker = "00_project_control/08_DECISION_LOG.md"
-    for cand in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (cand / marker).is_file():
-            return cand
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-SRC_DIR = ROOT / "20_new_runs/np_library_funnel_2026-08-15"
+SRC_DIR = resolve("20_new_runs/np_library_funnel_2026-08-15")
 SEED = 20260826          # distinct from the M2 seed; R2 is a different draw
 
 
@@ -69,7 +71,7 @@ def rewrite(smi: str, rng: np.random.Generator) -> tuple[str, str]:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--out", default=str(ROOT / "20_new_runs/smiles_redock_500_2026-08-26"))
+    ap.add_argument("--out", default=str(resolve("20_new_runs/smiles_redock_500_2026-08-26")))
     args = ap.parse_args()
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)

@@ -14,6 +14,7 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
+from kdss_paths import project_root, resolve, under
 
 import matplotlib
 matplotlib.use("Agg")
@@ -23,17 +24,18 @@ from PIL import Image
 
 
 def _root() -> Path:
-    marker = "00_project_control/08_DECISION_LOG.md"
-    for cand in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (cand / marker).is_file():
-            return cand
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-FIGDIR = ROOT / "30_manuscript/figures"
-PANEL_A = FIGDIR / "_panelA_control.png"
-PANEL_B = FIGDIR / "_panelB_candidate.png"
+FIGDIR = resolve("30_manuscript/figures")
+PANEL_A = under("30_manuscript/figures", "_panelA_control.png")
+PANEL_B = under("30_manuscript/figures", "_panelB_candidate.png")
 
 REF_GREY = "#7a7a7a"
 VINA_BLUE = "#1f5fa8"
@@ -78,7 +80,7 @@ def main() -> int:
               fontsize=MIN_PT, bbox_to_anchor=(0.5, 0.0),
               handlelength=1.8, columnspacing=1.4, handletextpad=0.6)
 
-    out_stem = FIGDIR / "figure5_pose_overlay_2026-08-24"
+    out_stem = under("30_manuscript/figures", "figure5_pose_overlay_2026-08-24")
     fig.savefig(out_stem.with_suffix(".png"), dpi=600, bbox_inches="tight")
     fig.savefig(out_stem.with_suffix(".svg"), bbox_inches="tight")
 
@@ -127,7 +129,7 @@ def main() -> int:
         "outputs": {p.name: sha256(p) for p in
                     (out_stem.with_suffix(".png"), out_stem.with_suffix(".svg"))},
     }
-    (FIGDIR / "figure5_pose_overlay_provenance.json").write_text(
+    (under("30_manuscript/figures", "figure5_pose_overlay_provenance.json")).write_text(
         json.dumps(prov, indent=2), encoding="utf-8")
 
     print(f"written -> {out_stem}.png / .svg")

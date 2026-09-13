@@ -28,6 +28,7 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
+from kdss_paths import project_root, resolve, under
 
 import numpy as np
 import pandas as pd
@@ -36,13 +37,13 @@ from rdkit.ML.Scoring import Scoring
 
 RDLogger.DisableLog("rdApp.*")
 
-ROOT = Path(r"D:\Agentic VS Workflow")
-STRUCT_DIR = ROOT / "02_frozen_inputs/a2ar_structures"
-CRYSTAL_4EIY = STRUCT_DIR / "4EIY.pdb"
-CRYSTAL_5OLH = STRUCT_DIR / "5OLH.pdb"
-RECEPTOR_PDB = (ROOT / "20_new_runs/routeA_water_shell_2026-08-09"
+ROOT = project_root()
+STRUCT_DIR = resolve("02_frozen_inputs/a2ar_structures")
+CRYSTAL_4EIY = under("02_frozen_inputs/a2ar_structures", "4EIY.pdb")
+CRYSTAL_5OLH = under("02_frozen_inputs/a2ar_structures", "5OLH.pdb")
+RECEPTOR_PDB = (resolve("20_new_runs/routeA_water_shell_2026-08-09")
                 / "4EIY_cut5_protein_plus_waters.pdb")
-RUN_DIR = ROOT / "20_new_runs/chembl245_ifp_rescoring_2026-08-15"
+RUN_DIR = resolve("20_new_runs/chembl245_ifp_rescoring_2026-08-15")
 
 CONTACT, HB = 4.5, 3.5
 BOOTSTRAP_N, BOOTSTRAP_SEED = 1000, 42
@@ -192,12 +193,12 @@ def main() -> int:
     print(f"9XT-only bits:      {sorted(ref_xt - ref_zm)}\n")
 
     # ---- rescore the archived benchmark poses against both references ----
-    ledger = pd.read_csv(ROOT / "20_new_runs/chembl248_redock_corrected_2026-08-10"
+    ledger = pd.read_csv(resolve("20_new_runs/chembl248_redock_corrected_2026-08-10")
                          / "chembl248_ledger.csv")[["compound_id", "label"]].drop_duplicates("compound_id")
     labels = dict(zip(ledger["compound_id"].astype(str), ledger["label"].astype(int)))
-    scores = pd.read_csv(RUN_DIR / "scores.csv")
+    scores = pd.read_csv(under("20_new_runs/chembl245_ifp_rescoring_2026-08-15", "scores.csv"))
     scores = scores[scores["status"] == "ok"]
-    poses_dir = RUN_DIR / "poses"
+    poses_dir = under("20_new_runs/chembl245_ifp_rescoring_2026-08-15", "poses")
 
     rows = []
     for _, r in scores.iterrows():

@@ -24,6 +24,7 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+from kdss_paths import project_root, resolve, under, dev_dir
 
 import numpy as np
 import pandas as pd
@@ -31,17 +32,18 @@ from sklearn.metrics import brier_score_loss, roc_auc_score
 
 
 def _root() -> Path:
-    marker = "00_project_control/08_DECISION_LOG.md"
-    for cand in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (cand / marker).is_file():
-            return cand
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-RUNS = ROOT / "20_new_runs"
-QSAR = RUNS / "qsar_lbdd_2026-08-07"
-CDIAG = RUNS / "conformal_diagnostics_2026-08-25"
+RUNS = dev_dir("20_new_runs")
+QSAR = under("20_new_runs", "qsar_lbdd_2026-08-07")
+CDIAG = under("20_new_runs", "conformal_diagnostics_2026-08-25")
 N_BINS = 10
 
 
@@ -71,7 +73,7 @@ def reliability(y: np.ndarray, p: np.ndarray, n_bins: int = N_BINS) -> tuple[lis
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--out", default=str(RUNS / "qsar_calibration_2026-08-26"))
+    ap.add_argument("--out", default=str(under("20_new_runs", "qsar_calibration_2026-08-26")))
     args = ap.parse_args()
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)

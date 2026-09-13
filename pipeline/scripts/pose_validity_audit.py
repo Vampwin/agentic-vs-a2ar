@@ -28,6 +28,7 @@ import hashlib
 import json
 import warnings
 from pathlib import Path
+from kdss_paths import project_root, resolve, under, dev_dir
 
 warnings.filterwarnings("ignore")
 
@@ -36,19 +37,20 @@ from posebusters import PoseBusters  # noqa: E402
 
 
 def _root() -> Path:
-    marker = "00_project_control/08_DECISION_LOG.md"
-    for cand in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (cand / marker).is_file():
-            return cand
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-RUNS = ROOT / "20_new_runs"
-FUNNEL = RUNS / "np_library_funnel_2026-08-15"
-DIFFDOCK = RUNS / "diffdock_orthogonal_2026-08-23"
+RUNS = dev_dir("20_new_runs")
+FUNNEL = under("20_new_runs", "np_library_funnel_2026-08-15")
+DIFFDOCK = under("20_new_runs", "diffdock_orthogonal_2026-08-23")
 RECEPTOR = DIFFDOCK / "4EIY_protein_only.pdb"
-CONTROL_POSE = RUNS / "snp_screen_2026-08-04/G3_redocking/ZMA_redocked_4EIY.sdf"
+CONTROL_POSE = under("20_new_runs", "snp_screen_2026-08-04/G3_redocking/ZMA_redocked_4EIY.sdf")
 CANDIDATES = ["NPLIB01185", "NPLIB01643", "NPLIB03056"]
 
 # Checks that describe the file rather than the geometry. Kept in the output but
@@ -115,7 +117,7 @@ def summarise(df: pd.DataFrame, checks: list[str]) -> dict:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--out", default=str(RUNS / "pose_validity_2026-09-03"))
+    ap.add_argument("--out", default=str(under("20_new_runs", "pose_validity_2026-09-03")))
     ap.add_argument("--limit", type=int, default=0)
     args = ap.parse_args()
     out = Path(args.out)

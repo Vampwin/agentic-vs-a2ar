@@ -43,6 +43,7 @@ import shlex
 import shutil
 import subprocess
 from pathlib import Path
+from kdss_paths import project_root, resolve, under, wsl_root
 
 import numpy as np
 
@@ -76,17 +77,19 @@ OWN_LIGAND = {"4EIY": "ZMA", "5OLH": "9XT"}
 
 
 def _root() -> Path:
-    for c in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (c / "00_project_control/08_DECISION_LOG.md").is_file():
-            return c
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-SCRIPTS = ROOT / "10_new_system/scripts"
-STRUCT = ROOT / "02_frozen_inputs/a2ar_structures"
-BOX_SRC = ROOT / "20_new_runs/snp_screen_2026-08-04/G2_preparation/docking_box.json"
-TEMPLATE_SRC = ROOT / "20_new_runs/snp_screen_2026-08-04/G3_redocking/reference_template.json"
+SCRIPTS = resolve("10_new_system/scripts")
+STRUCT = resolve("02_frozen_inputs/a2ar_structures")
+BOX_SRC = resolve("20_new_runs/snp_screen_2026-08-04/G2_preparation/docking_box.json")
+TEMPLATE_SRC = resolve("20_new_runs/snp_screen_2026-08-04/G3_redocking/reference_template.json")
 PDBFIXER_ENV = "mdenv"
 WSL_DISTRO, CONDA_ENV = "Ubuntu-22.04", "diffdock"
 
@@ -103,8 +106,8 @@ def _load(name, path):
     return m
 
 
-MR = _load("multi_reference_ifp_variant", SCRIPTS / "multi_reference_ifp_variant.py")
-RSS = _load("run_snp_screen", SCRIPTS / "run_snp_screen.py")
+MR = _load("multi_reference_ifp_variant", under("10_new_system/scripts", "multi_reference_ifp_variant.py"))
+RSS = _load("run_snp_screen", under("10_new_system/scripts", "run_snp_screen.py"))
 
 
 def sha256(p: Path) -> str:
@@ -117,7 +120,7 @@ def sha256(p: Path) -> str:
 
 def wsl(cmd, timeout=7200):
     full = (f"source ~/miniconda3/etc/profile.d/conda.sh && conda activate {CONDA_ENV} "
-            f"&& cd '/mnt/d/Agentic VS Workflow' && {cmd}")
+            f"&& cd {wsl_root()!r} && {cmd}")
     return subprocess.run(["wsl", "-d", WSL_DISTRO, "--", "bash", "-lc", full],
                           capture_output=True, text=True, timeout=timeout)
 
@@ -228,9 +231,9 @@ def verify_transcription() -> int:
     import tempfile
     with tempfile.TemporaryDirectory() as d:
         a, b = Path(d) / "prod.pdb", Path(d) / "mine.pdb"
-        ra = RSS._write_receptor_with_waters(STRUCT / "4EIY.pdb", a,
+        ra = RSS._write_receptor_with_waters(under("02_frozen_inputs/a2ar_structures", "4EIY.pdb"), a,
                                              chain="A", cutoff=WATER_CUTOFF_A)
-        rb = write_receptor_with_waters(STRUCT / "4EIY.pdb", b, chain="A",
+        rb = write_receptor_with_waters(under("02_frozen_inputs/a2ar_structures", "4EIY.pdb"), b, chain="A",
                                         cutoff=WATER_CUTOFF_A, ligand_resn="ZMA")
         same = a.read_bytes() == b.read_bytes()
         print(f"production : {ra['n_waters_retained']} waters retained")

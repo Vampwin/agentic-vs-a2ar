@@ -43,6 +43,7 @@ import subprocess
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+from kdss_paths import project_root, resolve, under, dev_dir
 from typing import Any
 
 import yaml
@@ -63,9 +64,9 @@ from kdss_audit.state_machine import AuditState  # noqa: E402
 
 logger = logging.getLogger("run_snp_screen")
 
-ROOT = _SYSTEM_ROOT.parent                       # D:\Agentic VS Workflow
-FROZEN = ROOT / "02_frozen_inputs"
-LEGACY = ROOT / "04_legacy_evidence"
+ROOT = _SYSTEM_ROOT.parent                       # the project root
+FROZEN = dev_dir("02_frozen_inputs")
+LEGACY = dev_dir("04_legacy_evidence")
 CONTRACTS_DIR = _SYSTEM_ROOT / "contracts"
 CONFIG_PATH = _SYSTEM_ROOT / "configs" / "a2a_frozen_config.yaml"
 
@@ -147,15 +148,15 @@ def tool_g0_verify_inputs(run_dir: Path, config_path: Path,
     what was registered, so this adapter only locates files and logs the reads.
     """
     inputs = {
-        "snp_library_csv": FROZEN / "snp_library" / "01_library_validated.csv",
-        "snp_library_sdf": FROZEN / "snp_library" / "01_library_validated.sdf",
-        "snp_library_raw_xlsx": FROZEN / "snp_library" /
+        "snp_library_csv": under("02_frozen_inputs", "snp_library") / "01_library_validated.csv",
+        "snp_library_sdf": under("02_frozen_inputs", "snp_library") / "01_library_validated.sdf",
+        "snp_library_raw_xlsx": under("02_frozen_inputs", "snp_library") /
             "Sritularak Natural Products Library (SNP-Lib) - Prof. Boonchoo Sritularak_update.xlsx",
-        "receptor_pdb_4eiy": FROZEN / "a2ar_structures" / "4EIY.pdb",
-        "receptor_pdb_3eml": FROZEN / "a2ar_structures" / "3EML.pdb",
-        "chembl_benchmark_csv": FROZEN / "public_benchmarks" / "chembl_a2ar" /
+        "receptor_pdb_4eiy": under("02_frozen_inputs", "a2ar_structures") / "4EIY.pdb",
+        "receptor_pdb_3eml": under("02_frozen_inputs", "a2ar_structures") / "3EML.pdb",
+        "chembl_benchmark_csv": under("02_frozen_inputs", "public_benchmarks") / "chembl_a2ar" /
             "chembl_a2ar_validation_set.csv",
-        "chembl_a2ar_raw_csv": FROZEN / "public_benchmarks" / "chembl_a2ar" /
+        "chembl_a2ar_raw_csv": under("02_frozen_inputs", "public_benchmarks") / "chembl_a2ar" /
             "chembl_a2a_raw_v2.csv",
     }
     for key, path in inputs.items():
@@ -181,7 +182,7 @@ def tool_g1_standardize(run_dir: Path, config_path: Path,
 
     src = _SYSTEM_ROOT / "scripts" / "01_standardize_library.py"
     _record_read(registry, src, purpose="G1 standardization implementation")
-    _record_read(registry, FROZEN / "snp_library" / "01_library_validated.csv",
+    _record_read(registry, under("02_frozen_inputs", "snp_library") / "01_library_validated.csv",
                  purpose="G1 standardization input")
 
     spec = importlib.util.spec_from_file_location("_standardize_library", src)
@@ -312,7 +313,7 @@ def tool_g2_prepare(run_dir: Path, config_path: Path,
     centres: dict[str, list[float]] = {}
     n_ref_atoms: dict[str, int] = {}
     for label in ("4EIY",):
-        pdb = _record_read(registry, FROZEN / "a2ar_structures" / f"{label}.pdb",
+        pdb = _record_read(registry, under("02_frozen_inputs", "a2ar_structures") / f"{label}.pdb",
                            purpose=f"G2 box derivation from crystal ZMA ({label})")
         centres[label], n_ref_atoms[label] = _zma_centroid(pdb)
 
@@ -349,7 +350,7 @@ def tool_g2_prepare(run_dir: Path, config_path: Path,
     water_reports: dict[str, dict[str, Any]] = {}
 
     for label in ("4EIY",):
-        src_pdb = _record_read(registry, FROZEN / "a2ar_structures" / f"{label}.pdb",
+        src_pdb = _record_read(registry, under("02_frozen_inputs", "a2ar_structures") / f"{label}.pdb",
                                purpose=f"G2 receptor preparation input ({label})")
         filtered_pdb = out_dir / f"{label}_protein_plus_waters.pdb"
         fixed_pdb = out_dir / f"{label}_fixed.pdb"
@@ -423,7 +424,7 @@ def tool_g2_prepare(run_dir: Path, config_path: Path,
 
     rec_4eiy = prepared["4EIY"]
 
-    ref_lig_src = _record_read(registry, LEGACY / "redocking" / "ZMA_crystal_4EIY.sdf",
+    ref_lig_src = _record_read(registry, under("04_legacy_evidence", "redocking") / "ZMA_crystal_4EIY.sdf",
                                purpose="G2 reference ligand extracted from 4EIY")
     ref_lig = out_dir / "ZMA_reference_4EIY.sdf"
     shutil.copy2(ref_lig_src, ref_lig)
@@ -629,7 +630,7 @@ def tool_g3_redock(run_dir: Path, config_path: Path,
     out_dir = run_dir / "G3_redocking"
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    crystal_4eiy = _record_read(registry, LEGACY / "redocking" / "ZMA_crystal_4EIY.sdf",
+    crystal_4eiy = _record_read(registry, under("04_legacy_evidence", "redocking") / "ZMA_crystal_4EIY.sdf",
                                 purpose="G3 reference ligand 4EIY")
 
     # The standardized library, for the representativeness assessment.
@@ -645,7 +646,7 @@ def tool_g3_redock(run_dir: Path, config_path: Path,
         if col:
             library_smiles = [s for s in ledger[col].tolist() if isinstance(s, str)]
     # Recorded as inspected-and-rejected, not used: this file encodes C16N6O3.
-    _record_read(registry, LEGACY / "redocking" / "ZM241385_conformer.sdf",
+    _record_read(registry, under("04_legacy_evidence", "redocking") / "ZM241385_conformer.sdf",
                  purpose="G3 legacy conformer inspected; rejected as wrong molecule")
 
     # ── Step 0: prepare the ligand, then round-trip it through the same

@@ -37,6 +37,7 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+from kdss_paths import project_root, resolve, under, dev_dir
 
 # --- the rule, transcribed from pilot_runner.py before this script was run ---
 # A fault case counts towards SEER when a fault was actually injected into the
@@ -48,19 +49,20 @@ EXCLUDE_ERROR = True
 
 
 def _root() -> Path:
-    marker = "00_project_control/08_DECISION_LOG.md"
-    for cand in (Path(r"D:\Agentic VS Workflow"), Path("/mnt/d/Agentic VS Workflow")):
-        if (cand / marker).is_file():
-            return cand
-    raise SystemExit("project root not found")
+    # Delegates to kdss_paths, which finds whichever layout this file is inside
+    # -- the development tree or a deposit -- by walking up from its own
+    # location. It previously tried two absolute paths and exited if neither
+    # existed, which on the author's machine meant a copy of the deposit read
+    # and wrote the development tree instead of itself.
+    return project_root()
 
 
 ROOT = _root()
-RUNS = ROOT / "20_new_runs"
-PILOT = RUNS / "WP2.5_WP3A_readiness_2026-07-30/pilot_postfix_2026-08-04.json"
+RUNS = dev_dir("20_new_runs")
+PILOT = under("20_new_runs", "WP2.5_WP3A_readiness_2026-07-30/pilot_postfix_2026-08-04.json")
 WP4 = RUNS / ("WP4_retrain_postfix_2026-08-05/"
               "wp4_conditions_ac_results_postfix_2026-08-05.json")
-PREVIOUS = RUNS / "verification_summary_2026-08-21/mutation_score_by_gate.json"
+PREVIOUS = under("20_new_runs", "verification_summary_2026-08-21/mutation_score_by_gate.json")
 
 CONDITION_NAMES = {
     "A": "A_contracts_and_monitor",
@@ -105,7 +107,7 @@ def counted(row: dict, vac: dict[str, bool]) -> bool:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--out", default=str(RUNS / "seeded_defect_recount_2026-08-29"))
+    ap.add_argument("--out", default=str(under("20_new_runs", "seeded_defect_recount_2026-08-29")))
     args = ap.parse_args()
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
