@@ -1,7 +1,7 @@
 {
   "assembled": "2026-08-22",
   "n_files": 369,
-  "total_bytes": 17741635,
+  "total_bytes": 17741302,
   "n_files_excluded_by_rule": 154,
   "n_duplicates_removed": 29,
   "n_files_refused_by_screening": 0,
@@ -2018,8 +2018,8 @@
     {
       "path": "verification/summary/g8_number_traceability.json",
       "source": "20_new_runs/verification_summary_2026-08-21/g8_number_traceability.json",
-      "bytes": 69834,
-      "sha256": "e4a291f1b0f7143c97132cd4cdb191f90ce2007fea556b5d1bf91e80049f9dcd"
+      "bytes": 69501,
+      "sha256": "5528106c0a827dace85d4915cf08c7161e4197bcf576ff63663f23d5babf8cf8"
     },
     {
       "path": "verification/summary/stereo_undefined_counts.json",
