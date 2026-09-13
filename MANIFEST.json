@@ -1,7 +1,7 @@
 {
   "assembled": "2026-08-22",
   "n_files": 360,
-  "total_bytes": 13265641,
+  "total_bytes": 13267210,
   "n_files_excluded_by_rule": 153,
   "n_duplicates_removed": 27,
   "n_files_refused_by_screening": 0,
@@ -800,8 +800,8 @@
     {
       "path": "pipeline/scripts/g8_number_traceability.py",
       "source": "10_new_system/scripts/g8_number_traceability.py",
-      "bytes": 81435,
-      "sha256": "30955b059bd855f3763e251b98e583f29a8fecc5c2ac5b18937c434eaafe20aa"
+      "bytes": 82052,
+      "sha256": "34be8fc72737270326ec29338967ed6f83f660dcac6694702b26a85d4b5a32e3"
     },
     {
       "path": "pipeline/scripts/heldout_case_analysis.py",
@@ -1941,7 +1941,7 @@
       "path": "figures/figure_ad_multispace_2026-08-25.svg",
       "source": "30_manuscript/figures/figure_ad_multispace_2026-08-25.svg",
       "bytes": 152845,
-      "sha256": "3797cff7ebc81e31983f0c2b5fa23fb974f89b042300d935a331d5f2d559a432"
+      "sha256": "dfcb4522155970b3e0f3125925e5cf5cfa86050970feae95ab12110c633835ee"
     },
     {
       "path": "figures/figure_ad_multispace_CAPTION.md",
@@ -1964,8 +1964,8 @@
     {
       "path": "verification/summary/g8_number_traceability.json",
       "source": "20_new_runs/verification_summary_2026-08-21/g8_number_traceability.json",
-      "bytes": 68316,
-      "sha256": "9b4bc55bbed2867ca07a1c1c992d0aed68a1625ffa361b942ecbe613ae238947"
+      "bytes": 69268,
+      "sha256": "f6bb00d448cb66ea0a002f9adeb587891f29d844da15bfac6dcaac977f3a561b"
     },
     {
       "path": "verification/summary/stereo_undefined_counts.json",

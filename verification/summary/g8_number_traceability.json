@@ -1,8 +1,8 @@
 {
   "manuscript": "D:/Agentic VS Workflow/30_manuscript/CURRENT_v5/manuscript_AIIM_v6.md",
   "state": "FAIL",
-  "n_checks": 288,
-  "n_pass": 287,
+  "n_checks": 290,
+  "n_pass": 289,
   "n_value_mismatch": 1,
   "n_literal_absent": 0,
   "checks": [
@@ -2597,6 +2597,30 @@
       "literal": "128 fault cases"
     },
     {
+      "check": "companion:../../40_deposit/README.md:682 tests",
+      "state": "PASS",
+      "expected": "682 tests present, 675 tests absent",
+      "recomputed": {
+        "file": "../../40_deposit/README.md",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "682 tests"
+    },
+    {
+      "check": "companion:../../40_deposit/README.md:64.4 % in-domain in physicochemical space",
+      "state": "PASS",
+      "expected": "64.4 % in-domain in physicochemical space present, 86.3 % in-domain in physicochemical space absent",
+      "recomputed": {
+        "file": "../../40_deposit/README.md",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "64.4 % in-domain in physicochemical space"
+    },
+    {
       "check": "figprov:figure4",
       "state": "PASS",
       "expected": "5 artifacts re-hash",
@@ -2657,7 +2681,7 @@
       "state": "FAIL-SUPP",
       "expected": "1 Supplementary Reference S<n> list(s) ship",
       "recomputed": [
-        "S1 is cited but no such list ships (reference [13]: the 38 SNP-Lib isolation-source reports) -- author action"
+        "S1 is cited but no such list ships (reference [13]: the 38 SNP-Lib isolation-source reports) -- author action; see 20_new_runs/snplib_source_audit_2026-09-12"
       ],
       "literal_present_in_manuscript": true,
       "literal": "supp_reference_lists_resolve"

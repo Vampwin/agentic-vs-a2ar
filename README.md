@@ -13,10 +13,12 @@ hypothesis. No wet-laboratory validation has been performed.**
 The manuscript makes two kinds of claim, and this repository exists so both can
 be checked rather than taken on trust:
 
-1. **Standard quality-control gates reject unfamiliar chemistry.** A 236-compound
-   Thai orchid natural-product library is 0 % in-domain in four structural
-   descriptor spaces and 86.3 % in-domain in physicochemical space — the same
-   library, the same rule. The data behind that is in `verification/`.
+1. **Standard quality-control gates reject unfamiliar chemistry.** The
+   236-compound Thai orchid natural-product library is 0 % in-domain in four
+   structural descriptor spaces and 64.4 % in-domain in physicochemical space —
+   the same library, the same rule. Under that same rule the 497-compound
+   expanded selection reaches 86.3 % physicochemically and stays at 0 %
+   structurally. The data behind both is in `verification/`.
 
 2. **The pipeline's own code was verified, and the verification is reported as a
    result.** Contracts, evaluators, the fault-injection suite and the test suite
@@ -32,27 +34,70 @@ be checked rather than taken on trust:
 | `pipeline/contracts/` | The ten frozen G0–G8 audit contracts (94 checks) |
 | `pipeline/evaluators/` | The deterministic evaluator modules the acting agent cannot override |
 | `pipeline/fault_injection/` | Eighteen fault-family definitions; eleven implemented, seven declared stubs |
-| `pipeline/tests/` | The test suite — 675 tests across 30 modules |
+| `pipeline/tests/` | The test suite — 682 tests across 30 modules |
 | `pipeline/scripts/` | Every analysis, figure and audit script referenced in the manuscript |
 | `pipeline/kdss_audit/` | The append-only artifact registry |
 | `verification/` | The evidence behind Sections 2 and 3, copied as the analysis read it |
 | `figures/` | Figure sources and their provenance records |
 | `MANIFEST.json` | SHA-256 of every file, plus what was excluded and why |
 
-## Reproducing the audit
+## What can be re-run here, and what cannot
 
-`pipeline/scripts/g8_number_traceability.py` is the one to start with. It
-recomputes every load-bearing number in the manuscript from the artifact it came
-from and checks it against the literal text of the draft — 57 checks, and it
-fails rather than warns when a number cannot be re-derived.
+Stated precisely, because the distinction matters and testing it is the point
+of this repository. **The deposit was copied to a clean directory and each of
+these was run there**, rather than asserted.
+
+**The test suite runs and passes.** It is the executable part of the claim that
+the evaluators behave as the manuscript describes.
 
 ```
-python pipeline/scripts/g8_number_traceability.py --manuscript <path to the draft>
+cd pipeline
+python -m pytest -q          # 682 passed
 ```
 
-Others worth running directly: `analyse_metamorphic.py` (the four invariants,
-including the one that fails), `figure_ad_multispace.py` (Figure 3 from its
-source data), `build_references_v6.py --check` (the reference list).
+The working directory matters: several tests open contract files by relative
+path, so running from the repository root fails at collection.
+
+**The analysis and figure scripts are deposited for reading, not as a turnkey
+pipeline.** They were written against the development tree and resolve their
+inputs from its layout — `20_new_runs/`, `30_manuscript/`, a marker file under
+`00_project_control/` — none of which is part of this deposit, which
+reorganises the same evidence under `verification/`. Run from a clean checkout
+they exit rather than producing a wrong answer quietly. What they are for is
+reading the exact computation the manuscript reports, alongside the artifact in
+`verification/` it produced; every number in the manuscript can be traced to a
+file here by hand.
+
+`g8_number_traceability.py` is the clearest case. It checks the manuscript's
+numbers against the artifacts, and the manuscript is not deposited, so it
+cannot run here by construction. Its output is: `verification/summary/g8_number_traceability.json`
+records every check, its expected and recomputed value, and whether the literal
+was found in the draft — 288 checks at the time of this snapshot.
+
+Making the analysis scripts runnable from the deposit would mean a path-mapping
+layer between the two layouts. It is not done, and this section says so rather
+than leaving a reader to discover it.
+
+## Environment
+
+Confirmed by interrogating the execution environments directly rather than from
+memory. RDKit differs between them, and that is not an error: the conformer
+generation step shells out to WSL.
+
+| Component | Version | Where |
+|---|---|---|
+| Python | 3.12.10 | Windows — evaluators, standardisation, QSAR, tests |
+| RDKit | 2026.03.3 | Windows |
+| RDKit | 2025.09.5 | WSL `Ubuntu-22.04`, conda env `diffdock` |
+| scikit-learn | 1.9.0 | Windows |
+| pandas | 3.0.3 | Windows |
+| NumPy | 2.4.6 | Windows |
+| AutoDock Vina | 1.2.7 | WSL, Forli lab Python bindings |
+| DiffDock | commit `85c49b6`, tag `v1.1.3-2-g85c49b6` | WSL |
+| PyTorch / CUDA | 2.7.0+cu128 / 12.8 | WSL |
+
+The test suite needs only the Windows-side set. Docking and DiffDock are needed
+only to regenerate poses, which this deposit supplies rather than requires.
 
 ---
 

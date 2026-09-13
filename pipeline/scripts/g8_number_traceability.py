@@ -305,9 +305,18 @@ def check_companion_files(report: dict) -> list[dict]:
         ("COVER_LETTER_DRAFT.md", "133 seeded", "128 seeded"),
         ("Supplementary_Information.docx", "93.2%", "96.9%"),
         ("Supplementary_Information.docx", "133 fault cases", "128 fault cases"),
+        # The deposit's own README is hand-authored and build_deposit.py keeps
+        # it across rebuilds, which is why it went stale unnoticed: it carried
+        # 675 tests and put the expanded selection's 86.3 % against the
+        # 236-compound library, the same error the graphical abstract carried.
+        # It is the public face of the repository, so it is audited too.
+        ("../../40_deposit/README.md", "675 tests", "682 tests"),
+        ("../../40_deposit/README.md",
+         "86.3 % in-domain in physicochemical space",
+         "64.4 % in-domain in physicochemical space"),
     ]
     for fname, stale, current in PAIRS:
-        p = docs / fname
+        p = (docs / fname).resolve()
         txt = _text(p)
         ok = bool(txt) and stale not in txt and current in txt
         out.append({
