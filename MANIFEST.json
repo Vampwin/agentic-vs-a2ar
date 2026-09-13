@@ -1,7 +1,7 @@
 {
   "assembled": "2026-08-22",
   "n_files": 369,
-  "total_bytes": 17739269,
+  "total_bytes": 17741635,
   "n_files_excluded_by_rule": 154,
   "n_duplicates_removed": 29,
   "n_files_refused_by_screening": 0,
@@ -800,8 +800,8 @@
     {
       "path": "pipeline/scripts/g8_number_traceability.py",
       "source": "10_new_system/scripts/g8_number_traceability.py",
-      "bytes": 83933,
-      "sha256": "5f4c622a02cd5217dd998e9031358c42ac9f04ce38179576a2e97db5ce1bd216"
+      "bytes": 85707,
+      "sha256": "c87e2c9a4516c69952091de0c46ec9e38d031e50bb202c198cf2d1501fe35219"
     },
     {
       "path": "pipeline/scripts/heldout_case_analysis.py",
@@ -2018,8 +2018,8 @@
     {
       "path": "verification/summary/g8_number_traceability.json",
       "source": "20_new_runs/verification_summary_2026-08-21/g8_number_traceability.json",
-      "bytes": 69242,
-      "sha256": "94cbf66291c93721cf2dac76e15d7022d4bae7364c4be294646477d7030ab390"
+      "bytes": 69834,
+      "sha256": "e4a291f1b0f7143c97132cd4cdb191f90ce2007fea556b5d1bf91e80049f9dcd"
     },
     {
       "path": "verification/summary/stereo_undefined_counts.json",

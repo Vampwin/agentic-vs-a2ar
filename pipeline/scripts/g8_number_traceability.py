@@ -446,6 +446,40 @@ def check_figure_provenance() -> list[dict]:
     return out
 
 
+def check_repository_url(text: str) -> list[dict]:
+    """The Data availability statement must name a repository that exists.
+
+    It currently says the deposit is in "a public repository at <url>". The
+    repository is planned to be created private and made public before
+    submission (author decision, 2026-09-13). Submitting while it is private
+    would put a link in the paper that 404s for every reviewer, and that
+    sentence is the most easily checked claim in it.
+
+    This fails while the URL carries a placeholder, which it must until the
+    repository is actually made. It cannot see whether the repository is
+    public -- nothing offline can -- so it names that as the remaining step
+    rather than implying it checked.
+    """
+    import re as _re
+    flat = " ".join(text.split())
+    m = _re.search(r"public repository at ([^,]+), commit", flat)
+    url = m.group(1).strip() if m else ""
+    placeholder = ("<github-account>" in url or "AUTHOR ACTION" in url
+                   or "REPOSITORY URL" in url or not url)
+    return [{
+        "name": "deposit_url_named",
+        "status": "FAIL-URL" if placeholder else "PASS",
+        "expected": "a repository URL with no placeholder in it",
+        "problems": ([f"still a placeholder: {url or '(not found)'}. The "
+                      f"repository is agentic-vs-a2ar; the account that owns "
+                      f"it is open. Note that this check cannot tell whether "
+                      f"the repository is public -- the manuscript says it is, "
+                      f"and the plan is to flip it from private before "
+                      f"submission."] if placeholder else []),
+        "n_checked": 1,
+    }]
+
+
 def check_supplementary_pointers(text: str) -> list[dict]:
     """Every "Supplementary S<n>" the manuscript cites must be a section that
     ships, and every "Supplementary Reference S<n>" must be a list that ships.
@@ -1350,6 +1384,7 @@ def main() -> int:
     companions = check_companion_files({})
     figures = check_figure_provenance()
     figures += check_supplementary_pointers(text)
+    figures += check_repository_url(text)
     commit = check_deposit_commit()
 
     rows, n_pass, n_fail, n_absent = [], 0, 0, 0

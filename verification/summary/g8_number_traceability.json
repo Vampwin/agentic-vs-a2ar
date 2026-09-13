@@ -1,9 +1,9 @@
 {
   "manuscript": "30_manuscript/CURRENT_v5/manuscript_AIIM_v6.md",
   "state": "FAIL",
-  "n_checks": 290,
+  "n_checks": 291,
   "n_pass": 289,
-  "n_value_mismatch": 1,
+  "n_value_mismatch": 2,
   "n_literal_absent": 0,
   "checks": [
     {
@@ -2685,6 +2685,16 @@
       ],
       "literal_present_in_manuscript": true,
       "literal": "supp_reference_lists_resolve"
+    },
+    {
+      "check": "deposit_url_named",
+      "state": "FAIL-URL",
+      "expected": "a repository URL with no placeholder in it",
+      "recomputed": [
+        "still a placeholder: **[AUTHOR ACTION: https://github.com/<github-account>/agentic-vs-a2ar]**. The repository is agentic-vs-a2ar; the account that owns it is open. Note that this check cannot tell whether the repository is public -- the manuscript says it is, and the plan is to flip it from private before submission."
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "deposit_url_named"
     }
   ]
 }
