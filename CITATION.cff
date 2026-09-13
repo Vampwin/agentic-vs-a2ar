@@ -36,9 +36,13 @@ authors:
     affiliation: >-
       Faculty of Pharmaceutical Sciences, Chulalongkorn University,
       Bangkok 10330, Thailand
-license-expression: MIT AND CC-BY-4.0
-license-url: >-
-  https://github.com/Vampwin/agentic-vs-a2ar/blob/main/LICENSE
+repository-code: https://github.com/Vampwin/agentic-vs-a2ar
+# No `license` key. CFF allows a list, but its own schema states that multiple
+# licences are read as OR -- "either of these covers the work". This repository
+# is MIT for the code under pipeline/ AND CC BY 4.0 for the data under
+# verification/ and figures/, which CFF cannot express. Asserting OR would be a
+# licensing misstatement, so the field is omitted and LICENSE is linked instead.
+license-url: https://github.com/Vampwin/agentic-vs-a2ar/blob/main/LICENSE
 keywords:
   - agentic AI
   - virtual screening
@@ -56,12 +60,19 @@ abstract: >-
 references:
   - type: data
     title: LOTUS natural products database, v11 frozen snapshot
+    authors:
+      - name: The LOTUS initiative
     doi: 10.5281/zenodo.19360665
     notes: >-
       CC BY 4.0. Structures and organism names under verification/ derive from
       it and attribution is required wherever they are reused.
   - type: article
     title: 'ChEMBL: towards direct deposition of bioassay data'
+    authors:
+      - given-names: David
+        family-names: Mendez
+      - given-names: Anna
+        family-names: Gaulton
     doi: 10.1093/nar/gky1075
     notes: >-
       CC BY-SA 3.0. No ChEMBL records are deposited here, only aggregate
