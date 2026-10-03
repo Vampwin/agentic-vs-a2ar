@@ -13,8 +13,18 @@ Section 3.5 explicitly says cannot be distinguished between engines. So:
      are competent.
 
   B  NPLIB01643. Vina rank-1 (blue) against DiffDock rank-1 (red), 8.80 A
-     apart -- the largest disagreement of the three candidates, and the one
-     where DiffDock's confidence (+0.47, "high") was nonetheless highest.
+     apart. Corrected 2026-10-04: an earlier version of this docstring called
+     this the largest disagreement of the three candidates. It is not. The
+     three are 6.427, 8.800 and 9.497 A
+     (20_new_runs/diffdock_orthogonal_2026-08-23/orthogonal_check_result.json),
+     so NPLIB01643 is the middle one and NPLIB03056 is the largest. The
+     reason it is the panel is the second half of that sentence, which was
+     right: DiffDock's confidence is highest here (+0.47, against +0.23 for
+     NPLIB01185 and -0.50 for NPLIB03056) exactly where it disagrees most
+     with Vina, and this is the one compound whose disagreement is a
+     reorientation inside the pocket rather than a displacement
+     (Supplementary Section 14). The Figure 7 legend now states this, so the
+     two must be changed together.
      Same pocket, different molecule entirely. Drawn at the same scale as
      panel A so the two are directly comparable.
 
