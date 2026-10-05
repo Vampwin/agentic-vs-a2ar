@@ -63,7 +63,7 @@ SECTIONS = [
     ("S1", "S1_contracts_and_evaluators",
      "The ten frozen G0-G8 audit contracts as YAML, the fifteen deterministic "
      "evaluator modules that enforce them, and the full unit-test suite "
-     "(675 tests across 30 modules). This is the governance layer itself, in "
+     "(715 collected cases from 604 test functions across 32 modules; 682 at the deposited commit). This is the governance layer itself, in "
      "the form required to re-run it."),
     ("S2", "S2_fault_definitions",
      "The eighteen development fault families (F01-F18) with full injector "
@@ -108,7 +108,7 @@ SECTIONS = [
      "pose-rescue results behind Table 5, the released prioritisation, the "
      "incident taxonomy reproduced below, the pre-registered orthogonal-engine "
      "check, the held-out per-case outcome, and the control simulation's RMSD "
-     "and bilayer traces. 99 of its 101 files carry a SHA-256 in "
+     "and bilayer traces. 102 of its 104 files carry a SHA-256 in "
      "MANIFEST.json; the manifest hashes neither itself nor this "
      "section's README."),
 ]
@@ -133,10 +133,20 @@ def add_runs(p, text: str) -> None:
 def md_table(doc: Document, lines: list[str], font_pt: float = 8.5) -> None:
     rows = []
     for l in lines:
-        raw = l.strip().strip("|")
+        raw = l.strip()
+        # A cell may need a literal pipe -- |D| for an absolute value, or
+        # |x| > 3 for a bound. Markdown writes those as \| ; splitting on
+        # every pipe instead turned the metamorphic table's "max |D|" header
+        # into three columns and left Verdict four cells right of its data.
+        # Split on unescaped pipes only, then unescape.
+        if raw.startswith("|"):
+            raw = raw[1:]
+        if raw.endswith("|") and not raw.endswith(r"\|"):
+            raw = raw[:-1]
         if re.match(r"^[\s:|-]+$", raw):
             continue
-        rows.append([c.strip() for c in raw.split("|")])
+        rows.append([c.strip().replace(r"\|", "|")
+                     for c in re.split(r"(?<!\\)\|", raw)])
     if not rows:
         return
     ncol = max(len(r) for r in rows)
@@ -252,7 +262,7 @@ def main() -> int:
         "3. Incidents detected and corrected during operation")
     tax = (S10 / "incident_taxonomy/incident_taxonomy.md").read_text(encoding="utf-8")
     doc.add_paragraph(
-        "Referenced from Section 3.6. Fifteen incidents recorded in the "
+        "Referenced from Section 3.7. Fifteen incidents recorded in the "
         "decision log during construction and execution, classified by the "
         "layer each occurred in, what detected it, and how it resolved: three "
         "scientific, six infrastructure, six agent-reasoning. A "
@@ -369,7 +379,8 @@ def main() -> int:
         f"rerun, so run-to-run noise is zero by measurement rather than by "
         f"assumption. Tolerance {meta['tolerance_kcal_mol']} kcal/mol. The "
         f"ledgers and score files are in S10/metamorphic with their SHA-256.")
-    rows = ["| Variant | Invariant | Compared | Identical | max |Δ| | mean |Δ| | Verdict |",
+    rows = [r"| Variant | Invariant | Compared | Identical | max \|Δ\| | "
+            r"mean \|Δ\| | Verdict |",
             "|---|---|---|---|---|---|---|"]
     for k, v in meta["variants"].items():
         rows.append(f"| {k} | {v['invariant']} | {v['n_compared']} | "
@@ -453,6 +464,387 @@ def main() -> int:
         rows.append(f"| {c['compound_id']} | {c['p_active_calibrated']} | "
                     f"{c['conformal_p_active']} | {c['rank_by_p_active_of_5000']} |")
     md_table(doc, rows, font_pt=8.5)
+
+    # ---- 9. learned-monitor calibration -----------------------------------
+    # Relocated from the article's Section 4 (reviewer: cut length, keep the
+    # audited negatives). The article keeps the finding in compact form because
+    # g8's mon_iso_steps anchors to the four-value sentence there; this section
+    # carries the evidence behind it.
+    doc.add_page_break()
+    doc.add_paragraph(style="Heading 1").add_run(
+        "9. Learned risk monitor: calibration, and why it is a three-state device")
+    LM = S10 / "learned_monitor"
+    mcal = json.loads((LM / "calibration_comparison.json").read_text(encoding="utf-8"))
+    mpol = json.loads((LM / "policy_config.json").read_text(encoding="utf-8"))
+    mfit = json.loads((LM / "fit_selected_model_summary.json").read_text(encoding="utf-8"))
+    steps = [round(v, 4) for v in mcal["isotonic"]["mean_predicted_value"]]
+    thr = mpol["thresholds"]
+    doc.add_paragraph(
+        f"Referenced from Section 4. The monitor was fitted on "
+        f"{mfit['dataset']['n_rows']} rows ({mfit['dataset']['n_positive']} "
+        f"positive) spanning {mfit['dataset']['n_groups']} fault families, then "
+        f"calibrated on {mcal['n_cal']} rows in {mcal['n_cal_folds']} "
+        f"group-aware folds. {mcal['selected']} was selected: "
+        f"{mcal['selection_reason']}.")
+    rows = ["| Calibrator | Brier | ECE | Distinct predicted values |",
+            "|---|---|---|---|"]
+    for name in ("isotonic", "sigmoid"):
+        cc = mcal[name]
+        vals = sorted({round(v, 4) for v in cc["mean_predicted_value"]})
+        rows.append(f"| {name}{' (selected)' if name == mcal['selected'] else ''} "
+                    f"| {cc['brier_score']:.5f} | {cc['ece']:.3g} | "
+                    f"{len(vals)}: {', '.join(str(v) for v in vals)} |")
+    md_table(doc, rows, font_pt=8.0)
+    doc.add_paragraph()
+    p = doc.add_paragraph()
+    add_runs(p, f"**The two frozen thresholds are steps of the calibrator, not "
+                f"tuned quantities.** On {mcal['n_cal']} rows the selected "
+                f"calibrator can emit only {len(steps)} values: "
+                f"{', '.join(str(s) for s in steps)}. The frozen policy sets "
+                f"t_halt = {thr['t_halt']}, which is the third of those steps, "
+                f"and t_escalate = {thr['t_escalate']}, immediately above the "
+                f"second. A component that can emit {len(steps)} probabilities, "
+                f"two of which are its own decision boundaries, is a three-state "
+                f"device rather than a calibrated risk model, and its near-zero "
+                f"expected calibration error is a consequence of that degeneracy "
+                f"rather than evidence of good calibration. This is a sample-size "
+                f"result, not an architectural one.")
+
+    # ---- 10. applicability-domain detector sensitivity --------------------
+    doc.add_page_break()
+    doc.add_paragraph(style="Heading 1").add_run(
+        "10. Applicability-domain detector: response to displaced telemetry")
+    oodp = json.loads((S10 / "seeded_defects/ood_sensitivity.json")
+                      .read_text(encoding="utf-8"))
+    oodfit = json.loads((LM / "ood_fit_summary.json").read_text(encoding="utf-8"))
+    oa, tsc = oodp["artifact"], oodfit["training_self_check"]
+    doc.add_paragraph(f"Referenced from Section 4. {oodp['authority']}. "
+                      f"{oodp['method']}")
+    doc.add_paragraph(
+        f"Everything recorded about the detector before this probe was "
+        f"in-distribution: it flagged {tsc['n_ood']} of {tsc['n_total']} "
+        f"development rows, a rate of {tsc['ood_rate']:.5f}, against a "
+        f"contamination hyperparameter of {oa['contamination']} that *defines* "
+        f"the expected in-training anomaly fraction, so that figure is the "
+        f"setting reproducing itself. The detector is declared over "
+        f"{oa['n_features_declared']} features and fitted on the "
+        f"{oa['n_features_non_null']} that are not entirely null in the "
+        f"development data, so the deployed model has "
+        f"{oa['n_features_non_null']} features behind a "
+        f"{oa['n_features_declared']}-feature schema; "
+        f"{oa['n_features_perturbed']} numeric features were displaced here. "
+        f"The registered artifact was loaded and hash-checked, not refitted "
+        f"(sha256_verified={oa['sha256_verified']}, refitted={oa['refitted']}).")
+    rows = ["| Multiplier k | Flagged | Of | Flag rate |", "|---|---|---|---|"]
+    for r in oodp["by_k"]:
+        rows.append(f"| {r['k']} | {r['n_flagged']} | {r['n_total']} | "
+                    f"{100 * r['flag_rate']:.2f} % |")
+    md_table(doc, rows, font_pt=8.0)
+    doc.add_paragraph()
+    p = doc.add_paragraph()
+    add_runs(p, f"**Outcome: {oodp['outcome']}.** k = 1 is the negative control "
+                f"and reproduces the recorded training rate. Beyond the training "
+                f"range every numeric split in the forest is satisfied "
+                f"identically, so displaced points reach the same terminal nodes "
+                f"and receive the same isolation depth; what separates the flagged "
+                f"rows from the rest is the boolean telemetry the scaling never "
+                f"touches. The flag rate therefore saturates instead of rising, "
+                f"and no multiplier reaches a 50 % flag rate "
+                f"(k_at_50pc = {oodp['k_at_50pc']}). The limitation is stated "
+                f"with the result: uniform multiplicative scaling is a single "
+                f"displacement direction, so this establishes something narrower "
+                f"than a claim that the detector does not work. The fail-closed "
+                f"wiring in front of it is sound and was verified in source.")
+
+    # ---- 11. funnel exclusion arithmetic ----------------------------------
+    doc.add_page_break()
+    doc.add_paragraph(style="Heading 1").add_run(
+        "11. Expansion funnel: what the compounds it discarded would have scored")
+    AD = S10 / "applicability_domain"
+    frw = json.loads((AD / "funnel_recall_reweighted.json").read_text(encoding="utf-8"))
+    r4 = json.loads((AD / "r4_results.json").read_text(encoding="utf-8"))
+    pooled, fpe, r4e = frw["as_published_pooled"], frw["population_estimate"], r4["population_estimate"]
+    doc.add_paragraph(
+        f"Referenced from Section 3.5, which retains the weighted rates and the "
+        f"implied counts. {frw['question']} The selection cutoff is "
+        f"{frw['cutoff_kcal_per_mol']} kcal/mol. Authority: {frw['authority']}.")
+    doc.add_paragraph(
+        f"The figure first published was pooled: {pooled['n_reaching_cutoff']} of "
+        f"{pooled['n']}, {100 * pooled['rate']:.2f} %. It is biased, and the "
+        f"artifact records why: {pooled['why_it_is_biased']}")
+    rows = ["| Rejection arm | Population | Sampled | Fast-pass rate | "
+            "Full-protocol rate | 95 % CI (full protocol) | Implied in population |",
+            "|---|---|---|---|---|---|---|"]
+    for arm in ("arm_2d", "arm_3d"):
+        a, b = frw["by_stratum"][arm], r4["by_stratum"][arm]
+        rows.append(f"| {a['rejected_by']} | {a['population']:,} | "
+                    f"{a['n_sampled']} | {100 * a['rate']:.2f} % | "
+                    f"{100 * b['rate']:.2f} % | "
+                    f"{100 * b['wilson_95_ci'][0]:.1f}\u2013{100 * b['wilson_95_ci'][1]:.1f} % | "
+                    f"{b['implied_population_count']:,} |")
+    md_table(doc, rows, font_pt=8.0)
+    doc.add_paragraph()
+    p = doc.add_paragraph()
+    add_runs(p, f"**Weighted by stratum rather than pooled.** At the fast pass "
+                f"the rate is {100 * fpe['weighted_rate']:.2f} %, an implied "
+                f"{fpe['implied_count']:,} of {fpe['total_rejected']:,} discarded "
+                f"compounds reaching the cutoff, "
+                f"{fpe['ratio_to_selected']} times the "
+                f"{fpe['against_n_selected']} that were selected. Re-docked at "
+                f"the protocol the selected compounds received, the rate rises to "
+                f"{100 * r4e['weighted_rate']:.2f} %, an implied "
+                f"{r4e['implied_count']:,} of {r4e['total_rejected']:,}, "
+                f"{r4e['ratio_to_selected']} times the 500. Outcome: "
+                f"{r4['outcome']}.")
+    ps = r4["protocol_shift"]
+    doc.add_paragraph()
+    p = doc.add_paragraph()
+    add_runs(p, f"**Half of that rise is the protocol and half is not.** {ps['why']} "
+                f"Moving to the full protocol improves the median score of the "
+                f"selected compounds by {abs(ps['selected_median_shift_kcal'])} "
+                f"kcal/mol and of the discarded ones by "
+                f"{abs(ps['discarded_median_shift_kcal'])}. Applying the selected "
+                f"compounds' shift uniformly to the discarded set would predict "
+                f"{100 * ps['expected_rate_if_only_the_selected_shift_applied']:.2f} %; "
+                f"the observed figure is {100 * ps['observed_rate']:.2f} %, "
+                f"against {100 * ps['fastpass_rate_same_compounds']:.2f} % for "
+                f"the same compounds at the fast pass. {ps['reading']} "
+                f"{r4['no_full_protocol_enrichment']}")
+
+    # ---- 12. additional simulation methods --------------------------------
+    # NOT a restatement of Section 2.9. System, force fields, parameters and
+    # equilibration are all in the article; only what is absent there goes here.
+    doc.add_page_break()
+    doc.add_paragraph(style="Heading 1").add_run(
+        "12. Additional simulation methods: build provenance and replicate design")
+    SC = S10 / "structure_checks"
+    mdp = json.loads((SC / "md_pose_persistence.json").read_text(encoding="utf-8"))
+    builds = {}
+    for f in sorted((S10 / "md_candidate_builds").glob("*_build_metadata.json")):
+        b = json.loads(f.read_text(encoding="utf-8"))
+        builds[b["compound_id"]] = b
+    doc.add_paragraph(
+        "Section 2.9 of the article gives the system, force fields, simulation "
+        "parameters and the staged equilibration; none of that is repeated here. "
+        "This section carries what the article does not: where each simulated "
+        "pose came from, the identity check applied before anything was built, "
+        "and the replicate design behind every candidate-to-control comparison.")
+    rows = ["| Compound | Pose rank | Poses available | InChIKey | "
+            "parmchk2 flags | Pose SHA-256 (first 12) |",
+            "|---|---|---|---|---|---|"]
+    for cid, b in builds.items():
+        rows.append(f"| {cid} | {b['pose_rank']} | {b['n_poses_available']} | "
+                    f"`{b['inchikey']}` | {b['parmchk2_attn_count']} | "
+                    f"`{b['pose_sha256'][:12]}` |")
+    md_table(doc, rows, font_pt=8.0)
+    doc.add_paragraph()
+    any_b = next(iter(builds.values()))
+    p = doc.add_paragraph()
+    add_runs(p, f"Each pose was taken verbatim: {any_b['pose_taken_verbatim']}. "
+                f"Identity was checked against `{any_b['identity_checked_against']}` "
+                f"before the build, because simulating a different molecule from "
+                f"the one that was ranked would invalidate the result without "
+                f"failing anywhere. The protocol is {any_b['protocol']}.")
+    doc.add_paragraph()
+    cfc = mdp["control_for_comparison"]
+    rows = ["| System | Replicates | Mean RMSD to docked pose (A) | "
+            "Spread of replicate means (A) |", "|---|---|---|---|"]
+    rows.append(f"| {cfc['compound']} (control) | {cfc['n_replicates']} | "
+                f"{cfc['mean_rmsd_A']} \u00b1 {cfc['sd_rmsd_A']} | not applicable |")
+    for cid, v in mdp["candidates"].items():
+        rows.append(f"| {cid} | {v['n_replicates']} | "
+                    f"{v['mean_of_replicate_means_A']} | "
+                    f"{v['spread_of_replicate_means_A']} |")
+    md_table(doc, rows, font_pt=8.0)
+    doc.add_paragraph()
+    p = doc.add_paragraph()
+    add_runs(p, f"**The replicate design is asymmetric, and that bounds every "
+                f"ratio built on it.** Each candidate ran "
+                f"{mdp['method']['replicates']}, while the control is "
+                f"{cfc['n_replicates']} trajectory "
+                f"({cfc['source']}). Candidate-to-control ratios are therefore "
+                f"exploratory and do not quantify control replicate variability; "
+                f"two further control replicates are required before any such "
+                f"ratio is presented as a principal result. The measurement "
+                f"fits on {mdp['method']['fit']} and measures "
+                f"{mdp['method']['measured']} against {mdp['method']['reference']} "
+                f"Thresholds are {mdp['method']['thresholds']} "
+                f"{mdp['no_verdict']}")
+
+    # ---- 13. analyses required before submission --------------------------
+    doc.add_page_break()
+    doc.add_paragraph(style="Heading 1").add_run(
+        "13. Analyses and corrections required before submission")
+    XA = S10 / "external_audit"
+    xc = json.loads((XA / "coverage_core.json").read_text(encoding="utf-8"))
+    xm = json.loads((XA / "manifest_verification.json").read_text(encoding="utf-8"))
+    xr = json.loads((XA / "reference_check.json").read_text(encoding="utf-8"))
+    xt = xc["totals"]
+    ev = [v["summary"]["percent_covered"] for k, v in xc["files"].items()
+          if k.startswith("evaluators") and k.endswith(".py")]
+    doc.add_paragraph(
+        "From the independent clean-checkout audit ingested as ADR-AIIM-189. "
+        "This section states what the audit found and what remains to be done; "
+        "none of it is complete, and the article does not claim otherwise.")
+    p = doc.add_paragraph()
+    add_runs(p, f"**Test coverage.** Branch-aware coverage of the core packages "
+                f"is {xt['percent_covered_display']} % over "
+                f"{xt['num_statements']:,} statements and "
+                f"{xt['num_branches']:,} branches "
+                f"({xt['percent_branches_covered_display']} % of branches). "
+                f"Across {len(ev)} evaluator modules the range is "
+                f"{min(ev):.1f}\u2013{max(ev):.1f} %. The two weakest core modules "
+                f"are the contract engine at "
+                f"{xc['files']['kdss_audit\\contract_engine.py']['summary']['percent_covered']:.0f} % "
+                f"and the orchestrator at "
+                f"{xc['files']['kdss_audit\\orchestrator.py']['summary']['percent_covered']:.0f} %. "
+                f"Branch-coverage tests for both are required and are not written.")
+    rows = ["| Manifest | Declared entries | SHA-256 mismatches | "
+            "Explained by CRLF | Absent files |", "|---|---|---|---|---|"]
+    LABEL = ["root manifest of the audited head",
+             "nested verification manifest",
+             "review-package deposit manifest"]
+    for i, ck in enumerate(xm["checks"]):
+        rows.append(f"| {LABEL[i] if i < len(LABEL) else 'manifest %d' % i} | "
+                    f"{ck['declared_n_files']} | {len(ck['sha256_mismatches'])} | "
+                    f"{len(ck['sha256_matches_after_lf_to_crlf'])} | "
+                    f"{len(ck['missing'])} |")
+    md_table(doc, rows, font_pt=8.0)
+    doc.add_paragraph()
+    p = doc.add_paragraph()
+    add_runs(p, f"**Provenance.** Most mismatches are line-ending artefacts "
+                f"rather than changed content, but the manifests as deposited do "
+                f"not verify byte-for-byte. Both must be regenerated from a "
+                f"clean LF-normalised checkout, the absent files supplied, and an "
+                f"immutable release archived before submission. Of "
+                f"{xr['n_references']} references resolved by DOI, "
+                + ", ".join(f"{v} {k.replace('_', ' ').lower()}"
+                            for k, v in xr["counts"].items())
+                + f". {xr['sent_externally'].capitalize()}.")
+    doc.add_paragraph()
+    p = doc.add_paragraph()
+    add_runs(p, "**Analyses still required.** Two further ZM241385 control "
+                "replicates are required if candidate-to-control ratios are "
+                "retained as a principal result; they are reported as "
+                "exploratory, so that condition does not currently hold. A "
+                "larger independently authored fault set spanning every gate is "
+                "required before any claim about verification methods in "
+                "general. Branch coverage of the contract engine and the "
+                "orchestrator must be raised, and both "
+                "deposited manifests regenerated from a clean checkout before "
+                "an immutable release is archived.")
+    doc.add_paragraph()
+    p = doc.add_paragraph()
+    add_runs(p, "**Branch coverage has now been re-measured, and the result is "
+                "worse than the figures quoted in the main text.** The 29 % and "
+                "25 % reported for the contract engine and the orchestrator are "
+                "statement percentages. The same audit artifact carries the "
+                "per-branch record: both modules execute no branch at all, 0 of "
+                "12 and 0 of 22, and they are the only two of 55 modules with "
+                "executable statements for which that holds. Core branch "
+                "coverage is 65.6 %, against the 75 % combined statement-and-"
+                "branch figure. No test in the suite and no fault-injection "
+                "module imports either module, while the production screening "
+                "script reaches both, so the uncovered code is the deployed "
+                "path; nine of the seventeen uncovered decision points are "
+                "fail-closed machinery, including the branch that turns a "
+                "critical contract failure into HALT. Nothing was recomputed: "
+                "the figures are read out of the audit artifact by "
+                "scripts/analyse_branch_coverage.py (ADR-AIIM-198; Section 4). "
+                "Raising the coverage remains outstanding.")
+    doc.add_paragraph()
+    p = doc.add_paragraph()
+    add_runs(p, "**The NPLIB01185 reprocessing has been done, and the result is "
+                "negative.** Molecule-whole (`-pbc mol`), compact-cell "
+                "(`-ur compact`) and centring (`-center`) operations are applied "
+                "in the production analysis, and unwrapping (`-pbc nojump`) was "
+                "tried separately; none removes the periodic-image "
+                "discontinuity, and `-pbc cluster` is inapplicable because "
+                "clustering requires whole molecules and a C-alpha group is not "
+                "one. The rule fixed in advance was that if the discontinuity "
+                "survived, the ligand RMSD stays omitted rather than reduced to "
+                "its low mode. It survived, and the RMSD is omitted. Pocket "
+                "occupancy, which no trajectory representation enters, answers "
+                "the same question: no frame of any replicate lies beyond "
+                "10 \u00c5 of the site (ADR-AIIM-156).")
+    doc.add_paragraph()
+    p = doc.add_paragraph()
+    add_runs(p, "**One required analysis has been run, and its result is "
+                "unfavourable.** The conventional-test comparator asked for by "
+                "the review was pre-registered (ADR-AIIM-193) and run over the "
+                "same 128 seeded cases and the same workspaces as the contract "
+                "arm. It detects 128 of 128 at no false escalation, against the "
+                "contracts' 124 of 128, and a golden-file comparison alone "
+                "accounts for every detection. The pre-registered prediction "
+                "that it would miss the graded statistical family was wrong. "
+                "The reading is about the benchmark rather than either method: "
+                "the harness builds its workspaces deterministically, so a "
+                "byte-exact diff catches any injected change by construction, "
+                "just as the ungoverned condition detects nothing by "
+                "construction. The benchmark cannot separate fault modelling "
+                "from byte comparison, and the detection rate therefore lies "
+                "between two artifacts (ADR-AIIM-194; Section 3.1).")
+
+    # ---- 14. detail relocated from article section 3.6 --------------------
+    # The article stands far above the length this journal publishes
+    # (ADR-AIIM-251), and the only way to shorten it without deleting audited
+    # evidence is to move evidence here. `move_36.py` extracts each block from
+    # the article VERBATIM and writes relocated_3_6.md; this reads that file.
+    # Nothing is retyped, so a number here is the same number that was there.
+    RELOCATED = [
+        ("relocated_3_6.md",
+         "14. Supporting detail relocated from article Section 3.6",
+         "Each block below was removed from Section 3.6 of the article and "
+         "is reproduced here unchanged. The article retains every headline "
+         "claim, Tables 2, 6 and 7 and Figures 5 and 6; what moved is the "
+         "argumentation behind those claims. No value was recomputed, "
+         "rounded or reworded in the move, so every number here remains "
+         "traceable to the artifact it was traceable to in the article "
+         "(ADR-AIIM-254)."),
+        ("relocated_4.md",
+         "15. Supporting detail relocated from article Section 4",
+         "Each block below was removed from Section 4 of the article and is "
+         "reproduced here unchanged. Section 4 reported sixty-four audited "
+         "numbers that appeared nowhere else in the article, so this material "
+         "was being met for the first time in a Discussion; it is relocated "
+         "rather than deleted, and the article retains every headline claim "
+         "and Table 10 (ADR-AIIM-255)."),
+        ("relocated_results.md",
+         "16. Supporting detail relocated from article Sections 3.1 and 2.5",
+         "Each block below was removed from the article and is reproduced here "
+         "unchanged. This section differs from 14 and 15 in what it holds: "
+         "those moved support for claims, this moves detail out of Results, so "
+         "a block was moved only where the article still states the finding "
+         "and Table 1 carries the measurement independently (ADR-AIIM-257)."),
+    ]
+    for _fname, _heading, _intro in RELOCATED:
+        rel = Path(__file__).resolve().parents[2] / "30_manuscript/CURRENT_v5" / _fname
+        if not rel.is_file():
+            continue
+        doc.add_page_break()
+        doc.add_paragraph(style="Heading 1").add_run(_heading)
+        doc.add_paragraph(_intro)
+        body = rel.read_text(encoding="utf-8").split("\n")
+        i, n_blocks = 0, 0
+        while i < len(body):
+            line = body[i]
+            if line.startswith("## "):
+                doc.add_paragraph(style="Heading 2").add_run(line[3:].strip())
+                n_blocks += 1
+                i += 1
+                continue
+            if line.startswith("# ") or line.startswith("*Generated by"):
+                i += 1
+                continue
+            # gather one markdown paragraph
+            para = []
+            while i < len(body) and body[i].strip():
+                para.append(body[i])
+                i += 1
+            if para and not para[0].startswith("*Generated"):
+                add_runs(doc.add_paragraph(), " ".join(x.strip() for x in para))
+            i += 1
+        print(f"relocated blocks   : {n_blocks}  ({_fname})")
 
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)

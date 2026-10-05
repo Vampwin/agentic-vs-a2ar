@@ -144,6 +144,93 @@ def sources() -> dict[str, object]:
         # C3 / C4, ADR-AIIM-137
         "cdiag": _json(under("20_new_runs", "conformal_diagnostics_2026-08-25/"
                        "conformal_diagnostics.json")),
+        # The conformal counts' dependence on training-row order, and its
+        # repair. 200 orderings per arm (ADR-AIIM-271), exact invariance
+        # under canonical ordering (ADR-AIIM-275), and the completed-gate
+        # selection re-run on that basis (ADR-AIIM-279). Nothing re-docked;
+        # none of these is a registered G0 input.
+        "perm": _json(under("20_new_runs", "conformal_permutation_2026-10-02/"
+                      "permutation_distribution.json")),
+        "canon": _json(under("20_new_runs", "canonical_row_order_2026-10-02/"
+                       "canonical_row_order.json")),
+        "m6c": _json(under("20_new_runs", "m6_canonical_2026-10-02/"
+                     "m6_canonical.json")),
+        # Whether the docking stage reproduces between independent executions
+        # at different core counts. Measured from the frozen g4_verification
+        # reruns; nothing re-docked (ADR-AIIM-206).
+        "rdet": _json(under("20_new_runs", "rerun_determinism_2026-09-22/"
+                      "rerun_determinism.json")),
+        # What each style of testing does with that non-determinism, on the two
+        # real executions rather than on synthetic workspaces (ADR-AIIM-208).
+        "rart": _json(under("20_new_runs", "real_artifact_comparison_2026-09-22/"
+                      "real_artifact_comparison.json")),
+        # Screening power with the physicochemical confound matched out
+        # (ADR-AIIM-204/205). Re-analysis of frozen scores; nothing re-docked.
+        "msc": _json(under("20_new_runs", "matched_screening_2026-09-21/"
+                     "matched_screening_summary.json")),
+        # M6, pre-registered ADR-AIIM-263, run ADR-AIIM-264: the precondition
+        # that was never recomputed, and selection under the completed gate.
+        # Nothing was docked, scored or fitted; every rule was imported.
+        "m6": _json(under("20_new_runs", "m6_corrected_architecture_2026-09-24/"
+                   "m6_corrected_architecture.json")),
+        # M2.1 spike-in recovery, pre-registered ADR-AIIM-229, step 4
+        # authorised ADR-AIIM-245, analysed ADR-AIIM-256. The analysis was
+        # written while the docking was still running and before any score of
+        # that run had been read.
+        "spikein": _json(under("20_new_runs", "spike_in_dock_2026-09-23/"
+                        "analysis/spikein_recovery.json")),
+        # The DUD-E A2AR enrichment benchmark, pre-registered ADR-AIIM-214,
+        # amended ADR-AIIM-215, analysed under ADR-AIIM-240. The analysis was
+        # written before any score was read.
+        "dude": _json(under("20_new_runs", "dude_enrichment_2026-09-22/"
+                     "analysis/dude_enrichment_analysis.json")),
+        # The same matched-subset rule applied to the single-conformer re-run
+        # (ADR-AIIM-243): what establishes that the null survives the protocol
+        # change. Nothing re-docked.
+        "msc1": _json(under("20_new_runs", "matched_screening_1conf_2026-09-23/"
+                      "matched_screening_summary.json")),
+        # Whether the domain gate admits compounds that are actual A2A drugs
+        # (ADR-AIIM-210). Scored with each query's own record removed.
+        "adg": _json(under("20_new_runs", "clinical_reference_ad_gate_2026-09-22/"
+                     "clinical_reference_ad_gate.json")),
+        # The release gate run retrospectively, and what it returns on empty
+        # inputs (ADR-AIIM-218).
+        "tgr": _json(under("20_new_runs", "terminal_gate_retrospective_2026-09-22/"
+                     "terminal_gate_retrospective.json")),
+        # What the decision record says about what was not chosen
+        # (ADR-AIIM-219).
+        "dprov": _json(under("20_new_runs", "decision_provenance_2026-09-22/"
+                      "decision_provenance.json")),
+        # The sixteen incidents of 3.7, counted by what detected them
+        # (ADR-AIIM-220).
+        "inc": _json(under("20_new_runs", "incident_record_2026-09-22/"
+                    "incident_record.json")),
+        # Does the benchmark measure the system or only its evaluators?
+        # (ADR-AIIM-236/237, and arm E from ADR-AIIM-238.)
+        "e1": _json(under("20_new_runs", "deployed_path_benchmark_2026-09-23/"
+                   "summary.json")),
+        # The completed G6 gate applied to the released selection
+        # (ADR-AIIM-239).
+        "g6r": _json(under("20_new_runs", "g6_retrospective_2026-09-23/"
+                    "g6_retrospective.json")),
+        # The four defects closed in a copy, and what closing them changed
+        # (ADR-AIIM-226).
+        "v1v2": _json(under("20_new_runs", "patched_pipeline_v2_2026-09-22/"
+                     "v1_v2_comparison.json")),
+        # What each detector does when its reference is itself defective
+        # (ADR-AIIM-224), and static analysis in both directions
+        # (ADR-AIIM-225).
+        "cref": _json(under("20_new_runs", "contaminated_reference_2026-09-22/"
+                     "contaminated_reference.json")),
+        "sana": _json(under("20_new_runs", "static_analysis_2026-09-22/"
+                     "static_analysis.json")),
+        # What the frozen exhaustiveness setting buys (ADR-AIIM-241).
+        "exh": _json(under("20_new_runs", "dude_exhaustiveness8_2026-09-23/"
+                    "analysis/exhaustiveness_arm_analysis.json")),
+        # Was the consensus of the two arms licensed by the project's own
+        # frozen rule, in any configuration? (ADR-AIIM-211, reported in 3.6.)
+        "scard": _json(under("20_new_runs", "selection_scorecard_2026-09-22/"
+                      "selection_scorecard.json")),
         "fpcorr": _json(under("20_new_runs", "fastpass_correlation_2026-08-25/"
                         "fastpass_correlation.json")),
         # m4 / m5, ADR-AIIM-140
@@ -269,11 +356,35 @@ def sources() -> dict[str, object]:
         # artifact is the defect class §4 names, and it was in this paper.
         "dep_manifest": len(_json(resolve("40_deposit/MANIFEST.json")).get(
             "files", _json(resolve("40_deposit/MANIFEST.json")))),
+        # The external reproducibility audit of 2026-09-13, ingested under
+        # ADR-AIIM-189. Not produced by this project: a reviewer cloned the
+        # public repository, ran the suite at two commits, measured branch
+        # coverage and verified both SHA-256 manifests. The numbers reported in
+        # 2.2 and in Data availability come from here, so the directory is
+        # derived-used rather than declared-not-used. `cov` is already bound to
+        # the applicability-domain coverage table, hence `xcov`.
+        "xcov": _json(under("20_new_runs", "external_repro_audit_2026-09-13/"
+                      "coverage_core.json")),
+        "xman": _json(under("20_new_runs", "external_repro_audit_2026-09-13/"
+                      "manifest_verification.json")),
+        # The branch record underneath the two statement percentages 2.2
+        # quotes, derived from the audit artifact above by
+        # scripts/analyse_branch_coverage.py (ADR-AIIM-198). Nothing is
+        # recomputed: the audit already contained this.
+        "bcov": _json(under("20_new_runs", "coverage_branch_analysis_2026-09-21/"
+                      "branch_coverage_analysis.json")),
+        # The before/after comparison for the RA1 increase (ADR-AIIM-199).
+        # Declared here rather than read inline, or build_evidence_index cannot
+        # see that a reported number depends on this run and the provenance
+        # warning never fires.
+        "inccov": _json(under("20_new_runs", "branch_coverage_increase_2026-09-21/"
+                        "coverage_increase.json")),
     }
 
 
 def check_companion_files(report: dict) -> list[dict]:
-    """HIGHLIGHTS.md and COVER_LETTER_DRAFT.md are submitted too.
+    """HIGHLIGHTS.md, COVER_LETTER_DRAFT.md and the graphical abstract are
+    submitted too.
 
     Both are separate files, neither is generated from the manuscript, and
     until 2026-09-05 both still said the contract layer caught 93.2 % of 133
@@ -311,13 +422,33 @@ def check_companion_files(report: dict) -> list[dict]:
         xml = _re.sub(r"</w:(p|tc)>", " ", xml)
         return _re.sub(r"<[^>]+>", "", xml)
 
-    # (file, superseded literal, current literal)
+    # Relative to `30_manuscript/CURRENT_v5`, as the deposit entries below are.
+    _GA = "../figures/figure_graphical_abstract_2026-08-21.svg"
+
+    # (file, superseded literal or None, current literal)
     PAIRS = [
         ("HIGHLIGHTS.md", "93.2%", "96.9%"),
+        # The point-by-point response to the external review. It is a separate
+        # submission file carrying numbers that must agree with the manuscript,
+        # which is the precise shape of the drift this check exists to catch:
+        # HIGHLIGHTS.md carried a retired detection rate for a week because
+        # nothing audited it (ADR-AIIM-142 to -145). Anchored on the figures a
+        # reviewer would check first (ADR-AIIM-200).
+        ("RESPONSE_TO_REVIEWERS.md", "93.2%", "96.9 %"),
+        ("RESPONSE_TO_REVIEWERS.md", None, "128 of 128"),
+        ("RESPONSE_TO_REVIEWERS.md", None, "124 of 128"),
+        ("RESPONSE_TO_REVIEWERS.md", None, "0 of 12 and 0 of 22"),
+        ("RESPONSE_TO_REVIEWERS.md", None, "**12 of 12** and **21 of 22**"),
+        ("RESPONSE_TO_REVIEWERS.md", None, "682 to 715"),
+        ("RESPONSE_TO_REVIEWERS.md", None, "92.2–98.8 %"),
+        ("RESPONSE_TO_REVIEWERS.md", None, "238 words"),
         ("COVER_LETTER_DRAFT.md", "93.2%", "96.9%"),
         ("COVER_LETTER_DRAFT.md", "133 seeded", "128 seeded"),
         ("Supplementary_Information.docx", "93.2%", "96.9%"),
         ("Supplementary_Information.docx", "133 fault cases", "128 fault cases"),
+        ("Supplementary_Information.docx", "675 tests", "715 collected cases"),
+        ("Supplementary_Information.docx", "682 collected cases",
+         "715 collected cases"),
         # The deposit's own README is hand-authored and build_deposit.py keeps
         # it across rebuilds, which is why it went stale unnoticed: it carried
         # 675 tests and put the expanded selection's 86.3 % against the
@@ -327,16 +458,36 @@ def check_companion_files(report: dict) -> list[dict]:
         ("../../40_deposit/README.md",
          "86.3 % in-domain in physicochemical space",
          "64.4 % in-domain in physicochemical space"),
+        # The graphical abstract. Its numbers are hand-written literals in
+        # build_figures_1_2.py, so unlike Figures 3-6 no provenance file can
+        # re-hash them back to an artifact -- the figure is drawn, not derived.
+        # What can be enforced is that it says what the article says. It has
+        # shipped a wrong number before: the 86.3 % noted above was "the same
+        # error the graphical abstract carried". Redrawn 2026-09-16
+        # (ADR-AIIM-191); these pin the result it now states.
+        # `superseded` is None where no retired predecessor exists.
+        (_GA, "convergent", "dual-criterion rule"),
+        (_GA, "93.2", "96.9 %"),
+        (_GA, "86.3 %", "64.4 %"),
+        (_GA, "133 seeded", "124 of 128 seeded defects"),
+        (_GA, None, "Wilson 95 % CI 92.2-98.8 %"),
+        (_GA, None, "0 false escalations of 55 clean"),
+        (_GA, None, "AUC 0.601 vs 0.584 heavy atoms"),
     ]
     for fname, stale, current in PAIRS:
         p = (docs / fname).resolve()
         txt = _text(p)
-        ok = bool(txt) and stale not in txt and current in txt
+        # `stale` may be None: some literals have no retired predecessor to
+        # exclude -- a Wilson interval was never wrong before, it simply has to
+        # be there. Inventing a fake superseded value to fill the tuple would
+        # make the report say something untrue about the project's history.
+        gone = stale is None or stale not in txt
+        ok = bool(txt) and gone and current in txt
         out.append({
             "name": f"companion:{fname}:{current}",
             "status": "PASS" if ok else "FAIL-COMPANION",
             "file": fname, "superseded": stale, "current": current,
-            "superseded_absent": stale not in txt,
+            "superseded_absent": gone,
             "current_present": current in txt,
         })
     return out
@@ -567,13 +718,80 @@ def check_deposit_commit() -> dict:
             "working_tree": tree}
 
 
-def build_checks(S) -> list[tuple[str, str, object, object]]:
-    """(id, literal that must appear in the manuscript, expected, actual)."""
+IN_SUPPLEMENT = {
+    # Relocated from article Section 4 to Supplementary Information
+    # section 15 by `move_4.py`, verbatim (ADR-AIIM-255). Each was
+    # verified absent from the article AND present in the built
+    # supplement before being listed here.
+    "conf_n", "conf_valid", "mw_rho", "r3_max_128", "r3_mean_128",
+    "r3_means", "r3_ratio", "r3_still_differ", "r3_tost_margin",
+    "repro_contracts", "repro_distance", "repro_files", "repro_hydrogens",
+    "repro_types", "rerun_exact", "rerun_maxdiff", "rerun_n",
+    # Relocated from article Section 4 to Supplementary Information
+    # section 15 by `move_4.py`, verbatim (ADR-AIIM-255). Each was
+    # verified absent from the article AND present in the built
+    # supplement before being listed here.
+    "bcov_unreachable", "dprov_generous", "dprov_n", "dprov_read",
+    "m42_benchmark_identical", "m42_branches", "mon_brier_gb",
+    "mon_brier_lr", "mon_features", "mon_groups", "mon_iso_steps",
+    "mon_neg", "mon_pos", "mon_rows", "mon_t_escalate_above", "mon_t_halt",
+    "ood_ablation", "ood_admitted", "ood_contamination",
+    "ood_deployed_features", "ood_k1000", "ood_k2", "ood_neg_control",
+    "ood_null_features", "ood_saturation", "ood_train_flag",
+    "ood_unflagged", "sana_f821", "sana_no_py", "tierA_excluded_n",
+    "xman_crlf", "xman_entries", "xman_nested_missing",
+    # Relocated from article Section 3.6 to Supplementary Information
+    # section 14 by `move_36.py`, verbatim (ADR-AIIM-254). These are the
+    # checks whose literals went with the prose. Read from the audit's own
+    # FAIL-ABSENT list rather than chosen by hand.
+    "conf_both_cal", "conf_cal_classes", "conf_empty_cal", "conf_pin_cal",
+    "conf_pin_np", "conf_pin_snp", "conf_size_cal", "conf_size_query",
+    "dd_highest_conf", "frag_dd", "frag_vina", "ltr_score_gap",
+    "ltr_score_own", "ltr_score_wrong", "motif_glu_control",
+    "motif_n_systems", "motif_phe_range", "pose_centroids",
+    "pose_disp_frac", "scard_none", "scard_physchem",
+    "scard_recompute", "tierA_band", "tierA_conditioned", "tierA_gap",
+    "tierA_granularity", "tierA_pa_max", "tierA_pa_med", "xdock_3eml",
+    "xdock_clean", "xdock_control"
+}
+
+def docx_text(path: Path) -> str:
+    """Plain text of a .docx, or "" if it cannot be read.
+
+    A sibling of the reader inside `check_companion_files`, hoisted here because
+    `build_checks` now needs it too: a check may declare that its literal lives
+    in the supplement rather than the article, and that claim has to be verified
+    against the built document.
+
+    Returning "" on any failure is deliberate and is the fail-closed direction:
+    an unreadable supplement yields no text, the literal is not found, and the
+    check fails. A missing supplement can never turn into a pass.
+    """
+    try:
+        import zipfile as _zip
+        with _zip.ZipFile(path) as z:
+            xml = z.read("word/document.xml").decode("utf-8")
+    except Exception:
+        return ""
+    # paragraph and cell breaks become spaces so adjacent cells do not fuse
+    xml = re.sub(r"</w:(p|tc)>", " ", xml)
+    return re.sub(r"<[^>]+>", "", xml)
+
+
+def build_checks(S) -> list[tuple[str, str, object, object, str]]:
+    """(id, literal, expected, actual, where)
+
+    `where` is "article" or "supplement" and says which document the literal
+    must appear in. It defaults to "article", so a call that does not mention it
+    means exactly what it meant before this parameter existed.
+    """
     e8, cov, per = S["e8"], S["cov"], S["per"]
     mut, meta, yr = S["mut"], S["meta"], S["yrand"]
     fu, tA, st, bx = S["funnel"], S["tierA"], S["struct"], S["boxchk"]
-    C: list[tuple[str, str, object, object]] = []
-    add = lambda cid, lit, exp, act: C.append((cid, lit, exp, act))
+    C: list[tuple[str, str, object, object, str]] = []
+    add = lambda cid, lit, exp, act, where=None: C.append(
+        (cid, lit, exp, act,
+         where or ("supplement" if cid in IN_SUPPLEMENT else "article")))
 
     # --- verification numbers -------------------------------------------------
     add("mutation_detection", "96.9 %", 96.9, round(mut["overall"]["detection_rate"] * 100, 1))
@@ -593,12 +811,50 @@ def build_checks(S) -> list[tuple[str, str, object, object]]:
         (mut["overall"]["n_fault_cases_counted"] - mut["overall"]["n_escaped"],
          mut["overall"]["n_fault_cases_counted"],
          round(mut["ablation_SEER"]["A_contracts_and_monitor"], 3)))
-    add("false_alarm", "**0.0 in every condition**", 0.0,
+    add("false_alarm", "a false-escalation rate of 0 of 55", 0.0,
         mut["overall"]["false_escalation_rate_clean_runs"])
-    add("gate_G4", "| G4 scoring | 27 | 4 | 85.2 % |", 85.2,
+    # The rate was reported without its denominator until 2026-09-14; a rate of
+    # 0 over 55 clean runs is a Wilson 95 % CI of 0.0-6.5 %, not a guarantee.
+    add("false_alarm_n", "**55 clean, unfaulted runs**", 55,
+        mut["overall"]["n_clean_cases"])
+    # The prose claimed two incomplete gates, F10 "4 of 12" and F13 "5 of 20".
+    # by_family says F13 detects 15 of 15; the five F13 instances were vacuous
+    # and left the denominator, they did not escape. One incomplete gate, not
+    # two, and Table 4 already said so (ADR-AIIM-131).
+    _f10 = mut["by_family"]["F10"]
+    _f13 = mut["by_family"]["F13"]
+    add("f10_escapes", "4 of 12 cases escaped", (4, 12),
+        (round(_f10["n_fault_cases"] * (1 - _f10["detection_rate"])),
+         _f10["n_fault_cases"]))
+    add("f13_detected", "whose 15 counted cases", 15, _f13["n_fault_cases"])
+    add("gate_G4", "| G4 scoring | 27 | 4 | 85.2 % | 67.5–94.1 % |", 85.2,
         round(mut["by_gate"]["G4"]["detection_rate"] * 100, 1))
-    add("gate_G6", "| G6 selection | 27 | 0 | 100 % |", 100.0,
+    add("gate_G6", "| G6 selection | 27 | 0 | 100 % | 87.5–100 % |", 100.0,
         round(mut["by_gate"]["G6"]["detection_rate"] * 100, 1))
+
+    # Reviewer comment 3 asked for gate- and family-level results with
+    # uncertainty. The intervals are recomputed here from the same counts the
+    # table reports, so an interval cannot drift away from its own rate.
+    def _wilson(k, n, z=1.959963985):
+        if not n:
+            return (0.0, 0.0)
+        p = k / n
+        d = 1 + z * z / n
+        c = (p + z * z / (2 * n)) / d
+        h = z * ((p * (1 - p) / n + z * z / (4 * n * n)) ** 0.5) / d
+        return (round(max(0.0, c - h) * 100, 1), round(min(1.0, c + h) * 100, 1))
+
+    _g4 = mut["by_gate"]["G4"]
+    add("gate_G4_ci", "| G4 scoring | 27 | 4 | 85.2 % | 67.5–94.1 % |",
+        (67.5, 94.1),
+        _wilson(_g4["n_fault_cases"] - _g4["n_escaped"], _g4["n_fault_cases"]))
+    add("mutation_detection_ci", "96.9 % (Wilson 95 % CI\n92.2–98.8 %)",
+        (92.2, 98.8),
+        _wilson(mut["overall"]["n_fault_cases_counted"] - mut["overall"]["n_escaped"],
+                mut["overall"]["n_fault_cases_counted"]))
+    add("f10_ci", "66.7 % (Wilson 95 % CI 39.1–86.2 %)", (39.1, 86.2),
+        _wilson(round(_f10["n_fault_cases"] * _f10["detection_rate"]),
+                _f10["n_fault_cases"]))
 
     # --- metamorphic ----------------------------------------------------------
     add("meta_M1", "25 of 25 bit-identical", 25, meta["variants"]["M1"]["n_identical"])
@@ -629,7 +885,7 @@ def build_checks(S) -> list[tuple[str, str, object, object]]:
         round(float(c236.loc["PhysChem", "coverage_fraction"]) * 100, 1))
     add("ad236_phys_n", "152 of 236", (152, 236),
         (int(c236.loc["PhysChem", "n_inside"]), int(c236.loc["PhysChem", "n_total"])))
-    add("ad236_struct_zero", "0 of 236 compounds", 0,
+    add("ad236_struct_zero", "admitted none of the original compounds", 0,
         int(c236.loc[["ECFP4", "FCFP4", "TopTorsion", "Gobbi_Pharm2D"], "n_inside"].sum()))
     add("ad_maccs", "9.3 % in MACCS", 9.3, round(float(cov.loc["MACCS", "coverage_fraction"]) * 100, 1))
     add("ad_erg", "3.6 % in ErG", 3.6, round(float(cov.loc["ErG", "coverage_fraction"]) * 100, 1))
@@ -946,6 +1202,53 @@ def build_checks(S) -> list[tuple[str, str, object, object]]:
                    if _c[k]["class"].startswith("candidate")), 3),
          round(_c["SCH-58261"]["vina_score"], 3)))
 
+    # ---- row-order dependence of the conformal counts (ADR-AIIM-271/275/279)
+    # Section 3.6 reports these; before ADR-AIIM-280 none was anchored.
+    _pm = S["perm"]["arms"]["A"]
+    _pv = [d["NP-library"]["n_possibly_active"] for d in _pm["draws"]]
+    _pmax = [d["NP-library"]["max_p"] for d in _pm["draws"]]
+    _sn = [d["SNP-Lib"]["n_possibly_active"] for d in _pm["draws"]]
+    _cn = S["canon"]["arms"]["A"]["summary"]
+    _m6 = S["m6c"]["configurations"]
+
+    add("perm_draws", "across **200 orderings**", 200, len(_pv))
+    add("perm_range", "from **6 to 4,119 of 5,000**", (6, 4119),
+        (min(_pv), max(_pv)))
+    # 200 draws, so the median is the mean of the two middle values and comes
+    # out at 1003.5. The article rounds it; the half is explicit here rather
+    # than hidden inside round(), whose banker's rule would be doing the work.
+    _med = (sorted(_pv)[len(_pv) // 2 - 1] + sorted(_pv)[len(_pv) // 2]) / 2
+    add("perm_median", "median of **1,004**", 1004, int(_med + 0.5))
+    add("perm_percentile", "sits at the **8th percentile**", 8.0,
+        round(100 * sum(1 for v in _pv if v <= 72) / len(_pv), 1))
+    # "below every one of the 200 draws": the released maximum is 0.072, so
+    # the smallest maximum over the draws must exceed it. The check is the
+    # comparison, not a quoted value.
+    add("perm_maxp_below", "the library maximum of 0.072 lies **below every one"
+        "\nof the 200 draws**", True, bool(min(_pmax) > 0.072))
+    add("perm_snplib_tenth", "reproduced by **one ordering in ten**", 10.0,
+        round(100 * sum(1 for v in _sn if v == 0) / len(_sn), 1))
+    add("canon_invariant", "invariant across 50 permutations",
+        (50, True, True),
+        (len(S["canon"]["arms"]["A"]["per_draw"]["fixed"]),
+         _cn["fixed"]["NP-library"]["invariant"],
+         _cn["control"]["NP-library"]["invariant"]))
+    add("canon_factor_six", "disagree by\na factor of six", 6,
+        round(max(_cn["fixed"]["NP-library"]["value_if_invariant"],
+                  _cn["control"]["NP-library"]["value_if_invariant"])
+              / min(_cn["fixed"]["NP-library"]["value_if_invariant"],
+                    _cn["control"]["NP-library"]["value_if_invariant"])))
+    add("m6c_eligible", "to between **9 and 298**", (9, 298),
+        (min(c["n_eligible"] for c in _m6.values()),
+         max(c["n_eligible"] for c in _m6.values())))
+    add("m6c_panel", "to between **six and sixty-seven**", (6, 67),
+        (min(c["panel_size"] for c in _m6.values()),
+         max(c["panel_size"] for c in _m6.values())))
+    add("m6c_none_eligible", "**none of NPLIB01185,\nNPLIB01643 or NPLIB03056 "
+        "is eligible**", True,
+        all(not any(c["released_three_still_eligible"].values())
+            for k, c in _m6.items() if k.startswith("B_")))
+
     # ---- cross-docking (ADR-AIIM-162) --------------------------------------
     xd = S["xdock"]
     # Re-anchored 2026-09-05: the section 4 sentence these quoted was replaced
@@ -1062,8 +1365,8 @@ def build_checks(S) -> list[tuple[str, str, object, object]]:
     # 675 appeared in three places and drifted to 681 the moment C1 added six
     # tests. Nothing audited it, so it is audited now, by running pytest's own
     # collector rather than by trusting a number in the text (ADR-AIIM-147).
-    add("test_count", "682 collected, 682 pass", 682, S["ntests"])
-    add("test_count_prose", "expand to 682 cases under parametrisation", 682,
+    add("test_count", "715 collected, 715 pass", 715, S["ntests"])
+    add("test_count_prose", "715 cases are collected from 604 test functions", 715,
         S["ntests"])
 
     # --- the false-refusal probe (M3) ---------------------------------------
@@ -1199,7 +1502,7 @@ def build_checks(S) -> list[tuple[str, str, object, object]]:
 
     # --- tiering and candidates ----------------------------------------------
     vc = e8.tier.value_counts()
-    add("tier_A", "| A — convergent |", 3, int(vc.get("A_converging_sbdd_lbdd", 0)))
+    add("tier_A", "| A — dual-criterion |", 3, int(vc.get("A_converging_sbdd_lbdd", 0)))
     add("tier_B", "| B — strong structure-based |", 119, int(vc.get("B_strong_sbdd_lbdd_null", 0)))
     add("tier_C", "| C — supporting |", 360, int(vc.get("C_supporting_sbdd_only", 0)))
     add("n_ok", "497 completed", 497, int((e8.status == "ok").sum()))
@@ -1257,7 +1560,353 @@ def build_checks(S) -> list[tuple[str, str, object, object]]:
     # --- conformal ------------------------------------------------------------
     add("conf_valid", "empirical error\n0.0501", 0.0501,
         S["conf"]["validity_check"]["significance_0.05"]["empirical_error_rate"])
+
+    # The two positives 3.1 now reports (ADR-AIIM-206). The conformal figures
+    # moved there from 3.6 and are anchored above; these are the rerun ones.
+    _rd = S["rdet"]
+    add("rerun_n", "the **25 compounds** shared", 25,
+        _rd["n_compounds_common_to_all"])
+    add("rerun_exact", "all three pairwise comparisons agree exactly", True,
+        _rd["all_pairs_bitwise_identical"])
+    add("rerun_maxdiff", "no score\ndiffering at any decimal place", 0.0,
+        _rd["max_absolute_difference_over_all_pairs"])
+
+    # The real-artifact demonstration (ADR-AIIM-208), pre-registered in
+    # ADR-AIIM-207. All four predictions held.
+    _ra = S["rart"]["arms"]
+    add("rart_byte", "**four of thirteen** artifacts", (4, 13),
+        (_ra["1_byte_exact_all_artifacts"]["files_flagged"],
+         _ra["1_byte_exact_all_artifacts"]["files_compared"]))
+    add("rart_norm", "**all four still\nflagged**", 4,
+        _ra["2_normalised_all_artifacts"]["files_flagged"])
+    add("rart_scoped", "the numeric outputs\npasses", False,
+        _ra["3_byte_exact_numeric_outputs_only"]["false_escalation_on_clean_rerun"])
+
+    # The matched screening result now reported in 3.4 (ADR-AIIM-205).
+    _ms = S["msc"]
+    _mm = _ms["results"]["matched"]
+    add("msc_pairs", "**35 of 48** actives", (35, 48),
+        (_ms["matching"]["n_pairs_formed"], _ms["matching"]["n_actives_available"]))
+    add("msc_vina", "ROC-AUC 0.502 (95 % CI 0.367\u20130.635)", 0.502,
+        round(_mm["vina"]["auc_roc"], 3))
+    add("msc_heavy", "heavy-atom count's 0.553", 0.553,
+        round(_mm["heavy_atoms"]["auc_roc"], 3))
+    add("msc_delta", "a paired difference of **\u22120.051**", -0.051,
+        round(_mm["paired_delta_auc_vina_minus_heavy"]["point"], 3))
+    add("msc_n", "the resulting 70 compounds", 70, _mm["n"])
     add("conf_n", "(n = 1,217)", 1217, S["conf"]["calibration_set_n"])
+
+    # The two numbers section 5 now carries, anchored to the same artifacts as
+    # the sections they summarise rather than retyped into the conclusion.
+    add("concl_spike_panel",
+        "**105 A2A actives the ligand-based model had never seen**", 105,
+        S["spikein"]["recovery_funnel"]["spiked_into_pool"]["k"])
+    add("concl_ad_admits", "**admitted five**", 5,
+        _json(under("20_new_runs", "spike_in_dock_2026-09-23/"
+              "analysis/spikein_stage56.json"))
+        ["populations"]["primary_top500"]["ad_gate_admits"]["k"])
+
+    # M6 reported in 3.6 (ADR-AIIM-264). Read from the artifact, not retyped.
+    _m6 = S["m6"]
+    _m61, _m62 = (_m6["m6_1_control_representativeness"],
+                  _m6["m6_2_selection_under_completed_gate"])
+    add("m6_sim_cov", "**similarity coverage of 0.0000", 0.0,
+        _m61["primary_library"]["similarity_coverage"])
+    add("m6_scaf_cov", "a scaffold coverage of 0.0000**", 0.0,
+        _m61["primary_library"]["scaffold_coverage"])
+    add("m6_thresholds", "thresholds of **0.50 and 0.10**", (0.5, 0.1),
+        (_m61["thresholds"]["min_similarity_coverage"],
+         _m61["thresholds"]["min_scaffold_coverage"]))
+    add("m6_licensed_after", "licensed in **no\nconfiguration of the nine**", 0,
+        _m61["consensus_licensed_after"])
+    add("m6_eligible", "**3 are eligible for Tier A**", 3, _m62["n_eligible"])
+    add("m6_frameworks", "span **two Bemis-Murcko frameworks**", 2,
+        _m62["n_distinct_frameworks_among_eligible"])
+    add("m6_panel_after", "from **three compounds to two**", 2,
+        len(_m62["panel_under_completed_gate"]))
+    add("m6_pool", "the eligible pool, 3 of 497", (3, 497),
+        (_m62["n_eligible"], _m6["m6_1_control_representativeness"]
+         ["primary_library"]["n"]))
+
+    # M2.1 stages 5 and 6 (ADR-AIIM-260): the domain gate and the ligand-based
+    # arm against the spiked shortlist. P1 and P3 were MISSED and these are the
+    # numbers that missed them; read from the artifact, not retyped.
+    _s56 = _json(under("20_new_runs", "spike_in_dock_2026-09-23/"
+                 "analysis/spikein_stage56.json"))
+    _pri, _sec = (_s56["populations"]["primary_top500"],
+                  _s56["populations"]["secondary_all_docked"])
+    add("s56_lb_admits", "**The ligand-based arm\nadmits 31 of the 32**", 31,
+        _pri["ligand_arm_admits"]["k"])
+    add("s56_ad_admits", "**The domain gate\nadmits 5.**", 5,
+        _pri["ad_gate_admits"]["k"])
+    add("s56_ad_all", "it admits **18**", 18, _sec["ad_gate_admits"]["k"])
+    add("s56_ad_rate", "the domain gate **15.6 %**", 15.6,
+        round(_pri["ad_gate_admits"]["rate"] * 100, 1))
+    add("abs_s56_ad", "the domain gate admitted 5", 5,
+        _pri["ad_gate_admits"]["k"])
+
+    # The three M2.1 numbers the abstract now carries. An unanchored number in
+    # an abstract is the defect section 3.7 argues against, so they are anchored
+    # to the same artifact as the section 3.5 sentence rather than retyped.
+    add("abs_spike_panel", "Spiking 105 unseen actives", 105,
+        S["spikein"]["recovery_funnel"]["spiked_into_pool"]["k"])
+    add("abs_spike_recovered", "the funnel recovered 89", 89,
+        S["spikein"]["recovery_funnel"]["stage3_shortlist5000"]["k"])
+    add("abs_spike_top500", "32 survived the docking rank", 32,
+        S["spikein"]["stage4_cutoff"]["curve"]["500"]["k"])
+
+    # The M2.1 spike-in recovery result reported in 3.5 (ADR-AIIM-256). Every
+    # number is read from the analysis artifact, not retyped.
+    _sp = S["spikein"]
+    _sf, _sc = _sp["recovery_funnel"], _sp["stage4_cutoff"]["curve"]
+    add("spike_panel", "**105\nChEMBL A2A actives the ligand-based model has never seen**", 105,
+        _sf["spiked_into_pool"]["k"])
+    add("spike_stage2", "**94 of 105** against 94 derived", 94,
+        _sf["stage2_top8000"]["k"])
+    add("spike_stage2_derived", "against 94 derived", 94,
+        _sp["implementation_check"]["stage2_expected"])
+    add("spike_recovered", "keeps 89 of the 105", 89,
+        _sf["stage3_shortlist5000"]["k"])
+    add("spike_rate", "(84.8 %", 84.8,
+        round(_sf["stage3_shortlist5000"]["rate"] * 100, 1))
+    add("spike_wilson", "Wilson 95 % 0.767\u20130.904", (0.767, 0.904),
+        tuple(round(v, 3) for v in _sf["stage3_shortlist5000"]["wilson95"]))
+    add("spike_top500", "**only 32 reach", 32, _sc["500"]["k"])
+    add("spike_top500_rate", "top-500 cut this campaign used, 36.0 %**", 36.0,
+        round(_sc["500"]["rate"] * 100, 1))
+    add("spike_ef500", "an enrichment of **3.60**", 3.6,
+        round(_sc["500"]["enrichment_over_background"], 2))
+    add("spike_ef100", "and of **5.06** in the top 100", 5.06,
+        round(_sc["100"]["enrichment_over_background"], 2))
+    add("spike_top100_k", "where **9** are\nfound", 9, _sc["100"]["k"])
+    add("spike_lost", "**Fifty-seven** known actives", 57,
+        _sf["stage3_shortlist5000"]["k"] - _sc["500"]["k"])
+
+    # The DUD-E enrichment result now reported in 3.4 (ADR-AIIM-240). Every
+    # number below is read from the analysis artifact, not retyped.
+    _du = S["dude"]
+    _dv, _dc, _dh = (_du["arms"]["vina"], _du["arms"]["clogp"],
+                     _du["arms"]["heavy_atoms"])
+    add("dude_actives", "**482 actives", 482, _du["n_actives"])
+    add("dude_decoys", "1,920 property-matched decoys**", 1920,
+        _du["n_decoys"] + _du["n_failed_to_dock"])
+    add("dude_n", "leaving **2,401** compounds analysed", 2401, _du["n_scored"])
+    add("dude_vina", "ROC-AUC 0.6689 (95 % CI 0.6414\u20130.6935)", 0.6689,
+        _dv["roc_auc"])
+    add("dude_clogp", "cLogP's 0.5939", 0.5939, _dc["roc_auc"])
+    add("dude_heavy", "heavy-atom\ncount's 0.5400", 0.5400, _dh["roc_auc"])
+    add("dude_delta", "**+0.0751 (95 % CI +0.0365 to +0.1109)**", 0.0751,
+        _du["primary_outcome"]["delta_auc"])
+    add("dude_bedroc", "**0.4520 against\n0.2401**", 0.4520, _dv["bedroc20"])
+    add("dude_ef1", "**3.59 against Vina's 2.59**", 3.59,
+        round(_dh["ef"]["1%"], 2))
+
+    # The benchmark-versus-protocol decomposition now in 3.4 (ADR-AIIM-242).
+    _br = _json(under("20_new_runs", "chembl245_rerun_2026-09-22/"
+                "analysis/chembl245_rerun_analysis.json"))
+    add("bridge_old", "reproduces at **0.6012**", 0.6012,
+        _br["arms"]["eight_pooled_published"]["roc_auc"])
+    add("bridge_new", "it reaches **0.6345**", 0.6345,
+        _br["arms"]["one_conformer_rerun"]["roc_auc"])
+    add("bridge_delta", "**+0.0333 (95 % CI +0.0109 to +0.0562)**", 0.0333,
+        _br["protocol_effect_same_benchmark"]["delta_auc_new_minus_old"])
+    add("bridge_bedroc_old", "BEDROC20 falls from 0.2752", 0.2752,
+        _br["arms"]["eight_pooled_published"]["bedroc20"])
+    add("bridge_bedroc_new", "to 0.2440 on the same rows", 0.2440,
+        _br["arms"]["one_conformer_rerun"]["bedroc20"])
+
+    # The matched-subset null re-measured under the single-conformer protocol
+    # (ADR-AIIM-243). Same matching rule, nothing re-docked.
+    _m1 = S["msc1"]["results"]["matched"]
+    add("msc1_vina", "**Vina 0.5371 against the same 0.5527**", 0.5371,
+        _m1["vina"]["auc_roc"])
+    add("msc1_delta", "a paired difference of **−0.0156**", -0.0156,
+        _m1["paired_delta_auc_vina_minus_heavy"]["point"])
+
+    # The named-compound positive control on the domain gate (ADR-AIIM-210),
+    # reported in 3.3 beside the statistical probe of section 4.
+    _adg = S["adg"]
+    add("adg_pass", "**Nine of the ten are admitted**", (9, 10),
+        (_adg["n_pass"], _adg["n_panel"]))
+    add("adg_refused_heavy", "**20 heavy atoms**", 20,
+        [c["heavy_atoms"] for c in _adg["per_compound"]
+         if c.get("resolved") and not c["passes_gate"]][0])
+    # The measured-affinity set the model was fitted on. 3.3 cites its size to
+    # establish that the seven purines of the mis-specified control are absent
+    # from it, so the number is read from the frozen CSV rather than retyped.
+    # The reporting gate's fail-open default (ADR-AIIM-218).
+    _tgr = S["tgr"]
+    add("tgr_vacuous", "**six of its ten checks**", (6, 10),
+        (_tgr["empty_input_probe"]["n_passed_on_no_evidence"], _tgr["n_g8_checks"]))
+    add("tgr_state", "it returns PASS, with", "PASS",
+        _tgr["empty_input_probe"]["state"])
+
+    # The decision record's own blind spot (ADR-AIIM-219). The zero is
+    # anchored deliberately: it is the claim that carries the argument, and
+    # without an anchor nothing would notice if a field were added later.
+    _dp = S["dprov"]
+    add("dprov_n", "Its **191** entries", 191, _dp["n_decision_records"])
+    add("dprov_nofield",
+        "**none names the options that were available and not taken**", 0,
+        _dp["n_structured_alternatives_fields"])
+    add("dprov_generous", "**38 of the 191**", (38, 191),
+        (_dp["generous"]["n"], _dp["n_decision_records"]))
+    add("dprov_read", "**23** name an alternative course of action", 23,
+        _dp["read"]["n_naming_an_alternative_course_of_action"])
+
+    # 3.7 promoted from prose to a counted result (ADR-AIIM-220). Table 8's
+    # per-layer rows are anchored as well as the totals, because a table cell
+    # is exactly where a stale number survives longest.
+    _inc = S["inc"]
+    _pl = _inc["per_layer"]
+    add("inc_check", "**Three of the sixteen were caught by a check", (3, 16),
+        (_inc["n_caught_by_workflow_check"], _inc["n_incidents"]))
+    add("inc_reached",
+        "**One of the sixteen reached a figure that had already been "
+        "reported**", (1, 16),
+        (_inc["n_reached_a_reported_figure"], _inc["n_incidents"]))
+    add("inc_latency", "is recoverable for one of the sixteen", 1,
+        _inc["latency"]["recoverable_for"])
+    add("inc_sci", "| Scientific | 3 | 0 | **3** | 0 | 3 corrected |",
+        (3, 0, 3, 0), (_pl["Scientific"]["construction"],
+                       _pl["Scientific"]["revision"],
+                       _pl["Scientific"]["caught_by_workflow_check"],
+                       _pl["Scientific"]["reached_reported_figure"]))
+    add("inc_infra", "| Infrastructure | 6 | 1 | 0 | **1** |", (6, 1, 0, 1),
+        (_pl["Infrastructure"]["construction"],
+         _pl["Infrastructure"]["revision"],
+         _pl["Infrastructure"]["caught_by_workflow_check"],
+         _pl["Infrastructure"]["reached_reported_figure"]))
+    add("inc_agent", "| Agent reasoning | 6 | 0 | 0 | 0 |", (6, 0, 0, 0),
+        (_pl["Agent reasoning"]["construction"],
+         _pl["Agent reasoning"]["revision"],
+         _pl["Agent reasoning"]["caught_by_workflow_check"],
+         _pl["Agent reasoning"]["reached_reported_figure"]))
+    add("inc_outcomes", "8 corrected, 5 contained, 2 withdrawn, 1 excluded",
+        (8, 5, 2, 1), (_inc["outcomes"]["corrected"],
+                       _inc["outcomes"]["contained"],
+                       _inc["outcomes"]["withdrawn"],
+                       _inc["outcomes"]["excluded"]))
+
+    # E1: the benchmark's detector is not the deployed one (ADR-AIIM-237), and
+    # what closing the gap does (ADR-AIIM-238, arm E).
+    # The five arms now live in Table 10 rather than in prose, so the
+    # literals are table rows (ADR-AIIM-248). A row anchors both of its
+    # numbers at once, which is stricter than the prose was: a reader editing
+    # one cell cannot leave the other standing.
+    _e1 = S["e1"]["by_arm"]
+    add("e1_arm_a",
+        "| **A** \u2014 as published | harness, 21 checks | evaluators called "
+        "directly | **124** | **0** |", (124, 0),
+        (_e1["A"]["detected"], _e1["A"]["false_escalation"]))
+    add("e1_arm_b",
+        "| B | frozen, 55 checks | evaluators called directly | 101 | 35 |",
+        (101, 35), (_e1["B"]["detected"], _e1["B"]["false_escalation"]))
+    add("e1_arm_c",
+        "| **C** \u2014 as deployed | frozen | orchestrator and report lock | "
+        "**101** | **35** |", (101, 35),
+        (_e1["C"]["detected"], _e1["C"]["false_escalation"]))
+    add("e1_arm_d",
+        "| D | frozen | the repaired copy | **101** | 35 |", (101, 35),
+        (_e1["D"]["detected"], _e1["D"]["false_escalation"]))
+    add("e1_arm_e",
+        "orchestrator and report lock | **128** | 35 |", (128, 35),
+        (_e1["E"]["detected"], _e1["E"]["false_escalation"]))
+
+    # The completed gate applied to the released selection (ADR-AIIM-239).
+    _g6r = S["g6r"]
+    add("g6r_halt", "returns **HALT** on\nscaffold uniqueness", "HALT",
+        _g6r["under_amended_v1_4_0"]["state"])
+    add("g6r_scaffolds", "**two distinct\nMurcko scaffolds**", 2,
+        len({x["murcko_scaffold"] for x in _g6r["scaffolds"]["panel"]}))
+
+    # M4.2: the repair exists in a copy, and what it changed (ADR-AIIM-226).
+    # The branch counts are anchored because the sentence asserting them is
+    # the one that resolves a contradiction, and a resolved contradiction
+    # should not be able to drift back.
+    _vv = S["v1v2"]["measured_separately"]["branch_coverage"]
+    add("m42_branches", "**from 22 to 18**", ("21/22", "18/18"),
+        (_vv["v1"]["orchestrator"], _vv["v2"]["orchestrator"]))
+    add("m42_benchmark_identical",
+        "**Closing them moves the seeded-defect benchmark not at all**",
+        S["v1v2"]["measured_separately"]["seeded_defect_benchmark"]["v1"]
+        ["contracts"],
+        S["v1v2"]["measured_separately"]["seeded_defect_benchmark"]["v2"]
+        ["contracts"])
+
+    # M3.1: what each oracle family does when its reference is defective
+    # (ADR-AIIM-224). The 20 is anchored because the sentence that carries it
+    # is the one preventing the result from reading as "contracts win".
+    _cr = S["cref"]["arms"]
+    add("cref_tolerant", "**1.000 to 0.348**",
+        (1.0, 0.3477),
+        (_cr["tol"]["clean"]["balanced_accuracy"],
+         _cr["tol"]["contam"]["balanced_accuracy"]))
+    add("cref_contracts", "The contracts fall to **0.795**", 0.7947,
+        _cr["contract"]["contam"]["balanced_accuracy"])
+    add("cref_clean_runs", "**every one of the 55 clean runs**", 55,
+        _cr["tol"]["contam"]["n_false_escalations"])
+    add("cref_20", "**All 20** of\ntheir new false alarms", 20,
+        _cr["contract"]["contam"]["n_false_escalations"])
+
+    # M3.3: static analysis in both directions (ADR-AIIM-225).
+    _sa = S["sana"]
+    add("sana_no_py",
+        "**no Python file exists in any of the five gate workspaces**", 0,
+        _sa["data_faults_are_out_of_reach"]["n_python_files_in_workspaces"])
+    add("sana_f821", "reports **two undefined names** in deposited scripts", 2,
+        _sa["ruff"]["n_findings_F821"] if "n_findings_F821" in _sa["ruff"]
+        else len(_sa["ruff"]["undefined_name_F821"]))
+
+    # M2.2, and the Table 9 cells that carry it (ADR-AIIM-241).
+    _ex = S["exh"]
+    add("exh_pair", "**0.6655 against 0.6689**",
+        (0.6655, 0.6689),
+        (_ex["arms"]["exhaustiveness_8"]["roc_auc"],
+         _ex["arms"]["exhaustiveness_32"]["roc_auc"]))
+    add("exh_delta", "**+0.0034 (95 % CI \u22120.0027 to +0.0098)**",
+        (0.0034, -0.0027, 0.0098),
+        (_ex["primary_outcome"]["delta_auc"],
+         _ex["primary_outcome"]["delta_ci95"][0],
+         _ex["primary_outcome"]["delta_ci95"][1]))
+    # 3.7: the benchmark file is not keyed the way an analysis assumed
+    # (ADR-AIIM-233). Both counts come from the frozen input itself, which is
+    # why this one could be anchored when ADR-AIIM-230 and 232 could not.
+    _dude = pd.read_csv(resolve("02_frozen_inputs/public_benchmarks/dude_a2ar/"
+                                "dude_a2ar_docking_set.csv"))
+    add("dude_rows_ids", "**2,402 rows but 2,401\ndistinct identifiers**",
+        (2402, 2401), (len(_dude), int(_dude.compound_id.nunique())))
+    add("dude_inflated", "it reported **2,404** of them", 2404,
+        len(_dude) + (len(_dude) - int(_dude.compound_id.nunique())) * 2)
+
+    add("exh_bedroc", "| 2,401 | 0.6655 | 0.6367\u20130.6907 | 0.4487 |",
+        (0.6655, 0.6367, 0.6907, 0.4487),
+        (_ex["arms"]["exhaustiveness_8"]["roc_auc"],
+         _ex["arms"]["exhaustiveness_8"]["roc_auc_ci95"][0],
+         _ex["arms"]["exhaustiveness_8"]["roc_auc_ci95"][1],
+         _ex["arms"]["exhaustiveness_8"]["bedroc20"]))
+
+    # 3.6: the frozen tier rule run over nine configurations (ADR-AIIM-211).
+    # The boolean is anchored as well as the counts: it is the reason every
+    # expanded configuration fails, and a sentence saying so should not be
+    # able to outlive the fact.
+    _sc = S["scard"]
+    add("scard_none", "licensed in none of the nine", (0, 9),
+        (_sc["n_in_which_consensus_was_licensed"],
+         _sc["n_configurations_scored"]))
+    add("scard_nine", "over **nine\nconfigurations**", 9,
+        _sc["n_configurations_scored"])
+    add("scard_recompute",
+        "**was never recomputed after the library was\nreplaced**", False,
+        _sc["control_representativeness_recomputed_after_expansion"])
+    add("scard_physchem", "at **0.863** coverage in the physicochemical space",
+        0.863, round([r["ad_coverage_used"] for r in _sc["rows"]
+                      if "PhysChem" in r["case"]][0], 3))
+
+    add("adg_pool", "**6,565-compound**", 6565,
+        int(pd.read_csv(resolve("02_frozen_inputs/public_benchmarks/chembl_a2ar/"
+                                "chembl_a2a_raw_v2.csv"))
+            ["molecule_chembl_id"].nunique()))
     add("conf_sets", "the ambiguous set {inactive, active} to 3", 3,
         int((e8["prediction_set_sig0.05"] == "{0,1}").sum()))
 
@@ -1298,7 +1947,7 @@ def build_checks(S) -> list[tuple[str, str, object, object]]:
     # is audited like every other one: if the artifact ever stops saying one of
     # five, the manuscript sentence fails loudly instead of going stale.
     ho = S["ho"]
-    add("heldout_n", "five cases authored blind to the project", 5,
+    add("heldout_n", "five independently authored fault cases", 5,
         ho["n_cases"])
     # heldout_detected and heldout_detected_abstract retired 2026-08-29 with the
     # sentences they audited (ADR-AIIM-135). A check left passing against text
@@ -1340,8 +1989,70 @@ def build_checks(S) -> list[tuple[str, str, object, object]]:
     # not cover the section README.
     _s10 = resolve("30_manuscript/supplement/S10_verification_2026-08-21")
     _s10m = _json(_s10 / "MANIFEST.json")
-    add("s10_manifest_n", "99 entries covering", 99,
+    add("s10_manifest_n", "102 entries covering", 102,
         len(_s10m.get("files", _s10m)))
+
+    # --- the ingested external reproducibility audit (ADR-AIIM-189) ----------
+    # Read from 20_new_runs/external_repro_audit_2026-09-13/, not recomputed.
+    # The drafted revision claimed "evaluator modules ranged from 39% to 78%";
+    # 78 is totals.percent_statements_covered_display, an aggregate, and the
+    # real evaluator range is 39.1-100 %. Only the low end is reported, so only
+    # the low end is audited.
+    _xc = S["xcov"]
+    _xt = _xc["totals"]
+    _xf = _xc["files"]
+    _ev = [v["summary"]["percent_covered"] for k, v in _xf.items()
+           if k.startswith("evaluators") and k.endswith(".py")]
+    add("xcov_pct", "at **75 %** over", 75, int(_xt["percent_covered_display"]))
+    add("xcov_stmts", "4,740 statements", 4740, _xt["num_statements"])
+    add("xcov_branches", "1,578 branches", 1578, _xt["num_branches"])
+    add("xcov_eval_min", "lowest evaluator module reaches 39 %", 39,
+        int(min(_ev)))
+    add("xcov_engine_orch", "reach 29 % and 25 %", (29, 25),
+        (round(_xf["kdss_audit\\contract_engine.py"]["summary"]["percent_covered"]),
+         round(_xf["kdss_audit\\orchestrator.py"]["summary"]["percent_covered"])))
+
+    # 29 % and 25 % are *statement* percentages. Underneath them the same
+    # artifact records 0 of 12 and 0 of 22 branches executed -- the only two
+    # modules in the audit for which that is true (ADR-AIIM-198). Anchored so
+    # that a reworded limitation cannot quietly drop them.
+    _bc = S["bcov"]
+    _bce = _bc["focus_modules"]["kdss_audit/contract_engine.py"]
+    _bco = _bc["focus_modules"]["kdss_audit/orchestrator.py"]
+    add("bcov_core_branch", "as **65.6 %**", 65.6, _bc["core_percent_branches"])
+    add("bcov_zero_mods", "only two of 55 modules", (2, 55),
+        (len(_bc["modules_with_zero_executed_branches"]),
+         _bc["n_modules_with_statements"]))
+    add("bcov_engine_orch_zero", "**0 of 12 and 0 of 22**", (0, 12, 0, 22),
+        (_bce["covered_branches"], _bce["num_branches"],
+         _bco["covered_branches"], _bco["num_branches"]))
+
+    # The increase those zeros prompted (ADR-AIIM-199). Read from the
+    # before/after coverage.py reports in
+    # 20_new_runs/branch_coverage_increase_2026-09-21/, not recomputed. The
+    # orchestrator stops at 21 of 22 because one arc is unreachable, so the
+    # check pins 21 rather than treating the shortfall as outstanding work.
+    _inc = S["inccov"]
+    _ince = _inc["modules"]["kdss_audit/contract_engine.py"]["after"]
+    _inco = _inc["modules"]["kdss_audit/orchestrator.py"]["after"]
+    add("bcov_after", "**12 of 12 and 21 of 22**", (12, 12, 21, 22),
+        (_ince["covered_branches"], _ince["branches"],
+         _inco["covered_branches"], _inco["branches"]))
+    add("bcov_tests_added", "Thirty-three were added", 33, _inc["tests_added"])
+    add("bcov_unreachable", "no input can\nreach", 1,
+        len(_inc["modules"]["kdss_audit/orchestrator.py"]["unreachable_branches"]))
+
+    # The manifest half of the same ingested audit, reported in section 4.
+    # checks[0] is the root MANIFEST.json, checks[1] the nested
+    # verification/MANIFEST.json (ADR-AIIM-189).
+    _root_mf = S["xman"]["checks"][0]
+    _nest_mf = S["xman"]["checks"][1]
+    add("xman_entries", "180 SHA-256 mismatches among 369 entries", (180, 369),
+        (len(_root_mf["sha256_mismatches"]), _root_mf["declared_n_files"]))
+    add("xman_crlf", "179 of them attributable to", 179,
+        len(_root_mf["sha256_matches_after_lf_to_crlf"]))
+    add("xman_nested_missing", "names **two absent files**", 2,
+        len(_nest_mf["missing"]))
     return C
 
 
@@ -1387,10 +2098,29 @@ def main() -> int:
     figures += check_repository_url(text)
     commit = check_deposit_commit()
 
+    # The supplement is read once. A check that declares itself there is
+    # verified against this text with the same strictness as an article check:
+    # if the document is missing or stale the literal is absent and the check
+    # fails, which is the direction that cannot hide a relocated number.
+    supp = docx_text(Path(args.manuscript).parent / "Supplementary_Information.docx")
+    supp_norm = re.sub(r"\s+", " ", supp)
+    n_supp = sum(1 for c in checks if c[4] == "supplement")
+    if n_supp:
+        print(f"  {n_supp} check(s) declared in the supplement; "
+              f"{len(supp_norm):,} characters read from it")
+
     rows, n_pass, n_fail, n_absent = [], 0, 0, 0
-    for cid, lit, exp, act in checks:
+    for cid, lit, exp, act, where in checks:
         lit_norm = re.sub(r"\s+", " ", lit)
-        present = lit_norm in norm
+        if where == "supplement":
+            # The builder renders **bold** and *italic* into Word runs, so the
+            # built document carries the words without the markers. Strip them
+            # from both sides: the words and digits must still match exactly,
+            # and only the difference the rendering introduced is removed.
+            _strip = lambda s: s.replace("*", "").replace("`", "")
+            present = _strip(lit_norm) in _strip(supp_norm)
+        else:
+            present = lit_norm in norm
         if isinstance(exp, float) and isinstance(act, (int, float)):
             agrees = abs(float(exp) - float(act)) <= max(5e-4, abs(float(exp)) * 1e-3)
         else:
@@ -1402,7 +2132,8 @@ def main() -> int:
         else:
             state = "PASS"; n_pass += 1
         rows.append({"check": cid, "state": state, "expected": exp, "recomputed": act,
-                     "literal_present_in_manuscript": present, "literal": lit})
+                     "literal_present_in_manuscript": present, "literal": lit,
+                     "located_in": where})
 
     # --- citation integrity -------------------------------------------------
     # A reference list is part of reporting integrity, so G8 audits it too:

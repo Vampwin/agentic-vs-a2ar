@@ -1,7 +1,7 @@
 {
   "assembled": "2026-08-21, extended 2026-08-24",
-  "n_files": 99,
-  "total_bytes": 5945552,
+  "n_files": 102,
+  "total_bytes": 6635828,
   "missing_sources": [],
   "files": [
     {
@@ -484,8 +484,8 @@
       "file": "structure_and_protocol/g8_number_traceability.json",
       "source": "20_new_runs/verification_summary_2026-08-21/g8_number_traceability.json",
       "supports": "the G8 audit of every number in the manuscript",
-      "bytes": 69242,
-      "sha256": "72f82a8bd3bf2be664c7a4a955b7c336086b0fb3d964b536f809e3d29fbf4775"
+      "bytes": 73437,
+      "sha256": "aa45f910a8ebe3d150f4694ba1e5d56dae6245e39f45168d2b6363e92e3c79fe"
     },
     {
       "file": "orthogonal_engine/orthogonal_check_result.json",
@@ -689,6 +689,27 @@
       "supports": "the 236-compound SNP-Lib accountability ledger as G1 produced it. Deposited 2026-09-13 because 42 tests in the fault-injection suite seed their workspaces from it: without it the suite cannot run from this deposit, which is the only place a reader can run it",
       "bytes": 75488,
       "sha256": "67c0458874b2dcd11f7c255c1b558f54f02c1565cd124736eaf1c5f8e9d4f4be"
+    },
+    {
+      "file": "external_audit/coverage_core.json",
+      "source": "20_new_runs/external_repro_audit_2026-09-13/coverage_core.json",
+      "supports": "\u00a74 and the SI's required-analyses section: branch-aware coverage of the core packages from the 2026-09-13 clean-checkout audit (ADR-AIIM-189). 75 % overall, but `contract_engine` at 29 % and `orchestrator` at 25 %, and the lowest evaluator module at 39 %",
+      "bytes": 416738,
+      "sha256": "6f43e22e22ef1782de514d062ae3b430883d849f31c62742e5c4756563fb57c2"
+    },
+    {
+      "file": "external_audit/manifest_verification.json",
+      "source": "20_new_runs/external_repro_audit_2026-09-13/manifest_verification.json",
+      "supports": "\u00a74: byte-level verification of the deposited manifests. 180 of 369 root entries mismatch, 179 of them explained by CRLF line endings rather than by changed content, and the nested manifest names two absent files (ADR-AIIM-189)",
+      "bytes": 205656,
+      "sha256": "5d64ced620c499b658cac3445dd6b69be026dfc235174dc5fe2d35af984d8f88"
+    },
+    {
+      "file": "external_audit/reference_check.json",
+      "source": "20_new_runs/external_repro_audit_2026-09-13/reference_check.json",
+      "supports": "the reference audit behind the citation check: 66 references resolved by DOI, 57 PASS, 3 adjudicated and 6 unverifiable for want of a DOI. Only the DOI was sent externally (ADR-AIIM-189)",
+      "bytes": 63687,
+      "sha256": "601de6302260ac723a30884ccac70b1cd418945216044003a6829a2644896cb3"
     },
     {
       "file": "incident_taxonomy/incident_taxonomy.md",

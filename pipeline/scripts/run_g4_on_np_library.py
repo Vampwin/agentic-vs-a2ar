@@ -39,8 +39,8 @@ from kdss_audit.artifact_registry import (  # noqa: E402
     sha256_file,
 )
 
-FUNNEL = resolve("20_new_runs/np_library_funnel_2026-08-15")
-RUN = resolve("20_new_runs/g4_verification_2026-08-21")
+DEFAULT_FUNNEL = "20_new_runs/np_library_funnel_2026-08-15"
+DEFAULT_RUN = "20_new_runs/g4_verification_2026-08-21"
 CONTRACT = resolve("10_new_system/contracts/G4_scoring.yaml")
 
 
@@ -53,19 +53,32 @@ def _read(registry: ArtifactRegistry, path: Path, purpose: str) -> Path:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--rerun-csv", default=str(under("20_new_runs/g4_verification_2026-08-21", "rerun_passA_cpu6.csv")),
+    ap.add_argument("--rerun-csv", default=None,
                     help="seed_repeatability rerun output; if absent the check "
-                         "fails closed, which is the contract's intent")
+                         "fails closed, which is the contract's intent. "
+                         "Defaults to rerun_passA_cpu6.csv inside --run-dir")
     ap.add_argument("--label", default="passA_cpu6")
+    # M2.1 (ADR-AIIM-229) applies this same contract to a different arm. The
+    # two directories were literals in five places; they are arguments now, and
+    # the defaults are the 2026-08-21 run exactly as before, so every existing
+    # invocation resolves to the same paths it did.
+    ap.add_argument("--funnel-dir", default=DEFAULT_FUNNEL,
+                    help="funnel run supplying the full-protocol ledgers")
+    ap.add_argument("--run-dir", default=DEFAULT_RUN,
+                    help="where the merged scores live and the outcome is written")
     args = ap.parse_args()
 
-    RUN.mkdir(parents=True, exist_ok=True)
-    registry = ArtifactRegistry(under("20_new_runs/g4_verification_2026-08-21", "artifact_registry.jsonl"))
+    funnel = resolve(args.funnel_dir)
+    run = resolve(args.run_dir)
+    rerun_csv = args.rerun_csv or str(run / "rerun_passA_cpu6.csv")
+
+    run.mkdir(parents=True, exist_ok=True)
+    registry = ArtifactRegistry(run / "artifact_registry.jsonl")
 
     contract = yaml.safe_load(CONTRACT.read_text(encoding="utf-8"))
     _read(registry, CONTRACT, "G4 contract definition")
 
-    merged = _read(registry, under("20_new_runs/g4_verification_2026-08-21", "full_scores_MERGED.csv"),
+    merged = _read(registry, run / "full_scores_MERGED.csv",
                    "G4 input: merged full-protocol docking scores")
     if not merged.is_file():
         print(f"ERROR: {merged} not found", file=sys.stderr)
@@ -92,7 +105,7 @@ def main() -> int:
     # Expected compound set and the documented-failure ledger, so
     # missing_output_accounting can distinguish "scored" from "explained".
     ledger = pd.concat(
-        [pd.read_csv(_read(registry, FUNNEL / f"full_ledger_chunk{c}.csv",
+        [pd.read_csv(_read(registry, funnel / f"full_ledger_chunk{c}.csv",
                            "G4 input: expected compound list")) for c in (1, 2, 3)],
         ignore_index=True,
     )
@@ -108,7 +121,7 @@ def main() -> int:
         "failure_ledger": failure_ledger,
     }
 
-    rerun_path = Path(args.rerun_csv)
+    rerun_path = Path(rerun_csv)
     if rerun_path.is_file():
         _read(registry, rerun_path, "G4 input: seed_repeatability rerun")
         rr = pd.read_csv(rerun_path)
@@ -134,7 +147,7 @@ def main() -> int:
         state_history=[{"state": result["state"], "reason": result["summary"]}],
     ))
 
-    out = RUN / f"G4_contract_outcome_{args.label}.json"
+    out = run / f"G4_contract_outcome_{args.label}.json"
     out.write_text(json.dumps({
         "contract": contract.get("contract_id"),
         "contract_version": contract.get("version"),

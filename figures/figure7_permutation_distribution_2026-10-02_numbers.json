@@ -1,0 +1,20 @@
+{
+ "figure": "Figure 7",
+ "source_runs": [
+  "20_new_runs/conformal_permutation_2026-10-02",
+  "20_new_runs/canonical_row_order_2026-10-02"
+ ],
+ "n_draws": 200,
+ "count_min": 6,
+ "count_max": 4119,
+ "count_median": 1003.5,
+ "released_count": 72,
+ "released_count_percentile": 8.0,
+ "maxp_min": 0.0743,
+ "maxp_max": 0.2453,
+ "released_maxp": 0.072,
+ "released_maxp_below_all_draws": true,
+ "canonical_released_tiebreak": 568,
+ "canonical_declared_tiebreak": 3334,
+ "png_sha256": "017c8331cfd0034f0fb395f7fbfbed83ee01596c3dd8186c2103058c037ee825"
+}

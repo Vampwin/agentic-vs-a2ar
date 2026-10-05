@@ -10,7 +10,7 @@ one, and the manifest records its SHA-256 so a reader can confirm the copy
 matches. A supplement that re-derives its own numbers demonstrates nothing
 about the run that produced them.
 
-**99 files, 5806 KB.**
+**102 files, 6480 KB.**
 
 | File | Supports |
 |---|---|
@@ -112,6 +112,9 @@ about the run that produced them.
 | `released_result/funnel_metadata.json` | §2.6: the funnel's own record of what entered each stage and what the cutoffs were |
 | `structure_checks/system_gmx.gro` | §2.9: the assembled membrane system the simulation reads. The atom, lipid, water and restraint counts the Methods quote are counted from this file rather than reported from the build log |
 | `released_result/snp_source_ledger.csv` | the 236-compound SNP-Lib accountability ledger as G1 produced it. Deposited 2026-09-13 because 42 tests in the fault-injection suite seed their workspaces from it: without it the suite cannot run from this deposit, which is the only place a reader can run it |
+| `external_audit/coverage_core.json` | §4 and the SI's required-analyses section: branch-aware coverage of the core packages from the 2026-09-13 clean-checkout audit (ADR-AIIM-189). 75 % overall, but `contract_engine` at 29 % and `orchestrator` at 25 %, and the lowest evaluator module at 39 % |
+| `external_audit/manifest_verification.json` | §4: byte-level verification of the deposited manifests. 180 of 369 root entries mismatch, 179 of them explained by CRLF line endings rather than by changed content, and the nested manifest names two absent files (ADR-AIIM-189) |
+| `external_audit/reference_check.json` | the reference audit behind the citation check: 66 references resolved by DOI, 57 PASS, 3 adjudicated and 6 unverifiable for want of a DOI. Only the DOI was sent externally (ADR-AIIM-189) |
 | `incident_taxonomy/incident_taxonomy.md` | §3.6: the fifteen incidents classified by layer, what detected each, how it resolved |
 
 ## What is deliberately not here

@@ -411,6 +411,20 @@ ITEMS: list[tuple[str, str, str]] = [
      "produced it. Deposited 2026-09-13 because 42 tests in the fault-injection "
      "suite seed their workspaces from it: without it the suite cannot run from "
      "this deposit, which is the only place a reader can run it"),
+    ("external_repro_audit_2026-09-13/coverage_core.json",
+     "external_audit", "§4 and the SI's required-analyses section: branch-aware "
+     "coverage of the core packages from the 2026-09-13 clean-checkout audit "
+     "(ADR-AIIM-189). 75 % overall, but `contract_engine` at 29 % and "
+     "`orchestrator` at 25 %, and the lowest evaluator module at 39 %"),
+    ("external_repro_audit_2026-09-13/manifest_verification.json",
+     "external_audit", "§4: byte-level verification of the deposited manifests. "
+     "180 of 369 root entries mismatch, 179 of them explained by CRLF line "
+     "endings rather than by changed content, and the nested manifest names "
+     "two absent files (ADR-AIIM-189)"),
+    ("external_repro_audit_2026-09-13/reference_check.json",
+     "external_audit", "the reference audit behind the citation check: 66 "
+     "references resolved by DOI, 57 PASS, 3 adjudicated and 6 unverifiable "
+     "for want of a DOI. Only the DOI was sent externally (ADR-AIIM-189)"),
 ]# Hand-authored, not copied from a run directory, but still manifest-listed so
 # that the manuscript's claim -- every file in S10 carries a SHA-256 in the
 # section manifest -- is true of the whole section rather than most of it.

@@ -60,7 +60,8 @@ TREE: list[tuple[str, str, str]] = [
     ("10_new_system/fault_injection", "pipeline/fault_injection",
      "the eighteen fault-family definitions (eleven implemented, seven declared stubs)"),
     ("10_new_system/tests", "pipeline/tests",
-     "the test suite: 675 tests across 30 modules"),
+     "the test suite: 682 collected cases from 567 test functions across "
+     "30 modules"),
     ("10_new_system/scripts", "pipeline/scripts",
      "every analysis, figure and audit script referenced in the manuscript"),
     ("10_new_system/kdss_audit", "pipeline/kdss_audit",

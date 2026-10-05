@@ -30,7 +30,7 @@ from __future__ import annotations
 
 import argparse
 from pathlib import Path
-from kdss_paths import project_root, resolve, under
+from kdss_paths import project_root, resolve, under, wsl_root
 
 W = 539.0          # 190 mm in points: Elsevier double-column width
 MIN_PT = 7.0       # nothing below this
@@ -244,18 +244,30 @@ def graphical_abstract(out: Path) -> Path:
     Every string here is length-checked against its column before drawing, so
     a later edit cannot silently push text outside its box the way the first
     draft of this figure did.
+
+    Redrawn 2026-09-16 on external review, which found the figure text-heavy
+    and objected that it presented the three compounds as convergent. The
+    panels now run verification result -> coverage limit -> exploratory
+    screen, which is the reviewer's own ordering, and the second footer line
+    was removed rather than reworded. The numbers here are still hand-written
+    literals and no figprov check covers this figure, unlike Figures 3-6;
+    they are kept identical to audited manuscript text, and a figprov entry
+    for this figure remains the durable fix.
     """
     GW, GH = 511.0, 206.0
     s = Svg(GW, GH,
-            "Agentic virtual screening against the adenosine A2A receptor",
-            "Three stages: a natural-product library that standard "
-            "applicability-domain gates reject wholesale; an agentic pipeline "
-            "whose code is verified under executable contracts; and a "
-            "confidence-tiered candidate set.")
+            "Executable verification of agent-generated code in an A2A "
+            "receptor virtual-screening workflow",
+            "Three panels: deterministic contracts detect 124 of 128 seeded "
+            "defects within eleven predefined fault families; an unencoded "
+            "metamorphic relation and five blind-authored cases expose "
+            "failures outside that coverage; and the A2AR screen is reported "
+            "as an exploratory case study whose three compounds are "
+            "computational hypotheses.")
 
     # Short form: the full title does not fit 511 pt at 11 pt. The complete
     # title is carried by the SVG <title> element and by the caption.
-    s.text(GW / 2, 15, "Verifying agent-generated code in A2A virtual screening",
+    s.text(GW / 2, 15, "Executable verification of agent-generated code",
            size=11, weight="bold")
 
     colw, gap = 155.0, 20.0
@@ -274,25 +286,30 @@ def graphical_abstract(out: Path) -> Path:
                 f"gives {width:.0f} pt")
         return txt
 
+    # Panel order follows the reviewer's own sequence: the verification
+    # result, the limit of that result, and the screen as a case study. The
+    # screen moved from first to third because the paper is a methods study;
+    # leading with "standard QC rejects the library" perpetuated the framing
+    # the external review asked to retire.
     cols = [
-        (BLUE, BLUE_F, "1  Standard QC rejects the library",
-         "236", ["Thai orchid natural products", "screened against A2AR"],
-         ["0 % in-domain in ECFP4, FCFP4,", "topological torsion, Gobbi 2D",
-          "64.4 % in physicochemical space"],
-         "The same library, the same rule.",
-         ["A similarity gate cannot tell", "unfamiliar from unreliable."]),
-        (MOSS, MOSS_F, "2  The code itself is verified",
-         "96.9 %", ["of 128 seeded defects caught;", "a naive analyst misses 47.7 %"],
-         ["9 gates · 10 contracts · 94 checks", "false alarms on clean runs: 0.0",
-          "learned monitor alone: 0.8 %"],
-         "All 94 checks passed.",
-         ["One metamorphic invariant still", "found a defect none encode."]),
-        (AMBER, AMBER_F, "3  Corrected gates, tiered output",
-         "3", ["convergent flavones, all from", "the genus Pongamia"],
-         ["25,604 → 500 full redocks", "ranked by a score not separable",
-          "from heavy-atom count"],
+        (MOSS, MOSS_F, "1  Verification is the result",
+         "96.9 %", ["124 of 128 seeded defects", "caught by 94 deterministic checks"],
+         ["Wilson 95 % CI 92.2-98.8 %", "0 false escalations of 55 clean",
+          "learned monitor adds nothing"],
+         "Measured, not assumed.",
+         ["Ten contracts, nine gates,", "eleven implemented families."]),
+        (AMBER, AMBER_F, "2  Coverage is the limit",
+         "1 of 5", ["blind-authored cases detected;", "three exposed evaluator gaps"],
+         ["all 94 checks had passed", "one metamorphic relation failed",
+          "G2, G3, G5, G7 carry no family"],
+         "Contracts outran evaluators.",
+         ["Detection holds inside the", "families it was measured over."]),
+        (BLUE, BLUE_F, "3  The screen is exploratory",
+         "3", ["compounds met a prespecified", "dual-criterion rule"],
+         ["0 % in-domain, 64.4 % physchem", "AUC 0.601 vs 0.584 heavy atoms",
+          "joint count is what chance gives"],
          "Computational hypotheses.",
-         ["No assay was performed; dynamics", "keep the poses but not the geometry."]),
+         ["No assay was performed; no", "binding or native pose shown."]),
     ]
 
     for i, (col, fil, head, big, note, bullets, kicker, caveat) in enumerate(cols):
@@ -324,13 +341,12 @@ def graphical_abstract(out: Path) -> Path:
             s.arrow(x + colw + 3, top + ch / 2, x + colw + gap - 3,
                     top + ch / 2, sw=0.9)
 
-    s.text(GW / 2, 186,
-           "An applicability-domain verdict is a property of the library and the "
-           "descriptor space, not of the library alone.", size=7.6, fill=INK)
-    s.text(GW / 2, 197,
-           "Contracts encode what their authors thought to check — and here the "
-           "authors were the agent whose work was being checked.",
-           size=7.2, fill=SOFT, style="italic")
+    # One line, not two. The reviewer called this figure text-heavy, so the
+    # second line goes rather than being reworded; it was also the most
+    # rhetorical sentence in the figure.
+    s.text(GW / 2, 190,
+           "Contract coverage, applicability domain and scientific validation "
+           "are three different quantities.", size=7.6, fill=INK)
 
     p = out / "figure_graphical_abstract_2026-08-21.svg"
     s.save(p)

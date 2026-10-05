@@ -1,8 +1,8 @@
 {
   "manuscript": "30_manuscript/CURRENT_v5/manuscript_AIIM_v6.md",
   "state": "FAIL",
-  "n_checks": 290,
-  "n_pass": 289,
+  "n_checks": 306,
+  "n_pass": 305,
   "n_value_mismatch": 1,
   "n_literal_absent": 0,
   "checks": [
@@ -84,7 +84,37 @@
       "expected": 0.0,
       "recomputed": 0.0,
       "literal_present_in_manuscript": true,
-      "literal": "**0.0 in every condition**"
+      "literal": "a false-escalation rate of 0 of 55"
+    },
+    {
+      "check": "false_alarm_n",
+      "state": "PASS",
+      "expected": 55,
+      "recomputed": 55,
+      "literal_present_in_manuscript": true,
+      "literal": "**55 clean, unfaulted runs**"
+    },
+    {
+      "check": "f10_escapes",
+      "state": "PASS",
+      "expected": [
+        4,
+        12
+      ],
+      "recomputed": [
+        4,
+        12
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "4 of 12 cases escaped"
+    },
+    {
+      "check": "f13_detected",
+      "state": "PASS",
+      "expected": 15,
+      "recomputed": 15,
+      "literal_present_in_manuscript": true,
+      "literal": "whose 15 counted cases"
     },
     {
       "check": "gate_G4",
@@ -92,7 +122,7 @@
       "expected": 85.2,
       "recomputed": 85.2,
       "literal_present_in_manuscript": true,
-      "literal": "| G4 scoring | 27 | 4 | 85.2 % |"
+      "literal": "| G4 scoring | 27 | 4 | 85.2 % | 67.5\u201394.1 % |"
     },
     {
       "check": "gate_G6",
@@ -100,7 +130,49 @@
       "expected": 100.0,
       "recomputed": 100.0,
       "literal_present_in_manuscript": true,
-      "literal": "| G6 selection | 27 | 0 | 100 % |"
+      "literal": "| G6 selection | 27 | 0 | 100 % | 87.5\u2013100 % |"
+    },
+    {
+      "check": "gate_G4_ci",
+      "state": "PASS",
+      "expected": [
+        67.5,
+        94.1
+      ],
+      "recomputed": [
+        67.5,
+        94.1
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "| G4 scoring | 27 | 4 | 85.2 % | 67.5\u201394.1 % |"
+    },
+    {
+      "check": "mutation_detection_ci",
+      "state": "PASS",
+      "expected": [
+        92.2,
+        98.8
+      ],
+      "recomputed": [
+        92.2,
+        98.8
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "96.9 % (Wilson 95 % CI\n92.2\u201398.8 %)"
+    },
+    {
+      "check": "f10_ci",
+      "state": "PASS",
+      "expected": [
+        39.1,
+        86.2
+      ],
+      "recomputed": [
+        39.1,
+        86.2
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "66.7 % (Wilson 95 % CI 39.1\u201386.2 %)"
     },
     {
       "check": "meta_M1",
@@ -242,7 +314,7 @@
       "expected": 0,
       "recomputed": 0,
       "literal_present_in_manuscript": true,
-      "literal": "0 of 236 compounds"
+      "literal": "admitted none of the original compounds"
     },
     {
       "check": "ad_maccs",
@@ -1658,7 +1730,7 @@
       "expected": 682,
       "recomputed": 682,
       "literal_present_in_manuscript": true,
-      "literal": "expand to 682 cases under parametrisation"
+      "literal": "682 cases are collected from 567 test functions"
     },
     {
       "check": "fref_panel",
@@ -2096,7 +2168,7 @@
       "expected": 3,
       "recomputed": 3,
       "literal_present_in_manuscript": true,
-      "literal": "| A \u2014 convergent |"
+      "literal": "| A \u2014 dual-criterion |"
     },
     {
       "check": "tier_B",
@@ -2408,7 +2480,7 @@
       "expected": 5,
       "recomputed": 5,
       "literal_present_in_manuscript": true,
-      "literal": "five cases authored blind to the project"
+      "literal": "five independently authored fault cases"
     },
     {
       "check": "heldout_ci",
@@ -2488,39 +2560,115 @@
       "check": "deposit_files",
       "state": "PASS",
       "expected": [
-        374,
-        17.5
+        377,
+        17.6
       ],
       "recomputed": [
-        374,
-        17.5
+        377,
+        17.6
       ],
       "literal_present_in_manuscript": true,
-      "literal": "374 files, 17.5 MB"
+      "literal": "377 files, 17.6 MB"
     },
     {
       "check": "deposit_manifest_n",
       "state": "PASS",
-      "expected": 368,
-      "recomputed": 368,
+      "expected": 369,
+      "recomputed": 369,
       "literal_present_in_manuscript": true,
-      "literal": "SHA-256 of each of the 368 deposited artifacts"
+      "literal": "SHA-256 of each of the 369 deposited artifacts"
     },
     {
       "check": "deposit_manifest_gap",
       "state": "PASS",
-      "expected": 6,
-      "recomputed": 6,
+      "expected": 8,
+      "recomputed": 8,
       "literal_present_in_manuscript": true,
-      "literal": "the 6 files it omits"
+      "literal": "the 8 files it omits"
     },
     {
       "check": "s10_manifest_n",
       "state": "PASS",
-      "expected": 98,
-      "recomputed": 98,
+      "expected": 99,
+      "recomputed": 99,
       "literal_present_in_manuscript": true,
-      "literal": "98 entries covering"
+      "literal": "99 entries covering"
+    },
+    {
+      "check": "xcov_pct",
+      "state": "PASS",
+      "expected": 75,
+      "recomputed": 75,
+      "literal_present_in_manuscript": true,
+      "literal": "at **75 %** over"
+    },
+    {
+      "check": "xcov_stmts",
+      "state": "PASS",
+      "expected": 4740,
+      "recomputed": 4740,
+      "literal_present_in_manuscript": true,
+      "literal": "4,740 statements"
+    },
+    {
+      "check": "xcov_branches",
+      "state": "PASS",
+      "expected": 1578,
+      "recomputed": 1578,
+      "literal_present_in_manuscript": true,
+      "literal": "1,578 branches"
+    },
+    {
+      "check": "xcov_eval_min",
+      "state": "PASS",
+      "expected": 39,
+      "recomputed": 39,
+      "literal_present_in_manuscript": true,
+      "literal": "lowest evaluator module reaches 39 %"
+    },
+    {
+      "check": "xcov_engine_orch",
+      "state": "PASS",
+      "expected": [
+        29,
+        25
+      ],
+      "recomputed": [
+        29,
+        25
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "reach 29 % and 25 %"
+    },
+    {
+      "check": "xman_entries",
+      "state": "PASS",
+      "expected": [
+        180,
+        369
+      ],
+      "recomputed": [
+        180,
+        369
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "180 SHA-256 mismatches among 369 entries"
+    },
+    {
+      "check": "xman_crlf",
+      "state": "PASS",
+      "expected": 179,
+      "recomputed": 179,
+      "literal_present_in_manuscript": true,
+      "literal": "179 of them attributable to"
+    },
+    {
+      "check": "xman_nested_missing",
+      "state": "PASS",
+      "expected": 2,
+      "recomputed": 2,
+      "literal_present_in_manuscript": true,
+      "literal": "names **two absent files**"
     },
     {
       "check": "citation_integrity",
@@ -2597,6 +2745,18 @@
       "literal": "128 fault cases"
     },
     {
+      "check": "companion:Supplementary_Information.docx:682 collected cases",
+      "state": "PASS",
+      "expected": "682 collected cases present, 675 tests absent",
+      "recomputed": {
+        "file": "Supplementary_Information.docx",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "682 collected cases"
+    },
+    {
       "check": "companion:../../40_deposit/README.md:682 tests",
       "state": "PASS",
       "expected": "682 tests present, 675 tests absent",
@@ -2671,7 +2831,7 @@
     {
       "check": "supp_sections_resolve",
       "state": "PASS",
-      "expected": "10 Supplementary S<n> pointers resolve",
+      "expected": "9 Supplementary S<n> pointers resolve",
       "recomputed": "all match",
       "literal_present_in_manuscript": true,
       "literal": "supp_sections_resolve"
@@ -2685,6 +2845,14 @@
       ],
       "literal_present_in_manuscript": true,
       "literal": "supp_reference_lists_resolve"
+    },
+    {
+      "check": "deposit_url_named",
+      "state": "PASS",
+      "expected": "a repository URL with no placeholder in it",
+      "recomputed": "all match",
+      "literal_present_in_manuscript": true,
+      "literal": "deposit_url_named"
     }
   ]
 }

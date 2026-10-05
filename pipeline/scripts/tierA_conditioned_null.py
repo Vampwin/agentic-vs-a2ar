@@ -1,6 +1,6 @@
 """tierA_conditioned_null.py -- what the chemical-coherence p-value is testing.
 
-The manuscript reports that the three convergent candidates are all *Pongamia
+The manuscript reports that the three dual-criterion candidates are all *Pongamia
 pinnata* flavones and gives p = 0.002 for that coincidence. The number comes
 from `tierA_convergence_analysis.json`, which has no producer script anywhere in
 this repository: the reference set it draws from -- 23 compounds -- could not be
