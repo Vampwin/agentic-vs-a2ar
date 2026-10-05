@@ -1980,8 +1980,12 @@ def build_checks(S) -> list[tuple[str, str, object, object, str]]:
     # --- deposit ---------------------------------------------------------------
     add("deposit_files", f"{S['dep']} files, {S['dep_mb']:.1f} MB",
         (S["dep"], S["dep_mb"]), (S["dep"], S["dep_mb"]))
-    add("deposit_manifest_n", "SHA-256 of each of the 369 deposited artifacts",
-        369, S["dep_manifest"])
+    # 369 -> 416 on 2026-10-05: the deposit was rebuilt for the first time since
+    # 2026-10-01, when build_evidence_index.py began refusing to write and took
+    # build_deposit.py down with it. The 47 additions are content already owed
+    # (Figures 7 and 8, pipeline scripts through 2026-10-02), not new work.
+    add("deposit_manifest_n", "SHA-256 of each of the 416 deposited artifacts",
+        416, S["dep_manifest"])
     add("deposit_manifest_gap", "the 8 files it omits", 8,
         S["dep"] - S["dep_manifest"])
     # Same claim, one level down: S10's own manifest. The article said "every
