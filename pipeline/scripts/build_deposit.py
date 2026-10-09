@@ -1,6 +1,6 @@
 """
-build_deposit.py -- assemble the public code-and-data deposit for the v6
-manuscript as a git-ready tree.
+build_deposit.py -- assemble the public code-and-data deposit for the manuscript
+as a git-ready tree.
 
 Three rules govern what goes in.
 
@@ -11,10 +11,15 @@ second, divergeable copy. They are cited with their identifiers and the
 SHA-256 this project verified them against, so a reader can confirm they have
 the same bytes we did.
 
-**Nothing sealed goes in.** The held-out fault families are excluded. They are
-not referenced anywhere in v6, which reports development families only, and
+**Nothing sealed goes in.** The held-out fault families are excluded. The
+manuscript reports the RESULT of evaluating H01-H05 once (one of five detected,
+with each miss's root cause), and that summary is deposited; the faulted
+workdirs, and anything about H06-H12, which have never been exposed, are not.
 CLAUDE.md requires a separate human approval to expose them. The v4 supplement
 carried some of that material; this deposit does not inherit that decision.
+
+**The manuscript is not deposited.** Neither is any file that holds its text (the
+extension's G8 inputs and the rendered paragraphs are skipped by name).
 
 **Nothing is regenerated.** Every artifact is copied as the analysis read it,
 with its SHA-256 recorded, because a deposit that recomputes its own numbers
@@ -95,6 +100,61 @@ TREE: list[tuple[str, str, str]] = [
     ("20_new_runs/diffdock_orthogonal_2026-08-23", "verification/orthogonal_engine",
      "the pre-registered DiffDock cross-check: inputs, all predicted poses, "
      "and the machine-readable result the manuscript's numbers derive from"),
+]
+
+# ---------------------------------------------------------------------------
+# The post-freeze extension (ADR-AIIM-285 onward): the runs behind Section 3.8
+# of the article and Section 17 of the supplement. Added 2026-10-09 (ADR-AIIM-346).
+#
+# These are deposited under `extension/<run>/` and, unlike the verification
+# evidence above, through an ALLOW-LIST of suffixes, because the run directories
+# hold simulation inputs and trajectories that are hundreds of megabytes and are
+# not what a reader needs: the series, tables, scripts, force-field parameter
+# files and the machine-readable results are. NOT deposited: trajectories
+# (.xtc), run inputs and checkpoints (.tpr .cpt .edr), structures and topologies
+# (.gro .pdb .top), logs, and the 3,685 per-complex DiffDock pose files of the
+# DUD-E subsample (the scored table that the analysis read is deposited). The
+# raw ChEMBL pull is refused by the screen and is a public release anyway.
+EXTENSION_SUFFIX = {".json", ".csv", ".md", ".py", ".sh", ".xvg", ".ndx", ".mdp",
+                    ".txt", ".yaml", ".yml", ".png", ".svg", ".mol2", ".frcmod",
+                    ".sdf", ".in"}
+EXTENSION_MAX_BYTES = 8 * 1024 * 1024
+# (source, destination, description, directory names allowed despite SKIP_DIRS,
+#  extra directory names skipped for this entry)
+EXTENSION_TREE: list[tuple[str, str, str, set, set]] = [
+    (f"20_new_runs/{d}", f"extension/{d}", why, allow, skip)
+    for d, why, allow, skip in [
+        ("pki_regression_2026-10-05", "random-forest regression on pKi", set(), set()),
+        ("pki_censored_em_2026-10-05", "censored-record EM refit", set(), set()),
+        ("rank_prioritisation_2026-10-05", "rank prioritisation", set(), set()),
+        ("orthogonal_intersection_2026-10-05", "orthogonal intersection", set(), set()),
+        ("majority_rule_validation_2026-10-05", "majority-rule validation", set(), set()),
+        ("snplib_dedup_2026-10-05", "SNP-Lib de-duplication", set(), set()),
+        ("snplib_leadlike_2026-10-05", "SNP-Lib lead-likeness gate", set(), set()),
+        ("snplib_prioritisation_2026-10-05", "SNP-Lib prioritisation", set(), set()),
+        ("pool_comparison_2026-10-06", "pooled against separate libraries", set(), set()),
+        ("em_reproducibility_2026-10-06", "the thread-dependent defect of the censored fit", set(), set()),
+        ("em_survivors_2026-10-06", "the fifteen survivors and the eight shortlisted", set(), set()),
+        ("split_convention_factorial_2026-10-05", "eight split conventions", set(), set()),
+        ("label_balance_domain_2026-10-05", "label balance and domain", set(), set()),
+        ("ad_distance_curve_2026-10-05", "applicability-domain distance curve", set(), set()),
+        ("ad_methods_distance_performance_2026-10-05", "applicability-domain methods", set(), set()),
+        ("arm_k_auc_2026-10-05", "k-nearest-neighbour AUC arm", set(), set()),
+        ("snplib_dock_2026-10-06", "Vina docking of the 69 in-domain compounds, with poses", {"poses"}, set()),
+        ("diffdock_snplib_2026-10-07", "DiffDock-L on the fifteen survivors, with poses", set(), set()),
+        ("diffdock_dude_2026-10-05", "DiffDock-L stage 1 on DUD-E, 335 complexes", set(), {"results"}),
+        ("md_control_replicates_2026-10-06", "control replicates 2 and 3, series and scripts", set(), set()),
+        ("md_control_anchor_2026-10-07", "the original control, re-analysed", set(), set()),
+        ("md_window50_2026-10-07", "published MD figures over 50 ns", set(), set()),
+        ("md_control_replicates_window50_2026-10-07", "three-run control over 50 ns", set(), set()),
+        ("md_control_spread_2026-10-08", "spread of the three control runs", set(), set()),
+        ("md_snplib_duplicate_2026-10-08", "SNP00157 and SNP00163 in duplicate, analysis", set(), {"md_text.json", "make_md_text.py", "apply_md_text.py", "build_section17_helpers.py"}),   # the manuscript paragraphs, rendered and as templates
+        ("figure8_window50_2026-10-07", "Figure 7 (formerly 8) at 50 ns", set(), set()),
+        ("figures_docking_md_2026-10-09", "Figures 6 and 7 with the survivors and the SNP-Lib runs, scripts and checks", set(), {"Figure_6_docking_snplib.svg"}),
+        ("g8_extension_2026-10-09", "G8 on the v8 text and the new-number audit", set(), {"inputs"}),   # inputs/ holds the manuscript text itself
+        ("md_candidates_2026-08-22/SNP00157", "SNP00157 build parameters and series", set(), set()),
+        ("md_candidates_2026-08-22/SNP00163", "SNP00163 build parameters and series", set(), set()),
+    ]
 ]
 
 # Directories never copied, wherever they appear.
@@ -201,20 +261,29 @@ def main() -> int:
     skipped = 0
     total = 0
 
-    for src_rel, dst_rel, desc in TREE:
+    for src_rel, dst_rel, desc, *_ext in [(*t, None, None) for t in TREE] + list(EXTENSION_TREE):
+        allow, extra_skip = (_ext[0], _ext[1]) if _ext[0] is not None else (set(), set())
+        is_ext = _ext[0] is not None
         src = ROOT / src_rel
         if not src.exists():
             raise SystemExit(f"missing source: {src_rel}")
         for f in sorted(src.rglob("*")):
             if not f.is_file():
                 continue
-            if any(part in SKIP_DIRS for part in f.parts):
+            if any(part in SKIP_DIRS and part not in allow for part in f.parts):
                 skipped += 1
                 continue
             if f.suffix.lower() in SKIP_SUFFIX:
                 skipped += 1
                 continue
-            if f.name in SKIP_NAMES or _is_scratch(f):
+            if is_ext and (f.suffix.lower() not in EXTENSION_SUFFIX
+                           or f.stat().st_size > EXTENSION_MAX_BYTES
+                           or any(part in extra_skip for part in f.relative_to(src).parts)):
+                skipped += 1
+                continue
+            # underscore-prefixed working files are skipped in the verification tree, but in
+            # the extension they are the launch and build records (_md_07_snp.py, _launch_build.sh)
+            if f.name in SKIP_NAMES or (_is_scratch(f) and not is_ext):
                 skipped += 1
                 continue
             rel_src = str(f.relative_to(ROOT).as_posix())
@@ -291,7 +360,7 @@ def main() -> int:
             print(f"   {path}\n      {why}")
 
     (out / "MANIFEST.json").write_text(json.dumps({
-        "assembled": "2026-08-22",
+        "assembled": __import__("datetime").date.today().isoformat(),
         "n_files": len(manifest),
         "total_bytes": total,
         "n_files_excluded_by_rule": skipped,

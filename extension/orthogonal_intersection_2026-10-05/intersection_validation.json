@@ -1,0 +1,228 @@
+{
+ "adr": "ADR-AIIM-301",
+ "prereg_sha256": "50ecb09367a619bfc14b84022397bda00800810bd0f8d47d09fd39c3c2b133ef",
+ "log_sha256_at_freeze": "b8bf35ef5f90db0c2f2cb76d52addfd1fc76917d4400104a9061280d7f96aed7",
+ "rdkit_version": "2026.03.3",
+ "channels": {
+  "L": "censored-EM predicted pKi, mean of 8 conventions (implementation choice, ADR-AIIM-301 left it open)",
+  "S": "Vina score from frozen artifacts, sign flipped",
+  "excluded": [
+   "2D pharmacophore (ligand similarity, double-counts L)",
+   "3D shape/pharmacophore (same)",
+   "p_active_calibrated / prediction_set (ADR-AIIM-286: spans 376x)"
+  ]
+ },
+ "validation_set": {
+  "source": "20_new_runs\\dude_enrichment_2026-09-22\\analysis\\dude_enrichment_per_compound.csv",
+  "rows_in": 2401,
+  "leakage_removed": 289,
+  "composition_before_removal": {
+   "0": 1919,
+   "1": 482
+  },
+  "surviving": 2112,
+  "actives": 193,
+  "decoys": 1919,
+  "active_rate": 0.0914,
+  "note": "surviving actives are those this project's curation did not capture, and may be a biased subset (ADR-AIIM-301)"
+ },
+ "auc": {
+  "L": 0.9499,
+  "S": 0.7005,
+  "section_3_4_ensemble_reference": 0.53
+ },
+ "by_fraction": {
+  "0.01": {
+   "fraction": 0.01,
+   "k_per_channel": 22,
+   "L_at_k": {
+    "n": 22,
+    "hits": 22,
+    "precision": 1.0,
+    "recall": 0.114,
+    "enrichment": 10.943
+   },
+   "S_at_k": {
+    "n": 22,
+    "hits": 5,
+    "precision": 0.2273,
+    "recall": 0.0259,
+    "enrichment": 2.487
+   },
+   "intersection": {
+    "n": 1,
+    "hits": 1,
+    "precision": 1.0,
+    "recall": 0.0052,
+    "enrichment": 10.943
+   },
+   "matched_L_at_nI": {
+    "n": 1,
+    "hits": 1,
+    "precision": 1.0,
+    "recall": 0.0052,
+    "enrichment": 10.943
+   },
+   "matched_S_at_nI": {
+    "n": 1,
+    "hits": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "enrichment": 0.0
+   }
+  },
+  "0.05": {
+   "fraction": 0.05,
+   "k_per_channel": 106,
+   "L_at_k": {
+    "n": 106,
+    "hits": 105,
+    "precision": 0.9906,
+    "recall": 0.544,
+    "enrichment": 10.84
+   },
+   "S_at_k": {
+    "n": 106,
+    "hits": 31,
+    "precision": 0.2925,
+    "recall": 0.1606,
+    "enrichment": 3.2
+   },
+   "intersection": {
+    "n": 27,
+    "hits": 26,
+    "precision": 0.963,
+    "recall": 0.1347,
+    "enrichment": 10.538
+   },
+   "matched_L_at_nI": {
+    "n": 27,
+    "hits": 27,
+    "precision": 1.0,
+    "recall": 0.1399,
+    "enrichment": 10.943
+   },
+   "matched_S_at_nI": {
+    "n": 27,
+    "hits": 6,
+    "precision": 0.2222,
+    "recall": 0.0311,
+    "enrichment": 2.432
+   }
+  },
+  "0.1": {
+   "fraction": 0.1,
+   "k_per_channel": 212,
+   "L_at_k": {
+    "n": 212,
+    "hits": 158,
+    "precision": 0.7453,
+    "recall": 0.8187,
+    "enrichment": 8.156
+   },
+   "S_at_k": {
+    "n": 212,
+    "hits": 57,
+    "precision": 0.2689,
+    "recall": 0.2953,
+    "enrichment": 2.942
+   },
+   "intersection": {
+    "n": 62,
+    "hits": 56,
+    "precision": 0.9032,
+    "recall": 0.2902,
+    "enrichment": 9.884
+   },
+   "matched_L_at_nI": {
+    "n": 62,
+    "hits": 62,
+    "precision": 1.0,
+    "recall": 0.3212,
+    "enrichment": 10.943
+   },
+   "matched_S_at_nI": {
+    "n": 62,
+    "hits": 20,
+    "precision": 0.3226,
+    "recall": 0.1036,
+    "enrichment": 3.53
+   }
+  },
+  "0.2": {
+   "fraction": 0.2,
+   "k_per_channel": 423,
+   "L_at_k": {
+    "n": 423,
+    "hits": 170,
+    "precision": 0.4019,
+    "recall": 0.8808,
+    "enrichment": 4.398
+   },
+   "S_at_k": {
+    "n": 423,
+    "hits": 88,
+    "precision": 0.208,
+    "recall": 0.456,
+    "enrichment": 2.277
+   },
+   "intersection": {
+    "n": 145,
+    "hits": 86,
+    "precision": 0.5931,
+    "recall": 0.4456,
+    "enrichment": 6.49
+   },
+   "matched_L_at_nI": {
+    "n": 145,
+    "hits": 136,
+    "precision": 0.9379,
+    "recall": 0.7047,
+    "enrichment": 10.264
+   },
+   "matched_S_at_nI": {
+    "n": 145,
+    "hits": 42,
+    "precision": 0.2897,
+    "recall": 0.2176,
+    "enrichment": 3.17
+   }
+  }
+ },
+ "primary_fraction": 0.1,
+ "grading": {
+  "R1_intersection_beats_both_at_matched_n": {
+   "intersection_precision": 0.9032,
+   "n": 62,
+   "matched_L_precision": 1.0,
+   "matched_S_precision": 0.3226,
+   "verdict": "MISSED"
+  },
+  "R2_vina_auc_below_0.70": {
+   "auc_S": 0.7005,
+   "threshold": 0.7,
+   "verdict": "MISSED"
+  },
+  "R3_L_auc_exceeds_S": {
+   "auc_L": 0.9499,
+   "auc_S": 0.7005,
+   "verdict": "MET"
+  },
+  "R4_intersection_recall_below_50pct": {
+   "recall": 0.2902,
+   "verdict": "MET"
+  }
+ },
+ "application": {
+  "applied": false,
+  "reason": "R1 MISSED -- ADR-AIIM-301 forbids producing an intersection shortlist in that case"
+ },
+ "caveats": [
+  "Nothing selected here is a predicted active. ADR-AIIM-299: this instrument cannot resolve pKi >= 6.0 for any compound in this library.",
+  "Precision measured on property-matched decoys transfers to natural products only if both channels behave the same way on both, which is not tested (ADR-AIIM-301 constraint 5).",
+  "ADR-AIIM-299's limitations carry over: the censored-EM E-step is biased upward at censored points and the EM did not reach tolerance.",
+  "Exchangeability is not established; no conformal statement is made.",
+  "Nothing in this project has been assayed."
+ ],
+ "seconds": 695.8
+}

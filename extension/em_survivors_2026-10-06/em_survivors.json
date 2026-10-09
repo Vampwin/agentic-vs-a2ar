@@ -1,0 +1,173 @@
+{
+ "adr": "ADR-AIIM-312 addendum",
+ "log_sha256_at_launch": "35f117716b5dd093a4bf4787c323c43a3523f3edd4785050af52fad524b27472",
+ "rdkit_version": "2026.03.3",
+ "purpose": "recover the survivor set the ADR-AIIM-311 harness computed but did not save",
+ "anchor": {
+  "shortlist_reproduced_in_order": true,
+  "n_survivors_reproduced": true,
+  "n_unanimous_reproduced": true,
+  "previous_shortlist": [
+   "SNP00157",
+   "SNP00163",
+   "SNP00154",
+   "SNP00097",
+   "SNP00052",
+   "SNP00033",
+   "SNP00142",
+   "SNP00006"
+  ],
+  "this_shortlist": [
+   "SNP00157",
+   "SNP00163",
+   "SNP00154",
+   "SNP00097",
+   "SNP00052",
+   "SNP00033",
+   "SNP00142",
+   "SNP00006"
+  ],
+  "previous_n_survivors": 15,
+  "this_n_survivors": 15,
+  "previous_n_unanimous": 5,
+  "this_n_unanimous": 5
+ },
+ "pool_size": 69,
+ "window_k": 20,
+ "majority": 5,
+ "shortlist_cap": 10,
+ "n_survivors": 15,
+ "n_unanimous": 5,
+ "unanimous": [
+  "SNP00157",
+  "SNP00163",
+  "SNP00223",
+  "SNP00154",
+  "SNP00097"
+ ],
+ "shortlist": [
+  "SNP00157",
+  "SNP00163",
+  "SNP00154",
+  "SNP00097",
+  "SNP00052",
+  "SNP00033",
+  "SNP00142",
+  "SNP00006"
+ ],
+ "dropped_by_scaffold_uniqueness": [
+  {
+   "uid": "SNP00223",
+   "conventions": 8,
+   "mean_pred_pki": 5.876,
+   "murcko": "C(=Cc1ccccc1)c1ccccc1",
+   "blocked_by": "SNP00163",
+   "blocked_by_conventions": 8,
+   "blocked_by_mean_pki": 5.9078
+  },
+  {
+   "uid": "SNP00095",
+   "conventions": 7,
+   "mean_pred_pki": 5.7357,
+   "murcko": "c1ccc2c(c1)Cc1ccccc1-2",
+   "blocked_by": "SNP00052",
+   "blocked_by_conventions": 7,
+   "blocked_by_mean_pki": 5.7494
+  },
+  {
+   "uid": "SNP00010",
+   "conventions": 6,
+   "mean_pred_pki": 5.7668,
+   "murcko": "c1ccc2c(c1)CCc1ccccc1-2",
+   "blocked_by": "SNP00033",
+   "blocked_by_conventions": 7,
+   "blocked_by_mean_pki": 5.7373
+  },
+  {
+   "uid": "SNP00144",
+   "conventions": 5,
+   "mean_pred_pki": 5.818,
+   "murcko": "O=C1c2ccccc2-c2ccccc21",
+   "blocked_by": "SNP00097",
+   "blocked_by_conventions": 8,
+   "blocked_by_mean_pki": 5.7688
+  },
+  {
+   "uid": "SNP00051",
+   "conventions": 5,
+   "mean_pred_pki": 5.7549,
+   "murcko": "O=C1c2ccccc2-c2ccccc21",
+   "blocked_by": "SNP00097",
+   "blocked_by_conventions": 8,
+   "blocked_by_mean_pki": 5.7688
+  },
+  {
+   "uid": "SNP00087",
+   "conventions": 5,
+   "mean_pred_pki": 5.7397,
+   "murcko": "c1ccc2c(c1)CCc1ccccc1-2",
+   "blocked_by": "SNP00033",
+   "blocked_by_conventions": 7,
+   "blocked_by_mean_pki": 5.7373
+  },
+  {
+   "uid": "SNP00198",
+   "conventions": 5,
+   "mean_pred_pki": 5.5864,
+   "murcko": "c1ccc2c(c1)ccc1ccccc12",
+   "blocked_by": "SNP00142",
+   "blocked_by_conventions": 6,
+   "blocked_by_mean_pki": 5.6827
+  }
+ ],
+ "unanimous_dropped_by_scaffold_uniqueness": [
+  {
+   "uid": "SNP00223",
+   "conventions": 8,
+   "mean_pred_pki": 5.876,
+   "murcko": "C(=Cc1ccccc1)c1ccccc1",
+   "blocked_by": "SNP00163",
+   "blocked_by_conventions": 8,
+   "blocked_by_mean_pki": 5.9078
+  }
+ ],
+ "distinct_split_groups": [
+  [
+   "D1shuffle_D2testfirst_D3overflow",
+   "D1shuffle_D2testfirst_D3divert"
+  ],
+  [
+   "D1shuffle_D2trainfirst_D3overflow",
+   "D1shuffle_D2trainfirst_D3divert"
+  ],
+  [
+   "D1sorted_D2testfirst_D3overflow"
+  ],
+  [
+   "D1sorted_D2testfirst_D3divert"
+  ],
+  [
+   "D1sorted_D2trainfirst_D3overflow",
+   "D1sorted_D2trainfirst_D3divert"
+  ]
+ ],
+ "n_distinct_splits": 5,
+ "distinct_splits_per_survivor": {
+  "SNP00157": 5,
+  "SNP00163": 5,
+  "SNP00223": 5,
+  "SNP00154": 5,
+  "SNP00097": 5,
+  "SNP00052": 4,
+  "SNP00033": 4,
+  "SNP00095": 4,
+  "SNP00010": 4,
+  "SNP00142": 4,
+  "SNP00006": 4,
+  "SNP00144": 3,
+  "SNP00051": 3,
+  "SNP00087": 3,
+  "SNP00198": 3
+ },
+ "seconds": 2218.4
+}

@@ -1,0 +1,14 @@
+{
+ "adr": "ADR-AIIM-324",
+ "result_adr": "ADR-AIIM-325",
+ "date": "2026-10-07",
+ "prereg_sha256": "57f0cf7cb0b8eef7316b3337a5cd77f5eba27c8cec7b5fe2be40dd46a69f871e",
+ "artifacts": {
+  "analysis/md_control_replicates_window50.py": "4e9af49dce365461b4a66e1252383f3ebd3081e71970fdbb7edaa3b819cb8af1",
+  "analysis/run_control_analysis.sh": "0638ba91b05297bcad426499cf25a23fad033645f9e7551d82cfa6d6915b40f7",
+  "analysis/wait_and_analyse_r3.py": "6f81ec2f9905f7bdfe86d2376bd5065562071c175346f1b87e31a402c754a86b",
+  "md_control_replicates_window50.json": "58d659ea99a868326271003f9ad7439a2a5b2ffdb1a242fa5fae4e83fe41b094",
+  "run_first_attempt_hardcoded_constant.log": "baeb228947a6691b15a3f20a60b12c80c3978977d927a6856874f91517ee5cd6",
+  "run_r2_only.log": "053d5274d7b3175fc39263709c4aaa62abfe34ab11e7c814486066c85869485f"
+ }
+}

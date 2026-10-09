@@ -1,0 +1,32 @@
+{
+ "adr": "ADR-AIIM-314",
+ "prereg_sha256": "214e646bf96ffe14e001e3957e21d1f18e67f87935642e16383daa4c095a9a18",
+ "log_sha256_at_freeze": "6bba84a003aeb6c8ea2406823d175c09fd9cd76c2d212bb887e3eed14d575a75",
+ "starting_structure": "npt3.gro, the same final equilibration structure the existing production run used",
+ "changed_from_control_prod_mdp": {
+  "gen-vel": "no -> yes",
+  "continuation": "yes -> no",
+  "gen-temp": "added, 310 (matches ref-t)",
+  "gen-seed": {
+   "prod_r2": 20261006,
+   "prod_r3": 20261007,
+   "prod_r4": 20261008
+  }
+ },
+ "unchanged": "nsteps 50000000, dt 0.002, nstxout-compressed 50000, V-rescale 310 K on three baths, semi-isotropic C-rescale, refcoord-scaling com",
+ "run_order": [
+  "prod_r2",
+  "prod_r3",
+  "prod_r4"
+ ],
+ "inputs_sha256": {
+  "20_new_runs/md_production_2026-08-21/04_run/npt3.gro": "6f7c269e3c5e0e6b1179214e3c87feff735b0ca27b87f2bd4033d8091600df8e",
+  "20_new_runs/md_production_2026-08-21/04_run/coupling.ndx": "6be0fe8149548ba988488db874ad382449dbd62f3eba1e332c5facf1e59f2936",
+  "20_new_runs/md_production_2026-08-21/03_build/system_gmx.top": "c47d79d6a4c3fde0884107e5781f6d6285fdc191e48ebde4da051f113213a7d2",
+  "20_new_runs/md_production_2026-08-21/03_build/posre_system1.itp": "0402685afea179615af5ef269e3f887072356cee9711d74ff318dde16baa4263",
+  "20_new_runs/md_production_2026-08-21/03_build/posre_system2.itp": "7a21a5f6c1d793ff46775843dd02795a79260291ea25e4854957e090a76b378e",
+  "20_new_runs/md_production_2026-08-21/03_build/posre_ZMA.itp": "0cbd65cf0d69dc78c67fe7a7ac51396b22dd018a616fc07f27f1d8d8848debaa",
+  "20_new_runs/md_production_2026-08-21/04_run/prod.mdp": "983c76b394bfac2c216bdb29732c29f628679699636718e41cd9593e4ee05134",
+  "20_new_runs/md_production_2026-08-21/04_run/prod.xtc": "2526b3c5f0a5e8952114d8ceec8ca28c8e21f7ef5de7a8f84b9950dab9cff676"
+ }
+}

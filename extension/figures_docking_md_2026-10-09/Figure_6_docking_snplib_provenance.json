@@ -1,0 +1,25 @@
+{
+ "figure": "Figure 6",
+ "script": "figure6_docking_snplib.py",
+ "adr": "ADR-AIIM-327",
+ "structure_panels": {
+  "A": "30_manuscript/figures/_panelA_control.png, placed unchanged",
+  "B_C": "source/_panel_SNP00157.png and _panel_SNP00163.png, from render_snplib_pymol.py"
+ },
+ "checks": {
+  "none_within_2A": true,
+  "dd_on_pocket_11": true,
+  "vina_on_pocket_7": true,
+  "classifications_agree_5": true,
+  "min_max_rmsd": true,
+  "panel_hashes": {
+   "_panel_control.png": "68703b8cc57d33ba1ccbe88ccfe0f75dff86e3429d06f6014cee1f7906c7627b",
+   "_panel_SNP00157.png": "d090cf1043f0a8f454d47ba8281cea676426922f99bb0faa0f909f3e69b655dd",
+   "_panel_SNP00163.png": "f80746681dc3508363ba95157cbaa87cb1067a74e891fcb025e9c18cd6d617c3"
+  }
+ },
+ "inputs_sha256": {
+  "20_new_runs\\diffdock_snplib_2026-10-07\\diffdock_snplib.json": "a9a850bde0a5fe722da15470303edc8ea463f0b792fc7b9420ce28ec5c197c8f",
+  "20_new_runs\\diffdock_snplib_2026-10-07\\pose_comparison.csv": "0df17434a62afdabcf46e5bca260433b6f4d78110c9ace8805ce6ff75ff3a0a7"
+ }
+}

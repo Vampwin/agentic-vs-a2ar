@@ -1,0 +1,11 @@
+{
+ "rows_in": 2401,
+ "leakage_removed": 289,
+ "surviving_full": 2112,
+ "surviving_actives": 193,
+ "surviving_decoys": 1919,
+ "subsample_n": 593,
+ "subsample_actives": 193,
+ "subsample_decoys": 400,
+ "decoy_sample_seed": 42
+}

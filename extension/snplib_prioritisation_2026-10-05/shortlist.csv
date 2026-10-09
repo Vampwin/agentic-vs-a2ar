@@ -1,0 +1,8 @@
+rank,SNP_ID,name,conventions_in_top20,mean_pred_pki,ad_score,groups,murcko_framework,mol_wt,logp,tpsa,qed,n_stereocenters,PAINS,BRENK,NIH,CHEMBL,smiles
+1,SNP00164,Cinnamic acid,8,5.913,0.2978,Phenolics,c1ccccc1,148.2,1.78,37.3,0.649,0,-,Michael_acceptor_1,-,Filter44_michael_acceptor2; Michael acceptor; alpha beta-unsaturated ketones; center of Michael reactivity; phenylethene; vinyl michael acceptor1,O=C(O)/C=C/c1ccccc1
+2,SNP00163,Phoyunbene C,8,5.891,0.2766,Stilbenes,C(=Cc1ccccc1)c1ccccc1,272.3,3.29,58.9,0.839,0,-,stilbene,-,Dye 25; phenylethene; stilbene,COc1cc(O)cc(/C=C/c2cccc(O)c2OC)c1
+3,SNP00157,N-trans-feruloyl tyramine,8,5.867,0.3433,Phenolics,O=C(C=Cc1ccccc1)NCCc1ccccc1,313.4,2.48,78.8,0.716,0,-,Michael_acceptor_1,-,Filter44_michael_acceptor2; Michael acceptor; alpha beta-unsaturated ketones; center of Michael reactivity; phenylethene; vinyl michael acceptor1,COc1cc(/C=C/C(=O)NCCc2ccc(O)cc2)ccc1O
+4,SNP00154,"1-(4-Hydroxylbenzyl)-4-methoxy 9,10-dihydrophenanthrene 2,7-diol",8,5.81,0.2529,Phenanthrenes,c1ccc(Cc2cccc3c2CCc2ccccc2-3)cc1,362.4,4.47,58.9,0.719,0,-,-,-,-,COc1ccc2c(c1)CCc1c(Cc3ccc(O)cc3)c(O)cc(OC)c1-2
+5,SNP00097,Dengibsinin,7,5.775,0.3156,Fluorenes,O=C1c2ccccc2-c2ccccc21,258.2,2.02,87.0,0.581,0,catechol_A(92),catechol,-,Ketone; catechol,COc1cc2c(c(O)c1O)-c1c(O)cccc1C2=O
+6,SNP00052,Denchrysan B,7,5.763,0.2506,Fluorenones,c1ccc2c(c1)Cc1ccccc1-2,244.2,2.17,69.9,0.719,1,-,-,-,benzhydrol,COc1cc(O)cc2c1-c1c(O)cccc1C2O
+7,SNP00010,Hircinol,6,5.774,0.2512,Phenanthrenes,c1ccc2c(c1)CCc1ccccc1-2,242.3,2.87,49.7,0.808,0,-,-,-,-,COc1cc(O)cc2c1-c1c(O)cccc1CC2

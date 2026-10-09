@@ -1,0 +1,39 @@
+; ADR-AIIM-314 prod_r4: 100 ns production, unrestrained, velocity-seeded replicate of the ZM241385 control
+integrator              = md
+dt                      = 0.002
+nsteps                  = 25000000   ; 50 ns (ADR-AIIM-319, author decision)
+cutoff-scheme           = Verlet
+nstlist                 = 20
+coulombtype             = PME
+rcoulomb                = 1.0
+rvdw                    = 1.0
+DispCorr                = EnerPres
+constraints             = h-bonds
+constraint-algorithm    = LINCS
+lincs-iter              = 1
+lincs-order             = 4
+pbc                     = xyz
+; Three baths, not one. A bilayer, its solvent and the solute relax on
+; different timescales; a single thermostat over all three lets them trade
+; energy through the coupling instead of through physics.
+tcoupl                  = V-rescale
+tc-grps                 = Solute Membrane Solvent
+tau-t                   = 1.0 1.0 1.0
+ref-t                   = 310 310 310
+nstlog                  = 5000
+nstenergy               = 5000
+nstxout-compressed      = 50000
+; Semi-isotropic: xy (membrane plane) and z scale independently. Isotropic
+; coupling would force area-per-lipid to follow box height.
+pcoupl                  = C-rescale
+pcoupltype              = semiisotropic
+tau-p                   = 5.0
+ref-p                   = 1.0 1.0
+compressibility         = 4.5e-5 4.5e-5
+; With restraints under a barostat the reference coordinates must scale with
+; the box, or the restraints fight the barostat.
+refcoord-scaling        = com
+gen-vel                 = yes
+gen-temp                = 310
+gen-seed                = 20261008
+continuation            = no

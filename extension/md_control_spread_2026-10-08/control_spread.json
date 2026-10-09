@@ -1,0 +1,93 @@
+{
+ "note": "descriptive and post hoc; no prediction graded",
+ "runs": {
+  "r1": {
+   "frames": 501,
+   "persistence": 0.9661,
+   "persistence_by_10ns_block": [
+    0.96,
+    0.9,
+    0.99,
+    0.99,
+    0.99
+   ],
+   "first_frame_without_contact_ns": 2.7,
+   "longest_gap_ns": 0.3,
+   "rmsd_mean_A": 2.61,
+   "rmsd_last_10ns_mean_A": 1.99
+  },
+  "r2": {
+   "frames": 501,
+   "persistence": 1.0,
+   "persistence_by_10ns_block": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "first_frame_without_contact_ns": null,
+   "longest_gap_ns": 0.0,
+   "rmsd_mean_A": 3.22,
+   "rmsd_last_10ns_mean_A": 3.29
+  },
+  "r3": {
+   "frames": 501,
+   "persistence": 0.6786,
+   "persistence_by_10ns_block": [
+    0.99,
+    1.0,
+    0.57,
+    0.31,
+    0.52
+   ],
+   "first_frame_without_contact_ns": 5.4,
+   "longest_gap_ns": 3.8,
+   "rmsd_mean_A": 2.75,
+   "rmsd_last_10ns_mean_A": 3.02
+  }
+ },
+ "spread_n3": {
+  "persistence": {
+   "mean": 0.882,
+   "sd": 0.177,
+   "range": [
+    0.6786,
+    1.0
+   ]
+  },
+  "rmsd_mean_A": {
+   "mean": 2.86,
+   "sd": 0.32,
+   "range": [
+    2.61,
+    3.22
+   ]
+  }
+ },
+ "duplicate_pairs": {
+  "r1+r2": {
+   "persistence_mean": 0.983,
+   "rmsd_mean_A": 2.92,
+   "persistence_difference": 0.034
+  },
+  "r1+r3": {
+   "persistence_mean": 0.822,
+   "rmsd_mean_A": 2.68,
+   "persistence_difference": 0.287
+  },
+  "r2+r3": {
+   "persistence_mean": 0.839,
+   "rmsd_mean_A": 2.99,
+   "persistence_difference": 0.321
+  }
+ },
+ "inputs_sha256": {
+  "D:\\Agentic VS Workflow\\20_new_runs\\md_control_anchor_2026-10-07\\analysis_prod\\N6_55.xvg": "0eb7945c97037c46d98361ff7e9cab357deb7f3b752cda163220b853c559e3f9",
+  "D:\\Agentic VS Workflow\\20_new_runs\\md_control_anchor_2026-10-07\\analysis_prod\\ligand_rmsd.xvg": "29aa55ce1580e16b8fb0e40559171c4954a732fbd7108720d8c3a43e7811a519",
+  "D:\\Agentic VS Workflow\\20_new_runs\\md_control_replicates_2026-10-06\\analysis_prod_r2\\N6_55.xvg": "b11a7ccb3136f8199a77261385a7db1885fc982f0bdbb982c9124072941c93d1",
+  "D:\\Agentic VS Workflow\\20_new_runs\\md_control_replicates_2026-10-06\\analysis_prod_r2\\ligand_rmsd.xvg": "18f16121383b8156dfb485be0264edbf5ca8e195dfdc7fc69ecb1b298515434c",
+  "D:\\Agentic VS Workflow\\20_new_runs\\md_control_replicates_2026-10-06\\analysis_prod_r3\\N6_55.xvg": "55abc07eed49aa8a6594f20acda11bee152c147d22ce25edd40e25d5bb140db7",
+  "D:\\Agentic VS Workflow\\20_new_runs\\md_control_replicates_2026-10-06\\analysis_prod_r3\\ligand_rmsd.xvg": "5b3da5e0d814a93f65d3230ccc58816f81e5ea4946a8a96e19a2c8b920312efe"
+ }
+}

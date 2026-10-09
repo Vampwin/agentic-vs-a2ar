@@ -1,0 +1,2 @@
+compound_id,status,failure_reason,vina_score,vina_mean_top3,n_conformers_generated,n_poses_pooled,best_conformer_index,centroid_dist_A,on_pocket,mol_formula,n_heavy_atoms,n_rotatable_bonds,elapsed_s
+ZM241385,ok,,-10.08,-10.0,8,77,2,0.21,True,C16H15N7O2,25,5,125.0

@@ -1,0 +1,16 @@
+source leaprc.lipid21
+source leaprc.protein.ff19SB
+source leaprc.water.opc
+source leaprc.gaff2
+
+LIG = loadmol2 LIG.mol2
+loadamberparams LIG.frcmod
+
+SYS = loadpdb system.pdb
+# Neutralise. The retained crystallographic Na+ contributes +1 that
+# packmol-memgen's ion placement does not account for.
+addionsrand SYS Cl- 0
+setBox SYS vdw
+savepdb SYS system_lipid.pdb
+saveAmberParmNetcdf SYS system_lipid.top system_lipid.crd
+quit

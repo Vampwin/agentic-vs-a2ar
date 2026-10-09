@@ -1,0 +1,10 @@
+{
+ "adr": "ADR-AIIM-302",
+ "date": "2026-10-05",
+ "status": "Run evidence. 10_new_system unmodified; no published number changed.",
+ "sha256": {
+  "analysis/rank_prioritisation.py": "3264907584fd7be83b52a84350e619ed5f4919323574b99d928332331abf6c4d",
+  "rank_prioritisation.json": "bf64065d21c43b717afa29f4526f2cfd26cf7a160274e098a7d59ad0caaa8e18",
+  "shortlist.csv": "15ba5c8022972af7e2151fa582565d8fbae26dd2e6bfceecf63b7175c243bdc3"
+ }
+}

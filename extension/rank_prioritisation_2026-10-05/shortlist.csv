@@ -1,0 +1,7 @@
+rank,compound_id,conventions_in_top20,mean_pred_pki,ad_score,murcko_framework,npclassifier_class,organism,mw,funnel_rank
+1,NPLIB01498,7,6.044,0.2666,O=C(C=Cc1cccc(OC2CCCCO2)c1)c1ccc(OC2CCCCO2)cc1,Chalcones,Butea monosperma,596.54,1498
+2,NPLIB00367,6,6.191,0.2674,c1ccc(C2CC3OC4CCCOC4Oc4cccc(c43)O2)cc1,Flavandiols (Leucoanthocyanidins),Menisciopsis penangiana,460.48,367
+3,NPLIB00508,6,6.082,0.2597,O=C1CC(c2ccccc2)Oc2cccc(C=Cc3ccccc3)c21,Flavanones,Polytrichum commune,356.42,508
+4,NPLIB00193,5,6.072,0.2562,c1cc(OC2CCCCO2)cc(-c2cc3ccccc3o2)c1,2-arylbenzofurans,Schoenocaulon officinale,434.4,193
+5,NPLIB00377,5,6.024,0.2566,O=c1cc(C=Cc2ccccc2)oc2oc3ccccc3c12,Coumaronochromones,Didymocarpus albicalyx,380.35,377
+6,NPLIB03777,5,6.002,0.3176,O=c1cc(-c2ccccc2)oc2ccccc12,Flavonols,Gymnosperma glutinosum,388.37,3777

@@ -1,0 +1,9 @@
+{
+ "adr": "ADR-AIIM-302",
+ "date": "2026-10-05",
+ "status": "Run evidence. 10_new_system unmodified; no published number changed.",
+ "sha256": {
+  "analysis/orthogonal_intersection.py": "f4819ee1e67b8832a62cbe40970b8477ff880b955c6e4e45435a6274deb0b86e",
+  "intersection_validation.json": "1cea98cf99aad208143e4e49d778b1b471f0aa691a4775404e1104d5f0f860a0"
+ }
+}

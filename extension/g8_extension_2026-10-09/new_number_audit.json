@@ -1,0 +1,69 @@
+{
+ "article": {
+  "tier_A_artifact": 132,
+  "tier_B_log_only": 2,
+  "tier_C_unmatched": 1,
+  "small_integers_not_tested": 54,
+  "unmatched": [
+   [
+    "285",
+    "ACEHOLDER: the extension analyses (ADR-AIIM-285 to 319) must be adde"
+   ]
+  ],
+  "log_only": [
+   [
+    "52.9",
+    "y similarity, so the same threshold admits 52.9% of the expansion lib"
+   ],
+   [
+    "319",
+    "ER: the extension analyses (ADR-AIIM-285 to 319) must be added to th"
+   ]
+  ]
+ },
+ "supplement": {
+  "tier_A_artifact": 433,
+  "tier_B_log_only": 9,
+  "tier_C_unmatched": 0,
+  "small_integers_not_tested": 209,
+  "unmatched": [],
+  "log_only": [
+   [
+    "319",
+    "in decision-log entries ADR-AIIM-285 to 319. They did not change any"
+   ],
+   [
+    "52.9",
+    " with that reference the same threshold admits 52.9% of the expansion"
+   ],
+   [
+    "0.096",
+    "erences that decide the shortlist are 0.002 to 0.096 log. The shortlis"
+   ],
+   [
+    "20260729",
+    "conformers, exhaustiveness 32, ten poses, seed 20260729) into 4EIY with t"
+   ],
+   [
+    "981",
+    "ock and Vina on ChEMBL (n = 248) and DUD-E (n = 981); it lies outsid"
+   ],
+   [
+    "53.2",
+    " admit exactly one warning. Replicate 2 reached 53.2 ns after being i"
+   ],
+   [
+    "1.84",
+    "nd 0.63 Å. Candidate-to-control RMSD ratios are 1.84 and 1.96 over 50"
+   ],
+   [
+    "1.83",
+    "ol RMSD ratios are 1.84 and 1.96 over 50 ns and 1.83 and 2.02 over 10"
+   ],
+   [
+    "93493",
+    "hk2 flagged no parameters, and the system holds 93,493 atoms.SNP00157 "
+   ]
+  ]
+ }
+}

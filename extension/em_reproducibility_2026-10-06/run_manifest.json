@@ -1,0 +1,13 @@
+{
+ "adr": "ADR-AIIM-311",
+ "result_adr": "ADR-AIIM-312",
+ "prereg_sha256": "bde7df91688656656406d6d7a64470a100bc043d5d6d80405b94bfd93757742d",
+ "log_sha256_at_freeze": "2c78bd0b186f2230d39a26502b62413d2ac17b83eaaf6fc3361a2503ef3cfa99",
+ "date": "2026-10-06",
+ "seconds": 6523.5,
+ "artifacts": {
+  "analysis/em_reproducibility.py": "9a7a530a18eb2d264560fe434ea26206ce3bfb7677f5f71cbaab8368fd014cf0",
+  "em_reproducibility.json": "ef11b07ab797dbd6c7b109ff1fa98707adae21a28e1b12a5e717e1ed376cdf50",
+  "run.log": "d124abd7cb37e46b82ebecde79045753d8a05ad753496d3d520564a21084462e"
+ }
+}

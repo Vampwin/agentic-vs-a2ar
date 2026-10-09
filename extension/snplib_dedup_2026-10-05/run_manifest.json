@@ -1,0 +1,14 @@
+{
+ "adr": "ADR-AIIM-309",
+ "prereg": "ADR-AIIM-308",
+ "date": "2026-10-05",
+ "status": "Run evidence. 10_new_system unmodified; 02_frozen_inputs not written to; no published number changed.",
+ "hash_convention": "artifact digests over raw bytes (addendum 2026-10-05)",
+ "sha256": {
+  "analysis/snplib_dedup.py": "aadf535904c985479a7f5fac0f3c2456707517e98dd8767d63c3c0bdc88253f9",
+  "duplicate_groups.json": "68902d074bcdedb8df325f52b26eaf0e36cc015e2f78397e63ef0c89a43ddbe9",
+  "shortlist.csv": "2e05fd48af917820fb77c9c8aab9e075b86fd7cf10a0dba1a3d7825d014783c4",
+  "snplib_dedup.json": "b54531d2e9b54eb85c0f08ed35c890b03a36a8adf3b49d2feb5955eebc30be4b",
+  "waterfall.json": "e0138df8be784388a046d9e8dbcfe2956cfc9e6457d538bfc63a2455438230e3"
+ }
+}

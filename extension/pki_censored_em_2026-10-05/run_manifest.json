@@ -1,0 +1,11 @@
+{
+ "adr": "ADR-AIIM-299",
+ "prereg": "ADR-AIIM-298",
+ "date": "2026-10-05",
+ "status": "Run evidence. 10_new_system unmodified; 02_frozen_inputs not written to; no published number changed.",
+ "hash_convention": "artifact digests over raw bytes (addendum 2026-10-05)",
+ "sha256": {
+  "analysis/pki_censored_em.py": "88fa6d24fce97cd017fbde7b562f47bc88dd3aade28f71a829a27e14629ee117",
+  "pki_censored_em.json": "26312b29c6b1bc7d8f590d2d3673ce1ac19ffcaf2ab4ca8598721bcb053312fb"
+ }
+}

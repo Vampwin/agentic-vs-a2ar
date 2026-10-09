@@ -1,0 +1,74 @@
+{
+ "waterfall": [
+  {
+   "pool": "SNP-Lib",
+   "step": 0,
+   "name": "rows",
+   "n": 236
+  },
+  {
+   "pool": "SNP-Lib",
+   "step": "0b",
+   "name": "dedupe canonical SMILES",
+   "n": 223,
+   "rows_removed": 13
+  },
+  {
+   "pool": "SNP-Lib",
+   "step": 1,
+   "name": "gate Ro5 (RDKit)",
+   "n": 147
+  },
+  {
+   "pool": "SNP-Lib",
+   "step": 2,
+   "name": "gate MW >= 200",
+   "n": 126
+  },
+  {
+   "pool": "SNP-Lib",
+   "step": 3,
+   "name": "gate AD >= 0.25",
+   "n": 69,
+   "frameworks": 21
+  },
+  {
+   "pool": "NP-library",
+   "step": 0,
+   "name": "rows",
+   "n": 5000
+  },
+  {
+   "pool": "NP-library",
+   "step": "0b",
+   "name": "dedupe canonical SMILES",
+   "n": 5000,
+   "rows_removed": 0
+  },
+  {
+   "pool": "NP-library",
+   "step": 1,
+   "name": "gate Ro5 (RDKit)",
+   "n": 1525
+  },
+  {
+   "pool": "NP-library",
+   "step": 2,
+   "name": "gate MW >= 200",
+   "n": 1525
+  },
+  {
+   "pool": "NP-library",
+   "step": 3,
+   "name": "gate AD >= 0.25",
+   "n": 1066,
+   "frameworks": 116
+  }
+ ],
+ "pool_sizes": {
+  "A_SNPLib": 69,
+  "B_NPLib": 1066,
+  "C_pooled": 1135
+ },
+ "ro5_anchor": "236/236"
+}

@@ -1,0 +1,10 @@
+{
+ "adr": "ADR-AIIM-294",
+ "prereg": "ADR-AIIM-292",
+ "date": "2026-10-05",
+ "status": "Run evidence. 10_new_system unmodified; 02_frozen_inputs not written to; no published number changed.",
+ "sha256": {
+  "analysis/ad_methods_distance.py": "7595a229a1329d2c61188ee1541c3bf726313825ef71fc97c81ae58e0e45e74f",
+  "ad_methods_distance.json": "8089098b7581a8e99409478e010212f24c37b1704cf4e62a78fc3e40a6653cca"
+ }
+}

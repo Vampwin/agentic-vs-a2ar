@@ -1,0 +1,775 @@
+{
+ "adr": "ADR-AIIM-289",
+ "prereg_sha256": "ead611ad83c9bf5aab6d43d66d23902b5d0a8925cf41f50c249675befc0a9b7f",
+ "log_sha256_at_freeze": "9b920ad1e2f0a4c0aea7beb7ffcd2bb12be4e04339ff53793f8173a6ed99fefa",
+ "adr_268_reported_roc_auc": {
+  "A": 0.9181,
+  "B": 0.9371
+ },
+ "adr_268_composition": {
+  "A": "5244 active / 698 inactive",
+  "B": "5244 active / 1429 inactive"
+ },
+ "note": "10_new_system not modified; nested_cv_auc's fold structure, space, seeds and scoring used unchanged. Canonical InChIKey row order throughout (ADR-AIIM-275).",
+ "arms": {
+  "A": {
+   "composition": {
+    "active": 5268,
+    "inactive": 702,
+    "n": 5970,
+    "prevalence": 0.8824
+   },
+   "draws": [
+    {
+     "folds": [
+      {
+       "roc_auc": 0.9225280017242192,
+       "pr_auc": 0.9880783171542226,
+       "prevalence": 0.8819095477386935,
+       "pr_auc_lift": 0.10616876941552911,
+       "mcc": 0.5797977496711569,
+       "balanced_accuracy": 0.8060152350932492,
+       "n_val": 1194,
+       "best_params": {
+        "rf__n_estimators": 100,
+        "rf__min_samples_leaf": 1,
+        "rf__max_depth": "None"
+       }
+      },
+      {
+       "roc_auc": 0.8919863106532936,
+       "pr_auc": 0.9822448720414803,
+       "prevalence": 0.8827470686767169,
+       "pr_auc_lift": 0.09949780336476333,
+       "mcc": 0.5241485761225833,
+       "balanced_accuracy": 0.7839522905936569,
+       "n_val": 1194,
+       "best_params": {
+        "rf__n_estimators": 100,
+        "rf__min_samples_leaf": 1,
+        "rf__max_depth": "None"
+       }
+      },
+      {
+       "roc_auc": 0.9176415914004568,
+       "pr_auc": 0.986686696028387,
+       "prevalence": 0.8819095477386935,
+       "pr_auc_lift": 0.10477714828969353,
+       "mcc": 0.5896889660790083,
+       "balanced_accuracy": 0.8079145703259178,
+       "n_val": 1194,
+       "best_params": {
+        "rf__n_estimators": 100,
+        "rf__min_samples_leaf": 1,
+        "rf__max_depth": "None"
+       }
+      },
+      {
+       "roc_auc": 0.9132749966083299,
+       "pr_auc": 0.9828417703031616,
+       "prevalence": 0.8826487845766974,
+       "pr_auc_lift": 0.10019298572646418,
+       "mcc": 0.5414814176096923,
+       "balanced_accuracy": 0.7567290733957401,
+       "n_val": 1193,
+       "best_params": {
+        "rf__n_estimators": 100,
+        "rf__min_samples_leaf": 1,
+        "rf__max_depth": "None"
+       }
+      },
+      {
+       "roc_auc": 0.9469972918077183,
+       "pr_auc": 0.9903281601141435,
+       "prevalence": 0.8828451882845189,
+       "pr_auc_lift": 0.10748297182962463,
+       "mcc": 0.6780951097253547,
+       "balanced_accuracy": 0.8214962762356127,
+       "n_val": 1195,
+       "best_params": {
+        "rf__n_estimators": 100,
+        "rf__min_samples_leaf": 1,
+        "rf__max_depth": "None"
+       }
+      }
+     ],
+     "aggregate": {
+      "roc_auc": {
+       "mean": 0.9185,
+       "sd": 0.0177
+      },
+      "pr_auc": {
+       "mean": 0.986,
+       "sd": 0.0031
+      },
+      "pr_auc_lift": {
+       "mean": 0.1036,
+       "sd": 0.0032
+      },
+      "mcc": {
+       "mean": 0.5826,
+       "sd": 0.0535
+      },
+      "balanced_accuracy": {
+       "mean": 0.7952,
+       "sd": 0.0227
+      },
+      "prevalence": {
+       "mean": 0.8824,
+       "sd": 0.0004
+      }
+     }
+    },
+    {
+     "folds": [
+      {
+       "roc_auc": 0.9225280017242192,
+       "pr_auc": 0.9880783171542226,
+       "prevalence": 0.8819095477386935,
+       "pr_auc_lift": 0.10616876941552911,
+       "mcc": 0.5797977496711569,
+       "balanced_accuracy": 0.8060152350932492,
+       "n_val": 1194,
+       "best_params": {
+        "rf__n_estimators": 100,
+        "rf__min_samples_leaf": 1,
+        "rf__max_depth": "None"
+       }
+      },
+      {
+       "roc_auc": 0.8919863106532936,
+       "pr_auc": 0.9822448720414803,
+       "prevalence": 0.8827470686767169,
+       "pr_auc_lift": 0.09949780336476333,
+       "mcc": 0.5241485761225833,
+       "balanced_accuracy": 0.7839522905936569,
+       "n_val": 1194,
+       "best_params": {
+        "rf__n_estimators": 100,
+        "rf__min_samples_leaf": 1,
+        "rf__max_depth": "None"
+       }
+      },
+      {
+       "roc_auc": 0.9176415914004568,
+       "pr_auc": 0.986686696028387,
+       "prevalence": 0.8819095477386935,
+       "pr_auc_lift": 0.10477714828969353,
+       "mcc": 0.5896889660790083,
+       "balanced_accuracy": 0.8079145703259178,
+       "n_val": 1194,
+       "best_params": {
+        "rf__n_estimators": 100,
+        "rf__min_samples_leaf": 1,
+        "rf__max_depth": "None"
+       }
+      },
+      {
+       "roc_auc": 0.9132749966083299,
+       "pr_auc": 0.9828417703031616,
+       "prevalence": 0.8826487845766974,
+       "pr_auc_lift": 0.10019298572646418,
+       "mcc": 0.5414814176096923,
+       "balanced_accuracy": 0.7567290733957401,
+       "n_val": 1193,
+       "best_params": {
+        "rf__n_estimators": 100,
+        "rf__min_samples_leaf": 1,
+        "rf__max_depth": "None"
+       }
+      },
+      {
+       "roc_auc": 0.9469972918077183,
+       "pr_auc": 0.9903281601141435,
+       "prevalence": 0.8828451882845189,
+       "pr_auc_lift": 0.10748297182962463,
+       "mcc": 0.6780951097253547,
+       "balanced_accuracy": 0.8214962762356127,
+       "n_val": 1195,
+       "best_params": {
+        "rf__n_estimators": 100,
+        "rf__min_samples_leaf": 1,
+        "rf__max_depth": "None"
+       }
+      }
+     ],
+     "aggregate": {
+      "roc_auc": {
+       "mean": 0.9185,
+       "sd": 0.0177
+      },
+      "pr_auc": {
+       "mean": 0.986,
+       "sd": 0.0031
+      },
+      "pr_auc_lift": {
+       "mean": 0.1036,
+       "sd": 0.0032
+      },
+      "mcc": {
+       "mean": 0.5826,
+       "sd": 0.0535
+      },
+      "balanced_accuracy": {
+       "mean": 0.7952,
+       "sd": 0.0227
+      },
+      "prevalence": {
+       "mean": 0.8824,
+       "sd": 0.0004
+      }
+     }
+    }
+   ],
+   "aggregate": {
+    "roc_auc": {
+     "mean": 0.9185,
+     "sd": 0.0177
+    },
+    "pr_auc": {
+     "mean": 0.986,
+     "sd": 0.0031
+    },
+    "pr_auc_lift": {
+     "mean": 0.1036,
+     "sd": 0.0032
+    },
+    "mcc": {
+     "mean": 0.5826,
+     "sd": 0.0535
+    },
+    "balanced_accuracy": {
+     "mean": 0.7952,
+     "sd": 0.0227
+    },
+    "prevalence": {
+     "mean": 0.8824,
+     "sd": 0.0004
+    }
+   },
+   "roc_auc_across_permutations": [
+    0.9185,
+    0.9185
+   ],
+   "invariant_across_permutations": true
+  },
+  "B": {
+   "composition": {
+    "active": 5268,
+    "inactive": 1439,
+    "n": 6707,
+    "prevalence": 0.7854
+   },
+   "draws": [
+    {
+     "folds": [
+      {
+       "roc_auc": 0.9410068455207344,
+       "pr_auc": 0.9832566274444866,
+       "prevalence": 0.785234899328859,
+       "pr_auc_lift": 0.19802172811562757,
+       "mcc": 0.6954068927941305,
+       "balanced_accuracy": 0.8589446818613485,
+       "n_val": 1341,
+       "best_params": {
+        "rf__n_estimators": 100,
+        "rf__min_samples_leaf": 1,
+        "rf__max_depth": "None"
+       }
+      },
+      {
+       "roc_auc": 0.9509248288572933,
+       "pr_auc": 0.9851138201093229,
+       "prevalence": 0.7855547282204021,
+       "pr_auc_lift": 0.19955909188892085,
+       "mcc": 0.7557402624501323,
+       "balanced_accuracy": 0.8825483807266983,
+       "n_val": 1343,
+       "best_params": {
+        "rf__n_estimators": 100,
+        "rf__min_samples_leaf": 1,
+        "rf__max_depth": "None"
+       }
+      },
+      {
+       "roc_auc": 0.9299945784765519,
+       "pr_auc": 0.9766534229709687,
+       "prevalence": 0.7859806114839671,
+       "pr_auc_lift": 0.19067281148700155,
+       "mcc": 0.6643039899105753,
+       "balanced_accuracy": 0.8488254467798134,
+       "n_val": 1341,
+       "best_params": {
+        "rf__n_estimators": 100,
+        "rf__min_samples_leaf": 1,
+        "rf__max_depth": "None"
+       }
+      },
+      {
+       "roc_auc": 0.93812486810172,
+       "pr_auc": 0.9762327658499791,
+       "prevalence": 0.785234899328859,
+       "pr_auc_lift": 0.19099786652112005,
+       "mcc": 0.706352041826466,
+       "balanced_accuracy": 0.8748664529914529,
+       "n_val": 1341,
+       "best_params": {
+        "rf__n_estimators": 100,
+        "rf__min_samples_leaf": 1,
+        "rf__max_depth": "None"
+       }
+      },
+      {
+       "roc_auc": 0.9283182309802681,
+       "pr_auc": 0.9751864496414724,
+       "prevalence": 0.785234899328859,
+       "pr_auc_lift": 0.18995155031261335,
+       "mcc": 0.6613773608426216,
+       "balanced_accuracy": 0.846139007597341,
+       "n_val": 1341,
+       "best_params": {
+        "rf__n_estimators": 100,
+        "rf__min_samples_leaf": 1,
+        "rf__max_depth": "None"
+       }
+      }
+     ],
+     "aggregate": {
+      "roc_auc": {
+       "mean": 0.9377,
+       "sd": 0.0082
+      },
+      "pr_auc": {
+       "mean": 0.9793,
+       "sd": 0.0041
+      },
+      "pr_auc_lift": {
+       "mean": 0.1938,
+       "sd": 0.0041
+      },
+      "mcc": {
+       "mean": 0.6966,
+       "sd": 0.0343
+      },
+      "balanced_accuracy": {
+       "mean": 0.8623,
+       "sd": 0.0143
+      },
+      "prevalence": {
+       "mean": 0.7854,
+       "sd": 0.0003
+      }
+     }
+    },
+    {
+     "folds": [
+      {
+       "roc_auc": 0.9410068455207344,
+       "pr_auc": 0.9832566274444866,
+       "prevalence": 0.785234899328859,
+       "pr_auc_lift": 0.19802172811562757,
+       "mcc": 0.6954068927941305,
+       "balanced_accuracy": 0.8589446818613485,
+       "n_val": 1341,
+       "best_params": {
+        "rf__n_estimators": 100,
+        "rf__min_samples_leaf": 1,
+        "rf__max_depth": "None"
+       }
+      },
+      {
+       "roc_auc": 0.9509248288572933,
+       "pr_auc": 0.9851138201093229,
+       "prevalence": 0.7855547282204021,
+       "pr_auc_lift": 0.19955909188892085,
+       "mcc": 0.7557402624501323,
+       "balanced_accuracy": 0.8825483807266983,
+       "n_val": 1343,
+       "best_params": {
+        "rf__n_estimators": 100,
+        "rf__min_samples_leaf": 1,
+        "rf__max_depth": "None"
+       }
+      },
+      {
+       "roc_auc": 0.9299945784765519,
+       "pr_auc": 0.9766534229709687,
+       "prevalence": 0.7859806114839671,
+       "pr_auc_lift": 0.19067281148700155,
+       "mcc": 0.6643039899105753,
+       "balanced_accuracy": 0.8488254467798134,
+       "n_val": 1341,
+       "best_params": {
+        "rf__n_estimators": 100,
+        "rf__min_samples_leaf": 1,
+        "rf__max_depth": "None"
+       }
+      },
+      {
+       "roc_auc": 0.93812486810172,
+       "pr_auc": 0.9762327658499791,
+       "prevalence": 0.785234899328859,
+       "pr_auc_lift": 0.19099786652112005,
+       "mcc": 0.706352041826466,
+       "balanced_accuracy": 0.8748664529914529,
+       "n_val": 1341,
+       "best_params": {
+        "rf__n_estimators": 100,
+        "rf__min_samples_leaf": 1,
+        "rf__max_depth": "None"
+       }
+      },
+      {
+       "roc_auc": 0.9283182309802681,
+       "pr_auc": 0.9751864496414724,
+       "prevalence": 0.785234899328859,
+       "pr_auc_lift": 0.18995155031261335,
+       "mcc": 0.6613773608426216,
+       "balanced_accuracy": 0.846139007597341,
+       "n_val": 1341,
+       "best_params": {
+        "rf__n_estimators": 100,
+        "rf__min_samples_leaf": 1,
+        "rf__max_depth": "None"
+       }
+      }
+     ],
+     "aggregate": {
+      "roc_auc": {
+       "mean": 0.9377,
+       "sd": 0.0082
+      },
+      "pr_auc": {
+       "mean": 0.9793,
+       "sd": 0.0041
+      },
+      "pr_auc_lift": {
+       "mean": 0.1938,
+       "sd": 0.0041
+      },
+      "mcc": {
+       "mean": 0.6966,
+       "sd": 0.0343
+      },
+      "balanced_accuracy": {
+       "mean": 0.8623,
+       "sd": 0.0143
+      },
+      "prevalence": {
+       "mean": 0.7854,
+       "sd": 0.0003
+      }
+     }
+    }
+   ],
+   "aggregate": {
+    "roc_auc": {
+     "mean": 0.9377,
+     "sd": 0.0082
+    },
+    "pr_auc": {
+     "mean": 0.9793,
+     "sd": 0.0041
+    },
+    "pr_auc_lift": {
+     "mean": 0.1938,
+     "sd": 0.0041
+    },
+    "mcc": {
+     "mean": 0.6966,
+     "sd": 0.0343
+    },
+    "balanced_accuracy": {
+     "mean": 0.8623,
+     "sd": 0.0143
+    },
+    "prevalence": {
+     "mean": 0.7854,
+     "sd": 0.0003
+    }
+   },
+   "roc_auc_across_permutations": [
+    0.9377,
+    0.9377
+   ],
+   "invariant_across_permutations": true
+  },
+  "K": {
+   "composition": {
+    "active": 4143,
+    "inactive": 1280,
+    "n": 5423,
+    "prevalence": 0.764
+   },
+   "draws": [
+    {
+     "folds": [
+      {
+       "roc_auc": 0.9271167268238419,
+       "pr_auc": 0.9738638413847758,
+       "prevalence": 0.7633517495395948,
+       "pr_auc_lift": 0.21051209184518094,
+       "mcc": 0.6370218117169333,
+       "balanced_accuracy": 0.8218659206864021,
+       "n_val": 1086,
+       "best_params": {
+        "rf__n_estimators": 100,
+        "rf__min_samples_leaf": 1,
+        "rf__max_depth": "None"
+       }
+      },
+      {
+       "roc_auc": 0.9242082357671658,
+       "pr_auc": 0.9736637264012614,
+       "prevalence": 0.764760147601476,
+       "pr_auc_lift": 0.20890357879978538,
+       "mcc": 0.6443623280657397,
+       "balanced_accuracy": 0.838780482035999,
+       "n_val": 1084,
+       "best_params": {
+        "rf__n_estimators": 100,
+        "rf__min_samples_leaf": 1,
+        "rf__max_depth": "None"
+       }
+      },
+      {
+       "roc_auc": 0.9385025098128019,
+       "pr_auc": 0.9778031448305231,
+       "prevalence": 0.7638376383763837,
+       "pr_auc_lift": 0.21396550645413936,
+       "mcc": 0.7061426056586207,
+       "balanced_accuracy": 0.8612809480676329,
+       "n_val": 1084,
+       "best_params": {
+        "rf__n_estimators": 100,
+        "rf__min_samples_leaf": 1,
+        "rf__max_depth": "None"
+       }
+      },
+      {
+       "roc_auc": 0.9338235294117647,
+       "pr_auc": 0.9754261242305778,
+       "prevalence": 0.7645429362880887,
+       "pr_auc_lift": 0.21088318794248917,
+       "mcc": 0.6594896646896743,
+       "balanced_accuracy": 0.8485152031827223,
+       "n_val": 1083,
+       "best_params": {
+        "rf__n_estimators": 100,
+        "rf__min_samples_leaf": 1,
+        "rf__max_depth": "None"
+       }
+      },
+      {
+       "roc_auc": 0.9391958808371625,
+       "pr_auc": 0.9792426160308491,
+       "prevalence": 0.7633517495395948,
+       "pr_auc_lift": 0.21589086649125422,
+       "mcc": 0.7093093258298624,
+       "balanced_accuracy": 0.8727218110047734,
+       "n_val": 1086,
+       "best_params": {
+        "rf__n_estimators": 100,
+        "rf__min_samples_leaf": 1,
+        "rf__max_depth": "None"
+       }
+      }
+     ],
+     "aggregate": {
+      "roc_auc": {
+       "mean": 0.9326,
+       "sd": 0.006
+      },
+      "pr_auc": {
+       "mean": 0.976,
+       "sd": 0.0022
+      },
+      "pr_auc_lift": {
+       "mean": 0.212,
+       "sd": 0.0025
+      },
+      "mcc": {
+       "mean": 0.6713,
+       "sd": 0.0307
+      },
+      "balanced_accuracy": {
+       "mean": 0.8486,
+       "sd": 0.0176
+      },
+      "prevalence": {
+       "mean": 0.764,
+       "sd": 0.0006
+      }
+     }
+    },
+    {
+     "folds": [
+      {
+       "roc_auc": 0.9271167268238419,
+       "pr_auc": 0.9738638413847758,
+       "prevalence": 0.7633517495395948,
+       "pr_auc_lift": 0.21051209184518094,
+       "mcc": 0.6370218117169333,
+       "balanced_accuracy": 0.8218659206864021,
+       "n_val": 1086,
+       "best_params": {
+        "rf__n_estimators": 100,
+        "rf__min_samples_leaf": 1,
+        "rf__max_depth": "None"
+       }
+      },
+      {
+       "roc_auc": 0.9242082357671658,
+       "pr_auc": 0.9736637264012614,
+       "prevalence": 0.764760147601476,
+       "pr_auc_lift": 0.20890357879978538,
+       "mcc": 0.6443623280657397,
+       "balanced_accuracy": 0.838780482035999,
+       "n_val": 1084,
+       "best_params": {
+        "rf__n_estimators": 100,
+        "rf__min_samples_leaf": 1,
+        "rf__max_depth": "None"
+       }
+      },
+      {
+       "roc_auc": 0.9385025098128019,
+       "pr_auc": 0.9778031448305231,
+       "prevalence": 0.7638376383763837,
+       "pr_auc_lift": 0.21396550645413936,
+       "mcc": 0.7061426056586207,
+       "balanced_accuracy": 0.8612809480676329,
+       "n_val": 1084,
+       "best_params": {
+        "rf__n_estimators": 100,
+        "rf__min_samples_leaf": 1,
+        "rf__max_depth": "None"
+       }
+      },
+      {
+       "roc_auc": 0.9338235294117647,
+       "pr_auc": 0.9754261242305778,
+       "prevalence": 0.7645429362880887,
+       "pr_auc_lift": 0.21088318794248917,
+       "mcc": 0.6594896646896743,
+       "balanced_accuracy": 0.8485152031827223,
+       "n_val": 1083,
+       "best_params": {
+        "rf__n_estimators": 100,
+        "rf__min_samples_leaf": 1,
+        "rf__max_depth": "None"
+       }
+      },
+      {
+       "roc_auc": 0.9391958808371625,
+       "pr_auc": 0.9792426160308491,
+       "prevalence": 0.7633517495395948,
+       "pr_auc_lift": 0.21589086649125422,
+       "mcc": 0.7093093258298624,
+       "balanced_accuracy": 0.8727218110047734,
+       "n_val": 1086,
+       "best_params": {
+        "rf__n_estimators": 100,
+        "rf__min_samples_leaf": 1,
+        "rf__max_depth": "None"
+       }
+      }
+     ],
+     "aggregate": {
+      "roc_auc": {
+       "mean": 0.9326,
+       "sd": 0.006
+      },
+      "pr_auc": {
+       "mean": 0.976,
+       "sd": 0.0022
+      },
+      "pr_auc_lift": {
+       "mean": 0.212,
+       "sd": 0.0025
+      },
+      "mcc": {
+       "mean": 0.6713,
+       "sd": 0.0307
+      },
+      "balanced_accuracy": {
+       "mean": 0.8486,
+       "sd": 0.0176
+      },
+      "prevalence": {
+       "mean": 0.764,
+       "sd": 0.0006
+      }
+     }
+    }
+   ],
+   "aggregate": {
+    "roc_auc": {
+     "mean": 0.9326,
+     "sd": 0.006
+    },
+    "pr_auc": {
+     "mean": 0.976,
+     "sd": 0.0022
+    },
+    "pr_auc_lift": {
+     "mean": 0.212,
+     "sd": 0.0025
+    },
+    "mcc": {
+     "mean": 0.6713,
+     "sd": 0.0307
+    },
+    "balanced_accuracy": {
+     "mean": 0.8486,
+     "sd": 0.0176
+    },
+    "prevalence": {
+     "mean": 0.764,
+     "sd": 0.0006
+    }
+   },
+   "roc_auc_across_permutations": [
+    0.9326,
+    0.9326
+   ],
+   "invariant_across_permutations": true
+  }
+ },
+ "grading": {
+  "V1_K_roc_exceeds_B": {
+   "arm_K": 0.9326,
+   "arm_B": 0.9377,
+   "delta": -0.0051,
+   "verdict": "MISSED"
+  },
+  "V2_K_sd_below_B": {
+   "arm_K_sd": 0.006,
+   "arm_B_sd": 0.0082,
+   "verdict": "MET"
+  },
+  "V3_anchor_within_0.02": {
+   "observed": {
+    "A": 0.9185,
+    "B": 0.9377
+   },
+   "expected": {
+    "A": 0.9181,
+    "B": 0.9371
+   },
+   "within_tolerance": {
+    "A": true,
+    "B": true
+   },
+   "verdict": "MET"
+  },
+  "V4_K_pr_lift_exceeds_B": {
+   "arm_K_lift": 0.212,
+   "arm_B_lift": 0.1938,
+   "arm_K_pr_auc": 0.976,
+   "arm_B_pr_auc": 0.9793,
+   "verdict": "MET"
+  }
+ },
+ "seconds": 508.4
+}

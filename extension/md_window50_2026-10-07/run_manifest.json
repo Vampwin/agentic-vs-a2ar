@@ -1,0 +1,14 @@
+{
+ "adr": "ADR-AIIM-320",
+ "result_adr": "ADR-AIIM-321",
+ "date": "2026-10-07",
+ "prereg_sha256": "7ce8f72966ab63b276c943d1d60cf1d3193a146d16fd2d20dc5fe59b9b448254",
+ "log_sha256_at_freeze": "392061d7ba3b5d45b5b0e799e0251ebfd219d4ae6aa47118ff8a46036ab5cd69",
+ "note": "first execution failed the anchor on a ps/ns unit error in box.xvg; log kept; second execution reported",
+ "artifacts": {
+  "analysis/md_window50.py": "7552fe302aab33b4a8d629be83e9facba39977e9955316555687fae6e9aff272",
+  "md_window50.json": "99a18145932ef6beea704fe1eb5a5b6c1e8803db9b6718f0860623b9e7e05ec5",
+  "run.log": "71d5419fc7beca2435dfb9e9033afee2ed4e1cbbd78dca544264c6171cb73838",
+  "run_first_attempt_unit_bug.log": "f4cbbf4e88f25d39ecfa2a6142a9445f2ce0d9a244b6993c72d040a9701567c4"
+ }
+}

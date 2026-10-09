@@ -1,0 +1,17 @@
+survivor_rank,SNP_ID,name,conventions_of_8,distinct_splits_max,mean_pred_pki,ad_score,murcko_framework,in_shortlist,shortlist_rank,dropped_by_scaffold_uniqueness,mol_wt,logp,tpsa,qed,n_flags,PAINS,BRENK,NIH,CHEMBL,smiles
+1,SNP00157,N-trans-feruloyl tyramine,8,5,5.9257,0.3433,O=C(C=Cc1ccccc1)NCCc1ccccc1,True,1,False,313.4,2.48,78.8,0.716,6,-,Michael_acceptor_1,-,Filter44_michael_acceptor2; Michael acceptor; alpha beta-unsaturated ketones; center of Michael reactivity; phenylethene; vinyl michael acceptor1,COc1cc(/C=C/C(=O)NCCc2ccc(O)cc2)ccc1O
+2,SNP00163,Phoyunbene C,8,5,5.9078,0.2766,C(=Cc1ccccc1)c1ccccc1,True,2,False,272.3,3.29,58.9,0.838,4,-,stilbene,-,Dye 25; phenylethene; stilbene,COc1cc(O)cc(/C=C/c2cccc(O)c2OC)c1
+3,SNP00223,Thunalbene,8,5,5.876,0.321,C(=Cc1ccccc1)c1ccccc1,False,,True,242.3,3.28,49.7,0.812,4,-,stilbene,-,Dye 25; phenylethene; stilbene,COc1cc(O)cc(/C=C/c2cccc(O)c2)c1
+4,SNP00154,"1-(4-Hydroxylbenzyl)-4-methoxy 9,10-dihydrophenanthrene 2,7-diol",8,5,5.8025,0.2529,c1ccc(Cc2cccc3c2CCc2ccccc2-3)cc1,True,3,False,362.4,4.47,58.9,0.719,0,-,-,-,-,COc1ccc2c(c1)CCc1c(Cc3ccc(O)cc3)c(O)cc(OC)c1-2
+5,SNP00097,Dengibsinin,8,5,5.7688,0.3156,O=C1c2ccccc2-c2ccccc21,True,4,False,258.2,2.02,87.0,0.581,4,catechol_A(92),catechol,-,Ketone; catechol,COc1cc2c(c(O)c1O)-c1c(O)cccc1C2=O
+6,SNP00052,Denchrysan B,7,4,5.7494,0.2506,c1ccc2c(c1)Cc1ccccc1-2,True,5,False,244.2,2.17,69.9,0.719,1,-,-,-,benzhydrol,COc1cc(O)cc2c1-c1c(O)cccc1C2O
+7,SNP00033,"4,5-Dihydroxy-2,3-dimethoxy-9,10-
+dihydrophenanthrene",7,4,5.7373,0.263,c1ccc2c(c1)CCc1ccccc1-2,True,6,False,272.3,2.88,58.9,0.882,0,-,-,-,-,COc1cc2c(c(O)c1OC)-c1c(O)cccc1CC2
+8,SNP00095,Dihydrodengibsinin,7,4,5.7357,0.2576,c1ccc2c(c1)Cc1ccccc1-2,False,,True,274.3,2.18,79.2,0.782,1,-,-,-,benzhydrol,COc1cc2c(c(OC)c1O)-c1c(O)cccc1C2O
+9,SNP00010,Hircinol,6,4,5.7668,0.2512,c1ccc2c(c1)CCc1ccccc1-2,False,,True,242.3,2.87,49.7,0.808,0,-,-,-,-,COc1cc(O)cc2c1-c1c(O)cccc1CC2
+10,SNP00142,Dendrocrumenol A,6,4,5.6827,0.2547,c1ccc2c(c1)ccc1ccccc12,True,7,False,286.3,3.13,79.2,0.498,9,catechol_A(92),Polycyclic_aromatic_hydrocarbon_3; catechol,-,(poly(azo(phenanthrene)); Filter63_polyaromatic; Polycyclic aromatic hydrocarbon; Polynuclear_Aromatic_2; catechol; multiple aromatic rings,COc1cc2ccc3c(OC)c(O)ccc3c2c(O)c1O
+11,SNP00006,2-(p-Hydroxyphenyl)ethyl p-coumarate,6,4,5.6407,0.2664,O=C(C=Cc1ccccc1)OCCc1ccccc1,True,8,False,284.3,2.9,66.8,0.654,8,-,Michael_acceptor_1,-,"Ester; Filter44_michael_acceptor2; Michael acceptor; aliphatic ester, not lactones; alpha beta-unsaturated ketones; center of Michael reactivity; phenylethene; vinyl michael acceptor1",O=C(/C=C/c1ccc(O)cc1)OCCc1ccc(O)cc1
+12,SNP00144,Dendrocrumenol C,5,3,5.818,0.2751,O=C1c2ccccc2-c2ccccc21,False,,True,288.3,2.03,96.2,0.624,5,-,hydroquinone,-,Filter58_polyphenol2; Ketone; dihydroxybenzene; hydroquinone,COc1cc(O)c(OC)c2c1-c1c(O)ccc(O)c1C2=O
+13,SNP00051,Dendroflorin,5,3,5.7549,0.2972,O=C1c2ccccc2-c2ccccc21,False,,True,258.2,2.02,87.0,0.581,4,-,hydroquinone,-,Ketone; dihydroxybenzene; hydroquinone,COc1cc(O)cc2c1-c1c(O)ccc(O)c1C2=O
+14,SNP00087,"4,5-Dihydroxy-2-methoxy-9,10-dihydrophenanthrene",5,3,5.7397,0.2501,c1ccc2c(c1)CCc1ccccc1-2,False,,True,242.3,2.87,49.7,0.808,0,-,-,-,-,COc1cc(O)c2c(c1)CCc1cccc(O)c1-2
+15,SNP00198,Pinadensin B,5,3,5.5864,0.2647,c1ccc2c(c1)ccc1ccccc12,False,,True,254.3,3.72,38.7,0.708,6,-,Polycyclic_aromatic_hydrocarbon_3,-,(poly(azo(phenanthrene)); Filter63_polyaromatic; Polycyclic aromatic hydrocarbon; Polynuclear_Aromatic_2; multiple aromatic rings,COc1ccc2ccc3cc(O)ccc3c2c1OC

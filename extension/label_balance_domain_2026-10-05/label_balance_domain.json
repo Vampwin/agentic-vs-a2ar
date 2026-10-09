@@ -1,0 +1,3227 @@
+{
+ "adr": "ADR-AIIM-287",
+ "prereg_sha256": "3a0d096a1ba9ff3aa031d00c81285d334d286e846723dcb7db8dcdd311af969a",
+ "log_sha256_at_freeze": "1ed078b4a8b48be37e507cc01737e70d50351935da81b82e56ca7099304e16bb",
+ "n_permutations": 2,
+ "released_values": {
+  "SNP-Lib": 0,
+  "NP-library": 72
+ },
+ "ad_note": "AD computed once per arm against a seeded 500-compound sample of that arm's labelled set, not per cell. Declared simplification (ADR-AIIM-287).",
+ "arms": {
+  "A": {
+   "per_draw": {
+    "D1shuffle_D2testfirst_D3overflow|raw": [
+     {
+      "draw": 0,
+      "n_calib": 1217,
+      "calib_active_used": 1085,
+      "calib_inactive": 132,
+      "SNP-Lib": {
+       "n_possibly_active": 28,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 3334,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1217,
+      "calib_active_used": 1085,
+      "calib_inactive": 132,
+      "SNP-Lib": {
+       "n_possibly_active": 28,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 3334,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1shuffle_D2testfirst_D3overflow|balanced": [
+     {
+      "draw": 0,
+      "n_calib": 1217,
+      "calib_active_used": 132,
+      "calib_inactive": 132,
+      "SNP-Lib": {
+       "n_possibly_active": 76,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 4785,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1217,
+      "calib_active_used": 132,
+      "calib_inactive": 132,
+      "SNP-Lib": {
+       "n_possibly_active": 76,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 4785,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1shuffle_D2testfirst_D3divert|raw": [
+     {
+      "draw": 0,
+      "n_calib": 1194,
+      "calib_active_used": 1060,
+      "calib_inactive": 134,
+      "SNP-Lib": {
+       "n_possibly_active": 49,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 3346,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1194,
+      "calib_active_used": 1060,
+      "calib_inactive": 134,
+      "SNP-Lib": {
+       "n_possibly_active": 49,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 3346,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1shuffle_D2testfirst_D3divert|balanced": [
+     {
+      "draw": 0,
+      "n_calib": 1194,
+      "calib_active_used": 134,
+      "calib_inactive": 134,
+      "SNP-Lib": {
+       "n_possibly_active": 112,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 4723,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1194,
+      "calib_active_used": 134,
+      "calib_inactive": 134,
+      "SNP-Lib": {
+       "n_possibly_active": 112,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 4723,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1shuffle_D2trainfirst_D3overflow|raw": [
+     {
+      "draw": 0,
+      "n_calib": 1194,
+      "calib_active_used": 1041,
+      "calib_inactive": 153,
+      "SNP-Lib": {
+       "n_possibly_active": 12,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 2391,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1194,
+      "calib_active_used": 1041,
+      "calib_inactive": 153,
+      "SNP-Lib": {
+       "n_possibly_active": 12,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 2391,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1shuffle_D2trainfirst_D3overflow|balanced": [
+     {
+      "draw": 0,
+      "n_calib": 1194,
+      "calib_active_used": 153,
+      "calib_inactive": 153,
+      "SNP-Lib": {
+       "n_possibly_active": 27,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 3053,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1194,
+      "calib_active_used": 153,
+      "calib_inactive": 153,
+      "SNP-Lib": {
+       "n_possibly_active": 27,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 3053,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1shuffle_D2trainfirst_D3divert|raw": [
+     {
+      "draw": 0,
+      "n_calib": 1194,
+      "calib_active_used": 1041,
+      "calib_inactive": 153,
+      "SNP-Lib": {
+       "n_possibly_active": 12,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 2391,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1194,
+      "calib_active_used": 1041,
+      "calib_inactive": 153,
+      "SNP-Lib": {
+       "n_possibly_active": 12,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 2391,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1shuffle_D2trainfirst_D3divert|balanced": [
+     {
+      "draw": 0,
+      "n_calib": 1194,
+      "calib_active_used": 153,
+      "calib_inactive": 153,
+      "SNP-Lib": {
+       "n_possibly_active": 27,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 3053,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1194,
+      "calib_active_used": 153,
+      "calib_inactive": 153,
+      "SNP-Lib": {
+       "n_possibly_active": 27,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 3053,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1sorted_D2testfirst_D3overflow|raw": [
+     {
+      "draw": 0,
+      "n_calib": 1194,
+      "calib_active_used": 1114,
+      "calib_inactive": 80,
+      "SNP-Lib": {
+       "n_possibly_active": 7,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 522,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1194,
+      "calib_active_used": 1114,
+      "calib_inactive": 80,
+      "SNP-Lib": {
+       "n_possibly_active": 7,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 522,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1sorted_D2testfirst_D3overflow|balanced": [
+     {
+      "draw": 0,
+      "n_calib": 1194,
+      "calib_active_used": 80,
+      "calib_inactive": 80,
+      "SNP-Lib": {
+       "n_possibly_active": 0,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 15,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1194,
+      "calib_active_used": 80,
+      "calib_inactive": 80,
+      "SNP-Lib": {
+       "n_possibly_active": 0,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 15,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1sorted_D2testfirst_D3divert|raw": [
+     {
+      "draw": 0,
+      "n_calib": 1194,
+      "calib_active_used": 1114,
+      "calib_inactive": 80,
+      "SNP-Lib": {
+       "n_possibly_active": 7,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 522,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1194,
+      "calib_active_used": 1114,
+      "calib_inactive": 80,
+      "SNP-Lib": {
+       "n_possibly_active": 7,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 522,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1sorted_D2testfirst_D3divert|balanced": [
+     {
+      "draw": 0,
+      "n_calib": 1194,
+      "calib_active_used": 80,
+      "calib_inactive": 80,
+      "SNP-Lib": {
+       "n_possibly_active": 0,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 15,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1194,
+      "calib_active_used": 80,
+      "calib_inactive": 80,
+      "SNP-Lib": {
+       "n_possibly_active": 0,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 15,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1sorted_D2trainfirst_D3overflow|raw": [
+     {
+      "draw": 0,
+      "n_calib": 1194,
+      "calib_active_used": 1014,
+      "calib_inactive": 180,
+      "SNP-Lib": {
+       "n_possibly_active": 15,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 3540,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1194,
+      "calib_active_used": 1014,
+      "calib_inactive": 180,
+      "SNP-Lib": {
+       "n_possibly_active": 15,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 3540,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1sorted_D2trainfirst_D3overflow|balanced": [
+     {
+      "draw": 0,
+      "n_calib": 1194,
+      "calib_active_used": 180,
+      "calib_inactive": 180,
+      "SNP-Lib": {
+       "n_possibly_active": 14,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 3261,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1194,
+      "calib_active_used": 180,
+      "calib_inactive": 180,
+      "SNP-Lib": {
+       "n_possibly_active": 14,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 3261,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1sorted_D2trainfirst_D3divert|raw": [
+     {
+      "draw": 0,
+      "n_calib": 1194,
+      "calib_active_used": 1014,
+      "calib_inactive": 180,
+      "SNP-Lib": {
+       "n_possibly_active": 15,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 3540,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1194,
+      "calib_active_used": 1014,
+      "calib_inactive": 180,
+      "SNP-Lib": {
+       "n_possibly_active": 15,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 3540,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1sorted_D2trainfirst_D3divert|balanced": [
+     {
+      "draw": 0,
+      "n_calib": 1194,
+      "calib_active_used": 180,
+      "calib_inactive": 180,
+      "SNP-Lib": {
+       "n_possibly_active": 14,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 3261,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1194,
+      "calib_active_used": 180,
+      "calib_inactive": 180,
+      "SNP-Lib": {
+       "n_possibly_active": 14,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 3261,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ]
+   },
+   "summary": {
+    "D1shuffle_D2testfirst_D3overflow|raw": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 28,
+      "min": 28,
+      "max": 28,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 3334,
+      "min": 3334,
+      "max": 3334,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1217,
+     "calib_active_used": 1085,
+     "calib_inactive": 132
+    },
+    "D1shuffle_D2testfirst_D3overflow|balanced": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 76,
+      "min": 76,
+      "max": 76,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 4785,
+      "min": 4785,
+      "max": 4785,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1217,
+     "calib_active_used": 132,
+     "calib_inactive": 132
+    },
+    "D1shuffle_D2testfirst_D3divert|raw": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 49,
+      "min": 49,
+      "max": 49,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 3346,
+      "min": 3346,
+      "max": 3346,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1194,
+     "calib_active_used": 1060,
+     "calib_inactive": 134
+    },
+    "D1shuffle_D2testfirst_D3divert|balanced": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 112,
+      "min": 112,
+      "max": 112,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 4723,
+      "min": 4723,
+      "max": 4723,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1194,
+     "calib_active_used": 134,
+     "calib_inactive": 134
+    },
+    "D1shuffle_D2trainfirst_D3overflow|raw": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 12,
+      "min": 12,
+      "max": 12,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 2391,
+      "min": 2391,
+      "max": 2391,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1194,
+     "calib_active_used": 1041,
+     "calib_inactive": 153
+    },
+    "D1shuffle_D2trainfirst_D3overflow|balanced": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 27,
+      "min": 27,
+      "max": 27,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 3053,
+      "min": 3053,
+      "max": 3053,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1194,
+     "calib_active_used": 153,
+     "calib_inactive": 153
+    },
+    "D1shuffle_D2trainfirst_D3divert|raw": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 12,
+      "min": 12,
+      "max": 12,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 2391,
+      "min": 2391,
+      "max": 2391,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1194,
+     "calib_active_used": 1041,
+     "calib_inactive": 153
+    },
+    "D1shuffle_D2trainfirst_D3divert|balanced": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 27,
+      "min": 27,
+      "max": 27,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 3053,
+      "min": 3053,
+      "max": 3053,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1194,
+     "calib_active_used": 153,
+     "calib_inactive": 153
+    },
+    "D1sorted_D2testfirst_D3overflow|raw": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 7,
+      "min": 7,
+      "max": 7,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 522,
+      "min": 522,
+      "max": 522,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1194,
+     "calib_active_used": 1114,
+     "calib_inactive": 80
+    },
+    "D1sorted_D2testfirst_D3overflow|balanced": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 15,
+      "min": 15,
+      "max": 15,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1194,
+     "calib_active_used": 80,
+     "calib_inactive": 80
+    },
+    "D1sorted_D2testfirst_D3divert|raw": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 7,
+      "min": 7,
+      "max": 7,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 522,
+      "min": 522,
+      "max": 522,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1194,
+     "calib_active_used": 1114,
+     "calib_inactive": 80
+    },
+    "D1sorted_D2testfirst_D3divert|balanced": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 15,
+      "min": 15,
+      "max": 15,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1194,
+     "calib_active_used": 80,
+     "calib_inactive": 80
+    },
+    "D1sorted_D2trainfirst_D3overflow|raw": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 15,
+      "min": 15,
+      "max": 15,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 3540,
+      "min": 3540,
+      "max": 3540,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1194,
+     "calib_active_used": 1014,
+     "calib_inactive": 180
+    },
+    "D1sorted_D2trainfirst_D3overflow|balanced": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 14,
+      "min": 14,
+      "max": 14,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 3261,
+      "min": 3261,
+      "max": 3261,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1194,
+     "calib_active_used": 180,
+     "calib_inactive": 180
+    },
+    "D1sorted_D2trainfirst_D3divert|raw": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 15,
+      "min": 15,
+      "max": 15,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 3540,
+      "min": 3540,
+      "max": 3540,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1194,
+     "calib_active_used": 1014,
+     "calib_inactive": 180
+    },
+    "D1sorted_D2trainfirst_D3divert|balanced": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 14,
+      "min": 14,
+      "max": 14,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 3261,
+      "min": 3261,
+      "max": 3261,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1194,
+     "calib_active_used": 180,
+     "calib_inactive": 180
+    }
+   }
+  },
+  "B": {
+   "per_draw": {
+    "D1shuffle_D2testfirst_D3overflow|raw": [
+     {
+      "draw": 0,
+      "n_calib": 1360,
+      "calib_active_used": 1100,
+      "calib_inactive": 260,
+      "SNP-Lib": {
+       "n_possibly_active": 1,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 269,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1360,
+      "calib_active_used": 1100,
+      "calib_inactive": 260,
+      "SNP-Lib": {
+       "n_possibly_active": 1,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 269,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1shuffle_D2testfirst_D3overflow|balanced": [
+     {
+      "draw": 0,
+      "n_calib": 1360,
+      "calib_active_used": 260,
+      "calib_inactive": 260,
+      "SNP-Lib": {
+       "n_possibly_active": 8,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 759,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1360,
+      "calib_active_used": 260,
+      "calib_inactive": 260,
+      "SNP-Lib": {
+       "n_possibly_active": 8,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 759,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1shuffle_D2testfirst_D3divert|raw": [
+     {
+      "draw": 0,
+      "n_calib": 1341,
+      "calib_active_used": 1093,
+      "calib_inactive": 248,
+      "SNP-Lib": {
+       "n_possibly_active": 0,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 7,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1341,
+      "calib_active_used": 1093,
+      "calib_inactive": 248,
+      "SNP-Lib": {
+       "n_possibly_active": 0,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 7,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1shuffle_D2testfirst_D3divert|balanced": [
+     {
+      "draw": 0,
+      "n_calib": 1341,
+      "calib_active_used": 248,
+      "calib_inactive": 248,
+      "SNP-Lib": {
+       "n_possibly_active": 0,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 8,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1341,
+      "calib_active_used": 248,
+      "calib_inactive": 248,
+      "SNP-Lib": {
+       "n_possibly_active": 0,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 8,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1shuffle_D2trainfirst_D3overflow|raw": [
+     {
+      "draw": 0,
+      "n_calib": 1340,
+      "calib_active_used": 1048,
+      "calib_inactive": 292,
+      "SNP-Lib": {
+       "n_possibly_active": 24,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 1900,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1340,
+      "calib_active_used": 1048,
+      "calib_inactive": 292,
+      "SNP-Lib": {
+       "n_possibly_active": 24,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 1900,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1shuffle_D2trainfirst_D3overflow|balanced": [
+     {
+      "draw": 0,
+      "n_calib": 1340,
+      "calib_active_used": 292,
+      "calib_inactive": 292,
+      "SNP-Lib": {
+       "n_possibly_active": 73,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 3762,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1340,
+      "calib_active_used": 292,
+      "calib_inactive": 292,
+      "SNP-Lib": {
+       "n_possibly_active": 73,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 3762,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1shuffle_D2trainfirst_D3divert|raw": [
+     {
+      "draw": 0,
+      "n_calib": 1341,
+      "calib_active_used": 1049,
+      "calib_inactive": 292,
+      "SNP-Lib": {
+       "n_possibly_active": 33,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 2634,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1341,
+      "calib_active_used": 1049,
+      "calib_inactive": 292,
+      "SNP-Lib": {
+       "n_possibly_active": 33,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 2634,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1shuffle_D2trainfirst_D3divert|balanced": [
+     {
+      "draw": 0,
+      "n_calib": 1341,
+      "calib_active_used": 292,
+      "calib_inactive": 292,
+      "SNP-Lib": {
+       "n_possibly_active": 147,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 4770,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1341,
+      "calib_active_used": 292,
+      "calib_inactive": 292,
+      "SNP-Lib": {
+       "n_possibly_active": 147,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 4770,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1sorted_D2testfirst_D3overflow|raw": [
+     {
+      "draw": 0,
+      "n_calib": 1346,
+      "calib_active_used": 1172,
+      "calib_inactive": 174,
+      "SNP-Lib": {
+       "n_possibly_active": 6,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 839,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1346,
+      "calib_active_used": 1172,
+      "calib_inactive": 174,
+      "SNP-Lib": {
+       "n_possibly_active": 6,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 839,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1sorted_D2testfirst_D3overflow|balanced": [
+     {
+      "draw": 0,
+      "n_calib": 1346,
+      "calib_active_used": 174,
+      "calib_inactive": 174,
+      "SNP-Lib": {
+       "n_possibly_active": 1,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 119,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1346,
+      "calib_active_used": 174,
+      "calib_inactive": 174,
+      "SNP-Lib": {
+       "n_possibly_active": 1,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 119,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1sorted_D2testfirst_D3divert|raw": [
+     {
+      "draw": 0,
+      "n_calib": 1341,
+      "calib_active_used": 1168,
+      "calib_inactive": 173,
+      "SNP-Lib": {
+       "n_possibly_active": 15,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 1486,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1341,
+      "calib_active_used": 1168,
+      "calib_inactive": 173,
+      "SNP-Lib": {
+       "n_possibly_active": 15,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 1486,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1sorted_D2testfirst_D3divert|balanced": [
+     {
+      "draw": 0,
+      "n_calib": 1341,
+      "calib_active_used": 173,
+      "calib_inactive": 173,
+      "SNP-Lib": {
+       "n_possibly_active": 23,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 2374,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1341,
+      "calib_active_used": 173,
+      "calib_inactive": 173,
+      "SNP-Lib": {
+       "n_possibly_active": 23,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 2374,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1sorted_D2trainfirst_D3overflow|raw": [
+     {
+      "draw": 0,
+      "n_calib": 1341,
+      "calib_active_used": 1017,
+      "calib_inactive": 324,
+      "SNP-Lib": {
+       "n_possibly_active": 0,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 88,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1341,
+      "calib_active_used": 1017,
+      "calib_inactive": 324,
+      "SNP-Lib": {
+       "n_possibly_active": 0,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 88,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1sorted_D2trainfirst_D3overflow|balanced": [
+     {
+      "draw": 0,
+      "n_calib": 1341,
+      "calib_active_used": 324,
+      "calib_inactive": 324,
+      "SNP-Lib": {
+       "n_possibly_active": 0,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 24,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1341,
+      "calib_active_used": 324,
+      "calib_inactive": 324,
+      "SNP-Lib": {
+       "n_possibly_active": 0,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 24,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1sorted_D2trainfirst_D3divert|raw": [
+     {
+      "draw": 0,
+      "n_calib": 1341,
+      "calib_active_used": 1017,
+      "calib_inactive": 324,
+      "SNP-Lib": {
+       "n_possibly_active": 0,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 88,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1341,
+      "calib_active_used": 1017,
+      "calib_inactive": 324,
+      "SNP-Lib": {
+       "n_possibly_active": 0,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 88,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1sorted_D2trainfirst_D3divert|balanced": [
+     {
+      "draw": 0,
+      "n_calib": 1341,
+      "calib_active_used": 324,
+      "calib_inactive": 324,
+      "SNP-Lib": {
+       "n_possibly_active": 0,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 24,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1341,
+      "calib_active_used": 324,
+      "calib_inactive": 324,
+      "SNP-Lib": {
+       "n_possibly_active": 0,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 24,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ]
+   },
+   "summary": {
+    "D1shuffle_D2testfirst_D3overflow|raw": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 1,
+      "min": 1,
+      "max": 1,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 269,
+      "min": 269,
+      "max": 269,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1360,
+     "calib_active_used": 1100,
+     "calib_inactive": 260
+    },
+    "D1shuffle_D2testfirst_D3overflow|balanced": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 8,
+      "min": 8,
+      "max": 8,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 759,
+      "min": 759,
+      "max": 759,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1360,
+     "calib_active_used": 260,
+     "calib_inactive": 260
+    },
+    "D1shuffle_D2testfirst_D3divert|raw": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 7,
+      "min": 7,
+      "max": 7,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1341,
+     "calib_active_used": 1093,
+     "calib_inactive": 248
+    },
+    "D1shuffle_D2testfirst_D3divert|balanced": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 8,
+      "min": 8,
+      "max": 8,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1341,
+     "calib_active_used": 248,
+     "calib_inactive": 248
+    },
+    "D1shuffle_D2trainfirst_D3overflow|raw": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 24,
+      "min": 24,
+      "max": 24,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 1900,
+      "min": 1900,
+      "max": 1900,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1340,
+     "calib_active_used": 1048,
+     "calib_inactive": 292
+    },
+    "D1shuffle_D2trainfirst_D3overflow|balanced": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 73,
+      "min": 73,
+      "max": 73,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 3762,
+      "min": 3762,
+      "max": 3762,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1340,
+     "calib_active_used": 292,
+     "calib_inactive": 292
+    },
+    "D1shuffle_D2trainfirst_D3divert|raw": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 33,
+      "min": 33,
+      "max": 33,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 2634,
+      "min": 2634,
+      "max": 2634,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1341,
+     "calib_active_used": 1049,
+     "calib_inactive": 292
+    },
+    "D1shuffle_D2trainfirst_D3divert|balanced": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 147,
+      "min": 147,
+      "max": 147,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 4770,
+      "min": 4770,
+      "max": 4770,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1341,
+     "calib_active_used": 292,
+     "calib_inactive": 292
+    },
+    "D1sorted_D2testfirst_D3overflow|raw": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 6,
+      "min": 6,
+      "max": 6,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 839,
+      "min": 839,
+      "max": 839,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1346,
+     "calib_active_used": 1172,
+     "calib_inactive": 174
+    },
+    "D1sorted_D2testfirst_D3overflow|balanced": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 1,
+      "min": 1,
+      "max": 1,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 119,
+      "min": 119,
+      "max": 119,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1346,
+     "calib_active_used": 174,
+     "calib_inactive": 174
+    },
+    "D1sorted_D2testfirst_D3divert|raw": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 15,
+      "min": 15,
+      "max": 15,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 1486,
+      "min": 1486,
+      "max": 1486,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1341,
+     "calib_active_used": 1168,
+     "calib_inactive": 173
+    },
+    "D1sorted_D2testfirst_D3divert|balanced": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 23,
+      "min": 23,
+      "max": 23,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 2374,
+      "min": 2374,
+      "max": 2374,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1341,
+     "calib_active_used": 173,
+     "calib_inactive": 173
+    },
+    "D1sorted_D2trainfirst_D3overflow|raw": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 88,
+      "min": 88,
+      "max": 88,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1341,
+     "calib_active_used": 1017,
+     "calib_inactive": 324
+    },
+    "D1sorted_D2trainfirst_D3overflow|balanced": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 24,
+      "min": 24,
+      "max": 24,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1341,
+     "calib_active_used": 324,
+     "calib_inactive": 324
+    },
+    "D1sorted_D2trainfirst_D3divert|raw": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 88,
+      "min": 88,
+      "max": 88,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1341,
+     "calib_active_used": 1017,
+     "calib_inactive": 324
+    },
+    "D1sorted_D2trainfirst_D3divert|balanced": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 24,
+      "min": 24,
+      "max": 24,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1341,
+     "calib_active_used": 324,
+     "calib_inactive": 324
+    }
+   }
+  },
+  "K": {
+   "per_draw": {
+    "D1shuffle_D2testfirst_D3overflow|raw": [
+     {
+      "draw": 0,
+      "n_calib": 1084,
+      "calib_active_used": 823,
+      "calib_inactive": 261,
+      "SNP-Lib": {
+       "n_possibly_active": 23,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 1352,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1084,
+      "calib_active_used": 823,
+      "calib_inactive": 261,
+      "SNP-Lib": {
+       "n_possibly_active": 23,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 1352,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1shuffle_D2testfirst_D3overflow|balanced": [
+     {
+      "draw": 0,
+      "n_calib": 1084,
+      "calib_active_used": 261,
+      "calib_inactive": 261,
+      "SNP-Lib": {
+       "n_possibly_active": 23,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 1352,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1084,
+      "calib_active_used": 261,
+      "calib_inactive": 261,
+      "SNP-Lib": {
+       "n_possibly_active": 23,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 1352,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1shuffle_D2testfirst_D3divert|raw": [
+     {
+      "draw": 0,
+      "n_calib": 1084,
+      "calib_active_used": 823,
+      "calib_inactive": 261,
+      "SNP-Lib": {
+       "n_possibly_active": 23,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 1352,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1084,
+      "calib_active_used": 823,
+      "calib_inactive": 261,
+      "SNP-Lib": {
+       "n_possibly_active": 23,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 1352,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1shuffle_D2testfirst_D3divert|balanced": [
+     {
+      "draw": 0,
+      "n_calib": 1084,
+      "calib_active_used": 261,
+      "calib_inactive": 261,
+      "SNP-Lib": {
+       "n_possibly_active": 23,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 1352,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1084,
+      "calib_active_used": 261,
+      "calib_inactive": 261,
+      "SNP-Lib": {
+       "n_possibly_active": 23,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 1352,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1shuffle_D2trainfirst_D3overflow|raw": [
+     {
+      "draw": 0,
+      "n_calib": 1078,
+      "calib_active_used": 759,
+      "calib_inactive": 319,
+      "SNP-Lib": {
+       "n_possibly_active": 79,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 3208,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1078,
+      "calib_active_used": 759,
+      "calib_inactive": 319,
+      "SNP-Lib": {
+       "n_possibly_active": 79,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 3208,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1shuffle_D2trainfirst_D3overflow|balanced": [
+     {
+      "draw": 0,
+      "n_calib": 1078,
+      "calib_active_used": 319,
+      "calib_inactive": 319,
+      "SNP-Lib": {
+       "n_possibly_active": 48,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 2544,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1078,
+      "calib_active_used": 319,
+      "calib_inactive": 319,
+      "SNP-Lib": {
+       "n_possibly_active": 48,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 2544,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1shuffle_D2trainfirst_D3divert|raw": [
+     {
+      "draw": 0,
+      "n_calib": 1084,
+      "calib_active_used": 779,
+      "calib_inactive": 305,
+      "SNP-Lib": {
+       "n_possibly_active": 32,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 1101,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1084,
+      "calib_active_used": 779,
+      "calib_inactive": 305,
+      "SNP-Lib": {
+       "n_possibly_active": 32,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 1101,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1shuffle_D2trainfirst_D3divert|balanced": [
+     {
+      "draw": 0,
+      "n_calib": 1084,
+      "calib_active_used": 305,
+      "calib_inactive": 305,
+      "SNP-Lib": {
+       "n_possibly_active": 41,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 1954,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1084,
+      "calib_active_used": 305,
+      "calib_inactive": 305,
+      "SNP-Lib": {
+       "n_possibly_active": 41,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 1954,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1sorted_D2testfirst_D3overflow|raw": [
+     {
+      "draw": 0,
+      "n_calib": 1097,
+      "calib_active_used": 927,
+      "calib_inactive": 170,
+      "SNP-Lib": {
+       "n_possibly_active": 38,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 2025,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1097,
+      "calib_active_used": 927,
+      "calib_inactive": 170,
+      "SNP-Lib": {
+       "n_possibly_active": 38,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 2025,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1sorted_D2testfirst_D3overflow|balanced": [
+     {
+      "draw": 0,
+      "n_calib": 1097,
+      "calib_active_used": 170,
+      "calib_inactive": 170,
+      "SNP-Lib": {
+       "n_possibly_active": 38,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 2025,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1097,
+      "calib_active_used": 170,
+      "calib_inactive": 170,
+      "SNP-Lib": {
+       "n_possibly_active": 38,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 2025,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1sorted_D2testfirst_D3divert|raw": [
+     {
+      "draw": 0,
+      "n_calib": 1084,
+      "calib_active_used": 909,
+      "calib_inactive": 175,
+      "SNP-Lib": {
+       "n_possibly_active": 97,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 3986,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1084,
+      "calib_active_used": 909,
+      "calib_inactive": 175,
+      "SNP-Lib": {
+       "n_possibly_active": 97,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 3986,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1sorted_D2testfirst_D3divert|balanced": [
+     {
+      "draw": 0,
+      "n_calib": 1084,
+      "calib_active_used": 175,
+      "calib_inactive": 175,
+      "SNP-Lib": {
+       "n_possibly_active": 87,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 3742,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1084,
+      "calib_active_used": 175,
+      "calib_inactive": 175,
+      "SNP-Lib": {
+       "n_possibly_active": 87,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 3742,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1sorted_D2trainfirst_D3overflow|raw": [
+     {
+      "draw": 0,
+      "n_calib": 1084,
+      "calib_active_used": 814,
+      "calib_inactive": 270,
+      "SNP-Lib": {
+       "n_possibly_active": 6,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 2235,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1084,
+      "calib_active_used": 814,
+      "calib_inactive": 270,
+      "SNP-Lib": {
+       "n_possibly_active": 6,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 2235,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1sorted_D2trainfirst_D3overflow|balanced": [
+     {
+      "draw": 0,
+      "n_calib": 1084,
+      "calib_active_used": 270,
+      "calib_inactive": 270,
+      "SNP-Lib": {
+       "n_possibly_active": 6,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 1965,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1084,
+      "calib_active_used": 270,
+      "calib_inactive": 270,
+      "SNP-Lib": {
+       "n_possibly_active": 6,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 1965,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1sorted_D2trainfirst_D3divert|raw": [
+     {
+      "draw": 0,
+      "n_calib": 1084,
+      "calib_active_used": 814,
+      "calib_inactive": 270,
+      "SNP-Lib": {
+       "n_possibly_active": 6,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 2235,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1084,
+      "calib_active_used": 814,
+      "calib_inactive": 270,
+      "SNP-Lib": {
+       "n_possibly_active": 6,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 2235,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ],
+    "D1sorted_D2trainfirst_D3divert|balanced": [
+     {
+      "draw": 0,
+      "n_calib": 1084,
+      "calib_active_used": 270,
+      "calib_inactive": 270,
+      "SNP-Lib": {
+       "n_possibly_active": 6,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 1965,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     },
+     {
+      "draw": 1,
+      "n_calib": 1084,
+      "calib_active_used": 270,
+      "calib_inactive": 270,
+      "SNP-Lib": {
+       "n_possibly_active": 6,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      },
+      "NP-library": {
+       "n_possibly_active": 1965,
+       "n_in_domain": 0,
+       "n_possibly_active_in_domain": 0
+      }
+     }
+    ]
+   },
+   "summary": {
+    "D1shuffle_D2testfirst_D3overflow|raw": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 23,
+      "min": 23,
+      "max": 23,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 1352,
+      "min": 1352,
+      "max": 1352,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1084,
+     "calib_active_used": 823,
+     "calib_inactive": 261
+    },
+    "D1shuffle_D2testfirst_D3overflow|balanced": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 23,
+      "min": 23,
+      "max": 23,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 1352,
+      "min": 1352,
+      "max": 1352,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1084,
+     "calib_active_used": 261,
+     "calib_inactive": 261
+    },
+    "D1shuffle_D2testfirst_D3divert|raw": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 23,
+      "min": 23,
+      "max": 23,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 1352,
+      "min": 1352,
+      "max": 1352,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1084,
+     "calib_active_used": 823,
+     "calib_inactive": 261
+    },
+    "D1shuffle_D2testfirst_D3divert|balanced": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 23,
+      "min": 23,
+      "max": 23,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 1352,
+      "min": 1352,
+      "max": 1352,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1084,
+     "calib_active_used": 261,
+     "calib_inactive": 261
+    },
+    "D1shuffle_D2trainfirst_D3overflow|raw": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 79,
+      "min": 79,
+      "max": 79,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 3208,
+      "min": 3208,
+      "max": 3208,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1078,
+     "calib_active_used": 759,
+     "calib_inactive": 319
+    },
+    "D1shuffle_D2trainfirst_D3overflow|balanced": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 48,
+      "min": 48,
+      "max": 48,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 2544,
+      "min": 2544,
+      "max": 2544,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1078,
+     "calib_active_used": 319,
+     "calib_inactive": 319
+    },
+    "D1shuffle_D2trainfirst_D3divert|raw": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 32,
+      "min": 32,
+      "max": 32,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 1101,
+      "min": 1101,
+      "max": 1101,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1084,
+     "calib_active_used": 779,
+     "calib_inactive": 305
+    },
+    "D1shuffle_D2trainfirst_D3divert|balanced": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 41,
+      "min": 41,
+      "max": 41,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 1954,
+      "min": 1954,
+      "max": 1954,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1084,
+     "calib_active_used": 305,
+     "calib_inactive": 305
+    },
+    "D1sorted_D2testfirst_D3overflow|raw": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 38,
+      "min": 38,
+      "max": 38,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 2025,
+      "min": 2025,
+      "max": 2025,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1097,
+     "calib_active_used": 927,
+     "calib_inactive": 170
+    },
+    "D1sorted_D2testfirst_D3overflow|balanced": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 38,
+      "min": 38,
+      "max": 38,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 2025,
+      "min": 2025,
+      "max": 2025,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1097,
+     "calib_active_used": 170,
+     "calib_inactive": 170
+    },
+    "D1sorted_D2testfirst_D3divert|raw": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 97,
+      "min": 97,
+      "max": 97,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 3986,
+      "min": 3986,
+      "max": 3986,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1084,
+     "calib_active_used": 909,
+     "calib_inactive": 175
+    },
+    "D1sorted_D2testfirst_D3divert|balanced": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 87,
+      "min": 87,
+      "max": 87,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 3742,
+      "min": 3742,
+      "max": 3742,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1084,
+     "calib_active_used": 175,
+     "calib_inactive": 175
+    },
+    "D1sorted_D2trainfirst_D3overflow|raw": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 6,
+      "min": 6,
+      "max": 6,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 2235,
+      "min": 2235,
+      "max": 2235,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1084,
+     "calib_active_used": 814,
+     "calib_inactive": 270
+    },
+    "D1sorted_D2trainfirst_D3overflow|balanced": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 6,
+      "min": 6,
+      "max": 6,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 1965,
+      "min": 1965,
+      "max": 1965,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1084,
+     "calib_active_used": 270,
+     "calib_inactive": 270
+    },
+    "D1sorted_D2trainfirst_D3divert|raw": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 6,
+      "min": 6,
+      "max": 6,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 2235,
+      "min": 2235,
+      "max": 2235,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1084,
+     "calib_active_used": 814,
+     "calib_inactive": 270
+    },
+    "D1sorted_D2trainfirst_D3divert|balanced": {
+     "SNP-Lib.n_possibly_active": {
+      "value": 6,
+      "min": 6,
+      "max": 6,
+      "invariant": true
+     },
+     "SNP-Lib.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "SNP-Lib.n_in_domain": 0,
+     "NP-library.n_possibly_active": {
+      "value": 1965,
+      "min": 1965,
+      "max": 1965,
+      "invariant": true
+     },
+     "NP-library.n_possibly_active_in_domain": {
+      "value": 0,
+      "min": 0,
+      "max": 0,
+      "invariant": true
+     },
+     "NP-library.n_in_domain": 0,
+     "n_calib": 1084,
+     "calib_active_used": 270,
+     "calib_inactive": 270
+    }
+   }
+  }
+ },
+ "grading": {
+  "U1_Ki_only_does_not_collapse": {
+   "arm_K_span": [
+    1101,
+    3986,
+    3.62
+   ],
+   "verdict": "MISSED"
+  },
+  "U2_balance_does_not_collapse": {
+   "spans_balanced": {
+    "A": [
+     15,
+     4785,
+     319.0
+    ],
+    "B": [
+     8,
+     4770,
+     596.25
+    ],
+    "K": [
+     1352,
+     3742,
+     2.77
+    ]
+   },
+   "spans_raw": {
+    "A": [
+     522,
+     3540,
+     6.78
+    ],
+    "B": [
+     7,
+     2634,
+     376.29
+    ],
+    "K": [
+     1101,
+     3986,
+     3.62
+    ]
+   },
+   "arms_collapsed": 1,
+   "verdict": "MET"
+  },
+  "U3_in_domain_does_not_collapse": {
+   "spans_in_domain": {
+    "A": [
+     0,
+     0,
+     0.0
+    ],
+    "B": [
+     0,
+     0,
+     0.0
+    ],
+    "K": [
+     0,
+     0,
+     0.0
+    ]
+   },
+   "arms_collapsed": 3,
+   "verdict": "MISSED"
+  },
+  "U4_label_source_moves_answer": {
+   "arm_B_principled": 88,
+   "arm_K_principled": 2235,
+   "pct_diff": 2439.8,
+   "verdict": "MET"
+  }
+ },
+ "seconds": 63.1
+}

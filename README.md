@@ -1,7 +1,7 @@
 # Agentic virtual screening against the adenosine A2A receptor
 
 Code and verification data accompanying the manuscript
-*"Agentic virtual screening against the adenosine A2A receptor: verification of the agent-generated code as a reportable result"*, submitted to *Artificial Intelligence in Medicine*.
+*"Auditing LLM-agent-generated computational drug-discovery workflows with executable contracts: fault detection and decision stability in an A2A receptor natural-product virtual screen"*, submitted to *Artificial Intelligence in Medicine*.
 
 **Every candidate compound reported in the manuscript is a computational
 hypothesis. No wet-laboratory validation has been performed.**
@@ -39,7 +39,29 @@ be checked rather than taken on trust:
 | `pipeline/kdss_audit/` | The append-only artifact registry |
 | `verification/` | The evidence behind Sections 2 and 3, copied as the analysis read it |
 | `figures/` | Figure sources and their provenance records |
+| `extension/` | The post-freeze extension (ADR-AIIM-285 onward, added 2026-10-09): the runs behind Section 3.8 of the manuscript and Section 17 of its supplement, as scripts, series, tables, ligand parameter files and machine-readable results |
 | `MANIFEST.json` | SHA-256 of every file, plus what was excluded and why |
+
+### Figure files and the manuscript's figure numbers
+
+The files under `figures/` keep the numbers they were given when they were made,
+which are not the manuscript's. Current correspondence:
+
+| Manuscript figure | File |
+|---|---|
+| 1, architecture | `figures/figure1_architecture_2026-08-21` |
+| 2, inside one gate | `figures/figure2_inside_a_gate_2026-08-21` |
+| 3, screening performance | `figures/figure4_screening_performance_2026-08-24` |
+| 4, applicability domain by representation | `figures/figure_ad_multispace_2026-08-25` |
+| 5, permutation sensitivity | `figures/figure7_permutation_distribution_2026-10-02` |
+| 6, orthogonal pose comparison (A the control, B and C SNP00157 and SNP00163, PyMOL with one camera; D and E the fifteen survivors) | `extension/figures_docking_md_2026-10-09/Figure_6_docking_snplib`; the earlier two-panel version with NPLIB01643: `figures/figure5_pose_overlay_2026-08-24` |
+| 7, membrane simulations over the first 50 ns, with SNP00157 and SNP00163 | `extension/figures_docking_md_2026-10-09/Figure_7_md_snplib`; the earlier version without them: `extension/figure8_window50_2026-10-07` |
+| graphical abstract | `figures/figure_graphical_abstract_2026-08-21` |
+
+Two files are **not** in the current manuscript: `figures/figure6_pose_persistence_2026-08-31`
+is the earlier 100 ns version of Figure 7, and `figures/figure8_m6_panel_canonical_2026-10-02`
+is the source of a figure that was removed (candidate eligibility after canonical ordering).
+They are kept because the manuscript's earlier text cited them.
 
 ## What can be re-run here, and what cannot
 
@@ -102,6 +124,34 @@ only to regenerate poses, which this deposit supplies rather than requires.
 
 ---
 
+## The post-freeze extension
+
+`extension/<run>/` holds the runs that were done after the verification study was
+frozen and that the manuscript reports separately (Section 3.8, Supplementary
+Section 17): the censored-fit reproducibility defect, the eight split
+conventions, the SNP-Lib funnel, Vina docking of the 69 in-domain compounds,
+DiffDock-L on the fifteen survivors and on a DUD-E subsample, the three-run
+molecular-dynamics control, and SNP00157 and SNP00163 in duplicate. Each was
+pre-registered in the decision log with the SHA-256 of its predictions before it
+ran; that log is not deposited, so the pre-registrations are quoted in the
+manuscript and not here.
+
+It is copied from the development tree through an allow-list of suffixes (see
+`EXTENSION_SUFFIX` in `pipeline/scripts/build_deposit.py`): scripts, JSON and CSV
+results, force-field parameter files, `.xvg` series, `.mdp` and `.ndx` files,
+figures. Not deposited: trajectories, run inputs, checkpoints, structures and
+topologies, logs, the 3,685 per-complex pose files of the DUD-E DiffDock subsample
+(the scored table the analysis read is deposited), and the raw ChEMBL pull, which
+the screen refuses and which is a public release.
+
+**These scripts do not resolve their own layout.** They were written against the
+development tree and name their inputs by absolute paths on the first author's
+machine (`D:\Agentic VS Workflow\...`), not through `kdss_paths`. They are
+deposited as they were run, so that what produced each number can be read. Running
+one elsewhere means changing its root, and most also need inputs that are not here
+(the receptor preparations, the trajectories). Their results can be checked
+against each other; they cannot be regenerated from this repository alone.
+
 ## What is deliberately not here
 
 **Inputs that are already archived elsewhere.** Re-depositing them would add a
@@ -116,16 +166,23 @@ with their identifiers in `MANIFEST.json` under
 | DUD-E A2AR decoy set | doi:10.1021/jm300687e |
 | A2AR crystal structures | PDB 4EIY, 5OLH |
 
-**Held-out fault families.** Sealed. They are referenced nowhere in this version
-of the manuscript, which reports development families only, and exposing them
-requires a separate approval that has not been given.
+**Held-out fault families.** Sealed. The manuscript reports the *result* of
+evaluating H01-H05 once (one of five detected, with the root cause of each miss),
+and `verification/heldout_outcome/` holds that summary. The faulted workdirs are
+not deposited, because they would let the cases be reconstructed, and H06-H12 have
+never been exposed or evaluated. Exposing any of that requires a separate approval
+that has not been given.
 
-**Molecular-dynamics trajectories.** The manuscript reports the membrane
-protocol and its positive control, not a candidate result; trajectory files run
-to gigabytes and are available from the corresponding author on request.
+**Molecular-dynamics trajectories.** The manuscript reports exploratory
+membrane simulations of three natural-product candidates and, in the extension, of
+two SNP-Lib compounds, each against the ZM241385 control. The trajectories run to
+gigabytes and are available from the corresponding author on request; the series
+derived from them (ligand RMSD, the N6.55 distance, bilayer box) and the ligand
+parameter files are in `extension/`.
 
-**Pose archives.** Several GB of per-compound docking poses. Available on
-request.
+**Pose archives.** Several GB of per-compound docking poses from the verification
+study, available on request. The extension deposits the Vina poses of the 69
+in-domain SNP-Lib compounds and the DiffDock poses of the fifteen survivors.
 
 ---
 

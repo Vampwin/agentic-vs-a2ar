@@ -1,0 +1,21 @@
+{
+ "adr": "ADR-AIIM-323, ADR-AIIM-326",
+ "date": "2026-10-07",
+ "anchors": {
+  "ladder_equals_md_window50_json": true,
+  "window100_pixel_identical_to_published_Figure_8": true,
+  "pixels_differing": 0
+ },
+ "artifacts": {
+  "analysis/figure8_window50.py": "6b9f64a62e6e35c63a4e92732624b5a4e19c30e602ac9e97eaffcac2f777b244",
+  "Figure_8_50ns.png": "f571b1eac05b2c387f0337c973fedcd2b2f83bbe0f34367866f02cc8e979e9d1",
+  "Figure_8_50ns.svg": "54b0ec5271e41e14e072aa8e10fece13edbbbe5b496fd26d73ba14ff51af2ccf",
+  "Figure_8_50ns_control3.png": "6cf1b61868e88f778ce952fe4cddee7dd03d449e2cc34877042a18c0e0b75e70",
+  "Figure_8_50ns_control3.svg": "c324221cdee0be646b64f69b942deb1085549264365a169b4af63a1a34cda79b",
+  "Figure_8_50ns_control3_provenance.json": "2b5cab371f9b2c490950220e18c7a645434d2d2722a3f8606599a1074c67d873",
+  "Figure_8_50ns_provenance.json": "df3ef1568de73709a9ea353854ccce15baa2335645e15eb0c43374cc6272a504",
+  "run.log": "8ae08ae5fe097589501a93689862e9bc70f23a884865809354a8f515b1e0c9a5",
+  "run_control3.log": "eda8aec70cb0291afb432438afdf79a7f4b2ad01adfed64cc5688d33132db8e8"
+ },
+ "note": "Figure_8_50ns.png draws the control as one run; Figure_8_50ns_control3.png as three (ADR-AIIM-325). Single-control mode reproduces the first with 0 differing pixels."
+}

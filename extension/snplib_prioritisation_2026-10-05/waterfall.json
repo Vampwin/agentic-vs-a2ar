@@ -1,0 +1,38 @@
+{
+ "waterfall": [
+  {
+   "step": 0,
+   "name": "SNP-Lib as standardised by G1",
+   "n": 236
+  },
+  {
+   "step": 1,
+   "name": "gate: Lipinski Ro5 (G1 ledger column)",
+   "n": 157
+  },
+  {
+   "step": 2,
+   "name": "gate: AD >= 0.25",
+   "n": 93,
+   "frameworks": 24
+  },
+  {
+   "step": "2s",
+   "name": "sensitivity only: AD >= 0.2",
+   "n": 143,
+   "frameworks": 35,
+   "note": "reported, not used for selection"
+  }
+ ],
+ "alerts": {
+  "any_pains_or_brenk": 52,
+  "of": 93,
+  "frac": 0.5591,
+  "per_catalog": {
+   "PAINS": 16,
+   "BRENK": 47,
+   "NIH": 9,
+   "CHEMBL": 66
+  }
+ }
+}

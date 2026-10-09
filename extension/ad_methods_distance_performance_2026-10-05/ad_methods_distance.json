@@ -1,0 +1,376 @@
+{
+ "adr": "ADR-AIIM-292",
+ "prereg_sha256": "56e831514329e9f67208f541009f3604c49ceb1a782507d96fce243da611bd26",
+ "log_sha256_at_freeze": "a753eb24a9862fecfe405f084fe9e9a27ff88bd692440a64510f1bba053e7a09",
+ "rdkit_version": "2026.03.3",
+ "curated_set": {
+  "n": 5707,
+  "train": 4566,
+  "held_out": 1141,
+  "held_out_active": 875,
+  "held_out_inactive": 266
+ },
+ "full_heldout_auc": 0.9217,
+ "tier_criterion": {
+  "tier0": "bootstrap 95% CI lower <= 0.50",
+  "tier1": "CI lower > 0.50 and point <= 0.70",
+  "tier2": "CI lower > 0.50 and point > 0.70",
+  "n_bootstrap": 2000
+ },
+ "threshold_convention": "each definition's threshold admits 90% of train; leverage uses Williams h*=3p/n and reports the fraction it admits",
+ "definitions": {
+  "A1_ecfp4_tanimoto_knn": {
+   "threshold": 0.6121570739032326,
+   "kind": "similarity",
+   "np_occupied_range_p1_p99": [
+    0.1738019257674909,
+    0.3335317266347901
+   ],
+   "np_full_range": [
+    0.15128591930352292,
+    0.3919553408795212
+   ],
+   "heldout_range": [
+    0.1642535532731611,
+    0.9030712107786286
+   ],
+   "in_domain": {
+    "held": 622,
+    "held_n": 1141,
+    "NP-library": 0,
+    "NP_n": 5000,
+    "SNP-Lib": 0,
+    "SNP_n": 236
+   },
+   "np_overlap_band": {
+    "n": 95,
+    "active": 30,
+    "inactive": 65,
+    "roc_auc": 0.6808,
+    "ci95": [
+     0.5557,
+     0.7974
+    ],
+    "mcc": 0.2824,
+    "tier": "Tier 1",
+    "delta_vs_full": -0.2409
+   }
+  },
+  "A2_maccs_tanimoto_knn": {
+   "threshold": 0.8505246496825444,
+   "kind": "similarity",
+   "np_occupied_range_p1_p99": [
+    0.5842017052278096,
+    0.9237903225806452
+   ],
+   "np_full_range": [
+    0.5363255369402911,
+    0.95625
+   ],
+   "heldout_range": [
+    0.4852808146028485,
+    1.0
+   ],
+   "in_domain": {
+    "held": 778,
+    "held_n": 1141,
+    "NP-library": 637,
+    "NP_n": 5000,
+    "SNP-Lib": 7,
+    "SNP_n": 236
+   },
+   "np_overlap_band": {
+    "n": 779,
+    "active": 580,
+    "inactive": 199,
+    "roc_auc": 0.9216,
+    "ci95": [
+     0.9015,
+     0.9405
+    ],
+    "mcc": 0.6405,
+    "tier": "Tier 2",
+    "delta_vs_full": -0.0001
+   }
+  },
+  "A3_atompair_tanimoto_knn": {
+   "threshold": 0.6252994614089991,
+   "kind": "similarity",
+   "np_occupied_range_p1_p99": [
+    0.3392199385053568,
+    0.601136509342925
+   ],
+   "np_full_range": [
+    0.3149427573408377,
+    0.729225766741138
+   ],
+   "heldout_range": [
+    0.25730439502869684,
+    0.9227964379701437
+   ],
+   "in_domain": {
+    "held": 752,
+    "held_n": 1141,
+    "NP-library": 27,
+    "NP_n": 5000,
+    "SNP-Lib": 2,
+    "SNP_n": 236
+   },
+   "np_overlap_band": {
+    "n": 310,
+    "active": 195,
+    "inactive": 115,
+    "roc_auc": 0.8722,
+    "ci95": [
+     0.8338,
+     0.9086
+    ],
+    "mcc": 0.5445,
+    "tier": "Tier 2",
+    "delta_vs_full": -0.0495
+   }
+  },
+  "A8_ecfp4_dice_knn": {
+   "threshold": 0.7562259245271468,
+   "kind": "similarity",
+   "np_occupied_range_p1_p99": [
+    0.2957721429058416,
+    0.49966199417542434
+   ],
+   "np_full_range": [
+    0.26280264665914166,
+    0.5627562673880632
+   ],
+   "heldout_range": [
+    0.2821021426695186,
+    0.9485662310844623
+   ],
+   "in_domain": {
+    "held": 630,
+    "held_n": 1141,
+    "NP-library": 0,
+    "NP_n": 5000,
+    "SNP-Lib": 0,
+    "SNP_n": 236
+   },
+   "np_overlap_band": {
+    "n": 97,
+    "active": 31,
+    "inactive": 66,
+    "roc_auc": 0.6862,
+    "ci95": [
+     0.5662,
+     0.7943
+    ],
+    "mcc": 0.2715,
+    "tier": "Tier 1",
+    "delta_vs_full": -0.2355
+   }
+  },
+  "A4_desc_euclid_knn": {
+   "threshold": -0.6623256278482199,
+   "kind": "neg_distance",
+   "np_occupied_range_p1_p99": [
+    -4.486760638485239,
+    -0.378651107008032
+   ],
+   "np_full_range": [
+    -5.5302209023848,
+    -0.12843378311227988
+   ],
+   "heldout_range": [
+    -3.4036795189861144,
+    -0.06043778538557047
+   ],
+   "in_domain": {
+    "held": 629,
+    "held_n": 1141,
+    "NP-library": 485,
+    "NP_n": 5000,
+    "SNP-Lib": 49,
+    "SNP_n": 236
+   },
+   "np_overlap_band": {
+    "n": 935,
+    "active": 694,
+    "inactive": 241,
+    "roc_auc": 0.9231,
+    "ci95": [
+     0.902,
+     0.9424
+    ],
+    "mcc": 0.662,
+    "tier": "Tier 2",
+    "delta_vs_full": 0.0014
+   }
+  },
+  "A5_desc_leverage_williams": {
+   "threshold": -0.005256241787122208,
+   "kind": "neg_leverage",
+   "np_occupied_range_p1_p99": [
+    -0.015761179998112926,
+    -0.0006396410666235059
+   ],
+   "np_full_range": [
+    -0.02364919768043927,
+    -0.0004140111003133176
+   ],
+   "heldout_range": [
+    -0.012640461764035502,
+    -0.00031159302852004536
+   ],
+   "in_domain": {
+    "held": 1110,
+    "held_n": 1141,
+    "NP-library": 2882,
+    "NP_n": 5000,
+    "SNP-Lib": 178,
+    "SNP_n": 236
+   },
+   "np_overlap_band": {
+    "n": 1073,
+    "active": 812,
+    "inactive": 261,
+    "roc_auc": 0.9196,
+    "ci95": [
+     0.8983,
+     0.9382
+    ],
+    "mcc": 0.6537,
+    "tier": "Tier 2",
+    "delta_vs_full": -0.0021
+   },
+   "h_star": 0.005256241787122208,
+   "train_admitted_frac": 0.9761279018834866
+  },
+  "A6_desc_centroid_euclid": {
+   "threshold": -3.8589996767678256,
+   "kind": "neg_distance",
+   "np_occupied_range_p1_p99": [
+    -10.673147243650693,
+    -1.435769687967511
+   ],
+   "np_full_range": [
+    -11.842714061421914,
+    -1.0936088993500883
+   ],
+   "heldout_range": [
+    -12.72215996529674,
+    -0.8730257815725557
+   ],
+   "in_domain": {
+    "held": 1044,
+    "held_n": 1141,
+    "NP-library": 1639,
+    "NP_n": 5000,
+    "SNP-Lib": 155,
+    "SNP_n": 236
+   },
+   "np_overlap_band": {
+    "n": 1028,
+    "active": 769,
+    "inactive": 259,
+    "roc_auc": 0.9205,
+    "ci95": [
+     0.9013,
+     0.9389
+    ],
+    "mcc": 0.6569,
+    "tier": "Tier 2",
+    "delta_vs_full": -0.0012
+   }
+  },
+  "A7_desc_centroid_mahalanobis": {
+   "threshold": -3.635781764362333,
+   "kind": "neg_distance",
+   "np_occupied_range_p1_p99": [
+    -8.48232101145165,
+    -1.7087894747850931
+   ],
+   "np_full_range": [
+    -10.390312190266732,
+    -1.3747584052953825
+   ],
+   "heldout_range": [
+    -7.596295673077911,
+    -1.1926534178855253
+   ],
+   "in_domain": {
+    "held": 979,
+    "held_n": 1141,
+    "NP-library": 1402,
+    "NP_n": 5000,
+    "SNP-Lib": 137,
+    "SNP_n": 236
+   },
+   "np_overlap_band": {
+    "n": 1073,
+    "active": 812,
+    "inactive": 261,
+    "roc_auc": 0.9196,
+    "ci95": [
+     0.8983,
+     0.9382
+    ],
+    "mcc": 0.6537,
+    "tier": "Tier 2",
+    "delta_vs_full": -0.0021
+   }
+  }
+ },
+ "grading": {
+  "X1_degrades_by_gt_0.10": {
+   "band_auc": 0.6808,
+   "full_auc": 0.9217,
+   "delta": -0.2409,
+   "verdict": "MET"
+  },
+  "X2_at_least_tier1_under_A1": {
+   "tier": "Tier 1",
+   "ci95": [
+    0.5557,
+    0.7974
+   ],
+   "verdict": "MET"
+  },
+  "X3_not_tier2_under_A1": {
+   "tier": "Tier 1",
+   "roc_auc": 0.6808,
+   "verdict": "MET"
+  },
+  "X4_definitions_disagree_on_tier": {
+   "tiers": {
+    "A1_ecfp4_tanimoto_knn": "Tier 1",
+    "A2_maccs_tanimoto_knn": "Tier 2",
+    "A3_atompair_tanimoto_knn": "Tier 2",
+    "A8_ecfp4_dice_knn": "Tier 1",
+    "A4_desc_euclid_knn": "Tier 2",
+    "A5_desc_leverage_williams": "Tier 2",
+    "A6_desc_centroid_euclid": "Tier 2",
+    "A7_desc_centroid_mahalanobis": "Tier 2"
+   },
+   "n_distinct": 2,
+   "verdict": "MET"
+  },
+  "X5_descriptor_admits_more_than_fingerprint": {
+   "max_NP_in_domain_fingerprint": 637,
+   "max_NP_in_domain_descriptor": 2882,
+   "per_definition": {
+    "A1_ecfp4_tanimoto_knn": 0,
+    "A2_maccs_tanimoto_knn": 637,
+    "A3_atompair_tanimoto_knn": 27,
+    "A8_ecfp4_dice_knn": 0,
+    "A4_desc_euclid_knn": 485,
+    "A5_desc_leverage_williams": 2882,
+    "A6_desc_centroid_euclid": 1639,
+    "A7_desc_centroid_mahalanobis": 1402
+   },
+   "verdict": "MET"
+  },
+  "X6_not_all_zero": {
+   "any_nonzero": true,
+   "verdict": "MET"
+  }
+ },
+ "seconds": 46.6
+}

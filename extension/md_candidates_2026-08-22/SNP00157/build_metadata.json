@@ -1,0 +1,17 @@
+{
+  "compound_id": "SNP00157",
+  "built": "2026-08-22",
+  "pose_source": "20_new_runs\\snplib_dock_2026-10-06\\poses\\SNP00157.sdf",
+  "pose_sha256": "9b7400e881f74be7d49655d5d02fb9eea4d865a779536557d01d5aeb7af737cc",
+  "pose_rank": 1,
+  "n_poses_available": 10,
+  "pose_taken_verbatim": "no minimisation or manual adjustment; the predicted pose is what the simulation tests",
+  "inchikey": "NPNNKDMSXVRADT-WEVVVXLNSA-N",
+  "identity_checked_against": "e8_np_library_prioritization.csv",
+  "formal_charge": 0,
+  "parmchk2_attn_count": 0,
+  "parmchk2_attn_lines": [],
+  "receptor_source": "20_new_runs\\md_production_2026-08-21\\03_build\\complex.pdb",
+  "receptor_sha256": "d5d53059193116a2129264482ed67fe061a396b48c892d3ed5659903329d827f",
+  "protocol": "identical to the ZM241385 control (Section 2.9); only the ligand differs"
+}

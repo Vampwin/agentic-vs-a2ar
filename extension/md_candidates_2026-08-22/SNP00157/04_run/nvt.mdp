@@ -1,0 +1,26 @@
+integrator              = md
+dt                      = 0.002
+nsteps                  = 125000
+define = -DPOSRES -DPOSRES_FC=1000
+cutoff-scheme           = Verlet
+nstlist                 = 20
+coulombtype             = PME
+rcoulomb                = 1.0
+rvdw                    = 1.0
+DispCorr                = EnerPres
+constraints             = h-bonds
+constraint-algorithm    = LINCS
+lincs-iter              = 1
+lincs-order             = 4
+pbc                     = xyz
+tcoupl                  = V-rescale
+tc-grps                 = Solute Membrane Solvent
+tau-t                   = 1.0 1.0 1.0
+ref-t                   = 310 310 310
+nstlog                  = 5000
+nstenergy               = 5000
+nstxout-compressed      = 25000
+pcoupl                  = no
+gen-vel                 = yes
+gen-temp                = 310
+gen-seed                = 20260822

@@ -1,0 +1,10 @@
+{
+ "adr": "ADR-AIIM-304",
+ "prereg": "ADR-AIIM-303",
+ "date": "2026-10-05",
+ "status": "Run evidence. 10_new_system unmodified; no published number changed.",
+ "sha256": {
+  "analysis/majority_rule_validation.py": "b8d4b1208c8b49b89cbf7bb2d5e46efbf1fd89449699642e4fc8ede890987939",
+  "majority_rule_validation.json": "87208cd231d9bf40f9ea8bfbe14416d88885687ee2dfc77119e49a30e47762f9"
+ }
+}

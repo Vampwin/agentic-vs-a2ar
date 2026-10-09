@@ -1,0 +1,42 @@
+pool,window,rank,uid,source,mean_pred_pki,ad_score,murcko,PAINS,BRENK,NIH,smiles
+A_SNPLib,abs,1,SNP00163,SNP-Lib,5.88,0.2766,C(=Cc1ccccc1)c1ccccc1,-,stilbene,-,COc1cc(O)cc(/C=C/c2cccc(O)c2OC)c1
+A_SNPLib,abs,2,SNP00157,SNP-Lib,5.874,0.3433,O=C(C=Cc1ccccc1)NCCc1ccccc1,-,Michael_acceptor_1,-,COc1cc(/C=C/C(=O)NCCc2ccc(O)cc2)ccc1O
+A_SNPLib,abs,3,SNP00154,SNP-Lib,5.781,0.2529,c1ccc(Cc2cccc3c2CCc2ccccc2-3)cc1,-,-,-,COc1ccc2c(c1)CCc1c(Cc3ccc(O)cc3)c(O)cc(OC)c1-2
+A_SNPLib,abs,4,SNP00010,SNP-Lib,5.768,0.2512,c1ccc2c(c1)CCc1ccccc1-2,-,-,-,COc1cc(O)cc2c1-c1c(O)cccc1CC2
+A_SNPLib,abs,5,SNP00052,SNP-Lib,5.757,0.2506,c1ccc2c(c1)Cc1ccccc1-2,-,-,-,COc1cc(O)cc2c1-c1c(O)cccc1C2O
+A_SNPLib,abs,6,SNP00097,SNP-Lib,5.741,0.3156,O=C1c2ccccc2-c2ccccc21,catechol_A(92),catechol,-,COc1cc2c(c(O)c1O)-c1c(O)cccc1C2=O
+A_SNPLib,abs,7,SNP00142,SNP-Lib,5.668,0.2547,c1ccc2c(c1)ccc1ccccc12,catechol_A(92),Polycyclic_aromatic_hydrocarbon_3; catechol,-,COc1cc2ccc3c(OC)c(O)ccc3c2c(O)c1O
+A_SNPLib,frac,1,SNP00163,SNP-Lib,5.88,0.2766,C(=Cc1ccccc1)c1ccccc1,-,stilbene,-,COc1cc(O)cc(/C=C/c2cccc(O)c2OC)c1
+A_SNPLib,frac,2,SNP00157,SNP-Lib,5.874,0.3433,O=C(C=Cc1ccccc1)NCCc1ccccc1,-,Michael_acceptor_1,-,COc1cc(/C=C/C(=O)NCCc2ccc(O)cc2)ccc1O
+A_SNPLib,frac,3,SNP00087,SNP-Lib,5.745,0.2501,c1ccc2c(c1)CCc1ccccc1-2,-,-,-,COc1cc(O)c2c(c1)CCc1cccc(O)c1-2
+B_NPLib,abs,1,NPLIB03777,NP-library,5.986,0.3176,O=c1cc(-c2ccccc2)oc2ccccc12,-,-,-,COc1cccc(-c2oc3c(OC)c(OC)c(OC)c(O)c3c(=O)c2OC)c1
+B_NPLib,abs,2,NPLIB03312,NP-library,6.049,0.2566,O=c1cc(C=Cc2ccccc2)oc2oc3ccccc3c12,catechol_A(92),catechol,-,COc1c(O)c(O)c2c(oc3oc(C=Cc4ccccc4)cc(=O)c32)c1OC
+B_NPLib,abs,3,NPLIB04268,NP-library,6.01,0.3061,c1ccc(-c2cc3ccccc3o2)cc1,-,Michael_acceptor_1; aldehyde,aldehyde,COc1cc(-c2cc3cc(C=CC=O)cc(OC)c3o2)ccc1O
+B_NPLib,abs,4,NPLIB00951,NP-library,6.231,0.2674,c1ccc(C2CC3OC4CCCOC4Oc4cccc(c43)O2)cc1,-,-,-,COc1ccc([C@@H]2C[C@H]3O[C@H]4[C@H](Oc5c(C)c(O)c(C)c(c53)O2)O[C@@H](CO)[C@@H](O)[C@H]4O)cc1
+B_NPLib,abs,5,NPLIB02177,NP-library,5.904,0.2792,O=C1Oc2ccccc2OC1=Cc1ccccc1,-,Michael_acceptor_1; phenol_ester,-,COc1ccc(/C=C2\Oc3cc(O)cc(O)c3OC2=O)cc1
+B_NPLib,abs,6,NPLIB01969,NP-library,6.015,0.2985,O=c1cc(-c2ccccc2)oc2c(Cc3ccccc3)cccc12,-,-,-,COc1cc(-c2oc3c(Cc4ccccc4O)c(OC)cc(O)c3c(=O)c2OC)ccc1O
+B_NPLib,frac,1,NPLIB00951,NP-library,6.231,0.2674,c1ccc(C2CC3OC4CCCOC4Oc4cccc(c43)O2)cc1,-,-,-,COc1ccc([C@@H]2C[C@H]3O[C@H]4[C@H](Oc5c(C)c(O)c(C)c(c53)O2)O[C@@H](CO)[C@@H](O)[C@H]4O)cc1
+B_NPLib,frac,2,NPLIB03312,NP-library,6.049,0.2566,O=c1cc(C=Cc2ccccc2)oc2oc3ccccc3c12,catechol_A(92),catechol,-,COc1c(O)c(O)c2c(oc3oc(C=Cc4ccccc4)cc(=O)c32)c1OC
+B_NPLib,frac,3,NPLIB01969,NP-library,6.015,0.2985,O=c1cc(-c2ccccc2)oc2c(Cc3ccccc3)cccc12,-,-,-,COc1cc(-c2oc3c(Cc4ccccc4O)c(OC)cc(O)c3c(=O)c2OC)ccc1O
+B_NPLib,frac,4,NPLIB04268,NP-library,6.01,0.3061,c1ccc(-c2cc3ccccc3o2)cc1,-,Michael_acceptor_1; aldehyde,aldehyde,COc1cc(-c2cc3cc(C=CC=O)cc(OC)c3o2)ccc1O
+B_NPLib,frac,5,NPLIB03777,NP-library,5.986,0.3176,O=c1cc(-c2ccccc2)oc2ccccc12,-,-,-,COc1cccc(-c2oc3c(OC)c(OC)c(OC)c(O)c3c(=O)c2OC)c1
+B_NPLib,frac,6,NPLIB02177,NP-library,5.904,0.2792,O=C1Oc2ccccc2OC1=Cc1ccccc1,-,Michael_acceptor_1; phenol_ester,-,COc1ccc(/C=C2\Oc3cc(O)cc(O)c3OC2=O)cc1
+B_NPLib,frac,7,NPLIB02411,NP-library,5.891,0.2574,O=C1C(=Cc2ccccc2)COc2ccccc21,-,Michael_acceptor_1,-,COc1ccc(/C=C2\COc3c(ccc(OC)c3O)C2=O)cc1
+B_NPLib,frac,8,NPLIB01185,NP-library,5.822,0.3074,O=c1cc(-c2ccc3c(c2)OCO3)oc2cc3occc3cc12,-,-,-,COc1c2ccoc2cc2oc(-c3ccc4c(c3)OCO4)cc(=O)c12
+B_NPLib,frac,9,NPLIB03062,NP-library,5.814,0.2618,O=C1Oc2ccc(C(=O)CCc3ccccc3)cc2C1=Cc1ccccc1,catechol_A(92),Michael_acceptor_1; catechol; phenol_ester; stilbene,-,COc1c(C(=O)CCc2ccccc2)c(O)c(O)c2c1C(=Cc1ccccc1)C(=O)O2
+B_NPLib,frac,10,NPLIB04222,NP-library,5.809,0.2805,O=c1c(-c2ccc3c(c2)OCO3)coc2ccccc12,-,isolated_alkene,-,COc1cc2c(=O)c(-c3ccc4c(c3)OCO4)coc2c(CC=C(C)C)c1O
+C_pooled,abs,1,NPLIB00377,NP-library,6.049,0.2566,O=c1cc(C=Cc2ccccc2)oc2oc3ccccc3c12,catechol_A(92),catechol,-,COc1c(O)c(O)c2c(oc3oc(/C=C/c4ccccc4)cc(=O)c32)c1OC
+C_pooled,abs,2,NPLIB00367,NP-library,6.231,0.2674,c1ccc(C2CC3OC4CCCOC4Oc4cccc(c43)O2)cc1,-,-,-,COc1ccc([C@@H]2C[C@@H]3O[C@H]4[C@H](Oc5c(C)c(O)c(C)c(c53)O2)O[C@H](CO)[C@@H](O)[C@@H]4O)cc1
+C_pooled,abs,3,NPLIB04268,NP-library,6.01,0.3061,c1ccc(-c2cc3ccccc3o2)cc1,-,Michael_acceptor_1; aldehyde,aldehyde,COc1cc(-c2cc3cc(C=CC=O)cc(OC)c3o2)ccc1O
+C_pooled,abs,4,NPLIB03777,NP-library,5.986,0.3176,O=c1cc(-c2ccccc2)oc2ccccc12,-,-,-,COc1cccc(-c2oc3c(OC)c(OC)c(OC)c(O)c3c(=O)c2OC)c1
+C_pooled,abs,5,NPLIB02177,NP-library,5.904,0.2792,O=C1Oc2ccccc2OC1=Cc1ccccc1,-,Michael_acceptor_1; phenol_ester,-,COc1ccc(/C=C2\Oc3cc(O)cc(O)c3OC2=O)cc1
+C_pooled,frac,1,NPLIB00367,NP-library,6.231,0.2674,c1ccc(C2CC3OC4CCCOC4Oc4cccc(c43)O2)cc1,-,-,-,COc1ccc([C@@H]2C[C@@H]3O[C@H]4[C@H](Oc5c(C)c(O)c(C)c(c53)O2)O[C@H](CO)[C@@H](O)[C@@H]4O)cc1
+C_pooled,frac,2,NPLIB00377,NP-library,6.049,0.2566,O=c1cc(C=Cc2ccccc2)oc2oc3ccccc3c12,catechol_A(92),catechol,-,COc1c(O)c(O)c2c(oc3oc(/C=C/c4ccccc4)cc(=O)c32)c1OC
+C_pooled,frac,3,NPLIB01969,NP-library,6.015,0.2985,O=c1cc(-c2ccccc2)oc2c(Cc3ccccc3)cccc12,-,-,-,COc1cc(-c2oc3c(Cc4ccccc4O)c(OC)cc(O)c3c(=O)c2OC)ccc1O
+C_pooled,frac,4,NPLIB04268,NP-library,6.01,0.3061,c1ccc(-c2cc3ccccc3o2)cc1,-,Michael_acceptor_1; aldehyde,aldehyde,COc1cc(-c2cc3cc(C=CC=O)cc(OC)c3o2)ccc1O
+C_pooled,frac,5,NPLIB03777,NP-library,5.986,0.3176,O=c1cc(-c2ccccc2)oc2ccccc12,-,-,-,COc1cccc(-c2oc3c(OC)c(OC)c(OC)c(O)c3c(=O)c2OC)c1
+C_pooled,frac,6,NPLIB02177,NP-library,5.904,0.2792,O=C1Oc2ccccc2OC1=Cc1ccccc1,-,Michael_acceptor_1; phenol_ester,-,COc1ccc(/C=C2\Oc3cc(O)cc(O)c3OC2=O)cc1
+C_pooled,frac,7,NPLIB02411,NP-library,5.891,0.2574,O=C1C(=Cc2ccccc2)COc2ccccc21,-,Michael_acceptor_1,-,COc1ccc(/C=C2\COc3c(ccc(OC)c3O)C2=O)cc1
+C_pooled,frac,8,SNP00163,SNP-Lib,5.88,0.2766,C(=Cc1ccccc1)c1ccccc1,-,stilbene,-,COc1cc(O)cc(/C=C/c2cccc(O)c2OC)c1
+C_pooled,frac,9,SNP00157,SNP-Lib,5.874,0.3433,O=C(C=Cc1ccccc1)NCCc1ccccc1,-,Michael_acceptor_1,-,COc1cc(/C=C/C(=O)NCCc2ccc(O)cc2)ccc1O
+C_pooled,frac,10,NPLIB01185,NP-library,5.822,0.3074,O=c1cc(-c2ccc3c(c2)OCO3)oc2cc3occc3cc12,-,-,-,COc1c2ccoc2cc2oc(-c3ccc4c(c3)OCO4)cc(=O)c12

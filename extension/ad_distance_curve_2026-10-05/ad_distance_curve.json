@@ -1,0 +1,292 @@
+{
+ "adr": "ADR-AIIM-295",
+ "prereg_sha256": "30555270484983ce475618359c4f8a6c71859086266a97888cf40931bedf291e",
+ "log_sha256_at_freeze": "a61c4017b61354af99084fd790bcc22ada08104d6e3608f5ad17a0cf74061c53",
+ "rdkit_version": "2026.03.3",
+ "anchor": {
+  "observed": 0.9217,
+  "expected": 0.9217,
+  "reproduces": true
+ },
+ "tier_criterion": {
+  "tier0": "CI lower <= 0.50",
+  "tier1": "CI lower > 0.50 and point <= 0.70",
+  "tier2": "CI lower > 0.50 and point > 0.70",
+  "n_bootstrap": 2000
+ },
+ "not_decision_bearing": [
+  0.15,
+  0.25
+ ],
+ "definitions": {
+  "A1_ecfp4_tanimoto": {
+   "bands": [
+    {
+     "band": [
+      0.15,
+      0.25
+     ],
+     "n": 22,
+     "active": 5,
+     "inactive": 17,
+     "roc_auc": 0.3294,
+     "ci95": [
+      0.0417,
+      0.648
+     ],
+     "mcc": -0.1715,
+     "tier": "Tier 0",
+     "decision_bearing": false
+    },
+    {
+     "band": [
+      0.25,
+      0.35
+     ],
+     "n": 92,
+     "active": 36,
+     "inactive": 56,
+     "roc_auc": 0.7391,
+     "ci95": [
+      0.6334,
+      0.8365
+     ],
+     "mcc": 0.375,
+     "tier": "Tier 2",
+     "decision_bearing": true
+    },
+    {
+     "band": [
+      0.35,
+      0.45
+     ],
+     "n": 109,
+     "active": 70,
+     "inactive": 39,
+     "roc_auc": 0.8046,
+     "ci95": [
+      0.7128,
+      0.889
+     ],
+     "mcc": 0.4525,
+     "tier": "Tier 2",
+     "decision_bearing": true
+    },
+    {
+     "band": [
+      0.45,
+      0.55
+     ],
+     "n": 165,
+     "active": 121,
+     "inactive": 44,
+     "roc_auc": 0.9098,
+     "ci95": [
+      0.8494,
+      0.9592
+     ],
+     "mcc": 0.6769,
+     "tier": "Tier 2",
+     "decision_bearing": true
+    },
+    {
+     "band": [
+      0.55,
+      0.7
+     ],
+     "n": 462,
+     "active": 394,
+     "inactive": 68,
+     "roc_auc": 0.9357,
+     "ci95": [
+      0.8964,
+      0.9693
+     ],
+     "mcc": 0.7014,
+     "tier": "Tier 2",
+     "decision_bearing": true
+    },
+    {
+     "band": [
+      0.7,
+      1.01
+     ],
+     "n": 291,
+     "active": 249,
+     "inactive": 42,
+     "roc_auc": 0.9187,
+     "ci95": [
+      0.8565,
+      0.9699
+     ],
+     "mcc": 0.6823,
+     "tier": "Tier 2",
+     "decision_bearing": true
+    }
+   ],
+   "decision_bearing_bands": [
+    "0.25-0.35",
+    "0.35-0.45",
+    "0.45-0.55",
+    "0.55-0.70",
+    "0.70-1.01"
+   ],
+   "spearman_rank_vs_auc": 0.9,
+   "spearman_ci95": [
+    0.5,
+    1.0
+   ],
+   "lowest_tier2_band_start": 0.25,
+   "any_tier2": true,
+   "any_below_tier2": false
+  },
+  "A8_ecfp4_dice": {
+   "bands": [
+    {
+     "band": [
+      0.15,
+      0.25
+     ],
+     "n": 0,
+     "active": 0,
+     "inactive": 0,
+     "roc_auc": null,
+     "ci95": null,
+     "mcc": null,
+     "tier": "undetermined",
+     "decision_bearing": false
+    },
+    {
+     "band": [
+      0.25,
+      0.35
+     ],
+     "n": 8,
+     "active": 2,
+     "inactive": 6,
+     "roc_auc": 0.125,
+     "ci95": [
+      0.0,
+      0.4286
+     ],
+     "mcc": 0.0,
+     "tier": "Tier 0",
+     "decision_bearing": true
+    },
+    {
+     "band": [
+      0.35,
+      0.45
+     ],
+     "n": 44,
+     "active": 11,
+     "inactive": 33,
+     "roc_auc": 0.6088,
+     "ci95": [
+      0.388,
+      0.7991
+     ],
+     "mcc": 0.1879,
+     "tier": "Tier 0",
+     "decision_bearing": true
+    },
+    {
+     "band": [
+      0.45,
+      0.55
+     ],
+     "n": 98,
+     "active": 45,
+     "inactive": 53,
+     "roc_auc": 0.7214,
+     "ci95": [
+      0.6163,
+      0.8183
+     ],
+     "mcc": 0.3789,
+     "tier": "Tier 2",
+     "decision_bearing": true
+    },
+    {
+     "band": [
+      0.55,
+      0.7
+     ],
+     "n": 221,
+     "active": 162,
+     "inactive": 59,
+     "roc_auc": 0.885,
+     "ci95": [
+      0.8284,
+      0.9321
+     ],
+     "mcc": 0.5852,
+     "tier": "Tier 2",
+     "decision_bearing": true
+    },
+    {
+     "band": [
+      0.7,
+      1.01
+     ],
+     "n": 770,
+     "active": 655,
+     "inactive": 115,
+     "roc_auc": 0.9286,
+     "ci95": [
+      0.8968,
+      0.9563
+     ],
+     "mcc": 0.7007,
+     "tier": "Tier 2",
+     "decision_bearing": true
+    }
+   ],
+   "decision_bearing_bands": [
+    "0.25-0.35",
+    "0.35-0.45",
+    "0.45-0.55",
+    "0.55-0.70",
+    "0.70-1.01"
+   ],
+   "spearman_rank_vs_auc": 1.0,
+   "spearman_ci95": [
+    0.9,
+    1.0
+   ],
+   "lowest_tier2_band_start": 0.45,
+   "any_tier2": true,
+   "any_below_tier2": true
+  }
+ },
+ "grading": {
+  "Y1_monotone_degradation": {
+   "spearman_A1": 0.9,
+   "ci_A1": [
+    0.5,
+    1.0
+   ],
+   "spearman_A8": 1.0,
+   "ci_A8": [
+    0.9,
+    1.0
+   ],
+   "verdict": "MISSED"
+  },
+  "Y2_crossing_inside_range": {
+   "any_tier2": true,
+   "any_below": false,
+   "verdict": "MISSED"
+  },
+  "Y3_crossing_between_0.35_and_0.55": {
+   "lowest_tier2_band_start": 0.25,
+   "verdict": "MISSED"
+  },
+  "Y4_A1_and_A8_agree": {
+   "A1": 0.25,
+   "A8": 0.45,
+   "verdict": "MISSED"
+  }
+ },
+ "seconds": 32.4
+}

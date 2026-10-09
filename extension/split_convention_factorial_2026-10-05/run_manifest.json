@@ -1,0 +1,17 @@
+{
+ "adr": "ADR-AIIM-286",
+ "prereg": "ADR-AIIM-285",
+ "prereg_sha256": "eff0353e578e23b20ddd943f0faaa5554a359b8294a83cc926d7f43c78c5f8ae",
+ "log_sha256_at_freeze": "61659f173f41295e1b269abf05c28e18e1febe992bb9160779ef04171b382c0f",
+ "date": "2026-10-05",
+ "seconds": 135.9,
+ "fits": 160,
+ "status": "Run evidence. 10_new_system unmodified; no model promoted, no contract amended, no published number changed.",
+ "anchor_check": "Cell D1shuffle_D2testfirst_D3overflow reproduces ADR-AIIM-275 fixed split exactly in both arms.",
+ "sha256": {
+  "analysis/split_convention_factorial.py": "bb4b25da6b7218eb5fa414d09d3d3c86cd82800540d024bc83cce1d6d73bc8e2",
+  "split_convention_factorial.json": "f3f48c4622d7e19f2225194a01fdc8b468bc242c1822a01daf9f4a3f5f404c1c"
+ },
+ "result_entry_sha256": "ac5bf7bea5dc5a5781b6d8fe1f0bed4071cfef93bcb0709ae53db23cc08158db",
+ "log_sha256_after_result": "41bff9c257ec0d5ba721a736b90a086fb6ee10137eb4dcc22374b8114179d18c"
+}

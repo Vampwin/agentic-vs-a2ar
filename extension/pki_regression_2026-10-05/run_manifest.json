@@ -1,0 +1,11 @@
+{
+ "adr": "ADR-AIIM-299",
+ "prereg": "ADR-AIIM-297",
+ "date": "2026-10-05",
+ "status": "Run evidence. 10_new_system unmodified; 02_frozen_inputs not written to; no published number changed.",
+ "hash_convention": "artifact digests over raw bytes (addendum 2026-10-05)",
+ "sha256": {
+  "analysis/pki_regression.py": "0588bc9b0f7adea0f7205b62679a2c6d3148cc132d182778c5c661d6d87ea4d7",
+  "pki_regression.json": "5c9cd0279499aadd23b752dac3afdaba061fb0198eecde2533aa47b9294c21b5"
+ }
+}

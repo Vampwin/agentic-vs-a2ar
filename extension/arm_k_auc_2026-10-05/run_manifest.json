@@ -1,0 +1,20 @@
+{
+ "adr": "ADR-AIIM-290",
+ "prereg": "ADR-AIIM-289",
+ "prereg_sha256": "ead611ad83c9bf5aab6d43d66d23902b5d0a8925cf41f50c249675befc0a9b7f",
+ "log_sha256_at_freeze": "9b920ad1e2f0a4c0aea7beb7ffcd2bb12be4e04339ff53793f8173a6ed99fefa",
+ "date": "2026-10-05",
+ "seconds": 508.4,
+ "fits": 750,
+ "status": "Run evidence. 10_new_system unmodified; no model promoted, no contract amended, no published number changed.",
+ "grading": {
+  "V1": "MISSED",
+  "V2": "MET",
+  "V3": "MET",
+  "V4": "MET (inference withdrawn - raw lift confounded by prevalence headroom)"
+ },
+ "sha256": {
+  "analysis/arm_k_auc.py": "320ea3d04df6b24ea4c4f696d3a81e8d7ba9cc283d601c0cb2d5c42c92c0de9f",
+  "arm_k_auc.json": "df82a93aa7ee6e07df02cd17e659dc1441e930ad12ad9f6132d54b857f64da21"
+ }
+}

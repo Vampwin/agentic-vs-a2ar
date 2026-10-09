@@ -1,0 +1,21 @@
+{
+ "adr": "ADR-AIIM-296",
+ "prereg": "ADR-AIIM-295",
+ "prereg_sha256": "30555270484983ce475618359c4f8a6c71859086266a97888cf40931bedf291e",
+ "log_sha256_at_freeze": "a61c4017b61354af99084fd790bcc22ada08104d6e3608f5ad17a0cf74061c53",
+ "hash_convention": "artifact digests over raw bytes; log/control-file digests over text LF (addendum 2026-10-05)",
+ "date": "2026-10-05",
+ "seconds": 32.4,
+ "anchor": "full held-out ROC-AUC 0.9217 reproduces ADR-AIIM-294 exactly; no refitting",
+ "grading": {
+  "Y1": "MISSED (rank direction coded opposite to specification)",
+  "Y2": "MISSED",
+  "Y3": "MISSED (crossing earlier than predicted)",
+  "Y4": "MISSED (Tanimoto band edges applied to Dice)"
+ },
+ "status": "Run evidence. 10_new_system unmodified; no published number changed.",
+ "sha256": {
+  "analysis/ad_distance_curve.py": "6754772b0caa11b6b4cd6769b878c0125e4c5d7e7a113b44f4157271051d659c",
+  "ad_distance_curve.json": "d340d72796988a61fd260db26cadf47af983f7bf7b4300fa9b73dde03cd43fb3"
+ }
+}

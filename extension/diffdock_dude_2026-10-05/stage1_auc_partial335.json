@@ -1,0 +1,105 @@
+{
+ "adr": "ADR-AIIM-305",
+ "stage": 1,
+ "analysis": "partial, 335 of 593 complexes",
+ "prereg_sha256": "da3da56f9a217940bb010c6e5664245694a2bec5cc67253642010995ebaf7ec2",
+ "log_sha256_at_freeze": "b2d269a04cd0d4a52194f06e902abc8c6aae8eb8ade96e4ff937a3f0ffc646d1",
+ "rdkit_version": "2026.03.3",
+ "completion": {
+  "submitted": 593,
+  "attempted": 335,
+  "scored": 335,
+  "failed_no_pose": 0,
+  "not_run": 258,
+  "last_complex": "DUDE_00334"
+ },
+ "subsample_design": {
+  "rows_in": 2401,
+  "leakage_removed": 289,
+  "surviving_full": 2112,
+  "surviving_actives": 193,
+  "surviving_decoys": 1919,
+  "subsample_n": 593,
+  "subsample_actives": 193,
+  "subsample_decoys": 400,
+  "decoy_sample_seed": 42
+ },
+ "scored_composition": {
+  "actives": 193,
+  "decoys": 142,
+  "active_rate": 0.5761,
+  "design_active_rate": 0.3255,
+  "decoys_of_400_run": 142
+ },
+ "anchors": {
+  "A1_map_equals_input": true,
+  "A2_contiguous_complete": true,
+  "A3_pose_matches_smiles": true
+ },
+ "auc": {
+  "diffdock_confidence": 0.7131,
+  "diffdock_ci95_bootstrap": [
+   0.6564,
+   0.7678
+  ],
+  "vina_same_compounds": 0.7364,
+  "vina_ci95_bootstrap": [
+   0.6811,
+   0.789
+  ],
+  "difference_dd_minus_vina": -0.0234,
+  "difference_ci95_bootstrap": [
+   -0.097,
+   0.0492
+  ],
+  "n_boot": 2000,
+  "seed": 20261008
+ },
+ "grading": {
+  "W1_diffdock_below_vina": {
+   "auc_diffdock": 0.7131,
+   "auc_vina": 0.7364,
+   "verdict": "MET"
+  },
+  "W2_diffdock_above_chance": {
+   "auc_diffdock": 0.7131,
+   "verdict": "MET"
+  },
+  "W3_failures_above_1pct": {
+   "failed": 0,
+   "attempted": 335,
+   "failed_frac": 0.0,
+   "verdict": "MISSED"
+  }
+ },
+ "stop_rule": {
+  "condition": "DiffDock AUC must exceed Vina AUC on the same subsample",
+  "passes": false,
+  "stage_2_authorised": false,
+  "basis": "335 of 593 complexes; a partial subsample"
+ },
+ "confidence_distribution": {
+  "actives": {
+   "min": -2.29,
+   "median": -0.48,
+   "max": 0.9
+  },
+  "decoys": {
+   "min": -2.68,
+   "median": -0.91,
+   "max": 0.33
+  }
+ },
+ "descriptive_post_hoc": {
+  "auc_heavy_atom_count_alone": 0.5611,
+  "spearman_confidence_vs_heavy_atoms": -0.3841,
+  "spearman_confidence_vs_vina_score": -0.2096,
+  "vina_auc_all_593_context": 0.7158,
+  "vina_auc_full_2112_set_context": 0.7005
+ },
+ "inputs_sha256": {
+  "subsample_map.csv": "6bcd45bbfcef299b459687e990e54942841ee6fca91eeddd0962e2813067cc26",
+  "diffdock_input.csv": "40e30f1c435007653ed29d1b90c6b5722bdff3b5396cc91f112a4bcc9308b843",
+  "prep_meta.json": "59df895e176cf4e47e3955d105d6593e52a9dd31d67286fe6cec6603148ab907"
+ }
+}

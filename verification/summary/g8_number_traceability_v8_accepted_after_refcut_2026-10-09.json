@@ -1,0 +1,4592 @@
+{
+  "manuscript": "C:/Users/USER/AppData/Local/Temp/claude/D--Agentic-VS-Workflow/ff25d828-261e-4e04-83f0-48dafcda2460/scratchpad/g8in/manuscript_AIIM_v8_accepted.md",
+  "state": "FAIL",
+  "n_checks": 436,
+  "n_pass": 112,
+  "n_value_mismatch": 0,
+  "n_literal_absent": 324,
+  "checks": [
+    {
+      "check": "mutation_detection",
+      "state": "PASS",
+      "expected": 96.9,
+      "recomputed": 96.9,
+      "literal_present_in_manuscript": true,
+      "literal": "96.9 %",
+      "located_in": "article"
+    },
+    {
+      "check": "mutation_cases",
+      "state": "FAIL-ABSENT",
+      "expected": 128,
+      "recomputed": 128,
+      "literal_present_in_manuscript": false,
+      "literal": "128 seeded fault cases",
+      "located_in": "article"
+    },
+    {
+      "check": "mutation_injected",
+      "state": "FAIL-ABSENT",
+      "expected": 133,
+      "recomputed": 133,
+      "literal_present_in_manuscript": false,
+      "literal": "One hundred and thirty-three cases were injected",
+      "located_in": "article"
+    },
+    {
+      "check": "mutation_vacuous",
+      "state": "FAIL-ABSENT",
+      "expected": 5,
+      "recomputed": 5,
+      "literal_present_in_manuscript": false,
+      "literal": "in five the injector matched nothing",
+      "located_in": "article"
+    },
+    {
+      "check": "mutation_detected",
+      "state": "PASS",
+      "expected": 124,
+      "recomputed": 124,
+      "literal_present_in_manuscript": true,
+      "literal": "detected 124",
+      "located_in": "article"
+    },
+    {
+      "check": "seer_A",
+      "state": "FAIL-ABSENT",
+      "expected": 0.031,
+      "recomputed": 0.031,
+      "literal_present_in_manuscript": false,
+      "literal": "| **A** | on | on | **0.031** |",
+      "located_in": "article"
+    },
+    {
+      "check": "seer_C",
+      "state": "FAIL-ABSENT",
+      "expected": 0.992,
+      "recomputed": 0.992,
+      "literal_present_in_manuscript": false,
+      "literal": "| **C** | off | on | 0.992 |",
+      "located_in": "article"
+    },
+    {
+      "check": "seer_table_row",
+      "state": "PASS",
+      "expected": [
+        124,
+        128,
+        0.031
+      ],
+      "recomputed": [
+        124,
+        128,
+        0.031
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "(124 of 128 cases; SEER 0.031)",
+      "located_in": "article"
+    },
+    {
+      "check": "false_alarm",
+      "state": "FAIL-ABSENT",
+      "expected": 0.0,
+      "recomputed": 0.0,
+      "literal_present_in_manuscript": false,
+      "literal": "a false-escalation rate of 0 of 55",
+      "located_in": "article"
+    },
+    {
+      "check": "false_alarm_n",
+      "state": "FAIL-ABSENT",
+      "expected": 55,
+      "recomputed": 55,
+      "literal_present_in_manuscript": false,
+      "literal": "**55 clean, unfaulted runs**",
+      "located_in": "article"
+    },
+    {
+      "check": "f10_escapes",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        4,
+        12
+      ],
+      "recomputed": [
+        4,
+        12
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "4 of 12 cases escaped",
+      "located_in": "article"
+    },
+    {
+      "check": "f13_detected",
+      "state": "FAIL-ABSENT",
+      "expected": 15,
+      "recomputed": 15,
+      "literal_present_in_manuscript": false,
+      "literal": "whose 15 counted cases",
+      "located_in": "article"
+    },
+    {
+      "check": "gate_G4",
+      "state": "FAIL-ABSENT",
+      "expected": 85.2,
+      "recomputed": 85.2,
+      "literal_present_in_manuscript": false,
+      "literal": "| G4 scoring | 27 | 4 | 85.2 % | 67.5\u201394.1 % |",
+      "located_in": "article"
+    },
+    {
+      "check": "gate_G6",
+      "state": "FAIL-ABSENT",
+      "expected": 100.0,
+      "recomputed": 100.0,
+      "literal_present_in_manuscript": false,
+      "literal": "| G6 selection | 27 | 0 | 100 % | 87.5\u2013100 % |",
+      "located_in": "article"
+    },
+    {
+      "check": "gate_G4_ci",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        67.5,
+        94.1
+      ],
+      "recomputed": [
+        67.5,
+        94.1
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "| G4 scoring | 27 | 4 | 85.2 % | 67.5\u201394.1 % |",
+      "located_in": "article"
+    },
+    {
+      "check": "mutation_detection_ci",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        92.2,
+        98.8
+      ],
+      "recomputed": [
+        92.2,
+        98.8
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "96.9 % (Wilson 95 % CI\n92.2\u201398.8 %)",
+      "located_in": "article"
+    },
+    {
+      "check": "f10_ci",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        39.1,
+        86.2
+      ],
+      "recomputed": [
+        39.1,
+        86.2
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "66.7 % (Wilson 95 % CI 39.1\u201386.2 %)",
+      "located_in": "article"
+    },
+    {
+      "check": "meta_M1",
+      "state": "FAIL-ABSENT",
+      "expected": 25,
+      "recomputed": 25,
+      "literal_present_in_manuscript": false,
+      "literal": "25 of 25 bit-identical",
+      "located_in": "article"
+    },
+    {
+      "check": "meta_M2_max",
+      "state": "FAIL-ABSENT",
+      "expected": 0.974,
+      "recomputed": 0.974,
+      "literal_present_in_manuscript": false,
+      "literal": "**0.974 kcal/mol**",
+      "located_in": "article"
+    },
+    {
+      "check": "meta_M2_mean",
+      "state": "FAIL-ABSENT",
+      "expected": 0.166,
+      "recomputed": 0.166,
+      "literal_present_in_manuscript": false,
+      "literal": "mean 0.166",
+      "located_in": "article"
+    },
+    {
+      "check": "meta_M2_rho",
+      "state": "FAIL-ABSENT",
+      "expected": 0.772,
+      "recomputed": 0.772,
+      "literal_present_in_manuscript": false,
+      "literal": "Spearman correlation with the baseline ranking is 0.772",
+      "located_in": "article"
+    },
+    {
+      "check": "meta_M2_mw",
+      "state": "PASS",
+      "expected": 0.735,
+      "recomputed": 0.735,
+      "literal_present_in_manuscript": true,
+      "literal": "\u03c1 = +0.735",
+      "located_in": "article"
+    },
+    {
+      "check": "yr_mean",
+      "state": "FAIL-ABSENT",
+      "expected": 0.5,
+      "recomputed": 0.5,
+      "literal_present_in_manuscript": false,
+      "literal": "mean\ncross-validated AUC 0.500",
+      "located_in": "article"
+    },
+    {
+      "check": "yr_z",
+      "state": "PASS",
+      "expected": 21.9,
+      "recomputed": 21.9,
+      "literal_present_in_manuscript": true,
+      "literal": "z = 21.9",
+      "located_in": "article"
+    },
+    {
+      "check": "yr_p",
+      "state": "FAIL-ABSENT",
+      "expected": 0.0099,
+      "recomputed": 0.0099,
+      "literal_present_in_manuscript": false,
+      "literal": "empirical p = 0.0099",
+      "located_in": "article"
+    },
+    {
+      "check": "yr_real",
+      "state": "FAIL-ABSENT",
+      "expected": 0.911,
+      "recomputed": 0.911,
+      "literal_present_in_manuscript": false,
+      "literal": "against 0.911 for",
+      "located_in": "article"
+    },
+    {
+      "check": "funnel_excl",
+      "state": "FAIL-ABSENT",
+      "expected": 7.0,
+      "recomputed": 7.0,
+      "literal_present_in_manuscript": false,
+      "literal": "7.0 % reached the top-500",
+      "located_in": "article"
+    },
+    {
+      "check": "funnel_kept",
+      "state": "FAIL-ABSENT",
+      "expected": 10.0,
+      "recomputed": 10.0,
+      "literal_present_in_manuscript": false,
+      "literal": "against 10.0 % of the 4,999",
+      "located_in": "article"
+    },
+    {
+      "check": "funnel_cut",
+      "state": "FAIL-ABSENT",
+      "expected": -8.588,
+      "recomputed": -8.588,
+      "literal_present_in_manuscript": false,
+      "literal": "\u22128.588 kcal/mol",
+      "located_in": "article"
+    },
+    {
+      "check": "funnel_p",
+      "state": "FAIL-ABSENT",
+      "expected": 0.0097,
+      "recomputed": 0.0097,
+      "literal_present_in_manuscript": false,
+      "literal": "Mann\u2013Whitney p = 0.0097",
+      "located_in": "article"
+    },
+    {
+      "check": "ad_phys",
+      "state": "FAIL-ABSENT",
+      "expected": 86.3,
+      "recomputed": 86.3,
+      "literal_present_in_manuscript": false,
+      "literal": "86.3 %",
+      "located_in": "article"
+    },
+    {
+      "check": "ad236_phys",
+      "state": "FAIL-ABSENT",
+      "expected": 64.4,
+      "recomputed": 64.4,
+      "literal_present_in_manuscript": false,
+      "literal": "64.4 %",
+      "located_in": "article"
+    },
+    {
+      "check": "ad236_phys_n",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        152,
+        236
+      ],
+      "recomputed": [
+        152,
+        236
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "152 of 236",
+      "located_in": "article"
+    },
+    {
+      "check": "ad236_struct_zero",
+      "state": "FAIL-ABSENT",
+      "expected": 0,
+      "recomputed": 0,
+      "literal_present_in_manuscript": false,
+      "literal": "admitted none of the original compounds",
+      "located_in": "article"
+    },
+    {
+      "check": "ad_maccs",
+      "state": "FAIL-ABSENT",
+      "expected": 9.3,
+      "recomputed": 9.3,
+      "literal_present_in_manuscript": false,
+      "literal": "9.3 % in MACCS",
+      "located_in": "article"
+    },
+    {
+      "check": "ad_erg",
+      "state": "FAIL-ABSENT",
+      "expected": 3.6,
+      "recomputed": 3.6,
+      "literal_present_in_manuscript": false,
+      "literal": "3.6 % in ErG",
+      "located_in": "article"
+    },
+    {
+      "check": "ad_ecfp4_zero",
+      "state": "FAIL-ABSENT",
+      "expected": 0.0,
+      "recomputed": 0.0,
+      "literal_present_in_manuscript": false,
+      "literal": "0 % in ECFP4",
+      "located_in": "article"
+    },
+    {
+      "check": "ad_max_spaces",
+      "state": "FAIL-ABSENT",
+      "expected": 2,
+      "recomputed": 2,
+      "literal_present_in_manuscript": false,
+      "literal": "inside more than two of the eight",
+      "located_in": "article"
+    },
+    {
+      "check": "ad_zero_spaces",
+      "state": "FAIL-ABSENT",
+      "expected": 52,
+      "recomputed": 52,
+      "literal_present_in_manuscript": false,
+      "literal": "52 are inside none",
+      "located_in": "article"
+    },
+    {
+      "check": "ad_phys_calls",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        429,
+        494
+      ],
+      "recomputed": [
+        429,
+        494
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "429 of the 494 in-domain calls",
+      "located_in": "article"
+    },
+    {
+      "check": "ad_ecfp4_max",
+      "state": "FAIL-ABSENT",
+      "expected": 0.352,
+      "recomputed": 0.352,
+      "literal_present_in_manuscript": false,
+      "literal": "similarity of 0.352",
+      "located_in": "article"
+    },
+    {
+      "check": "pct_ecfp4",
+      "state": "FAIL-ABSENT",
+      "expected": 0.23,
+      "recomputed": 0.23,
+      "literal_present_in_manuscript": false,
+      "literal": "percentile 0.23 in ECFP4",
+      "located_in": "article"
+    },
+    {
+      "check": "pct_atompair",
+      "state": "FAIL-ABSENT",
+      "expected": 0.34,
+      "recomputed": 0.34,
+      "literal_present_in_manuscript": false,
+      "literal": "0.34 in atom-pair",
+      "located_in": "article"
+    },
+    {
+      "check": "pct_fcfp4",
+      "state": "FAIL-ABSENT",
+      "expected": 0.47,
+      "recomputed": 0.47,
+      "literal_present_in_manuscript": false,
+      "literal": "0.47 in FCFP4",
+      "located_in": "article"
+    },
+    {
+      "check": "pct_toptorsion",
+      "state": "FAIL-ABSENT",
+      "expected": 0.49,
+      "recomputed": 0.49,
+      "literal_present_in_manuscript": false,
+      "literal": "0.49 in topological torsion",
+      "located_in": "article"
+    },
+    {
+      "check": "pct_gobbi",
+      "state": "FAIL-ABSENT",
+      "expected": 0.94,
+      "recomputed": 0.94,
+      "literal_present_in_manuscript": false,
+      "literal": "0.94 in Gobbi",
+      "located_in": "article"
+    },
+    {
+      "check": "pct_maccs",
+      "state": "FAIL-ABSENT",
+      "expected": 1.51,
+      "recomputed": 1.51,
+      "literal_present_in_manuscript": false,
+      "literal": "1.51 in MACCS",
+      "located_in": "article"
+    },
+    {
+      "check": "pct_erg",
+      "state": "FAIL-ABSENT",
+      "expected": 3.82,
+      "recomputed": 3.82,
+      "literal_present_in_manuscript": false,
+      "literal": "3.82 in ErG",
+      "located_in": "article"
+    },
+    {
+      "check": "pct_spread",
+      "state": "FAIL-ABSENT",
+      "expected": 3.6,
+      "recomputed": 3.6,
+      "literal_present_in_manuscript": false,
+      "literal": "spread of 3.6\npercentile points",
+      "located_in": "article"
+    },
+    {
+      "check": "pct_all7_n",
+      "state": "FAIL-ABSENT",
+      "expected": 432,
+      "recomputed": 432,
+      "literal_present_in_manuscript": false,
+      "literal": "432 of the 497 compounds",
+      "located_in": "article"
+    },
+    {
+      "check": "pct_all7_frac",
+      "state": "FAIL-ABSENT",
+      "expected": 86.9,
+      "recomputed": 86.9,
+      "literal_present_in_manuscript": false,
+      "literal": "(86.9 %) fall below the tenth percentile",
+      "located_in": "article"
+    },
+    {
+      "check": "pct_best_median",
+      "state": "FAIL-ABSENT",
+      "expected": 4.54,
+      "recomputed": 4.54,
+      "literal_present_in_manuscript": false,
+      "literal": "median at percentile 4.54",
+      "located_in": "article"
+    },
+    {
+      "check": "pct_phys_median",
+      "state": "FAIL-ABSENT",
+      "expected": 36.93,
+      "recomputed": 36.93,
+      "literal_present_in_manuscript": false,
+      "literal": "percentile 36.93",
+      "located_in": "article"
+    },
+    {
+      "check": "pct_phys_p90",
+      "state": "FAIL-ABSENT",
+      "expected": 60.2,
+      "recomputed": 60.2,
+      "literal_present_in_manuscript": false,
+      "literal": "ninetieth at 60.20",
+      "located_in": "article"
+    },
+    {
+      "check": "pct_ecfp4_max",
+      "state": "FAIL-ABSENT",
+      "expected": 1.46,
+      "recomputed": 1.46,
+      "literal_present_in_manuscript": false,
+      "literal": "the 1.46th\npercentile",
+      "located_in": "article"
+    },
+    {
+      "check": "conf_empty_cal",
+      "state": "PASS",
+      "expected": 10.4,
+      "recomputed": 10.4,
+      "literal_present_in_manuscript": true,
+      "literal": "does so for 10.4 % of compounds",
+      "located_in": "supplement"
+    },
+    {
+      "check": "conf_both_cal",
+      "state": "PASS",
+      "expected": 40.7,
+      "recomputed": 40.7,
+      "literal_present_in_manuscript": true,
+      "literal": "ambiguous set for 40.7 %",
+      "located_in": "supplement"
+    },
+    {
+      "check": "conf_size_cal",
+      "state": "PASS",
+      "expected": 1.407,
+      "recomputed": 1.407,
+      "literal_present_in_manuscript": true,
+      "literal": "prediction-set\nsize of 1.407",
+      "located_in": "supplement"
+    },
+    {
+      "check": "conf_size_query",
+      "state": "PASS",
+      "expected": 1.0,
+      "recomputed": 1.0,
+      "literal_present_in_manuscript": true,
+      "literal": "mean set size is\n1.000",
+      "located_in": "supplement"
+    },
+    {
+      "check": "conf_pin_cal",
+      "state": "PASS",
+      "expected": 0.054,
+      "recomputed": 0.054,
+      "literal_present_in_manuscript": true,
+      "literal": "0.054 on calibration data",
+      "located_in": "supplement"
+    },
+    {
+      "check": "conf_pin_np",
+      "state": "PASS",
+      "expected": 0.467,
+      "recomputed": 0.467,
+      "literal_present_in_manuscript": true,
+      "literal": "0.467 on the query library",
+      "located_in": "supplement"
+    },
+    {
+      "check": "conf_pin_snp",
+      "state": "PASS",
+      "expected": 0.631,
+      "recomputed": 0.631,
+      "literal_present_in_manuscript": true,
+      "literal": "0.631 on SNP-Lib",
+      "located_in": "supplement"
+    },
+    {
+      "check": "conf_cal_classes",
+      "state": "PASS",
+      "expected": [
+        121,
+        1096
+      ],
+      "recomputed": [
+        121,
+        1096
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "rests on 121 points against 1,096",
+      "located_in": "supplement"
+    },
+    {
+      "check": "tierA_pa_max",
+      "state": "PASS",
+      "expected": 0.072,
+      "recomputed": 0.072,
+      "literal_present_in_manuscript": true,
+      "literal": "the 5,000 reaches 0.072",
+      "located_in": "supplement"
+    },
+    {
+      "check": "tierA_pa_med",
+      "state": "PASS",
+      "expected": 0.0246,
+      "recomputed": 0.0246,
+      "literal_present_in_manuscript": true,
+      "literal": "the median is 0.0246",
+      "located_in": "supplement"
+    },
+    {
+      "check": "tierA_granularity",
+      "state": "PASS",
+      "expected": 0.000912,
+      "recomputed": 0.000912,
+      "literal_present_in_manuscript": true,
+      "literal": "is 0.000912",
+      "located_in": "supplement"
+    },
+    {
+      "check": "tierA_band",
+      "state": "PASS",
+      "expected": [
+        0.051,
+        0.072
+      ],
+      "recomputed": [
+        0.051,
+        0.072
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "band from 0.051 to 0.072",
+      "located_in": "supplement"
+    },
+    {
+      "check": "tierA_pa_1643",
+      "state": "FAIL-ABSENT",
+      "expected": 0.0556,
+      "recomputed": 0.0556,
+      "literal_present_in_manuscript": false,
+      "literal": "| 0.0556 |",
+      "located_in": "article"
+    },
+    {
+      "check": "fp_rho",
+      "state": "FAIL-ABSENT",
+      "expected": 0.769,
+      "recomputed": 0.769,
+      "literal_present_in_manuscript": false,
+      "literal": "Spearman \u03c1 = 0.769",
+      "located_in": "article"
+    },
+    {
+      "check": "fp_rho_ci",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        0.712,
+        0.817
+      ],
+      "recomputed": [
+        0.712,
+        0.817
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "95 % CI 0.712\u20130.817",
+      "located_in": "article"
+    },
+    {
+      "check": "fp_resid",
+      "state": "FAIL-ABSENT",
+      "expected": 0.273,
+      "recomputed": 0.2728,
+      "literal_present_in_manuscript": false,
+      "literal": "standard deviation of 0.273 kcal/mol",
+      "located_in": "article"
+    },
+    {
+      "check": "fp_within1",
+      "state": "FAIL-ABSENT",
+      "expected": 277,
+      "recomputed": 277,
+      "literal_present_in_manuscript": false,
+      "literal": "277 unselected compounds",
+      "located_in": "article"
+    },
+    {
+      "check": "fp_within2",
+      "state": "FAIL-ABSENT",
+      "expected": 603,
+      "recomputed": 603,
+      "literal_present_in_manuscript": false,
+      "literal": "603 within two",
+      "located_in": "article"
+    },
+    {
+      "check": "mon_rows",
+      "state": "PASS",
+      "expected": 188,
+      "recomputed": 188,
+      "literal_present_in_manuscript": true,
+      "literal": "fitted on 188 governed runs",
+      "located_in": "supplement"
+    },
+    {
+      "check": "mon_features",
+      "state": "PASS",
+      "expected": 24,
+      "recomputed": 24,
+      "literal_present_in_manuscript": true,
+      "literal": "24 telemetry features",
+      "located_in": "supplement"
+    },
+    {
+      "check": "mon_pos",
+      "state": "PASS",
+      "expected": 113,
+      "recomputed": 113,
+      "literal_present_in_manuscript": true,
+      "literal": "113 unsafe-release positives",
+      "located_in": "supplement"
+    },
+    {
+      "check": "mon_neg",
+      "state": "PASS",
+      "expected": 75,
+      "recomputed": 75,
+      "literal_present_in_manuscript": true,
+      "literal": "against 75 negatives",
+      "located_in": "supplement"
+    },
+    {
+      "check": "mon_groups",
+      "state": "PASS",
+      "expected": 11,
+      "recomputed": 11,
+      "literal_present_in_manuscript": true,
+      "literal": "spanning 11 fault families",
+      "located_in": "supplement"
+    },
+    {
+      "check": "mon_brier_gb",
+      "state": "PASS",
+      "expected": [
+        0.203,
+        0.091
+      ],
+      "recomputed": [
+        0.203,
+        0.091
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "(0.203 \u00b1 0.091",
+      "located_in": "supplement"
+    },
+    {
+      "check": "mon_brier_lr",
+      "state": "PASS",
+      "expected": [
+        0.205,
+        0.08
+      ],
+      "recomputed": [
+        0.205,
+        0.08
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "against 0.205 \u00b1 0.080)",
+      "located_in": "supplement"
+    },
+    {
+      "check": "mon_iso_steps",
+      "state": "PASS",
+      "expected": [
+        0.0,
+        0.2857,
+        0.8958,
+        1.0
+      ],
+      "recomputed": [
+        0.0,
+        0.2857,
+        0.8958,
+        1.0
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "four distinct values: 0, 0.2857, 0.8958 and 1",
+      "located_in": "supplement"
+    },
+    {
+      "check": "mon_t_halt",
+      "state": "PASS",
+      "expected": 0.8958,
+      "recomputed": 0.8958,
+      "literal_present_in_manuscript": true,
+      "literal": "t_halt is the third of",
+      "located_in": "supplement"
+    },
+    {
+      "check": "mon_t_escalate_above",
+      "state": "PASS",
+      "expected": true,
+      "recomputed": true,
+      "literal_present_in_manuscript": true,
+      "literal": "t_escalate sits immediately above the second",
+      "located_in": "supplement"
+    },
+    {
+      "check": "vina_auc",
+      "state": "FAIL-ABSENT",
+      "expected": 0.601,
+      "recomputed": 0.601,
+      "literal_present_in_manuscript": false,
+      "literal": "ROC-AUC 0.601",
+      "located_in": "article"
+    },
+    {
+      "check": "vina_auc_ci",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        0.51,
+        0.683
+      ],
+      "recomputed": [
+        0.51,
+        0.683
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "interval of 0.510\u20130.683",
+      "located_in": "article"
+    },
+    {
+      "check": "vina_bedroc",
+      "state": "FAIL-ABSENT",
+      "expected": 0.275,
+      "recomputed": 0.275,
+      "literal_present_in_manuscript": false,
+      "literal": "BEDROC20 of 0.275",
+      "located_in": "article"
+    },
+    {
+      "check": "qsar_brier",
+      "state": "FAIL-ABSENT",
+      "expected": 0.0488,
+      "recomputed": 0.0488,
+      "literal_present_in_manuscript": false,
+      "literal": "Brier score of 0.0488",
+      "located_in": "article"
+    },
+    {
+      "check": "qsar_brier_base",
+      "state": "FAIL-ABSENT",
+      "expected": 0.0895,
+      "recomputed": 0.0895,
+      "literal_present_in_manuscript": false,
+      "literal": "against 0.0895 for",
+      "located_in": "article"
+    },
+    {
+      "check": "qsar_bss",
+      "state": "FAIL-ABSENT",
+      "expected": 0.455,
+      "recomputed": 0.4548,
+      "literal_present_in_manuscript": false,
+      "literal": "skill score of +0.455",
+      "located_in": "article"
+    },
+    {
+      "check": "qsar_ece",
+      "state": "FAIL-ABSENT",
+      "expected": 0.016,
+      "recomputed": 0.016,
+      "literal_present_in_manuscript": false,
+      "literal": "calibration error of 0.016",
+      "located_in": "article"
+    },
+    {
+      "check": "qsar_mce",
+      "state": "FAIL-ABSENT",
+      "expected": 0.197,
+      "recomputed": 0.1974,
+      "literal_present_in_manuscript": false,
+      "literal": "curve is 0.197",
+      "located_in": "article"
+    },
+    {
+      "check": "qsar_top_bin_n",
+      "state": "FAIL-ABSENT",
+      "expected": 983,
+      "recomputed": 983,
+      "literal_present_in_manuscript": false,
+      "literal": "983 of the 1,217 held-out",
+      "located_in": "article"
+    },
+    {
+      "check": "qsar_top_bin",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        0.977,
+        0.981
+      ],
+      "recomputed": [
+        0.977,
+        0.981
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "0.977 predicted against 0.981 observed",
+      "located_in": "article"
+    },
+    {
+      "check": "qsar_cand_bins",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        22,
+        28
+      ],
+      "recomputed": [
+        22,
+        28
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "supported by 22 and 28 held-out compounds",
+      "located_in": "article"
+    },
+    {
+      "check": "qsar_cand_gaps",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        0.081,
+        0.067
+      ],
+      "recomputed": [
+        0.081,
+        0.067
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "differ by 0.081 and 0.067",
+      "located_in": "article"
+    },
+    {
+      "check": "frag_dd",
+      "state": "PASS",
+      "expected": [
+        1.03,
+        2.88,
+        2.0
+      ],
+      "recomputed": [
+        1.03,
+        2.88,
+        2.0
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "gives 1.03, **2.88** and 2.00 \u00c5",
+      "located_in": "supplement"
+    },
+    {
+      "check": "frag_vina",
+      "state": "PASS",
+      "expected": [
+        0.2,
+        0.27,
+        0.53
+      ],
+      "recomputed": [
+        0.2,
+        0.27,
+        0.53
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "is 0.20, 0.27 and 0.53 \u00c5",
+      "located_in": "supplement"
+    },
+    {
+      "check": "pose_centroids",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        5.83,
+        3.78,
+        6.78
+      ],
+      "recomputed": [
+        5.83,
+        3.78,
+        6.78
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "centroids are 5.83, **3.78** and 6.78 \u00c5 apart",
+      "located_in": "supplement"
+    },
+    {
+      "check": "pose_disp_frac",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        0.91,
+        0.43
+      ],
+      "recomputed": [
+        0.91,
+        0.43
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "runs from 0.91 down to 0.43",
+      "located_in": "supplement"
+    },
+    {
+      "check": "frw_pop_2d",
+      "state": "FAIL-ABSENT",
+      "expected": 13882,
+      "recomputed": 13882,
+      "literal_present_in_manuscript": false,
+      "literal": "discards 13,882 compounds",
+      "located_in": "article"
+    },
+    {
+      "check": "frw_pop_3d",
+      "state": "FAIL-ABSENT",
+      "expected": 3000,
+      "recomputed": 3000,
+      "literal_present_in_manuscript": false,
+      "literal": "a further 3,000",
+      "located_in": "article"
+    },
+    {
+      "check": "frw_weighted",
+      "state": "FAIL-ABSENT",
+      "expected": 7.41,
+      "recomputed": 7.41,
+      "literal_present_in_manuscript": false,
+      "literal": "the rate is **7.41 %**",
+      "located_in": "article"
+    },
+    {
+      "check": "frw_rates",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        7.63,
+        6.4
+      ],
+      "recomputed": [
+        7.63,
+        6.4
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "7.63 % of the 2D-rejected arm and 6.40 %",
+      "located_in": "article"
+    },
+    {
+      "check": "frw_implied",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        1251,
+        16882
+      ],
+      "recomputed": [
+        1251,
+        16882
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "roughly 1,251 of the 16,882 discarded compounds",
+      "located_in": "article"
+    },
+    {
+      "check": "frw_ratio",
+      "state": "FAIL-ABSENT",
+      "expected": 2.5,
+      "recomputed": 2.5,
+      "literal_present_in_manuscript": false,
+      "literal": "two and a half times the 500",
+      "located_in": "article"
+    },
+    {
+      "check": "frw_enrichment",
+      "state": "FAIL-ABSENT",
+      "expected": 1.35,
+      "recomputed": 1.35,
+      "literal_present_in_manuscript": false,
+      "literal": "a factor of 1.35 once the",
+      "located_in": "article"
+    },
+    {
+      "check": "mdp_1643_mean",
+      "state": "FAIL-ABSENT",
+      "expected": 4.73,
+      "recomputed": 4.73,
+      "literal_present_in_manuscript": false,
+      "literal": "averages **4.73 \u00c5**",
+      "located_in": "article"
+    },
+    {
+      "check": "mdp_3056_mean",
+      "state": "FAIL-ABSENT",
+      "expected": 5.22,
+      "recomputed": 5.22,
+      "literal_present_in_manuscript": false,
+      "literal": "and **5.22 \u00c5**",
+      "located_in": "article"
+    },
+    {
+      "check": "mdp_below4",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        0.08,
+        0.29,
+        0.02,
+        0.03
+      ],
+      "recomputed": [
+        0.08,
+        0.29,
+        0.02,
+        0.03
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "these keep 8\u201329 % and 2\u20133 %",
+      "located_in": "article"
+    },
+    {
+      "check": "mdp_bilayer",
+      "state": "FAIL-ABSENT",
+      "expected": 3.35,
+      "recomputed": 3.35,
+      "literal_present_in_manuscript": false,
+      "literal": "box area changing by at most 3.35 %",
+      "located_in": "article"
+    },
+    {
+      "check": "occ_range",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        2.58,
+        5.47
+      ],
+      "recomputed": [
+        2.58,
+        5.47
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "stayed between 2.58 and 5.47 \u00c5",
+      "located_in": "article"
+    },
+    {
+      "check": "occ_frames",
+      "state": "FAIL-ABSENT",
+      "expected": 18009,
+      "recomputed": 18009,
+      "literal_present_in_manuscript": false,
+      "literal": "across all 18,009 frames",
+      "located_in": "article"
+    },
+    {
+      "check": "occ_beyond",
+      "state": "FAIL-ABSENT",
+      "expected": 0,
+      "recomputed": 0,
+      "literal_present_in_manuscript": false,
+      "literal": "no frame in any replicate beyond 10 \u00c5",
+      "located_in": "article"
+    },
+    {
+      "check": "motif_control",
+      "state": "FAIL-ABSENT",
+      "expected": 97.4,
+      "recomputed": 97.4,
+      "literal_present_in_manuscript": false,
+      "literal": "holds that hydrogen bond in **97.4 %** of frames",
+      "located_in": "article"
+    },
+    {
+      "check": "motif_control_median",
+      "state": "FAIL-ABSENT",
+      "expected": 2.88,
+      "recomputed": 2.88,
+      "literal_present_in_manuscript": false,
+      "literal": "at a median distance of 2.88 \u00c5",
+      "located_in": "article"
+    },
+    {
+      "check": "motif_max_rep",
+      "state": "FAIL-ABSENT",
+      "expected": 41,
+      "recomputed": 41,
+      "literal_present_in_manuscript": false,
+      "literal": "No candidate holds it in more than 41 % of any replicate",
+      "located_in": "article"
+    },
+    {
+      "check": "motif_means",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        0.14,
+        0.241,
+        0.316
+      ],
+      "recomputed": [
+        0.14,
+        0.241,
+        0.316
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "averages 0.140, 0.241 and 0.316",
+      "located_in": "article"
+    },
+    {
+      "check": "motif_rho",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        0.14,
+        0.25,
+        0.33
+      ],
+      "recomputed": [
+        0.14,
+        0.25,
+        0.33
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "ratios of 0.14, 0.25 and 0.33",
+      "located_in": "article"
+    },
+    {
+      "check": "motif_partial",
+      "state": "FAIL-ABSENT",
+      "expected": 3,
+      "recomputed": 3,
+      "literal_present_in_manuscript": false,
+      "literal": "PARTIAL for all three",
+      "located_in": "article"
+    },
+    {
+      "check": "motif_median_range",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        3.61,
+        4.33
+      ],
+      "recomputed": [
+        3.61,
+        4.33
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "to Asn253 is 3.61 to 4.33 \u00c5",
+      "located_in": "article"
+    },
+    {
+      "check": "motif_window",
+      "state": "FAIL-ABSENT",
+      "expected": 0.05,
+      "recomputed": 0.05,
+      "literal_present_in_manuscript": false,
+      "literal": "differ by at most 0.05 anywhere",
+      "located_in": "article"
+    },
+    {
+      "check": "motif_glu_control",
+      "state": "PASS",
+      "expected": 6.4,
+      "recomputed": 6.4,
+      "literal_present_in_manuscript": true,
+      "literal": "held by the *control* in only 6.4 % of frames",
+      "located_in": "supplement"
+    },
+    {
+      "check": "motif_phe_range",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        99.6,
+        100.0
+      ],
+      "recomputed": [
+        99.6,
+        100.0
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "satisfied in 99.6\u2013100 % of frames by all ten systems",
+      "located_in": "supplement"
+    },
+    {
+      "check": "motif_n_systems",
+      "state": "PASS",
+      "expected": 10,
+      "recomputed": 10,
+      "literal_present_in_manuscript": true,
+      "literal": "by all ten systems",
+      "located_in": "supplement"
+    },
+    {
+      "check": "tbase_selfcheck",
+      "state": "FAIL-ABSENT",
+      "expected": 0.601,
+      "recomputed": 0.601,
+      "literal_present_in_manuscript": false,
+      "literal": "Vina alone (baseline)** | **0.601",
+      "located_in": "article"
+    },
+    {
+      "check": "tbase_heavy",
+      "state": "FAIL-ABSENT",
+      "expected": 0.584,
+      "recomputed": 0.584,
+      "literal_present_in_manuscript": false,
+      "literal": "heavy-atom count\nalone reaches AUC 0.584",
+      "located_in": "article"
+    },
+    {
+      "check": "tbase_delta",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        0.018,
+        -0.077,
+        0.111,
+        0.722
+      ],
+      "recomputed": [
+        0.018,
+        -0.077,
+        0.111,
+        0.722
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "+0.018 (95 % CI \u22120.077 to +0.111, p = 0.722)",
+      "located_in": "article"
+    },
+    {
+      "check": "tbase_mw_logp",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        0.578,
+        0.574
+      ],
+      "recomputed": [
+        0.578,
+        0.574
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "Molecular weight (0.578) and\ncLogP (0.574)",
+      "located_in": "article"
+    },
+    {
+      "check": "tbase_n214",
+      "state": "FAIL-ABSENT",
+      "expected": 214,
+      "recomputed": 214,
+      "literal_present_in_manuscript": false,
+      "literal": "the 214 compounds whose SMILES resolve",
+      "located_in": "article"
+    },
+    {
+      "check": "tbase_n245",
+      "state": "FAIL-ABSENT",
+      "expected": 245,
+      "recomputed": 245,
+      "literal_present_in_manuscript": false,
+      "literal": "Scored on the same 245 rows",
+      "located_in": "article"
+    },
+    {
+      "check": "pval_frac",
+      "state": "FAIL-ABSENT",
+      "expected": 97.88,
+      "recomputed": 97.88,
+      "literal_present_in_manuscript": false,
+      "literal": "97.88 % of 4,916 poses pass all 18 checks",
+      "located_in": "article"
+    },
+    {
+      "check": "pval_n",
+      "state": "FAIL-ABSENT",
+      "expected": 4916,
+      "recomputed": 4916,
+      "literal_present_in_manuscript": false,
+      "literal": "97.88 % of 4,916 poses",
+      "located_in": "article"
+    },
+    {
+      "check": "pval_checks",
+      "state": "FAIL-ABSENT",
+      "expected": 18,
+      "recomputed": 18,
+      "literal_present_in_manuscript": false,
+      "literal": "pass all 18 checks",
+      "located_in": "article"
+    },
+    {
+      "check": "pval_rank1",
+      "state": "FAIL-ABSENT",
+      "expected": 96.98,
+      "recomputed": 96.98,
+      "literal_present_in_manuscript": false,
+      "literal": "96.98 % of the 497 rank-1 poses do",
+      "located_in": "article"
+    },
+    {
+      "check": "pval_ncomp",
+      "state": "FAIL-ABSENT",
+      "expected": 497,
+      "recomputed": 497,
+      "literal_present_in_manuscript": false,
+      "literal": "96.98 % of the 497 rank-1 poses",
+      "located_in": "article"
+    },
+    {
+      "check": "pval_fail",
+      "state": "FAIL-ABSENT",
+      "expected": 15,
+      "recomputed": 15,
+      "literal_present_in_manuscript": false,
+      "literal": "The fifteen compounds whose top pose\nfails",
+      "located_in": "article"
+    },
+    {
+      "check": "pval_control",
+      "state": "FAIL-ABSENT",
+      "expected": 80,
+      "recomputed": 80,
+      "literal_present_in_manuscript": false,
+      "literal": "passes on all 80 of its poses",
+      "located_in": "article"
+    },
+    {
+      "check": "clin_control",
+      "state": "FAIL-ABSENT",
+      "expected": 0.398,
+      "recomputed": 0.398,
+      "literal_present_in_manuscript": false,
+      "literal": "ZM241385 redocking at 0.398 \u00c5 as the control",
+      "located_in": "article"
+    },
+    {
+      "check": "clin_zero_of_seven",
+      "state": "FAIL-ABSENT",
+      "expected": 0,
+      "recomputed": 0,
+      "literal_present_in_manuscript": false,
+      "literal": "Not one of the seven clinical and reference\nantagonists is placed in the",
+      "located_in": "article"
+    },
+    {
+      "check": "clin_seven",
+      "state": "FAIL-ABSENT",
+      "expected": 7,
+      "recomputed": 7,
+      "literal_present_in_manuscript": false,
+      "literal": "seven clinical and reference",
+      "located_in": "article"
+    },
+    {
+      "check": "clin_range",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        4.44,
+        14.92
+      ],
+      "recomputed": [
+        4.44,
+        14.92
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "4.44 to 14.92 \u00c5",
+      "located_in": "article"
+    },
+    {
+      "check": "clin_zma",
+      "state": "FAIL-ABSENT",
+      "expected": 2.71,
+      "recomputed": 2.71,
+      "literal_present_in_manuscript": false,
+      "literal": "against 2.71 \u00c5 for the co-crystal ligand",
+      "located_in": "article"
+    },
+    {
+      "check": "clin_cand",
+      "state": "FAIL-ABSENT",
+      "expected": 3.29,
+      "recomputed": 3.29,
+      "literal_present_in_manuscript": false,
+      "literal": "3.29 \u00c5 for two of\nthe three candidates",
+      "located_in": "article"
+    },
+    {
+      "check": "clin_pchembl",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        6.82,
+        9.17
+      ],
+      "recomputed": [
+        6.82,
+        9.17
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "spanning pChEMBL 6.82 to 9.17",
+      "located_in": "article"
+    },
+    {
+      "check": "clin_rho_all",
+      "state": "FAIL-ABSENT",
+      "expected": -0.673,
+      "recomputed": -0.673,
+      "literal_present_in_manuscript": false,
+      "literal": "Spearman \u22120.673, p = 0.033",
+      "located_in": "article"
+    },
+    {
+      "check": "clin_best_worst",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        -9.2,
+        -8.713
+      ],
+      "recomputed": [
+        -9.2,
+        -8.713
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "\u22129.200 kcal/mol against the best clinical antagonist, SCH-58261, at \u22128.713",
+      "located_in": "article"
+    },
+    {
+      "check": "perm_draws",
+      "state": "FAIL-ABSENT",
+      "expected": 200,
+      "recomputed": 200,
+      "literal_present_in_manuscript": false,
+      "literal": "across **200 orderings**",
+      "located_in": "article"
+    },
+    {
+      "check": "perm_range",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        6,
+        4119
+      ],
+      "recomputed": [
+        6,
+        4119
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "from **6 to 4,119 of 5,000**",
+      "located_in": "article"
+    },
+    {
+      "check": "perm_median",
+      "state": "FAIL-ABSENT",
+      "expected": 1004,
+      "recomputed": 1004,
+      "literal_present_in_manuscript": false,
+      "literal": "median of **1,004**",
+      "located_in": "article"
+    },
+    {
+      "check": "perm_percentile",
+      "state": "FAIL-ABSENT",
+      "expected": 8.0,
+      "recomputed": 8.0,
+      "literal_present_in_manuscript": false,
+      "literal": "sits at the **8th percentile**",
+      "located_in": "article"
+    },
+    {
+      "check": "perm_maxp_below",
+      "state": "FAIL-ABSENT",
+      "expected": true,
+      "recomputed": true,
+      "literal_present_in_manuscript": false,
+      "literal": "the library maximum of 0.072 lies **below every one\nof the 200 draws**",
+      "located_in": "article"
+    },
+    {
+      "check": "perm_snplib_tenth",
+      "state": "FAIL-ABSENT",
+      "expected": 10.0,
+      "recomputed": 10.0,
+      "literal_present_in_manuscript": false,
+      "literal": "reproduced by **one ordering in ten**",
+      "located_in": "article"
+    },
+    {
+      "check": "canon_invariant",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        50,
+        true,
+        true
+      ],
+      "recomputed": [
+        50,
+        true,
+        true
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "invariant across 50 permutations",
+      "located_in": "article"
+    },
+    {
+      "check": "canon_factor_six",
+      "state": "FAIL-ABSENT",
+      "expected": 6,
+      "recomputed": 6,
+      "literal_present_in_manuscript": false,
+      "literal": "disagree by\na factor of six",
+      "located_in": "article"
+    },
+    {
+      "check": "m6c_eligible",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        9,
+        298
+      ],
+      "recomputed": [
+        9,
+        298
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "to between **9 and 298**",
+      "located_in": "article"
+    },
+    {
+      "check": "m6c_panel",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        6,
+        67
+      ],
+      "recomputed": [
+        6,
+        67
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "to between **six and sixty-seven**",
+      "located_in": "article"
+    },
+    {
+      "check": "m6c_none_eligible",
+      "state": "FAIL-ABSENT",
+      "expected": true,
+      "recomputed": true,
+      "literal_present_in_manuscript": false,
+      "literal": "**none of NPLIB01185,\nNPLIB01643 or NPLIB03056 is eligible**",
+      "located_in": "article"
+    },
+    {
+      "check": "xdock_control",
+      "state": "PASS",
+      "expected": 0.397,
+      "recomputed": 0.397,
+      "literal_present_in_manuscript": true,
+      "literal": "into 4EIY at 0.397 \u00c5",
+      "located_in": "supplement"
+    },
+    {
+      "check": "xdock_clean",
+      "state": "PASS",
+      "expected": 0.318,
+      "recomputed": 0.318,
+      "literal_present_in_manuscript": true,
+      "literal": "into 5OLG at 0.318 \u00c5",
+      "located_in": "supplement"
+    },
+    {
+      "check": "xdock_3eml",
+      "state": "PASS",
+      "expected": 0.709,
+      "recomputed": 0.709,
+      "literal_present_in_manuscript": true,
+      "literal": "into 3EML at 0.709 \u00c5",
+      "located_in": "supplement"
+    },
+    {
+      "check": "ltr_control",
+      "state": "FAIL-ABSENT",
+      "expected": 0.398,
+      "recomputed": 0.398,
+      "literal_present_in_manuscript": false,
+      "literal": "ZM241385 control at 0.398 \u00c5",
+      "located_in": "article"
+    },
+    {
+      "check": "ltr_t1",
+      "state": "FAIL-ABSENT",
+      "expected": 0.216,
+      "recomputed": 0.216,
+      "literal_present_in_manuscript": false,
+      "literal": "9XT redocks into 5OLH at 0.216 \u00c5",
+      "located_in": "article"
+    },
+    {
+      "check": "ltr_t2",
+      "state": "FAIL-ABSENT",
+      "expected": 9.606,
+      "recomputed": 9.606,
+      "literal_present_in_manuscript": false,
+      "literal": "docked into 4EIY misses by 9.606 \u00c5",
+      "located_in": "article"
+    },
+    {
+      "check": "ltr_t2_best",
+      "state": "FAIL-ABSENT",
+      "expected": 9.15,
+      "recomputed": 9.15,
+      "literal_present_in_manuscript": false,
+      "literal": "the ten run from 9.15",
+      "located_in": "article"
+    },
+    {
+      "check": "ltr_t2_worst",
+      "state": "FAIL-ABSENT",
+      "expected": 15.19,
+      "recomputed": 15.19,
+      "literal_present_in_manuscript": false,
+      "literal": "to 15.19 \u00c5",
+      "located_in": "article"
+    },
+    {
+      "check": "ltr_t2_rank3",
+      "state": "FAIL-ABSENT",
+      "expected": 9.15,
+      "recomputed": 9.15,
+      "literal_present_in_manuscript": false,
+      "literal": "rank 3 at 9.150 \u00c5",
+      "located_in": "article"
+    },
+    {
+      "check": "ltr_super",
+      "state": "FAIL-ABSENT",
+      "expected": 0.388,
+      "recomputed": 0.388,
+      "literal_present_in_manuscript": false,
+      "literal": "superposing at 0.388 \u00c5",
+      "located_in": "article"
+    },
+    {
+      "check": "ltr_score_own",
+      "state": "PASS",
+      "expected": -11.217,
+      "recomputed": -11.217,
+      "literal_present_in_manuscript": true,
+      "literal": "9XT scores \u221211.217 kcal/mol in 5OLH",
+      "located_in": "supplement"
+    },
+    {
+      "check": "ltr_score_wrong",
+      "state": "PASS",
+      "expected": -7.426,
+      "recomputed": -7.426,
+      "literal_present_in_manuscript": true,
+      "literal": "against \u22127.426 in 4EIY",
+      "located_in": "supplement"
+    },
+    {
+      "check": "ltr_score_gap",
+      "state": "PASS",
+      "expected": 3.79,
+      "recomputed": 3.79,
+      "literal_present_in_manuscript": true,
+      "literal": "by 3.79 kcal/mol",
+      "located_in": "supplement"
+    },
+    {
+      "check": "ltr_t2_spread",
+      "state": "FAIL-ABSENT",
+      "expected": 0.478,
+      "recomputed": 0.478,
+      "literal_present_in_manuscript": false,
+      "literal": "spread of 0.478 kcal/mol",
+      "located_in": "article"
+    },
+    {
+      "check": "filter_mw",
+      "state": "FAIL-ABSENT",
+      "expected": 700.0,
+      "recomputed": 700.0,
+      "literal_present_in_manuscript": false,
+      "literal": "a ceiling of 700 Da",
+      "located_in": "article"
+    },
+    {
+      "check": "filter_rotb",
+      "state": "FAIL-ABSENT",
+      "expected": 10,
+      "recomputed": 10,
+      "literal_present_in_manuscript": false,
+      "literal": "and ten rotatable bonds",
+      "located_in": "article"
+    },
+    {
+      "check": "filter_out",
+      "state": "FAIL-ABSENT",
+      "expected": 21882,
+      "recomputed": 21882,
+      "literal_present_in_manuscript": false,
+      "literal": "takes 25,604 records to 21,882",
+      "located_in": "article"
+    },
+    {
+      "check": "ood_neg_control",
+      "state": "PASS",
+      "expected": 0.53,
+      "recomputed": 0.53,
+      "literal_present_in_manuscript": true,
+      "literal": "reproduces its recorded **0.53 %**",
+      "located_in": "supplement"
+    },
+    {
+      "check": "ood_k2",
+      "state": "PASS",
+      "expected": 2.66,
+      "recomputed": 2.66,
+      "literal_present_in_manuscript": true,
+      "literal": "rises to **2.66 %** at",
+      "located_in": "supplement"
+    },
+    {
+      "check": "ood_saturation",
+      "state": "PASS",
+      "expected": 5.32,
+      "recomputed": 5.32,
+      "literal_present_in_manuscript": true,
+      "literal": "saturates at 5.32 % from",
+      "located_in": "supplement"
+    },
+    {
+      "check": "ood_k1000",
+      "state": "PASS",
+      "expected": 5.32,
+      "recomputed": 5.32,
+      "literal_present_in_manuscript": true,
+      "literal": "moving no further at *k* = 100 or *k* = 1000",
+      "located_in": "supplement"
+    },
+    {
+      "check": "ood_admitted",
+      "state": "PASS",
+      "expected": 94.7,
+      "recomputed": 94.7,
+      "literal_present_in_manuscript": true,
+      "literal": "admitted as in-domain 94.7 % of the time",
+      "located_in": "supplement"
+    },
+    {
+      "check": "ood_unflagged",
+      "state": "PASS",
+      "expected": 178,
+      "recomputed": 178,
+      "literal_present_in_manuscript": true,
+      "literal": "the ten rows that are flagged from the 178",
+      "located_in": "supplement"
+    },
+    {
+      "check": "ood_contamination",
+      "state": "PASS",
+      "expected": 0.01,
+      "recomputed": 0.01,
+      "literal_present_in_manuscript": true,
+      "literal": "was set to 0.01",
+      "located_in": "supplement"
+    },
+    {
+      "check": "ood_train_flag",
+      "state": "PASS",
+      "expected": 1,
+      "recomputed": 1,
+      "literal_present_in_manuscript": true,
+      "literal": "it flagged 1 of 188 development rows",
+      "located_in": "supplement"
+    },
+    {
+      "check": "ood_null_features",
+      "state": "PASS",
+      "expected": 7,
+      "recomputed": 7,
+      "literal_present_in_manuscript": true,
+      "literal": "**7 of the 24 declared features are entirely null",
+      "located_in": "supplement"
+    },
+    {
+      "check": "ood_deployed_features",
+      "state": "PASS",
+      "expected": 17,
+      "recomputed": 17,
+      "literal_present_in_manuscript": true,
+      "literal": "the deployed detector is a 17-feature",
+      "located_in": "supplement"
+    },
+    {
+      "check": "ood_ablation",
+      "state": "PASS",
+      "expected": 376,
+      "recomputed": 376,
+      "literal_present_in_manuscript": true,
+      "literal": "2 of 376 evaluations across the ablation",
+      "located_in": "supplement"
+    },
+    {
+      "check": "score_power_ant_r",
+      "state": "FAIL-ABSENT",
+      "expected": -0.481,
+      "recomputed": -0.481,
+      "literal_present_in_manuscript": false,
+      "literal": "r = \u22120.481",
+      "located_in": "article"
+    },
+    {
+      "check": "score_power_ant_p",
+      "state": "FAIL-ABSENT",
+      "expected": 0.228,
+      "recomputed": 0.228,
+      "literal_present_in_manuscript": false,
+      "literal": "(p = 0.228)",
+      "located_in": "article"
+    },
+    {
+      "check": "score_power_all_r",
+      "state": "FAIL-ABSENT",
+      "expected": -0.657,
+      "recomputed": -0.657,
+      "literal_present_in_manuscript": false,
+      "literal": "r = \u22120.657",
+      "located_in": "article"
+    },
+    {
+      "check": "score_power_all_p",
+      "state": "FAIL-ABSENT",
+      "expected": 0.039,
+      "recomputed": 0.039,
+      "literal_present_in_manuscript": false,
+      "literal": "(p = 0.039)",
+      "located_in": "article"
+    },
+    {
+      "check": "bench_split",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        50,
+        195
+      ],
+      "recomputed": [
+        50,
+        195
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "50 actives at a median pChEMBL of 10.0 and 195 inactives",
+      "located_in": "article"
+    },
+    {
+      "check": "bench_medians",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        10.0,
+        4.76
+      ],
+      "recomputed": [
+        10.0,
+        4.76
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "median pChEMBL of 10.0 and 195 inactives at a\nmedian of 4.76",
+      "located_in": "article"
+    },
+    {
+      "check": "bench_pools",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        5244,
+        699
+      ],
+      "recomputed": [
+        5244,
+        699
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "drawn from pools of 5,244 and 699",
+      "located_in": "article"
+    },
+    {
+      "check": "motif_discussion",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        14,
+        32,
+        97
+      ],
+      "recomputed": [
+        14,
+        32,
+        97
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "bond in 14 to 32 % of frames against the crystal ligand's 97 %",
+      "located_in": "article"
+    },
+    {
+      "check": "test_count",
+      "state": "PASS",
+      "expected": 715,
+      "recomputed": 715,
+      "literal_present_in_manuscript": true,
+      "literal": "715 collected, 715 pass",
+      "located_in": "article"
+    },
+    {
+      "check": "test_count_prose",
+      "state": "FAIL-ABSENT",
+      "expected": 715,
+      "recomputed": 715,
+      "literal_present_in_manuscript": false,
+      "literal": "715 cases are collected from 604 test functions",
+      "located_in": "article"
+    },
+    {
+      "check": "fref_panel",
+      "state": "FAIL-ABSENT",
+      "expected": 1096,
+      "recomputed": 1096,
+      "literal_present_in_manuscript": false,
+      "literal": "1,096 A2A actives whose scaffolds are",
+      "located_in": "article"
+    },
+    {
+      "check": "fref_range",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        0.058,
+        0.15
+      ],
+      "recomputed": [
+        0.058,
+        0.15
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "refuses **between 5.8 % and 15.0 % of them**",
+      "located_in": "article"
+    },
+    {
+      "check": "fref_maccs",
+      "state": "FAIL-ABSENT",
+      "expected": 0.15,
+      "recomputed": 0.15,
+      "literal_present_in_manuscript": false,
+      "literal": "15.0 % in MACCS",
+      "located_in": "article"
+    },
+    {
+      "check": "fref_ecfp4",
+      "state": "FAIL-ABSENT",
+      "expected": 0.149,
+      "recomputed": 0.149,
+      "literal_present_in_manuscript": false,
+      "literal": "14.9 % in ECFP4",
+      "located_in": "article"
+    },
+    {
+      "check": "fref_physchem",
+      "state": "FAIL-ABSENT",
+      "expected": 0.058,
+      "recomputed": 0.058,
+      "literal_present_in_manuscript": false,
+      "literal": "5.8 % physicochemically",
+      "located_in": "article"
+    },
+    {
+      "check": "fref_none_above_half",
+      "state": "FAIL-ABSENT",
+      "expected": [],
+      "recomputed": [],
+      "literal_present_in_manuscript": false,
+      "literal": "no space above half",
+      "located_in": "article"
+    },
+    {
+      "check": "fref_validation_overlap",
+      "state": "FAIL-ABSENT",
+      "expected": 3307,
+      "recomputed": 3307,
+      "literal_present_in_manuscript": false,
+      "literal": "shares 3,307 of its 3,372 compounds",
+      "located_in": "article"
+    },
+    {
+      "check": "fref_np_full",
+      "state": "FAIL-ABSENT",
+      "expected": 4,
+      "recomputed": 4,
+      "literal_present_in_manuscript": false,
+      "literal": "100 % in four of the seven structural spaces",
+      "located_in": "article"
+    },
+    {
+      "check": "fref_np_range",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        0.878,
+        1.0
+      ],
+      "recomputed": [
+        0.878,
+        1.0
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "between 88 and 100 %",
+      "located_in": "article"
+    },
+    {
+      "check": "fref_np_physchem",
+      "state": "FAIL-ABSENT",
+      "expected": 0.29,
+      "recomputed": 0.29,
+      "literal_present_in_manuscript": false,
+      "literal": "29.0 % of those 500",
+      "located_in": "article"
+    },
+    {
+      "check": "fref_np_n",
+      "state": "FAIL-ABSENT",
+      "expected": 500,
+      "recomputed": 500,
+      "literal_present_in_manuscript": false,
+      "literal": "500 top-ranked natural products",
+      "located_in": "article"
+    },
+    {
+      "check": "fref_np_erg",
+      "state": "FAIL-ABSENT",
+      "expected": 0.956,
+      "recomputed": 0.956,
+      "literal_present_in_manuscript": false,
+      "literal": "95.6 % in ErG",
+      "located_in": "article"
+    },
+    {
+      "check": "fref_np_maccs",
+      "state": "FAIL-ABSENT",
+      "expected": 0.878,
+      "recomputed": 0.878,
+      "literal_present_in_manuscript": false,
+      "literal": "87.8 % in MACCS",
+      "located_in": "article"
+    },
+    {
+      "check": "fref_panel_median",
+      "state": "FAIL-ABSENT",
+      "expected": 14,
+      "recomputed": 14,
+      "literal_present_in_manuscript": false,
+      "literal": "costs about 14 %",
+      "located_in": "article"
+    },
+    {
+      "check": "r4_weighted",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        0.0741,
+        0.1076
+      ],
+      "recomputed": [
+        0.0741,
+        0.1076
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "rate rises from 7.41 % to 10.76 %",
+      "located_in": "article"
+    },
+    {
+      "check": "r4_implied",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        1817,
+        16882
+      ],
+      "recomputed": [
+        1817,
+        16882
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "an implied **1,817** of the 16,882",
+      "located_in": "article"
+    },
+    {
+      "check": "r4_ratio",
+      "state": "FAIL-ABSENT",
+      "expected": 3.6,
+      "recomputed": 3.6,
+      "literal_present_in_manuscript": false,
+      "literal": "3.6 times the 500",
+      "located_in": "article"
+    },
+    {
+      "check": "r4_shift_sel",
+      "state": "FAIL-ABSENT",
+      "expected": 0.122,
+      "recomputed": 0.122,
+      "literal_present_in_manuscript": false,
+      "literal": "**selected** compounds by 0.122 kcal/mol",
+      "located_in": "article"
+    },
+    {
+      "check": "r4_shift_dis",
+      "state": "FAIL-ABSENT",
+      "expected": 0.361,
+      "recomputed": 0.361,
+      "literal_present_in_manuscript": false,
+      "literal": "**discarded** ones by **0.361**",
+      "located_in": "article"
+    },
+    {
+      "check": "r4_expected",
+      "state": "FAIL-ABSENT",
+      "expected": 0.088,
+      "recomputed": 0.088,
+      "literal_present_in_manuscript": false,
+      "literal": "would predict 8.8 %",
+      "located_in": "article"
+    },
+    {
+      "check": "r4_observed",
+      "state": "FAIL-ABSENT",
+      "expected": 0.106,
+      "recomputed": 0.106,
+      "literal_present_in_manuscript": false,
+      "literal": "observed figure is 10.6 %",
+      "located_in": "article"
+    },
+    {
+      "check": "r2_identical",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        3,
+        497
+      ],
+      "recomputed": [
+        3,
+        497
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "Only **3 of 497** paired scores are identical",
+      "located_in": "article"
+    },
+    {
+      "check": "r2_mean",
+      "state": "FAIL-ABSENT",
+      "expected": 0.17,
+      "recomputed": 0.1701,
+      "literal_present_in_manuscript": false,
+      "literal": "mean absolute deviation is **0.170 kcal/mol**",
+      "located_in": "article"
+    },
+    {
+      "check": "r2_max",
+      "state": "FAIL-ABSENT",
+      "expected": 1.469,
+      "recomputed": 1.469,
+      "literal_present_in_manuscript": false,
+      "literal": "the maximum **1.469**",
+      "located_in": "article"
+    },
+    {
+      "check": "r2_rho",
+      "state": "FAIL-ABSENT",
+      "expected": 0.767,
+      "recomputed": 0.767,
+      "literal_present_in_manuscript": false,
+      "literal": "**\u03c1 = 0.767**",
+      "located_in": "article"
+    },
+    {
+      "check": "r2_flips",
+      "state": "FAIL-ABSENT",
+      "expected": 13,
+      "recomputed": 13,
+      "literal_present_in_manuscript": false,
+      "literal": "Thirteen compounds change their on-pocket status",
+      "located_in": "article"
+    },
+    {
+      "check": "r2_moves",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        6,
+        4,
+        19
+      ],
+      "recomputed": [
+        6,
+        4,
+        19
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "move 6, 4 and 19 places",
+      "located_in": "article"
+    },
+    {
+      "check": "r2_tierA_same",
+      "state": "FAIL-ABSENT",
+      "expected": true,
+      "recomputed": true,
+      "literal_present_in_manuscript": false,
+      "literal": "the same three compounds",
+      "located_in": "article"
+    },
+    {
+      "check": "r3_means",
+      "state": "PASS",
+      "expected": [
+        0.166,
+        0.079
+      ],
+      "recomputed": [
+        0.166,
+        0.079
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "from 0.166 kcal/mol at eight conformers to 0.079 at thirty-two",
+      "located_in": "supplement"
+    },
+    {
+      "check": "r3_mean_128",
+      "state": "PASS",
+      "expected": 0.081,
+      "recomputed": 0.081,
+      "literal_present_in_manuscript": true,
+      "literal": "does not fall further at 128, where it is 0.081",
+      "located_in": "supplement"
+    },
+    {
+      "check": "r3_ratio",
+      "state": "PASS",
+      "expected": 0.491,
+      "recomputed": 0.491,
+      "literal_present_in_manuscript": true,
+      "literal": "eight-conformer one is 0.491",
+      "located_in": "supplement"
+    },
+    {
+      "check": "r3_outcome",
+      "state": "FAIL-ABSENT",
+      "expected": "PARTIAL",
+      "recomputed": "PARTIAL",
+      "literal_present_in_manuscript": false,
+      "literal": "the outcome is the middle one",
+      "located_in": "article"
+    },
+    {
+      "check": "r3_still_differ",
+      "state": "PASS",
+      "expected": 24,
+      "recomputed": 24,
+      "literal_present_in_manuscript": true,
+      "literal": "24 of the 25 compounds still score differently",
+      "located_in": "supplement"
+    },
+    {
+      "check": "r3_max_128",
+      "state": "PASS",
+      "expected": 0.423,
+      "recomputed": 0.423,
+      "literal_present_in_manuscript": true,
+      "literal": "maximum deviation of 0.423 kcal/mol",
+      "located_in": "supplement"
+    },
+    {
+      "check": "r3_tost_margin",
+      "state": "PASS",
+      "expected": 0.096,
+      "recomputed": 0.096,
+      "literal_present_in_manuscript": true,
+      "literal": "0.096 kcal/mol, with a mean difference of +0.007",
+      "located_in": "supplement"
+    },
+    {
+      "check": "r3_control",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        0.0,
+        0.0
+      ],
+      "recomputed": [
+        0.0,
+        0.0
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "maximum absolute deviation 0.000000 kcal/mol",
+      "located_in": "article"
+    },
+    {
+      "check": "naive_seer",
+      "state": "FAIL-ABSENT",
+      "expected": 0.477,
+      "recomputed": 0.477,
+      "literal_present_in_manuscript": false,
+      "literal": "gives SEER 0.477",
+      "located_in": "article"
+    },
+    {
+      "check": "naive_cases",
+      "state": "FAIL-ABSENT",
+      "expected": 128,
+      "recomputed": 128,
+      "literal_present_in_manuscript": false,
+      "literal": "over the same 128 cases",
+      "located_in": "article"
+    },
+    {
+      "check": "naive_reproduced",
+      "state": "FAIL-ABSENT",
+      "expected": true,
+      "recomputed": true,
+      "literal_present_in_manuscript": false,
+      "literal": "gives SEER 0.477",
+      "located_in": "article"
+    },
+    {
+      "check": "repro_contracts",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        4,
+        true
+      ],
+      "recomputed": [
+        4,
+        true
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "All four matched, including the G3 escalation.",
+      "located_in": "supplement"
+    },
+    {
+      "check": "repro_files",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        9,
+        13
+      ],
+      "recomputed": [
+        9,
+        13
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "Nine of thirteen files were",
+      "located_in": "supplement"
+    },
+    {
+      "check": "repro_hydrogens",
+      "state": "FAIL-ABSENT",
+      "expected": 679,
+      "recomputed": 679,
+      "literal_present_in_manuscript": false,
+      "literal": "differing in 679\npolar-hydrogen coordinates",
+      "located_in": "supplement"
+    },
+    {
+      "check": "repro_types",
+      "state": "FAIL-ABSENT",
+      "expected": 3,
+      "recomputed": 3,
+      "literal_present_in_manuscript": false,
+      "literal": "at three atoms of one histidine",
+      "located_in": "supplement"
+    },
+    {
+      "check": "repro_distance",
+      "state": "FAIL-ABSENT",
+      "expected": 18.05,
+      "recomputed": 18.05,
+      "literal_present_in_manuscript": false,
+      "literal": "lie 18.05 \u00c5 from the nearest atom of any",
+      "located_in": "supplement"
+    },
+    {
+      "check": "repro_table_row",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        4,
+        9,
+        13
+      ],
+      "recomputed": [
+        4,
+        9,
+        13
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "| Gate-decision reproducibility | 4 of 4 contract outcomes identical; **9 of 13 artifacts byte-identical** |",
+      "located_in": "article"
+    },
+    {
+      "check": "tier_A",
+      "state": "FAIL-ABSENT",
+      "expected": 3,
+      "recomputed": 3,
+      "literal_present_in_manuscript": false,
+      "literal": "| A \u2014 dual-criterion |",
+      "located_in": "article"
+    },
+    {
+      "check": "tier_B",
+      "state": "FAIL-ABSENT",
+      "expected": 119,
+      "recomputed": 119,
+      "literal_present_in_manuscript": false,
+      "literal": "| B \u2014 strong structure-based |",
+      "located_in": "article"
+    },
+    {
+      "check": "tier_C",
+      "state": "FAIL-ABSENT",
+      "expected": 360,
+      "recomputed": 360,
+      "literal_present_in_manuscript": false,
+      "literal": "| C \u2014 supporting |",
+      "located_in": "article"
+    },
+    {
+      "check": "n_ok",
+      "state": "PASS",
+      "expected": 497,
+      "recomputed": 497,
+      "literal_present_in_manuscript": true,
+      "literal": "497 completed",
+      "located_in": "article"
+    },
+    {
+      "check": "n_onpocket",
+      "state": "PASS",
+      "expected": 482,
+      "recomputed": 482,
+      "literal_present_in_manuscript": true,
+      "literal": "482 produced an on-pocket pose",
+      "located_in": "article"
+    },
+    {
+      "check": "tierA_binom",
+      "state": "FAIL-ABSENT",
+      "expected": 0.49,
+      "recomputed": 0.49,
+      "literal_present_in_manuscript": false,
+      "literal": "binomial p = 0.49",
+      "located_in": "article"
+    },
+    {
+      "check": "tierA_flagged_n",
+      "state": "FAIL-ABSENT",
+      "expected": 23,
+      "recomputed": 23,
+      "literal_present_in_manuscript": false,
+      "literal": "Of the 23 compounds the",
+      "located_in": "article"
+    },
+    {
+      "check": "tierA_excluded_n",
+      "state": "PASS",
+      "expected": 4977,
+      "recomputed": 4977,
+      "literal_present_in_manuscript": true,
+      "literal": "4,977 of 5,000 compounds were excluded",
+      "located_in": "supplement"
+    },
+    {
+      "check": "tierA_uniform_pong",
+      "state": "FAIL-ABSENT",
+      "expected": 0.002259,
+      "recomputed": 0.002259,
+      "literal_present_in_manuscript": false,
+      "literal": "all *Pongamia* p = 0.002",
+      "located_in": "article"
+    },
+    {
+      "check": "tierA_uniform_flav",
+      "state": "FAIL-ABSENT",
+      "expected": 0.019763,
+      "recomputed": 0.019763,
+      "literal_present_in_manuscript": false,
+      "literal": "obtaining all flavones has p = 0.020",
+      "located_in": "article"
+    },
+    {
+      "check": "tierA_gap",
+      "state": "PASS",
+      "expected": 0.956,
+      "recomputed": 0.956,
+      "literal_present_in_manuscript": true,
+      "literal": "ahead of the fourth by 0.956 kcal/mol",
+      "located_in": "supplement"
+    },
+    {
+      "check": "tierA_conditioned",
+      "state": "PASS",
+      "expected": 0.0023,
+      "recomputed": 0.0023,
+      "literal_present_in_manuscript": true,
+      "literal": "permutations gives p = 0.0023",
+      "located_in": "supplement"
+    },
+    {
+      "check": "tierA_any_genus",
+      "state": "FAIL-ABSENT",
+      "expected": 0.126,
+      "recomputed": 0.126,
+      "literal_present_in_manuscript": false,
+      "literal": "p = 0.126 at genus level",
+      "located_in": "article"
+    },
+    {
+      "check": "tierA_any_superclass",
+      "state": "FAIL-ABSENT",
+      "expected": 0.182,
+      "recomputed": 0.182,
+      "literal_present_in_manuscript": false,
+      "literal": "p = 0.182 at structural superclass",
+      "located_in": "article"
+    },
+    {
+      "check": "res_4eiy",
+      "state": "FAIL-ABSENT",
+      "expected": 1.8,
+      "recomputed": 1.8,
+      "literal_present_in_manuscript": false,
+      "literal": "1.80 \u00c5 A2AR\u2013BRIL",
+      "located_in": "article"
+    },
+    {
+      "check": "res_5olh",
+      "state": "FAIL-ABSENT",
+      "expected": 2.6,
+      "recomputed": 2.6,
+      "literal_present_in_manuscript": false,
+      "literal": "2.60 \u00c5 A2A-StaR2-BRIL",
+      "located_in": "article"
+    },
+    {
+      "check": "t88a",
+      "state": "FAIL-ABSENT",
+      "expected": 5.91,
+      "recomputed": 5.91,
+      "literal_present_in_manuscript": false,
+      "literal": "T88A\n(3.36) at 5.91 \u00c5",
+      "located_in": "article"
+    },
+    {
+      "check": "rmsd",
+      "state": "FAIL-ABSENT",
+      "expected": 0.379,
+      "recomputed": 0.379,
+      "literal_present_in_manuscript": false,
+      "literal": "**0.379 \u00c5**",
+      "located_in": "article"
+    },
+    {
+      "check": "stereo_snplib",
+      "state": "FAIL-ABSENT",
+      "expected": 24,
+      "recomputed": 24,
+      "literal_present_in_manuscript": false,
+      "literal": "24 of 236 SNP-Lib",
+      "located_in": "article"
+    },
+    {
+      "check": "stereo_top500",
+      "state": "FAIL-ABSENT",
+      "expected": 106,
+      "recomputed": 106,
+      "literal_present_in_manuscript": false,
+      "literal": "106 of the\n500 redocked compounds",
+      "located_in": "article"
+    },
+    {
+      "check": "box_over",
+      "state": "FAIL-ABSENT",
+      "expected": 5,
+      "recomputed": 5,
+      "literal_present_in_manuscript": false,
+      "literal": "**five compounds exceed the 22 \u00c5\nedge**",
+      "located_in": "article"
+    },
+    {
+      "check": "box_max",
+      "state": "FAIL-ABSENT",
+      "expected": 24.3,
+      "recomputed": 24.3,
+      "literal_present_in_manuscript": false,
+      "literal": "maximum 24.3 \u00c5",
+      "located_in": "article"
+    },
+    {
+      "check": "cutoff_97",
+      "state": "FAIL-ABSENT",
+      "expected": 97.0,
+      "recomputed": 97.0,
+      "literal_present_in_manuscript": false,
+      "literal": "482 of 497 compounds\n(97.0 %)",
+      "located_in": "article"
+    },
+    {
+      "check": "cutoff_7",
+      "state": "FAIL-ABSENT",
+      "expected": 89.9,
+      "recomputed": 89.9,
+      "literal_present_in_manuscript": false,
+      "literal": "447 (89.9 %) at 7 \u00c5",
+      "located_in": "article"
+    },
+    {
+      "check": "conf_valid",
+      "state": "FAIL-ABSENT",
+      "expected": 0.0501,
+      "recomputed": 0.0501,
+      "literal_present_in_manuscript": false,
+      "literal": "empirical error\n0.0501",
+      "located_in": "supplement"
+    },
+    {
+      "check": "rerun_n",
+      "state": "FAIL-ABSENT",
+      "expected": 25,
+      "recomputed": 25,
+      "literal_present_in_manuscript": false,
+      "literal": "the **25 compounds** shared",
+      "located_in": "supplement"
+    },
+    {
+      "check": "rerun_exact",
+      "state": "FAIL-ABSENT",
+      "expected": true,
+      "recomputed": true,
+      "literal_present_in_manuscript": false,
+      "literal": "all three pairwise comparisons agree exactly",
+      "located_in": "supplement"
+    },
+    {
+      "check": "rerun_maxdiff",
+      "state": "FAIL-ABSENT",
+      "expected": 0.0,
+      "recomputed": 0.0,
+      "literal_present_in_manuscript": false,
+      "literal": "no score\ndiffering at any decimal place",
+      "located_in": "supplement"
+    },
+    {
+      "check": "rart_byte",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        4,
+        13
+      ],
+      "recomputed": [
+        4,
+        13
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "**four of thirteen** artifacts",
+      "located_in": "article"
+    },
+    {
+      "check": "rart_norm",
+      "state": "FAIL-ABSENT",
+      "expected": 4,
+      "recomputed": 4,
+      "literal_present_in_manuscript": false,
+      "literal": "**all four still\nflagged**",
+      "located_in": "article"
+    },
+    {
+      "check": "rart_scoped",
+      "state": "FAIL-ABSENT",
+      "expected": false,
+      "recomputed": false,
+      "literal_present_in_manuscript": false,
+      "literal": "the numeric outputs\npasses",
+      "located_in": "article"
+    },
+    {
+      "check": "msc_pairs",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        35,
+        48
+      ],
+      "recomputed": [
+        35,
+        48
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "**35 of 48** actives",
+      "located_in": "article"
+    },
+    {
+      "check": "msc_vina",
+      "state": "FAIL-ABSENT",
+      "expected": 0.502,
+      "recomputed": 0.502,
+      "literal_present_in_manuscript": false,
+      "literal": "ROC-AUC 0.502 (95 % CI 0.367\u20130.635)",
+      "located_in": "article"
+    },
+    {
+      "check": "msc_heavy",
+      "state": "FAIL-ABSENT",
+      "expected": 0.553,
+      "recomputed": 0.553,
+      "literal_present_in_manuscript": false,
+      "literal": "heavy-atom count's 0.553",
+      "located_in": "article"
+    },
+    {
+      "check": "msc_delta",
+      "state": "FAIL-ABSENT",
+      "expected": -0.051,
+      "recomputed": -0.051,
+      "literal_present_in_manuscript": false,
+      "literal": "a paired difference of **\u22120.051**",
+      "located_in": "article"
+    },
+    {
+      "check": "msc_n",
+      "state": "FAIL-ABSENT",
+      "expected": 70,
+      "recomputed": 70,
+      "literal_present_in_manuscript": false,
+      "literal": "the resulting 70 compounds",
+      "located_in": "article"
+    },
+    {
+      "check": "conf_n",
+      "state": "FAIL-ABSENT",
+      "expected": 1217,
+      "recomputed": 1217,
+      "literal_present_in_manuscript": false,
+      "literal": "(n = 1,217)",
+      "located_in": "supplement"
+    },
+    {
+      "check": "concl_spike_panel",
+      "state": "FAIL-ABSENT",
+      "expected": 105,
+      "recomputed": 105,
+      "literal_present_in_manuscript": false,
+      "literal": "**105 A2A actives the ligand-based model had never seen**",
+      "located_in": "article"
+    },
+    {
+      "check": "concl_ad_admits",
+      "state": "FAIL-ABSENT",
+      "expected": 5,
+      "recomputed": 5,
+      "literal_present_in_manuscript": false,
+      "literal": "**admitted five**",
+      "located_in": "article"
+    },
+    {
+      "check": "m6_sim_cov",
+      "state": "FAIL-ABSENT",
+      "expected": 0.0,
+      "recomputed": 0.0,
+      "literal_present_in_manuscript": false,
+      "literal": "**similarity coverage of 0.0000",
+      "located_in": "article"
+    },
+    {
+      "check": "m6_scaf_cov",
+      "state": "FAIL-ABSENT",
+      "expected": 0.0,
+      "recomputed": 0.0,
+      "literal_present_in_manuscript": false,
+      "literal": "a scaffold coverage of 0.0000**",
+      "located_in": "article"
+    },
+    {
+      "check": "m6_thresholds",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        0.5,
+        0.1
+      ],
+      "recomputed": [
+        0.5,
+        0.1
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "thresholds of **0.50 and 0.10**",
+      "located_in": "article"
+    },
+    {
+      "check": "m6_licensed_after",
+      "state": "FAIL-ABSENT",
+      "expected": 0,
+      "recomputed": 0,
+      "literal_present_in_manuscript": false,
+      "literal": "licensed in **no\nconfiguration of the nine**",
+      "located_in": "article"
+    },
+    {
+      "check": "m6_eligible",
+      "state": "FAIL-ABSENT",
+      "expected": 3,
+      "recomputed": 3,
+      "literal_present_in_manuscript": false,
+      "literal": "**3 are eligible for Tier A**",
+      "located_in": "article"
+    },
+    {
+      "check": "m6_frameworks",
+      "state": "FAIL-ABSENT",
+      "expected": 2,
+      "recomputed": 2,
+      "literal_present_in_manuscript": false,
+      "literal": "span **two Bemis-Murcko frameworks**",
+      "located_in": "article"
+    },
+    {
+      "check": "m6_panel_after",
+      "state": "FAIL-ABSENT",
+      "expected": 2,
+      "recomputed": 2,
+      "literal_present_in_manuscript": false,
+      "literal": "from **three compounds to two**",
+      "located_in": "article"
+    },
+    {
+      "check": "m6_pool",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        3,
+        497
+      ],
+      "recomputed": [
+        3,
+        497
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "the eligible pool, 3 of 497",
+      "located_in": "article"
+    },
+    {
+      "check": "s56_lb_admits",
+      "state": "FAIL-ABSENT",
+      "expected": 31,
+      "recomputed": 31,
+      "literal_present_in_manuscript": false,
+      "literal": "**The ligand-based arm\nadmits 31 of the 32**",
+      "located_in": "article"
+    },
+    {
+      "check": "s56_ad_admits",
+      "state": "FAIL-ABSENT",
+      "expected": 5,
+      "recomputed": 5,
+      "literal_present_in_manuscript": false,
+      "literal": "**The domain gate\nadmits 5.**",
+      "located_in": "article"
+    },
+    {
+      "check": "s56_ad_all",
+      "state": "FAIL-ABSENT",
+      "expected": 18,
+      "recomputed": 18,
+      "literal_present_in_manuscript": false,
+      "literal": "it admits **18**",
+      "located_in": "article"
+    },
+    {
+      "check": "s56_ad_rate",
+      "state": "FAIL-ABSENT",
+      "expected": 15.6,
+      "recomputed": 15.6,
+      "literal_present_in_manuscript": false,
+      "literal": "the domain gate **15.6 %**",
+      "located_in": "article"
+    },
+    {
+      "check": "abs_s56_ad",
+      "state": "PASS",
+      "expected": 5,
+      "recomputed": 5,
+      "literal_present_in_manuscript": true,
+      "literal": "the domain gate admitted 5",
+      "located_in": "article"
+    },
+    {
+      "check": "abs_spike_panel",
+      "state": "FAIL-ABSENT",
+      "expected": 105,
+      "recomputed": 105,
+      "literal_present_in_manuscript": false,
+      "literal": "Spiking 105 unseen actives",
+      "located_in": "article"
+    },
+    {
+      "check": "abs_spike_recovered",
+      "state": "FAIL-ABSENT",
+      "expected": 89,
+      "recomputed": 89,
+      "literal_present_in_manuscript": false,
+      "literal": "the funnel recovered 89",
+      "located_in": "article"
+    },
+    {
+      "check": "abs_spike_top500",
+      "state": "FAIL-ABSENT",
+      "expected": 32,
+      "recomputed": 32,
+      "literal_present_in_manuscript": false,
+      "literal": "32 survived the docking rank",
+      "located_in": "article"
+    },
+    {
+      "check": "spike_panel",
+      "state": "FAIL-ABSENT",
+      "expected": 105,
+      "recomputed": 105,
+      "literal_present_in_manuscript": false,
+      "literal": "**105\nChEMBL A2A actives the ligand-based model has never seen**",
+      "located_in": "article"
+    },
+    {
+      "check": "spike_stage2",
+      "state": "FAIL-ABSENT",
+      "expected": 94,
+      "recomputed": 94,
+      "literal_present_in_manuscript": false,
+      "literal": "**94 of 105** against 94 derived",
+      "located_in": "article"
+    },
+    {
+      "check": "spike_stage2_derived",
+      "state": "FAIL-ABSENT",
+      "expected": 94,
+      "recomputed": 94,
+      "literal_present_in_manuscript": false,
+      "literal": "against 94 derived",
+      "located_in": "article"
+    },
+    {
+      "check": "spike_recovered",
+      "state": "FAIL-ABSENT",
+      "expected": 89,
+      "recomputed": 89,
+      "literal_present_in_manuscript": false,
+      "literal": "keeps 89 of the 105",
+      "located_in": "article"
+    },
+    {
+      "check": "spike_rate",
+      "state": "FAIL-ABSENT",
+      "expected": 84.8,
+      "recomputed": 84.8,
+      "literal_present_in_manuscript": false,
+      "literal": "(84.8 %",
+      "located_in": "article"
+    },
+    {
+      "check": "spike_wilson",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        0.767,
+        0.904
+      ],
+      "recomputed": [
+        0.767,
+        0.904
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "Wilson 95 % 0.767\u20130.904",
+      "located_in": "article"
+    },
+    {
+      "check": "spike_top500",
+      "state": "FAIL-ABSENT",
+      "expected": 32,
+      "recomputed": 32,
+      "literal_present_in_manuscript": false,
+      "literal": "**only 32 reach",
+      "located_in": "article"
+    },
+    {
+      "check": "spike_top500_rate",
+      "state": "FAIL-ABSENT",
+      "expected": 36.0,
+      "recomputed": 36.0,
+      "literal_present_in_manuscript": false,
+      "literal": "top-500 cut this campaign used, 36.0 %**",
+      "located_in": "article"
+    },
+    {
+      "check": "spike_ef500",
+      "state": "FAIL-ABSENT",
+      "expected": 3.6,
+      "recomputed": 3.6,
+      "literal_present_in_manuscript": false,
+      "literal": "an enrichment of **3.60**",
+      "located_in": "article"
+    },
+    {
+      "check": "spike_ef100",
+      "state": "FAIL-ABSENT",
+      "expected": 5.06,
+      "recomputed": 5.06,
+      "literal_present_in_manuscript": false,
+      "literal": "and of **5.06** in the top 100",
+      "located_in": "article"
+    },
+    {
+      "check": "spike_top100_k",
+      "state": "FAIL-ABSENT",
+      "expected": 9,
+      "recomputed": 9,
+      "literal_present_in_manuscript": false,
+      "literal": "where **9** are\nfound",
+      "located_in": "article"
+    },
+    {
+      "check": "spike_lost",
+      "state": "FAIL-ABSENT",
+      "expected": 57,
+      "recomputed": 57,
+      "literal_present_in_manuscript": false,
+      "literal": "**Fifty-seven** known actives",
+      "located_in": "article"
+    },
+    {
+      "check": "dude_actives",
+      "state": "FAIL-ABSENT",
+      "expected": 482,
+      "recomputed": 482,
+      "literal_present_in_manuscript": false,
+      "literal": "**482 actives",
+      "located_in": "article"
+    },
+    {
+      "check": "dude_decoys",
+      "state": "FAIL-ABSENT",
+      "expected": 1920,
+      "recomputed": 1920,
+      "literal_present_in_manuscript": false,
+      "literal": "1,920 property-matched decoys**",
+      "located_in": "article"
+    },
+    {
+      "check": "dude_n",
+      "state": "FAIL-ABSENT",
+      "expected": 2401,
+      "recomputed": 2401,
+      "literal_present_in_manuscript": false,
+      "literal": "leaving **2,401** compounds analysed",
+      "located_in": "article"
+    },
+    {
+      "check": "dude_vina",
+      "state": "FAIL-ABSENT",
+      "expected": 0.6689,
+      "recomputed": 0.6689,
+      "literal_present_in_manuscript": false,
+      "literal": "ROC-AUC 0.6689 (95 % CI 0.6414\u20130.6935)",
+      "located_in": "article"
+    },
+    {
+      "check": "dude_clogp",
+      "state": "FAIL-ABSENT",
+      "expected": 0.5939,
+      "recomputed": 0.5939,
+      "literal_present_in_manuscript": false,
+      "literal": "cLogP's 0.5939",
+      "located_in": "article"
+    },
+    {
+      "check": "dude_heavy",
+      "state": "FAIL-ABSENT",
+      "expected": 0.54,
+      "recomputed": 0.54,
+      "literal_present_in_manuscript": false,
+      "literal": "heavy-atom\ncount's 0.5400",
+      "located_in": "article"
+    },
+    {
+      "check": "dude_delta",
+      "state": "FAIL-ABSENT",
+      "expected": 0.0751,
+      "recomputed": 0.0751,
+      "literal_present_in_manuscript": false,
+      "literal": "**+0.0751 (95 % CI +0.0365 to +0.1109)**",
+      "located_in": "article"
+    },
+    {
+      "check": "dude_bedroc",
+      "state": "FAIL-ABSENT",
+      "expected": 0.452,
+      "recomputed": 0.452,
+      "literal_present_in_manuscript": false,
+      "literal": "**0.4520 against\n0.2401**",
+      "located_in": "article"
+    },
+    {
+      "check": "dude_ef1",
+      "state": "FAIL-ABSENT",
+      "expected": 3.59,
+      "recomputed": 3.59,
+      "literal_present_in_manuscript": false,
+      "literal": "**3.59 against Vina's 2.59**",
+      "located_in": "article"
+    },
+    {
+      "check": "bridge_old",
+      "state": "FAIL-ABSENT",
+      "expected": 0.6012,
+      "recomputed": 0.6012,
+      "literal_present_in_manuscript": false,
+      "literal": "reproduces at **0.6012**",
+      "located_in": "article"
+    },
+    {
+      "check": "bridge_new",
+      "state": "FAIL-ABSENT",
+      "expected": 0.6345,
+      "recomputed": 0.6345,
+      "literal_present_in_manuscript": false,
+      "literal": "it reaches **0.6345**",
+      "located_in": "article"
+    },
+    {
+      "check": "bridge_delta",
+      "state": "FAIL-ABSENT",
+      "expected": 0.0333,
+      "recomputed": 0.0333,
+      "literal_present_in_manuscript": false,
+      "literal": "**+0.0333 (95 % CI +0.0109 to +0.0562)**",
+      "located_in": "article"
+    },
+    {
+      "check": "bridge_bedroc_old",
+      "state": "FAIL-ABSENT",
+      "expected": 0.2752,
+      "recomputed": 0.2752,
+      "literal_present_in_manuscript": false,
+      "literal": "BEDROC20 falls from 0.2752",
+      "located_in": "article"
+    },
+    {
+      "check": "bridge_bedroc_new",
+      "state": "FAIL-ABSENT",
+      "expected": 0.244,
+      "recomputed": 0.244,
+      "literal_present_in_manuscript": false,
+      "literal": "to 0.2440 on the same rows",
+      "located_in": "article"
+    },
+    {
+      "check": "msc1_vina",
+      "state": "FAIL-ABSENT",
+      "expected": 0.5371,
+      "recomputed": 0.5371,
+      "literal_present_in_manuscript": false,
+      "literal": "**Vina 0.5371 against the same 0.5527**",
+      "located_in": "article"
+    },
+    {
+      "check": "msc1_delta",
+      "state": "FAIL-ABSENT",
+      "expected": -0.0156,
+      "recomputed": -0.0156,
+      "literal_present_in_manuscript": false,
+      "literal": "a paired difference of **\u22120.0156**",
+      "located_in": "article"
+    },
+    {
+      "check": "adg_pass",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        9,
+        10
+      ],
+      "recomputed": [
+        9,
+        10
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "**Nine of the ten are admitted**",
+      "located_in": "article"
+    },
+    {
+      "check": "adg_refused_heavy",
+      "state": "FAIL-ABSENT",
+      "expected": 20,
+      "recomputed": 20,
+      "literal_present_in_manuscript": false,
+      "literal": "**20 heavy atoms**",
+      "located_in": "article"
+    },
+    {
+      "check": "tgr_vacuous",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        6,
+        10
+      ],
+      "recomputed": [
+        6,
+        10
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "**six of its ten checks**",
+      "located_in": "article"
+    },
+    {
+      "check": "tgr_state",
+      "state": "FAIL-ABSENT",
+      "expected": "PASS",
+      "recomputed": "PASS",
+      "literal_present_in_manuscript": false,
+      "literal": "it returns PASS, with",
+      "located_in": "article"
+    },
+    {
+      "check": "dprov_n",
+      "state": "PASS",
+      "expected": 191,
+      "recomputed": 191,
+      "literal_present_in_manuscript": true,
+      "literal": "Its **191** entries",
+      "located_in": "supplement"
+    },
+    {
+      "check": "dprov_nofield",
+      "state": "FAIL-ABSENT",
+      "expected": 0,
+      "recomputed": 0,
+      "literal_present_in_manuscript": false,
+      "literal": "**none names the options that were available and not taken**",
+      "located_in": "article"
+    },
+    {
+      "check": "dprov_generous",
+      "state": "PASS",
+      "expected": [
+        38,
+        191
+      ],
+      "recomputed": [
+        38,
+        191
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "**38 of the 191**",
+      "located_in": "supplement"
+    },
+    {
+      "check": "dprov_read",
+      "state": "PASS",
+      "expected": 23,
+      "recomputed": 23,
+      "literal_present_in_manuscript": true,
+      "literal": "**23** name an alternative course of action",
+      "located_in": "supplement"
+    },
+    {
+      "check": "inc_check",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        3,
+        16
+      ],
+      "recomputed": [
+        3,
+        16
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "**Three of the sixteen were caught by a check",
+      "located_in": "article"
+    },
+    {
+      "check": "inc_reached",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        1,
+        16
+      ],
+      "recomputed": [
+        1,
+        16
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "**One of the sixteen reached a figure that had already been reported**",
+      "located_in": "article"
+    },
+    {
+      "check": "inc_latency",
+      "state": "FAIL-ABSENT",
+      "expected": 1,
+      "recomputed": 1,
+      "literal_present_in_manuscript": false,
+      "literal": "is recoverable for one of the sixteen",
+      "located_in": "article"
+    },
+    {
+      "check": "inc_sci",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        3,
+        0,
+        3,
+        0
+      ],
+      "recomputed": [
+        3,
+        0,
+        3,
+        0
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "| Scientific | 3 | 0 | **3** | 0 | 3 corrected |",
+      "located_in": "article"
+    },
+    {
+      "check": "inc_infra",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        6,
+        1,
+        0,
+        1
+      ],
+      "recomputed": [
+        6,
+        1,
+        0,
+        1
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "| Infrastructure | 6 | 1 | 0 | **1** |",
+      "located_in": "article"
+    },
+    {
+      "check": "inc_agent",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "recomputed": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "| Agent reasoning | 6 | 0 | 0 | 0 |",
+      "located_in": "article"
+    },
+    {
+      "check": "inc_outcomes",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        8,
+        5,
+        2,
+        1
+      ],
+      "recomputed": [
+        8,
+        5,
+        2,
+        1
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "8 corrected, 5 contained, 2 withdrawn, 1 excluded",
+      "located_in": "article"
+    },
+    {
+      "check": "e1_arm_a",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        124,
+        0
+      ],
+      "recomputed": [
+        124,
+        0
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "| **A** \u2014 as published | harness, 21 checks | evaluators called directly | **124** | **0** |",
+      "located_in": "article"
+    },
+    {
+      "check": "e1_arm_b",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        101,
+        35
+      ],
+      "recomputed": [
+        101,
+        35
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "| B | frozen, 55 checks | evaluators called directly | 101 | 35 |",
+      "located_in": "article"
+    },
+    {
+      "check": "e1_arm_c",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        101,
+        35
+      ],
+      "recomputed": [
+        101,
+        35
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "| **C** \u2014 as deployed | frozen | orchestrator and report lock | **101** | **35** |",
+      "located_in": "article"
+    },
+    {
+      "check": "e1_arm_d",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        101,
+        35
+      ],
+      "recomputed": [
+        101,
+        35
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "| D | frozen | the repaired copy | **101** | 35 |",
+      "located_in": "article"
+    },
+    {
+      "check": "e1_arm_e",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        128,
+        35
+      ],
+      "recomputed": [
+        128,
+        35
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "orchestrator and report lock | **128** | 35 |",
+      "located_in": "article"
+    },
+    {
+      "check": "g6r_halt",
+      "state": "FAIL-ABSENT",
+      "expected": "HALT",
+      "recomputed": "HALT",
+      "literal_present_in_manuscript": false,
+      "literal": "returns **HALT** on\nscaffold uniqueness",
+      "located_in": "article"
+    },
+    {
+      "check": "g6r_scaffolds",
+      "state": "FAIL-ABSENT",
+      "expected": 2,
+      "recomputed": 2,
+      "literal_present_in_manuscript": false,
+      "literal": "**two distinct\nMurcko scaffolds**",
+      "located_in": "article"
+    },
+    {
+      "check": "m42_branches",
+      "state": "PASS",
+      "expected": [
+        "21/22",
+        "18/18"
+      ],
+      "recomputed": [
+        "21/22",
+        "18/18"
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "**from 22 to 18**",
+      "located_in": "supplement"
+    },
+    {
+      "check": "m42_benchmark_identical",
+      "state": "PASS",
+      "expected": "124/128, 0/55 FE",
+      "recomputed": "124/128, 0/55 FE",
+      "literal_present_in_manuscript": true,
+      "literal": "**Closing them moves the seeded-defect benchmark not at all**",
+      "located_in": "supplement"
+    },
+    {
+      "check": "cref_tolerant",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        1.0,
+        0.3477
+      ],
+      "recomputed": [
+        1.0,
+        0.3477
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "**1.000 to 0.348**",
+      "located_in": "article"
+    },
+    {
+      "check": "cref_contracts",
+      "state": "FAIL-ABSENT",
+      "expected": 0.7947,
+      "recomputed": 0.7947,
+      "literal_present_in_manuscript": false,
+      "literal": "The contracts fall to **0.795**",
+      "located_in": "article"
+    },
+    {
+      "check": "cref_clean_runs",
+      "state": "FAIL-ABSENT",
+      "expected": 55,
+      "recomputed": 55,
+      "literal_present_in_manuscript": false,
+      "literal": "**every one of the 55 clean runs**",
+      "located_in": "article"
+    },
+    {
+      "check": "cref_20",
+      "state": "FAIL-ABSENT",
+      "expected": 20,
+      "recomputed": 20,
+      "literal_present_in_manuscript": false,
+      "literal": "**All 20** of\ntheir new false alarms",
+      "located_in": "article"
+    },
+    {
+      "check": "sana_no_py",
+      "state": "PASS",
+      "expected": 0,
+      "recomputed": 0,
+      "literal_present_in_manuscript": true,
+      "literal": "**no Python file exists in any of the five gate workspaces**",
+      "located_in": "supplement"
+    },
+    {
+      "check": "sana_f821",
+      "state": "PASS",
+      "expected": 2,
+      "recomputed": 2,
+      "literal_present_in_manuscript": true,
+      "literal": "reports **two undefined names** in deposited scripts",
+      "located_in": "supplement"
+    },
+    {
+      "check": "exh_pair",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        0.6655,
+        0.6689
+      ],
+      "recomputed": [
+        0.6655,
+        0.6689
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "**0.6655 against 0.6689**",
+      "located_in": "article"
+    },
+    {
+      "check": "exh_delta",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        0.0034,
+        -0.0027,
+        0.0098
+      ],
+      "recomputed": [
+        0.0034,
+        -0.0027,
+        0.0098
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "**+0.0034 (95 % CI \u22120.0027 to +0.0098)**",
+      "located_in": "article"
+    },
+    {
+      "check": "dude_rows_ids",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        2402,
+        2401
+      ],
+      "recomputed": [
+        2402,
+        2401
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "**2,402 rows but 2,401\ndistinct identifiers**",
+      "located_in": "article"
+    },
+    {
+      "check": "dude_inflated",
+      "state": "FAIL-ABSENT",
+      "expected": 2404,
+      "recomputed": 2404,
+      "literal_present_in_manuscript": false,
+      "literal": "it reported **2,404** of them",
+      "located_in": "article"
+    },
+    {
+      "check": "exh_bedroc",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        0.6655,
+        0.6367,
+        0.6907,
+        0.4487
+      ],
+      "recomputed": [
+        0.6655,
+        0.6367,
+        0.6907,
+        0.4487
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "| 2,401 | 0.6655 | 0.6367\u20130.6907 | 0.4487 |",
+      "located_in": "article"
+    },
+    {
+      "check": "scard_none",
+      "state": "PASS",
+      "expected": [
+        0,
+        9
+      ],
+      "recomputed": [
+        0,
+        9
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "licensed in none of the nine",
+      "located_in": "supplement"
+    },
+    {
+      "check": "scard_nine",
+      "state": "FAIL-ABSENT",
+      "expected": 9,
+      "recomputed": 9,
+      "literal_present_in_manuscript": false,
+      "literal": "over **nine\nconfigurations**",
+      "located_in": "article"
+    },
+    {
+      "check": "scard_recompute",
+      "state": "PASS",
+      "expected": false,
+      "recomputed": false,
+      "literal_present_in_manuscript": true,
+      "literal": "**was never recomputed after the library was\nreplaced**",
+      "located_in": "supplement"
+    },
+    {
+      "check": "scard_physchem",
+      "state": "PASS",
+      "expected": 0.863,
+      "recomputed": 0.863,
+      "literal_present_in_manuscript": true,
+      "literal": "at **0.863** coverage in the physicochemical space",
+      "located_in": "supplement"
+    },
+    {
+      "check": "adg_pool",
+      "state": "FAIL-ABSENT",
+      "expected": 6565,
+      "recomputed": 6565,
+      "literal_present_in_manuscript": false,
+      "literal": "**6,565-compound**",
+      "located_in": "article"
+    },
+    {
+      "check": "conf_sets",
+      "state": "FAIL-ABSENT",
+      "expected": 3,
+      "recomputed": 3,
+      "literal_present_in_manuscript": false,
+      "literal": "the ambiguous set {inactive, active} to 3",
+      "located_in": "article"
+    },
+    {
+      "check": "g4_pass",
+      "state": "FAIL-ABSENT",
+      "expected": 7,
+      "recomputed": 7,
+      "literal_present_in_manuscript": false,
+      "literal": "G4 then passed 7 of 7 checks",
+      "located_in": "article"
+    },
+    {
+      "check": "mw_rho",
+      "state": "FAIL-ABSENT",
+      "expected": -0.1824,
+      "recomputed": -0.1824,
+      "literal_present_in_manuscript": false,
+      "literal": "\u03c1 = \u22120.182",
+      "located_in": "supplement"
+    },
+    {
+      "check": "md_atoms",
+      "state": "FAIL-ABSENT",
+      "expected": 93203,
+      "recomputed": 93203,
+      "literal_present_in_manuscript": false,
+      "literal": "93,203 atoms in total",
+      "located_in": "article"
+    },
+    {
+      "check": "md_water",
+      "state": "PASS",
+      "expected": 15656,
+      "recomputed": 15656,
+      "literal_present_in_manuscript": true,
+      "literal": "15,656 OPC waters",
+      "located_in": "article"
+    },
+    {
+      "check": "md_xtal_water",
+      "state": "FAIL-ABSENT",
+      "expected": 156,
+      "recomputed": 156,
+      "literal_present_in_manuscript": false,
+      "literal": "156 crystallographic waters",
+      "located_in": "article"
+    },
+    {
+      "check": "md_restrained",
+      "state": "FAIL-ABSENT",
+      "expected": 2357,
+      "recomputed": 2357,
+      "literal_present_in_manuscript": false,
+      "literal": "2,357 receptor and ligand heavy atoms",
+      "located_in": "article"
+    },
+    {
+      "check": "dd_control_rmsd",
+      "state": "FAIL-ABSENT",
+      "expected": 1.92,
+      "recomputed": 1.92,
+      "literal_present_in_manuscript": false,
+      "literal": "**1.92 \u00c5**",
+      "located_in": "article"
+    },
+    {
+      "check": "dd_control_conf",
+      "state": "FAIL-ABSENT",
+      "expected": 0.16,
+      "recomputed": 0.16,
+      "literal_present_in_manuscript": false,
+      "literal": "control +0.16",
+      "located_in": "article"
+    },
+    {
+      "check": "dd_rmsds",
+      "state": "FAIL-ABSENT",
+      "expected": "6.43/8.80/9.50",
+      "recomputed": "6.43/8.80/9.50",
+      "literal_present_in_manuscript": false,
+      "literal": "6.43, 8.80 and 9.50 \u00c5",
+      "located_in": "article"
+    },
+    {
+      "check": "dd_confs",
+      "state": "FAIL-ABSENT",
+      "expected": "0.23/0.47/-0.50",
+      "recomputed": "0.23/0.47/-0.50",
+      "literal_present_in_manuscript": false,
+      "literal": "+0.23, +0.47 and \u22120.50",
+      "located_in": "article"
+    },
+    {
+      "check": "dd_prediction_failed",
+      "state": "FAIL-ABSENT",
+      "expected": false,
+      "recomputed": false,
+      "literal_present_in_manuscript": false,
+      "literal": "**failed**",
+      "located_in": "article"
+    },
+    {
+      "check": "dd_highest_conf",
+      "state": "FAIL-ABSENT",
+      "expected": 0.47,
+      "recomputed": 0.47,
+      "literal_present_in_manuscript": false,
+      "literal": "highest (+0.47) on NPLIB01643",
+      "located_in": "supplement"
+    },
+    {
+      "check": "heldout_n",
+      "state": "PASS",
+      "expected": 5,
+      "recomputed": 5,
+      "literal_present_in_manuscript": true,
+      "literal": "five independently authored fault cases",
+      "located_in": "article"
+    },
+    {
+      "check": "heldout_ci",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        0.036,
+        0.624
+      ],
+      "recomputed": [
+        0.036,
+        0.624
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "95 % Wilson interval of 0.036 to 0.624",
+      "located_in": "article"
+    },
+    {
+      "check": "heldout_confounded",
+      "state": "FAIL-ABSENT",
+      "expected": 2,
+      "recomputed": 2,
+      "literal_present_in_manuscript": false,
+      "literal": "two of them, at G2 and G3",
+      "located_in": "article"
+    },
+    {
+      "check": "heldout_confounded_gates",
+      "state": "PASS",
+      "expected": [
+        "G2",
+        "G3"
+      ],
+      "recomputed": [
+        "G2",
+        "G3"
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "at G2 and G3",
+      "located_in": "article"
+    },
+    {
+      "check": "heldout_perfect_gate_misses",
+      "state": "FAIL-ABSENT",
+      "expected": 2,
+      "recomputed": 2,
+      "literal_present_in_manuscript": false,
+      "literal": "**Two of the three remaining cases were missed at gates the benchmark scores at 100 %**",
+      "located_in": "article"
+    },
+    {
+      "check": "heldout_perfect_gate_n",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        25,
+        15
+      ],
+      "recomputed": [
+        25,
+        15
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "G0 on 25 cases and G8 on 15",
+      "located_in": "article"
+    },
+    {
+      "check": "cand_attn",
+      "state": "FAIL-ABSENT",
+      "expected": 0,
+      "recomputed": 0,
+      "literal_present_in_manuscript": false,
+      "literal": "`parmchk2` flagged no\nparameters for any of them",
+      "located_in": "article"
+    },
+    {
+      "check": "cand_identity",
+      "state": "FAIL-ABSENT",
+      "expected": 3,
+      "recomputed": 3,
+      "literal_present_in_manuscript": false,
+      "literal": "all three matched",
+      "located_in": "article"
+    },
+    {
+      "check": "deposit_files",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        424,
+        19.6
+      ],
+      "recomputed": [
+        424,
+        19.6
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "424 files, 19.6 MB",
+      "located_in": "article"
+    },
+    {
+      "check": "deposit_manifest_n",
+      "state": "FAIL-ABSENT",
+      "expected": 416,
+      "recomputed": 416,
+      "literal_present_in_manuscript": false,
+      "literal": "SHA-256 of each of the 416 deposited artifacts",
+      "located_in": "article"
+    },
+    {
+      "check": "deposit_manifest_gap",
+      "state": "PASS",
+      "expected": 8,
+      "recomputed": 8,
+      "literal_present_in_manuscript": true,
+      "literal": "the 8 files it omits",
+      "located_in": "article"
+    },
+    {
+      "check": "s10_manifest_n",
+      "state": "FAIL-ABSENT",
+      "expected": 102,
+      "recomputed": 102,
+      "literal_present_in_manuscript": false,
+      "literal": "102 entries covering",
+      "located_in": "article"
+    },
+    {
+      "check": "xcov_pct",
+      "state": "FAIL-ABSENT",
+      "expected": 75,
+      "recomputed": 75,
+      "literal_present_in_manuscript": false,
+      "literal": "at **75 %** over",
+      "located_in": "article"
+    },
+    {
+      "check": "xcov_stmts",
+      "state": "FAIL-ABSENT",
+      "expected": 4740,
+      "recomputed": 4740,
+      "literal_present_in_manuscript": false,
+      "literal": "4,740 statements",
+      "located_in": "article"
+    },
+    {
+      "check": "xcov_branches",
+      "state": "FAIL-ABSENT",
+      "expected": 1578,
+      "recomputed": 1578,
+      "literal_present_in_manuscript": false,
+      "literal": "1,578 branches",
+      "located_in": "article"
+    },
+    {
+      "check": "xcov_eval_min",
+      "state": "FAIL-ABSENT",
+      "expected": 39,
+      "recomputed": 39,
+      "literal_present_in_manuscript": false,
+      "literal": "lowest evaluator module reaches 39 %",
+      "located_in": "article"
+    },
+    {
+      "check": "xcov_engine_orch",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        29,
+        25
+      ],
+      "recomputed": [
+        29,
+        25
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "reach 29 % and 25 %",
+      "located_in": "article"
+    },
+    {
+      "check": "bcov_core_branch",
+      "state": "FAIL-ABSENT",
+      "expected": 65.6,
+      "recomputed": 65.6,
+      "literal_present_in_manuscript": false,
+      "literal": "as **65.6 %**",
+      "located_in": "article"
+    },
+    {
+      "check": "bcov_zero_mods",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        2,
+        55
+      ],
+      "recomputed": [
+        2,
+        55
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "only two of 55 modules",
+      "located_in": "article"
+    },
+    {
+      "check": "bcov_engine_orch_zero",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        0,
+        12,
+        0,
+        22
+      ],
+      "recomputed": [
+        0,
+        12,
+        0,
+        22
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "**0 of 12 and 0 of 22**",
+      "located_in": "article"
+    },
+    {
+      "check": "bcov_after",
+      "state": "FAIL-ABSENT",
+      "expected": [
+        12,
+        12,
+        21,
+        22
+      ],
+      "recomputed": [
+        12,
+        12,
+        21,
+        22
+      ],
+      "literal_present_in_manuscript": false,
+      "literal": "**12 of 12 and 21 of 22**",
+      "located_in": "article"
+    },
+    {
+      "check": "bcov_tests_added",
+      "state": "FAIL-ABSENT",
+      "expected": 33,
+      "recomputed": 33,
+      "literal_present_in_manuscript": false,
+      "literal": "Thirty-three were added",
+      "located_in": "article"
+    },
+    {
+      "check": "bcov_unreachable",
+      "state": "PASS",
+      "expected": 1,
+      "recomputed": 1,
+      "literal_present_in_manuscript": true,
+      "literal": "no input can\nreach",
+      "located_in": "supplement"
+    },
+    {
+      "check": "xman_entries",
+      "state": "PASS",
+      "expected": [
+        180,
+        369
+      ],
+      "recomputed": [
+        180,
+        369
+      ],
+      "literal_present_in_manuscript": true,
+      "literal": "180 SHA-256 mismatches among 369 entries",
+      "located_in": "supplement"
+    },
+    {
+      "check": "xman_crlf",
+      "state": "FAIL-ABSENT",
+      "expected": 179,
+      "recomputed": 179,
+      "literal_present_in_manuscript": false,
+      "literal": "179 of them attributable to",
+      "located_in": "supplement"
+    },
+    {
+      "check": "xman_nested_missing",
+      "state": "PASS",
+      "expected": 2,
+      "recomputed": 2,
+      "literal_present_in_manuscript": true,
+      "literal": "names **two absent files**",
+      "located_in": "supplement"
+    },
+    {
+      "check": "citation_integrity",
+      "state": "PASS",
+      "expected": "every marker resolves, every entry cited, 1..N contiguous",
+      "recomputed": {
+        "n_entries": 63,
+        "n_cited": 63,
+        "dangling_markers": [],
+        "uncited_entries": [],
+        "numbering_contiguous": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "## References"
+    },
+    {
+      "check": "companion:HIGHLIGHTS.md:96.9%",
+      "state": "PASS",
+      "expected": "96.9% present, 93.2% absent",
+      "recomputed": {
+        "file": "HIGHLIGHTS.md",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "96.9%"
+    },
+    {
+      "check": "companion:RESPONSE_TO_REVIEWERS.md:96.9 %",
+      "state": "PASS",
+      "expected": "96.9 % present, 93.2% absent",
+      "recomputed": {
+        "file": "RESPONSE_TO_REVIEWERS.md",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "96.9 %"
+    },
+    {
+      "check": "companion:RESPONSE_TO_REVIEWERS.md:128 of 128",
+      "state": "PASS",
+      "expected": "128 of 128 present, None absent",
+      "recomputed": {
+        "file": "RESPONSE_TO_REVIEWERS.md",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "128 of 128"
+    },
+    {
+      "check": "companion:RESPONSE_TO_REVIEWERS.md:124 of 128",
+      "state": "PASS",
+      "expected": "124 of 128 present, None absent",
+      "recomputed": {
+        "file": "RESPONSE_TO_REVIEWERS.md",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "124 of 128"
+    },
+    {
+      "check": "companion:RESPONSE_TO_REVIEWERS.md:0 of 12 and 0 of 22",
+      "state": "PASS",
+      "expected": "0 of 12 and 0 of 22 present, None absent",
+      "recomputed": {
+        "file": "RESPONSE_TO_REVIEWERS.md",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "0 of 12 and 0 of 22"
+    },
+    {
+      "check": "companion:RESPONSE_TO_REVIEWERS.md:**12 of 12** and **21 of 22**",
+      "state": "PASS",
+      "expected": "**12 of 12** and **21 of 22** present, None absent",
+      "recomputed": {
+        "file": "RESPONSE_TO_REVIEWERS.md",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "**12 of 12** and **21 of 22**"
+    },
+    {
+      "check": "companion:RESPONSE_TO_REVIEWERS.md:682 to 715",
+      "state": "PASS",
+      "expected": "682 to 715 present, None absent",
+      "recomputed": {
+        "file": "RESPONSE_TO_REVIEWERS.md",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "682 to 715"
+    },
+    {
+      "check": "companion:RESPONSE_TO_REVIEWERS.md:92.2\u201398.8 %",
+      "state": "PASS",
+      "expected": "92.2\u201398.8 % present, None absent",
+      "recomputed": {
+        "file": "RESPONSE_TO_REVIEWERS.md",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "92.2\u201398.8 %"
+    },
+    {
+      "check": "companion:RESPONSE_TO_REVIEWERS.md:238 words",
+      "state": "PASS",
+      "expected": "238 words present, None absent",
+      "recomputed": {
+        "file": "RESPONSE_TO_REVIEWERS.md",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "238 words"
+    },
+    {
+      "check": "companion:COVER_LETTER_DRAFT.md:96.9%",
+      "state": "PASS",
+      "expected": "96.9% present, 93.2% absent",
+      "recomputed": {
+        "file": "COVER_LETTER_DRAFT.md",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "96.9%"
+    },
+    {
+      "check": "companion:COVER_LETTER_DRAFT.md:128 seeded",
+      "state": "PASS",
+      "expected": "128 seeded present, 133 seeded absent",
+      "recomputed": {
+        "file": "COVER_LETTER_DRAFT.md",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "128 seeded"
+    },
+    {
+      "check": "companion:Supplementary_Information.docx:96.9%",
+      "state": "PASS",
+      "expected": "96.9% present, 93.2% absent",
+      "recomputed": {
+        "file": "Supplementary_Information.docx",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "96.9%"
+    },
+    {
+      "check": "companion:Supplementary_Information.docx:128 fault cases",
+      "state": "PASS",
+      "expected": "128 fault cases present, 133 fault cases absent",
+      "recomputed": {
+        "file": "Supplementary_Information.docx",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "128 fault cases"
+    },
+    {
+      "check": "companion:Supplementary_Information.docx:715 collected cases",
+      "state": "PASS",
+      "expected": "715 collected cases present, 675 tests absent",
+      "recomputed": {
+        "file": "Supplementary_Information.docx",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "715 collected cases"
+    },
+    {
+      "check": "companion:Supplementary_Information.docx:715 collected cases",
+      "state": "PASS",
+      "expected": "715 collected cases present, 682 collected cases absent",
+      "recomputed": {
+        "file": "Supplementary_Information.docx",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "715 collected cases"
+    },
+    {
+      "check": "companion:../../40_deposit/README.md:682 tests",
+      "state": "PASS",
+      "expected": "682 tests present, 675 tests absent",
+      "recomputed": {
+        "file": "../../40_deposit/README.md",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "682 tests"
+    },
+    {
+      "check": "companion:../../40_deposit/README.md:64.4 % in-domain in physicochemical space",
+      "state": "PASS",
+      "expected": "64.4 % in-domain in physicochemical space present, 86.3 % in-domain in physicochemical space absent",
+      "recomputed": {
+        "file": "../../40_deposit/README.md",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "64.4 % in-domain in physicochemical space"
+    },
+    {
+      "check": "companion:../figures/figure_graphical_abstract_2026-08-21.svg:dual-criterion rule",
+      "state": "PASS",
+      "expected": "dual-criterion rule present, convergent absent",
+      "recomputed": {
+        "file": "../figures/figure_graphical_abstract_2026-08-21.svg",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "dual-criterion rule"
+    },
+    {
+      "check": "companion:../figures/figure_graphical_abstract_2026-08-21.svg:96.9 %",
+      "state": "PASS",
+      "expected": "96.9 % present, 93.2 absent",
+      "recomputed": {
+        "file": "../figures/figure_graphical_abstract_2026-08-21.svg",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "96.9 %"
+    },
+    {
+      "check": "companion:../figures/figure_graphical_abstract_2026-08-21.svg:64.4 %",
+      "state": "PASS",
+      "expected": "64.4 % present, 86.3 % absent",
+      "recomputed": {
+        "file": "../figures/figure_graphical_abstract_2026-08-21.svg",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "64.4 %"
+    },
+    {
+      "check": "companion:../figures/figure_graphical_abstract_2026-08-21.svg:124 of 128 seeded defects",
+      "state": "PASS",
+      "expected": "124 of 128 seeded defects present, 133 seeded absent",
+      "recomputed": {
+        "file": "../figures/figure_graphical_abstract_2026-08-21.svg",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "124 of 128 seeded defects"
+    },
+    {
+      "check": "companion:../figures/figure_graphical_abstract_2026-08-21.svg:Wilson 95 % CI 92.2-98.8 %",
+      "state": "PASS",
+      "expected": "Wilson 95 % CI 92.2-98.8 % present, None absent",
+      "recomputed": {
+        "file": "../figures/figure_graphical_abstract_2026-08-21.svg",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "Wilson 95 % CI 92.2-98.8 %"
+    },
+    {
+      "check": "companion:../figures/figure_graphical_abstract_2026-08-21.svg:0 false escalations of 55 clean",
+      "state": "PASS",
+      "expected": "0 false escalations of 55 clean present, None absent",
+      "recomputed": {
+        "file": "../figures/figure_graphical_abstract_2026-08-21.svg",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "0 false escalations of 55 clean"
+    },
+    {
+      "check": "companion:../figures/figure_graphical_abstract_2026-08-21.svg:AUC 0.601 vs 0.584 heavy atoms",
+      "state": "PASS",
+      "expected": "AUC 0.601 vs 0.584 heavy atoms present, None absent",
+      "recomputed": {
+        "file": "../figures/figure_graphical_abstract_2026-08-21.svg",
+        "superseded_absent": true,
+        "current_present": true
+      },
+      "literal_present_in_manuscript": true,
+      "literal": "AUC 0.601 vs 0.584 heavy atoms"
+    },
+    {
+      "check": "figprov:figure4",
+      "state": "PASS",
+      "expected": "5 artifacts re-hash",
+      "recomputed": "all match",
+      "literal_present_in_manuscript": true,
+      "literal": "figprov:figure4"
+    },
+    {
+      "check": "figprov:figure5",
+      "state": "PASS",
+      "expected": "8 artifacts re-hash",
+      "recomputed": "all match",
+      "literal_present_in_manuscript": true,
+      "literal": "figprov:figure5"
+    },
+    {
+      "check": "figprov:figure6",
+      "state": "PASS",
+      "expected": "10 artifacts re-hash",
+      "recomputed": "all match",
+      "literal_present_in_manuscript": true,
+      "literal": "figprov:figure6"
+    },
+    {
+      "check": "figprov:figure_ad",
+      "state": "PASS",
+      "expected": "6 artifacts re-hash",
+      "recomputed": "all match",
+      "literal_present_in_manuscript": true,
+      "literal": "figprov:figure_ad"
+    },
+    {
+      "check": "figcopies_identical",
+      "state": "PASS",
+      "expected": "9 artifacts re-hash",
+      "recomputed": "all match",
+      "literal_present_in_manuscript": true,
+      "literal": "figcopies_identical"
+    },
+    {
+      "check": "figpng_not_stale",
+      "state": "PASS",
+      "expected": "7 artifacts re-hash",
+      "recomputed": "all match",
+      "literal_present_in_manuscript": true,
+      "literal": "figpng_not_stale"
+    },
+    {
+      "check": "supp_sections_resolve",
+      "state": "PASS",
+      "expected": "0 Supplementary S<n> pointers resolve",
+      "recomputed": "all match",
+      "literal_present_in_manuscript": true,
+      "literal": "supp_sections_resolve"
+    },
+    {
+      "check": "supp_reference_lists_resolve",
+      "state": "PASS",
+      "expected": "0 Supplementary Reference S<n> list(s) ship",
+      "recomputed": "all match",
+      "literal_present_in_manuscript": true,
+      "literal": "supp_reference_lists_resolve"
+    },
+    {
+      "check": "deposit_url_named",
+      "state": "PASS",
+      "expected": "a repository URL with no placeholder in it",
+      "recomputed": "all match",
+      "literal_present_in_manuscript": true,
+      "literal": "deposit_url_named"
+    }
+  ]
+}

@@ -1,0 +1,424 @@
+{
+ "adr": "ADR-AIIM-310",
+ "prereg_sha256": "a0b8a137badd0cd37278b5751ede4156460f8556e7b5f969836551bd91c79250",
+ "log_sha256_at_freeze": "d085b4a36203cdb915fde5a7b1b24bd3a7f77c059fc84191aa34f16144774e57",
+ "rdkit_version": "2026.03.3",
+ "ro5_anchor_vs_g1": "236/236",
+ "gates": [
+  "dedupe canonical SMILES",
+  "Ro5 (RDKit, both libraries)",
+  "MW >= 200",
+  "AD >= 0.25"
+ ],
+ "waterfall": [
+  {
+   "pool": "SNP-Lib",
+   "step": 0,
+   "name": "rows",
+   "n": 236
+  },
+  {
+   "pool": "SNP-Lib",
+   "step": "0b",
+   "name": "dedupe canonical SMILES",
+   "n": 223,
+   "rows_removed": 13
+  },
+  {
+   "pool": "SNP-Lib",
+   "step": 1,
+   "name": "gate Ro5 (RDKit)",
+   "n": 147
+  },
+  {
+   "pool": "SNP-Lib",
+   "step": 2,
+   "name": "gate MW >= 200",
+   "n": 126
+  },
+  {
+   "pool": "SNP-Lib",
+   "step": 3,
+   "name": "gate AD >= 0.25",
+   "n": 69,
+   "frameworks": 21
+  },
+  {
+   "pool": "NP-library",
+   "step": 0,
+   "name": "rows",
+   "n": 5000
+  },
+  {
+   "pool": "NP-library",
+   "step": "0b",
+   "name": "dedupe canonical SMILES",
+   "n": 5000,
+   "rows_removed": 0
+  },
+  {
+   "pool": "NP-library",
+   "step": 1,
+   "name": "gate Ro5 (RDKit)",
+   "n": 1525
+  },
+  {
+   "pool": "NP-library",
+   "step": 2,
+   "name": "gate MW >= 200",
+   "n": 1525
+  },
+  {
+   "pool": "NP-library",
+   "step": 3,
+   "name": "gate AD >= 0.25",
+   "n": 1066,
+   "frameworks": 116
+  }
+ ],
+ "pool_sizes": {
+  "A_SNPLib": 69,
+  "B_NPLib": 1066,
+  "C_pooled": 1135
+ },
+ "snplib_share_of_pooled": 0.0608,
+ "cells": {
+  "A_SNPLib|abs": {
+   "pool": "A_SNPLib",
+   "window": "abs",
+   "window_k": 20,
+   "pool_n": 69,
+   "window_frac": 0.2899,
+   "n_survivors": 13,
+   "n_unanimous": 6,
+   "survivors_snplib": 13,
+   "shortlist": [
+    "SNP00163",
+    "SNP00157",
+    "SNP00154",
+    "SNP00010",
+    "SNP00052",
+    "SNP00097",
+    "SNP00142"
+   ],
+   "shortlist_snplib": 7,
+   "shortlist_snplib_frac": 1.0,
+   "top_pred_pki": 5.88,
+   "survivor_set": [
+    "SNP00010",
+    "SNP00033",
+    "SNP00051",
+    "SNP00052",
+    "SNP00087",
+    "SNP00095",
+    "SNP00097",
+    "SNP00142",
+    "SNP00144",
+    "SNP00154",
+    "SNP00157",
+    "SNP00163",
+    "SNP00223"
+   ]
+  },
+  "A_SNPLib|frac": {
+   "pool": "A_SNPLib",
+   "window": "frac",
+   "window_k": 7,
+   "pool_n": 69,
+   "window_frac": 0.1014,
+   "n_survivors": 4,
+   "n_unanimous": 2,
+   "survivors_snplib": 4,
+   "shortlist": [
+    "SNP00163",
+    "SNP00157",
+    "SNP00087"
+   ],
+   "shortlist_snplib": 3,
+   "shortlist_snplib_frac": 1.0,
+   "top_pred_pki": 5.88,
+   "survivor_set": [
+    "SNP00087",
+    "SNP00157",
+    "SNP00163",
+    "SNP00223"
+   ]
+  },
+  "B_NPLib|abs": {
+   "pool": "B_NPLib",
+   "window": "abs",
+   "window_k": 20,
+   "pool_n": 1066,
+   "window_frac": 0.0188,
+   "n_survivors": 11,
+   "n_unanimous": 1,
+   "survivors_snplib": 0,
+   "shortlist": [
+    "NPLIB03777",
+    "NPLIB03312",
+    "NPLIB04268",
+    "NPLIB00951",
+    "NPLIB02177",
+    "NPLIB01969"
+   ],
+   "shortlist_snplib": 0,
+   "shortlist_snplib_frac": 0.0,
+   "top_pred_pki": 6.231,
+   "survivor_set": [
+    "NPLIB00367",
+    "NPLIB00377",
+    "NPLIB00951",
+    "NPLIB01969",
+    "NPLIB02177",
+    "NPLIB02360",
+    "NPLIB03312",
+    "NPLIB03777",
+    "NPLIB04268",
+    "NPLIB04406",
+    "NPLIB04876"
+   ]
+  },
+  "B_NPLib|frac": {
+   "pool": "B_NPLib",
+   "window": "frac",
+   "window_k": 107,
+   "pool_n": 1066,
+   "window_frac": 0.1004,
+   "n_survivors": 48,
+   "n_unanimous": 15,
+   "survivors_snplib": 0,
+   "shortlist": [
+    "NPLIB00951",
+    "NPLIB03312",
+    "NPLIB01969",
+    "NPLIB04268",
+    "NPLIB03777",
+    "NPLIB02177",
+    "NPLIB02411",
+    "NPLIB01185",
+    "NPLIB03062",
+    "NPLIB04222"
+   ],
+   "shortlist_snplib": 0,
+   "shortlist_snplib_frac": 0.0,
+   "top_pred_pki": 6.231,
+   "survivor_set": [
+    "NPLIB00156",
+    "NPLIB00160",
+    "NPLIB00367",
+    "NPLIB00377",
+    "NPLIB00445",
+    "NPLIB00888",
+    "NPLIB00944",
+    "NPLIB00951",
+    "NPLIB01015",
+    "NPLIB01152",
+    "NPLIB01185",
+    "NPLIB01418",
+    "NPLIB01638",
+    "NPLIB01790",
+    "NPLIB01969",
+    "NPLIB02000",
+    "NPLIB02177",
+    "NPLIB02360",
+    "NPLIB02411",
+    "NPLIB02682",
+    "NPLIB02729",
+    "NPLIB03062",
+    "NPLIB03125",
+    "NPLIB03159",
+    "NPLIB03196",
+    "NPLIB03295",
+    "NPLIB03297",
+    "NPLIB03312",
+    "NPLIB03417",
+    "NPLIB03484",
+    "NPLIB03625",
+    "NPLIB03658",
+    "NPLIB03666",
+    "NPLIB03675",
+    "NPLIB03777",
+    "NPLIB03793",
+    "NPLIB04222",
+    "NPLIB04224",
+    "NPLIB04268",
+    "NPLIB04406",
+    "NPLIB04430",
+    "NPLIB04473",
+    "NPLIB04624",
+    "NPLIB04647",
+    "NPLIB04727",
+    "NPLIB04754",
+    "NPLIB04815",
+    "NPLIB04876"
+   ]
+  },
+  "C_pooled|abs": {
+   "pool": "C_pooled",
+   "window": "abs",
+   "window_k": 20,
+   "pool_n": 1135,
+   "window_frac": 0.0176,
+   "n_survivors": 10,
+   "n_unanimous": 0,
+   "survivors_snplib": 0,
+   "shortlist": [
+    "NPLIB00377",
+    "NPLIB00367",
+    "NPLIB04268",
+    "NPLIB03777",
+    "NPLIB02177"
+   ],
+   "shortlist_snplib": 0,
+   "shortlist_snplib_frac": 0.0,
+   "top_pred_pki": 6.231,
+   "survivor_set": [
+    "NPLIB00367",
+    "NPLIB00377",
+    "NPLIB00951",
+    "NPLIB02177",
+    "NPLIB02360",
+    "NPLIB03312",
+    "NPLIB03777",
+    "NPLIB04268",
+    "NPLIB04406",
+    "NPLIB04876"
+   ]
+  },
+  "C_pooled|frac": {
+   "pool": "C_pooled",
+   "window": "frac",
+   "window_k": 114,
+   "pool_n": 1135,
+   "window_frac": 0.1004,
+   "n_survivors": 53,
+   "n_unanimous": 16,
+   "survivors_snplib": 8,
+   "shortlist": [
+    "NPLIB00367",
+    "NPLIB00377",
+    "NPLIB01969",
+    "NPLIB04268",
+    "NPLIB03777",
+    "NPLIB02177",
+    "NPLIB02411",
+    "SNP00163",
+    "SNP00157",
+    "NPLIB01185"
+   ],
+   "shortlist_snplib": 2,
+   "shortlist_snplib_frac": 0.2,
+   "top_pred_pki": 6.231,
+   "survivor_set": [
+    "NPLIB00156",
+    "NPLIB00160",
+    "NPLIB00367",
+    "NPLIB00377",
+    "NPLIB00445",
+    "NPLIB00888",
+    "NPLIB00944",
+    "NPLIB00951",
+    "NPLIB01015",
+    "NPLIB01152",
+    "NPLIB01185",
+    "NPLIB01638",
+    "NPLIB01790",
+    "NPLIB01969",
+    "NPLIB02000",
+    "NPLIB02177",
+    "NPLIB02360",
+    "NPLIB02411",
+    "NPLIB02682",
+    "NPLIB02729",
+    "NPLIB03062",
+    "NPLIB03159",
+    "NPLIB03196",
+    "NPLIB03295",
+    "NPLIB03297",
+    "NPLIB03312",
+    "NPLIB03417",
+    "NPLIB03484",
+    "NPLIB03625",
+    "NPLIB03658",
+    "NPLIB03666",
+    "NPLIB03675",
+    "NPLIB03777",
+    "NPLIB03793",
+    "NPLIB04222",
+    "NPLIB04268",
+    "NPLIB04406",
+    "NPLIB04430",
+    "NPLIB04473",
+    "NPLIB04624",
+    "NPLIB04647",
+    "NPLIB04727",
+    "NPLIB04754",
+    "NPLIB04815",
+    "NPLIB04876",
+    "SNP00033",
+    "SNP00052",
+    "SNP00095",
+    "SNP00144",
+    "SNP00154",
+    "SNP00157",
+    "SNP00163",
+    "SNP00223"
+   ]
+  }
+ },
+ "grading": {
+  "X1_anchor_reproduces_adr309": {
+   "observed": [
+    "SNP00163",
+    "SNP00157",
+    "SNP00154",
+    "SNP00010",
+    "SNP00052",
+    "SNP00097",
+    "SNP00142"
+   ],
+   "expected": [
+    "SNP00163",
+    "SNP00157",
+    "SNP00010",
+    "SNP00154",
+    "SNP00052",
+    "SNP00144",
+    "SNP00142",
+    "SNP00006"
+   ],
+   "verdict": "MISSED"
+  },
+  "X2_snplib_survives_pooled": {
+   "survivors_snplib": 0,
+   "shortlist_snplib": 0,
+   "verdict": "MISSED"
+  },
+  "X3_window_overlap_below_50pct": {
+   "overlap_frac": 1.0,
+   "n_abs": 10,
+   "n_frac": 53,
+   "verdict": "MISSED"
+  },
+  "X4_libraries_indistinguishable": {
+   "top_A": 5.88,
+   "top_B": 6.231,
+   "gap": 0.351,
+   "interval": 1.5,
+   "verdict": "MET"
+  },
+  "X5_nplib_majority_of_pooled_shortlist": {
+   "snplib_frac": 0.0,
+   "verdict": "MET"
+  }
+ },
+ "caveats": [
+  "Pooling is measured, not recommended: a pooled shortlist mixes assayable with non-assayable compounds (ADR-AIIM-310 c.3).",
+  "Pooling cannot reorder within a library; only slot competition changes.",
+  "No shortlisted compound is a predicted active. ADR-AIIM-299: conformal count 0 at pKi >= 6.0 under every framing.",
+  "X3 measures the window's consequence, not its correctness.",
+  "Alerts are flags; nothing was removed on their strength.",
+  "Nothing in this project has been assayed."
+ ],
+ "seconds": 766.9
+}

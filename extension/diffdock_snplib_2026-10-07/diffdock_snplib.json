@@ -1,0 +1,107 @@
+{
+ "adr": "ADR-AIIM-317",
+ "prereg_sha256": "4386e354d4ca7bd1e8a08a36fbfb50ab795f24741853e3e25b66f1957469a265",
+ "log_sha256_at_freeze": "3afdea45b0b38d1f4d498025d2a76a01546e86ad2297d34f3dfcaca61b3a3ff6",
+ "rdkit_version": "2026.03.3",
+ "method": "heavy-atom symmetry-aware RMSD computed in place (no alignment) between the DiffDock-L rank-1 pose and the Vina rank-1 pose, in the 4EIY frame",
+ "thresholds": {
+  "rmsd_agreement_A": 2.0,
+  "site_A_from_ZMA_centroid": 8.0
+ },
+ "anchors": {
+  "1_frame": {
+   "n_protein_atoms_pdb": 3012,
+   "n_receptor_atoms_pdbqt": 3051,
+   "max_nearest_distance_A": 0.0,
+   "p99.5_nearest_distance_A": 0.0,
+   "verdict": "MET"
+  },
+  "2_vina_centroid_recomputed_equals_stored": {
+   "max_abs_difference_A": 0.005,
+   "verdict": "MET"
+  },
+  "3_vina_self_rmsd_zero": {
+   "verdict": "MET"
+  },
+  "all_poses_processed": {
+   "n_ok": 15,
+   "n_expected": 15,
+   "problems": []
+  }
+ },
+ "grading": {
+  "E1_fewer_than_8_of_15_within_2A": {
+   "n_within_2A": 0,
+   "verdict": "MET"
+  },
+  "E2_at_least_5_of_8_vina_off_pocket_also_off_by_diffdock": {
+   "n_vina_off_pocket": 8,
+   "n_also_off_pocket_by_diffdock": 1,
+   "verdict": "MISSED"
+  },
+  "E3_SNP00157_within_2A": {
+   "rmsd_A": 34.24,
+   "dd_confidence": -1.72,
+   "verdict": "MISSED"
+  },
+  "E4_abs_spearman_confidence_vs_vina_below_0.4": {
+   "spearman": 0.35,
+   "n": 15,
+   "verdict": "MET"
+  }
+ },
+ "descriptive_not_graded": {
+  "dd_confidence_bands": {
+   "moderate": 8,
+   "high": 6,
+   "low": 1
+  },
+  "dd_on_pocket_n": 11,
+  "vina_on_pocket_n": 7,
+  "on_off_pocket_classification_agrees_n": 5,
+  "median_rmsd_A": 15.349,
+  "min_max_rmsd_A": [
+   7.276,
+   34.24
+  ],
+  "best_of_saved_poses_within_2A_n": 0,
+  "note": "best-of-saved-poses is post hoc and descriptive only"
+ },
+ "inputs_sha256": {
+  "20_new_runs/snp_screen_2026-08-04/G2_preparation/docking_box.json": "f5149ff0cb07e7d12c0b88bfaf7c9ac729a52e1f7a9e9617906806259c9ecd2e",
+  "20_new_runs/snplib_dock_2026-10-06/scores_with_predictions.csv": "45b81c5219cd0294072b514d51a1945346c69603d797eb94f6127bce8637bbc5",
+  "20_new_runs/em_survivors_2026-10-06/survivors.csv": "619a8802e3f29b4bab98bc1a0e0d71fc38a81e61d934d888cebd293ff76dd1fc",
+  "20_new_runs/diffdock_snplib_2026-10-07/4EIY_protein_only.pdb": "b4e01d32d0f49d2b47b4b1f6b14bd018a6ad7a014ebc29e9ee92b572f164a4bb",
+  "20_new_runs/snp_screen_2026-08-04/G2_preparation/4EIY_prepared.pdbqt": "bd0e586a525ecbeaf274c2a448bce0a99b03e8c87d4ab460d1e40320b287ca67",
+  "20_new_runs/snplib_dock_2026-10-06/poses/SNP00157.sdf": "9b7400e881f74be7d49655d5d02fb9eea4d865a779536557d01d5aeb7af737cc",
+  "20_new_runs/diffdock_snplib_2026-10-07/results/SNP00157/rank1_confidence-1.72.sdf": "f6e3809f77ea2309dc9cd135bafd0ee165463108813690107261a52c1d6f6766",
+  "20_new_runs/snplib_dock_2026-10-06/poses/SNP00163.sdf": "38753a0b431ee4b1dabc6b32c71f2bce080d50e79319f96f38b18e911fba6506",
+  "20_new_runs/diffdock_snplib_2026-10-07/results/SNP00163/rank1_confidence-0.82.sdf": "02a9de895c972305bf17f198665781025ac7e3b940cbe49106b63170bda076b7",
+  "20_new_runs/snplib_dock_2026-10-06/poses/SNP00223.sdf": "96575f2c6c10b0471343f9476f9b05e670f590207c9b2508643f24bae9606927",
+  "20_new_runs/diffdock_snplib_2026-10-07/results/SNP00223/rank1_confidence0.06.sdf": "6602f55984c405dcfa8817485cea85118d73a5267b2ca81803944b298d88eb8b",
+  "20_new_runs/snplib_dock_2026-10-06/poses/SNP00154.sdf": "8c9f695e8396438c8c40aa319b6abf07b27e2a41054e1c5f6d2e459800f79b48",
+  "20_new_runs/diffdock_snplib_2026-10-07/results/SNP00154/rank1_confidence-0.83.sdf": "a7fae260b781b188a1c2f1555b883fccbaf3f503a0e3076d95dfe54729bfdf34",
+  "20_new_runs/snplib_dock_2026-10-06/poses/SNP00097.sdf": "b5d0c0780e63f432e5f1b5dc2cff4e102ab0782943b176bd959bc05c982f1b1e",
+  "20_new_runs/diffdock_snplib_2026-10-07/results/SNP00097/rank1_confidence0.07.sdf": "97b6e4aab367ecaaa42843ad2107fc47d775e03ddbd9d3cb0caf004e6a077eeb",
+  "20_new_runs/snplib_dock_2026-10-06/poses/SNP00052.sdf": "bd0f9ccecbc83e35a8764553e1f53d2154ce004ae139470cf467c80f07b303ed",
+  "20_new_runs/diffdock_snplib_2026-10-07/results/SNP00052/rank1_confidence-0.93.sdf": "8a92d0a16f42eacdc4b0901f75dc37ba5cef2d4f0c123e608e4d20248c29aa17",
+  "20_new_runs/snplib_dock_2026-10-06/poses/SNP00033.sdf": "04f40e2c7907ea0a799f9584971679f4f732f9bf64eb7a6920c409e54aaaf4bc",
+  "20_new_runs/diffdock_snplib_2026-10-07/results/SNP00033/rank1_confidence0.28.sdf": "f834b08755a6570506b8a66765b3d4e0e9c18bd2f6df3511f5f637ad5f4bdbfb",
+  "20_new_runs/snplib_dock_2026-10-06/poses/SNP00095.sdf": "0c424ea659ec18d003ab050eb9137e372c868d6b2a706dbe01774d25bd014047",
+  "20_new_runs/diffdock_snplib_2026-10-07/results/SNP00095/rank1_confidence-0.53.sdf": "f1af1a2605694ea0a1c036eeb8bafb31da8ec2b6558da3ad53dd4b5badda4b55",
+  "20_new_runs/snplib_dock_2026-10-06/poses/SNP00010.sdf": "67d8b33eae1270e1f8e0a5dbb90155b755d501f9e186d12d09d1704dabc5ac25",
+  "20_new_runs/diffdock_snplib_2026-10-07/results/SNP00010/rank1_confidence-0.73.sdf": "1b502b5676e2e01e8a17f4b5ecdf24cb6d5548f4e6070a8d1bcde67ab7b31c10",
+  "20_new_runs/snplib_dock_2026-10-06/poses/SNP00142.sdf": "5920c1d37f07be6b48173ae9e46beef0d7d15b9845fa21b1ff0ccfff97b9e742",
+  "20_new_runs/diffdock_snplib_2026-10-07/results/SNP00142/rank1_confidence0.29.sdf": "927f4a700611096c820461b75c762eea0c74616d1babdaa80c5dae3833cbdd61",
+  "20_new_runs/snplib_dock_2026-10-06/poses/SNP00006.sdf": "af8141a49a502cd791b60662dd9f3b8a933034b37ed2d41dbb1b1c326345a892",
+  "20_new_runs/diffdock_snplib_2026-10-07/results/SNP00006/rank1_confidence-0.99.sdf": "f764c78cafaecce5bcaf330c13fedac6a65a9778b929c3fc47ce0e753a7db03d",
+  "20_new_runs/snplib_dock_2026-10-06/poses/SNP00144.sdf": "4465d284b3c97f26af2748e69de283ec0274c5923b2594eb3ff363f6f635ce9f",
+  "20_new_runs/diffdock_snplib_2026-10-07/results/SNP00144/rank1_confidence0.52.sdf": "6acf429abc41c4a6b5d2e1fca2294f570e4cd8d61347696cc518291a6681bb8a",
+  "20_new_runs/snplib_dock_2026-10-06/poses/SNP00051.sdf": "6a8701975a4fa4f094abbe635a882a092bb0668a18d04d99a3eb6e0eafc783e6",
+  "20_new_runs/diffdock_snplib_2026-10-07/results/SNP00051/rank1_confidence0.30.sdf": "319851433f82db5f9795f80426c7b4e1a127f1252672b0a647662cbdaf9520f4",
+  "20_new_runs/snplib_dock_2026-10-06/poses/SNP00087.sdf": "cc4ffa2f96c6af58e0e28a6b91ed68b7bf5b02bd1643ed92a0980d4981a70810",
+  "20_new_runs/diffdock_snplib_2026-10-07/results/SNP00087/rank1_confidence-0.49.sdf": "e3b4a835ac2fbd60e59e5c9f60337b88eb5307a8e6619a8f04270ab41aaa98c1",
+  "20_new_runs/snplib_dock_2026-10-06/poses/SNP00198.sdf": "7d6972a73113a8a63caef56def8d249126846b1862bf1dfc62aed294817abcee",
+  "20_new_runs/diffdock_snplib_2026-10-07/results/SNP00198/rank1_confidence-0.57.sdf": "606574a502d099a5e1bb7c9e1152c610ade873a7093afa05aef5c6504602efe0"
+ }
+}

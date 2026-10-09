@@ -1,0 +1,21 @@
+{
+ "adr": "ADR-AIIM-288",
+ "prereg": "ADR-AIIM-287",
+ "prereg_sha256": "3a0d096a1ba9ff3aa031d00c81285d334d286e846723dcb7db8dcdd311af969a",
+ "log_sha256_at_freeze": "1ed078b4a8b48be37e507cc01737e70d50351935da81b82e56ca7099304e16bb",
+ "date": "2026-10-05",
+ "seconds": 63.1,
+ "fits": 96,
+ "cells": 48,
+ "status": "Run evidence. 10_new_system unmodified; no model promoted, no contract amended, no published number changed.",
+ "grading": {
+  "U1": "MISSED",
+  "U2": "MET",
+  "U3": "MISSED (vacuous - in-domain set empty)",
+  "U4": "MET"
+ },
+ "sha256": {
+  "analysis/label_balance_domain.py": "edea10a9408f611e37f51b733e4479e6b6e0d65292e259bd8baf4463127a7bff",
+  "label_balance_domain.json": "270056c55cd509518e417a28c4c9bf1ed04fa353302db6783fb2c8220dc33395"
+ }
+}

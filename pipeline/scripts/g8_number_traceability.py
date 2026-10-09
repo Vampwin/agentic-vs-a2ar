@@ -677,9 +677,14 @@ def check_supplementary_pointers(text: str) -> list[dict]:
     return out
 
 
-def check_deposit_commit() -> dict:
+def check_deposit_commit(ms_text: str | None = None) -> dict:
     """The commit hash the manuscript cites must be the deposit's current HEAD,
     and the deposit's working tree must be clean.
+
+    `ms_text` is the text of the manuscript being checked (the `--manuscript` file).
+    Until 2026-10-09 this function read 30_manuscript/CURRENT_v5/manuscript_AIIM_v6_CLEAN.md
+    regardless of `--manuscript`, so a run on the live v8 text could not pass it however
+    correctly v8 cited the commit. Without an argument it keeps that behaviour.
 
     A citation to a commit is a claim about content. It goes stale the moment
     the deposit is rebuilt and not re-committed, and nothing else in this file
@@ -702,7 +707,8 @@ def check_deposit_commit() -> dict:
             head = ref
     except OSError:
         pass
-    ms = (root / "30_manuscript/CURRENT_v5/manuscript_AIIM_v6_CLEAN.md").read_text(
+    ms = ms_text if ms_text is not None else (
+        root / "30_manuscript/CURRENT_v5/manuscript_AIIM_v6_CLEAN.md").read_text(
         encoding="utf-8")
     cited = head and head in ms
     try:
@@ -1984,8 +1990,13 @@ def build_checks(S) -> list[tuple[str, str, object, object, str]]:
     # 2026-10-01, when build_evidence_index.py began refusing to write and took
     # build_deposit.py down with it. The 47 additions are content already owed
     # (Figures 7 and 8, pipeline scripts through 2026-10-02), not new work.
-    add("deposit_manifest_n", "SHA-256 of each of the 416 deposited artifacts",
-        416, S["dep_manifest"])
+    # 2026-10-09: the literal is built from the manifest's own count, as deposit_files
+    # is, instead of a typed 416 that went stale at every rebuild (416 -> 847 -> 838).
+    # What this then tests is that the text states the manifest's count; the value
+    # half is the same number twice, as it is for deposit_files.
+    add("deposit_manifest_n",
+        f"SHA-256 of each of the {S['dep_manifest']} deposited artifacts",
+        S["dep_manifest"], S["dep_manifest"])
     add("deposit_manifest_gap", "the 8 files it omits", 8,
         S["dep"] - S["dep_manifest"])
     # Same claim, one level down: S10's own manifest. The article said "every
@@ -2100,7 +2111,9 @@ def main() -> int:
     figures = check_figure_provenance()
     figures += check_supplementary_pointers(text)
     figures += check_repository_url(text)
-    commit = check_deposit_commit()
+    # The default manuscript keeps the legacy read of the v6 CLEAN file; any other
+    # manuscript is checked against its own text.
+    commit = check_deposit_commit(None if args.manuscript == (str(DEFAULT_MS) if DEFAULT_MS else None) else text)
 
     # The supplement is read once. A check that declares itself there is
     # verified against this text with the same strictness as an article check:

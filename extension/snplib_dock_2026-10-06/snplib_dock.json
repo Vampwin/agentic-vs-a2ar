@@ -1,0 +1,103 @@
+{
+ "adr": "ADR-AIIM-313",
+ "prereg_sha256": "d161e191a4e193a08d741559cbcbcdbff719819d765c65cff01f7afcf31cca95",
+ "log_sha256_at_freeze": "62f8f5d77755418c7297b6e9464aa6bf15589e5cecb8f75467fd5af89946ca95",
+ "rdkit_version": "2026.03.3",
+ "vina": "1.2.7 (WSL diffdock env)",
+ "frozen_script": "10_new_system/scripts/g4_dock_library.py, unmodified",
+ "receptor": "20_new_runs/snp_screen_2026-08-04/G2_preparation/4EIY_prepared.pdbqt",
+ "box": [
+  -0.424,
+  8.527,
+  17.127
+ ],
+ "pool_size": 69,
+ "waterfall": [
+  {
+   "pool": "SNP-Lib",
+   "step": 0,
+   "name": "rows",
+   "n": 236
+  },
+  {
+   "pool": "SNP-Lib",
+   "step": "0b",
+   "name": "dedupe canonical SMILES",
+   "n": 223,
+   "rows_removed": 13
+  },
+  {
+   "pool": "SNP-Lib",
+   "step": 1,
+   "name": "gate Ro5 (RDKit)",
+   "n": 147
+  },
+  {
+   "pool": "SNP-Lib",
+   "step": 2,
+   "name": "gate MW >= 200",
+   "n": 126
+  },
+  {
+   "pool": "SNP-Lib",
+   "step": 3,
+   "name": "gate AD >= 0.25",
+   "n": 69,
+   "frameworks": 21
+  }
+ ],
+ "n_docked_ok": 69,
+ "n_on_pocket": 40,
+ "on_pocket_of_nine": [
+  "SNP00006",
+  "SNP00157",
+  "SNP00163",
+  "SNP00223"
+ ],
+ "on_pocket_of_shortlist": [
+  "SNP00006",
+  "SNP00157",
+  "SNP00163"
+ ],
+ "vina_score_min": -8.674,
+ "vina_score_median": -6.785,
+ "anchor": {
+  "rmsd": 0.1053,
+  "note": ""
+ },
+ "grading": {
+  "Z1_zma_redock_rmsd_at_most_2A": {
+   "rmsd": 0.1053,
+   "threshold": 2.0,
+   "verdict": "MET"
+  },
+  "Z2_at_least_6_of_nine_on_pocket": {
+   "n": 4,
+   "threshold": 6,
+   "which": [
+    "SNP00006",
+    "SNP00157",
+    "SNP00163",
+    "SNP00223"
+   ],
+   "verdict": "MISSED"
+  },
+  "Z3_at_least_2_shortlisted_on_pocket": {
+   "n": 3,
+   "threshold": 2,
+   "which": [
+    "SNP00006",
+    "SNP00157",
+    "SNP00163"
+   ],
+   "verdict": "MET"
+  },
+  "Z4_channels_not_redundant": {
+   "spearman_vina_vs_pki": 0.105,
+   "n": 69,
+   "threshold_abs": 0.3,
+   "verdict": "MET"
+  }
+ },
+ "seconds": 2724.4
+}

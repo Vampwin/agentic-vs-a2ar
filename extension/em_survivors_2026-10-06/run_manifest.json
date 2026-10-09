@@ -1,0 +1,13 @@
+{
+ "adr": "ADR-AIIM-312 addendum",
+ "date": "2026-10-06",
+ "log_sha256_at_launch": "35f117716b5dd093a4bf4787c323c43a3523f3edd4785050af52fad524b27472",
+ "seconds": 2218.4,
+ "determinism": "survivors.csv byte-identical across two executions",
+ "artifacts": {
+  "analysis/em_survivors.py": "bac5f64e185f5fa1212ce9b83da018f60c21d5cebb97e40244c335c8bd301916",
+  "em_survivors.json": "dcc2123c0259ecc073b2f3292afc2766c8e2f465c2131e0418aa66229ba2efd6",
+  "run.log": "cc4cdd54d0b0f6ae951726435dee8e65b0110bf8d28f771d69dd25ede0e6470e",
+  "survivors.csv": "619a8802e3f29b4bab98bc1a0e0d71fc38a81e61d934d888cebd293ff76dd1fc"
+ }
+}
