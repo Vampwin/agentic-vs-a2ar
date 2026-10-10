@@ -262,7 +262,7 @@ def write_preregistration(out: Path) -> dict:
     dst.parent.mkdir(parents=True, exist_ok=True)
     dst.write_text(head + body + "\n", encoding="utf-8", newline="\n")
     return {"path": PREREGISTRATION_DST, "source": "00_project_control/08_DECISION_LOG.md",
-            "bytes": dst.stat().st_size, "sha256": sha256(dst)}
+            "bytes": len(as_stored(dst)), "sha256": sha256(dst)}
 
 
 EXTERNAL = [
@@ -288,12 +288,28 @@ EXTERNAL = [
 ]
 
 
+# Added 2026-10-10 (ADR-AIIM-379, approved by the author). MANIFEST.json used to record the hash of the
+# development copy, which has Windows (CRLF) line ends, while the deposit's .gitattributes
+# (`* text=auto eol=lf`) makes git store -- and every clone check out -- LF. On a fresh clone 342 of 1,021
+# recorded hashes did not reproduce. The manifest now records what a clone contains: for a text file the
+# SHA-256 and byte count of its content with CRLF turned into LF, for a binary file those of the bytes as
+# they are. "Text" follows git's own test for `text=auto`: no NUL byte in the first 8,000 bytes and no
+# carriage return that is not part of CRLF, and not a suffix .gitattributes marks binary.
+BINARY_SUFFIX = {".png", ".pdf", ".gz", ".docx"}
+
+
+def as_stored(p: Path) -> bytes:
+    """The bytes a clone of the deposit will contain for this file."""
+    raw = p.read_bytes()
+    if p.suffix.lower() in BINARY_SUFFIX or b"\0" in raw[:8000]:
+        return raw
+    if re.search(rb"\r(?!\n)", raw):
+        return raw      # a lone CR makes git treat the file as binary, and leave it alone
+    return raw.replace(b"\r\n", b"\n")
+
+
 def sha256(p: Path) -> str:
-    h = hashlib.sha256()
-    with p.open("rb") as fh:
-        for c in iter(lambda: fh.read(1 << 20), b""):
-            h.update(c)
-    return h.hexdigest()
+    return hashlib.sha256(as_stored(p)).hexdigest()
 
 
 def main() -> int:
@@ -366,12 +382,13 @@ def main() -> int:
             dst = out / dst_rel / rel
             dst.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(f, dst)
-            size = dst.stat().st_size
+            stored = as_stored(dst)
+            size = len(stored)
             total += size
             manifest.append({
                 "path": str((Path(dst_rel) / rel).as_posix()),
                 "source": str(f.relative_to(ROOT).as_posix()),
-                "bytes": size, "sha256": sha256(dst)})
+                "bytes": size, "sha256": hashlib.sha256(stored).hexdigest()})
 
     pre = write_preregistration(out)
     why = screen(out / PREREGISTRATION_DST)

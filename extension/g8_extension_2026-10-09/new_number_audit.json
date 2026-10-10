@@ -1,10 +1,19 @@
 {
  "article": {
-  "tier_A_artifact": 128,
-  "tier_B_log_only": 19,
-  "tier_C_unmatched": 0,
+  "tier_A_artifact": 127,
+  "tier_B_log_only": 18,
+  "tier_C_unmatched": 2,
   "small_integers_not_tested": 104,
-  "unmatched": [],
+  "unmatched": [
+   [
+    "1029",
+    "es ¶ 10b0c90620585ee624892a228c1816e98dd0579b ¶ 1029 ¶ 65.9 ¶  The po"
+   ],
+   [
+    "1021",
+    "egistration/ (the full log is not deposited). ¶ 1021 ¶ README, licenc"
+   ]
+  ],
   "log_only": [
    [
     "10330",
@@ -65,10 +74,6 @@
    [
     "52.9",
     " every similarity, so the same threshold admits 52.9% of the expansio"
-   ],
-   [
-    "865",
-    "es ¶ 3e282e5579e68f498a43d49556e415b4818baf08 ¶ 865 ¶ 46.3 ¶  The po"
    ],
    [
     "404",

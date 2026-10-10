@@ -4012,24 +4012,24 @@
       "check": "deposit_files",
       "state": "PASS",
       "expected": [
-        865,
-        46.3
+        1029,
+        65.9
       ],
       "recomputed": [
-        865,
-        46.3
+        1029,
+        65.9
       ],
       "literal_present_in_manuscript": true,
-      "literal": "865 files, 46.3 MB",
+      "literal": "1029 files, 65.9 MB",
       "located_in": "article"
     },
     {
       "check": "deposit_manifest_n",
       "state": "PASS",
-      "expected": 857,
-      "recomputed": 857,
+      "expected": 1021,
+      "recomputed": 1021,
       "literal_present_in_manuscript": true,
-      "literal": "SHA-256 of each of the 857 deposited artifacts",
+      "literal": "SHA-256 of each of the 1021 deposited artifacts",
       "located_in": "article"
     },
     {

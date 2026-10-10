@@ -41,7 +41,7 @@ be checked rather than taken on trust:
 | `figures/` | Figure sources and their provenance records; `figures/graphical_abstract/` holds the graphical abstract's builders and outputs (added 2026-10-10) |
 | `preregistration/` | The decision-log entries the manuscript and its supplement call pre-registered, with the entries that record their results, copied verbatim (added 2026-10-10); the full log is not deposited |
 | `extension/` | The post-freeze extension (ADR-AIIM-285 onward, added 2026-10-09): the runs behind Section 3.8 of the manuscript and Section 17 of its supplement, as scripts, series, tables, ligand parameter files and machine-readable results; since 2026-10-10 also the matched search-space program (Vina over the whole receptor, DiffDock-L filtered to the site box, DiffDock-Pocket) and the one style of the figures |
-| `MANIFEST.json` | SHA-256 of every file, plus what was excluded and why |
+| `MANIFEST.json` | SHA-256 of every file, plus what was excluded and why. The hash and byte count are those of the content as a clone of this repository holds it: text files with LF line ends (as `.gitattributes` makes git store them), binary files as they are. `sha256sum` on a checkout therefore reproduces them |
 
 ### Figure files and the manuscript's figure numbers
 
