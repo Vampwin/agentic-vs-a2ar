@@ -1,0 +1,20 @@
+{
+ "center": [
+  8.647,
+  -22.094,
+  15.858
+ ],
+ "size": [
+  69.5,
+  110.5,
+  51.0
+ ],
+ "centers_by_receptor": {
+  "4EIY": [
+   8.647,
+   -22.094,
+   15.858
+  ]
+ },
+ "derived_from": "4EIY_protein_only.pdb heavy-atom bounding box + 4 A on each side, rounded up to 0.5 A (ADR-AIIM-353)"
+}

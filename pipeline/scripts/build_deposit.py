@@ -84,6 +84,12 @@ TREE: list[tuple[str, str, str]] = [
      "the 2026-08-21 verification evidence behind Sections 2 and 3"),
     ("30_manuscript/figures", "figures",
      "figure sources and their provenance records"),
+    # Added 2026-10-10 (ADR-AIIM-377, approved by the author). This folder was kept
+    # out of the deposit on purpose until then, because the manuscript cites the
+    # deposit's file count; the count is now re-cited at each rebuild. Backups
+    # (underscore-prefixed) are skipped as scratch.
+    ("30_manuscript/v7_graphical_abstract_2026-10-03", "figures/graphical_abstract",
+     "the graphical abstract's builders (v7 and the funnel layout of 2026-10-10) and their outputs"),
     ("20_new_runs/verification_summary_2026-08-21", "verification/summary",
      "per-gate mutation scores, structure and protocol checks, the G8 audit"),
     # NOTE: verification/summary and verification/structure_and_protocol share
@@ -119,6 +125,13 @@ EXTENSION_SUFFIX = {".json", ".csv", ".md", ".py", ".sh", ".xvg", ".ndx", ".mdp"
                     ".txt", ".yaml", ".yml", ".png", ".svg", ".mol2", ".frcmod",
                     ".sdf", ".in"}
 EXTENSION_MAX_BYTES = 8 * 1024 * 1024
+# Regular expressions (on the path inside the run directory) of files skipped for one run. The DiffDock runs
+# write up to a hundred poses per complex; the rank-1 pose of each complex is what the analysis and the figures
+# read, so the other ranks (about 3,500 files) are not deposited. Rank 1 is `rank1.sdf` and `rank1_confidence-*.sdf`.
+EXTENSION_SKIP_PATTERNS: dict[str, list[str]] = {
+    "extension/docking_matched_search_space_2026-10-09": [r"(^|/)rank(?!1[._])\d+[^/]*\.sdf$"],
+    "extension/docking_matched_filter_pocket_2026-10-09": [r"(^|/)rank(?!1[._])\d+[^/]*\.sdf$"],
+}
 # (source, destination, description, directory names allowed despite SKIP_DIRS,
 #  extra directory names skipped for this entry)
 EXTENSION_TREE: list[tuple[str, str, str, set, set]] = [
@@ -152,6 +165,10 @@ EXTENSION_TREE: list[tuple[str, str, str, set, set]] = [
         ("figure8_window50_2026-10-07", "Figure 7 (formerly 8) at 50 ns", set(), set()),
         ("figures_docking_md_2026-10-09", "Figures 6 and 7 with the survivors and the SNP-Lib runs, scripts and checks", set(), {"Figure_6_docking_snplib.svg"}),
         ("g8_extension_2026-10-09", "G8 on the v8 text and the new-number audit", set(), {"inputs"}),   # inputs/ holds the manuscript text itself
+        # Added 2026-10-10 (ADR-AIIM-377): the matched-search-space program (ADR-AIIM-353 to 357) and the figure style
+        ("docking_matched_search_space_2026-10-09", "Vina over the whole receptor and DiffDock-L filtered to the site box: pre-registration, rank-1 poses, tables and result", set(), set()),
+        ("docking_matched_filter_pocket_2026-10-09", "DiffDock-L 100 samples filtered by the box, and DiffDock-Pocket (main, rigid, C-alpha centre): pre-registration, rank-1 poses, tables and result", set(), set()),
+        ("figures_style_harmonised_2026-10-10", "the one style of Figures 3 to 7 and the scripts that redraw Figures 3 to 5", set(), set()),
         ("md_candidates_2026-08-22/SNP00157", "SNP00157 build parameters and series", set(), set()),
         ("md_candidates_2026-08-22/SNP00163", "SNP00163 build parameters and series", set(), set()),
     ]
@@ -199,6 +216,54 @@ sys.path.insert(0, str(Path(__file__).parent))
 from deposit_screen import (  # noqa: E402
     REVIEWED_AND_CLEARED, screen, self_test as screen_self_test,
 )
+
+# ---------------------------------------------------------------------------
+# The pre-registration entries (added 2026-10-10, ADR-AIIM-377, approved by the author).
+# The article and the supplement say that the post-freeze analyses were pre-registered in an append-only
+# decision log, with the SHA-256 of the predictions recorded before each ran. A reader cannot check that
+# without the entries, and the log as a whole is not deposited, so the entries the text relies on are copied
+# verbatim into one file, with the SHA-256 of the whole log at the time of copying. Which entries is decided
+# here, in the open: the extension (285-336), the matched search-space program (353-356) and the earlier
+# pre-registered verification and simulation entries that the text cites.
+PREREGISTRATION_ADRS = sorted({111, 112, 131, 150, 156, 161, 171, 193, 194} | set(range(285, 337)) | {353, 354, 355, 356})
+PREREGISTRATION_DST = "preregistration/PRE_REGISTRATION_ENTRIES.md"
+SEALED_MENTION = re.compile(r"\bH(0[6-9]|1[0-2])\b")   # the held-out families that were never exposed
+
+
+def write_preregistration(out: Path) -> dict:
+    log = ROOT / "00_project_control" / "08_DECISION_LOG.md"
+    if not log.exists():
+        raise SystemExit("missing source: 00_project_control/08_DECISION_LOG.md")
+    text = log.read_bytes().decode("utf-8").replace("\r\n", "\n")
+    parts = re.split(r"\n(?=## ADR-AIIM-)", text)
+    chosen, found = [], set()
+    for p in parts:
+        m = re.match(r"## ADR-AIIM-(\d+)", p)
+        if m and int(m.group(1)) in PREREGISTRATION_ADRS:
+            chosen.append(p.rstrip("\n"))
+            found.add(int(m.group(1)))
+    missing = [n for n in PREREGISTRATION_ADRS if n not in found]
+    if missing:
+        raise SystemExit(f"pre-registration entries not found in the decision log: {missing}")
+    body = "\n\n".join(chosen)
+    if SEALED_MENTION.search(body):
+        raise SystemExit("a selected pre-registration entry mentions a sealed held-out family; not depositing it")
+    head = (
+        "# Pre-registration entries\n\n"
+        "Verbatim copies of the decision-log entries that the article and the supplement describe as pre-registered, "
+        "and of the entries that record their results. The log is append-only; each entry was written before the run it "
+        "concerns (or, for a result entry, after it), and the SHA-256 of the predictions of each analysis was recorded "
+        "in the entry before the analysis ran. Copied as written: first-person wording and the author's quotations "
+        "are unchanged. The full log is not deposited.\n\n"
+        f"- source: `00_project_control/08_DECISION_LOG.md`, SHA-256 of the whole log (line ends as LF) "
+        f"`{hashlib.sha256(text.encode('utf-8')).hexdigest()}`\n"
+        f"- entries: {len(chosen)} (ADR-AIIM-{', '.join(str(n) for n in PREREGISTRATION_ADRS[:9])}, 285 to 336, 353 to 356)\n\n---\n\n")
+    dst = out / PREREGISTRATION_DST
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    dst.write_text(head + body + "\n", encoding="utf-8", newline="\n")
+    return {"path": PREREGISTRATION_DST, "source": "00_project_control/08_DECISION_LOG.md",
+            "bytes": dst.stat().st_size, "sha256": sha256(dst)}
+
 
 EXTERNAL = [
     {"name": "LOTUS natural-product knowledge base",
@@ -278,7 +343,9 @@ def main() -> int:
                 continue
             if is_ext and (f.suffix.lower() not in EXTENSION_SUFFIX
                            or f.stat().st_size > EXTENSION_MAX_BYTES
-                           or any(part in extra_skip for part in f.relative_to(src).parts)):
+                           or any(part in extra_skip for part in f.relative_to(src).parts)
+                           or any(re.search(pat, f.relative_to(src).as_posix())
+                                  for pat in EXTENSION_SKIP_PATTERNS.get(dst_rel, ()))):
                 skipped += 1
                 continue
             # underscore-prefixed working files are skipped in the verification tree, but in
@@ -305,6 +372,13 @@ def main() -> int:
                 "path": str((Path(dst_rel) / rel).as_posix()),
                 "source": str(f.relative_to(ROOT).as_posix()),
                 "bytes": size, "sha256": sha256(dst)})
+
+    pre = write_preregistration(out)
+    why = screen(out / PREREGISTRATION_DST)
+    if why:
+        raise SystemExit(f"the pre-registration file failed the deposit screen: {why}")
+    manifest.append(pre)
+    total += pre["bytes"]
 
     if cleared:
         print(f"flagged and cleared on review ({len(cleared)}):")

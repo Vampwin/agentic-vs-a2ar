@@ -1,0 +1,75 @@
+{
+  "figure": "figure4_ad_multispace_harmonised",
+  "generated": "2026-08-25",
+  "script": "figure_ad_multispace.py",
+  "supersedes": "figure_ad_multispace_2026-08-21",
+  "adr": "ADR-AIIM-136",
+  "sweep_dir": "20_new_runs/ad_sweep_selfsim_2026-08-25",
+  "inputs": {
+    "ad_coverage_by_descriptor.csv": "3d6b3ae50eea9654e40fb635a9200d55601bd21320f107bcbb95c61d4b806407",
+    "ad_per_compound.csv": "304b34edafd2481e74b056ecab956b7b07e488949cc04b2f013d38e06eda0e34",
+    "ad_percentile_position.csv": "edd7215c898cc4f16101dec156ebfe7c875e6bd1f94f31d45e90350febbbae8b",
+    "comparison_vs_snplib.json": "de6229211e24c82bdf74b1892d42fe719d16f186c01c62947b49df517eb06047"
+  },
+  "outputs": {
+    "figure4_ad_multispace_harmonised.png": "549fe186ccabd283f3fb9a1000bab7ea0868077f6c5f3ec048f91e0cdb2b6175",
+    "figure4_ad_multispace_harmonised.svg": "2a2b1264e97be0ea11d13bb3f73aaf87534daca7009a76e3a18a413fd4d4e9d6"
+  },
+  "panel_A_numbers": {
+    "ECFP4": {
+      "snplib_pct": 0.0,
+      "expanded_pct": 0.0
+    },
+    "FCFP4": {
+      "snplib_pct": 0.0,
+      "expanded_pct": 0.0
+    },
+    "TopTorsion": {
+      "snplib_pct": 0.0,
+      "expanded_pct": 0.0
+    },
+    "Gobbi_Pharm2D": {
+      "snplib_pct": 0.0,
+      "expanded_pct": 0.0
+    },
+    "AtomPair": {
+      "snplib_pct": 0.85,
+      "expanded_pct": 0.2
+    },
+    "ErG": {
+      "snplib_pct": 0.42,
+      "expanded_pct": 3.62
+    },
+    "MACCS": {
+      "snplib_pct": 2.54,
+      "expanded_pct": 9.26
+    },
+    "PhysChem": {
+      "snplib_pct": 64.41,
+      "expanded_pct": 86.32
+    }
+  },
+  "panel_B_median_percentile": {
+    "ECFP4": 0.23,
+    "FCFP4": 0.47,
+    "TopTorsion": 0.49,
+    "Gobbi_Pharm2D": 0.94,
+    "AtomPair": 0.34,
+    "ErG": 3.82,
+    "MACCS": 1.51,
+    "PhysChem": 36.93
+  },
+  "panel_B_threshold_percentile": 10,
+  "panel_C_counts": {
+    "0": 52,
+    "1": 396,
+    "2": 49,
+    "3": 0,
+    "4": 0,
+    "5": 0,
+    "6": 0,
+    "7": 0,
+    "8": 0
+  },
+  "max_spaces_inside": 2
+}

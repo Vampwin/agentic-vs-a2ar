@@ -1,10 +1,10 @@
 {
-  "manuscript": "C:/Users/USER/AppData/Local/Temp/claude/D--Agentic-VS-Workflow/ff25d828-261e-4e04-83f0-48dafcda2460/scratchpad/g8in/manuscript_AIIM_v8_accepted.md",
+  "manuscript": "20_new_runs/g8_extension_2026-10-09/inputs/manuscript_AIIM_v8_accepted.md",
   "state": "FAIL",
   "n_checks": 436,
-  "n_pass": 111,
-  "n_value_mismatch": 1,
-  "n_literal_absent": 324,
+  "n_pass": 113,
+  "n_value_mismatch": 0,
+  "n_literal_absent": 323,
   "checks": [
     {
       "check": "mutation_detection",
@@ -3953,7 +3953,7 @@
     },
     {
       "check": "heldout_confounded_gates",
-      "state": "PASS",
+      "state": "FAIL-ABSENT",
       "expected": [
         "G2",
         "G3"
@@ -3962,7 +3962,7 @@
         "G2",
         "G3"
       ],
-      "literal_present_in_manuscript": true,
+      "literal_present_in_manuscript": false,
       "literal": "at G2 and G3",
       "located_in": "article"
     },
@@ -4010,26 +4010,26 @@
     },
     {
       "check": "deposit_files",
-      "state": "FAIL-ABSENT",
+      "state": "PASS",
       "expected": [
-        424,
-        19.6
+        865,
+        46.3
       ],
       "recomputed": [
-        424,
-        19.6
+        865,
+        46.3
       ],
-      "literal_present_in_manuscript": false,
-      "literal": "424 files, 19.6 MB",
+      "literal_present_in_manuscript": true,
+      "literal": "865 files, 46.3 MB",
       "located_in": "article"
     },
     {
       "check": "deposit_manifest_n",
-      "state": "FAIL-ABSENT",
-      "expected": 416,
-      "recomputed": 416,
-      "literal_present_in_manuscript": false,
-      "literal": "SHA-256 of each of the 416 deposited artifacts",
+      "state": "PASS",
+      "expected": 857,
+      "recomputed": 857,
+      "literal_present_in_manuscript": true,
+      "literal": "SHA-256 of each of the 857 deposited artifacts",
       "located_in": "article"
     },
     {
@@ -4216,16 +4216,13 @@
     },
     {
       "check": "citation_integrity",
-      "state": "FAIL-VALUE",
+      "state": "PASS",
       "expected": "every marker resolves, every entry cited, 1..N contiguous",
       "recomputed": {
-        "n_entries": 65,
-        "n_cited": 63,
+        "n_entries": 64,
+        "n_cited": 64,
         "dangling_markers": [],
-        "uncited_entries": [
-          64,
-          65
-        ],
+        "uncited_entries": [],
         "numbering_contiguous": true
       },
       "literal_present_in_manuscript": true,

@@ -1,0 +1,17 @@
+complex_name,experimental_protein,ligand,pocket_center_x,pocket_center_y,pocket_center_z,flexible_sidechains
+ZM241385,4EIY_protein_only.pdb,/mnt/d/Agentic VS Workflow/20_new_runs/docking_matched_filter_pocket_2026-10-09/inputs/ligands/ZM241385.sdf,-0.424,8.527,17.127,A:168-A:169-A:177-A:250-A:253-A:270
+SNP00157,4EIY_protein_only.pdb,/mnt/d/Agentic VS Workflow/20_new_runs/docking_matched_filter_pocket_2026-10-09/inputs/ligands/SNP00157.sdf,-0.424,8.527,17.127,A:168-A:169-A:177-A:250-A:253-A:270
+SNP00163,4EIY_protein_only.pdb,/mnt/d/Agentic VS Workflow/20_new_runs/docking_matched_filter_pocket_2026-10-09/inputs/ligands/SNP00163.sdf,-0.424,8.527,17.127,A:168-A:169-A:177-A:250-A:253-A:270
+SNP00223,4EIY_protein_only.pdb,/mnt/d/Agentic VS Workflow/20_new_runs/docking_matched_filter_pocket_2026-10-09/inputs/ligands/SNP00223.sdf,-0.424,8.527,17.127,A:168-A:169-A:177-A:250-A:253-A:270
+SNP00154,4EIY_protein_only.pdb,/mnt/d/Agentic VS Workflow/20_new_runs/docking_matched_filter_pocket_2026-10-09/inputs/ligands/SNP00154.sdf,-0.424,8.527,17.127,A:168-A:169-A:177-A:250-A:253-A:270
+SNP00097,4EIY_protein_only.pdb,/mnt/d/Agentic VS Workflow/20_new_runs/docking_matched_filter_pocket_2026-10-09/inputs/ligands/SNP00097.sdf,-0.424,8.527,17.127,A:168-A:169-A:177-A:250-A:253-A:270
+SNP00052,4EIY_protein_only.pdb,/mnt/d/Agentic VS Workflow/20_new_runs/docking_matched_filter_pocket_2026-10-09/inputs/ligands/SNP00052.sdf,-0.424,8.527,17.127,A:168-A:169-A:177-A:250-A:253-A:270
+SNP00033,4EIY_protein_only.pdb,/mnt/d/Agentic VS Workflow/20_new_runs/docking_matched_filter_pocket_2026-10-09/inputs/ligands/SNP00033.sdf,-0.424,8.527,17.127,A:168-A:169-A:177-A:250-A:253-A:270
+SNP00095,4EIY_protein_only.pdb,/mnt/d/Agentic VS Workflow/20_new_runs/docking_matched_filter_pocket_2026-10-09/inputs/ligands/SNP00095.sdf,-0.424,8.527,17.127,A:168-A:169-A:177-A:250-A:253-A:270
+SNP00010,4EIY_protein_only.pdb,/mnt/d/Agentic VS Workflow/20_new_runs/docking_matched_filter_pocket_2026-10-09/inputs/ligands/SNP00010.sdf,-0.424,8.527,17.127,A:168-A:169-A:177-A:250-A:253-A:270
+SNP00142,4EIY_protein_only.pdb,/mnt/d/Agentic VS Workflow/20_new_runs/docking_matched_filter_pocket_2026-10-09/inputs/ligands/SNP00142.sdf,-0.424,8.527,17.127,A:168-A:169-A:177-A:250-A:253-A:270
+SNP00006,4EIY_protein_only.pdb,/mnt/d/Agentic VS Workflow/20_new_runs/docking_matched_filter_pocket_2026-10-09/inputs/ligands/SNP00006.sdf,-0.424,8.527,17.127,A:168-A:169-A:177-A:250-A:253-A:270
+SNP00144,4EIY_protein_only.pdb,/mnt/d/Agentic VS Workflow/20_new_runs/docking_matched_filter_pocket_2026-10-09/inputs/ligands/SNP00144.sdf,-0.424,8.527,17.127,A:168-A:169-A:177-A:250-A:253-A:270
+SNP00051,4EIY_protein_only.pdb,/mnt/d/Agentic VS Workflow/20_new_runs/docking_matched_filter_pocket_2026-10-09/inputs/ligands/SNP00051.sdf,-0.424,8.527,17.127,A:168-A:169-A:177-A:250-A:253-A:270
+SNP00087,4EIY_protein_only.pdb,/mnt/d/Agentic VS Workflow/20_new_runs/docking_matched_filter_pocket_2026-10-09/inputs/ligands/SNP00087.sdf,-0.424,8.527,17.127,A:168-A:169-A:177-A:250-A:253-A:270
+SNP00198,4EIY_protein_only.pdb,/mnt/d/Agentic VS Workflow/20_new_runs/docking_matched_filter_pocket_2026-10-09/inputs/ligands/SNP00198.sdf,-0.424,8.527,17.127,A:168-A:169-A:177-A:250-A:253-A:270

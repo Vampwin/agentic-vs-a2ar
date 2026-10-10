@@ -1,0 +1,24 @@
+{
+ "figure": "Figure 6 (pocket version, harmonised style)",
+ "script": "figure6_pocket.py",
+ "adr": "ADR-AIIM-366, ADR-AIIM-367",
+ "checks": {
+  "none_below_2A": true,
+  "median_12.8": true,
+  "box_on_pocket_7": true,
+  "blind_on_pocket_2": true,
+  "blind_13_of_15_11.9_to_13.3": true,
+  "control_0.35": true,
+  "shortlist_8": true,
+  "titles": true
+ },
+ "panel_png_sha256": {
+  "_pocket_panel_ZM241385.png": "8e52755a9dcf16095bfa462268047f2fb93776079b4c1ab35aa101e6a58ab836",
+  "_pocket_panel_SNP00157.png": "cb08bbadd64b1fa9d0825fb1a8791c0e9cbba4a9c6541441cd87b71f9912277c",
+  "_pocket_panel_SNP00163.png": "67c4b92ce58267a9204576e01f6e5904810be92f3781c35fd9372208b61b2e16"
+ },
+ "inputs_sha256": {
+  "20_new_runs\\docking_matched_filter_pocket_2026-10-09\\filter_pocket_poses.csv": "d4481ed2fdf97f815aec1318e57794add1ac15c1df638369a61abb8869069b20",
+  "20_new_runs\\docking_matched_search_space_2026-10-09\\matched_poses.csv": "cd8edaedcd4719bfa2dcdf23c463cbb9b96ff167b2aa130b6f039555b3db54fd"
+ }
+}

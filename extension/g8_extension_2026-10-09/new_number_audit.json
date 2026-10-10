@@ -1,36 +1,108 @@
 {
  "article": {
-  "tier_A_artifact": 132,
-  "tier_B_log_only": 2,
-  "tier_C_unmatched": 1,
-  "small_integers_not_tested": 54,
-  "unmatched": [
-   [
-    "285",
-    "ACEHOLDER: the extension analyses (ADR-AIIM-285 to 319) must be adde"
-   ]
-  ],
+  "tier_A_artifact": 128,
+  "tier_B_log_only": 19,
+  "tier_C_unmatched": 0,
+  "small_integers_not_tested": 104,
+  "unmatched": [],
   "log_only": [
    [
-    "52.9",
-    "y similarity, so the same threshold admits 52.9% of the expansion lib"
+    "10330",
+    "nces, Chulalongkorn University, Bangkok 10330, Thailand ¶ ; Boonchoo S"
    ],
    [
-    "319",
-    "ER: the extension analyses (ADR-AIIM-285 to 319) must be added to th"
+    "8352",
+    "iland ¶ ; Boonchoo Sritularak 0000-0001-8352-4122 ¶ and ¶ correctness"
+   ],
+   [
+    "4122",
+    " ¶ ; Boonchoo Sritularak 0000-0001-8352-4122 ¶ and ¶ correctness is n"
+   ],
+   [
+    "0.601",
+    "erdict depends on the representation. ¶ 0.601) ¶ was ¶ comparable ¶ to"
+   ],
+   [
+    "0.584",
+    "¶ comparable ¶ to ¶ heavy-atom ¶ count (0.584; p=0.722) and ¶ +0.0751 "
+   ],
+   [
+    "0.722",
+    "ble ¶ to ¶ heavy-atom ¶ count (0.584; p=0.722) and ¶ +0.0751 ¶ over ¶ "
+   ],
+   [
+    "0.0751",
+    "vy-atom ¶ count (0.584; p=0.722) and ¶ +0.0751 ¶ over ¶ null). ¶ The ¶ "
+   ],
+   [
+    "4119",
+    "igible ¶ compounds ¶ ranged ¶ from 6 to 4,119 of 5,000 across ¶ order"
+   ],
+   [
+    "1004",
+    " in the released run, against a median of 1,004 (range 6 to 4,119), a"
+   ],
+   [
+    "4119",
+    "run, against a median of 1,004 (range 6 to 4,119), across ¶ does ¶ no"
+   ],
+   [
+    "0.911",
+    ", the model trained on the real labels (AUC 0.911; ¶ p=0.0099); the ax"
+   ],
+   [
+    "0.0099",
+    " trained on the real labels (AUC 0.911; ¶ p=0.0099); the axis is broken"
+   ],
+   [
+    "568",
+    "ry Section 17). ¶ returned different counts (568 and 3,334) ¶ reprod"
+   ],
+   [
+    "3334",
+    "on 17). ¶ returned different counts (568 and 3,334) ¶ reproduced ¶ an"
+   ],
+   [
+    "52.9",
+    " every similarity, so the same threshold admits 52.9% of the expansio"
+   ],
+   [
+    "865",
+    "es ¶ 3e282e5579e68f498a43d49556e415b4818baf08 ¶ 865 ¶ 46.3 ¶  The po"
+   ],
+   [
+    "404",
+    "HOLDER: as of 2026-10-09 the repository returns 404 to a request wit"
+   ],
+   [
+    "2023",
+    "docking with sidechain flexibility. In: NeurIPS 2023 Workshop on Mach"
+   ],
+   [
+    "2023",
+    "shop on Machine Learning in Structural Biology; 2023. ¶ [46] ¶ [47] ¶"
    ]
   ]
  },
  "supplement": {
-  "tier_A_artifact": 433,
-  "tier_B_log_only": 9,
-  "tier_C_unmatched": 0,
-  "small_integers_not_tested": 209,
-  "unmatched": [],
+  "tier_A_artifact": 587,
+  "tier_B_log_only": 13,
+  "tier_C_unmatched": 1,
+  "small_integers_not_tested": 260,
+  "unmatched": [
+   [
+    "20.8",
+    " ¶ SNP00154 ¶ 11.9 ¶ 13.2 ¶ 18.4 ¶ 1.5 ¶ 13.5 ¶ 20.8 ¶ SNP00097 ¶ 12."
+   ]
+  ],
   "log_only": [
    [
-    "319",
-    "in decision-log entries ADR-AIIM-285 to 319. They did not change any"
+    "0.216",
+    "d its pose in its own 5OLH structure at 0.216 Å but missed by 9.606 Å "
+   ],
+   [
+    "9.606",
+    "5OLH structure at 0.216 Å but missed by 9.606 Å in 4EIY, despite close"
    ],
    [
     "52.9",
@@ -45,8 +117,12 @@
     "conformers, exhaustiveness 32, ten poses, seed 20260729) into 4EIY with t"
    ],
    [
-    "981",
-    "ock and Vina on ChEMBL (n = 248) and DUD-E (n = 981); it lies outsid"
+    "1.92",
+    "1 pose (blue) and DiffDock-L rank-1 pose (red), 1.92 Å from the cryst"
+   ],
+   [
+    "110.5",
+    "docking script, unchanged, with a box of 69.5 × 110.5 × 51.0 Å (the he"
    ],
    [
     "53.2",
@@ -63,6 +139,14 @@
    [
     "93493",
     "hk2 flagged no parameters, and the system holds 93,493 atoms.SNP00157 "
+   ],
+   [
+    "2023",
+    " docking with sidechain flexibility. In: NeurIPS 2023 Workshop on Mac"
+   ],
+   [
+    "2023",
+    "kshop on Machine Learning in Structural Biology; 2023. ¶ [46] ¶ [48] "
    ]
   ]
  }

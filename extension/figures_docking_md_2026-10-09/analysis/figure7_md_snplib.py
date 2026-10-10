@@ -29,6 +29,9 @@ from pathlib import Path
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt   # noqa: E402
+import sys                        # noqa: E402
+sys.path.insert(0, "D:/Agentic VS Workflow/20_new_runs/figures_style_harmonised_2026-10-10")
+import figstyle as fs             # noqa: E402
 import numpy as np                # noqa: E402
 
 ROOT = Path(r"D:\Agentic VS Workflow")
@@ -46,6 +49,8 @@ TMAX, EPS = 50.0, 1e-3
 HB = 3.5
 NP = ["NPLIB01185", "NPLIB01643", "NPLIB03056"]
 SNP = ["SNP00157", "SNP00163"]
+ALL = "--all" in sys.argv            # --all: also draw the three originally prioritised compounds (Supplementary Figure S2)
+NPD = NP if ALL else []              # compounds of the earlier set that are drawn
 RMSD_NP_OK = ["NPLIB01643", "NPLIB03056"]
 LADDER = ["2.0", "3.0", "4.0", "5.0"]
 CCOL = {"NPLIB01185": "#b5651d", "NPLIB01643": "#2c5f8a", "NPLIB03056": "#7a9a3c",
@@ -54,9 +59,7 @@ CTRL_COL = "#111111"
 DASH = {1: "solid", 2: (0, (3.2, 1.6)), 3: (0, (1.1, 1.2))}
 MARK = {1: "o", 2: "s", 3: "^"}
 
-plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 8.2, "axes.linewidth": 0.7,
-                     "axes.edgecolor": "#333333", "xtick.major.width": 0.7, "ytick.major.width": 0.7,
-                     "savefig.dpi": 600, "figure.dpi": 150})
+fs.apply()
 inputs = {}
 
 
@@ -131,8 +134,8 @@ def main():
     print("anchors:", "ALL MET" if ok else "FAILED"); assert ok, anchors
 
     # ---- figure
-    fig = plt.figure(figsize=(7.48, 7.9))
-    gs = fig.add_gridspec(3, 2, width_ratios=[1.75, 1.0], height_ratios=[1.0, 0.92, 0.62],
+    fig = plt.figure(figsize=(7.48, 7.9 if ALL else 6.5))
+    gs = fig.add_gridspec(3, 2, width_ratios=[1.75, 1.0], height_ratios=[1.0, 0.92, 0.62 if ALL else 0.36],
                           wspace=0.24, hspace=0.36, left=0.075, right=0.985, top=0.955, bottom=0.07)
     axA, axB = fig.add_subplot(gs[0, 0]), fig.add_subplot(gs[0, 1])
     axC, axD = fig.add_subplot(gs[1, :]), fig.add_subplot(gs[2, :])
@@ -142,16 +145,18 @@ def main():
             ax.spines[sp].set_visible(False)
 
     for (c, r), (t, v) in A.items():
-        axA.plot(t, v, color=CCOL[c], lw=0.55, alpha=0.85, zorder=3, linestyle=DASH[r])
-    axA.axhline(10.0, color="#666666", lw=0.8, dashes=(4, 2), zorder=1)
+        if c in NP and not ALL:
+            continue
+        axA.plot(t, v, color=CCOL[c], lw=fs.LW["series"], alpha=0.85, zorder=3, linestyle=DASH[r])
+    axA.axhline(10.0, color=fs.COL["grey"], lw=fs.LW["ref"], ls=fs.REF_DASH, zorder=1)
     axA.set_ylim(0, 12); axA.set_xlim(0, TMAX); axA.set_yticks([0, 2, 4, 6, 8, 10, 12]); axA.set_xticks(xt)
-    axA.tick_params(labelsize=7)
-    axA.set_xlabel("time (ns)", fontsize=7.6); axA.set_ylabel("distance to the docked binding site (\u00c5)", fontsize=7.6)
-    axA.legend(handles=[plt.Line2D([], [], color=CCOL[c], lw=1.4, label=c) for c in NP + SNP], fontsize=6.4,
-               frameon=False, loc="lower right", ncol=3, handlelength=1.6, borderaxespad=0.3, columnspacing=1.0)
+    axA.tick_params(labelsize=fs.FS["tick"])
+    axA.set_xlabel("time (ns)", fontsize=fs.FS["label"]); axA.set_ylabel("distance to the docked binding site (\u00c5)", fontsize=fs.FS["label"])
+    axA.legend(handles=[plt.Line2D([], [], color=CCOL[c], lw=fs.LW["main"], label=c) for c in NPD + SNP], fontsize=fs.FS["tick"],
+               frameon=False, loc="lower right", ncol=3 if ALL else 2, handlelength=1.6, borderaxespad=0.3, columnspacing=1.0)
 
     groups = [("ZM241385 control", "#555555", [ladder(CR[k][1]) for k in ("r1", "r2", "r3")])]
-    groups += [(c, CCOL[c], [ladder(R[(c, r)][1]) for r in (1, 2, 3)]) for c in RMSD_NP_OK]
+    groups += [(c, CCOL[c], [ladder(R[(c, r)][1]) for r in (1, 2, 3)]) for c in RMSD_NP_OK if ALL]
     groups += [(c, CCOL[c], [ladder(R[(c, r)][1]) for r in (1, 2)]) for c in SNP]
     xs = np.arange(len(LADDER)); width = 0.15
     for i, (name, col, lads) in enumerate(groups):
@@ -160,26 +165,28 @@ def main():
         axB.bar(xs + off, [np.mean(f) for f in fr], width * 0.92, color=col, alpha=0.85, lw=0, zorder=2)
         for j, f in enumerate(fr):
             axB.plot([xs[j] + off] * len(f), f, ".", ms=2.4, color="#222222", zorder=3)
-    axB.axhline(100, color="#666666", lw=0.8, zorder=1)
-    axB.set_xticks(xs); axB.set_xticklabels([f"< {L} \u00c5" for L in LADDER], fontsize=7)
-    axB.set_ylim(0, 104); axB.set_yticks([0, 25, 50, 75, 100]); axB.tick_params(axis="y", labelsize=7)
-    axB.set_ylabel("frames below the threshold (%)", fontsize=7.6)
-    axB.legend(handles=[plt.Rectangle((0, 0), 1, 1, color=col, alpha=0.85, label=n) for n, col, _ in groups],
-               fontsize=5.8, frameon=False, loc="upper left", bbox_to_anchor=(0.0, 0.88), handlelength=1.0, borderaxespad=0.1)
+    axB.axhline(100, color=fs.COL["grey"], lw=fs.LW["ref"], zorder=1)
+    axB.set_xticks(xs); axB.set_xticklabels([f"< {L} \u00c5" for L in LADDER], fontsize=fs.FS["tick"])
+    axB.set_ylim(0, 104); axB.set_yticks([0, 25, 50, 75, 100]); axB.tick_params(axis="y", labelsize=fs.FS["tick"])
+    axB.set_ylabel("frames below the threshold (%)", fontsize=fs.FS["label"])
+    axB.legend(handles=[plt.Rectangle((0, 0), 1, 1, color=col, alpha=0.85, label=n) for n, col, _ in groups[:1]],   # the control only; the compounds carry the colours of A and C
+               fontsize=fs.FS["tick"], frameon=False, loc="upper left", bbox_to_anchor=(0.0, 0.93), handlelength=1.0, borderaxespad=0.1)
 
     for (c, r), (t, v) in N.items():
-        axC.plot(t, v, color=CCOL[c], lw=0.45, alpha=0.5, zorder=2, linestyle=DASH[r])
-    axC.axhline(HB, color="#c0392b", lw=1.0, dashes=(5, 2), zorder=5)
+        if c in NP and not ALL:
+            continue
+        axC.plot(t, v, color=CCOL[c], lw=fs.LW["series"], alpha=0.5, zorder=2, linestyle=DASH[r])
+    axC.axhline(HB, color=fs.COL["alert"], lw=fs.LW["thr"], ls=fs.THR_DASH, zorder=5)
     for k in ("r1", "r2", "r3"):
-        axC.plot(*CN[k], color=CTRL_COL, lw=1.25, zorder=6, linestyle={"r1": "solid", "r2": DASH[2], "r3": DASH[3]}[k])
-    axC.set_xlim(0, TMAX); axC.set_ylim(1.8, 10.2); axC.set_xticks(xt); axC.set_yticks([2, 4, 6, 8, 10]); axC.tick_params(labelsize=7)
-    axC.set_xlabel("time (ns)", fontsize=7.6); axC.set_ylabel("ligand to Asn253 sidechain (\u00c5)", fontsize=7.6)
-    axC.legend(handles=[plt.Line2D([], [], color="#333333", lw=1.4, label="ZM241385 control (3 runs)")]
-               + [plt.Line2D([], [], color=CCOL[c], lw=1.4, label=c) for c in NP + SNP], fontsize=6.4, frameon=False,
-               loc="upper left", ncol=6, handlelength=1.6, borderaxespad=0.3, columnspacing=1.0)
+        axC.plot(*CN[k], color=CTRL_COL, lw=fs.LW["main"], zorder=6, linestyle={"r1": "solid", "r2": DASH[2], "r3": DASH[3]}[k])
+    axC.set_xlim(0, TMAX); axC.set_ylim(1.8, 10.2); axC.set_xticks(xt); axC.set_yticks([2, 4, 6, 8, 10]); axC.tick_params(labelsize=fs.FS["tick"])
+    axC.set_xlabel("time (ns)", fontsize=fs.FS["label"]); axC.set_ylabel("ligand to Asn253 sidechain (\u00c5)", fontsize=fs.FS["label"])
+    axC.legend(handles=[plt.Line2D([], [], color="#333333", lw=fs.LW["main"], label="ZM241385 control (3 runs)")]
+               + [plt.Line2D([], [], color=CCOL[c], lw=fs.LW["main"], label=c) for c in NPD + SNP], fontsize=fs.FS["tick"], frameon=False,
+               loc="upper left", ncol=6 if ALL else 3, handlelength=1.6, borderaxespad=0.3, columnspacing=1.0)
 
     rows = [("ZM241385 control", CTRL_COL, [("control", k) for k in ("r1", "r2", "r3")])] \
-        + [(c, CCOL[c], [(c, r) for r in (1, 2, 3)]) for c in NP] + [(c, CCOL[c], [(c, r) for r in (1, 2)]) for c in SNP]
+        + [(c, CCOL[c], [(c, r) for r in (1, 2, 3)]) for c in NPD] + [(c, CCOL[c], [(c, r) for r in (1, 2)]) for c in SNP]
     cvals = [P[("control", k)] for k in ("r1", "r2", "r3")]
     axD.axvspan(min(cvals), max(cvals), color="#bbbbbb", alpha=0.45, lw=0, zorder=1)
     for yi, (name, col, keys) in enumerate(rows):
@@ -187,17 +194,17 @@ def main():
         for j, key in enumerate(keys):
             rep = j + 1
             axD.plot(P[key], y, MARK[rep], color=col, ms=4.6, mec="#222222", mew=0.4, zorder=3)
-    axD.set_yticks(range(len(rows))); axD.set_yticklabels([r[0] for r in rows][::-1], fontsize=6.8)
-    axD.set_xlim(0, 1.04); axD.set_ylim(-0.6, len(rows) - 0.4); axD.tick_params(axis="x", labelsize=7)
-    axD.set_xlabel("fraction of frames with the ligand to Asn253 distance \u2264 3.5 \u00c5", fontsize=7.6)
+    axD.set_yticks(range(len(rows))); axD.set_yticklabels([r[0] for r in rows][::-1], fontsize=fs.FS["tick"])
+    axD.set_xlim(0, 1.04); axD.set_ylim(-0.6, len(rows) - 0.4); axD.tick_params(axis="x", labelsize=fs.FS["tick"])
+    axD.set_xlabel("fraction of frames with the ligand to Asn253 distance \u2264 3.5 \u00c5", fontsize=fs.FS["label"])
     axD.legend(handles=[plt.Line2D([], [], marker=MARK[r], ls="", color="#888888", mec="#222222", ms=4.2, label=f"run {r}") for r in (1, 2, 3)]
                + [plt.Rectangle((0, 0), 1, 1, color="#bbbbbb", alpha=0.45, label="control range")],
-               fontsize=6.2, frameon=False, loc="lower left", bbox_to_anchor=(0.0, 1.0), ncol=4, handlelength=1.0, borderaxespad=0.1)
+               fontsize=fs.FS["tick"], frameon=False, loc="lower left", bbox_to_anchor=(0.0, 1.0), ncol=4, handlelength=1.0, borderaxespad=0.1)
 
     for ax, lab in ((axA, "A"), (axB, "B"), (axC, "C"), (axD, "D")):
-        ax.set_title(lab, loc="left", fontsize=8.4, weight="bold", pad=6 if lab != "D" else 16)
-    stem = OUT / "Figure_7_md_snplib"
-    fig.savefig(stem.with_suffix(".png"), bbox_inches="tight"); fig.savefig(stem.with_suffix(".svg"), bbox_inches="tight")
+        fs.panel_label(ax, lab, offset=4 if lab != "D" else 18)
+    stem = OUT / ("Figure_S2_md_all_compounds" if ALL else "Figure_7_md_snplib")
+    fs.save_figure(fig, stem)
 
     claims = {"window_ns": TMAX, "all_runs_within_10A_of_site": all10, "max_pocket_distance_A": pocket_max,
               "persistence": {f"{a}_{b}": round(v, 4) for (a, b), v in P.items()},
@@ -205,7 +212,7 @@ def main():
               "runs_inside_control_range": [f"{a}_{b}" for (a, b), v in P.items() if a != "control" and min(cvals) <= v <= max(cvals)],
               "runs_below_control_range": [f"{a}_{b}" for (a, b), v in P.items() if a != "control" and v < min(cvals)],
               "anchors": anchors}
-    (OUT / "Figure_7_md_snplib_provenance.json").write_text(json.dumps({"figure": "Figure 7", "script": "figure7_md_snplib.py",
+    (OUT / (stem.name + "_provenance.json")).write_text(json.dumps({"figure": "Figure 7", "script": "figure7_md_snplib.py",
                                                                          "claims_checked_against_plotted_data": claims,
                                                                          "inputs_sha256": inputs}, indent=1), "utf-8")
     print("inside control range:", claims["runs_inside_control_range"])

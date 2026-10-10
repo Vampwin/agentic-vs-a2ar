@@ -1,0 +1,175 @@
+<svg viewBox="0 0 511 206" width="180.3mm" height="72.7mm" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Helvetica, Arial, sans-serif">
+  <title>Auditing agent-generated biomedical code with executable contracts</title>
+  <desc>A four-stage workflow with one outcome under each stage. An LLM agent writes an A2A receptor virtual screen of natural-product libraries, which released 3 of 497 docked compounds; ten executable contracts over nine gates detected 124 of 128 seeded faults, where deterministic snapshots detected all 128; 1 of 5 blind-authored faults was detected and equivalent SMILES changed all 25 docking scores; and the released run kept 72 of 5,000 compounds as eligible, against a median of 1,004 over 200 reorderings of the training rows.</desc>
+  <rect x="0" y="0" width="511" height="206" fill="#FFFFFF"/>
+  <defs><marker id="a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0.5 L8,4 L0,7.5 z" fill="#6E7C74"/></marker></defs>
+  <text x="255.5" y="14" font-size="11" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">Auditing agent-generated biomedical code with executable contracts</text>
+  <path d="M4.5,37 V25 A3,3 0 0 1 7.5,22 H118.75 A3,3 0 0 1 121.75,25 V37 Z" fill="#E3EBF3"/>
+  <line x1="4.5" y1="37" x2="121.75" y2="37" stroke="#2C5F8A" stroke-width="0.7"/>
+  <rect x="4.5" y="22" width="117.25" height="92" rx="3" fill="none" stroke="#2C5F8A" stroke-width="0.9"/>
+  <text x="12.5" y="32.5" font-size="7.6" fill="#2C5F8A" font-weight="bold" font-style="normal" text-anchor="start">1  Generate the workflow</text>
+  <text x="63.125" y="97" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">A2A receptor virtual screen of</text>
+  <text x="63.125" y="107.08" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">natural-product libraries</text>
+  <path d="M20.69,44.10 L16.88,46.30 L16.88,50.70 L20.69,52.90 L24.50,50.70 L24.50,46.30 Z" fill="#FFFFFF" stroke="#2C5F8A" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M28.31,44.10 L24.50,46.30 L24.50,50.70 L28.31,52.90 L32.12,50.70 L32.12,46.30 Z" fill="#FFFFFF" stroke="#2C5F8A" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M20.08,45.51 L18.40,46.48" fill="none" stroke="#2C5F8A" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M18.40,50.52 L20.08,51.49" fill="none" stroke="#2C5F8A" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M23.59,49.47 L23.59,47.53" fill="none" stroke="#2C5F8A" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M16.88,46.30 L14.11,44.70" fill="none" stroke="#2C5F8A" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M32.12,50.70 L34.89,52.30" fill="none" stroke="#2C5F8A" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M28.31,44.10 L28.31,40.90" fill="none" stroke="#2C5F8A" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="9" y1="64.6" x2="40" y2="64.6" stroke="#9AA79F" stroke-width="0.6"/>
+  <line x1="9" y1="71.4" x2="40" y2="71.4" stroke="#9AA79F" stroke-width="0.6"/>
+  <path d="M12.80,62.50 A1.95,1.95 0 0 1 16.70,62.50" fill="none" stroke="#2C5F8A" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M16.70,73.50 A1.95,1.95 0 0 0 20.60,73.50" fill="none" stroke="#2C5F8A" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M20.60,62.50 A1.95,1.95 0 0 1 24.50,62.50" fill="none" stroke="#2C5F8A" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M24.50,73.50 A1.95,1.95 0 0 0 28.40,73.50" fill="none" stroke="#2C5F8A" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M28.40,62.50 A1.95,1.95 0 0 1 32.30,62.50" fill="none" stroke="#2C5F8A" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M32.30,73.50 A1.95,1.95 0 0 0 36.20,73.50" fill="none" stroke="#2C5F8A" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="11.45" y="62.5" width="2.7" height="11" rx="1.35" fill="#E3EBF3" stroke="#2C5F8A" stroke-width="0.7"/>
+  <rect x="15.35" y="62.5" width="2.7" height="11" rx="1.35" fill="#E3EBF3" stroke="#2C5F8A" stroke-width="0.7"/>
+  <rect x="19.25" y="62.5" width="2.7" height="11" rx="1.35" fill="#E3EBF3" stroke="#2C5F8A" stroke-width="0.7"/>
+  <rect x="23.15" y="62.5" width="2.7" height="11" rx="1.35" fill="#E3EBF3" stroke="#2C5F8A" stroke-width="0.7"/>
+  <rect x="27.05" y="62.5" width="2.7" height="11" rx="1.35" fill="#E3EBF3" stroke="#2C5F8A" stroke-width="0.7"/>
+  <rect x="30.95" y="62.5" width="2.7" height="11" rx="1.35" fill="#E3EBF3" stroke="#2C5F8A" stroke-width="0.7"/>
+  <rect x="34.85" y="62.5" width="2.7" height="11" rx="1.35" fill="#E3EBF3" stroke="#2C5F8A" stroke-width="0.7"/>
+  <line x1="43" y1="59" x2="50" y2="59" stroke="#6E7C74" stroke-width="0.65" marker-end="url(#a)"/>
+  <path d="M51.9,53.5 L54.5,53.5 M75.5,53.5 L78.1,53.5 M59.5,45.9 L59.5,48.5 M59.5,69.5 L59.5,72.1" fill="none" stroke="#2C5F8A" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M51.9,59 L54.5,59 M75.5,59 L78.1,59 M65,45.9 L65,48.5 M65,69.5 L65,72.1" fill="none" stroke="#2C5F8A" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M51.9,64.5 L54.5,64.5 M75.5,64.5 L78.1,64.5 M70.5,45.9 L70.5,48.5 M70.5,69.5 L70.5,72.1" fill="none" stroke="#2C5F8A" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="54.5" y="48.5" width="21" height="21" rx="3" fill="#E3EBF3" stroke="#2C5F8A" stroke-width="0.9"/>
+  <text x="65" y="61.5" font-size="7" fill="#2C5F8A" font-weight="bold" font-style="normal" text-anchor="middle">LLM</text>
+  <line x1="80" y1="59" x2="87" y2="59" stroke="#6E7C74" stroke-width="0.65" marker-end="url(#a)"/>
+  <path d="M91.5,47.5 L105.5,47.5 L110.5,52.5 L110.5,70.5 L91.5,70.5 Z" fill="#FFFFFF" stroke="#2C5F8A" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M105.5,47.5 L105.5,52.5 L110.5,52.5" fill="none" stroke="#2C5F8A" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="101" y="60.9" font-size="7" fill="#2C5F8A" font-weight="bold" font-style="normal" text-anchor="middle">&lt;/&gt;</text>
+  <path d="M95,64.4 L104,64.4" fill="none" stroke="#9AA79F" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M97.5,67.4 L105.5,67.4" fill="none" stroke="#9AA79F" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="24.5" y="84" font-size="7" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">inputs</text>
+  <text x="65" y="84" font-size="7" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">agent</text>
+  <text x="101" y="84" font-size="7" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">code</text>
+  <path d="M132.75,37 V25 A3,3 0 0 1 135.75,22 H247 A3,3 0 0 1 250,25 V37 Z" fill="#E7EEDC"/>
+  <line x1="132.75" y1="37" x2="250" y2="37" stroke="#4F7130" stroke-width="0.7"/>
+  <rect x="132.75" y="22" width="117.25" height="92" rx="3" fill="none" stroke="#4F7130" stroke-width="0.9"/>
+  <text x="140.75" y="32.5" font-size="7.6" fill="#4F7130" font-weight="bold" font-style="normal" text-anchor="start">2  Specify and test contracts</text>
+  <text x="191.375" y="97" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">94 deterministic checks,</text>
+  <text x="191.375" y="107.08" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">tested on 128 seeded faults</text>
+  <line x1="123.35" y1="59" x2="130.25" y2="59" stroke="#6E7C74" stroke-width="0.65" marker-end="url(#a)"/>
+  <path d="M154.25,40.5 L166.25,40.5 L171.25,45.5 L171.25,59.5 L154.25,59.5 Z" fill="#FFFFFF" stroke="#4F7130" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M166.25,40.5 L166.25,45.5 L171.25,45.5" fill="none" stroke="#4F7130" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M157.05,47 l0.806,0.93 l1.55,-1.922" fill="none" stroke="#4F7130" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M161.85,47.4 L168.25,47.4" fill="none" stroke="#9AA79F" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M157.05,50.25 l0.806,0.93 l1.55,-1.922" fill="none" stroke="#4F7130" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M161.85,50.65 L168.25,50.65" fill="none" stroke="#9AA79F" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M157.05,53.5 l0.806,0.93 l1.55,-1.922" fill="none" stroke="#4F7130" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M161.85,53.9 L168.25,53.9" fill="none" stroke="#9AA79F" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M157.05,56.75 l0.806,0.93 l1.55,-1.922" fill="none" stroke="#4F7130" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M161.85,57.15 L168.25,57.15" fill="none" stroke="#9AA79F" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="175.75" y="48" font-size="7" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="start">10 executable</text>
+  <text x="175.75" y="56" font-size="7" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="start">contracts</text>
+  <path d="M144.18,65.5 V62 H238.58 V65.5 M155.98,62 V65.5 M167.78,62 V65.5 M179.58,62 V65.5 M191.38,62 V65.5 M203.18,62 V65.5 M214.98,62 V65.5 M226.78,62 V65.5 M162.75,59.5 V62" fill="none" stroke="#4F7130" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="139.375" y="65.5" width="9.6" height="9.6" rx="1.6" fill="#E7EEDC" stroke="#4F7130" stroke-width="0.7"/>
+  <text x="144.175" y="72.8" font-size="7" fill="#4F7130" font-weight="bold" font-style="normal" text-anchor="middle">0</text>
+  <rect x="151.175" y="65.5" width="9.6" height="9.6" rx="1.6" fill="#E7EEDC" stroke="#4F7130" stroke-width="0.7"/>
+  <text x="155.975" y="72.8" font-size="7" fill="#4F7130" font-weight="bold" font-style="normal" text-anchor="middle">1</text>
+  <rect x="162.975" y="65.5" width="9.6" height="9.6" rx="1.6" fill="#E7EEDC" stroke="#4F7130" stroke-width="0.7"/>
+  <text x="167.775" y="72.8" font-size="7" fill="#4F7130" font-weight="bold" font-style="normal" text-anchor="middle">2</text>
+  <rect x="174.775" y="65.5" width="9.6" height="9.6" rx="1.6" fill="#E7EEDC" stroke="#4F7130" stroke-width="0.7"/>
+  <text x="179.575" y="72.8" font-size="7" fill="#4F7130" font-weight="bold" font-style="normal" text-anchor="middle">3</text>
+  <rect x="186.575" y="65.5" width="9.6" height="9.6" rx="1.6" fill="#E7EEDC" stroke="#4F7130" stroke-width="0.7"/>
+  <text x="191.375" y="72.8" font-size="7" fill="#4F7130" font-weight="bold" font-style="normal" text-anchor="middle">4</text>
+  <rect x="198.375" y="65.5" width="9.6" height="9.6" rx="1.6" fill="#E7EEDC" stroke="#4F7130" stroke-width="0.7"/>
+  <text x="203.175" y="72.8" font-size="7" fill="#4F7130" font-weight="bold" font-style="normal" text-anchor="middle">5</text>
+  <rect x="210.175" y="65.5" width="9.6" height="9.6" rx="1.6" fill="#E7EEDC" stroke="#4F7130" stroke-width="0.7"/>
+  <text x="214.975" y="72.8" font-size="7" fill="#4F7130" font-weight="bold" font-style="normal" text-anchor="middle">6</text>
+  <rect x="221.975" y="65.5" width="9.6" height="9.6" rx="1.6" fill="#E7EEDC" stroke="#4F7130" stroke-width="0.7"/>
+  <text x="226.775" y="72.8" font-size="7" fill="#4F7130" font-weight="bold" font-style="normal" text-anchor="middle">7</text>
+  <rect x="233.775" y="65.5" width="9.6" height="9.6" rx="1.6" fill="#E7EEDC" stroke="#4F7130" stroke-width="0.7"/>
+  <text x="238.575" y="72.8" font-size="7" fill="#4F7130" font-weight="bold" font-style="normal" text-anchor="middle">8</text>
+  <text x="191.375" y="84" font-size="7" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">gates G0 to G8</text>
+  <path d="M261,37 V25 A3,3 0 0 1 264,22 H375.25 A3,3 0 0 1 378.25,25 V37 Z" fill="#F7E9D8"/>
+  <line x1="261" y1="37" x2="378.25" y2="37" stroke="#A85C18" stroke-width="0.7"/>
+  <rect x="261" y="22" width="117.25" height="92" rx="3" fill="none" stroke="#A85C18" stroke-width="0.9"/>
+  <text x="269" y="32.5" font-size="7.6" fill="#A85C18" font-weight="bold" font-style="normal" text-anchor="start">3  Challenge the contracts</text>
+  <text x="319.625" y="97" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">5 blind-authored faults,</text>
+  <text x="319.625" y="107.08" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">4 metamorphic relations</text>
+  <line x1="251.6" y1="59" x2="258.5" y2="59" stroke="#6E7C74" stroke-width="0.65" marker-end="url(#a)"/>
+  <path d="M276.2,57.8 L272.2,55.4" fill="none" stroke="#A85C18" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M276.2,60.8 L272.2,60.8" fill="none" stroke="#A85C18" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M276.2,63.8 L272.2,66.2" fill="none" stroke="#A85C18" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M278.8,52.4 L276.6,49" fill="none" stroke="#A85C18" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M283.8,57.8 L287.8,55.4" fill="none" stroke="#A85C18" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M283.8,60.8 L287.8,60.8" fill="none" stroke="#A85C18" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M283.8,63.8 L287.8,66.2" fill="none" stroke="#A85C18" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M281.2,52.4 L283.4,49" fill="none" stroke="#A85C18" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <ellipse cx="280" cy="60.8" rx="4.4" ry="5.8" fill="#F7E9D8" stroke="#A85C18" stroke-width="0.9"/>
+  <circle cx="280" cy="53.8" r="2.5" fill="#F7E9D8" stroke="#A85C18" stroke-width="0.9"/>
+  <path d="M280,56.4 L280,66.4" fill="none" stroke="#A85C18" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="291.5" y1="59" x2="304" y2="59" stroke="#6E7C74" stroke-width="0.65" marker-end="url(#a)"/>
+  <path d="M308.5,48 L320.5,48 L325.5,53 L325.5,70 L308.5,70 Z" fill="#FFFFFF" stroke="#A85C18" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M320.5,48 L320.5,53 L325.5,53" fill="none" stroke="#A85C18" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M311.5,55.5 L318.5,55.5" fill="none" stroke="#9AA79F" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M311.5,58.6 L322.5,58.6" fill="none" stroke="#9AA79F" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M311.5,61.7 L320.5,61.7" fill="none" stroke="#A85C18" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M311.5,64.8 L322.5,64.8" fill="none" stroke="#9AA79F" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M311.5,67.9 L319.5,67.9" fill="none" stroke="#9AA79F" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="329.5" y1="59" x2="342" y2="59" stroke="#6E7C74" stroke-width="0.65" marker-end="url(#a)"/>
+  <rect x="346.5" y="48.5" width="21" height="21" rx="3" fill="#E7EEDC" stroke="#4F7130" stroke-width="0.9"/>
+  <text x="357" y="63.6" font-size="13" fill="#A85C18" font-weight="bold" font-style="normal" text-anchor="middle">?</text>
+  <text x="280" y="84" font-size="7" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">fault</text>
+  <text x="317" y="84" font-size="7" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">faulted run</text>
+  <text x="357" y="84" font-size="7" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">detected?</text>
+  <path d="M389.25,37 V25 A3,3 0 0 1 392.25,22 H503.5 A3,3 0 0 1 506.5,25 V37 Z" fill="#EFE8F5"/>
+  <line x1="389.25" y1="37" x2="506.5" y2="37" stroke="#6B4E8C" stroke-width="0.7"/>
+  <rect x="389.25" y="22" width="117.25" height="92" rx="3" fill="none" stroke="#6B4E8C" stroke-width="0.9"/>
+  <text x="397.25" y="32.5" font-size="7.6" fill="#6B4E8C" font-weight="bold" font-style="normal" text-anchor="start">4  Reanalyse the decision</text>
+  <text x="447.875" y="97" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">Discrimination, applicability</text>
+  <text x="447.875" y="107.08" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">domain, selection stability</text>
+  <line x1="379.85" y1="59" x2="386.75" y2="59" stroke="#6E7C74" stroke-width="0.65" marker-end="url(#a)"/>
+  <path d="M399.75,69 L419.75,49" fill="none" stroke="#9AA79F" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1.6 1.6"/>
+  <path d="M399.75,69 Q406.75,56 419.75,49" fill="none" stroke="#6B4E8C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M399.75,49 L399.75,69 L419.75,69" fill="none" stroke="#6E7C74" stroke-width="0.8" stroke-linecap="square" stroke-linejoin="miter"/>
+  <rect x="437.075" y="68.3" width="1.9" height="0.7" fill="#6B4E8C"/>
+  <rect x="439.875" y="68.3" width="1.9" height="0.7" fill="#6B4E8C"/>
+  <rect x="442.675" y="68.3" width="1.9" height="0.7" fill="#6B4E8C"/>
+  <rect x="445.475" y="68.3" width="1.9" height="0.7" fill="#6B4E8C"/>
+  <rect x="448.275" y="67.9" width="1.9" height="1.1" fill="#6B4E8C"/>
+  <rect x="451.075" y="67.6" width="1.9" height="1.4" fill="#6B4E8C"/>
+  <rect x="453.875" y="67.2" width="1.9" height="1.8" fill="#6B4E8C"/>
+  <rect x="456.675" y="52" width="1.9" height="17" fill="#6B4E8C"/>
+  <path d="M435.875,69 L459.875,69" fill="none" stroke="#6E7C74" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M480.3,51.5 L490.7,66.5" fill="none" stroke="#6B4E8C" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M480.3,59 L490.7,51.5" fill="none" stroke="#6B4E8C" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M480.3,66.5 L490.7,59" fill="none" stroke="#6B4E8C" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="473.5" y="49.8" width="6.8" height="3.4" rx="1.2" fill="#EFE8F5" stroke="#6B4E8C" stroke-width="0.7"/>
+  <rect x="490.7" y="49.8" width="6.8" height="3.4" rx="1.2" fill="#EFE8F5" stroke="#6B4E8C" stroke-width="0.7"/>
+  <rect x="473.5" y="57.3" width="6.8" height="3.4" rx="1.2" fill="#EFE8F5" stroke="#6B4E8C" stroke-width="0.7"/>
+  <rect x="490.7" y="57.3" width="6.8" height="3.4" rx="1.2" fill="#EFE8F5" stroke="#6B4E8C" stroke-width="0.7"/>
+  <rect x="473.5" y="64.8" width="6.8" height="3.4" rx="1.2" fill="#EFE8F5" stroke="#6B4E8C" stroke-width="0.7"/>
+  <rect x="490.7" y="64.8" width="6.8" height="3.4" rx="1.2" fill="#EFE8F5" stroke="#6B4E8C" stroke-width="0.7"/>
+  <text x="409.75" y="84" font-size="7" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">benchmark</text>
+  <text x="447.875" y="84" font-size="7" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">8 spaces</text>
+  <text x="485.5" y="84" font-size="7" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">row order</text>
+  <path d="M63.12,114.45 V125.5" fill="none" stroke="#6E7C74" stroke-width="0.65" stroke-linecap="butt" stroke-linejoin="round" marker-end="url(#a)"/>
+  <path d="M191.38,114.45 V125.5" fill="none" stroke="#6E7C74" stroke-width="0.65" stroke-linecap="butt" stroke-linejoin="round" marker-end="url(#a)"/>
+  <path d="M319.62,114.45 V125.5" fill="none" stroke="#6E7C74" stroke-width="0.65" stroke-linecap="butt" stroke-linejoin="round" marker-end="url(#a)"/>
+  <path d="M447.88,114.45 V125.5" fill="none" stroke="#6E7C74" stroke-width="0.65" stroke-linecap="butt" stroke-linejoin="round" marker-end="url(#a)"/>
+  <rect x="4.5" y="128" width="117.25" height="43" rx="3" fill="#FFFFFF" stroke="#2C5F8A" stroke-width="0.9"/>
+  <text x="63.125" y="147.5" font-size="17" fill="#2C5F8A" font-weight="bold" font-style="normal" text-anchor="middle">3 / 497</text>
+  <text x="63.125" y="157.5" font-size="7.6" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">compounds released</text>
+  <text x="63.125" y="166.5" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">the decision under audit</text>
+  <rect x="132.75" y="128" width="117.25" height="43" rx="3" fill="#FFFFFF" stroke="#4F7130" stroke-width="0.9"/>
+  <text x="191.375" y="147.5" font-size="17" fill="#4F7130" font-weight="bold" font-style="normal" text-anchor="middle">124 / 128</text>
+  <text x="191.375" y="157.5" font-size="7.6" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">seeded faults detected</text>
+  <text x="191.375" y="166.5" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">snapshots detected 128 / 128</text>
+  <rect x="261" y="128" width="117.25" height="43" rx="3" fill="#FFFFFF" stroke="#A85C18" stroke-width="0.9"/>
+  <text x="319.625" y="147.5" font-size="17" fill="#A85C18" font-weight="bold" font-style="normal" text-anchor="middle">1 / 5</text>
+  <text x="319.625" y="157.5" font-size="7.6" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">blind faults detected</text>
+  <text x="319.625" y="166.5" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">SMILES invariance also failed</text>
+  <rect x="389.25" y="128" width="117.25" height="43" rx="3" fill="#FFFFFF" stroke="#6B4E8C" stroke-width="0.9"/>
+  <text x="447.875" y="147.5" font-size="17" fill="#6B4E8C" font-weight="bold" font-style="normal" text-anchor="middle">72 vs 1,004</text>
+  <text x="447.875" y="157.5" font-size="7.6" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">eligible compounds of 5,000</text>
+  <text x="447.875" y="166.5" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">released vs 200-order median</text>
+  <rect x="4.5" y="178" width="502" height="18" rx="3" fill="#EEF2EE" stroke="#9AA79F" stroke-width="0.7"/>
+  <text x="255.5" y="189.8" font-size="8" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">Contract coverage, decision stability and biomedical validation must be evaluated separately.</text>
+</svg>

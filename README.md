@@ -38,8 +38,9 @@ be checked rather than taken on trust:
 | `pipeline/scripts/` | Every analysis, figure and audit script referenced in the manuscript |
 | `pipeline/kdss_audit/` | The append-only artifact registry |
 | `verification/` | The evidence behind Sections 2 and 3, copied as the analysis read it |
-| `figures/` | Figure sources and their provenance records |
-| `extension/` | The post-freeze extension (ADR-AIIM-285 onward, added 2026-10-09): the runs behind Section 3.8 of the manuscript and Section 17 of its supplement, as scripts, series, tables, ligand parameter files and machine-readable results |
+| `figures/` | Figure sources and their provenance records; `figures/graphical_abstract/` holds the graphical abstract's builders and outputs (added 2026-10-10) |
+| `preregistration/` | The decision-log entries the manuscript and its supplement call pre-registered, with the entries that record their results, copied verbatim (added 2026-10-10); the full log is not deposited |
+| `extension/` | The post-freeze extension (ADR-AIIM-285 onward, added 2026-10-09): the runs behind Section 3.8 of the manuscript and Section 17 of its supplement, as scripts, series, tables, ligand parameter files and machine-readable results; since 2026-10-10 also the matched search-space program (Vina over the whole receptor, DiffDock-L filtered to the site box, DiffDock-Pocket) and the one style of the figures |
 | `MANIFEST.json` | SHA-256 of every file, plus what was excluded and why |
 
 ### Figure files and the manuscript's figure numbers
@@ -51,12 +52,13 @@ which are not the manuscript's. Current correspondence:
 |---|---|
 | 1, architecture | `figures/figure1_architecture_2026-08-21` |
 | 2, inside one gate | `figures/figure2_inside_a_gate_2026-08-21` |
-| 3, screening performance | `figures/figure4_screening_performance_2026-08-24` |
-| 4, applicability domain by representation | `figures/figure_ad_multispace_2026-08-25` |
-| 5, permutation sensitivity | `figures/figure7_permutation_distribution_2026-10-02` |
-| 6, orthogonal pose comparison (A the control, B and C SNP00157 and SNP00163, PyMOL with one camera; D and E the fifteen survivors) | `extension/figures_docking_md_2026-10-09/Figure_6_docking_snplib`; the earlier two-panel version with NPLIB01643: `figures/figure5_pose_overlay_2026-08-24` |
-| 7, membrane simulations over the first 50 ns, with SNP00157 and SNP00163 | `extension/figures_docking_md_2026-10-09/Figure_7_md_snplib`; the earlier version without them: `extension/figure8_window50_2026-10-07` |
-| graphical abstract | `figures/figure_graphical_abstract_2026-08-21` |
+| 3, screening performance | `extension/figures_style_harmonised_2026-10-10/out/figure3_screening_performance_harmonised` (script `fig3_screening.py`); the earlier version: `figures/figure4_screening_performance_2026-08-24` |
+| 4, applicability domain by representation | `extension/figures_style_harmonised_2026-10-10/out/figure4_ad_multispace_harmonised`; the earlier version: `figures/figure_ad_multispace_2026-08-25` |
+| 5, permutation sensitivity | `extension/figures_style_harmonised_2026-10-10/out/figure5_permutation_harmonised`; the earlier version: `figures/figure7_permutation_distribution_2026-10-02` |
+| 6, pose comparison with the search space given to both engines (A the control, B and C SNP00157 and SNP00163, PyMOL with one camera; D DiffDock-Pocket against Vina, E Vina in the box against the whole receptor) | `extension/figures_docking_md_2026-10-09/Figure_6_pocket` (scripts `analysis/figure6_pocket.py`, `analysis/render_pocket_pymol.py`; data `extension/docking_matched_filter_pocket_2026-10-09` and `extension/docking_matched_search_space_2026-10-09`) |
+| Supplementary Figure S1, DiffDock-L run blind against Vina in the box (the earlier Figure 6) | `extension/figures_docking_md_2026-10-09/Figure_6_docking_snplib`; the earlier two-panel version with NPLIB01643: `figures/figure5_pose_overlay_2026-08-24` |
+| Supplementary Figure S2, membrane simulations of all five docked compounds over the first 50 ns | `extension/figures_docking_md_2026-10-09/Figure_S2_md_all_compounds`; the control and SNP00157 and SNP00163 alone, which was Figure 7 until 2026-10-10 and is no longer in the article: `Figure_7_md_snplib` in the same folder; the earlier version: `extension/figure8_window50_2026-10-07` |
+| graphical abstract | `figures/graphical_abstract/figure_graphical_abstract_v8_funnel_2026-10-10` (builder `build_graphical_abstract_v8_funnel.py`); the earlier layouts: `figures/graphical_abstract/figure_graphical_abstract_v7_2026-10-03` and `figures/figure_graphical_abstract_2026-08-21` |
 
 Two files are **not** in the current manuscript: `figures/figure6_pose_persistence_2026-08-31`
 is the earlier 100 ns version of Figure 7, and `figures/figure8_m6_panel_canonical_2026-10-02`
@@ -130,18 +132,22 @@ only to regenerate poses, which this deposit supplies rather than requires.
 frozen and that the manuscript reports separately (Section 3.8, Supplementary
 Section 17): the censored-fit reproducibility defect, the eight split
 conventions, the SNP-Lib funnel, Vina docking of the 69 in-domain compounds,
-DiffDock-L on the fifteen survivors and on a DUD-E subsample, the three-run
-molecular-dynamics control, and SNP00157 and SNP00163 in duplicate. Each was
+DiffDock-L on the fifteen survivors and on a DUD-E subsample, the matched search-space
+program (Vina over the whole receptor, DiffDock-L filtered to the site box, DiffDock-Pocket),
+the three-run molecular-dynamics control, and SNP00157 and SNP00163 in duplicate. Each was
 pre-registered in the decision log with the SHA-256 of its predictions before it
-ran; that log is not deposited, so the pre-registrations are quoted in the
-manuscript and not here.
+ran. The full log is not deposited; the entries the manuscript relies on, and the
+entries that record their results, are copied verbatim into
+`preregistration/PRE_REGISTRATION_ENTRIES.md`, with the SHA-256 of the whole log at
+the time of copying.
 
 It is copied from the development tree through an allow-list of suffixes (see
 `EXTENSION_SUFFIX` in `pipeline/scripts/build_deposit.py`): scripts, JSON and CSV
 results, force-field parameter files, `.xvg` series, `.mdp` and `.ndx` files,
 figures. Not deposited: trajectories, run inputs, checkpoints, structures and
 topologies, logs, the 3,685 per-complex pose files of the DUD-E DiffDock subsample
-(the scored table the analysis read is deposited), and the raw ChEMBL pull, which
+(the scored table the analysis read is deposited), and, for the two matched search-space runs,
+all poses below rank 1 (about 3,500 files; the rank-1 pose of each complex is what the analysis and the figures read), and the raw ChEMBL pull, which
 the screen refuses and which is a public release.
 
 **These scripts do not resolve their own layout.** They were written against the

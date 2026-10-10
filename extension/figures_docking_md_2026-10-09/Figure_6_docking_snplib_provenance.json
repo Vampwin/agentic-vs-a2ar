@@ -1,22 +1,18 @@
 {
- "figure": "Figure 6",
+ "figure": "Supplementary Figure S1 (formerly Figure 6), harmonised style",
  "script": "figure6_docking_snplib.py",
- "adr": "ADR-AIIM-327",
- "structure_panels": {
-  "A": "30_manuscript/figures/_panelA_control.png, placed unchanged",
-  "B_C": "source/_panel_SNP00157.png and _panel_SNP00163.png, from render_snplib_pymol.py"
- },
+ "adr": "ADR-AIIM-327, ADR-AIIM-367",
  "checks": {
   "none_within_2A": true,
   "dd_on_pocket_11": true,
   "vina_on_pocket_7": true,
   "classifications_agree_5": true,
-  "min_max_rmsd": true,
-  "panel_hashes": {
-   "_panel_control.png": "68703b8cc57d33ba1ccbe88ccfe0f75dff86e3429d06f6014cee1f7906c7627b",
-   "_panel_SNP00157.png": "d090cf1043f0a8f454d47ba8281cea676426922f99bb0faa0f909f3e69b655dd",
-   "_panel_SNP00163.png": "f80746681dc3508363ba95157cbaa87cb1067a74e891fcb025e9c18cd6d617c3"
-  }
+  "min_max_rmsd": true
+ },
+ "panel_png_sha256": {
+  "_panel_control.png": "4475f0eb3609350b4fc883a802ca9f8f65c7cd8cfe2de54ad3d7ff4d4df83660",
+  "_panel_SNP00157.png": "299b73e8128c8ef8f7ecd1a89ef43196ac8f8a09ee86aa62bf510cb62d934c17",
+  "_panel_SNP00163.png": "0d6a3d99c4e03c9a3a8315081a6a96669943f0104078f17f2a8c22952c498084"
  },
  "inputs_sha256": {
   "20_new_runs\\diffdock_snplib_2026-10-07\\diffdock_snplib.json": "a9a850bde0a5fe722da15470303edc8ea463f0b792fc7b9420ce28ec5c197c8f",

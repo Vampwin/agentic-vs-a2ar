@@ -15,8 +15,8 @@ RUNS = f"{ROOT}/20_new_runs"
 RECEPTOR = f"{RUNS}/snp_screen_2026-08-04/G2_preparation/4EIY_protein_plus_waters.pdb"
 ZMA_CRYSTAL = f"{RUNS}/snp_screen_2026-08-04/G2_preparation/ZMA_reference_4EIY.sdf"
 OUT = f"{RUNS}/figures_docking_md_2026-10-09/source"
-POCKET_RADIUS = 13
-CARTOON_GREY, VINA_BLUE, DIFFDOCK_RED = "0xc4cad4", "0x1f5fa8", "0xd6403f"
+POCKET_RADIUS = 9   # a ribbon segment is drawn whole if any of its residues is within this distance of the displayed poses
+CARTOON_GREY, VINA_BLUE, DIFFDOCK_RED = "0xc4cad4", "0x2c5f8a", "0x9b2226"   # the palette of figstyle.py
 
 
 def setup():
@@ -52,17 +52,39 @@ def lig(path, name, color, first_model_only=False):
     cmd.set("stick_radius", 0.20, name)
 
 
-def label_asn253():
+def asn253_stick():
     sel = "receptor and resi 253 and name CA"
     if cmd.count_atoms(sel) == 0:
         raise SystemExit("Asn253 CA not found")
     cmd.show("sticks", "receptor and resi 253 and sidechain")
     cmd.color("0x6b7280", "receptor and resi 253 and sidechain")
     cmd.set("stick_radius", 0.07, "receptor and resi 253")
-    cmd.pseudoatom("lab253", pos=cmd.get_atom_coords(sel), label="Asn253")
-    cmd.set("label_size", 26)
-    cmd.set("label_color", "0x44484f")
-    cmd.set("label_position", (1.2, 1.2, 1.2))
+
+
+def whole_segments(radius, around):
+    """Residues of every secondary-structure segment that has a residue within `radius` of the selection `around`."""
+    near = set()
+    cmd.iterate(f"byres (receptor within {radius} of ({around})) and name CA", "near.add(int(resi))", space={"near": near})
+    cas = []
+    cmd.iterate("receptor and name CA", "cas.append((int(resi), ss))", space={"cas": cas})
+    cas.sort()
+    keep, seg, prev = set(), [], None
+    for resi, ss in cas + [(10**9, "#")]:
+        if prev is not None and (resi != prev[0] + 1 or ss != prev[1]):
+            if any(r in near for r in seg):
+                keep.update(seg)
+            seg = []
+        seg.append(resi); prev = (resi, ss)
+    return sorted(keep)
+
+
+def calibrate(tag):
+    """Where the Asn253 C-alpha falls in the image: a lone marker rendered with the same camera (the label is drawn in the composite)."""
+    cmd.pseudoatom("calib", pos=cmd.get_atom_coords("receptor and resi 253 and name CA"))
+    cmd.hide("everything", "all")
+    cmd.show("spheres", "calib"); cmd.set("sphere_scale", 1.2, "calib"); cmd.color("magenta", "calib")
+    cmd.ray(2400, 2100)
+    cmd.png(f"{OUT}/_calib_{tag}.png", width=2400, height=2100, dpi=72)
 
 
 ZMA_VINA = f"{RUNS}/snp_screen_2026-08-04/G3_redocking/ZMA_redocked_4EIY.sdf"
@@ -79,13 +101,17 @@ def render(tag, vina_path, dd_path, first_model_only):
     cmd.set("stick_radius", 0.09, "zma")
     cmd.order("vina dd zma", location="top")
     ALL = "vina or dd or zma"
-    cmd.hide("cartoon", f"receptor and not byres (receptor within {POCKET_RADIUS} of ({ALL}))")
-    label_asn253()
+    cmd.dss("receptor")
+    keep = whole_segments(POCKET_RADIUS, ALL)
+    cmd.hide("cartoon", "receptor")
+    cmd.show("cartoon", "receptor and resi " + "+".join(str(r) for r in keep))
+    asn253_stick()
     cmd.orient("zma")
     cmd.turn("x", -15)
-    cmd.zoom(ALL, 9)
+    cmd.zoom(ALL + " or (receptor and resi 253 and name CA)", 11)
     cmd.ray(2400, 2100)
     cmd.png(f"{OUT}/_panel_{tag}.png", width=2400, height=2100, dpi=600)
+    calibrate(tag)
     print("RENDERED", tag)
 
 

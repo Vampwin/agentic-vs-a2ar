@@ -24,6 +24,12 @@ authors:
     affiliation: >-
       Pharmaceutical Sciences and Technology Program, Faculty of Pharmaceutical
       Sciences, Chulalongkorn University, Bangkok 10330, Thailand
+  - given-names: Boonchoo
+    family-names: Sritularak
+    orcid: https://orcid.org/0000-0001-8352-4122
+    affiliation: >-
+      Department of Pharmacognosy and Pharmaceutical Botany, Faculty of Pharmaceutical
+      Sciences, Chulalongkorn University, Bangkok 10330, Thailand
   - given-names: Pornchai
     family-names: Rojsitthisak
     orcid: https://orcid.org/0000-0003-1391-6993
@@ -34,8 +40,8 @@ authors:
     family-names: Thitikornpong
     orcid: https://orcid.org/0000-0002-3537-3646
     affiliation: >-
-      Faculty of Pharmaceutical Sciences, Chulalongkorn University,
-      Bangkok 10330, Thailand
+      Department of Food and Pharmaceutical Chemistry, Faculty of Pharmaceutical
+      Sciences, Chulalongkorn University, Bangkok 10330, Thailand
 repository-code: https://github.com/Vampwin/agentic-vs-a2ar
 # No `license` key. CFF allows a list, but its own schema states that multiple
 # licences are read as OR -- "either of these covers the work". This repository

@@ -1,0 +1,155 @@
+{
+ "adr": "ADR-AIIM-353",
+ "prereg_sha256": "7c88d7e4f5a1c8830f46f4333c5f2507295dc8b408f8d50be136ead3f08fad5a",
+ "thresholds": {
+  "agree_A": 2.0,
+  "site_A": 8.0,
+  "H3_min": 13,
+  "H4_H5_max_exclusive": 8,
+  "H6_median_A": 15.3
+ },
+ "anchors": {
+  "all_16_poses_present": {
+   "n_ok": 16,
+   "n_expected": 16,
+   "problems": [],
+   "verdict": "MET"
+  },
+  "unmatched_median_reproduces_ADR327": {
+   "median_A": 15.349,
+   "expected": 15.3,
+   "verdict": "MET"
+  },
+  "dd_blind_control_reproduces_ADR111_1.917": {
+   "rmsd_A": 1.917,
+   "verdict": "MET"
+  }
+ },
+ "grading": {
+  "H1_vina_blind_control_within_2A": {
+   "rmsd_to_crystal_A": 0.373,
+   "verdict": "MET"
+  },
+  "H2_dd_pocket_control_within_2A": {
+   "rmsd_to_crystal_A": 10.125,
+   "verdict": "MISSED"
+  },
+  "H3_dd_pocket_on_pocket_at_least_13": {
+   "n_on_pocket": 15,
+   "verdict": "MET"
+  },
+  "H4_pocket_matched_agree_fewer_than_8": {
+   "n_within_2A": 0,
+   "verdict": "MET"
+  },
+  "H5_blind_matched_agree_fewer_than_8": {
+   "n_within_2A": 0,
+   "verdict": "MET"
+  },
+  "H6_pocket_matched_median_below_15.3": {
+   "median_A": 11.769,
+   "verdict": "MET"
+  }
+ },
+ "descriptive_not_graded": {
+  "on_pocket_counts_2x2_of_15": {
+   "vina_pocket": 7,
+   "vina_blind": 2,
+   "dd_blind": 11,
+   "dd_pocket": 15
+  },
+  "median_rmsd_A": {
+   "pocket_matched": 11.769,
+   "blind_matched": 15.928,
+   "unmatched_adr327": 15.349
+  },
+  "within_2A_of_15": {
+   "pocket_matched": 0,
+   "blind_matched": 0,
+   "unmatched": 0
+  },
+  "vina_pocket_vs_vina_blind": {
+   "median_rmsd_A": 6.992,
+   "within_2A": 1
+  },
+  "dd_blind_vs_dd_pocket": {
+   "median_rmsd_A": 5.851,
+   "within_2A": 0
+  },
+  "control": {
+   "vina_pocket_rmsd_to_crystal_A": 0.398,
+   "vina_blind_rmsd_to_crystal_A": 0.373,
+   "dd_blind_rmsd_to_crystal_A": 1.917,
+   "dd_pocket_rmsd_to_crystal_A": 10.125
+  }
+ },
+ "input_sha256": {
+  "20_new_runs/snp_screen_2026-08-04/G2_preparation/docking_box.json": "f5149ff0cb07e7d12c0b88bfaf7c9ac729a52e1f7a9e9617906806259c9ecd2e",
+  "20_new_runs/snp_screen_2026-08-04/G2_preparation/ZMA_reference_4EIY.sdf": "17b272d5bcd46ce6998b8ba9921a72ba52f57b2e0cc394700b759a2921ae3857",
+  "20_new_runs/em_survivors_2026-10-06/survivors.csv": "619a8802e3f29b4bab98bc1a0e0d71fc38a81e61d934d888cebd293ff76dd1fc",
+  "20_new_runs/snplib_dock_2026-10-06/poses_zma/ZM241385.sdf": "e9a9c5f1ea6e910c6be21e3173b01c99fe9619436144cae968d35a42b62bd9a6",
+  "20_new_runs/diffdock_orthogonal_2026-08-23/results/ZM241385_control/rank1.sdf": "1fd5fa47086ba8b0aa762133072b72384a8caf71559df20dd659466417033330",
+  "20_new_runs/docking_matched_search_space_2026-10-09/vina_blind/poses/ZM241385.sdf": "e56bd8590637c2cf85f1c4a1a4ed082e8e5a76c9cc7943c3c6b0ebac8573a78e",
+  "20_new_runs/docking_matched_search_space_2026-10-09/diffdock_pocket/results/ZM241385/rank1_confidence-0.07.sdf": "0f922e349d7a5824e0641e26d47aaf7d7c2b63d7acdff050df8fab666bac4aab",
+  "20_new_runs/snplib_dock_2026-10-06/poses/SNP00157.sdf": "9b7400e881f74be7d49655d5d02fb9eea4d865a779536557d01d5aeb7af737cc",
+  "20_new_runs/diffdock_snplib_2026-10-07/results/SNP00157/rank1_confidence-1.72.sdf": "f6e3809f77ea2309dc9cd135bafd0ee165463108813690107261a52c1d6f6766",
+  "20_new_runs/docking_matched_search_space_2026-10-09/vina_blind/poses/SNP00157.sdf": "1272630ec50a85ac360a2f5f45c3325cb6cfb0de301d3feea08c19de3554ea18",
+  "20_new_runs/docking_matched_search_space_2026-10-09/diffdock_pocket/results/SNP00157/rank1_confidence-0.50.sdf": "b6b1cf492cfdefddeb47ddb63687f8f557702d6951f1e5ea4a2dd3182604556b",
+  "20_new_runs/snplib_dock_2026-10-06/poses/SNP00163.sdf": "38753a0b431ee4b1dabc6b32c71f2bce080d50e79319f96f38b18e911fba6506",
+  "20_new_runs/diffdock_snplib_2026-10-07/results/SNP00163/rank1_confidence-0.82.sdf": "02a9de895c972305bf17f198665781025ac7e3b940cbe49106b63170bda076b7",
+  "20_new_runs/docking_matched_search_space_2026-10-09/vina_blind/poses/SNP00163.sdf": "fa7108289f7b2f5062534466cb90c5ff1abf7f67ac6362410a12f90ae6e8fffe",
+  "20_new_runs/docking_matched_search_space_2026-10-09/diffdock_pocket/results/SNP00163/rank1_confidence-0.60.sdf": "43444feaa8d7912767b5340980f994af82a370f0c26fb0b409bae5b8ca03a824",
+  "20_new_runs/snplib_dock_2026-10-06/poses/SNP00223.sdf": "96575f2c6c10b0471343f9476f9b05e670f590207c9b2508643f24bae9606927",
+  "20_new_runs/diffdock_snplib_2026-10-07/results/SNP00223/rank1_confidence0.06.sdf": "6602f55984c405dcfa8817485cea85118d73a5267b2ca81803944b298d88eb8b",
+  "20_new_runs/docking_matched_search_space_2026-10-09/vina_blind/poses/SNP00223.sdf": "fdb0780226219fbf06a7967323dfe60a4979dc89c6f7b151a110b8b98cb56ca7",
+  "20_new_runs/docking_matched_search_space_2026-10-09/diffdock_pocket/results/SNP00223/rank1_confidence0.05.sdf": "8c57dbf75b2e5384d6aef11d148a7a0015d28e3cba23eba9b8c145f2f954137e",
+  "20_new_runs/snplib_dock_2026-10-06/poses/SNP00154.sdf": "8c9f695e8396438c8c40aa319b6abf07b27e2a41054e1c5f6d2e459800f79b48",
+  "20_new_runs/diffdock_snplib_2026-10-07/results/SNP00154/rank1_confidence-0.83.sdf": "a7fae260b781b188a1c2f1555b883fccbaf3f503a0e3076d95dfe54729bfdf34",
+  "20_new_runs/docking_matched_search_space_2026-10-09/vina_blind/poses/SNP00154.sdf": "ceda1a95e8950eb75c071d67d5896706c3d881eadf1a7b390dd81b9b9f31f272",
+  "20_new_runs/docking_matched_search_space_2026-10-09/diffdock_pocket/results/SNP00154/rank1_confidence-0.93.sdf": "e1a6618c537363613545e1682d0e9e1b99c75ccb1e950b559d53f324c3e7f1bc",
+  "20_new_runs/snplib_dock_2026-10-06/poses/SNP00097.sdf": "b5d0c0780e63f432e5f1b5dc2cff4e102ab0782943b176bd959bc05c982f1b1e",
+  "20_new_runs/diffdock_snplib_2026-10-07/results/SNP00097/rank1_confidence0.07.sdf": "97b6e4aab367ecaaa42843ad2107fc47d775e03ddbd9d3cb0caf004e6a077eeb",
+  "20_new_runs/docking_matched_search_space_2026-10-09/vina_blind/poses/SNP00097.sdf": "57af1dc635d7725200c7b1aa267d4344aea3607e8c3ffc13ba4d5bcf94786d5f",
+  "20_new_runs/docking_matched_search_space_2026-10-09/diffdock_pocket/results/SNP00097/rank1_confidence0.04.sdf": "6eebce8affb80fde8ffb00e9f383c5793b1b8352972cdd550b216b635655a63a",
+  "20_new_runs/snplib_dock_2026-10-06/poses/SNP00052.sdf": "bd0f9ccecbc83e35a8764553e1f53d2154ce004ae139470cf467c80f07b303ed",
+  "20_new_runs/diffdock_snplib_2026-10-07/results/SNP00052/rank1_confidence-0.93.sdf": "8a92d0a16f42eacdc4b0901f75dc37ba5cef2d4f0c123e608e4d20248c29aa17",
+  "20_new_runs/docking_matched_search_space_2026-10-09/vina_blind/poses/SNP00052.sdf": "a2c8de2bb09075b850e57758a11d2185e06ee00025a5df1fbdb5dcb76c62efbd",
+  "20_new_runs/docking_matched_search_space_2026-10-09/diffdock_pocket/results/SNP00052/rank1_confidence-0.20.sdf": "ff7d4dcdafb7b6a5892b0f27845ad9bf172cd8ca9b2b3fcc12996c97c1103705",
+  "20_new_runs/snplib_dock_2026-10-06/poses/SNP00033.sdf": "04f40e2c7907ea0a799f9584971679f4f732f9bf64eb7a6920c409e54aaaf4bc",
+  "20_new_runs/diffdock_snplib_2026-10-07/results/SNP00033/rank1_confidence0.28.sdf": "f834b08755a6570506b8a66765b3d4e0e9c18bd2f6df3511f5f637ad5f4bdbfb",
+  "20_new_runs/docking_matched_search_space_2026-10-09/vina_blind/poses/SNP00033.sdf": "3acfb932a01d8779b2ed02c646c79af57be8fec7547fe9842732dcd638303ae3",
+  "20_new_runs/docking_matched_search_space_2026-10-09/diffdock_pocket/results/SNP00033/rank1_confidence-0.22.sdf": "a0aa78f806d2a6fd0b1c471ded237e4f6a27894a5b8665db1c4bfbb9cb29a084",
+  "20_new_runs/snplib_dock_2026-10-06/poses/SNP00095.sdf": "0c424ea659ec18d003ab050eb9137e372c868d6b2a706dbe01774d25bd014047",
+  "20_new_runs/diffdock_snplib_2026-10-07/results/SNP00095/rank1_confidence-0.53.sdf": "f1af1a2605694ea0a1c036eeb8bafb31da8ec2b6558da3ad53dd4b5badda4b55",
+  "20_new_runs/docking_matched_search_space_2026-10-09/vina_blind/poses/SNP00095.sdf": "f40f4053ab2960ee2e8c77bbf1c5855efc59cdcb4686f86fb05991809eddb7b7",
+  "20_new_runs/docking_matched_search_space_2026-10-09/diffdock_pocket/results/SNP00095/rank1_confidence-0.19.sdf": "bd9af8f86c505fa4c3a40e612a85ed17ce1c7df1965510cbe918dc22261d1153",
+  "20_new_runs/snplib_dock_2026-10-06/poses/SNP00010.sdf": "67d8b33eae1270e1f8e0a5dbb90155b755d501f9e186d12d09d1704dabc5ac25",
+  "20_new_runs/diffdock_snplib_2026-10-07/results/SNP00010/rank1_confidence-0.73.sdf": "1b502b5676e2e01e8a17f4b5ecdf24cb6d5548f4e6070a8d1bcde67ab7b31c10",
+  "20_new_runs/docking_matched_search_space_2026-10-09/vina_blind/poses/SNP00010.sdf": "60cf3e8804eb9ec3d135ff7bb8627496b15ad22d40886ccd4364f37e60c4a1e0",
+  "20_new_runs/docking_matched_search_space_2026-10-09/diffdock_pocket/results/SNP00010/rank1_confidence-0.11.sdf": "8f892992e17a1b7ada96f67ae7adc4ff383e0c29d6819ac61f8bd109ea5aec71",
+  "20_new_runs/snplib_dock_2026-10-06/poses/SNP00142.sdf": "5920c1d37f07be6b48173ae9e46beef0d7d15b9845fa21b1ff0ccfff97b9e742",
+  "20_new_runs/diffdock_snplib_2026-10-07/results/SNP00142/rank1_confidence0.29.sdf": "927f4a700611096c820461b75c762eea0c74616d1babdaa80c5dae3833cbdd61",
+  "20_new_runs/docking_matched_search_space_2026-10-09/vina_blind/poses/SNP00142.sdf": "7a55216a363ffc96bf71bc2eb2773e3b6f860862cbfc966bd5ea49e4edcc7335",
+  "20_new_runs/docking_matched_search_space_2026-10-09/diffdock_pocket/results/SNP00142/rank1_confidence0.03.sdf": "afe6a2187c10f9f3dfaabb0ae11dc6c4ffb856285d43738829d6538bcef4870e",
+  "20_new_runs/snplib_dock_2026-10-06/poses/SNP00006.sdf": "af8141a49a502cd791b60662dd9f3b8a933034b37ed2d41dbb1b1c326345a892",
+  "20_new_runs/diffdock_snplib_2026-10-07/results/SNP00006/rank1_confidence-0.99.sdf": "f764c78cafaecce5bcaf330c13fedac6a65a9778b929c3fc47ce0e753a7db03d",
+  "20_new_runs/docking_matched_search_space_2026-10-09/vina_blind/poses/SNP00006.sdf": "4b990ca1d9fb69efb370fd13506a6e324e3d87815064d2822f956228f5e7aede",
+  "20_new_runs/docking_matched_search_space_2026-10-09/diffdock_pocket/results/SNP00006/rank1_confidence-0.14.sdf": "a5721b038ef57d71f0dc99d7c273377317041d0f732bbe7fc213d1c56d183d02",
+  "20_new_runs/snplib_dock_2026-10-06/poses/SNP00144.sdf": "4465d284b3c97f26af2748e69de283ec0274c5923b2594eb3ff363f6f635ce9f",
+  "20_new_runs/diffdock_snplib_2026-10-07/results/SNP00144/rank1_confidence0.52.sdf": "6acf429abc41c4a6b5d2e1fca2294f570e4cd8d61347696cc518291a6681bb8a",
+  "20_new_runs/docking_matched_search_space_2026-10-09/vina_blind/poses/SNP00144.sdf": "04352cfb25ffaf997bc2270f8967d506e294beb2fa3501adcf5f94bbd3178d27",
+  "20_new_runs/docking_matched_search_space_2026-10-09/diffdock_pocket/results/SNP00144/rank1_confidence0.05.sdf": "c608446a01298b99eff2a48ed248ce6ae922c50da08bc5b7dff7a157c6f3021b",
+  "20_new_runs/snplib_dock_2026-10-06/poses/SNP00051.sdf": "6a8701975a4fa4f094abbe635a882a092bb0668a18d04d99a3eb6e0eafc783e6",
+  "20_new_runs/diffdock_snplib_2026-10-07/results/SNP00051/rank1_confidence0.30.sdf": "319851433f82db5f9795f80426c7b4e1a127f1252672b0a647662cbdaf9520f4",
+  "20_new_runs/docking_matched_search_space_2026-10-09/vina_blind/poses/SNP00051.sdf": "f6a5f333327e0f671016e7c34d67541b0479c65db3c5f5d53b5d485d8b9a6c20",
+  "20_new_runs/docking_matched_search_space_2026-10-09/diffdock_pocket/results/SNP00051/rank1_confidence-0.03.sdf": "8c21959bd528cf5300e7fc60504739bb8599079b5801374985817608123510f3",
+  "20_new_runs/snplib_dock_2026-10-06/poses/SNP00087.sdf": "cc4ffa2f96c6af58e0e28a6b91ed68b7bf5b02bd1643ed92a0980d4981a70810",
+  "20_new_runs/diffdock_snplib_2026-10-07/results/SNP00087/rank1_confidence-0.49.sdf": "e3b4a835ac2fbd60e59e5c9f60337b88eb5307a8e6619a8f04270ab41aaa98c1",
+  "20_new_runs/docking_matched_search_space_2026-10-09/vina_blind/poses/SNP00087.sdf": "345e3efc247ae9f9608610986c9d2bf76a441f7857dbff78a84189126f68d581",
+  "20_new_runs/docking_matched_search_space_2026-10-09/diffdock_pocket/results/SNP00087/rank1_confidence0.12.sdf": "04f1e5f236979b303674fd9a69ae6a11d543fe389508333448ddad5fda6c35c2",
+  "20_new_runs/snplib_dock_2026-10-06/poses/SNP00198.sdf": "7d6972a73113a8a63caef56def8d249126846b1862bf1dfc62aed294817abcee",
+  "20_new_runs/diffdock_snplib_2026-10-07/results/SNP00198/rank1_confidence-0.57.sdf": "606574a502d099a5e1bb7c9e1152c610ade873a7093afa05aef5c6504602efe0",
+  "20_new_runs/docking_matched_search_space_2026-10-09/vina_blind/poses/SNP00198.sdf": "d8068f1c1b68382dee7c60e07ed3b092561680eb2504b3c17612bc39df602d14",
+  "20_new_runs/docking_matched_search_space_2026-10-09/diffdock_pocket/results/SNP00198/rank1_confidence-0.18.sdf": "261455647c4c7f6f3a3a563ba2f376f9a5df8838a51346bfd61791ce94ac9e2e"
+ }
+}
