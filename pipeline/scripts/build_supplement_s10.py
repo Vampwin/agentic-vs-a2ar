@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 import shutil
 from pathlib import Path
 from kdss_paths import project_root, resolve, under, dev_dir
@@ -434,12 +435,28 @@ HAND_AUTHORED: list[tuple[str, str]] = [
 ]
 
 
+# Changed 2026-10-10 (ADR-AIIM-380, approved by the author), with the same rule as build_deposit.py
+# (ADR-AIIM-379). This manifest used to hash the development copy, which has Windows (CRLF) line
+# ends, while the deposit's .gitattributes (`* text=auto eol=lf`) makes git store, and every clone
+# check out, LF: 84 of the 100 entries a clone holds did not reproduce. It now records what a clone
+# contains: for a text file the SHA-256 and byte count of its content with CRLF turned into LF, for a
+# binary file (a suffix .gitattributes marks binary, a NUL byte in the first 8,000 bytes, or a carriage
+# return that is not part of CRLF) those of the bytes as they are.
+BINARY_SUFFIX = {".png", ".pdf", ".gz", ".docx"}
+
+
+def as_stored(p: Path) -> bytes:
+    """The bytes a clone of the deposit will contain for this file."""
+    raw = p.read_bytes()
+    if p.suffix.lower() in BINARY_SUFFIX or b"\0" in raw[:8000]:
+        return raw
+    if re.search(rb"\r(?!\n)", raw):
+        return raw
+    return raw.replace(b"\r\n", b"\n")
+
+
 def sha256(p: Path) -> str:
-    h = hashlib.sha256()
-    with p.open("rb") as fh:
-        for chunk in iter(lambda: fh.read(1 << 20), b""):
-            h.update(chunk)
-    return h.hexdigest()
+    return hashlib.sha256(as_stored(p)).hexdigest()
 
 
 def main() -> int:
@@ -469,7 +486,7 @@ def main() -> int:
         dst = outdir / (f"{src.parent.name}_{src.name}"
                         if COLLIDING[(sub, src.name)] > 1 else src.name)
         shutil.copy2(src, dst)
-        size = dst.stat().st_size
+        size = len(as_stored(dst))
         total += size
         manifest.append({
             "file": f"{sub}/{dst.name}",
@@ -484,7 +501,7 @@ def main() -> int:
         if not f.is_file():
             missing.append(f"(hand-authored) {rel}")
             continue
-        size = f.stat().st_size
+        size = len(as_stored(f))
         total += size
         manifest.append({
             "file": rel,

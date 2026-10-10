@@ -98,7 +98,7 @@ itself; anywhere else they stopped. Both are fixed.
 
 | Not runnable | Why |
 |---|---|
-| `g8_number_traceability.py` end to end | It checks the manuscript's text against the artifacts. The manuscript is not deposited, and one input it reads is a ChEMBL extract that cannot be (below). Its full output is `verification/summary/g8_number_traceability.json`. |
+| `g8_number_traceability.py` end to end | It checks the manuscript's text against the artifacts. The manuscript is not deposited, and one input it reads is a ChEMBL extract that cannot be (below). Its full output is `verification/structure_and_protocol/g8_number_traceability.json` (the same file was also deposited under `verification/summary/` until 2026-10-10; the builder keeps one path for one artifact). |
 | Anything reading ChEMBL records | ChEMBL is CC BY-SA 3.0. Depositing records would put a share-alike term on evidence released under CC BY 4.0, so only aggregate statistics are here. |
 | Docking and DiffDock | Need Vina, DiffDock, a GPU and the receptor preparations. This repository supplies the resulting poses and scores instead. |
 | Molecular dynamics | Trajectories run to gigabytes. The assembled starting structure is deposited, because four numbers in the Methods are counted from it; the trajectories are available from the corresponding author. |

@@ -1,9 +1,9 @@
 {
   "assembled": "2026-10-10",
-  "n_files": 1021,
-  "total_bytes": 68021827,
+  "n_files": 1020,
+  "total_bytes": 68075284,
   "n_files_excluded_by_rule": 9158,
-  "n_duplicates_removed": 149,
+  "n_duplicates_removed": 150,
   "n_files_refused_by_screening": 0,
   "refused": [],
   "flagged_and_cleared_on_review": [
@@ -704,8 +704,8 @@
     {
       "path": "pipeline/scripts/build_supplement_s10.py",
       "source": "10_new_system/scripts/build_supplement_s10.py",
-      "bytes": 34228,
-      "sha256": "3b26c9ec29ae4831f1e0eab1d64be10b436a3f60e55913efb65fba6e425526ec"
+      "bytes": 35157,
+      "sha256": "ff6f5b068c9468af6ff3bb8226bdc25d86bebfaccbbc59f0e243487839de2a31"
     },
     {
       "path": "pipeline/scripts/build_supplementary_information.py",
@@ -1760,8 +1760,8 @@
     {
       "path": "verification/MANIFEST.json",
       "source": "30_manuscript/supplement/S10_verification_2026-08-21/MANIFEST.json",
-      "bytes": 41380,
-      "sha256": "02f162fae18b5ca2c28df7d22b61d7ef07b396da162ae07c0c3f2189162ad5a6"
+      "bytes": 41381,
+      "sha256": "3ee7df5b59fac78bb57023e6e68765f1d22a6b62c557dd58486e4af169d07b98"
     },
     {
       "path": "verification/md_candidate_builds/NPLIB01185_build_metadata.json",
@@ -1904,8 +1904,8 @@
     {
       "path": "verification/README.md",
       "source": "30_manuscript/supplement/S10_verification_2026-08-21/README.md",
-      "bytes": 24020,
-      "sha256": "a7cd7b5995a7db251cce8c7f8576f32af91f52223f1131e938e7da61d75d06f6"
+      "bytes": 30348,
+      "sha256": "5907ce7d23dafeb40e07f0996ec030dccd75dd2e4f59a50814cfd8997a767b59"
     },
     {
       "path": "verification/released_result/calibration_pvalues.csv",
@@ -2054,8 +2054,8 @@
     {
       "path": "verification/structure_and_protocol/g8_number_traceability.json",
       "source": "30_manuscript/supplement/S10_verification_2026-08-21/structure_and_protocol/g8_number_traceability.json",
-      "bytes": 70580,
-      "sha256": "2894e170e0df0c0412e07b316767eb68f853bdc5c6671cef976d8aa3c60dfccf"
+      "bytes": 116779,
+      "sha256": "2b98c1dad6b73f0d518e3ba8b0b52af0f0b8f14793fdd81592d78937ce66dc7c"
     },
     {
       "path": "verification/structure_and_protocol/ligand_extents.csv",
@@ -2332,12 +2332,6 @@
       "source": "30_manuscript/v7_graphical_abstract_2026-10-03/figure_graphical_abstract_v8_funnel_2026-10-10.svg",
       "bytes": 14078,
       "sha256": "97b6783b3b8fbc84ee56242c39ae468f5cf2c07c24aabaea38ce7d54ae429615"
-    },
-    {
-      "path": "verification/summary/g8_number_traceability.json",
-      "source": "20_new_runs/verification_summary_2026-08-21/g8_number_traceability.json",
-      "bytes": 116779,
-      "sha256": "2b98c1dad6b73f0d518e3ba8b0b52af0f0b8f14793fdd81592d78937ce66dc7c"
     },
     {
       "path": "verification/summary/g8_number_traceability_v8_accepted_2026-10-09.json",
@@ -6183,7 +6177,7 @@
       "path": "preregistration/PRE_REGISTRATION_ENTRIES.md",
       "source": "00_project_control/08_DECISION_LOG.md",
       "bytes": 458358,
-      "sha256": "70105dbfa9c7b9189f8e867ea9a8e4bc52293104b439f50f0e92c12ce623af4a"
+      "sha256": "6403c1e5b1a836993ed124f38c52d2e080af68cb76960413081896e56f1cde93"
     }
   ]
 }
