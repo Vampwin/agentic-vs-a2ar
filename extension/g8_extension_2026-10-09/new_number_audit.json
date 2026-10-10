@@ -1,19 +1,10 @@
 {
  "article": {
-  "tier_A_artifact": 127,
-  "tier_B_log_only": 18,
-  "tier_C_unmatched": 2,
-  "small_integers_not_tested": 104,
-  "unmatched": [
-   [
-    "1029",
-    "es ¶ 10b0c90620585ee624892a228c1816e98dd0579b ¶ 1029 ¶ 65.9 ¶  The po"
-   ],
-   [
-    "1021",
-    "egistration/ (the full log is not deposited). ¶ 1021 ¶ README, licenc"
-   ]
-  ],
+  "tier_A_artifact": 132,
+  "tier_B_log_only": 19,
+  "tier_C_unmatched": 0,
+  "small_integers_not_tested": 186,
+  "unmatched": [],
   "log_only": [
    [
     "10330",
@@ -53,7 +44,7 @@
    ],
    [
     "4119",
-    "run, against a median of 1,004 (range 6 to 4,119), across ¶ does ¶ no"
+    "run, against a median of 1,004 (range 6 to 4,119), across ¶ [1,2] ¶ ["
    ],
    [
     "0.911",
@@ -76,8 +67,12 @@
     " every similarity, so the same threshold admits 52.9% of the expansio"
    ],
    [
-    "404",
-    "HOLDER: as of 2026-10-09 the repository returns 404 to a request wit"
+    "65.8",
+    "3f570979f101125915f3508e94e676b4604f61 ¶ 1030 ¶ 65.8 ¶  The post-free"
+   ],
+   [
+    "1022",
+    "egistration/ (the full log is not deposited). ¶ 1022 ¶ README, licenc"
    ],
    [
     "2023",
@@ -85,15 +80,15 @@
    ],
    [
     "2023",
-    "shop on Machine Learning in Structural Biology; 2023. ¶ [46] ¶ [47] ¶"
+    "shop on Machine Learning in Structural Biology; 2023. ¶ [44] ¶ [45] ¶"
    ]
   ]
  },
  "supplement": {
-  "tier_A_artifact": 587,
+  "tier_A_artifact": 596,
   "tier_B_log_only": 13,
   "tier_C_unmatched": 1,
-  "small_integers_not_tested": 260,
+  "small_integers_not_tested": 267,
   "unmatched": [
    [
     "20.8",
@@ -151,7 +146,7 @@
    ],
    [
     "2023",
-    "kshop on Machine Learning in Structural Biology; 2023. ¶ [46] ¶ [48] "
+    "kshop on Machine Learning in Structural Biology; 2023. ¶ [44] ¶ [46] "
    ]
   ]
  }

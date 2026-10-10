@@ -74,7 +74,7 @@ def build(out: Path) -> Path:
     px, pw = 6.0, 230.0
     s.box(px, top, pw, bot - top, fill="#FFFFFF", stroke=BLUE, sw=0.9, r=3)
     s.box(px, top, pw, 14, fill=BLUE_F, stroke=BLUE, sw=0.9, r=3)
-    s.text(px + 8, top + 10, fits("1 The workflow: an agent-written A2AR screen", 7.8, pw - 12, bold=True),
+    s.text(px + 8, top + 9.2, fits("1 The workflow: an agent-written A2A receptor screen", 7.8, pw - 12, bold=True),
            size=7.8, weight="bold", fill=BLUE, anchor="start")
     rx, rw, rh, rgap, ry0 = px + 6, 212.0, 15.0, 4.5, 40.0
     ys = [ry0 + i * (rh + rgap) for i in range(len(ROWS))]

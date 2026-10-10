@@ -6,7 +6,7 @@
   <text x="255.5" y="14" font-size="11" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">Auditing agent-generated biomedical code with executable contracts</text>
   <rect x="6" y="22" width="230" height="180.5" rx="3" fill="#FFFFFF" stroke="#2C5F8A" stroke-width="0.9"/>
   <rect x="6" y="22" width="230" height="14" rx="3" fill="#E3EBF3" stroke="#2C5F8A" stroke-width="0.9"/>
-  <text x="14" y="32" font-size="7.8" fill="#2C5F8A" font-weight="bold" font-style="normal" text-anchor="start">1 The workflow: an agent-written A2AR screen</text>
+  <text x="14" y="31.2" font-size="7.8" fill="#2C5F8A" font-weight="bold" font-style="normal" text-anchor="start">1 The workflow: an agent-written A<tspan baseline-shift="sub" font-size="5.85">2A</tspan> receptor screen</text>
   <rect x="12" y="40" width="212" height="15" rx="2.5" fill="#EEF2EE" stroke="#9AA79F" stroke-width="0.6"/>
   <text x="56" y="50.6" font-size="8.6" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="end">25,604</text>
   <text x="62" y="50.4" font-size="7.4" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="start">biosynthetic-superclass matches</text>

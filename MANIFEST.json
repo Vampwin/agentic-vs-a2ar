@@ -1,8 +1,8 @@
 {
   "assembled": "2026-10-10",
   "n_files": 1022,
-  "total_bytes": 68075984,
-  "n_files_excluded_by_rule": 9158,
+  "total_bytes": 68077525,
+  "n_files_excluded_by_rule": 9163,
   "n_duplicates_removed": 148,
   "n_files_refused_by_screening": 0,
   "refused": [],
@@ -674,8 +674,8 @@
     {
       "path": "pipeline/scripts/build_figures_1_2.py",
       "source": "10_new_system/scripts/build_figures_1_2.py",
-      "bytes": 17381,
-      "sha256": "c1c870d19ef1414c8556c6779e64e75f53d68b817d5d7b64d27555a6023365a5"
+      "bytes": 17987,
+      "sha256": "f730e5a40ba1c66c94e536a61e45db7a686513ec76a297733e4d0cbe552eba8a"
     },
     {
       "path": "pipeline/scripts/build_metamorphic_ledgers.py",
@@ -2180,14 +2180,14 @@
     {
       "path": "figures/figure1_architecture_2026-08-21.png",
       "source": "30_manuscript/figures/figure1_architecture_2026-08-21.png",
-      "bytes": 247542,
-      "sha256": "5e933c8e1e8e5360384a46d7577a46d525f08e6a666d9745b40ac70fe9235ab7"
+      "bytes": 247869,
+      "sha256": "240cccdf27acb88b074d2723b8440c9d82c0accff8c1784c9e94cd18eb268e35"
     },
     {
       "path": "figures/figure1_architecture_2026-08-21.svg",
       "source": "30_manuscript/figures/figure1_architecture_2026-08-21.svg",
-      "bytes": 7777,
-      "sha256": "8efd810101b3d9c32cdd4ffd4c51a87cb2b17c0f9eb12e0dae189304dc3557ee"
+      "bytes": 7830,
+      "sha256": "f71b15eb3043e9fa1f7d50294f1faf6a259de4bffa5fc98001bbaaf6c856954a"
     },
     {
       "path": "figures/figure2_inside_a_gate_2026-08-21.png",
@@ -2318,8 +2318,8 @@
     {
       "path": "figures/graphical_abstract/build_graphical_abstract_v8_funnel.py",
       "source": "30_manuscript/v7_graphical_abstract_2026-10-03/build_graphical_abstract_v8_funnel.py",
-      "bytes": 8314,
-      "sha256": "12d0542585832437008f5eb264099487c5900e0b4fb749d5dc4df3a5c2289ec1"
+      "bytes": 8323,
+      "sha256": "1e016fb680786484ce15e845013b1cfe3989c1a3ed3a53318bceb550988d5fc3"
     },
     {
       "path": "figures/graphical_abstract/figure_graphical_abstract_v7_2026-10-03.png",
@@ -2336,20 +2336,20 @@
     {
       "path": "figures/graphical_abstract/figure_graphical_abstract_v8_funnel_2026-10-10.png",
       "source": "30_manuscript/v7_graphical_abstract_2026-10-03/figure_graphical_abstract_v8_funnel_2026-10-10.png",
-      "bytes": 613721,
-      "sha256": "7692834ef68e22edca1d66e680353711985d5bc7bf47e7f10efc941583a3289a"
+      "bytes": 614304,
+      "sha256": "ad5a17ec3d76da2306477b8fe8872a2d431285aa830b3a387bdbe23e15701895"
     },
     {
       "path": "figures/graphical_abstract/figure_graphical_abstract_v8_funnel_2026-10-10.svg",
       "source": "30_manuscript/v7_graphical_abstract_2026-10-03/figure_graphical_abstract_v8_funnel_2026-10-10.svg",
-      "bytes": 14078,
-      "sha256": "97b6783b3b8fbc84ee56242c39ae468f5cf2c07c24aabaea38ce7d54ae429615"
+      "bytes": 14141,
+      "sha256": "7e664893c039226adc453ce6a59f18b734e679d7e31f2a76277c305cd1cdc60b"
     },
     {
       "path": "verification/summary/g8_number_traceability_v8_accepted_2026-10-09.json",
       "source": "20_new_runs/verification_summary_2026-08-21/g8_number_traceability_v8_accepted_2026-10-09.json",
       "bytes": 119227,
-      "sha256": "8db068ef922098405566ec4e3c72ace22b5b2683cd20338a2c819fa5523196e1"
+      "sha256": "07ee7b733ef900841bfa3f9f8b07047db2d2c9c20f8073f3214d37e59d0e32fe"
     },
     {
       "path": "verification/summary/g8_number_traceability_v8_accepted_after_refcut_2026-10-09.json",
@@ -4910,8 +4910,8 @@
     {
       "path": "extension/g8_extension_2026-10-09/new_number_audit.json",
       "source": "20_new_runs/g8_extension_2026-10-09/new_number_audit.json",
-      "bytes": 3813,
-      "sha256": "a4387d73e8cd80754a630eb3d45756f0feb9955bfea66a30ebfad15e6af3e6a1"
+      "bytes": 3713,
+      "sha256": "aa6e2d06f6e157c210ccdcdb3804722055f41cae1da51e89f90470549e010b91"
     },
     {
       "path": "extension/g8_extension_2026-10-09/README.md",
@@ -6189,7 +6189,7 @@
       "path": "preregistration/PRE_REGISTRATION_ENTRIES.md",
       "source": "00_project_control/08_DECISION_LOG.md",
       "bytes": 458358,
-      "sha256": "42d2307184108ebd234ce07ea876ccf6f76b2de3e9c37a7b06f684c123346704"
+      "sha256": "a5cf7f16b55dde58f6d40e9633f2a0e0edd8d9402cbc288a70ee39ab0ea5321c"
     }
   ]
 }

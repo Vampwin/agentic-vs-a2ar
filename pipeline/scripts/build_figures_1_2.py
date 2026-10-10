@@ -54,6 +54,15 @@ VIOLET_F = "#EFE8F5"
 FONT = "Helvetica, Arial, sans-serif"
 
 
+def subscript_2a(t: str, size: float) -> str:
+    """Added 2026-10-10 (ADR-AIIM-388, approved by the author): the adenosine A2A receptor is written A with a
+    subscript 2A (IUPHAR form); `t` is already escaped. The subscript is 75 % of the text size. Applies to "A2A" and
+    "A2AR" wherever they stand as a word in any text this module draws, so a figure cannot print it the other way."""
+    import re
+    return re.sub(r"(?<![A-Za-z0-9])A(2A)(?=R?(?![A-Za-z0-9]))",
+                  lambda m: f'A<tspan baseline-shift="sub" font-size="{size * 0.75:g}">{m.group(1)}</tspan>', t)
+
+
 def esc(t: str) -> str:
     return (t.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
 
@@ -93,7 +102,7 @@ class Svg:
         self.parts.append(
             f'  <text x="{x:g}" y="{y:g}" font-size="{size:g}" fill="{fill}" '
             f'font-weight="{weight}" font-style="{style}" text-anchor="{anchor}"'
-            f'{sp}>{esc(s)}</text>\n')
+            f'{sp}>{subscript_2a(esc(s), size)}</text>\n')
 
     def lines(self, x, y, rows, size=8, fill=SOFT, lead=1.28, **kw):
         for i, r in enumerate(rows):
