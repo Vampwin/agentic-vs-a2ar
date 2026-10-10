@@ -1,9 +1,9 @@
 {
   "assembled": "2026-10-10",
-  "n_files": 1020,
-  "total_bytes": 68075284,
+  "n_files": 1022,
+  "total_bytes": 68075984,
   "n_files_excluded_by_rule": 9158,
-  "n_duplicates_removed": 150,
+  "n_duplicates_removed": 148,
   "n_files_refused_by_screening": 0,
   "refused": [],
   "flagged_and_cleared_on_review": [
@@ -662,8 +662,8 @@
     {
       "path": "pipeline/scripts/build_deposit.py",
       "source": "10_new_system/scripts/build_deposit.py",
-      "bytes": 28666,
-      "sha256": "8ff17977434e673cb7e4177e4f7eb02f6387b0336c49e511be0728209dd6bf2b"
+      "bytes": 29366,
+      "sha256": "d01532e74d97cad613abad37c99ac033b9a0b5ff732ddb1ce608165e77bb5a9e"
     },
     {
       "path": "pipeline/scripts/build_evidence_index.py",
@@ -1854,10 +1854,22 @@
       "sha256": "bc7b3ee462f2acbb53c0fa6fad238bbee2df3f5af60d8ca29f8381a33892c2e2"
     },
     {
+      "path": "verification/orthogonal_engine/figure5_pose_overlay_provenance.json",
+      "source": "30_manuscript/supplement/S10_verification_2026-08-21/orthogonal_engine/figure5_pose_overlay_provenance.json",
+      "bytes": 2233,
+      "sha256": "2456bda3efcda2d5e16cbcd3da82e938a68fc5ff243b5e04611ef8f8036022e0"
+    },
+    {
       "path": "verification/orthogonal_engine/orthogonal_check_result.json",
       "source": "30_manuscript/supplement/S10_verification_2026-08-21/orthogonal_engine/orthogonal_check_result.json",
       "bytes": 1150,
       "sha256": "fc415595d4ac9fa91bba3f25dd4247f78605ebbdb72c3f6eb4655805738ed342"
+    },
+    {
+      "path": "verification/pose_rescue/figure4_screening_performance_provenance.json",
+      "source": "30_manuscript/supplement/S10_verification_2026-08-21/pose_rescue/figure4_screening_performance_provenance.json",
+      "bytes": 2176,
+      "sha256": "84426859dd848ec8f3bbd49147341eb3e2feb2dcc2bfa82ffa5d868d307cb45a"
     },
     {
       "path": "verification/pose_rescue/ifp_rescoring_per_compound.csv",
@@ -2337,7 +2349,7 @@
       "path": "verification/summary/g8_number_traceability_v8_accepted_2026-10-09.json",
       "source": "20_new_runs/verification_summary_2026-08-21/g8_number_traceability_v8_accepted_2026-10-09.json",
       "bytes": 119227,
-      "sha256": "ff1ae39322d56a66fffec66514bdae80768b298fe3121ffef9d0d2e5e5b8e514"
+      "sha256": "8db068ef922098405566ec4e3c72ace22b5b2683cd20338a2c819fa5523196e1"
     },
     {
       "path": "verification/summary/g8_number_traceability_v8_accepted_after_refcut_2026-10-09.json",
@@ -6177,7 +6189,7 @@
       "path": "preregistration/PRE_REGISTRATION_ENTRIES.md",
       "source": "00_project_control/08_DECISION_LOG.md",
       "bytes": 458358,
-      "sha256": "6403c1e5b1a836993ed124f38c52d2e080af68cb76960413081896e56f1cde93"
+      "sha256": "42d2307184108ebd234ce07ea876ccf6f76b2de3e9c37a7b06f684c123346704"
     }
   ]
 }

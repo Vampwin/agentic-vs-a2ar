@@ -5,7 +5,7 @@
     "MANIFEST.json source fields",
     "build_supplement_s10.origin_map()"
   ],
-  "n_entries": 1017,
+  "n_entries": 1019,
   "map": {
     "00_project_control/08_DECISION_LOG.md": "preregistration/PRE_REGISTRATION_ENTRIES.md",
     "10_new_system/benchmark/__init__.py": "pipeline/benchmark/__init__.py",
@@ -257,6 +257,8 @@
     "10_new_system/tests/test_seer.py": "pipeline/tests/test_seer.py",
     "10_new_system/tests/test_state_machine.py": "pipeline/tests/test_state_machine.py",
     "10_new_system/tests/test_system_integration.py": "pipeline/tests/test_system_integration.py",
+    "20_new_runs/../30_manuscript/figures/figure4_screening_performance_provenance.json": "verification/pose_rescue/figure4_screening_performance_provenance.json",
+    "20_new_runs/../30_manuscript/figures/figure5_pose_overlay_provenance.json": "verification/orthogonal_engine/figure5_pose_overlay_provenance.json",
     "20_new_runs/WP2.5_WP3A_readiness_2026-07-30/calibration_comparison.json": "verification/learned_monitor/calibration_comparison.json",
     "20_new_runs/WP2.5_WP3A_readiness_2026-07-30/compare_models_dev_data.json": "verification/learned_monitor/compare_models_dev_data.json",
     "20_new_runs/WP2.5_WP3A_readiness_2026-07-30/fit_selected_model_summary.json": "verification/learned_monitor/fit_selected_model_summary.json",

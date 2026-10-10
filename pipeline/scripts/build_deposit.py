@@ -431,6 +431,14 @@ def main() -> int:
             # orthogonal_check_result.json -- the artifact the manuscript
             # says its Section 3.5 numbers derive from -- while still listing
             # it. Only unlink when the paths actually differ.
+            # Added 2026-10-10 (ADR-AIIM-381, approved by the author): a file that the S10 bundle
+            # lists in its own `verification/MANIFEST.json` is never unlinked as a duplicate of a
+            # copy elsewhere. That manifest promises its entries at their paths; two of them
+            # (the figure 4 and figure 5 provenance records) were removed because a byte-identical
+            # copy sits under figures/, and the nested manifest then listed files that were not there.
+            if drop["path"] != keep["path"] and (drop.get("source") or "").replace("\\", "/").startswith(
+                    "30_manuscript/supplement/S10_verification_2026-08-21/"):
+                continue
             if drop["path"] != keep["path"]:
                 (out / drop["path"]).unlink(missing_ok=True)
             manifest.remove(drop)
