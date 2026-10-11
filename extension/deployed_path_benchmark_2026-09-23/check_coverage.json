@@ -1,0 +1,195 @@
+{
+  "generated_utc": "2026-09-22T17:28:56+00:00",
+  "adr": "ADR-AIIM-236",
+  "by_gate": {
+    "G0": {
+      "harness_checks": [
+        "compound_count",
+        "hash_snp_library_csv",
+        "id_uniqueness",
+        "smiles_column_present"
+      ],
+      "deployed_checks": [
+        "chembl_a2ar_raw_present",
+        "chembl_benchmark_hash",
+        "chembl_benchmark_present",
+        "compound_count",
+        "hash_chembl_a2ar_raw_csv",
+        "hash_raw_workbook",
+        "hash_snp_library_csv",
+        "hash_snp_library_sdf",
+        "id_uniqueness",
+        "name_structure_mapping",
+        "no_assay_columns",
+        "receptor_files_present",
+        "receptor_hash_3eml",
+        "receptor_hash_4eiy",
+        "smiles_column_present"
+      ],
+      "n_harness": 4,
+      "n_deployed": 15,
+      "never_exercised": [
+        "chembl_a2ar_raw_present",
+        "chembl_benchmark_hash",
+        "chembl_benchmark_present",
+        "hash_chembl_a2ar_raw_csv",
+        "hash_raw_workbook",
+        "hash_snp_library_sdf",
+        "name_structure_mapping",
+        "no_assay_columns",
+        "receptor_files_present",
+        "receptor_hash_3eml",
+        "receptor_hash_4eiy"
+      ],
+      "harness_only": []
+    },
+    "G1": {
+      "harness_checks": [
+        "ledger_count",
+        "no_drug_likeness_exclusions",
+        "salt_stripping_verified",
+        "smiles_roundtrip",
+        "stereochemistry_preserved"
+      ],
+      "deployed_checks": [
+        "drug_likeness_as_annotation",
+        "duplicate_inchikey_check",
+        "failure_accounting",
+        "id_coverage",
+        "inchikey_generated",
+        "ledger_count",
+        "mixture_flagged",
+        "no_activity_columns_in_ledger",
+        "no_drug_likeness_exclusions",
+        "salt_strip_recorded",
+        "salt_stripping_verified",
+        "smiles_roundtrip",
+        "stereochemistry_preserved",
+        "stereochemistry_recorded"
+      ],
+      "n_harness": 5,
+      "n_deployed": 14,
+      "never_exercised": [
+        "drug_likeness_as_annotation",
+        "duplicate_inchikey_check",
+        "failure_accounting",
+        "id_coverage",
+        "inchikey_generated",
+        "mixture_flagged",
+        "no_activity_columns_in_ledger",
+        "salt_strip_recorded",
+        "stereochemistry_recorded"
+      ],
+      "harness_only": []
+    },
+    "G4": {
+      "harness_checks": [
+        "mw_bias_check",
+        "no_assay_columns_in_output",
+        "score_direction",
+        "score_distribution_sanity"
+      ],
+      "deployed_checks": [
+        "missing_output_accounting",
+        "mw_bias_check",
+        "no_assay_columns_in_output",
+        "output_completeness",
+        "score_direction",
+        "score_distribution_sanity",
+        "seed_repeatability"
+      ],
+      "n_harness": 4,
+      "n_deployed": 7,
+      "never_exercised": [
+        "missing_output_accounting",
+        "output_completeness",
+        "seed_repeatability"
+      ],
+      "harness_only": []
+    },
+    "G6": {
+      "harness_checks": [
+        "assay_blindness_column_scan",
+        "eligible_set_completeness",
+        "frozen_rule_applied",
+        "scaffold_uniqueness"
+      ],
+      "deployed_checks": [
+        "applicability_domain",
+        "applicability_domain_false_refusal",
+        "applicability_domain_multi_space",
+        "assay_blindness_column_scan",
+        "diversity_seed_recorded",
+        "drug_likeness_not_used_in_ranking",
+        "frozen_rule_applied",
+        "no_assay_ids_in_selected",
+        "selection_count_reported"
+      ],
+      "n_harness": 4,
+      "n_deployed": 9,
+      "never_exercised": [
+        "applicability_domain",
+        "applicability_domain_false_refusal",
+        "applicability_domain_multi_space",
+        "diversity_seed_recorded",
+        "drug_likeness_not_used_in_ranking",
+        "no_assay_ids_in_selected",
+        "selection_count_reported"
+      ],
+      "harness_only": [
+        "eligible_set_completeness",
+        "scaffold_uniqueness"
+      ]
+    },
+    "G8": {
+      "harness_checks": [
+        "contract_coverage",
+        "figure_source_verification",
+        "number_traceability",
+        "table_source_verification"
+      ],
+      "deployed_checks": [
+        "ai_use_declaration_present",
+        "confidence_tier_assessment",
+        "confidence_tier_threshold_immutability",
+        "contract_coverage",
+        "figure_source_verification",
+        "human_intervention_count",
+        "internal_auc_not_cited",
+        "no_unregistered_claims",
+        "number_traceability",
+        "table_source_verification"
+      ],
+      "n_harness": 4,
+      "n_deployed": 10,
+      "never_exercised": [
+        "ai_use_declaration_present",
+        "confidence_tier_assessment",
+        "confidence_tier_threshold_immutability",
+        "human_intervention_count",
+        "internal_auc_not_cited",
+        "no_unregistered_claims"
+      ],
+      "harness_only": []
+    }
+  },
+  "harness_total": 21,
+  "deployed_total": 55,
+  "never_exercised_total": 36,
+  "harness_only_total": 2,
+  "heldout_targets_in_benchmark": {
+    "H01": {
+      "gate": "G0",
+      "check": "name_structure_mapping",
+      "in_deployed_contract": true,
+      "exercised_by_benchmark": false
+    },
+    "H05": {
+      "gate": "G8",
+      "check": "no_unregistered_claims",
+      "in_deployed_contract": true,
+      "exercised_by_benchmark": false
+    }
+  },
+  "note": "H02 (G2) and H03 (G3) target gates the benchmark does not cover at all, so they have no harness contract to compare."
+}

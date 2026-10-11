@@ -1,0 +1,89 @@
+{
+ "adr": "ADR-AIIM-399",
+ "tree": "10_new_system as on 2026-10-11 (includes the repairs made after the held-out evaluation)",
+ "n_declared": 95,
+ "n_in_own_evaluator": 94,
+ "n_in_any_source": 94,
+ "not_in_own_evaluator": [
+  {
+   "contract": "G7_md.yaml",
+   "check": "md_decision_check",
+   "severity": "critical",
+   "in_any_source": false
+  }
+ ],
+ "benchmarked_gates": [
+  "G0",
+  "G1",
+  "G4",
+  "G6",
+  "G8"
+ ],
+ "n_declared_in_benchmarked_gates": 55,
+ "n_exercised_by_seeded_benchmark": 19,
+ "per_contract": {
+  "G0_input.yaml": {
+   "declared": 15,
+   "in_own_evaluator": 15,
+   "in_any_source": 15,
+   "evaluator_file_exists": true
+  },
+  "G1_standardization.yaml": {
+   "declared": 14,
+   "in_own_evaluator": 14,
+   "in_any_source": 14,
+   "evaluator_file_exists": true
+  },
+  "G2_preparation.yaml": {
+   "declared": 9,
+   "in_own_evaluator": 9,
+   "in_any_source": 9,
+   "evaluator_file_exists": true
+  },
+  "G3_pose.yaml": {
+   "declared": 11,
+   "in_own_evaluator": 11,
+   "in_any_source": 11,
+   "evaluator_file_exists": true
+  },
+  "G4_scoring.yaml": {
+   "declared": 7,
+   "in_own_evaluator": 7,
+   "in_any_source": 7,
+   "evaluator_file_exists": true
+  },
+  "G5a_validity.yaml": {
+   "declared": 8,
+   "in_own_evaluator": 8,
+   "in_any_source": 8,
+   "evaluator_file_exists": true
+  },
+  "G5b_performance.yaml": {
+   "declared": 5,
+   "in_own_evaluator": 5,
+   "in_any_source": 5,
+   "evaluator_file_exists": true
+  },
+  "G6_selection.yaml": {
+   "declared": 9,
+   "in_own_evaluator": 9,
+   "in_any_source": 9,
+   "evaluator_file_exists": true
+  },
+  "G7_md.yaml": {
+   "declared": 7,
+   "in_own_evaluator": 6,
+   "in_any_source": 6,
+   "evaluator_file_exists": true
+  },
+  "G8_reporting.yaml": {
+   "declared": 10,
+   "in_own_evaluator": 10,
+   "in_any_source": 10,
+   "evaluator_file_exists": true
+  }
+ },
+ "P11_declares_94": false,
+ "P12_at_most_three_absent": true,
+ "limits": "string literals only; an id assembled at run time is missed; presence in the source is not a test of correctness"
+}

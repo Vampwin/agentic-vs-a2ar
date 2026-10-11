@@ -1,0 +1,73 @@
+{
+ "adr": "ADR-AIIM-399 (amendment 1)",
+ "ids": [
+  "NPLIB01997",
+  "NPLIB03133",
+  "NPLIB04561",
+  "NPLIB03343"
+ ],
+ "per_compound": {
+  "NPLIB01997": {
+   "stored_score": -10.804,
+   "stored_dist": 7.29,
+   "box22_status": "ok",
+   "box22_score": -10.804,
+   "box22_dist": 7.29,
+   "box30_status": "ok",
+   "box30_score": -10.832,
+   "box30_dist": 7.38,
+   "box30_on_pocket": true,
+   "elapsed_s_box22": 1006.1,
+   "elapsed_s_box30": 749.6,
+   "delta_30_minus_22": -0.028
+  },
+  "NPLIB03133": {
+   "stored_score": -10.319,
+   "stored_dist": 7.16,
+   "box22_status": "ok",
+   "box22_score": -10.319,
+   "box22_dist": 7.16,
+   "box30_status": "ok",
+   "box30_score": -9.217,
+   "box30_dist": 13.29,
+   "box30_on_pocket": false,
+   "elapsed_s_box22": 250.0,
+   "elapsed_s_box30": 228.5,
+   "delta_30_minus_22": 1.102
+  },
+  "NPLIB04561": {
+   "stored_score": -9.141,
+   "stored_dist": 6.76,
+   "box22_status": "ok",
+   "box22_score": -9.141,
+   "box22_dist": 6.76,
+   "box30_status": "ok",
+   "box30_score": -9.151,
+   "box30_dist": 6.75,
+   "box30_on_pocket": true,
+   "elapsed_s_box22": 953.9,
+   "elapsed_s_box30": 809.7,
+   "delta_30_minus_22": -0.01
+  },
+  "NPLIB03343": {
+   "stored_score": -8.949,
+   "stored_dist": 6.73,
+   "box22_status": "ok",
+   "box22_score": -8.949,
+   "box22_dist": 6.73,
+   "box30_status": "ok",
+   "box30_score": -10.046,
+   "box30_dist": 10.15,
+   "box30_on_pocket": false,
+   "elapsed_s_box22": 705.9,
+   "elapsed_s_box30": 727.9,
+   "delta_30_minus_22": -1.097
+  }
+ },
+ "completed": true,
+ "P8_anchor_22_reproduces_stored": true,
+ "P9_at_least_two_better_by_0.3": false,
+ "P10_all_on_pocket_in_30": false,
+ "n_better_by_0.3": 1,
+ "n_changed_by_more_than_0.1": 2
+}

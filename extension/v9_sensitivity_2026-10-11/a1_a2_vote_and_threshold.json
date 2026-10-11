@@ -1,0 +1,536 @@
+{
+ "adr": "ADR-AIIM-399",
+ "inputs": {
+  "pool69_predictions.csv": "snplib_dock_2026-10-06",
+  "distinct_split_groups": [
+   [
+    "D1shuffle_D2testfirst_D3overflow",
+    "D1shuffle_D2testfirst_D3divert"
+   ],
+   [
+    "D1shuffle_D2trainfirst_D3overflow",
+    "D1shuffle_D2trainfirst_D3divert"
+   ],
+   [
+    "D1sorted_D2testfirst_D3overflow"
+   ],
+   [
+    "D1sorted_D2testfirst_D3divert"
+   ],
+   [
+    "D1sorted_D2trainfirst_D3overflow",
+    "D1sorted_D2trainfirst_D3divert"
+   ]
+  ]
+ },
+ "A1": {
+  "anchor": {
+   "fifteen_reproduced": true,
+   "eight_reproduced_in_order": true
+  },
+  "vote_3_of_5": {
+   "selected": [
+    "SNP00157",
+    "SNP00163",
+    "SNP00223",
+    "SNP00154",
+    "SNP00097",
+    "SNP00010",
+    "SNP00052",
+    "SNP00033",
+    "SNP00095",
+    "SNP00142",
+    "SNP00006",
+    "SNP00144",
+    "SNP00051",
+    "SNP00087",
+    "SNP00151",
+    "SNP00121",
+    "SNP00198",
+    "SNP00079"
+   ],
+   "n_selected": 18,
+   "shortlist": [
+    "SNP00157",
+    "SNP00163",
+    "SNP00154",
+    "SNP00097",
+    "SNP00010",
+    "SNP00052",
+    "SNP00142",
+    "SNP00006"
+   ],
+   "votes": {
+    "SNP00157": 5,
+    "SNP00163": 5,
+    "SNP00223": 5,
+    "SNP00154": 5,
+    "SNP00097": 5,
+    "SNP00010": 4,
+    "SNP00052": 4,
+    "SNP00033": 4,
+    "SNP00095": 4,
+    "SNP00142": 4,
+    "SNP00006": 4,
+    "SNP00144": 3,
+    "SNP00051": 3,
+    "SNP00087": 3,
+    "SNP00151": 3,
+    "SNP00121": 3,
+    "SNP00198": 3,
+    "SNP00079": 3
+   }
+  },
+  "added_to_fifteen": [
+   "SNP00151",
+   "SNP00121",
+   "SNP00079"
+  ],
+  "removed_from_fifteen": [],
+  "jaccard_selected_vs_fifteen": 0.833,
+  "jaccard_shortlist_vs_eight": 0.778,
+  "eight_kept_in_shortlist": [
+   "SNP00157",
+   "SNP00163",
+   "SNP00154",
+   "SNP00097",
+   "SNP00052",
+   "SNP00142",
+   "SNP00006"
+  ],
+  "shortlist_new": [
+   "SNP00010"
+  ],
+  "P1_anchor": true,
+  "P2_all_fifteen_selected_and_at_most_three_added": true,
+  "P3_at_least_six_of_eight_in_shortlist": true
+ },
+ "A2": {
+  "reference_n": 6284,
+  "expansion_n": 5000,
+  "anchor": {
+   "expansion_at_or_above_0.25": 2645,
+   "expected": 2645,
+   "holds": true,
+   "pool69_scores_reproduced": true
+  },
+  "n_gated_before_AD": 126,
+  "t_star": 0.2687,
+  "expansion_at_or_above_t_star": 1561,
+  "thresholds": {
+   "0.25": {
+    "threshold": 0.25,
+    "pool": 69,
+    "expansion_fraction_admitted": 0.529,
+    "fifteen_in_pool": [
+     "SNP00157",
+     "SNP00163",
+     "SNP00223",
+     "SNP00154",
+     "SNP00097",
+     "SNP00052",
+     "SNP00033",
+     "SNP00095",
+     "SNP00010",
+     "SNP00142",
+     "SNP00006",
+     "SNP00144",
+     "SNP00051",
+     "SNP00087",
+     "SNP00198"
+    ],
+    "eight_in_pool": [
+     "SNP00157",
+     "SNP00163",
+     "SNP00154",
+     "SNP00097",
+     "SNP00052",
+     "SNP00033",
+     "SNP00142",
+     "SNP00006"
+    ],
+    "vote_5_of_8": {
+     "n_selected": 15,
+     "selected": [
+      "SNP00157",
+      "SNP00163",
+      "SNP00223",
+      "SNP00154",
+      "SNP00097",
+      "SNP00052",
+      "SNP00033",
+      "SNP00095",
+      "SNP00010",
+      "SNP00142",
+      "SNP00006",
+      "SNP00144",
+      "SNP00051",
+      "SNP00087",
+      "SNP00198"
+     ],
+     "shortlist": [
+      "SNP00157",
+      "SNP00163",
+      "SNP00154",
+      "SNP00097",
+      "SNP00052",
+      "SNP00033",
+      "SNP00142",
+      "SNP00006"
+     ],
+     "fifteen_still_selected": [
+      "SNP00157",
+      "SNP00163",
+      "SNP00223",
+      "SNP00154",
+      "SNP00097",
+      "SNP00052",
+      "SNP00033",
+      "SNP00095",
+      "SNP00010",
+      "SNP00142",
+      "SNP00006",
+      "SNP00144",
+      "SNP00051",
+      "SNP00087",
+      "SNP00198"
+     ],
+     "new": []
+    },
+    "vote_3_of_5": {
+     "n_selected": 18,
+     "selected": [
+      "SNP00157",
+      "SNP00163",
+      "SNP00223",
+      "SNP00154",
+      "SNP00097",
+      "SNP00010",
+      "SNP00052",
+      "SNP00033",
+      "SNP00095",
+      "SNP00142",
+      "SNP00006",
+      "SNP00144",
+      "SNP00051",
+      "SNP00087",
+      "SNP00151",
+      "SNP00121",
+      "SNP00198",
+      "SNP00079"
+     ],
+     "shortlist": [
+      "SNP00157",
+      "SNP00163",
+      "SNP00154",
+      "SNP00097",
+      "SNP00010",
+      "SNP00052",
+      "SNP00142",
+      "SNP00006"
+     ],
+     "fifteen_still_selected": [
+      "SNP00157",
+      "SNP00163",
+      "SNP00223",
+      "SNP00154",
+      "SNP00097",
+      "SNP00052",
+      "SNP00033",
+      "SNP00095",
+      "SNP00010",
+      "SNP00142",
+      "SNP00006",
+      "SNP00144",
+      "SNP00051",
+      "SNP00087",
+      "SNP00198"
+     ],
+     "new": [
+      "SNP00151",
+      "SNP00121",
+      "SNP00079"
+     ]
+    }
+   },
+   "0.30": {
+    "threshold": 0.3,
+    "pool": 16,
+    "expansion_fraction_admitted": 0.123,
+    "fifteen_in_pool": [
+     "SNP00157",
+     "SNP00223",
+     "SNP00097"
+    ],
+    "eight_in_pool": [
+     "SNP00157",
+     "SNP00097"
+    ],
+    "vote_5_of_8": {
+     "n_selected": 16,
+     "selected": [
+      "SNP00157",
+      "SNP00223",
+      "SNP00097",
+      "SNP00057",
+      "SNP00076",
+      "SNP00094",
+      "SNP00132",
+      "SNP00073",
+      "SNP00013",
+      "SNP00024",
+      "SNP00022",
+      "SNP00034",
+      "SNP00037",
+      "SNP00043",
+      "SNP00039",
+      "SNP00080"
+     ],
+     "shortlist": [
+      "SNP00157",
+      "SNP00223",
+      "SNP00097",
+      "SNP00057",
+      "SNP00037",
+      "SNP00080"
+     ],
+     "fifteen_still_selected": [
+      "SNP00157",
+      "SNP00223",
+      "SNP00097"
+     ],
+     "new": [
+      "SNP00057",
+      "SNP00076",
+      "SNP00094",
+      "SNP00132",
+      "SNP00073",
+      "SNP00013",
+      "SNP00024",
+      "SNP00022",
+      "SNP00034",
+      "SNP00037",
+      "SNP00043",
+      "SNP00039",
+      "SNP00080"
+     ]
+    },
+    "vote_3_of_5": {
+     "n_selected": 16,
+     "selected": [
+      "SNP00157",
+      "SNP00223",
+      "SNP00097",
+      "SNP00057",
+      "SNP00076",
+      "SNP00094",
+      "SNP00132",
+      "SNP00073",
+      "SNP00013",
+      "SNP00024",
+      "SNP00022",
+      "SNP00034",
+      "SNP00037",
+      "SNP00043",
+      "SNP00039",
+      "SNP00080"
+     ],
+     "shortlist": [
+      "SNP00157",
+      "SNP00223",
+      "SNP00097",
+      "SNP00057",
+      "SNP00037",
+      "SNP00080"
+     ],
+     "fifteen_still_selected": [
+      "SNP00157",
+      "SNP00223",
+      "SNP00097"
+     ],
+     "new": [
+      "SNP00057",
+      "SNP00076",
+      "SNP00094",
+      "SNP00132",
+      "SNP00073",
+      "SNP00013",
+      "SNP00024",
+      "SNP00022",
+      "SNP00034",
+      "SNP00037",
+      "SNP00043",
+      "SNP00039",
+      "SNP00080"
+     ]
+    }
+   },
+   "0.35": {
+    "threshold": 0.35,
+    "pool": 2,
+    "expansion_fraction_admitted": 0.0112,
+    "fifteen_in_pool": [],
+    "eight_in_pool": [],
+    "vote_5_of_8": {
+     "n_selected": 2,
+     "selected": [
+      "SNP00043",
+      "SNP00039"
+     ],
+     "shortlist": [
+      "SNP00043"
+     ],
+     "fifteen_still_selected": [],
+     "new": [
+      "SNP00043",
+      "SNP00039"
+     ]
+    },
+    "vote_3_of_5": {
+     "n_selected": 2,
+     "selected": [
+      "SNP00043",
+      "SNP00039"
+     ],
+     "shortlist": [
+      "SNP00043"
+     ],
+     "fifteen_still_selected": [],
+     "new": [
+      "SNP00043",
+      "SNP00039"
+     ]
+    }
+   },
+   "t_star": {
+    "threshold": 0.2687,
+    "pool": 39,
+    "expansion_fraction_admitted": 0.3122,
+    "fifteen_in_pool": [
+     "SNP00157",
+     "SNP00163",
+     "SNP00223",
+     "SNP00097",
+     "SNP00144",
+     "SNP00051"
+    ],
+    "eight_in_pool": [
+     "SNP00157",
+     "SNP00163",
+     "SNP00097"
+    ],
+    "vote_5_of_8": {
+     "n_selected": 16,
+     "selected": [
+      "SNP00157",
+      "SNP00163",
+      "SNP00223",
+      "SNP00144",
+      "SNP00097",
+      "SNP00051",
+      "SNP00151",
+      "SNP00042",
+      "SNP00094",
+      "SNP00121",
+      "SNP00050",
+      "SNP00149",
+      "SNP00057",
+      "SNP00147",
+      "SNP00075",
+      "SNP00076"
+     ],
+     "shortlist": [
+      "SNP00157",
+      "SNP00163",
+      "SNP00144",
+      "SNP00151",
+      "SNP00042",
+      "SNP00149"
+     ],
+     "fifteen_still_selected": [
+      "SNP00157",
+      "SNP00163",
+      "SNP00223",
+      "SNP00097",
+      "SNP00144",
+      "SNP00051"
+     ],
+     "new": [
+      "SNP00151",
+      "SNP00042",
+      "SNP00094",
+      "SNP00121",
+      "SNP00050",
+      "SNP00149",
+      "SNP00057",
+      "SNP00147",
+      "SNP00075",
+      "SNP00076"
+     ]
+    },
+    "vote_3_of_5": {
+     "n_selected": 19,
+     "selected": [
+      "SNP00157",
+      "SNP00163",
+      "SNP00223",
+      "SNP00144",
+      "SNP00097",
+      "SNP00051",
+      "SNP00151",
+      "SNP00042",
+      "SNP00094",
+      "SNP00121",
+      "SNP00050",
+      "SNP00149",
+      "SNP00079",
+      "SNP00181",
+      "SNP00147",
+      "SNP00057",
+      "SNP00075",
+      "SNP00076",
+      "SNP00168"
+     ],
+     "shortlist": [
+      "SNP00157",
+      "SNP00163",
+      "SNP00144",
+      "SNP00151",
+      "SNP00042",
+      "SNP00149",
+      "SNP00181",
+      "SNP00168"
+     ],
+     "fifteen_still_selected": [
+      "SNP00157",
+      "SNP00163",
+      "SNP00223",
+      "SNP00097",
+      "SNP00144",
+      "SNP00051"
+     ],
+     "new": [
+      "SNP00151",
+      "SNP00042",
+      "SNP00094",
+      "SNP00121",
+      "SNP00050",
+      "SNP00149",
+      "SNP00079",
+      "SNP00181",
+      "SNP00147",
+      "SNP00057",
+      "SNP00075",
+      "SNP00076",
+      "SNP00168"
+     ]
+    }
+   }
+  },
+  "P4_anchors": true,
+  "P5_t_star_between_0.28_and_0.33": false,
+  "P6_pool_at_t_star_between_15_and_40": true,
+  "P7_at_most_7_of_fifteen_in_pool_at_t_star": true
+ },
+ "seconds": 28.9
+}

@@ -1,0 +1,33 @@
+{
+ "adr": "ADR-AIIM-399",
+ "strata": {
+  "arm_2d": {
+   "N": 13882,
+   "n": 249,
+   "hits": 19,
+   "rate": 0.0763,
+   "sampling_fraction": 0.0179
+  },
+  "arm_3d": {
+   "N": 3000,
+   "n": 250,
+   "hits": 16,
+   "rate": 0.064,
+   "sampling_fraction": 0.0833
+  }
+ },
+ "total_discarded": 16882,
+ "estimate_count": 1251.3,
+ "estimate_rate": 0.0741,
+ "se_count": 236.2,
+ "ci95_count": [
+  788,
+  1714
+ ],
+ "ci95_rate": [
+  0.0467,
+  0.1015
+ ],
+ "anchor_reproduces_1251_and_7.41pct": true,
+ "method": "stratified estimator of a total, finite-population correction, normal approximation"
+}

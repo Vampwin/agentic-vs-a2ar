@@ -1,0 +1,5 @@
+GROMACS version:     2026.3
+Precision:           mixed
+GPU support:         CUDA
+C++ compiler:        /usr/bin/c++ GNU 13.3.0
+CUDA runtime:        13.10

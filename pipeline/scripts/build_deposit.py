@@ -173,6 +173,13 @@ EXTENSION_TREE: list[tuple[str, str, str, set, set]] = [
         ("md_snplib_replicate3_2026-10-10", "third replicates of SNP00157 and SNP00163: pre-registration, analysis, post hoc pose families, RMSF, hydrogen bonds, the image-jump check and Supplementary Figure S2", set(), set()),
         ("md_candidates_2026-08-22/SNP00157", "SNP00157 build parameters and series", set(), set()),
         ("md_candidates_2026-08-22/SNP00163", "SNP00163 build parameters and series", set(), set()),
+        # Added 2026-10-11 (ADR-AIIM-401, approved by the author): the seeded benchmark through the deployed contracts, whose
+        # figures the article now states (Section 3.1; Supplementary Table S6); the six sensitivity analyses of ADR-AIIM-399;
+        # Figure 6 and Supplementary Figure S1 with the legend wording of the article; the package lists of the environments
+        ("deployed_path_benchmark_2026-09-23", "the seeded benchmark under the harness contract and under the contracts as deployed (five arms): per-case outcomes, check coverage and summary", set(), set()),
+        ("v9_sensitivity_2026-10-11", "six sensitivity analyses of 2026-10-11: pre-registration, scripts and results (vote per distinct split, applicability threshold, stratified interval, box size, check map, k and percentile of the applicability rule)", set(), set()),
+        ("figures_v9_2026-10-11", "Figure 6 and Supplementary Figure S1 redrawn with the legend wording of the article, scripts and provenance", set(), {"Figure_6_docking_snplib.svg"}),
+        ("environment_freeze_2026-10-11", "package lists of the analysis, docking and simulation environments, exported on 2026-10-11", set(), set()),
     ]
 ]
 
@@ -227,7 +234,7 @@ from deposit_screen import (  # noqa: E402
 # verbatim into one file, with the SHA-256 of the whole log at the time of copying. Which entries is decided
 # here, in the open: the extension (285-336), the matched search-space program (353-356) and the earlier
 # pre-registered verification and simulation entries that the text cites.
-PREREGISTRATION_ADRS = sorted({111, 112, 131, 150, 156, 161, 171, 193, 194} | set(range(285, 337)) | {353, 354, 355, 356} | {390, 391})   # 390, 391: the third replicates of SNP00157 and SNP00163, pre-registration and result (ADR-AIIM-396, approved by the author)
+PREREGISTRATION_ADRS = sorted({111, 112, 131, 150, 156, 161, 171, 193, 194} | set(range(285, 337)) | {353, 354, 355, 356} | {390, 391} | {236, 237, 238} | {399, 400})   # 390, 391: the third replicates of SNP00157 and SNP00163, pre-registration and result (ADR-AIIM-396, approved by the author); 236 to 238: the seeded benchmark through the deployed contracts; 399, 400: the six sensitivity analyses of 2026-10-11 (ADR-AIIM-401, approved by the author)
 PREREGISTRATION_DST = "preregistration/PRE_REGISTRATION_ENTRIES.md"
 SEALED_MENTION = re.compile(r"\bH(0[6-9]|1[0-2])\b")   # the held-out families that were never exposed
 
@@ -259,7 +266,7 @@ def write_preregistration(out: Path) -> dict:
         "are unchanged. The full log is not deposited.\n\n"
         f"- source: `00_project_control/08_DECISION_LOG.md`, SHA-256 of the whole log (line ends as LF) "
         f"`{hashlib.sha256(text.encode('utf-8')).hexdigest()}`\n"
-        f"- entries: {len(chosen)} (ADR-AIIM-{', '.join(str(n) for n in PREREGISTRATION_ADRS[:9])}, 285 to 336, 353 to 356, 390, 391)\n\n---\n\n")
+        f"- entries: {len(chosen)} (ADR-AIIM-111, 112, 131, 150, 156, 161, 171, 193, 194, 236 to 238, 285 to 336, 353 to 356, 390, 391, 399, 400)\n\n---\n\n")
     dst = out / PREREGISTRATION_DST
     dst.parent.mkdir(parents=True, exist_ok=True)
     dst.write_text(head + body + "\n", encoding="utf-8", newline="\n")

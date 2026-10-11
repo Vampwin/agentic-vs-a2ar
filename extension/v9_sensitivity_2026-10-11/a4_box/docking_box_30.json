@@ -1,0 +1,30 @@
+{
+  "center": [
+    -0.424,
+    8.527,
+    17.127
+  ],
+  "size": [
+    30,
+    30,
+    30
+  ],
+  "centers_by_receptor": {
+    "4EIY": [
+      -0.424,
+      8.527,
+      17.127
+    ]
+  },
+  "n_reference_atoms_by_receptor": {
+    "4EIY": 25
+  },
+  "pdb_used": "4EIY (primary and only docking structure)",
+  "centroid_reference": "ZMA heavy-atom centroid (co-crystal ligand)",
+  "derived_from": "crystallographic geometry only",
+  "config_center_for_comparison": [
+    14.5,
+    2.0,
+    -1.5
+  ]
+}

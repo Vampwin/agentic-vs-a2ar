@@ -1,0 +1,432 @@
+{
+ "adr": "ADR-AIIM-399",
+ "settings": {
+  "k5_p10": {
+   "ECFP4": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.5876
+   },
+   "FCFP4": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.648
+   },
+   "MACCS": {
+    "n_inside": 6,
+    "n_total": 236,
+    "threshold": 0.8485
+   },
+   "AtomPair": {
+    "n_inside": 2,
+    "n_total": 236,
+    "threshold": 0.624
+   },
+   "TopTorsion": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.6507
+   },
+   "Gobbi_Pharm2D": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.5934
+   },
+   "ErG": {
+    "n_inside": 1,
+    "n_total": 236,
+    "threshold": 0.9472
+   },
+   "PhysChem": {
+    "n_inside": 152,
+    "n_total": 236,
+    "threshold": 0.9314
+   }
+  },
+  "k3_p5": {
+   "ECFP4": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.539
+   },
+   "FCFP4": {
+    "n_inside": 1,
+    "n_total": 236,
+    "threshold": 0.594
+   },
+   "MACCS": {
+    "n_inside": 12,
+    "n_total": 236,
+    "threshold": 0.8241
+   },
+   "AtomPair": {
+    "n_inside": 2,
+    "n_total": 236,
+    "threshold": 0.5963
+   },
+   "TopTorsion": {
+    "n_inside": 1,
+    "n_total": 236,
+    "threshold": 0.611
+   },
+   "Gobbi_Pharm2D": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.5406
+   },
+   "ErG": {
+    "n_inside": 1,
+    "n_total": 236,
+    "threshold": 0.9332
+   },
+   "PhysChem": {
+    "n_inside": 182,
+    "n_total": 236,
+    "threshold": 0.9219
+   }
+  },
+  "k3_p10": {
+   "ECFP4": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.6218
+   },
+   "FCFP4": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.6882
+   },
+   "MACCS": {
+    "n_inside": 7,
+    "n_total": 236,
+    "threshold": 0.8659
+   },
+   "AtomPair": {
+    "n_inside": 2,
+    "n_total": 236,
+    "threshold": 0.6548
+   },
+   "TopTorsion": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.6869
+   },
+   "Gobbi_Pharm2D": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.6383
+   },
+   "ErG": {
+    "n_inside": 1,
+    "n_total": 236,
+    "threshold": 0.9541
+   },
+   "PhysChem": {
+    "n_inside": 145,
+    "n_total": 236,
+    "threshold": 0.9422
+   }
+  },
+  "k3_p20": {
+   "ECFP4": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.6862
+   },
+   "FCFP4": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.7571
+   },
+   "MACCS": {
+    "n_inside": 2,
+    "n_total": 236,
+    "threshold": 0.9033
+   },
+   "AtomPair": {
+    "n_inside": 1,
+    "n_total": 236,
+    "threshold": 0.7153
+   },
+   "TopTorsion": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.7485
+   },
+   "Gobbi_Pharm2D": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.7343
+   },
+   "ErG": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.9723
+   },
+   "PhysChem": {
+    "n_inside": 96,
+    "n_total": 236,
+    "threshold": 0.9627
+   }
+  },
+  "k5_p5": {
+   "ECFP4": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.5015
+   },
+   "FCFP4": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.5588
+   },
+   "MACCS": {
+    "n_inside": 12,
+    "n_total": 236,
+    "threshold": 0.805
+   },
+   "AtomPair": {
+    "n_inside": 2,
+    "n_total": 236,
+    "threshold": 0.5711
+   },
+   "TopTorsion": {
+    "n_inside": 1,
+    "n_total": 236,
+    "threshold": 0.5723
+   },
+   "Gobbi_Pharm2D": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.4979
+   },
+   "ErG": {
+    "n_inside": 2,
+    "n_total": 236,
+    "threshold": 0.9239
+   },
+   "PhysChem": {
+    "n_inside": 184,
+    "n_total": 236,
+    "threshold": 0.9101
+   }
+  },
+  "k5_p20": {
+   "ECFP4": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.6529
+   },
+   "FCFP4": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.7247
+   },
+   "MACCS": {
+    "n_inside": 1,
+    "n_total": 236,
+    "threshold": 0.8865
+   },
+   "AtomPair": {
+    "n_inside": 1,
+    "n_total": 236,
+    "threshold": 0.6856
+   },
+   "TopTorsion": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.7167
+   },
+   "Gobbi_Pharm2D": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.6895
+   },
+   "ErG": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.9661
+   },
+   "PhysChem": {
+    "n_inside": 119,
+    "n_total": 236,
+    "threshold": 0.9539
+   }
+  },
+  "k10_p5": {
+   "ECFP4": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.4424
+   },
+   "FCFP4": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.4993
+   },
+   "MACCS": {
+    "n_inside": 9,
+    "n_total": 236,
+    "threshold": 0.7789
+   },
+   "AtomPair": {
+    "n_inside": 3,
+    "n_total": 236,
+    "threshold": 0.5324
+   },
+   "TopTorsion": {
+    "n_inside": 1,
+    "n_total": 236,
+    "threshold": 0.5175
+   },
+   "Gobbi_Pharm2D": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.4412
+   },
+   "ErG": {
+    "n_inside": 7,
+    "n_total": 236,
+    "threshold": 0.9086
+   },
+   "PhysChem": {
+    "n_inside": 189,
+    "n_total": 236,
+    "threshold": 0.8892
+   }
+  },
+  "k10_p10": {
+   "ECFP4": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.5249
+   },
+   "FCFP4": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.5909
+   },
+   "MACCS": {
+    "n_inside": 7,
+    "n_total": 236,
+    "threshold": 0.8182
+   },
+   "AtomPair": {
+    "n_inside": 2,
+    "n_total": 236,
+    "threshold": 0.583
+   },
+   "TopTorsion": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.5915
+   },
+   "Gobbi_Pharm2D": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.5282
+   },
+   "ErG": {
+    "n_inside": 1,
+    "n_total": 236,
+    "threshold": 0.9327
+   },
+   "PhysChem": {
+    "n_inside": 165,
+    "n_total": 236,
+    "threshold": 0.9115
+   }
+  },
+  "k10_p20": {
+   "ECFP4": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.5921
+   },
+   "FCFP4": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.6673
+   },
+   "MACCS": {
+    "n_inside": 1,
+    "n_total": 236,
+    "threshold": 0.8565
+   },
+   "AtomPair": {
+    "n_inside": 1,
+    "n_total": 236,
+    "threshold": 0.6359
+   },
+   "TopTorsion": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.6636
+   },
+   "Gobbi_Pharm2D": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.6178
+   },
+   "ErG": {
+    "n_inside": 0,
+    "n_total": 236,
+    "threshold": 0.9557
+   },
+   "PhysChem": {
+    "n_inside": 134,
+    "n_total": 236,
+    "threshold": 0.9373
+   }
+  }
+ },
+ "completed": [
+  [
+   5,
+   10
+  ],
+  [
+   3,
+   5
+  ],
+  [
+   3,
+   10
+  ],
+  [
+   3,
+   20
+  ],
+  [
+   5,
+   5
+  ],
+  [
+   5,
+   20
+  ],
+  [
+   10,
+   5
+  ],
+  [
+   10,
+   10
+  ],
+  [
+   10,
+   20
+  ]
+ ],
+ "not_run": [],
+ "anchor_reproduces_stored": true,
+ "seconds": 1749.4,
+ "P13_anchor": true,
+ "P14_four_spaces_at_most_5_everywhere": true,
+ "P15_physchem_between_50_and_80pct_everywhere": false,
+ "max_inside_four_spaces": 1,
+ "physchem_range": [
+  96,
+  189
+ ]
+}

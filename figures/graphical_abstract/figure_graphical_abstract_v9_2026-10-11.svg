@@ -1,0 +1,102 @@
+<svg viewBox="0 0 590 236" width="208.1mm" height="83.3mm" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Helvetica, Arial, sans-serif">
+  <title>Auditing agent-generated biomedical code with executable contracts</title>
+  <desc>Left, the frozen screening run, an agent-written A2A receptor virtual screen drawn as a funnel: 25,604 compounds, 21,882 after filters, 8,000 after a 2D pharmacophore screen, 5,000 after 3D refinement, 500 selected for full docking, 497 completed, 482 on pocket, 3 released by the original rule. Right, three layers of evaluation of that workflow. Contract coverage: of 128 seeded faults in 11 of 18 fault families, 124 were detected under the benchmark's harness contract and 101 under the contracts as deployed; a snapshot comparator detected all 128. Beyond the written contracts: 1 of 5 held-out faults was detected and equivalent SMILES changed 25 of 25 docking scores. Decision stability, a re-analysis of the ligand-based step: 72 of 5,000 compounds were eligible in the released run against 6 to 4,119 over 200 orders of the training rows.</desc>
+  <rect x="0" y="0" width="590" height="236" fill="#FFFFFF"/>
+  <defs><marker id="a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0.5 L8,4 L0,7.5 z" fill="#6E7C74"/></marker></defs>
+  <text x="295" y="14.5" font-size="11.5" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">Auditing agent-generated biomedical code with executable contracts</text>
+  <rect x="6" y="23" width="216" height="183" rx="3" fill="#FFFFFF" stroke="#2C5F8A" stroke-width="0.9"/>
+  <rect x="6" y="23" width="216" height="14.5" rx="3" fill="#E3EBF3" stroke="#2C5F8A" stroke-width="0.9"/>
+  <text x="14" y="32.9" font-size="8.2" fill="#2C5F8A" font-weight="bold" font-style="normal" text-anchor="start">1 Frozen run: an agent-written A<tspan baseline-shift="sub" font-size="6.15">2A</tspan> receptor screen</text>
+  <rect x="12" y="42" width="196" height="15.2" rx="2.5" fill="#EEF2EE" stroke="#9AA79F" stroke-width="0.6"/>
+  <text x="54" y="52.8" font-size="8.8" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="end">25,604</text>
+  <text x="59" y="52.6" font-size="7.8" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="start">biosynthetic-superclass matches</text>
+  <line x1="34" y1="57.6" x2="34" y2="61.2" stroke="#6E7C74" stroke-width="0.6" marker-end="url(#a)"/>
+  <rect x="12" y="61.6" width="196" height="15.2" rx="2.5" fill="#EEF2EE" stroke="#9AA79F" stroke-width="0.6"/>
+  <text x="54" y="72.4" font-size="8.8" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="end">21,882</text>
+  <text x="59" y="72.2" font-size="7.8" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="start">after standardisation and filters</text>
+  <line x1="34" y1="77.2" x2="34" y2="80.8" stroke="#6E7C74" stroke-width="0.6" marker-end="url(#a)"/>
+  <rect x="12" y="81.2" width="196" height="15.2" rx="2.5" fill="#EEF2EE" stroke="#9AA79F" stroke-width="0.6"/>
+  <text x="54" y="92" font-size="8.8" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="end">8,000</text>
+  <text x="59" y="91.8" font-size="7.8" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="start">2D pharmacophore screen</text>
+  <line x1="34" y1="96.8" x2="34" y2="100.4" stroke="#6E7C74" stroke-width="0.6" marker-end="url(#a)"/>
+  <rect x="12" y="100.8" width="196" height="15.2" rx="2.5" fill="#EEF2EE" stroke="#9AA79F" stroke-width="0.6"/>
+  <text x="54" y="111.6" font-size="8.8" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="end">5,000</text>
+  <text x="59" y="111.4" font-size="7.8" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="start">3D refinement</text>
+  <line x1="34" y1="116.4" x2="34" y2="120" stroke="#6E7C74" stroke-width="0.6" marker-end="url(#a)"/>
+  <rect x="12" y="120.4" width="196" height="15.2" rx="2.5" fill="#EEF2EE" stroke="#9AA79F" stroke-width="0.6"/>
+  <text x="54" y="131.2" font-size="8.8" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="end">500</text>
+  <text x="59" y="131" font-size="7.8" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="start">best reduced-docking scores</text>
+  <line x1="34" y1="136" x2="34" y2="139.6" stroke="#6E7C74" stroke-width="0.6" marker-end="url(#a)"/>
+  <rect x="12" y="140" width="196" height="15.2" rx="2.5" fill="#EEF2EE" stroke="#9AA79F" stroke-width="0.6"/>
+  <text x="54" y="150.8" font-size="8.8" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="end">497</text>
+  <text x="59" y="150.6" font-size="7.8" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="start">completed full-protocol docking</text>
+  <line x1="34" y1="155.6" x2="34" y2="159.2" stroke="#6E7C74" stroke-width="0.6" marker-end="url(#a)"/>
+  <rect x="12" y="159.6" width="196" height="15.2" rx="2.5" fill="#EEF2EE" stroke="#9AA79F" stroke-width="0.6"/>
+  <text x="54" y="170.4" font-size="8.8" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="end">482</text>
+  <text x="59" y="170.2" font-size="7.8" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="start">with an on-pocket pose</text>
+  <line x1="34" y1="175.2" x2="34" y2="178.8" stroke="#6E7C74" stroke-width="0.6" marker-end="url(#a)"/>
+  <rect x="12" y="179.2" width="196" height="15.2" rx="2.5" fill="#E3EBF3" stroke="#2C5F8A" stroke-width="0.9"/>
+  <text x="54" y="190" font-size="9.8" fill="#2C5F8A" font-weight="bold" font-style="normal" text-anchor="end">3</text>
+  <text x="59" y="189.8" font-size="7.8" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="start">released by the original rule</text>
+  <text x="114" y="201.8" font-size="7.6" fill="#55625B" font-weight="normal" font-style="italic" text-anchor="middle">the released decision; any follow-up needs experiment</text>
+  <rect x="236" y="23" width="348" height="56.6667" rx="3" fill="#FFFFFF" stroke="#4F7130" stroke-width="0.9"/>
+  <rect x="236" y="23" width="348" height="14.5" rx="3" fill="#E7EEDC" stroke="#4F7130" stroke-width="0.9"/>
+  <text x="244" y="32.9" font-size="8.2" fill="#4F7130" font-weight="bold" font-style="normal" text-anchor="start">2 Contract coverage: 128 seeded faults, 11 of 18 fault families</text>
+  <path d="M247.5,49.0833 L259.5,49.0833 L264.5,54.0833 L264.5,68.0833 L247.5,68.0833 Z" fill="#FFFFFF" stroke="#4F7130" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M259.5,49.0833 L259.5,54.0833 L264.5,54.0833" fill="none" stroke="#4F7130" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M250.3,55.5833 l0.806,0.93 l1.55,-1.922" fill="none" stroke="#4F7130" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M255.1,55.9833 L261.5,55.9833" fill="none" stroke="#9AA79F" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M250.3,58.8333 l0.806,0.93 l1.55,-1.922" fill="none" stroke="#4F7130" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M255.1,59.2333 L261.5,59.2333" fill="none" stroke="#9AA79F" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M250.3,62.0833 l0.806,0.93 l1.55,-1.922" fill="none" stroke="#4F7130" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M255.1,62.4833 L261.5,62.4833" fill="none" stroke="#9AA79F" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M250.3,65.3333 l0.806,0.93 l1.55,-1.922" fill="none" stroke="#4F7130" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M255.1,65.7333 L261.5,65.7333" fill="none" stroke="#9AA79F" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="352" y="53.0833" font-size="15" fill="#4F7130" font-weight="bold" font-style="normal" text-anchor="middle">124 / 128</text>
+  <text x="352" y="63.7833" font-size="7.8" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">detected, harness contract</text>
+  <text x="504" y="53.0833" font-size="15" fill="#4F7130" font-weight="bold" font-style="normal" text-anchor="middle">101 / 128</text>
+  <text x="504" y="63.7833" font-size="7.8" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">detected, contracts as deployed</text>
+  <text x="428" y="74.1833" font-size="7.6" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">snapshot comparator: 128 / 128</text>
+  <line x1="235.5" y1="51.3333" x2="223.2" y2="51.3333" stroke="#4F7130" stroke-width="0.9" marker-end="url(#a)"/>
+  <rect x="236" y="86.1667" width="348" height="56.6667" rx="3" fill="#FFFFFF" stroke="#A85C18" stroke-width="0.9"/>
+  <rect x="236" y="86.1667" width="348" height="14.5" rx="3" fill="#F7E9D8" stroke="#A85C18" stroke-width="0.9"/>
+  <text x="244" y="96.0667" font-size="8.2" fill="#A85C18" font-weight="bold" font-style="normal" text-anchor="start">3 Beyond the written contracts</text>
+  <path d="M252.2,119.55 L248.2,117.15" fill="none" stroke="#A85C18" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M252.2,122.55 L248.2,122.55" fill="none" stroke="#A85C18" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M252.2,125.55 L248.2,127.95" fill="none" stroke="#A85C18" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M254.8,114.15 L252.6,110.75" fill="none" stroke="#A85C18" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M259.8,119.55 L263.8,117.15" fill="none" stroke="#A85C18" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M259.8,122.55 L263.8,122.55" fill="none" stroke="#A85C18" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M259.8,125.55 L263.8,127.95" fill="none" stroke="#A85C18" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M257.2,114.15 L259.4,110.75" fill="none" stroke="#A85C18" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <ellipse cx="256" cy="122.55" rx="4.4" ry="5.8" fill="#F7E9D8" stroke="#A85C18" stroke-width="0.9"/>
+  <circle cx="256" cy="115.55" r="2.5" fill="#F7E9D8" stroke="#A85C18" stroke-width="0.9"/>
+  <path d="M256,118.15 L256,128.15" fill="none" stroke="#A85C18" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="352" y="116.25" font-size="15" fill="#A85C18" font-weight="bold" font-style="normal" text-anchor="middle">1 / 5</text>
+  <text x="352" y="126.95" font-size="7.8" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">held-out faults detected</text>
+  <text x="504" y="116.25" font-size="15" fill="#A85C18" font-weight="bold" font-style="normal" text-anchor="middle">25 / 25</text>
+  <text x="504" y="126.95" font-size="7.8" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">scores changed by equivalent SMILES</text>
+  <text x="428" y="137.35" font-size="7.6" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">no contract encoded this relation</text>
+  <line x1="235.5" y1="114.5" x2="223.2" y2="114.5" stroke="#A85C18" stroke-width="0.9" marker-end="url(#a)"/>
+  <rect x="236" y="149.333" width="348" height="56.6667" rx="3" fill="#FFFFFF" stroke="#6B4E8C" stroke-width="0.9"/>
+  <rect x="236" y="149.333" width="348" height="14.5" rx="3" fill="#EFE8F5" stroke="#6B4E8C" stroke-width="0.9"/>
+  <text x="244" y="159.233" font-size="8.2" fill="#6B4E8C" font-weight="bold" font-style="normal" text-anchor="start">4 Decision stability: re-analysis of the ligand-based step</text>
+  <path d="M250.8,177.417 L261.2,192.417" fill="none" stroke="#6B4E8C" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M250.8,184.917 L261.2,177.417" fill="none" stroke="#6B4E8C" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M250.8,192.417 L261.2,184.917" fill="none" stroke="#6B4E8C" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="244" y="175.717" width="6.8" height="3.4" rx="1.2" fill="#EFE8F5" stroke="#6B4E8C" stroke-width="0.7"/>
+  <rect x="261.2" y="175.717" width="6.8" height="3.4" rx="1.2" fill="#EFE8F5" stroke="#6B4E8C" stroke-width="0.7"/>
+  <rect x="244" y="183.217" width="6.8" height="3.4" rx="1.2" fill="#EFE8F5" stroke="#6B4E8C" stroke-width="0.7"/>
+  <rect x="261.2" y="183.217" width="6.8" height="3.4" rx="1.2" fill="#EFE8F5" stroke="#6B4E8C" stroke-width="0.7"/>
+  <rect x="244" y="190.717" width="6.8" height="3.4" rx="1.2" fill="#EFE8F5" stroke="#6B4E8C" stroke-width="0.7"/>
+  <rect x="261.2" y="190.717" width="6.8" height="3.4" rx="1.2" fill="#EFE8F5" stroke="#6B4E8C" stroke-width="0.7"/>
+  <text x="352" y="179.417" font-size="15" fill="#6B4E8C" font-weight="bold" font-style="normal" text-anchor="middle">72</text>
+  <text x="352" y="190.117" font-size="7.8" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">of 5,000 eligible, released run</text>
+  <text x="504" y="179.417" font-size="15" fill="#6B4E8C" font-weight="bold" font-style="normal" text-anchor="middle">6 to 4,119</text>
+  <text x="504" y="190.117" font-size="7.8" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">of 5,000 over 200 row orders</text>
+  <text x="428" y="200.517" font-size="7.6" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">median 1,004; same molecules and model</text>
+  <path d="M213,101.8 L216,101.8 L216,193.4 L213,193.4" fill="none" stroke="#6B4E8C" stroke-width="1.1" stroke-linecap="butt" stroke-linejoin="miter"/>
+  <line x1="235.5" y1="177.667" x2="217" y2="177.667" stroke="#6B4E8C" stroke-width="0.9" marker-end="url(#a)"/>
+  <rect x="6" y="213" width="578" height="18.5" rx="3" fill="#EEF2EE" stroke="#9AA79F" stroke-width="0.7"/>
+  <text x="295" y="225.2" font-size="8.6" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">Contract coverage, decision stability and biomedical validation must be evaluated separately.</text>
+</svg>

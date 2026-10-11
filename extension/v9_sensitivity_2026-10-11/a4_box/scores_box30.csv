@@ -1,0 +1,5 @@
+compound_id,status,failure_reason,vina_score,vina_mean_top3,n_conformers_generated,n_poses_pooled,best_conformer_index,centroid_dist_A,on_pocket,mol_formula,n_heavy_atoms,n_rotatable_bonds,elapsed_s
+NPLIB01997,ok,,-10.832,-10.671,7,70,0,7.38,True,C33H22O10,43,7,749.6
+NPLIB03133,ok,,-9.217,-9.165,4,39,1,13.29,False,C31H20O10,41,5,228.5
+NPLIB04561,ok,,-9.151,-9.076,8,80,0,6.75,True,C27H30O14,41,7,809.7
+NPLIB03343,ok,,-10.046,-9.961,8,80,1,10.15,False,C28H24O14,42,5,727.9

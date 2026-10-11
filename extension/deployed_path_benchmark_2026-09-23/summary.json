@@ -1,0 +1,84 @@
+{
+  "generated_utc": "2026-09-22T17:30:09+00:00",
+  "adr": "ADR-AIIM-236",
+  "by_arm": {
+    "A": {
+      "arm_name": "DIRECT",
+      "n_fault_nonvacuous": 128,
+      "n_clean": 55,
+      "detected": 124,
+      "strict": 124,
+      "false_escalation": 0,
+      "contained": 0,
+      "clean_contained": 0,
+      "errors": 0
+    },
+    "B": {
+      "arm_name": "DIRECT-YAML",
+      "n_fault_nonvacuous": 128,
+      "n_clean": 55,
+      "detected": 101,
+      "strict": 101,
+      "false_escalation": 35,
+      "contained": 0,
+      "clean_contained": 0,
+      "errors": 0
+    },
+    "C": {
+      "arm_name": "DEPLOYED-v1",
+      "n_fault_nonvacuous": 128,
+      "n_clean": 55,
+      "detected": 101,
+      "strict": 101,
+      "false_escalation": 35,
+      "contained": 101,
+      "clean_contained": 35,
+      "errors": 0
+    },
+    "D": {
+      "arm_name": "DEPLOYED-v2",
+      "n_fault_nonvacuous": 128,
+      "n_clean": 55,
+      "detected": 101,
+      "strict": 101,
+      "false_escalation": 35,
+      "contained": 101,
+      "clean_contained": 35,
+      "errors": 0
+    },
+    "E": {
+      "arm_name": "DEPLOYED-v3",
+      "n_fault_nonvacuous": 128,
+      "n_clean": 55,
+      "detected": 128,
+      "strict": 128,
+      "false_escalation": 35,
+      "contained": 128,
+      "clean_contained": 35,
+      "errors": 0
+    }
+  },
+  "honesty_gate": {
+    "expected": {
+      "n_fault_nonvacuous": 128,
+      "detected": 124,
+      "strict": 124,
+      "n_clean": 55,
+      "false_escalation": 0
+    },
+    "observed": {
+      "n_fault_nonvacuous": 128,
+      "detected": 124,
+      "strict": 124,
+      "n_clean": 55,
+      "false_escalation": 0
+    },
+    "pass": true
+  },
+  "P1_deployed_contains_at_least_direct": false,
+  "P3_lock_adds_containment": false,
+  "P2_repair_changes_nothing": true,
+  "P5_v3_recovers_every_case": true,
+  "P6_false_escalation_unchanged": true,
+  "P4_frozen_contract_raises_clean_false_escalation": true
+}

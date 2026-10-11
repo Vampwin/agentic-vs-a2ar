@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "ad_descriptor_sweep.py",
+    "--out",
+    "D:\\Agentic VS Workflow\\20_new_runs\\v9_sensitivity_2026-10-11\\a6_ad\\k3_p5"
+  ],
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "rdkit": "2026.03.3",
+  "numpy": "2.4.6",
+  "pandas": "3.0.3",
+  "thread_env": {
+    "OMP_NUM_THREADS": null,
+    "OPENBLAS_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "NUMEXPR_NUM_THREADS": null
+  },
+  "note": "Recorded because the 2026-08-21 run recorded neither tooling versions nor the command line, and two RDKit installations differ across this project."
+}

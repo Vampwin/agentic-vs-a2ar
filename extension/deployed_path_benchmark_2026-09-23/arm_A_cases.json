@@ -1,0 +1,4663 @@
+{
+  "arm": "A",
+  "name": "DIRECT",
+  "contract": "harness",
+  "path": "direct",
+  "tree": "D:\\Agentic VS Workflow\\10_new_system",
+  "generated_utc": "2026-09-22T17:29:10+00:00",
+  "n_cases": 188,
+  "cases": [
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F01",
+      "instance_id": "F01_001",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "hash_snp_library_csv",
+        "id_uniqueness",
+        "compound_count"
+      ],
+      "checks_passed": [
+        "smiles_column_present"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F01",
+      "instance_id": "F01_002",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "hash_snp_library_csv",
+        "id_uniqueness",
+        "compound_count"
+      ],
+      "checks_passed": [
+        "smiles_column_present"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F01",
+      "instance_id": "F01_003",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "hash_snp_library_csv",
+        "id_uniqueness",
+        "compound_count"
+      ],
+      "checks_passed": [
+        "smiles_column_present"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F01",
+      "instance_id": "F01_004",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "hash_snp_library_csv",
+        "id_uniqueness",
+        "compound_count"
+      ],
+      "checks_passed": [
+        "smiles_column_present"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F01",
+      "instance_id": "F01_005",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "hash_snp_library_csv",
+        "id_uniqueness",
+        "compound_count"
+      ],
+      "checks_passed": [
+        "smiles_column_present"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F01",
+      "instance_id": "F01_006",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "hash_snp_library_csv",
+        "id_uniqueness",
+        "compound_count"
+      ],
+      "checks_passed": [
+        "smiles_column_present"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F01",
+      "instance_id": "F01_007",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "hash_snp_library_csv",
+        "id_uniqueness",
+        "compound_count"
+      ],
+      "checks_passed": [
+        "smiles_column_present"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F01",
+      "instance_id": "F01_008",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "hash_snp_library_csv",
+        "id_uniqueness",
+        "compound_count"
+      ],
+      "checks_passed": [
+        "smiles_column_present"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F01",
+      "instance_id": "F01_009",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "hash_snp_library_csv",
+        "id_uniqueness",
+        "compound_count"
+      ],
+      "checks_passed": [
+        "smiles_column_present"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F01",
+      "instance_id": "F01_010",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "hash_snp_library_csv",
+        "id_uniqueness",
+        "compound_count"
+      ],
+      "checks_passed": [
+        "smiles_column_present"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F01",
+      "instance_id": "F01_clean_000",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "hash_snp_library_csv",
+        "id_uniqueness",
+        "smiles_column_present",
+        "compound_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F01",
+      "instance_id": "F01_clean_001",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "hash_snp_library_csv",
+        "id_uniqueness",
+        "smiles_column_present",
+        "compound_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F01",
+      "instance_id": "F01_clean_002",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "hash_snp_library_csv",
+        "id_uniqueness",
+        "smiles_column_present",
+        "compound_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F01",
+      "instance_id": "F01_clean_003",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "hash_snp_library_csv",
+        "id_uniqueness",
+        "smiles_column_present",
+        "compound_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F01",
+      "instance_id": "F01_clean_004",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "hash_snp_library_csv",
+        "id_uniqueness",
+        "smiles_column_present",
+        "compound_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F02",
+      "instance_id": "F02_001",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "hash_snp_library_csv",
+        "id_uniqueness",
+        "smiles_column_present"
+      ],
+      "checks_passed": [],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F02",
+      "instance_id": "F02_002",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "hash_snp_library_csv"
+      ],
+      "checks_passed": [
+        "id_uniqueness",
+        "smiles_column_present",
+        "compound_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F02",
+      "instance_id": "F02_003",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "hash_snp_library_csv",
+        "id_uniqueness",
+        "smiles_column_present"
+      ],
+      "checks_passed": [],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F02",
+      "instance_id": "F02_004",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "hash_snp_library_csv"
+      ],
+      "checks_passed": [
+        "id_uniqueness",
+        "smiles_column_present",
+        "compound_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F02",
+      "instance_id": "F02_005",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "hash_snp_library_csv"
+      ],
+      "checks_passed": [
+        "id_uniqueness",
+        "smiles_column_present",
+        "compound_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F02",
+      "instance_id": "F02_006",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "hash_snp_library_csv",
+        "id_uniqueness",
+        "smiles_column_present"
+      ],
+      "checks_passed": [],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F02",
+      "instance_id": "F02_007",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "hash_snp_library_csv",
+        "smiles_column_present"
+      ],
+      "checks_passed": [
+        "id_uniqueness",
+        "compound_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F02",
+      "instance_id": "F02_008",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "hash_snp_library_csv",
+        "smiles_column_present"
+      ],
+      "checks_passed": [
+        "id_uniqueness",
+        "compound_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F02",
+      "instance_id": "F02_009",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "hash_snp_library_csv",
+        "id_uniqueness",
+        "smiles_column_present"
+      ],
+      "checks_passed": [],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F02",
+      "instance_id": "F02_010",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "hash_snp_library_csv"
+      ],
+      "checks_passed": [
+        "id_uniqueness",
+        "smiles_column_present",
+        "compound_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F02",
+      "instance_id": "F02_011",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "hash_snp_library_csv"
+      ],
+      "checks_passed": [
+        "id_uniqueness",
+        "smiles_column_present",
+        "compound_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F02",
+      "instance_id": "F02_012",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "hash_snp_library_csv",
+        "id_uniqueness",
+        "smiles_column_present"
+      ],
+      "checks_passed": [],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F02",
+      "instance_id": "F02_013",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "hash_snp_library_csv",
+        "id_uniqueness"
+      ],
+      "checks_passed": [
+        "smiles_column_present",
+        "compound_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F02",
+      "instance_id": "F02_014",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "hash_snp_library_csv"
+      ],
+      "checks_passed": [
+        "id_uniqueness",
+        "smiles_column_present",
+        "compound_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F02",
+      "instance_id": "F02_015",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "hash_snp_library_csv",
+        "id_uniqueness",
+        "smiles_column_present"
+      ],
+      "checks_passed": [],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F02",
+      "instance_id": "F02_clean_000",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "hash_snp_library_csv",
+        "id_uniqueness",
+        "smiles_column_present",
+        "compound_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F02",
+      "instance_id": "F02_clean_001",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "hash_snp_library_csv",
+        "id_uniqueness",
+        "smiles_column_present",
+        "compound_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F02",
+      "instance_id": "F02_clean_002",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "hash_snp_library_csv",
+        "id_uniqueness",
+        "smiles_column_present",
+        "compound_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F02",
+      "instance_id": "F02_clean_003",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "hash_snp_library_csv",
+        "id_uniqueness",
+        "smiles_column_present",
+        "compound_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F02",
+      "instance_id": "F02_clean_004",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "hash_snp_library_csv",
+        "id_uniqueness",
+        "smiles_column_present",
+        "compound_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F03",
+      "instance_id": "F03_001",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "stereochemistry_preserved"
+      ],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F03",
+      "instance_id": "F03_002",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "stereochemistry_preserved"
+      ],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F03",
+      "instance_id": "F03_003",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "stereochemistry_preserved"
+      ],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F03",
+      "instance_id": "F03_004",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "stereochemistry_preserved"
+      ],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F03",
+      "instance_id": "F03_005",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "stereochemistry_preserved"
+      ],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F03",
+      "instance_id": "F03_006",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "stereochemistry_preserved"
+      ],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F03",
+      "instance_id": "F03_007",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "stereochemistry_preserved"
+      ],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F03",
+      "instance_id": "F03_008",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "stereochemistry_preserved"
+      ],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F03",
+      "instance_id": "F03_009",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "stereochemistry_preserved"
+      ],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F03",
+      "instance_id": "F03_010",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "stereochemistry_preserved"
+      ],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F03",
+      "instance_id": "F03_011",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "stereochemistry_preserved"
+      ],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F03",
+      "instance_id": "F03_012",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "stereochemistry_preserved"
+      ],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F03",
+      "instance_id": "F03_clean_000",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F03",
+      "instance_id": "F03_clean_001",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F03",
+      "instance_id": "F03_clean_002",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F03",
+      "instance_id": "F03_clean_003",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F03",
+      "instance_id": "F03_clean_004",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F04",
+      "instance_id": "F04_001",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "salt_stripping_verified"
+      ],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F04",
+      "instance_id": "F04_002",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "salt_stripping_verified"
+      ],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F04",
+      "instance_id": "F04_003",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "salt_stripping_verified"
+      ],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F04",
+      "instance_id": "F04_004",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "salt_stripping_verified"
+      ],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F04",
+      "instance_id": "F04_005",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "salt_stripping_verified"
+      ],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F04",
+      "instance_id": "F04_006",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "salt_stripping_verified"
+      ],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F04",
+      "instance_id": "F04_007",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "salt_stripping_verified"
+      ],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F04",
+      "instance_id": "F04_008",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "salt_stripping_verified"
+      ],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F04",
+      "instance_id": "F04_009",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "salt_stripping_verified"
+      ],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F04",
+      "instance_id": "F04_010",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "salt_stripping_verified"
+      ],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F04",
+      "instance_id": "F04_011",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "salt_stripping_verified"
+      ],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F04",
+      "instance_id": "F04_012",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "salt_stripping_verified"
+      ],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F04",
+      "instance_id": "F04_clean_000",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F04",
+      "instance_id": "F04_clean_001",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F04",
+      "instance_id": "F04_clean_002",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F04",
+      "instance_id": "F04_clean_003",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F04",
+      "instance_id": "F04_clean_004",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F05",
+      "instance_id": "F05_001",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "smiles_roundtrip"
+      ],
+      "checks_passed": [
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F05",
+      "instance_id": "F05_002",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "smiles_roundtrip"
+      ],
+      "checks_passed": [
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F05",
+      "instance_id": "F05_003",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "smiles_roundtrip"
+      ],
+      "checks_passed": [
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F05",
+      "instance_id": "F05_004",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "smiles_roundtrip"
+      ],
+      "checks_passed": [
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F05",
+      "instance_id": "F05_005",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "smiles_roundtrip"
+      ],
+      "checks_passed": [
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F05",
+      "instance_id": "F05_006",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "smiles_roundtrip"
+      ],
+      "checks_passed": [
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F05",
+      "instance_id": "F05_007",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "smiles_roundtrip"
+      ],
+      "checks_passed": [
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F05",
+      "instance_id": "F05_008",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "smiles_roundtrip"
+      ],
+      "checks_passed": [
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F05",
+      "instance_id": "F05_009",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "smiles_roundtrip"
+      ],
+      "checks_passed": [
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F05",
+      "instance_id": "F05_010",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "smiles_roundtrip"
+      ],
+      "checks_passed": [
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F05",
+      "instance_id": "F05_clean_000",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F05",
+      "instance_id": "F05_clean_001",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F05",
+      "instance_id": "F05_clean_002",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F05",
+      "instance_id": "F05_clean_003",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F05",
+      "instance_id": "F05_clean_004",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "smiles_roundtrip",
+        "no_drug_likeness_exclusions",
+        "stereochemistry_preserved",
+        "salt_stripping_verified",
+        "ledger_count"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F09",
+      "instance_id": "F09_001",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "score_direction"
+      ],
+      "checks_passed": [
+        "no_assay_columns_in_output",
+        "score_distribution_sanity",
+        "mw_bias_check"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F09",
+      "instance_id": "F09_002",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "score_direction"
+      ],
+      "checks_passed": [
+        "no_assay_columns_in_output",
+        "score_distribution_sanity",
+        "mw_bias_check"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F09",
+      "instance_id": "F09_003",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "score_direction"
+      ],
+      "checks_passed": [
+        "no_assay_columns_in_output",
+        "score_distribution_sanity",
+        "mw_bias_check"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F09",
+      "instance_id": "F09_004",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "score_direction"
+      ],
+      "checks_passed": [
+        "no_assay_columns_in_output",
+        "score_distribution_sanity",
+        "mw_bias_check"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F09",
+      "instance_id": "F09_005",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "score_direction"
+      ],
+      "checks_passed": [
+        "no_assay_columns_in_output",
+        "score_distribution_sanity",
+        "mw_bias_check"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F09",
+      "instance_id": "F09_006",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "score_direction"
+      ],
+      "checks_passed": [
+        "no_assay_columns_in_output",
+        "score_distribution_sanity",
+        "mw_bias_check"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F09",
+      "instance_id": "F09_007",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "score_direction"
+      ],
+      "checks_passed": [
+        "no_assay_columns_in_output",
+        "mw_bias_check"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F09",
+      "instance_id": "F09_008",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "score_direction"
+      ],
+      "checks_passed": [
+        "no_assay_columns_in_output",
+        "mw_bias_check"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F09",
+      "instance_id": "F09_009",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "score_direction"
+      ],
+      "checks_passed": [
+        "no_assay_columns_in_output",
+        "mw_bias_check"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F09",
+      "instance_id": "F09_010",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "score_direction"
+      ],
+      "checks_passed": [
+        "no_assay_columns_in_output",
+        "mw_bias_check"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F09",
+      "instance_id": "F09_011",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "score_direction"
+      ],
+      "checks_passed": [
+        "no_assay_columns_in_output",
+        "mw_bias_check"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F09",
+      "instance_id": "F09_012",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "score_direction"
+      ],
+      "checks_passed": [
+        "no_assay_columns_in_output",
+        "mw_bias_check"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F09",
+      "instance_id": "F09_013",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "score_direction"
+      ],
+      "checks_passed": [
+        "no_assay_columns_in_output",
+        "mw_bias_check"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F09",
+      "instance_id": "F09_014",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "score_direction"
+      ],
+      "checks_passed": [
+        "no_assay_columns_in_output",
+        "mw_bias_check"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F09",
+      "instance_id": "F09_015",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "score_direction"
+      ],
+      "checks_passed": [
+        "no_assay_columns_in_output",
+        "mw_bias_check"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F09",
+      "instance_id": "F09_clean_000",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "score_direction",
+        "no_assay_columns_in_output",
+        "score_distribution_sanity",
+        "mw_bias_check"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F09",
+      "instance_id": "F09_clean_001",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "score_direction",
+        "no_assay_columns_in_output",
+        "score_distribution_sanity",
+        "mw_bias_check"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F09",
+      "instance_id": "F09_clean_002",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "score_direction",
+        "no_assay_columns_in_output",
+        "score_distribution_sanity",
+        "mw_bias_check"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F09",
+      "instance_id": "F09_clean_003",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "score_direction",
+        "no_assay_columns_in_output",
+        "score_distribution_sanity",
+        "mw_bias_check"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F09",
+      "instance_id": "F09_clean_004",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "score_direction",
+        "no_assay_columns_in_output",
+        "score_distribution_sanity",
+        "mw_bias_check"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F10",
+      "instance_id": "F10_001",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": true,
+      "escaped_detected": true,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "score_direction",
+        "no_assay_columns_in_output",
+        "score_distribution_sanity",
+        "mw_bias_check"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F10",
+      "instance_id": "F10_002",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": true,
+      "escaped_detected": true,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "score_direction",
+        "no_assay_columns_in_output",
+        "score_distribution_sanity",
+        "mw_bias_check"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F10",
+      "instance_id": "F10_003",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": true,
+      "escaped_detected": true,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "score_direction",
+        "no_assay_columns_in_output"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F10",
+      "instance_id": "F10_004",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": true,
+      "escaped_detected": true,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "score_direction",
+        "no_assay_columns_in_output"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F10",
+      "instance_id": "F10_005",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "mw_bias_check"
+      ],
+      "checks_passed": [
+        "score_direction",
+        "no_assay_columns_in_output"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F10",
+      "instance_id": "F10_006",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "mw_bias_check"
+      ],
+      "checks_passed": [
+        "score_direction",
+        "no_assay_columns_in_output"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F10",
+      "instance_id": "F10_007",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "mw_bias_check"
+      ],
+      "checks_passed": [
+        "score_direction",
+        "no_assay_columns_in_output"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F10",
+      "instance_id": "F10_008",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "mw_bias_check"
+      ],
+      "checks_passed": [
+        "score_direction",
+        "no_assay_columns_in_output"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F10",
+      "instance_id": "F10_009",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "mw_bias_check"
+      ],
+      "checks_passed": [
+        "score_direction",
+        "no_assay_columns_in_output"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F10",
+      "instance_id": "F10_010",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "mw_bias_check"
+      ],
+      "checks_passed": [
+        "score_direction",
+        "no_assay_columns_in_output"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F10",
+      "instance_id": "F10_011",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "mw_bias_check"
+      ],
+      "checks_passed": [
+        "score_direction",
+        "no_assay_columns_in_output"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F10",
+      "instance_id": "F10_012",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "mw_bias_check"
+      ],
+      "checks_passed": [
+        "score_direction",
+        "no_assay_columns_in_output"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F10",
+      "instance_id": "F10_clean_000",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "score_direction",
+        "no_assay_columns_in_output",
+        "score_distribution_sanity",
+        "mw_bias_check"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F10",
+      "instance_id": "F10_clean_001",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "score_direction",
+        "no_assay_columns_in_output",
+        "score_distribution_sanity",
+        "mw_bias_check"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F10",
+      "instance_id": "F10_clean_002",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "score_direction",
+        "no_assay_columns_in_output",
+        "score_distribution_sanity",
+        "mw_bias_check"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F10",
+      "instance_id": "F10_clean_003",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "score_direction",
+        "no_assay_columns_in_output",
+        "score_distribution_sanity",
+        "mw_bias_check"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F10",
+      "instance_id": "F10_clean_004",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "score_direction",
+        "no_assay_columns_in_output",
+        "score_distribution_sanity",
+        "mw_bias_check"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F13",
+      "instance_id": "F13_001",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "eligible_set_completeness"
+      ],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "scaffold_uniqueness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F13",
+      "instance_id": "F13_002",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "eligible_set_completeness"
+      ],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "scaffold_uniqueness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F13",
+      "instance_id": "F13_003",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "eligible_set_completeness"
+      ],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "scaffold_uniqueness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F13",
+      "instance_id": "F13_004",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "eligible_set_completeness"
+      ],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "scaffold_uniqueness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F13",
+      "instance_id": "F13_005",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "eligible_set_completeness"
+      ],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "scaffold_uniqueness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F13",
+      "instance_id": "F13_006",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "eligible_set_completeness"
+      ],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "scaffold_uniqueness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F13",
+      "instance_id": "F13_007",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": true,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": true,
+      "escaped_detected": true,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "eligible_set_completeness",
+        "scaffold_uniqueness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F13",
+      "instance_id": "F13_008",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": true,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": true,
+      "escaped_detected": true,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "eligible_set_completeness",
+        "scaffold_uniqueness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F13",
+      "instance_id": "F13_009",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "eligible_set_completeness"
+      ],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "scaffold_uniqueness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F13",
+      "instance_id": "F13_010",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "eligible_set_completeness"
+      ],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "scaffold_uniqueness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F13",
+      "instance_id": "F13_011",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "eligible_set_completeness"
+      ],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "scaffold_uniqueness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F13",
+      "instance_id": "F13_012",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": true,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": true,
+      "escaped_detected": true,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "eligible_set_completeness",
+        "scaffold_uniqueness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F13",
+      "instance_id": "F13_013",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "eligible_set_completeness"
+      ],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "scaffold_uniqueness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F13",
+      "instance_id": "F13_014",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "eligible_set_completeness"
+      ],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "scaffold_uniqueness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F13",
+      "instance_id": "F13_015",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": true,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": true,
+      "escaped_detected": true,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "eligible_set_completeness",
+        "scaffold_uniqueness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F13",
+      "instance_id": "F13_016",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": true,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": true,
+      "escaped_detected": true,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "eligible_set_completeness",
+        "scaffold_uniqueness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F13",
+      "instance_id": "F13_017",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "eligible_set_completeness"
+      ],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "scaffold_uniqueness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F13",
+      "instance_id": "F13_018",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "eligible_set_completeness"
+      ],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "scaffold_uniqueness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F13",
+      "instance_id": "F13_019",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "eligible_set_completeness"
+      ],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "scaffold_uniqueness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F13",
+      "instance_id": "F13_020",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "eligible_set_completeness"
+      ],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "scaffold_uniqueness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F13",
+      "instance_id": "F13_clean_000",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "eligible_set_completeness",
+        "scaffold_uniqueness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F13",
+      "instance_id": "F13_clean_001",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "eligible_set_completeness",
+        "scaffold_uniqueness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F13",
+      "instance_id": "F13_clean_002",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "eligible_set_completeness",
+        "scaffold_uniqueness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F13",
+      "instance_id": "F13_clean_003",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "eligible_set_completeness",
+        "scaffold_uniqueness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F13",
+      "instance_id": "F13_clean_004",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "eligible_set_completeness",
+        "scaffold_uniqueness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F14",
+      "instance_id": "F14_001",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "scaffold_uniqueness"
+      ],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "eligible_set_completeness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F14",
+      "instance_id": "F14_002",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "scaffold_uniqueness"
+      ],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "eligible_set_completeness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F14",
+      "instance_id": "F14_003",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "scaffold_uniqueness"
+      ],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "eligible_set_completeness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F14",
+      "instance_id": "F14_004",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "scaffold_uniqueness"
+      ],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "eligible_set_completeness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F14",
+      "instance_id": "F14_005",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "scaffold_uniqueness"
+      ],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "eligible_set_completeness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F14",
+      "instance_id": "F14_006",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "scaffold_uniqueness"
+      ],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "eligible_set_completeness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F14",
+      "instance_id": "F14_007",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "scaffold_uniqueness"
+      ],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "eligible_set_completeness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F14",
+      "instance_id": "F14_008",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "scaffold_uniqueness"
+      ],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "eligible_set_completeness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F14",
+      "instance_id": "F14_009",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "scaffold_uniqueness"
+      ],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "eligible_set_completeness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F14",
+      "instance_id": "F14_010",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "scaffold_uniqueness"
+      ],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "eligible_set_completeness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F14",
+      "instance_id": "F14_011",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "scaffold_uniqueness"
+      ],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "eligible_set_completeness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F14",
+      "instance_id": "F14_012",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "scaffold_uniqueness"
+      ],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "eligible_set_completeness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F14",
+      "instance_id": "F14_clean_000",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "eligible_set_completeness",
+        "scaffold_uniqueness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F14",
+      "instance_id": "F14_clean_001",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "eligible_set_completeness",
+        "scaffold_uniqueness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F14",
+      "instance_id": "F14_clean_002",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "eligible_set_completeness",
+        "scaffold_uniqueness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F14",
+      "instance_id": "F14_clean_003",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "eligible_set_completeness",
+        "scaffold_uniqueness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F14",
+      "instance_id": "F14_clean_004",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "assay_blindness_column_scan",
+        "eligible_set_completeness",
+        "scaffold_uniqueness",
+        "frozen_rule_applied"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F17",
+      "instance_id": "F17_001",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "figure_source_verification"
+      ],
+      "checks_passed": [
+        "table_source_verification",
+        "number_traceability",
+        "contract_coverage"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F17",
+      "instance_id": "F17_002",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "figure_source_verification"
+      ],
+      "checks_passed": [
+        "table_source_verification",
+        "number_traceability",
+        "contract_coverage"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F17",
+      "instance_id": "F17_003",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "figure_source_verification"
+      ],
+      "checks_passed": [
+        "table_source_verification",
+        "number_traceability",
+        "contract_coverage"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F17",
+      "instance_id": "F17_004",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "figure_source_verification"
+      ],
+      "checks_passed": [
+        "table_source_verification",
+        "number_traceability",
+        "contract_coverage"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F17",
+      "instance_id": "F17_005",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "figure_source_verification"
+      ],
+      "checks_passed": [
+        "table_source_verification",
+        "number_traceability",
+        "contract_coverage"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F17",
+      "instance_id": "F17_006",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "figure_source_verification"
+      ],
+      "checks_passed": [
+        "table_source_verification",
+        "number_traceability",
+        "contract_coverage"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F17",
+      "instance_id": "F17_007",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "figure_source_verification"
+      ],
+      "checks_passed": [
+        "table_source_verification",
+        "number_traceability",
+        "contract_coverage"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F17",
+      "instance_id": "F17_008",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "figure_source_verification"
+      ],
+      "checks_passed": [
+        "table_source_verification",
+        "number_traceability",
+        "contract_coverage"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F17",
+      "instance_id": "F17_009",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "figure_source_verification"
+      ],
+      "checks_passed": [
+        "table_source_verification",
+        "number_traceability",
+        "contract_coverage"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F17",
+      "instance_id": "F17_010",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "figure_source_verification"
+      ],
+      "checks_passed": [
+        "table_source_verification",
+        "number_traceability",
+        "contract_coverage"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F17",
+      "instance_id": "F17_clean_000",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "figure_source_verification",
+        "table_source_verification",
+        "number_traceability",
+        "contract_coverage"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F17",
+      "instance_id": "F17_clean_001",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "figure_source_verification",
+        "table_source_verification",
+        "number_traceability",
+        "contract_coverage"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F17",
+      "instance_id": "F17_clean_002",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "figure_source_verification",
+        "table_source_verification",
+        "number_traceability",
+        "contract_coverage"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F17",
+      "instance_id": "F17_clean_003",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "figure_source_verification",
+        "table_source_verification",
+        "number_traceability",
+        "contract_coverage"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F17",
+      "instance_id": "F17_clean_004",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "figure_source_verification",
+        "table_source_verification",
+        "number_traceability",
+        "contract_coverage"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F18",
+      "instance_id": "F18_001",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "table_source_verification"
+      ],
+      "checks_passed": [
+        "figure_source_verification",
+        "number_traceability",
+        "contract_coverage"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F18",
+      "instance_id": "F18_002",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "table_source_verification"
+      ],
+      "checks_passed": [
+        "figure_source_verification",
+        "number_traceability",
+        "contract_coverage"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F18",
+      "instance_id": "F18_003",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "table_source_verification"
+      ],
+      "checks_passed": [
+        "figure_source_verification",
+        "number_traceability",
+        "contract_coverage"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F18",
+      "instance_id": "F18_004",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "table_source_verification"
+      ],
+      "checks_passed": [
+        "figure_source_verification",
+        "number_traceability",
+        "contract_coverage"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F18",
+      "instance_id": "F18_005",
+      "case_type": "fault",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "HALT",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [
+        "table_source_verification"
+      ],
+      "checks_passed": [
+        "figure_source_verification",
+        "number_traceability",
+        "contract_coverage"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F18",
+      "instance_id": "F18_clean_000",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "figure_source_verification",
+        "table_source_verification",
+        "number_traceability",
+        "contract_coverage"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F18",
+      "instance_id": "F18_clean_001",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "figure_source_verification",
+        "table_source_verification",
+        "number_traceability",
+        "contract_coverage"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F18",
+      "instance_id": "F18_clean_002",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "figure_source_verification",
+        "table_source_verification",
+        "number_traceability",
+        "contract_coverage"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F18",
+      "instance_id": "F18_clean_003",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "figure_source_verification",
+        "table_source_verification",
+        "number_traceability",
+        "contract_coverage"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    },
+    {
+      "arm": "A",
+      "arm_name": "DIRECT",
+      "family_id": "F18",
+      "instance_id": "F18_clean_004",
+      "case_type": "clean",
+      "condition": "B",
+      "vacuous": false,
+      "evaluator_available": true,
+      "evaluator_state": "PASS",
+      "escaped_strict": false,
+      "escaped_detected": false,
+      "error": null,
+      "checks_failed": [],
+      "checks_passed": [
+        "figure_source_verification",
+        "table_source_verification",
+        "number_traceability",
+        "contract_coverage"
+      ],
+      "halted": null,
+      "reportable": null,
+      "contained": null
+    }
+  ]
+}

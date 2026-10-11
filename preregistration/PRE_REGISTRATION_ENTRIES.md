@@ -2,8 +2,8 @@
 
 Verbatim copies of the decision-log entries that the article and the supplement describe as pre-registered, and of the entries that record their results. The log is append-only; each entry was written before the run it concerns (or, for a result entry, after it), and the SHA-256 of the predictions of each analysis was recorded in the entry before the analysis ran. Copied as written: first-person wording and the author's quotations are unchanged. The full log is not deposited.
 
-- source: `00_project_control/08_DECISION_LOG.md`, SHA-256 of the whole log (line ends as LF) `24eeae7d46957f759a2b80acc1586a1e382ef03312015285fd460db632119fa3`
-- entries: 69 (ADR-AIIM-111, 112, 131, 150, 156, 161, 171, 193, 194, 285 to 336, 353 to 356, 390, 391)
+- source: `00_project_control/08_DECISION_LOG.md`, SHA-256 of the whole log (line ends as LF) `7806efdb73afcdf5a1924553787e4d640dead0249b64caaa6f47cebcda25db16`
+- entries: 74 (ADR-AIIM-111, 112, 131, 150, 156, 161, 171, 193, 194, 236 to 238, 285 to 336, 353 to 356, 390, 391, 399, 400)
 
 ---
 
@@ -935,6 +935,461 @@ prediction and the registered confound. Produced by
 `10_new_system/fault_injection/conventional_test_baseline.py`.
 
 ---
+
+## ADR-AIIM-236 — PRE-REGISTRATION: does the benchmark measure the system, or only its evaluators? (E1)
+
+**Date:** 2026-09-22
+**Status:** proposed — frozen before any case runs; **not approved**
+**Approval:** *pending author*
+**Answers:** the gap ADR-AIIM-226 measured and could not close
+**Depends on:** nothing running; no docking; the frozen tree is not modified
+
+### The gap, in one sentence
+
+ADR-AIIM-226 closed six defects and the seeded-defect benchmark **did not move** —
+128/128, 128/128, 124/128 before and after — because the harness calls the
+evaluators directly and never reaches the orchestrator, where three of the four
+defects lived.
+
+> Detection **96.9 %** and SEER **0.031** are therefore properties of the
+> *evaluators*. Whether they are properties of the *system* has never been
+> measured.
+
+Everything the paper says about the architecture rests on that unmeasured step:
+the four-state gate machine, fail-closed behaviour on unverifiable checks, and
+the report lock are **design claims**, not results. A reviewer who notices the
+harness bypasses them can discount all three at once.
+
+### What the deployed path actually contains, read from source
+
+Written against the code rather than the prose, because the prose was wrong about
+three checks once already (ADR-AIIM-060).
+
+```
+faulted inputs
+  → WorkflowOrchestrator.run_stage(..., tool_outputs=<inputs>)   orchestrator.py:60
+  → ContractEngine.run(contract_file, inputs, artifact_ids)      contract_engine.py:52
+  → importlib.import_module(contract["evaluator"]).evaluate(...) contract_engine.py:65
+      ── the SAME function the current harness calls directly ──
+  → state derivation: declared state, else HALT if critical failures
+    else ESCALATE, else PASS                                     contract_engine.py:94–103
+  → StateMachine
+  → WorkflowOrchestrator._handle_outcome(stage, result)          orchestrator.py:160
+  → ReportLock.can_report(artifact_id)                           report_lock.py:24
+```
+
+Three facts about that path matter for the design and were confirmed by reading it:
+
+1. **The engine calls the same evaluator function.** So this experiment changes
+   the *path*, not the detector. Any difference is attributable to the layers,
+   which is the whole point.
+2. **`_escalation_pending` is set and never read** — not in the orchestrator, not
+   anywhere else in the tree. ESCALATE therefore stops nothing by that route; the
+   containment of an escalated artifact comes entirely from `ReportLock`, which
+   requires a PASS contract record or a human adjudication record.
+3. **`_handle_outcome` has no final `else`.** PASS, SKIPPED_BY_PROTOCOL,
+   AUTO_REPAIR, ESCALATE and HALT are matched; any other value falls through
+   silently, setting neither `_halted` nor `_escalation_pending` and logging
+   nothing. That is the fail-open default of ADR-AIIM-199/218.
+
+### The outcome definition, and why it is better than the one in use
+
+The current harness records `evaluator_state` — what the evaluator returned. At
+the deployed path the question SEER is supposed to ask is different and stricter:
+
+> **Contained** iff, after the stage runs, either the workflow is halted
+> (`_halted`) **or** the faulted artifact is not reportable
+> (`ReportLock.can_report(artifact_id)` is `False`).
+> **Escaped** otherwise.
+
+That measures whether a faulted artifact can reach a report, which is what
+"silent error escape" means. It is not the same as the evaluator returning HALT,
+and the difference is the experiment.
+
+### Design: three arms, same cases, same evaluators, paired at the case level
+
+| Arm | Path | Tree |
+|---|---|---|
+| **DIRECT** | evaluator called directly — the existing harness | frozen v1 |
+| **DEPLOYED-v1** | through orchestrator, engine and report lock | frozen v1 |
+| **DEPLOYED-v2** | the same, on the patched tree | `11_patched_pipeline_2026-09-22` |
+
+The 128 injected cases and the 55 clean cases are the frozen ones. **No new fault
+is authored, no threshold moves, no evaluator or contract is edited.** Case seeds
+come from `_case_seed`, unchanged, so every arm sees identical workspace bytes.
+
+**Honesty gate, run first and reported whichever way it falls.** DIRECT must
+reproduce the published counts exactly — 128/128, 128/128, 124/128 and the
+existing false-escalation figures. If it does not, the harness has drifted and
+**the run is void**; no other number from it may be reported. ADR-AIIM-224's
+honesty gate failed by one case on its first attempt, which is why this one is
+written down in advance.
+
+### Predictions, graded mechanically, with both branches pre-written
+
+**P1 — DEPLOYED-v1 containment ≥ DIRECT detection.** Basis: the report lock
+requires a PASS record, so an ESCALATE artifact is unreportable and therefore
+contained, while DIRECT counts only HALT as detection. The deployed path should
+contain *more*, not less.
+
+**P2 — DEPLOYED-v1 and DEPLOYED-v2 will be identical.** Basis: the fail-open
+default fires only when a state outside the five matched branches reaches
+`_handle_outcome`, and on these 128 cases the engine yields PASS, ESCALATE or
+HALT. The defect is expected to be **latent on this benchmark and real only on
+the empty-evidence path ADR-AIIM-218 exercised.**
+
+*If P2 holds*, the finding is that the orchestrator defect never fires on the
+seeded benchmark — which **confirms ADR-AIIM-226's diagnosis by a second route**
+and bounds the defect's operational reach rather than leaving it rhetorical.
+*If P2 fails*, the repair changes detection on the deployed path, and the paper
+gains a measured before-and-after of a real repair. Both are reported.
+
+**P3 — at least one case is contained by the report lock but not by the
+evaluator.** If zero, the lock adds nothing on this benchmark and the paper must
+say so instead of listing it as a barrier.
+
+**Falsification.** P1 fails if the deployed path contains *fewer* cases than the
+direct path. That would mean a layer between the evaluator and the release
+decision is discarding a verdict the evaluator reached — a more serious finding
+than anything in ADR-AIIM-226, and the one outcome that would force a correction
+to a published number rather than an addition to it.
+
+### Metric
+
+Per arm: detection count, **SEER**, and false-escalation rate on the 55 clean
+cases, each with a Wilson 95 % interval; and the paired case-level disagreement
+matrix between arms. Metric functions are **imported** from the existing analysis
+rather than reimplemented, for the reason ADR-AIIM-227 gives.
+
+### What this does not claim
+
+- Not that the deployed path is correct in general — it is measured on 128
+  seeded cases authored by this project, and ADR-AIIM-235 records why that
+  population is the weak one.
+- Not that the fail-open defect is harmless. ADR-AIIM-218 demonstrated it on
+  empty evidence; P2 predicts only that this benchmark does not reach it.
+- Nothing about biological activity, and no compound is docked.
+
+### Cost and ordering
+
+**No docking.** The harness runs the 183 cases per arm in minutes. It can run
+while the docking queue holds the CPU, since it is single-process and short.
+Independent of M2.1, M2.2 and M5.1.
+
+### Artifacts
+
+`20_new_runs/deployed_path_benchmark_<date>/`, with per-case outcomes for all
+arms, the honesty-gate comparison, and the graded verdicts written to the
+artifact so a disappointing result cannot be reworded afterwards.
+
+---
+
+### AMENDMENT, 2026-09-22, before any case ran — a confound found while writing the harness, and the static result it hands over
+
+Approved as three arms. Reading `pilot_runner.py` to write the harness found that
+**the two paths do not differ only by orchestration.** The harness does not load
+the frozen contracts at all: it passes `_PILOT_CONTRACT`, a contract dictionary
+**hand-written inside the harness** (`pilot_runner.py:620`), to
+`evaluate(contract=…, inputs=…, registry=None)`. The deployed path loads the
+YAML in `10_new_system/contracts/`.
+
+Measured, statically, with nothing executed:
+
+| Gate | Checks the benchmark uses | Checks the deployed contract defines |
+|---|---|---|
+| G0 | 4 | 15 |
+| G1 | 5 | 14 |
+| G4 | 4 | 7 |
+| G6 | 4 | 9 |
+| G8 | 4 | 10 |
+| **Total** | **21** | **55** |
+
+> **The seeded-defect benchmark exercises 21 of the 55 checks these five gates
+> define.** Two further checks — `eligible_set_completeness` and
+> `scaffold_uniqueness` — exist only in the harness and are in no deployed
+> contract at all.
+
+**This explains the paper's central puzzle mechanically.** ADR-AIIM-060's
+held-out misses were at `name_structure_mapping` (G0) and `no_unregistered_claims`
+(G8) — both defined in the frozen YAML and **both absent from the 21 the
+benchmark exercises** — and at G2 and G3, gates the benchmark does not cover at
+all. The 96.9 % and the 1 of 5 are not in tension: they are measurements of
+different check populations, and the independently authored faults landed almost
+entirely outside the population the self-authored benchmark covers. That is the
+fault-authorship effect of ADR-AIIM-235 made concrete rather than argued, and
+**it is established without running anything.**
+
+**The design therefore gains an arm**, so that the contract definition and the
+execution path are separated instead of confounded:
+
+| Arm | Contract | Path | Isolates |
+|---|---|---|---|
+| **A** DIRECT | harness dict, 21 checks | evaluator called directly | the published benchmark; honesty gate |
+| **B** DIRECT-YAML | frozen YAML, 55 checks | evaluator called directly | A→B: the contract definition |
+| **C** DEPLOYED-v1 | frozen YAML | orchestrator, engine, report lock | B→C: the execution path |
+| **D** DEPLOYED-v2 | frozen YAML | the same, patched tree | C→D: the repair |
+
+**A hazard, and the control for it.** Arms B–D put 34 checks the synthetic
+workspace was never built to satisfy in front of evaluators, so some will fail
+for want of an input rather than because a fault was found. Counting that as
+detection would manufacture a flattering result. The control is already in the
+design: **any check that fails on the 55 clean workspaces is failing for want of
+input, not because of an injected fault**, so the clean-case false-escalation
+rate measures the artifact directly and is reported per check id, per arm.
+
+**P4 is added:** arms B–D will show a **substantially higher false-escalation
+rate on clean cases than arm A**, because the synthetic workspace cannot satisfy
+the frozen contract. If so, the finding is that the benchmark's check population
+is bounded by **workspace realism**, not by the contract — which is the same
+boundary ADR-AIIM-202 and ADR-AIIM-224 found from the other side, reached
+independently. If B–D show no such rise, the synthetic workspace is more faithful
+than assumed and the 21-check subset was a choice rather than a necessity; that
+would be the more uncomfortable reading and it is pre-written here so it cannot
+be avoided afterwards.
+
+## ADR-AIIM-237 — E1 result: the benchmark's detections and the system's are not the same 124
+
+**Date:** 2026-09-23
+**Status:** accepted — result
+**Approval:** *pending author*
+**Executes:** ADR-AIIM-236, pre-registered and amended before any case ran
+**Artifacts:** `20_new_runs/deployed_path_benchmark_2026-09-23/`
+
+### The honesty gate passed first
+
+Arm A reproduces the published run exactly — **128 non-vacuous fault cases, 124
+detected, 124 strict, 55 clean, 0 false escalations, 0 errors**. It is not a
+re-creation: every arm drives `pilot_runner.run_pilot` with the frozen
+`PilotConfig` and swaps only `_dispatch_evaluator`, so workspace construction,
+injection, `_case_seed` and the vacuity rule are the published code.
+
+### Result
+
+| Arm | Contract | Path | Detected /128 | Contained /128 | False escalation /55 |
+|---|---|---|---|---|---|
+| **A** DIRECT | harness, 21 checks | direct | **124** | — | **0** |
+| **B** DIRECT-YAML | frozen, 55 checks | direct | **101** | — | **35** |
+| **C** DEPLOYED-v1 | frozen | orchestrator + lock | **101** | **101** | **35** |
+| **D** DEPLOYED-v2 | frozen | patched tree | **101** | **101** | **35** |
+
+### The finding, and it is not the one the pre-registration expected
+
+The published 124 and the deployed 101 are not a subset relation. They overlap
+and disagree in **both** directions, and the arithmetic closes exactly:
+
+> **124 − 27 + 4 = 101**
+
+**27 faults the benchmark reports as caught are not caught by the deployed
+system.** All 27 are at G6 — F13 (15 instances) and F14 (12) — and every one of
+them is detected in arm A by `eligible_set_completeness` or `scaffold_uniqueness`,
+**two checks that appear in no deployed contract at all**. In arms C and D those
+same 27 cases return `PASS`. Not escalate, not warn: pass.
+
+**4 faults the benchmark reports as escaping are caught by the deployed system.**
+All 4 are F10, caught by `seed_repeatability`, a check the frozen G4 contract
+defines and the harness contract omits. These are exactly the 4 escapes behind
+the published SEER of 4/128.
+
+So the benchmark is not simply optimistic. It is **measuring a different
+detector**: one that has two checks production does not have, and lacks 34 that
+production does.
+
+| | Published (arm A) | Deployed (arm C) |
+|---|---|---|
+| Detection | 124/128 = **96.9 %** | 101/128 = **78.9 %** |
+| SEER | 4/128 = **0.031** | 27/128 = **0.211** |
+
+### The four pre-registered predictions
+
+**P1 — deployed containment ≥ direct detection: FALSE.** 101 against 124. The
+pre-registration named this the outcome that "would force a correction to a
+published number rather than an addition to it", and that is what it is. But the
+four-arm design, added in the amendment, shows **why**, and the reason is not the
+one P1 was written against: the loss is entirely A→B, the *contract definition*.
+B→C is 101 to 101. **The execution path loses nothing.**
+
+**P2 — the repair changes nothing: TRUE.** C and D are identical on every case.
+The fail-open default of ADR-AIIM-199/218 does not fire on this benchmark; it is
+real on the empty-evidence path and latent here. That confirms ADR-AIIM-226's
+diagnosis by a second route and bounds the defect's operational reach.
+
+**P3 — the report lock adds containment: FALSE.** Containment equals detection at
+101 in both deployed arms, and of the 27 cases the deployed contract misses, the
+lock contains **0**. It is inert on this benchmark: 15 cases register no artifact
+for it to judge (the G8 inputs are manifests, not paths) and the rest are already
+halted. The paper must stop listing the lock as an independent barrier on this
+evidence.
+
+**P4 — the frozen contract raises clean-case false escalation: TRUE**, and
+steeply: **0/55 to 35/55**. The synthetic workspace cannot satisfy 34 of the
+deployed checks, so **the benchmark's check population is bounded by workspace
+realism, not by the contract** — the same boundary ADR-AIIM-202 and ADR-AIIM-224
+reached from the other side, arrived at here independently.
+
+### What this does and does not overturn
+
+**It does not invalidate the published numbers.** 124/128 is a correct
+measurement of what the harness measured, and this entry does not change it. What
+changes is what it may be *said to be a measurement of*: the evaluators under a
+contract written for the harness, not the governance layer as deployed. §3.1 and
+§3.7 must say which.
+
+**It does not mean the deployed system is worse.** It is worse on 27 cases and
+better on 4, and the four it catches are the ones the paper currently reports as
+its own escapes.
+
+**It is measured on 128 faults this project authored**, which ADR-AIIM-235
+records as the weak population. Nothing here bears on independently authored
+faults; that is E2, and ADR-AIIM-060's 1 of 5 still stands unrepaired.
+
+### Two errors of mine, caught by the instrumentation and recorded
+
+1. The first revision expected **128** detected in the honesty gate, read out of
+   ADR-AIIM-224's "128/55, 128/0, 124/0". That line reports two detectors — the
+   golden-file comparator at 128/0 and the contracts at 124/0 — and I took the
+   comparator's number for the contracts'. The gate failed on the first run and
+   the expectation was corrected **against the artifact**
+   (`seeded_defect_recount_2026-08-29`: *"124 cases are detected before and
+   after"*), not against the observation.
+2. The side channel joined on an index parsed from `instance_id`. Each injector
+   formats its own and F17/F18 carry no index, so 11 cases silently did not join
+   and 9 more mismatched. The join is now positional and **refuses to write a
+   partial one**. A first attempt at the per-check claim also read
+   `checks_failed`, which the evaluators do not return — they return `failed` —
+   and produced an empty list that would have made the central claim
+   unsupportable.
+
+Both were caught because the expectation was written down before the run and the
+instrumentation was checked against source. Neither reached a reported number.
+
+### Consequences for the manuscript
+
+- §3.1 must state which detector the 96.9 % describes, and report the deployed
+  figure beside it. **Held by the length decision**, like the rest.
+- The claim that the report lock is a release barrier is **not supported on this
+  evidence** and must be narrowed or dropped.
+- `eligible_set_completeness` and `scaffold_uniqueness` are checks the test
+  harness has and production does not. Whether that is a harness defect or a
+  missing production check is a decision for the author; it is recorded here as
+  a fact, not repaired.
+
+### Cost
+
+No docking. Four arms × 188 cases, minutes, single process, run while the docking
+queue held the machine.
+
+## ADR-AIIM-238 — PRE-REGISTRATION: the two missing checks added to the deployed contract (E1 arm E)
+
+**Date:** 2026-09-23
+**Status:** proposed — frozen before arm E ran
+**Approval:** author, 2026-09-23 — *"production is missing the checks; add them to the real contract"*
+**Follows:** ADR-AIIM-237
+**Repair discipline:** ADR-AIIM-226 — the change is made in a **copy**
+
+### The decision
+
+ADR-AIIM-237 measured that 27 of the benchmark's 128 faults — every F13 and F14
+instance — are detected only by `eligible_set_completeness` and
+`scaffold_uniqueness`, and that **no deployed contract names either check**. The
+author has ruled that this is a gap in production rather than an artefact of the
+harness, and that the checks belong in the real contract.
+
+### Why this is a two-line change and not a new capability
+
+`evaluators/G6_evaluator.py` **already implements both** — `eligible_set_completeness`
+at line 61, `scaffold_uniqueness` at line 101, each with evidence collection,
+severity handling, and a warn-not-pass path when its input is missing or RDKit is
+absent. The code has been there since the evaluator was written and has never
+been asked to run in production.
+
+> This is the mirror of ADR-AIIM-060's **H02**, where `G2_preparation.yaml`
+> declared `structural_waters_recorded` and `G2_evaluator.py` had no branch for
+> it. The project has now found contract and evaluator diverging in **both**
+> directions, from opposite discoveries a month apart. Neither was detectable by
+> any check the system runs, because nothing compares the two lists.
+
+### What changed, and where
+
+`12_patched_pipeline_2026-09-23/`, copied from the v2 patched tree so the frozen
+tree and every published number stay exactly as they are. `contracts/G6_selection.yaml`
+goes **1.3.0 → 1.4.0**: the two checks added at `severity: critical`, the inputs
+block declaring `expected_eligible_count` and `selection_exclusions`, and an
+`amended` entry naming ADR-AIIM-237 and this decision. Nine checks become eleven.
+**No evaluator source is modified.**
+
+### Prediction, recorded before arm E ran
+
+**P5 — arm E detects 128 of 128**, recovering all 27 that arm C returns `PASS`
+on, and SEER on the deployed path falls from **0.211 to 0.000** on this
+benchmark. Basis: arm A detects those 27 with these two checks under the same
+evaluator and the same workspace inputs, and the deployed path already supplies
+`expected_eligible_count` through `_get_evaluator_inputs`, so the completeness
+check will not take its warn-on-missing-input branch.
+
+**P6 — clean-case false escalation stays at 35 of 55.** Basis: arm A ran both
+checks over the same 55 clean workspaces and returned 0 false escalations, so
+neither check fires on a clean workspace; the 35 come from the other 34 checks
+the synthetic workspace cannot satisfy.
+
+**Falsification.** If arm E does not reach 128, the checks do not behave the same
+way under the deployed contract as under the harness dictionary, and the
+difference is a second finding rather than a repair. If false escalation rises
+above 35, the checks are not safe to add as `critical` and the severity must be
+revisited before any of this reaches production.
+
+### What this does not do
+
+It does not change any published number, it does not touch `10_new_system/`, and
+it does not bear on independently authored faults — ADR-AIIM-060's 1 of 5 stands.
+A benchmark that reaches 128 of 128 after a check is added to catch the faults it
+was failing is **not** evidence of a better system in general; it is evidence
+that one named gap is closed, on a fault population this project authored, and
+ADR-AIIM-235 records why that population is the weak one.
+
+---
+
+### RESULT, 2026-09-23 — both predictions held
+
+Arm E ran after the above was written. The honesty gate passed again on arm A
+(128 / 124 / 124 / 55 / 0), so the five arms are comparable.
+
+| Arm | Contract | Detected /128 | Contained /128 | SEER | False escalation /55 |
+|---|---|---|---|---|---|
+| **A** DIRECT | harness, 21 checks | 124 | — | **0.031** | 0 |
+| **B** DIRECT-YAML | frozen, 55 | 101 | — | 0.211 | 35 |
+| **C** DEPLOYED-v1 | frozen, 55 | 101 | 101 | **0.211** | 35 |
+| **D** DEPLOYED-v2 | frozen, 55 | 101 | 101 | 0.211 | 35 |
+| **E** DEPLOYED-v3 | **frozen + 2, 57** | **128** | **128** | **0.000** | **35** |
+
+**P5 held.** Arm E detects **128 of 128** and contains all 128. Every one of the
+27 cases that returned `PASS` through the deployed path is now caught, and the 4
+that the published benchmark records as escapes stay caught by
+`seed_repeatability`. Deployed SEER falls **0.211 → 0.000** on this benchmark.
+
+**P6 held.** Clean-case false escalation is **35 of 55**, unchanged from arms B,
+C and D. Neither added check fires on a clean workspace, so adding them at
+`critical` costs nothing in false escalation and the severity stands.
+
+### What this is, stated precisely
+
+A gap that ADR-AIIM-237 located — a capability the evaluator had and no contract
+invoked — is closed in a copy, and the closure is measured rather than asserted:
+27 cases move from `PASS` to caught, and nothing else moves.
+
+**What it is not.** The 0.000 is a number about 128 faults this project wrote,
+now checked by a contract amended specifically because those faults were getting
+through. Read as a performance figure it is circular, and the manuscript must
+not report it as one. Its meaning is narrower and worth more: *the deployed
+contract was missing two checks, the omission cost 27 of 128 detections, and
+naming the checks recovers exactly those 27 and nothing else.* The independent
+evidence is still ADR-AIIM-060's 1 of 5, which this does not touch.
+
+**What is owed.** The v3 tree is a copy. Whether these checks move into
+`10_new_system/contracts/G6_selection.yaml` is a separate decision with a
+separate cost: the frozen tree is what every published G6 number was produced
+with, and §3.5 and §3.6 came through that gate. Nothing has been changed there —
+`10_new_system` G6 remains version 1.3.0 with nine checks, asserted by the
+harness's own self-test.
 
 ## ADR-AIIM-285 — PRE-REGISTRATION: the split convention as a 2×2×2 factorial — three defects, two fixed, and the one nobody touched
 
@@ -8253,3 +8708,48 @@ SNP00157 r3 by 10 ns block: 0.475, 0.700, 0.720, 0.980, 0.995 (the contact is fo
 **What the result says, and does not say.** With three runs per system the per-run persistence ranges are control 0.679 to 1.000, SNP00157 0.087 to 0.773, SNP00163 0.597 to 0.984. The two replicates 1 and 2 of ADR-AIIM-336 seemed to separate SNP00157 from the control (both below the control minimum); replicate 3 does not: its persistence lies within the control's range. SNP00163 was within the control range already and is now at the top of it. What remains the same in all three runs of both compounds is the ligand RMSD: the share of frames below 4 A is 0.12 to 0.42 for the compounds against 0.95 to 1.00 for the control, and the mean RMSD is 4.2 to 6.0 A against 2.6 to 3.2 A; this is not independent of the way the RMSD is measured (against the pre-equilibration structure, so a ligand that settles into a different but stable pose reads as high RMSD while keeping the contact). No spread is estimated and no test is run on n = 3; a stable trajectory is not evidence that the pose is correct and nothing is called active. The statement of the article that SNP00157 holds the N6.55 contact less than the control in both of its replicates is, with three runs, a statement about two of three runs and the third behaves like the control; with the stated use of ADR-AIIM-390 (the three-against-three comparison replaces the matched duplicate) the article's sentences about persistence need rewording, while the RMSD and the "no dissociation" statements stand.
 
 **Not done.** The article, supplement, cover letter and highlights were **not** edited; the deposit was not changed. The preregistered use (the comparison becomes 3 against 3, the matched duplicate stays in the supplement as sensitivity) is pending the author's instruction because the documents are with the co-authors for review.
+
+## ADR-AIIM-399 — PRE-REGISTRATION: six short sensitivity analyses for the second round of v9 (2026-10-11)
+
+**Status:** proposed — **pre-registration. Frozen before the runs start.**
+**Date:** 2026-10-11
+**Decided by:** Adisorn Sirichotejirakul, in chat: "วาง plan แก้ที่เหลือต่อ ที่ยังไม่ได้ทำในรอบที่แล้ว ถ้าเกิดมีอะไรที่ต้องทำหรือรันเพิ่ม แล้วไม่นานมาก ควรทำให้ทำ" (plan the rest of what the last round left undone; where something more has to be done or run and it is not long, do it), and approval of the second-round plan (`.claude/plans/check-list-steady-sparrow.md` in the user profile), with four answers given before it: the deployed figure 101 of 128 goes into the abstract, the first highlight and the cover letter; `10_new_system/scripts/build_deposit.py` may be edited (tree entries and the list of pre-registration entries only) and the deposit committed locally for the author to push; the graphical abstract, Figure 6 and Supplementary Figure S1 are redrawn; the language models are named in short form.
+**Follows:** ADR-AIIM-397 and 398 (v9), ADR-AIIM-263 (predictions fixed before the run), ADR-AIIM-092 (run folders are immutable; new work in a new dated folder).
+**Decision log at freeze (text/LF):** `203a9de9e6833ad376819c5abef23be2ac8133193c5f7a7d21c4139fc518aa43`
+**Pre-registration file:** `20_new_runs/v9_sensitivity_2026-10-11/PREREG_ADR399.md`, SHA-256 `88688537933b374aa38964b9b969b3fabf421a40e2973d4e53885084132cfc28` (also in `PREREG_SHA256.txt`).
+
+### What is run
+Six analyses asked for by the internal review (Monsin Sangsawat's list), each from existing artifacts or with a frozen script invoked unchanged: A1 the focus-library vote with one vote per distinct split (P0-09); A2 the sensitivity of that selection to the applicability threshold, including a threshold matched in admission rate to the reference on which the competence band was measured (P0-08); A3 a stratified interval for the estimate of 1,251 (P1-19); A4 the four box-constrained compounds that completed docking, redocked in a 30 Å box (P1-17); A5 a string-level map from declared checks to evaluator source (P0-05); A6 the applicability rule at k = 3, 5, 10 and percentiles 5, 10, 20 (P2-03). Rules, anchors, fifteen predictions (P1 to P15), stop rules for the two runs that take minutes, and the list of what had and had not been seen when the predictions were written are in the pre-registration file.
+
+### How the results are used, decided now
+As sensitivity views beside the registered results, whatever the numbers; the released selection, the fifteen and the eight are not changed; a changed list is reported as a changed list; nothing is called active and nothing is ranked. Nothing in `10_new_system/` is modified by these analyses.
+
+### Not run, and why
+New fault families for G2, G3, G5 and G7, a replacement of the ten-pass censored fit, and a second person's rerun from a clean clone are not short. A refit of the released classifier on the re-curated records already exists in the extension (Supplementary Table S7) and is pointed to instead.
+
+**Addendum to ADR-AIIM-399, recorded before A4 and A6 were started (2026-10-11).** Amendment 1 of the pre-registration (`20_new_runs/v9_sensitivity_2026-10-11/PREREG_ADR399_AMENDMENT_1.md`, SHA-256 `0e092df728533ca20864a4747c934b549ed1846c86e143fef497d963907a5190`) changes only the stop rule and the execution of A4: the stored timings of the production run (202 to 1,070 s per compound at six threads) show that two box sizes cannot finish in the 30 minutes first written, so the two box sizes run side by side with the production command line and the stop rule becomes 120 minutes. Compounds, box sizes, anchor and predictions P8 to P10 are unchanged; no A4 result existed.
+
+## ADR-AIIM-400 — RESULT of the pre-registration of ADR-AIIM-399: the six sensitivity analyses (2026-10-11)
+
+**Status:** result recorded.
+**Date:** 2026-10-11
+**Follows:** ADR-AIIM-399 (pre-registration and its amendment 1, both frozen before the runs).
+**Folder:** `20_new_runs/v9_sensitivity_2026-10-11/` (scripts in `analysis/`). SHA-256 (first 16 hex): `a1_a2_vote_and_threshold.json` `73184ec0615b035b`, `a3_stratified_interval.json` `fba9348df3446b89`, `a4_box_sensitivity.json` `c84d9a646b76b2e3`, `a5_check_map.json` `12a43f867254a5bb`, `a6_ad_k_percentile.json` `d32a9862361e0968`; scripts `a1_a2_vote_and_threshold.py` `66856c68562198ce`, `a3_a5_small.py` `d330a777c92afa6a`, `a4_box_sensitivity.py` `7e7e97fb1504d51b`, `a6_ad_k_percentile.py` `4d82517d686aa14f`. Nothing in `10_new_system/` was modified by the analyses; `g4_dock_library.py` and `ad_descriptor_sweep.py` were invoked or imported unchanged.
+
+**Grading of the fifteen predictions (once, as registered): ten met, five not met.**
+
+**A1, one vote per distinct split.** P1 met: from the stored predictions the registered vote (at least 5 of 8 conventions) reproduces the fifteen and the eight in order. P2 met: with at least 3 of 5 distinct splits, eighteen compounds are selected, the fifteen and three more (SNP00151, SNP00121, SNP00079, each in the top 20 of three distinct splits); none of the fifteen is lost (Jaccard 0.833). P3 met: the shortlist keeps seven of the eight (SNP00033 is replaced by SNP00010; Jaccard 0.778).
+
+**A2, the applicability threshold.** P4 met: 2,645 of 5,000 expansion compounds score at least 0.25 against the 6,284-compound reference, and the 69 stored scores are reproduced to 1e-6 (126 compounds pass the gates before the applicability gate). P5 **not met**: the threshold matched in admission rate is 0.2687 (1,561 compounds at or above it, one tie), below the predicted 0.28 to 0.33. P6 met: 39 of the 69 are in the pool at that value. P7 met: six of the fifteen are in it (SNP00157, SNP00163, SNP00223, SNP00097, SNP00144, SNP00051) and three of the eight. Pool sizes at 0.25, 0.2687, 0.30, 0.35: 69, 39, 16, 2; of the fifteen in the pool: 15, 6, 3, 0; of the eight: 8, 3, 2, 0. At the matched threshold the registered vote selects sixteen compounds, ten of them not among the fifteen. At 0.30 and 0.35 the pool is smaller than the window of twenty, so every pool compound is selected and the vote decides nothing. The selection is therefore strongly dependent on the applicability threshold, which the article had named as a natural sensitivity analysis without running it.
+
+**A3, the interval.** No prediction. The stratified estimate reproduces 1,251 (7.41%); standard error 236.2; normal 95% interval 788 to 1,714 (4.67% to 10.15% of 16,882), from 19 of 249 and 16 of 250.
+
+**A4, box size** (amendment 1; the two processes finished in 2,922 s, inside the 120-minute stop rule; no restart). P8 met: the 22 Å rerun reproduces the stored score and distance of all four compounds exactly. P9 **not met**: one of four improved by more than 0.3 kcal/mol in the 30 Å box. P10 **not met**: two of four left the on-pocket cut-off. Per compound (22 Å, 30 Å, difference; distance in the 30 Å box): NPLIB01997 −10.804, −10.832, −0.028, 7.38 Å; NPLIB04561 −9.141, −9.151, −0.010, 6.75 Å; NPLIB03343 −8.949, −10.046, −1.097, 10.15 Å; NPLIB03133 −10.319, −9.217, +1.102, 13.29 Å. The larger box contains the smaller, so a worse best score in it (NPLIB03133) means the search at exhaustiveness 32 did not find the pose it found in the smaller box: for two of the four the result is not converged with respect to the search space. None of these compounds is among those the workflow released.
+
+**A5, the check map.** P11 **not met**: the ten contract files declare 95 entries under `checks`, not 94. P12 met: one is absent from the source of its evaluator, `md_decision_check` at G7, a routing rule (skip every G7 check when no simulation was run) that the evaluator implements without the identifier. The other 94 occur as string literals in their own evaluator, which is consistent with the 94 checks the article counts; the article's number was not changed. In the five benchmarked gates the deployed contracts declare 55 checks, of which the seeded benchmark exercised 19. The map is of the present tree, which includes the repairs made after the held-out evaluation, and is string-level only.
+
+**A6, k and percentile** (nine settings in 1,749 s, inside the 40-minute stop rule). P13 met: k = 5 and the 10th percentile reproduce the stored admissions and thresholds. P14 met: over the nine settings ECFP4 and Gobbi admit 0 of 236, FCFP4 and topological torsions at most 1. P15 **not met**: the physicochemical space admits 96 to 189 of 236 (40.7% to 80.1%), outside the predicted 50% to 80% at both ends. Other spaces: MACCS 1 to 12, atom pairs 1 to 3, ErG 0 to 7.
+
+**What the results say together.** The focus-library selection is stable to the way the vote is counted (A1) and not stable to the applicability threshold (A2); the contrast between structural and physicochemical applicability does not depend on k or the percentile, while the physicochemical rate does (A6); the docking result of half of the longest compounds depends on the box (A4); the estimate of 1,251 has a wide interval (A3). **What they do not say.** Nothing here is evidence of activity; no compound is ranked or put forward; the registered selection and the released results are unchanged.
+
+**Use.** As decided in the pre-registration: reported in the article and the supplement as sensitivity analyses (ADR-AIIM-401).

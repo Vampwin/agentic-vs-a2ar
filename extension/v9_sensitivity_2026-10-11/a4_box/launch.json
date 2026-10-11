@@ -1,0 +1,17 @@
+{
+ "started_utc": "2026-10-11T10:36:26Z",
+ "ids": [
+  "NPLIB01997",
+  "NPLIB03133",
+  "NPLIB04561",
+  "NPLIB03343"
+ ],
+ "cpu": 6,
+ "pids": {
+  "box22": 25944,
+  "box30": 73492
+ },
+ "finished_utc": "2026-10-11T11:25:08Z",
+ "wall_seconds": 2922.3,
+ "stopped_by_rule": []
+}
