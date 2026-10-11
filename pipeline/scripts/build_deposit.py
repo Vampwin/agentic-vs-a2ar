@@ -169,6 +169,8 @@ EXTENSION_TREE: list[tuple[str, str, str, set, set]] = [
         ("docking_matched_search_space_2026-10-09", "Vina over the whole receptor and DiffDock-L filtered to the site box: pre-registration, rank-1 poses, tables and result", set(), set()),
         ("docking_matched_filter_pocket_2026-10-09", "DiffDock-L 100 samples filtered by the box, and DiffDock-Pocket (main, rigid, C-alpha centre): pre-registration, rank-1 poses, tables and result", set(), set()),
         ("figures_style_harmonised_2026-10-10", "the one style of Figures 3 to 7 and the scripts that redraw Figures 3 to 5", set(), set()),
+        # Added 2026-10-11 (ADR-AIIM-396): the third replicates of SNP00157 and SNP00163, the post hoc analyses and the redrawn Supplementary Figure S2
+        ("md_snplib_replicate3_2026-10-10", "third replicates of SNP00157 and SNP00163: pre-registration, analysis, post hoc pose families, RMSF, hydrogen bonds, the image-jump check and Supplementary Figure S2", set(), set()),
         ("md_candidates_2026-08-22/SNP00157", "SNP00157 build parameters and series", set(), set()),
         ("md_candidates_2026-08-22/SNP00163", "SNP00163 build parameters and series", set(), set()),
     ]
@@ -225,7 +227,7 @@ from deposit_screen import (  # noqa: E402
 # verbatim into one file, with the SHA-256 of the whole log at the time of copying. Which entries is decided
 # here, in the open: the extension (285-336), the matched search-space program (353-356) and the earlier
 # pre-registered verification and simulation entries that the text cites.
-PREREGISTRATION_ADRS = sorted({111, 112, 131, 150, 156, 161, 171, 193, 194} | set(range(285, 337)) | {353, 354, 355, 356})
+PREREGISTRATION_ADRS = sorted({111, 112, 131, 150, 156, 161, 171, 193, 194} | set(range(285, 337)) | {353, 354, 355, 356} | {390, 391})   # 390, 391: the third replicates of SNP00157 and SNP00163, pre-registration and result (ADR-AIIM-396, approved by the author)
 PREREGISTRATION_DST = "preregistration/PRE_REGISTRATION_ENTRIES.md"
 SEALED_MENTION = re.compile(r"\bH(0[6-9]|1[0-2])\b")   # the held-out families that were never exposed
 
@@ -257,7 +259,7 @@ def write_preregistration(out: Path) -> dict:
         "are unchanged. The full log is not deposited.\n\n"
         f"- source: `00_project_control/08_DECISION_LOG.md`, SHA-256 of the whole log (line ends as LF) "
         f"`{hashlib.sha256(text.encode('utf-8')).hexdigest()}`\n"
-        f"- entries: {len(chosen)} (ADR-AIIM-{', '.join(str(n) for n in PREREGISTRATION_ADRS[:9])}, 285 to 336, 353 to 356)\n\n---\n\n")
+        f"- entries: {len(chosen)} (ADR-AIIM-{', '.join(str(n) for n in PREREGISTRATION_ADRS[:9])}, 285 to 336, 353 to 356, 390, 391)\n\n---\n\n")
     dst = out / PREREGISTRATION_DST
     dst.parent.mkdir(parents=True, exist_ok=True)
     dst.write_text(head + body + "\n", encoding="utf-8", newline="\n")

@@ -4551,7 +4551,7 @@
     {
       "check": "figcopies_identical",
       "state": "PASS",
-      "expected": "9 artifacts re-hash",
+      "expected": "10 artifacts re-hash",
       "recomputed": "all match",
       "literal_present_in_manuscript": true,
       "literal": "figcopies_identical"
@@ -4559,7 +4559,7 @@
     {
       "check": "figpng_not_stale",
       "state": "PASS",
-      "expected": "7 artifacts re-hash",
+      "expected": "8 artifacts re-hash",
       "recomputed": "all match",
       "literal_present_in_manuscript": true,
       "literal": "figpng_not_stale"

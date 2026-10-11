@@ -1,0 +1,198 @@
+{
+ "figure": "Supplementary Figure S2",
+ "script": "figure_S2_md_three_runs.py",
+ "claims_checked_against_plotted_data": {
+  "window_ns": 50.0,
+  "all_runs_within_10A_of_site": true,
+  "max_pocket_distance_A": {
+   "NPLIB01185_r1": 4.88,
+   "NPLIB01185_r2": 5.03,
+   "NPLIB01185_r3": 4.97,
+   "NPLIB01643_r1": 5.06,
+   "NPLIB01643_r2": 5.31,
+   "NPLIB01643_r3": 5.07,
+   "NPLIB03056_r1": 5.13,
+   "NPLIB03056_r2": 5.03,
+   "NPLIB03056_r3": 5.24,
+   "SNP00157_r1": 5.35,
+   "SNP00157_r2": 5.09,
+   "SNP00157_r3": 5.01,
+   "SNP00163_r1": 4.78,
+   "SNP00163_r2": 4.73,
+   "SNP00163_r3": 4.6
+  },
+  "persistence": {
+   "control_r1": 0.9661,
+   "control_r2": 1.0,
+   "control_r3": 0.6786,
+   "NPLIB01185_1": 0.1099,
+   "NPLIB01185_2": 0.1169,
+   "NPLIB01185_3": 0.3337,
+   "NPLIB01643_1": 0.4116,
+   "NPLIB01643_2": 0.1009,
+   "NPLIB01643_3": 0.3307,
+   "NPLIB03056_1": 0.1768,
+   "NPLIB03056_2": 0.3407,
+   "NPLIB03056_3": 0.3826,
+   "SNP00157_1": 0.1479,
+   "SNP00157_2": 0.0869,
+   "SNP00157_3": 0.7732,
+   "SNP00163_1": 0.5974,
+   "SNP00163_2": 0.7552,
+   "SNP00163_3": 0.984
+  },
+  "control_range": [
+   0.6786,
+   1.0
+  ],
+  "runs_inside_control_range": [
+   "SNP00157_3",
+   "SNP00163_2",
+   "SNP00163_3"
+  ],
+  "runs_below_control_range": [
+   "NPLIB01185_1",
+   "NPLIB01185_2",
+   "NPLIB01185_3",
+   "NPLIB01643_1",
+   "NPLIB01643_2",
+   "NPLIB01643_3",
+   "NPLIB03056_1",
+   "NPLIB03056_2",
+   "NPLIB03056_3",
+   "SNP00157_1",
+   "SNP00157_2",
+   "SNP00163_1"
+  ],
+  "anchors": {
+   "control_r1": {
+    "persistence_equals_stored": true,
+    "ladder_equals_stored": true
+   },
+   "control_r2": {
+    "persistence_equals_stored": true,
+    "ladder_equals_stored": true
+   },
+   "control_r3": {
+    "persistence_equals_stored": true,
+    "ladder_equals_stored": true
+   },
+   "NPLIB01185_r1": {
+    "persistence_equals_stored": true,
+    "ladder_equals_stored": true
+   },
+   "NPLIB01185_r2": {
+    "persistence_equals_stored": true,
+    "ladder_equals_stored": true
+   },
+   "NPLIB01185_r3": {
+    "persistence_equals_stored": true,
+    "ladder_equals_stored": true
+   },
+   "NPLIB01643_r1": {
+    "persistence_equals_stored": true,
+    "ladder_equals_stored": true
+   },
+   "NPLIB01643_r2": {
+    "persistence_equals_stored": true,
+    "ladder_equals_stored": true
+   },
+   "NPLIB01643_r3": {
+    "persistence_equals_stored": true,
+    "ladder_equals_stored": true
+   },
+   "NPLIB03056_r1": {
+    "persistence_equals_stored": true,
+    "ladder_equals_stored": true
+   },
+   "NPLIB03056_r2": {
+    "persistence_equals_stored": true,
+    "ladder_equals_stored": true
+   },
+   "NPLIB03056_r3": {
+    "persistence_equals_stored": true,
+    "ladder_equals_stored": true
+   },
+   "SNP00157_r1": {
+    "persistence_equals_stored": true,
+    "ladder_4A_equals_stored": true
+   },
+   "SNP00157_r2": {
+    "persistence_equals_stored": true,
+    "ladder_4A_equals_stored": true
+   },
+   "SNP00157_r3": {
+    "persistence_equals_stored": true,
+    "ladder_4A_equals_stored": true
+   },
+   "SNP00163_r1": {
+    "persistence_equals_stored": true,
+    "ladder_4A_equals_stored": true
+   },
+   "SNP00163_r2": {
+    "persistence_equals_stored": true,
+    "ladder_4A_equals_stored": true
+   },
+   "SNP00163_r3": {
+    "persistence_equals_stored": true,
+    "ladder_4A_equals_stored": true
+   },
+   "all_pocket_distances_below_10A": true
+  }
+ },
+ "inputs_sha256": {
+  "20_new_runs/md_candidates_2026-08-22/NPLIB01185/04_run/analysis_prod_r1/pocket_start_dist.xvg": "b11c3a8d8b15ccd38bab4d59fd39f48e207b7a9344c3e6fc69894eca254c2cc8",
+  "20_new_runs/md_candidates_2026-08-22/NPLIB01185/04_run/analysis_prod_r1/ligand_rmsd.xvg": "033f7e23bde9155f303a225b9fea3c4d3716c022e83212c237b674654842043d",
+  "20_new_runs/md_recognition_motif_2026-09-02/NPLIB01185_r1/N6_55.xvg": "df6c5ad16a8720023d6c7ff770b9577f1bd74001951816b0a14fca9a7144fdf0",
+  "20_new_runs/md_candidates_2026-08-22/NPLIB01185/04_run/analysis_prod_r2/pocket_start_dist.xvg": "637c10fc1f51874d2f2899778460d0f6eb0e8187e6cc9444182f019e3a2b4a62",
+  "20_new_runs/md_candidates_2026-08-22/NPLIB01185/04_run/analysis_prod_r2/ligand_rmsd.xvg": "ccb07e7c586adc6c5d8b116499ed05ed44c507b48703c7e1a57a65edd957063e",
+  "20_new_runs/md_recognition_motif_2026-09-02/NPLIB01185_r2/N6_55.xvg": "79d47892ede08a7f282c00c23833f67a44da91043a238538dbe5112f2a2efb2a",
+  "20_new_runs/md_candidates_2026-08-22/NPLIB01185/04_run/analysis_prod_r3/pocket_start_dist.xvg": "1c46e63cfdd1a155e8ec68ef12132ee568a7da9a4e79a242e77c9b4820f3fd6a",
+  "20_new_runs/md_candidates_2026-08-22/NPLIB01185/04_run/analysis_prod_r3/ligand_rmsd.xvg": "3472a7544ef404e9538587abc49b5e39ad3e8dabfd3b0eb4c438e527fb58ca6b",
+  "20_new_runs/md_recognition_motif_2026-09-02/NPLIB01185_r3/N6_55.xvg": "0a6e21f3d7c8ad7119ce1a734146ef7fa6393a93a37128816f2c33677de883e5",
+  "20_new_runs/md_candidates_2026-08-22/NPLIB01643/04_run/analysis_prod_r1/pocket_start_dist.xvg": "2d2addfe4fb43793f6e3ac721024e312d454a6819a438aa9e0617c1bb22091b7",
+  "20_new_runs/md_candidates_2026-08-22/NPLIB01643/04_run/analysis_prod_r1/ligand_rmsd.xvg": "5589f6edb95f64ae9a3a1210932e29f88ef37282cd02bc3ec68fd118bf39fc0c",
+  "20_new_runs/md_recognition_motif_2026-09-02/NPLIB01643_r1/N6_55.xvg": "c8e03d2f1fdbe25fb9721138f1ca8531e96a155dd6fb13eff13cd7d16749c100",
+  "20_new_runs/md_candidates_2026-08-22/NPLIB01643/04_run/analysis_prod_r2/pocket_start_dist.xvg": "87d79ecf4f84fb12579e6b3806ad7b857c170de8bd8c61d683f3e23177abbaee",
+  "20_new_runs/md_candidates_2026-08-22/NPLIB01643/04_run/analysis_prod_r2/ligand_rmsd.xvg": "aa95c41c04e00ac87c9c2fe16a972fd083292f83caa8b8d30924344469db2d08",
+  "20_new_runs/md_recognition_motif_2026-09-02/NPLIB01643_r2/N6_55.xvg": "5299505c06a66464d7511f9ebe090823a171a1d8585b03fd07f9b81f9c6432a0",
+  "20_new_runs/md_candidates_2026-08-22/NPLIB01643/04_run/analysis_prod_r3/pocket_start_dist.xvg": "2d9b7c42d757ad33499e300b16376e891431792dd56819d97f7a580bf50cd01d",
+  "20_new_runs/md_candidates_2026-08-22/NPLIB01643/04_run/analysis_prod_r3/ligand_rmsd.xvg": "4e081dae7d704a29efeafa6c3ecf120167995884addcd0f2cd8441e9acd2c6fb",
+  "20_new_runs/md_recognition_motif_2026-09-02/NPLIB01643_r3/N6_55.xvg": "b44ce02d610b3c05f99106fc865b723bab1644c339cc70feaeef1c15ca06d2cc",
+  "20_new_runs/md_candidates_2026-08-22/NPLIB03056/04_run/analysis_prod_r1/pocket_start_dist.xvg": "f73f8f4cfa3a0357ade38d17000aa95c3bdc082b247c60880495876ea2986b8c",
+  "20_new_runs/md_candidates_2026-08-22/NPLIB03056/04_run/analysis_prod_r1/ligand_rmsd.xvg": "106ccced73da6be7d40749553f8f0113dba42c4cffd18a86201a3fc905fabf94",
+  "20_new_runs/md_recognition_motif_2026-09-02/NPLIB03056_r1/N6_55.xvg": "c593796c9371a34d99b22ce3773f58cd18adec2753c551af20965572ed658c6f",
+  "20_new_runs/md_candidates_2026-08-22/NPLIB03056/04_run/analysis_prod_r2/pocket_start_dist.xvg": "a55446bfafbbee41f99327df5e41ba2a73145b07252882642fe837896e874c11",
+  "20_new_runs/md_candidates_2026-08-22/NPLIB03056/04_run/analysis_prod_r2/ligand_rmsd.xvg": "c42b94f2ab8f9e1e2694f7b4037a7e5a1222992e5a3e09650d7e8c2dfeba5302",
+  "20_new_runs/md_recognition_motif_2026-09-02/NPLIB03056_r2/N6_55.xvg": "2d1e2039b503be89963b7ea59915e988bbb342adf7658686d5f2aa54215b8c28",
+  "20_new_runs/md_candidates_2026-08-22/NPLIB03056/04_run/analysis_prod_r3/pocket_start_dist.xvg": "a5785ee005ae93fe5967a5a1e86c0eb12d68de290558f3521db3177f59505061",
+  "20_new_runs/md_candidates_2026-08-22/NPLIB03056/04_run/analysis_prod_r3/ligand_rmsd.xvg": "c47447c83c06c4431ef4b1eb592e09abcc1bd7e76c96ee55bcc50d970d5311a7",
+  "20_new_runs/md_recognition_motif_2026-09-02/NPLIB03056_r3/N6_55.xvg": "539c81d7e4ea0731fe16c7e84da571e0389acc1ce0f083723d7ed41167665d9b",
+  "20_new_runs/md_snplib_replicate3_2026-10-10/check_image_jumps.json": "f8f265f7c439f1e3b5fa8667b26528bbe42e047a0b5dc3bda8ca0033048c22e1",
+  "20_new_runs/md_candidates_2026-08-22/SNP00157/04_run/analysis_prod_r1/pocket_start_dist.xvg": "6663b188af87fbb288e6c556ec89eead560c2ebdb2814743a4d6bee5eaf927a0",
+  "20_new_runs/md_candidates_2026-08-22/SNP00157/04_run/analysis_prod_r1/ligand_rmsd.xvg": "37fc1ca6de05bd69327caf39bbf5c9903d9dee2188360846aaa6f171d9fc5bd5",
+  "20_new_runs/md_candidates_2026-08-22/SNP00157/04_run/analysis_prod_r1/N6_55.xvg": "98c6fa735113fd38b3f8c54401551b8339caaaaa6097803a65becd375012d5d2",
+  "20_new_runs/md_candidates_2026-08-22/SNP00157/04_run/analysis_prod_r2/pocket_start_dist.xvg": "b7bb6f81a2e2fa4273c23b35aca159a74df2a6fc0495dd1f3fc9cb32f734b1e2",
+  "20_new_runs/md_candidates_2026-08-22/SNP00157/04_run/analysis_prod_r2/ligand_rmsd.xvg": "74497cb3fc0436daaaa9f58e2c5762356693849f8da91189d799b19bc724bcd4",
+  "20_new_runs/md_candidates_2026-08-22/SNP00157/04_run/analysis_prod_r2/N6_55.xvg": "cac1114b181113f91cc86d3eef421e31767991fe8f7bf58e6f3717f04e1afec1",
+  "20_new_runs/md_candidates_2026-08-22/SNP00157/04_run/analysis_prod_r3/pocket_start_dist.xvg": "f0b4291e443ab50c654c24e05c5d6103f30283ac6aefa74c7ce81014da83b48e",
+  "20_new_runs/md_candidates_2026-08-22/SNP00157/04_run/analysis_prod_r3/ligand_rmsd.xvg": "95e5c25f079ae8f86950ddd7aca4d12585f7c06649f6615d9a98a73674903607",
+  "20_new_runs/md_candidates_2026-08-22/SNP00157/04_run/analysis_prod_r3/N6_55.xvg": "a783fbcc89811810feb6e06bf14724ad42a982dd0baccb972e8985dc21c4b9fe",
+  "20_new_runs/md_candidates_2026-08-22/SNP00163/04_run/analysis_prod_r1/pocket_start_dist.xvg": "73cbbe2219c21df4a6be53d7852029a07bd657ad513a782410bb9dfec3d0d2c8",
+  "20_new_runs/md_candidates_2026-08-22/SNP00163/04_run/analysis_prod_r1/ligand_rmsd.xvg": "1b023efaf81bfffae141ada1a69271d2089d0651b2b91ee191403c17d08af941",
+  "20_new_runs/md_candidates_2026-08-22/SNP00163/04_run/analysis_prod_r1/N6_55.xvg": "6026f2322a7a05624f9b6e39aa8181a2165b90763269b5af82ac2b9dcc32e899",
+  "20_new_runs/md_candidates_2026-08-22/SNP00163/04_run/analysis_prod_r2/pocket_start_dist.xvg": "19c3bba2138f4b691cf38c9963ab2f4212250eb67e52a2c4d952ab6febab8527",
+  "20_new_runs/md_candidates_2026-08-22/SNP00163/04_run/analysis_prod_r2/ligand_rmsd.xvg": "f0357908fec0df4825a13f7d9b4ea6a3bcf91c2bbe4f841373dde4af9f7c891a",
+  "20_new_runs/md_candidates_2026-08-22/SNP00163/04_run/analysis_prod_r2/N6_55.xvg": "eefc340bb415e98b8a80c6b40e21becd26160f59aa063e40e847791b1e115d06",
+  "20_new_runs/md_candidates_2026-08-22/SNP00163/04_run/analysis_prod_r3/pocket_start_dist.xvg": "24f25bcc67e758b09c08e9e541675a2cedb139a9ecaebc6d5b5da634f0ddb68a",
+  "20_new_runs/md_candidates_2026-08-22/SNP00163/04_run/analysis_prod_r3/ligand_rmsd.xvg": "e9f376048595a41dda5120152647e383ed8523b526cb5d96a780a984a689fce4",
+  "20_new_runs/md_candidates_2026-08-22/SNP00163/04_run/analysis_prod_r3/N6_55.xvg": "b780b6ffcd70fcd800badec9ee708ab0c35af224a3cc02c5e5a18ed119fe9c6d",
+  "20_new_runs/md_recognition_motif_2026-09-02/control_ZM241385/N6_55.xvg": "e452dc514ff5a3d22613c6752099e1672f8bb32d75549624f78162ae4aac9840",
+  "20_new_runs/md_control_replicates_2026-10-06/analysis_prod_r2/N6_55.xvg": "b11a7ccb3136f8199a77261385a7db1885fc982f0bdbb982c9124072941c93d1",
+  "20_new_runs/md_control_replicates_2026-10-06/analysis_prod_r3/N6_55.xvg": "55abc07eed49aa8a6594f20acda11bee152c147d22ce25edd40e25d5bb140db7",
+  "20_new_runs/md_control_anchor_2026-10-07/analysis_prod/ligand_rmsd.xvg": "29aa55ce1580e16b8fb0e40559171c4954a732fbd7108720d8c3a43e7811a519",
+  "20_new_runs/md_control_replicates_2026-10-06/analysis_prod_r2/ligand_rmsd.xvg": "18f16121383b8156dfb485be0264edbf5ca8e195dfdc7fc69ecb1b298515434c",
+  "20_new_runs/md_control_replicates_2026-10-06/analysis_prod_r3/ligand_rmsd.xvg": "5b3da5e0d814a93f65d3230ccc58816f81e5ea4946a8a96e19a2c8b920312efe",
+  "20_new_runs/md_snplib_replicate3_2026-10-10/adr390_results.json": "1a2960e63b5aec0fdd1d5ff338c4d83e5381014063821759454f30972b1b23cf"
+ }
+}

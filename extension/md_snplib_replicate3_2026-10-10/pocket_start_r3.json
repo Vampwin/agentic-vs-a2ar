@@ -1,0 +1,20 @@
+{
+ "SNP00157_r3": {
+  "frames": 1001,
+  "t_end_ns": 50.0,
+  "min_A": 2.64,
+  "median_A": 3.5,
+  "max_A": 5.01,
+  "frames_beyond_10A": 0,
+  "sha256": "f0b4291e443ab50c654c24e05c5d6103f30283ac6aefa74c7ce81014da83b48e"
+ },
+ "SNP00163_r3": {
+  "frames": 1001,
+  "t_end_ns": 50.0,
+  "min_A": 2.72,
+  "median_A": 3.73,
+  "max_A": 4.6,
+  "frames_beyond_10A": 0,
+  "sha256": "24f25bcc67e758b09c08e9e541675a2cedb139a9ecaebc6d5b5da634f0ddb68a"
+ }
+}

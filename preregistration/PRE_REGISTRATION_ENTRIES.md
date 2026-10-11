@@ -2,8 +2,8 @@
 
 Verbatim copies of the decision-log entries that the article and the supplement describe as pre-registered, and of the entries that record their results. The log is append-only; each entry was written before the run it concerns (or, for a result entry, after it), and the SHA-256 of the predictions of each analysis was recorded in the entry before the analysis ran. Copied as written: first-person wording and the author's quotations are unchanged. The full log is not deposited.
 
-- source: `00_project_control/08_DECISION_LOG.md`, SHA-256 of the whole log (line ends as LF) `7736b65b238d5a420d7d9b3e33719501788a6b850e02ba34cbad86a5a9c86558`
-- entries: 67 (ADR-AIIM-111, 112, 131, 150, 156, 161, 171, 193, 194, 285 to 336, 353 to 356)
+- source: `00_project_control/08_DECISION_LOG.md`, SHA-256 of the whole log (line ends as LF) `24eeae7d46957f759a2b80acc1586a1e382ef03312015285fd460db632119fa3`
+- entries: 69 (ADR-AIIM-111, 112, 131, 150, 156, 161, 171, 193, 194, 285 to 336, 353 to 356, 390, 391)
 
 ---
 
@@ -8204,3 +8204,52 @@ DiffDock-Pocket's weights were trained on PDBBind-like complexes, not membrane p
 | G5 box-matched agreement: fewer than 8 of 15 within 2.0 Å | 0 of 15, median 13.9 Å | met, **not interpreted** (G1 missed) |
 
 By the registered rule arm D is reported and not interpreted. A descriptive look at the control only (not graded, added after G1 was known and labelled so): among its 100 samples **10 lie within 2.0 Å of the crystal pose** and 49 are inside the box; the best in-box pose is 0.90 Å from the crystal pose, at DiffDock's confidence rank 9. DiffDock-L finds the site but its confidence ranking, not its sampling, puts a wrong pose first, which is why filtering by the box and ranking by confidence cannot recover a pocket-conditioned answer. (The ten-sample blind run of ADR-AIIM-111 happened to rank the crystal-like pose first, at 1.92 Å, which the hundred-sample run does not reproduce: the rank-1 pose of a single DiffDock-L run is itself noisy.)
+
+## ADR-AIIM-390 — PRE-REGISTRATION: the third replicate of SNP00157 and SNP00163 (2026-10-10)
+
+**Status:** proposed — **pre-registration. Frozen before the runs start.**
+**Date:** 2026-10-10
+**Decided by:** Adisorn Sirichotejirakul, in chat, while the co-authors review the manuscript: "ระหว่างรออาจารย์รีวิวช่วยทำ MD ครั้งที่ 3 ได้ไหม" ("while the professors review, can you run the third MD replicate?"). It is the option that ADR-AIIM-374 and ADR-AIIM-382 left open ("a third replicate of each compound would give three against three") and that ADR-AIIM-382 said needed a new pre-registration first.
+**Follows:** ADR-AIIM-331 (design and result: replicates 1 and 2; the stubs of replicate 3 were stopped by the watcher), ADR-AIIM-336 (the result), ADR-AIIM-382 (the article compares the compounds with the matched duplicate, the control's runs 1 and 2).
+**Decision log at freeze (text/LF):** `1692c94f9db32eea1f206f2c22a7627fb70129c44d12ea83e134781da0db6151`
+**Pre-registration file:** `20_new_runs/md_snplib_replicate3_2026-10-10/PREREG_ADR390.md`, SHA-256 `200a3c4579ce190ca8d09b44b550d1772d9e41d961eefb47cc50337ed78fb2bc` (also in `PREREG_SHA256.txt`).
+**Discipline:** ADR-AIIM-263 — predictions fixed before the run.
+
+### What is run
+Replicate 3 (50 ns) of SNP00157 and of SNP00163, so that the control (runs 1 to 3), SNP00157 (1 to 3) and SNP00163 (1 to 3) have the same number of runs. The frozen driver `md_10_run_candidate.sh` is invoked unmodified; replicates 1 and 2 are complete and skipped; replicate 3 continues from the checkpoint written in the first seconds of 2026-10-09, with the `prod_r3.tpr` and `prod_r3.mdp` already in place and the velocity seed `20260824` fixed when the systems were built (the other replicates 20260822 and 20260823; the control 20261006 to 20261008). The two compounds run side by side on the one GPU. Nothing is changed in any setting; a host fault is handled by re-invoking the driver and every restart is reported.
+
+### Measured
+The unchanged pipeline of ADR-AIIM-336 over the first 50 ns, with the anchors of ADR-AIIM-331; per run: RMSD mean, fraction below 4 A, N6.55 persistence overall and by 10 ns block, area change, nearest C-alpha distance.
+
+### Predictions
+R1 both runs reach 50.0 ns unchanged; R2 the nearest C-alpha distance never exceeds 10.0 A in either run; R3 SNP00157 r3 persistence at most 0.35; R4 SNP00163 r3 persistence between 0.40 and 0.90; R5 RMSD below 4 A in at most 0.50 of the frames for SNP00157 r3 and at most 0.60 for SNP00163 r3. (Full text, with the earlier values for orientation, in the pre-registration file.)
+
+### How the result is used, decided now
+The article's comparison becomes control runs 1 to 3 against runs 1 to 3 of each compound, restoring the primary design of ADR-AIIM-331, and the matched duplicate of ADR-AIIM-382 stays in the supplement as a sensitivity view; this does not depend on the numbers. Per-run values and ranges, no test on n = 3. If a run cannot be completed the article is left as it is and the run is reported as incomplete in the supplement. Nothing is called active; no ranking.
+
+### Resources and risks
+GPU RTX 5060, GROMACS 2026.3 (`/opt/gromacs/2026.3-cuda13.1-sm120`), WSL distro `A2A-MD` (it was stopped and has been started for this); 836 GB free on D:. At the measured 90 ns/day per job when two run together the two replicates need about 13 to 14 h; a host loss of the kind of ADR-AIIM-332 would add to it, and the distro stops when no session holds it, so a keep-alive session is held. Not covered by Gate 8 (ADR-AIIM-040, which budgets held-out scoring): this is compute for the exploratory extension, approved by the author in chat.
+
+## ADR-AIIM-391 — RESULT of the pre-registration of ADR-AIIM-390: replicate 3 of SNP00157 and SNP00163 (2026-10-11)
+
+**Status:** result recorded; the article and the supplement are **not** changed by this entry (the author decides, see the end).
+**Date:** 2026-10-11
+**Follows:** ADR-AIIM-390 (pre-registration, frozen 2026-10-10 before the runs).
+
+**Run.** Both replicates reached 50.0 ns on the first attempt of the frozen driver, with no restart and no host fault (started 2026-10-10 10:53, finished 2026-10-11 01:30 for SNP00157 and 02:02 for SNP00163; 82 and 79 ns/day at the end). The unchanged md_11 and the N6.55 step of ADR-AIIM-336 were run afterwards by `adr390_analysis.py` (written before the runs ended; SHA-256 `62d7d857bfc3d3d13eb0e5d284fcb5201dcd0b6f4877269a3f25623412d45684`); the anchors of ADR-AIIM-331 were met. Outputs in `20_new_runs/md_snplib_replicate3_2026-10-10/`: `adr390_results.json` (SHA-256 `1a2960e63b5aec0fdd1d5ff338c4d83e5381014063821759454f30972b1b23cf`), `adr390_per_run.csv` (`5c8a61dfe10f6b46782321e8cc0582f311ccf3fdc32362140aa2ac33dc3ff2a9`); trajectories `prod_r3.xtc` SHA-256 SNP00157 `f111b72c5aa7afd68d1381ec6ea71070e134684c9f6acf70b6613e2fab10a6db`, SNP00163 `c229438c22487ed0ced56795655c6835f621d9dd862db2845d40c61bd97ce1ef`.
+
+**Per run (50 ns).** N6.55 persistence, share of frames with ligand RMSD below 4 A, mean RMSD (A), largest nearest C-alpha distance (A):
+
+| System | r1 | r2 | r3 |
+|---|---|---|---|
+| Control ZM241385 | 0.966, 1.000, 2.61, 4.86 | 1.000, 0.964, 3.22, 4.73 | 0.679, 0.946, 2.75, 4.83 |
+| SNP00157 | 0.148, 0.176, 4.96, 5.35 | 0.087, 0.156, 5.41, 5.09 | **0.773**, 0.123, 5.98, 5.01 |
+| SNP00163 | 0.597, 0.415, 4.25, 4.78 | 0.755, 0.373, 5.04, 4.73 | **0.984**, 0.171, 4.20, 4.60 |
+
+SNP00157 r3 by 10 ns block: 0.475, 0.700, 0.720, 0.980, 0.995 (the contact is formed late and held). SNP00163 r3: 0.925, 1.000, 1.000, 0.995, 1.000.
+
+**Grading of the pre-registered predictions (once, as registered).** R1 met (both). R2 met (largest nearest C-alpha distance 5.01 and 4.60 A, below 10.0). R3 **missed** (SNP00157 r3 persistence 0.773, bound 0.35). R4 **missed** (SNP00163 r3 persistence 0.984, range 0.40 to 0.90). R5 met (RMSD below 4 A in 0.123 and 0.171 of the frames; bounds 0.50 and 0.60).
+
+**What the result says, and does not say.** With three runs per system the per-run persistence ranges are control 0.679 to 1.000, SNP00157 0.087 to 0.773, SNP00163 0.597 to 0.984. The two replicates 1 and 2 of ADR-AIIM-336 seemed to separate SNP00157 from the control (both below the control minimum); replicate 3 does not: its persistence lies within the control's range. SNP00163 was within the control range already and is now at the top of it. What remains the same in all three runs of both compounds is the ligand RMSD: the share of frames below 4 A is 0.12 to 0.42 for the compounds against 0.95 to 1.00 for the control, and the mean RMSD is 4.2 to 6.0 A against 2.6 to 3.2 A; this is not independent of the way the RMSD is measured (against the pre-equilibration structure, so a ligand that settles into a different but stable pose reads as high RMSD while keeping the contact). No spread is estimated and no test is run on n = 3; a stable trajectory is not evidence that the pose is correct and nothing is called active. The statement of the article that SNP00157 holds the N6.55 contact less than the control in both of its replicates is, with three runs, a statement about two of three runs and the third behaves like the control; with the stated use of ADR-AIIM-390 (the three-against-three comparison replaces the matched duplicate) the article's sentences about persistence need rewording, while the RMSD and the "no dissociation" statements stand.
+
+**Not done.** The article, supplement, cover letter and highlights were **not** edited; the deposit was not changed. The preregistered use (the comparison becomes 3 against 3, the matched duplicate stays in the supplement as sensitivity) is pending the author's instruction because the documents are with the co-authors for review.

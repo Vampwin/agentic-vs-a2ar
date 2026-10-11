@@ -1,0 +1,161 @@
+{
+ "CONTROL": {
+  "start": {
+   "min_heavy_to_gap_residues_A": 37.6,
+   "centroid_to_gap_CA_A": [
+    47.5,
+    53.2
+   ],
+   "min_heavy_to_N655_side_chain_A": 2.8,
+   "z_centroid_minus_gap_CA_A": [
+    -44.9,
+    -52.5
+   ],
+   "gap_CA_to_CA_A": 10.5,
+   "gap_residues": [
+    "A:LEU211",
+    "A:NME212",
+    "B:ACE1",
+    "B:GLU2"
+   ]
+  },
+  "trajectory": {
+   "r1": {
+    "frames": 101,
+    "min_heavy_to_gap_min_A": 36.5,
+    "min_heavy_to_gap_median_A": 40.7,
+    "centroid_to_gap_CA_min_A": 45.7,
+    "centroid_to_gap_CA_median_A": [
+     48.5,
+     52.3
+    ]
+   },
+   "r2": {
+    "frames": 101,
+    "min_heavy_to_gap_min_A": 36.1,
+    "min_heavy_to_gap_median_A": 38.0,
+    "centroid_to_gap_CA_min_A": 44.6,
+    "centroid_to_gap_CA_median_A": [
+     46.3,
+     51.8
+    ]
+   },
+   "r3": {
+    "frames": 101,
+    "min_heavy_to_gap_min_A": 35.3,
+    "min_heavy_to_gap_median_A": 37.7,
+    "centroid_to_gap_CA_min_A": 44.4,
+    "centroid_to_gap_CA_median_A": [
+     46.5,
+     52.3
+    ]
+   }
+  }
+ },
+ "SNP00157": {
+  "start": {
+   "min_heavy_to_gap_residues_A": 40.4,
+   "centroid_to_gap_CA_A": [
+    50.5,
+    56.2
+   ],
+   "min_heavy_to_N655_side_chain_A": 3.2,
+   "z_centroid_minus_gap_CA_A": [
+    -48.0,
+    -55.6
+   ],
+   "gap_CA_to_CA_A": 10.5,
+   "gap_residues": [
+    "A:LEU211",
+    "A:NME212",
+    "B:ACE1",
+    "B:GLU2"
+   ]
+  },
+  "trajectory": {
+   "r1": {
+    "frames": 201,
+    "min_heavy_to_gap_min_A": 35.5,
+    "min_heavy_to_gap_median_A": 41.2,
+    "centroid_to_gap_CA_min_A": 45.8,
+    "centroid_to_gap_CA_median_A": [
+     49.5,
+     51.7
+    ]
+   },
+   "r2": {
+    "frames": 201,
+    "min_heavy_to_gap_min_A": 33.0,
+    "min_heavy_to_gap_median_A": 35.7,
+    "centroid_to_gap_CA_min_A": 41.9,
+    "centroid_to_gap_CA_median_A": [
+     44.9,
+     51.6
+    ]
+   },
+   "r3": {
+    "frames": 201,
+    "min_heavy_to_gap_min_A": 36.7,
+    "min_heavy_to_gap_median_A": 39.5,
+    "centroid_to_gap_CA_min_A": 44.1,
+    "centroid_to_gap_CA_median_A": [
+     46.9,
+     52.7
+    ]
+   }
+  }
+ },
+ "SNP00163": {
+  "start": {
+   "min_heavy_to_gap_residues_A": 40.8,
+   "centroid_to_gap_CA_A": [
+    49.2,
+    54.9
+   ],
+   "min_heavy_to_N655_side_chain_A": 2.8,
+   "z_centroid_minus_gap_CA_A": [
+    -46.9,
+    -54.4
+   ],
+   "gap_CA_to_CA_A": 10.2,
+   "gap_residues": [
+    "A:LEU211",
+    "A:NME212",
+    "B:ACE1",
+    "B:GLU2"
+   ]
+  },
+  "trajectory": {
+   "r1": {
+    "frames": 201,
+    "min_heavy_to_gap_min_A": 34.2,
+    "min_heavy_to_gap_median_A": 36.4,
+    "centroid_to_gap_CA_min_A": 42.3,
+    "centroid_to_gap_CA_median_A": [
+     44.1,
+     50.0
+    ]
+   },
+   "r2": {
+    "frames": 201,
+    "min_heavy_to_gap_min_A": 34.7,
+    "min_heavy_to_gap_median_A": 37.0,
+    "centroid_to_gap_CA_min_A": 42.6,
+    "centroid_to_gap_CA_median_A": [
+     45.1,
+     51.5
+    ]
+   },
+   "r3": {
+    "frames": 201,
+    "min_heavy_to_gap_min_A": 33.6,
+    "min_heavy_to_gap_median_A": 37.3,
+    "centroid_to_gap_CA_min_A": 42.0,
+    "centroid_to_gap_CA_median_A": [
+     44.6,
+     51.2
+    ]
+   }
+  }
+ }
+}

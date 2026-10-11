@@ -57,7 +57,7 @@ which are not the manuscript's. Current correspondence:
 | 5, permutation sensitivity | `extension/figures_style_harmonised_2026-10-10/out/figure5_permutation_harmonised`; the earlier version: `figures/figure7_permutation_distribution_2026-10-02` |
 | 6, pose comparison with the search space given to both engines (A the control, B and C SNP00157 and SNP00163, PyMOL with one camera; D DiffDock-Pocket against Vina, E Vina in the box against the whole receptor) | `extension/figures_docking_md_2026-10-09/Figure_6_pocket` (scripts `analysis/figure6_pocket.py`, `analysis/render_pocket_pymol.py`; data `extension/docking_matched_filter_pocket_2026-10-09` and `extension/docking_matched_search_space_2026-10-09`) |
 | Supplementary Figure S1, DiffDock-L run blind against Vina in the box (the earlier Figure 6) | `extension/figures_docking_md_2026-10-09/Figure_6_docking_snplib`; the earlier two-panel version with NPLIB01643: `figures/figure5_pose_overlay_2026-08-24` |
-| Supplementary Figure S2, membrane simulations of all five docked compounds over the first 50 ns | `extension/figures_docking_md_2026-10-09/Figure_S2_md_all_compounds`; the control and SNP00157 and SNP00163 alone, which was Figure 7 until 2026-10-10 and is no longer in the article: `Figure_7_md_snplib` in the same folder; the earlier version: `extension/figure8_window50_2026-10-07` |
+| Supplementary Figure S2, membrane simulations of all five docked compounds over the first 50 ns, with three runs of SNP00157 and SNP00163 | `extension/md_snplib_replicate3_2026-10-10/figures/Figure_S2_md_all_compounds_3runs` (builder `figure_S2_md_three_runs.py`); the version with two runs of each, drawn by `extension/figures_docking_md_2026-10-09/analysis/figure7_md_snplib.py`: `extension/figures_docking_md_2026-10-09/Figure_S2_md_all_compounds`; the control and SNP00157 and SNP00163 alone, which was Figure 7 until 2026-10-10 and is no longer in the article: `Figure_7_md_snplib` in the same folder; the earlier version: `extension/figure8_window50_2026-10-07` |
 | graphical abstract | `figures/graphical_abstract/figure_graphical_abstract_v8_funnel_2026-10-10` (builder `build_graphical_abstract_v8_funnel.py`); the earlier layouts: `figures/graphical_abstract/figure_graphical_abstract_v7_2026-10-03` and `figures/figure_graphical_abstract_2026-08-21` |
 
 Two files are **not** in the current manuscript: `figures/figure6_pose_persistence_2026-08-31`
@@ -134,7 +134,7 @@ Section 17): the censored-fit reproducibility defect, the eight split
 conventions, the SNP-Lib funnel, Vina docking of the 69 in-domain compounds,
 DiffDock-L on the fifteen survivors and on a DUD-E subsample, the matched search-space
 program (Vina over the whole receptor, DiffDock-L filtered to the site box, DiffDock-Pocket),
-the three-run molecular-dynamics control, and SNP00157 and SNP00163 in duplicate. Each was
+the three-run molecular-dynamics control, SNP00157 and SNP00163 in duplicate, and their third replicates with the post hoc analyses of them (pose families, receptor flexibility, hydrogen bonds, and the check of the trajectories for periodic-image jumps: `extension/md_snplib_replicate3_2026-10-10`). Each was
 pre-registered in the decision log with the SHA-256 of its predictions before it
 ran. The full log is not deposited; the entries the manuscript relies on, and the
 entries that record their results, are copied verbatim into

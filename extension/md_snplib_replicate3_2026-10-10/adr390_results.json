@@ -1,0 +1,289 @@
+{
+ "adr": "ADR-AIIM-390",
+ "anchors_met": true,
+ "control_runs": {
+  "r1": {
+   "length_ns": 50.0,
+   "n_frames_rmsd": 501,
+   "n_frames_n655": 501,
+   "rmsd_mean_A": 2.61,
+   "rmsd_frac_lt_4A": 1.0,
+   "n655_persistence": 0.9661,
+   "lig_calpha_mindist_median_A": 3.57,
+   "lig_calpha_mindist_max_A": 4.86,
+   "n655_by_10ns": [
+    0.96,
+    0.9,
+    0.99,
+    0.99,
+    0.99
+   ],
+   "area_change_pct": -0.44
+  },
+  "r2": {
+   "length_ns": 50.0,
+   "n_frames_rmsd": 501,
+   "n_frames_n655": 501,
+   "rmsd_mean_A": 3.22,
+   "rmsd_frac_lt_4A": 0.9641,
+   "n655_persistence": 1.0,
+   "lig_calpha_mindist_median_A": 3.49,
+   "lig_calpha_mindist_max_A": 4.73,
+   "n655_by_10ns": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "area_change_pct": -2.78
+  },
+  "r3": {
+   "length_ns": 50.0,
+   "n_frames_rmsd": 501,
+   "n_frames_n655": 501,
+   "rmsd_mean_A": 2.75,
+   "rmsd_frac_lt_4A": 0.9461,
+   "n655_persistence": 0.6786,
+   "lig_calpha_mindist_median_A": 3.87,
+   "lig_calpha_mindist_max_A": 4.83,
+   "n655_by_10ns": [
+    0.99,
+    1.0,
+    0.57,
+    0.31,
+    0.52
+   ],
+   "area_change_pct": -0.46
+  }
+ },
+ "candidate_runs": {
+  "SNP00157": {
+   "r1": {
+    "length_ns": 50.0,
+    "n_frames_rmsd": 1001,
+    "n_frames_n655": 1001,
+    "rmsd_mean_A": 4.96,
+    "rmsd_frac_lt_4A": 0.1758,
+    "n655_persistence": 0.1479,
+    "lig_calpha_mindist_median_A": 4.29,
+    "lig_calpha_mindist_max_A": 5.35,
+    "n655_by_10ns": [
+     0.06,
+     0.23,
+     0.08,
+     0.305,
+     0.065
+    ],
+    "area_change_pct": 0.13
+   },
+   "r2": {
+    "length_ns": 50.0,
+    "n_frames_rmsd": 1001,
+    "n_frames_n655": 1001,
+    "rmsd_mean_A": 5.41,
+    "rmsd_frac_lt_4A": 0.1558,
+    "n655_persistence": 0.0869,
+    "lig_calpha_mindist_median_A": 3.85,
+    "lig_calpha_mindist_max_A": 5.09,
+    "n655_by_10ns": [
+     0.005,
+     0.0,
+     0.015,
+     0.335,
+     0.08
+    ],
+    "area_change_pct": -0.09
+   },
+   "r3": {
+    "length_ns": 50.0,
+    "n_frames_rmsd": 1001,
+    "n_frames_n655": 1001,
+    "rmsd_mean_A": 5.98,
+    "rmsd_frac_lt_4A": 0.1229,
+    "n655_persistence": 0.7732,
+    "lig_calpha_mindist_median_A": 3.5,
+    "lig_calpha_mindist_max_A": 5.01,
+    "n655_by_10ns": [
+     0.475,
+     0.7,
+     0.72,
+     0.98,
+     0.995
+    ],
+    "area_change_pct": -1.01
+   }
+  },
+  "SNP00163": {
+   "r1": {
+    "length_ns": 50.0,
+    "n_frames_rmsd": 1001,
+    "n_frames_n655": 1001,
+    "rmsd_mean_A": 4.25,
+    "rmsd_frac_lt_4A": 0.4146,
+    "n655_persistence": 0.5974,
+    "lig_calpha_mindist_median_A": 3.46,
+    "lig_calpha_mindist_max_A": 4.78,
+    "n655_by_10ns": [
+     0.995,
+     0.73,
+     0.14,
+     0.425,
+     0.695
+    ],
+    "area_change_pct": -0.59
+   },
+   "r2": {
+    "length_ns": 50.0,
+    "n_frames_rmsd": 1001,
+    "n_frames_n655": 1001,
+    "rmsd_mean_A": 5.04,
+    "rmsd_frac_lt_4A": 0.3726,
+    "n655_persistence": 0.7552,
+    "lig_calpha_mindist_median_A": 3.38,
+    "lig_calpha_mindist_max_A": 4.73,
+    "n655_by_10ns": [
+     0.885,
+     0.22,
+     0.675,
+     0.995,
+     1.0
+    ],
+    "area_change_pct": -0.8
+   },
+   "r3": {
+    "length_ns": 50.0,
+    "n_frames_rmsd": 1001,
+    "n_frames_n655": 1001,
+    "rmsd_mean_A": 4.2,
+    "rmsd_frac_lt_4A": 0.1708,
+    "n655_persistence": 0.984,
+    "lig_calpha_mindist_median_A": 3.73,
+    "lig_calpha_mindist_max_A": 4.6,
+    "n655_by_10ns": [
+     0.925,
+     1.0,
+     1.0,
+     0.995,
+     1.0
+    ],
+    "area_change_pct": -1.18
+   }
+  }
+ },
+ "grading": {
+  "SNP00157": {
+   "R1_reached_50ns": "MET",
+   "R2_calpha_max_le_10A": "MET",
+   "R5_frac_lt4A_max": 0.5,
+   "R5_rmsd_frac": "MET",
+   "R3_persistence_le_0.35": "MISSED",
+   "observed": {
+    "length_ns": 50.0,
+    "n655_persistence": 0.7732,
+    "rmsd_frac_lt_4A": 0.1229,
+    "rmsd_mean_A": 5.98,
+    "lig_calpha_mindist_max_A": 5.01,
+    "n655_by_10ns": [
+     0.475,
+     0.7,
+     0.72,
+     0.98,
+     0.995
+    ],
+    "area_change_pct": -1.01
+   }
+  },
+  "SNP00163": {
+   "R1_reached_50ns": "MET",
+   "R2_calpha_max_le_10A": "MET",
+   "R5_frac_lt4A_max": 0.6,
+   "R5_rmsd_frac": "MET",
+   "R4_persistence_0.40_to_0.90": "MISSED",
+   "observed": {
+    "length_ns": 50.0,
+    "n655_persistence": 0.984,
+    "rmsd_frac_lt_4A": 0.1708,
+    "rmsd_mean_A": 4.2,
+    "lig_calpha_mindist_max_A": 4.6,
+    "n655_by_10ns": [
+     0.925,
+     1.0,
+     1.0,
+     0.995,
+     1.0
+    ],
+    "area_change_pct": -1.18
+   }
+  }
+ },
+ "three_against_three": {
+  "control_r1-r3_persistence": [
+   0.679,
+   1.0
+  ],
+  "control_r1-r3_rmsd_frac_lt4A": [
+   0.946,
+   1.0
+  ],
+  "control_r1-r3_rmsd_mean_A": [
+   2.61,
+   3.22
+  ],
+  "SNP00157_n_runs": 3,
+  "SNP00157_persistence": [
+   0.087,
+   0.773
+  ],
+  "SNP00157_rmsd_frac_lt4A": [
+   0.123,
+   0.176
+  ],
+  "SNP00157_rmsd_mean_A": [
+   4.96,
+   5.98
+  ],
+  "SNP00157_persistence_below_every_control_run": false,
+  "SNP00163_n_runs": 3,
+  "SNP00163_persistence": [
+   0.597,
+   0.984
+  ],
+  "SNP00163_rmsd_frac_lt4A": [
+   0.171,
+   0.415
+  ],
+  "SNP00163_rmsd_mean_A": [
+   4.2,
+   5.04
+  ],
+  "SNP00163_persistence_below_every_control_run": false
+ },
+ "inputs_sha256": {
+  "20_new_runs\\md_candidates_2026-08-22\\SNP00157\\04_run\\analysis_prod_r1\\ligand_rmsd.xvg": "37fc1ca6de05bd69327caf39bbf5c9903d9dee2188360846aaa6f171d9fc5bd5",
+  "20_new_runs\\md_candidates_2026-08-22\\SNP00157\\04_run\\analysis_prod_r1\\box.xvg": "2c61bef085cd939ba8c445893abe3e5023c63006525598fe18d84f3e626a25ff",
+  "20_new_runs\\md_candidates_2026-08-22\\SNP00157\\04_run\\analysis_prod_r1\\N6_55.xvg": "98c6fa735113fd38b3f8c54401551b8339caaaaa6097803a65becd375012d5d2",
+  "20_new_runs\\md_candidates_2026-08-22\\SNP00157\\04_run\\analysis_prod_r1\\mindist.xvg": "90495680f7b527cd26bec4992aee44068312067d15b1b5e937548ead3322e820",
+  "20_new_runs\\md_candidates_2026-08-22\\SNP00157\\04_run\\analysis_prod_r2\\ligand_rmsd.xvg": "74497cb3fc0436daaaa9f58e2c5762356693849f8da91189d799b19bc724bcd4",
+  "20_new_runs\\md_candidates_2026-08-22\\SNP00157\\04_run\\analysis_prod_r2\\box.xvg": "6077ce39fea9273d80c9dc15980efc220139041498cf7ab63143de00f8edcd85",
+  "20_new_runs\\md_candidates_2026-08-22\\SNP00157\\04_run\\analysis_prod_r2\\N6_55.xvg": "cac1114b181113f91cc86d3eef421e31767991fe8f7bf58e6f3717f04e1afec1",
+  "20_new_runs\\md_candidates_2026-08-22\\SNP00157\\04_run\\analysis_prod_r2\\mindist.xvg": "72994db1f6d0e5382ed8a0658f185d359f52718010017c03639a27e714b24a39",
+  "20_new_runs\\md_candidates_2026-08-22\\SNP00157\\04_run\\analysis_prod_r3\\ligand_rmsd.xvg": "95e5c25f079ae8f86950ddd7aca4d12585f7c06649f6615d9a98a73674903607",
+  "20_new_runs\\md_candidates_2026-08-22\\SNP00157\\04_run\\analysis_prod_r3\\box.xvg": "3eaf2bde874869e8a96b5408d8b36063aed2fe17645a4d941d6318ce1d70228a",
+  "20_new_runs\\md_candidates_2026-08-22\\SNP00157\\04_run\\analysis_prod_r3\\N6_55.xvg": "a783fbcc89811810feb6e06bf14724ad42a982dd0baccb972e8985dc21c4b9fe",
+  "20_new_runs\\md_candidates_2026-08-22\\SNP00157\\04_run\\analysis_prod_r3\\mindist.xvg": "2fe463f941e14302f20c012caea6da532f598f11c1376babc886a254eb21d61b",
+  "20_new_runs\\md_candidates_2026-08-22\\SNP00163\\04_run\\analysis_prod_r1\\ligand_rmsd.xvg": "1b023efaf81bfffae141ada1a69271d2089d0651b2b91ee191403c17d08af941",
+  "20_new_runs\\md_candidates_2026-08-22\\SNP00163\\04_run\\analysis_prod_r1\\box.xvg": "b96ab2ccd5f2d6dc03b1efe8a111d711e49a64feafa1b41efae022fa7549cf43",
+  "20_new_runs\\md_candidates_2026-08-22\\SNP00163\\04_run\\analysis_prod_r1\\N6_55.xvg": "6026f2322a7a05624f9b6e39aa8181a2165b90763269b5af82ac2b9dcc32e899",
+  "20_new_runs\\md_candidates_2026-08-22\\SNP00163\\04_run\\analysis_prod_r1\\mindist.xvg": "9672cd2f381b86a957e0cf1eade6e83dce6193713cc442dce6edf6d1c5b75e46",
+  "20_new_runs\\md_candidates_2026-08-22\\SNP00163\\04_run\\analysis_prod_r2\\ligand_rmsd.xvg": "f0357908fec0df4825a13f7d9b4ea6a3bcf91c2bbe4f841373dde4af9f7c891a",
+  "20_new_runs\\md_candidates_2026-08-22\\SNP00163\\04_run\\analysis_prod_r2\\box.xvg": "f327843f1cfc86cc238f30d1460247f9d5a877fc8353c4b10de3ca824e01c22f",
+  "20_new_runs\\md_candidates_2026-08-22\\SNP00163\\04_run\\analysis_prod_r2\\N6_55.xvg": "eefc340bb415e98b8a80c6b40e21becd26160f59aa063e40e847791b1e115d06",
+  "20_new_runs\\md_candidates_2026-08-22\\SNP00163\\04_run\\analysis_prod_r2\\mindist.xvg": "44a59815a8fff666ef818a58bf1e3f50afaa849dffd643ee97d190b38200a475",
+  "20_new_runs\\md_candidates_2026-08-22\\SNP00163\\04_run\\analysis_prod_r3\\ligand_rmsd.xvg": "e9f376048595a41dda5120152647e383ed8523b526cb5d96a780a984a689fce4",
+  "20_new_runs\\md_candidates_2026-08-22\\SNP00163\\04_run\\analysis_prod_r3\\box.xvg": "1a8a287e0d1bb6dacf78542a713d6f57c900b74d72ebc14b56030aa9f823c059",
+  "20_new_runs\\md_candidates_2026-08-22\\SNP00163\\04_run\\analysis_prod_r3\\N6_55.xvg": "b780b6ffcd70fcd800badec9ee708ab0c35af224a3cc02c5e5a18ed119fe9c6d",
+  "20_new_runs\\md_candidates_2026-08-22\\SNP00163\\04_run\\analysis_prod_r3\\mindist.xvg": "d2f40310f6de023466ab19cc89287979578d3f39f08f136fa6d207ada8d47ae5"
+ },
+ "note": "per-run values and ranges only, no test on n = 3; a stable trajectory is not evidence the pose is correct; no compound is called active"
+}
