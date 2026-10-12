@@ -1,0 +1,30 @@
+{
+ "group": [
+  "D1sorted_D2trainfirst_D3overflow",
+  "D1sorted_D2trainfirst_D3divert"
+ ],
+ "lambda": 10000.0,
+ "cv_nll": {
+  "1.0": 28392.885258745002,
+  "10.0": 21281.393483069158,
+  "100.0": 10167.11278867658,
+  "1000.0": 4126.046703758837,
+  "10000.0": 2887.6936263451303
+ },
+ "sigma": 0.7742712987828982,
+ "converged": true,
+ "n_iter": 32,
+ "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+ "n_features": 1328,
+ "n_train": 5028,
+ "heldout_point_spearman": 0.704734807543922,
+ "heldout_point_r2": 0.49012141189104985,
+ "heldout_point_rmse": 0.8725100806835921,
+ "upper_n": 115,
+ "upper_pass_frac": 0.008695652173913044,
+ "lower_n": 113,
+ "lower_pass_frac": 0.8495575221238938,
+ "pool_min": 4.883816295368839,
+ "pool_max": 6.431482048551031,
+ "seconds": 38.9
+}

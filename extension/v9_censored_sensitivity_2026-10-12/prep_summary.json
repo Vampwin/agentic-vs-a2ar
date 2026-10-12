@@ -1,0 +1,11 @@
+{
+ "n": 6284,
+ "d_raw": 4096,
+ "point": 5370,
+ "upper": 617,
+ "lower": 297,
+ "pool_rows": 69,
+ "pool_in_stored69": 69,
+ "stored69": 69,
+ "seconds": 13.6
+}

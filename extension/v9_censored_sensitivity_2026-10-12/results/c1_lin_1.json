@@ -1,0 +1,34 @@
+{
+ "truth": "lin",
+ "seed": 1,
+ "lo_bound": 4.634059548397387,
+ "hi_bound": 8.677598517406434,
+ "n_te": 1256,
+ "n_te_below": 97,
+ "tobit_lambda": 1000.0,
+ "seconds": 303.6,
+ "drop": {
+  "rmse": 0.7465461249951119,
+  "spearman": 0.8501765122148062,
+  "min_pred_among_below": 4.802407538875548,
+  "share_below_bound_predicted_below": 0.0
+ },
+ "bound": {
+  "rmse": 0.5974010627569102,
+  "spearman": 0.8970187758224699,
+  "min_pred_among_below": 4.634059548397378,
+  "share_below_bound_predicted_below": 0.020618556701030927
+ },
+ "em": {
+  "rmse": 0.5977636844973034,
+  "spearman": 0.8964308641592811,
+  "min_pred_among_below": 4.634059548397377,
+  "share_below_bound_predicted_below": 0.020618556701030927
+ },
+ "tobit": {
+  "rmse": 0.3077522808710157,
+  "spearman": 0.9627464793479689,
+  "min_pred_among_below": 2.6820141657372543,
+  "share_below_bound_predicted_below": 0.7628865979381443
+ }
+}

@@ -1,0 +1,34 @@
+{
+ "truth": "rf",
+ "seed": 1,
+ "lo_bound": 4.596002232546121,
+ "hi_bound": 8.618085865217674,
+ "n_te": 1256,
+ "n_te_below": 94,
+ "tobit_lambda": 10000.0,
+ "seconds": 393.9,
+ "drop": {
+  "rmse": 0.7370759567945661,
+  "spearman": 0.8377280536360151,
+  "min_pred_among_below": 4.860620855723103,
+  "share_below_bound_predicted_below": 0.0
+ },
+ "bound": {
+  "rmse": 0.6313082409752804,
+  "spearman": 0.8669648758159169,
+  "min_pred_among_below": 4.62115823045414,
+  "share_below_bound_predicted_below": 0.0
+ },
+ "em": {
+  "rmse": 0.6302296985593899,
+  "spearman": 0.8674807273943921,
+  "min_pred_among_below": 4.627365927305919,
+  "share_below_bound_predicted_below": 0.0
+ },
+ "tobit": {
+  "rmse": 0.7426730827730973,
+  "spearman": 0.8101380220772241,
+  "min_pred_among_below": 4.211668986765952,
+  "share_below_bound_predicted_below": 0.09574468085106383
+ }
+}

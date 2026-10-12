@@ -1,0 +1,27 @@
+{
+ "adr": "ADR-AIIM-413 (results of ADR-AIIM-412)",
+ "date": "2026-10-12",
+ "prereg_sha256": "e161e8592971386bc04207a705dc5fd9f9094f0079f116ff798e0e498dca7420",
+ "environment": {
+  "python": "3.12.10",
+  "scikit-learn": "1.9.0",
+  "scipy": "1.17.1",
+  "numpy": "2.4.6",
+  "rdkit": "2026.03.3"
+ },
+ "note": "c4_g2 and c4_g3 failed on the first call (a split with no held-out lower-censored record: predict on an empty array) and were rerun after run_jobs.py guarded the empty case; no other job was rerun; the results of the other jobs are those of the first call",
+ "artifacts": {
+  "PREREG_ADR412.md": "e161e8592971386bc04207a705dc5fd9f9094f0079f116ff798e0e498dca7420",
+  "PREREG_SHA256.txt": "7d421cf93e05b236eab4c06ed05b4a8aa595495249e9610bacd79f94473b72be",
+  "results.json": "716199c6708492c1645aec86027cf2ae2ff2a24a7d077e2c3e83bfa56c07d31c",
+  "posthoc_lambda.json": "8d464a6b1981d357d6f9f11211c78e008aea672e48465295743de0c475a4c0b5",
+  "prep_summary.json": "f5daad5fa9ba01365a7770bd80ee08a420934973f54f6855730426040d5e3801",
+  "run.log": "215c1189ac40e25bba0026e579399721f0c1dadbf8fcce1608b2631c9aec99fe",
+  "analysis/prep.py": "ae027bcfa5eec214c6f7b52dc127209fee54040410f354dc19e7e60808e9ef06",
+  "analysis/lib.py": "cd14ed57a55c029bc2f61ff11ab34cf9f305b0a4c1b28535e6c57c2650abb1f8",
+  "analysis/run_jobs.py": "eccdec0684a28d08e6aadbb6012cf39db2f5ee6907322250504697fc795f09db",
+  "analysis/aggregate.py": "2a6bfa79d656d50394b740672734d52e22695b5f2706a0f09ae78987acea24c3",
+  "analysis/posthoc_lambda.py": "860d659dae28ff240631c6d633ab889cee7a91c298a40543c6d4b45fb4e2ec46"
+ },
+ "n_result_files": 76
+}

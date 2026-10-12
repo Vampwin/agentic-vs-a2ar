@@ -2,8 +2,8 @@
 
 Verbatim copies of the decision-log entries that the article and the supplement describe as pre-registered, and of the entries that record their results. The log is append-only; each entry was written before the run it concerns (or, for a result entry, after it). Each entry fixed the predictions or the decision rule of its analysis before the run, and recorded the SHA-256 of the predictions or of the inputs frozen for it where the run had them. Copied as written: first-person wording and the author's quotations are unchanged. The full log is not deposited.
 
-- source: `00_project_control/08_DECISION_LOG.md`, SHA-256 of the whole log (line ends as LF) `ad5cee2e0dfb8fede7ae1426b50e932128750fec4ca7d20ddcb5e19d64753d51`
-- entries: 72 (ADR-AIIM-131, 150, 156, 214, 215, 229, 240, 246, 256, 260, 285 to 336, 353 to 356, 390, 391, 399, 400)
+- source: `00_project_control/08_DECISION_LOG.md`, SHA-256 of the whole log (line ends as LF) `ea6bafab645550cecf96120e714e03b309eac7b565b85bd48a3852e80b67f8a0`
+- entries: 74 (ADR-AIIM-131, 150, 156, 214, 215, 229, 240, 246, 256, 260, 285 to 336, 353 to 356, 390, 391, 399, 400, 412, 413)
 
 ---
 
@@ -8409,3 +8409,50 @@ New fault families for G2, G3, G5 and G7, a replacement of the ten-pass censored
 **What the results say together.** The focus-library selection is stable to the way the vote is counted (A1) and not stable to the applicability threshold (A2); the contrast between structural and physicochemical applicability does not depend on k or the percentile, while the physicochemical rate does (A6); the docking result of half of the longest compounds depends on the box (A4); the estimate of 1,251 has a wide interval (A3). **What they do not say.** Nothing here is evidence of activity; no compound is ranked or put forward; the registered selection and the released results are unchanged.
 
 **Use.** As decided in the pre-registration: reported in the article and the supplement as sensitivity analyses (ADR-AIIM-401).
+
+## ADR-AIIM-412 — PRE-REGISTRATION: the censored-target fit under four checks (internal review point P1-20) (2026-10-12)
+
+**Status:** accepted — **pre-registration. Frozen before any of the analyses ran.**
+**Date:** 2026-10-12
+**Decided by:** Adisorn Sirichotejirakul, in chat: "ทำข้อ 2 แบบวิเคราะห์ความไวเลย" (a sensitivity analysis, not a replacement of the registered fit), after the list of open items of ADR-AIIM-409.
+**Pre-registration file:** `20_new_runs/v9_censored_sensitivity_2026-10-12/PREREG_ADR412.md`, SHA-256 `e161e8592971386bc04207a705dc5fd9f9094f0079f116ff798e0e498dca7420` (also in `PREREG_SHA256.txt`). **Decision log at freeze (text/LF), before this entry was appended:** `147f20e5d01185c87169747aa41d00794192b82d8aa35d9cf32fe1b42f33e5c8`.
+**Discipline:** ADR-AIIM-263 — predictions fixed before the run. **Skills invoked:** scikit-learn (SKILL.md read in full; the forest, `Pipeline`, `GroupKFold` and `StandardScaler` of the registered code path, with every fit inside the training rows). Nothing installed: numpy, scipy, scikit-learn and RDKit are those of the registered runs (scikit-learn 1.9.0, SciPy 1.17.1, NumPy 2.4.6, RDKit 2026.03.3).
+
+**Why.** The review asks that the ten-pass projection of censored pKi values be justified, validated by simulation, shown to converge, shown to be deterministic with one thread, and shown to be insensitive to its starting point, or replaced by a method for censored outcomes. The registered record shows that none of the eight conventions stopped by the tolerance of 0.01 (final maximum change 0.026 to 0.052 pKi after the tenth pass). This entry fixes five checks and sixteen predictions before anything is run.
+
+**What is fixed (details in the file).**
+- C-A, anchor: the one-thread censored-EM reproduces the 69 stored pool predictions and the fifteen survivors and eight shortlisted compounds. If not, nothing else is read.
+- C1: simulation validation on the real feature matrix with two synthetic truths (linear; forest-shaped), five seeds, real censoring share, four methods (drop; at the bound; the registered projection; ridge-Tobit); RMSE, Spearman and reach below the bound against the noise-free truth. P1 to P4.
+- C2: convergence, 30 passes without a tolerance stop on the five distinct splits; the pass at which the change first falls below 0.01; agreement of pool predictions at pass 10 and 30. P5 to P7.
+- C3: four starting points of the censored targets; agreement of pool predictions and of the selection with the registered one. P8 to P10.
+- C4: a ridge-Tobit model (Gaussian censored likelihood, L2 penalty chosen inside the training side) on the eight conventions and the pool, beside the forest. P11 to P14.
+- C5: determinism (two one-thread executions byte-identical; a three-thread run differs). P15, P16.
+
+**Not done and not allowed to follow from the outcome.** No change of the fifteen, the eight or any frozen number; no compound is called active; the registered fit is not replaced; a result that favours another method is reported as a sensitivity result. `10_new_system/` is not modified.
+
+**Open at freeze.** The expected run time is about 3.5 core-hours (about 500 forest fits at about 25 s), run in parallel processes of one thread each.
+
+## ADR-AIIM-413 — RESULT of the pre-registration of ADR-AIIM-412: the projection loop does not converge, behaves like entering the bound, and its result depends on the start (2026-10-12)
+
+**Status:** accepted — record of fact. **Date:** 2026-10-12
+**Pre-registration:** ADR-AIIM-412, SHA-256 `e161e8592971386bc04207a705dc5fd9f9094f0079f116ff798e0e498dca7420`.
+**Run folder:** `20_new_runs/v9_censored_sensitivity_2026-10-12/` (scripts, `results.json`, `run_manifest.json`; 38 jobs in 16 one-thread processes, 1,539 s wall time). Environment: scikit-learn 1.9.0, SciPy 1.17.1, NumPy 2.4.6, RDKit 2026.03.3. `10_new_system/` unchanged.
+**One rerun.** Two jobs of C4 (splits 3 and 4) failed on the first call: those splits hold no held-out lower-censored record and the evaluation called `predict` on an empty array. `run_jobs.py` was given a guard for the empty case and only those two jobs were rerun; no other job and no prediction was changed.
+
+**Anchor C-A: PASSED.** The one-thread run reproduces the 69 stored pool predictions (largest difference 4.999e-05, the rounding of the stored four decimals), the fifteen survivors in order and the eight shortlisted compounds in order (SNP00157, SNP00163, SNP00154, SNP00097, SNP00052, SNP00033, SNP00142, SNP00006).
+
+**Predictions: 6 of 16 met** (P2, P3, P11, P13, P15, P16). Missed: P1, P4, P5, P6, P7, P8, P9, P10, P12, P14.
+
+**C1, simulation (five seeds, two truths).** Mean RMSE against the noise-free truth, T_lin / T_rf: drop the censored records 0.730 / 0.747; censored records at the bound 0.628 / 0.638; the registered projection 0.629 / 0.637; ridge-Tobit 0.438 / 0.747. Mean Spearman: 0.870 / 0.830; 0.886 / 0.864; 0.885 / 0.865; 0.938 / 0.807. The projection beats dropping in 5 of 5 replicates for both truths (P2 met) but beats entering the bound in only 1 of 5 (T_lin) and 2 of 5 (T_rf) (P1 MISSED): the two are indistinguishable. Ridge-Tobit is best under the linear truth in 5 of 5 and the projection beats it under the forest truth in 5 of 5 (P3 met). Spearman of the projection within 0.03 of the best method: 0 of 5 (T_lin), 5 of 5 (T_rf) (P4 MISSED). Of held-out records whose true value lay below the lower bound, the share predicted below it: projection 0.6% (T_lin) and 0% (T_rf); at the bound 0.8% and 0%; ridge-Tobit 62% and 8%.
+
+**C2, convergence (five distinct splits, 30 passes, no tolerance stop).** The maximum change of the imputed targets never fell below 0.01 in any split (P5 MISSED): after the third pass it fluctuates between about 0.02 and 0.08 (first split: 0.306, 0.154, 0.058, then 0.029 to 0.083). The mean change is about 1e-4 and the number of censored training targets (686 to 858) that move by more than 0.01 is 13 to 30 at pass 10 and 11 to 31 at pass 30: the imputed targets settle, the forest refitted on them does not. Pool predictions at pass 10 and pass 30: Spearman 0.930, 0.973, 0.950, 0.952, 0.978; top-20 overlap 20, 18, 17, 19, 18 (P6 MISSED: none of the five reaches Spearman 0.99). The mean change is not non-increasing from pass 2 in any split (P7 MISSED).
+
+**C3, initialisation.** Starting 1.0 pKi inside the interval: pool Spearman against the registered start 0.545 to 0.789 over the five splits (top-20 overlap 9 to 14 of 20); 13 survivors, Jaccard index 0.474 with the fifteen; 5 of the eight kept in the shortlist. Starting at a random point inside the interval (seed 42): Spearman 0.669 to 0.897 (overlap 11 to 16); 13 survivors, Jaccard 0.556; 5 of the eight kept. Starting at the mean of the training point records clipped into the interval: identical to the registered start (Spearman 1.0000, the fifteen and the eight unchanged), because in the anchor split every upper bound of the training side (at most 5.40) lies below that mean (6.99) and every lower bound (at least 8.0) above it, so the clip returns the bound. P8, P9 and P10 MISSED.
+
+**C4, ridge-Tobit beside the forest.** Penalty 10,000 in all five splits (the upper edge of the registered grid; a post hoc extension of the grid to 1e7 chose 10,000 again, with identical results: `posthoc_lambda.json`). Held-out Spearman on point records 0.697 to 0.721 against the forest's 0.728 to 0.773, lower in all eight conventions (P11 met). Share of held-out upper-censored records predicted at or below the bound: 0.0 to 0.14, against the forest's 0.0 to 0.044 (P14 MISSED: higher in 5 conventions of 8, equal in 3, lower in none, so not higher in all). The lowest pool prediction of a split is 4.71 to 5.08 (below 5 in three of the five splits). Pool Spearman against the forest's mean 0.447 (P12 MISSED, need 0.5). Tobit survivors 13, 8 of them among the fifteen; its shortlist (SNP00052, SNP00097, SNP00157, SNP00223, SNP00010, SNP00147, SNP00076, SNP00006) has 4 of the eight (P13 met, at the limit). sigma 0.77 to 0.81.
+
+**C5, determinism.** Two one-thread executions of the anchor split: byte-identical pool predictions (P15 met). One three-thread execution: all 69 pool predictions differ, largest difference 0.091 pKi (P16 met).
+
+**What the results say.** (1) The ten-pass loop does not converge by its own criterion and its output at pass 10 is one point of a jitter, not a limit. (2) In this data it acts as censored records entered at their bound: the projection is nearly the identity on records the forest already fits (a forest reproduces its training targets), so any start inside the interval is almost a fixed point, and the result depends on the start; in simulation it is not distinguishable from entering the bound, and it is better than dropping censored records. (3) The selection of the fifteen and the eight depends on that choice: a different start inside the interval gives a different set (Jaccard 0.47 to 0.56 for the fifteen; 5 of the eight kept), and a censored-likelihood linear model gives another (8 of its 13 among the fifteen; 4 of the eight). (4) One-thread execution is exactly reproducible; three threads are not.
+**Consequence for the documents.** The Methods sentence on the censored fit says what the loop does and that it did not reach its tolerance; Section 3.8.1 and a new supplementary section report these checks beside the earlier sensitivity analyses; the focus-library selection is a case-study set (already stated) whose membership is shown to depend on the treatment of censored records. No frozen number changes; the fifteen and the eight stay.
+**Not claimed.** That ridge-Tobit or any other choice is the better selection; that any compound is active; any validation of a binding prediction. The simulations use one bound on each side and a share of censored records equal to the real one, not the real distribution of bounds.
