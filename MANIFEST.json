@@ -1,7 +1,7 @@
 {
-  "assembled": "2026-10-11",
+  "assembled": "2026-10-12",
   "n_files": 1180,
-  "total_bytes": 88101407,
+  "total_bytes": 88139326,
   "n_files_excluded_by_rule": 9224,
   "n_duplicates_removed": 159,
   "n_files_refused_by_screening": 0,
@@ -662,8 +662,8 @@
     {
       "path": "pipeline/scripts/build_deposit.py",
       "source": "10_new_system/scripts/build_deposit.py",
-      "bytes": 31291,
-      "sha256": "7ffc7dee107a068ddccf8ef7ac4eb86f17b896a2e6a4947fb852b56d013a845a"
+      "bytes": 31626,
+      "sha256": "d08744f9d482a1e8bf3285e79ed83299e61127ded784300174ab72f693d0cd26"
     },
     {
       "path": "pipeline/scripts/build_evidence_index.py",
@@ -7136,8 +7136,8 @@
     {
       "path": "preregistration/PRE_REGISTRATION_ENTRIES.md",
       "source": "00_project_control/08_DECISION_LOG.md",
-      "bytes": 499466,
-      "sha256": "8283a974154b4ec45a8ece891e53dc2d86caaadf77dec72effe24b9ec9049d46"
+      "bytes": 537050,
+      "sha256": "a10b2d446bfe1e43d4c48efb6dd338e0cbfc08bb2984a6810dd1f4dba01239f2"
     }
   ]
 }

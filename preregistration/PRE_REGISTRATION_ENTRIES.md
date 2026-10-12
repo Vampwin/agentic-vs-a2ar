@@ -1,9 +1,9 @@
 # Pre-registration entries
 
-Verbatim copies of the decision-log entries that the article and the supplement describe as pre-registered, and of the entries that record their results. The log is append-only; each entry was written before the run it concerns (or, for a result entry, after it), and the SHA-256 of the predictions of each analysis was recorded in the entry before the analysis ran. Copied as written: first-person wording and the author's quotations are unchanged. The full log is not deposited.
+Verbatim copies of the decision-log entries that the article and the supplement describe as pre-registered, and of the entries that record their results. The log is append-only; each entry was written before the run it concerns (or, for a result entry, after it). Each entry fixed the predictions or the decision rule of its analysis before the run, and recorded the SHA-256 of the predictions or of the inputs frozen for it where the run had them. Copied as written: first-person wording and the author's quotations are unchanged. The full log is not deposited.
 
-- source: `00_project_control/08_DECISION_LOG.md`, SHA-256 of the whole log (line ends as LF) `7806efdb73afcdf5a1924553787e4d640dead0249b64caaa6f47cebcda25db16`
-- entries: 74 (ADR-AIIM-111, 112, 131, 150, 156, 161, 171, 193, 194, 236 to 238, 285 to 336, 353 to 356, 390, 391, 399, 400)
+- source: `00_project_control/08_DECISION_LOG.md`, SHA-256 of the whole log (line ends as LF) `218c7564fb5142d5c984e242c00311589f00323920c609e4b62509ab61ad5515`
+- entries: 81 (ADR-AIIM-111, 112, 131, 150, 156, 161, 171, 193, 194, 214, 215, 229, 236 to 238, 240, 246, 256, 260, 285 to 336, 353 to 356, 390, 391, 399, 400)
 
 ---
 
@@ -936,6 +936,405 @@ prediction and the registered confound. Produced by
 
 ---
 
+## ADR-AIIM-214 — Pre-registration: DUD-E A2AR enrichment (M5.1)
+
+**Date:** 2026-09-22
+**Status:** accepted — **pre-registration, frozen before any compound was docked**
+**Approval:** author, 2026-09-22
+**Unblocked by:** ADR-AIIM-212 (benchmark fitness measured), ADR-AIIM-213 (receptor and box settled)
+
+### 1. Why this run exists
+
+M1.4 corrected the decision architecture: for a library of novel chemotypes the
+ligand-based arm **abstains** rather than vetoes, and the structure-based arm
+must lead. An arm that leads must be validated the way the field validates it —
+**retrospective enrichment against property-matched decoys**. This run is that
+validation. It is no longer optional tidying of a pre-declared gap.
+
+The objectives document states the purpose verbatim: *"is 0.601 a protocol
+problem or a benchmark problem?"*
+
+### 2. Why this benchmark, measured rather than assumed (ADR-AIIM-212)
+
+| Check | Result |
+|---|---|
+| Trivial separability — cLogP | 0.594 |
+| TPSA / heavy atoms / MW / rotatable bonds | 0.552 / 0.540 / 0.486 / 0.480 |
+| *the ChEMBL benchmark in use, heavy atoms, for contrast* | *0.584* |
+| Analogue bias | **none — 482 unique Murcko scaffolds for 482 actives** |
+
+Decoys are *presumed* inactive, which biases enrichment **downward**. Zero
+scaffold overlap with actives is disqualifying for a trained classifier but not
+for a scoring function with no training set.
+
+### 3. Protocol — frozen, and identical to production
+
+Unchanged from `a2a_frozen_config.yaml` and the run that produced 0.601, so the
+two numbers are comparable:
+
+| | |
+|---|---|
+| Engine | AutoDock Vina 1.2.7, WSL `diffdock` env |
+| Conformers | 8 pooled, ETKDGv3 + MMFF94 |
+| Exhaustiveness | 32 |
+| Poses retained | 10 |
+| Seed | 20260729 |
+| Receptor | `snp_screen_2026-08-04/G2_preparation/4EIY_prepared.pdbqt`, sha256 `bd0e586a525ecbea…` |
+| Box | centre [−0.424, 8.527, 17.127], 22 Å cube, sha256 `f5149ff0cb07e7d1…` |
+| Compounds | 2,402 — 482 actives, 1,920 decoys |
+
+Receptor copy is provably score-neutral (ADR-AIIM-213, spread 0.0000 across
+three copies and four ligands); the canonical copy is used for provenance, not
+because it is required.
+
+### 4. Metrics, and the nulls that travel with them
+
+ROC-AUC with 1,000-sample bootstrap 95 % interval at seed 42; BEDROC α = 20;
+EF at 1 %, 5 % and 10 % using the `ceil(n·f)` convention that reproduces the
+published benchmark exactly.
+
+**Two trivial nulls are computed on the identical rows and reported beside
+every docking figure: heavy-atom count and cLogP.** cLogP is the stronger of
+the two on this set (0.594) and reporting heavy atoms alone would understate
+the baseline (ADR-AIIM-212).
+
+### 5. Outcomes, fixed now
+
+- **Primary.** Paired ΔAUC, Vina minus the **better-performing** trivial null,
+  with a bootstrap interval.
+- **Secondary.** Whether Vina's own AUC interval excludes 0.5; BEDROC20 and EF
+  against the same nulls.
+
+### 6. Predictions, recorded before the run
+
+1. **Vina ROC-AUC lands in 0.62 – 0.78.** Higher than the matched ChEMBL result
+   of 0.502, because DUD-E's actives are drawn from the same A2A literature as
+   the co-crystal ligand and are therefore chemically closer to it than orchid
+   flavones are.
+2. **The paired ΔAUC against the best trivial null is positive and its 95 %
+   interval excludes zero.** At n = 2,402 the AUC interval is roughly ±0.025, so
+   a difference above about 0.05 will separate.
+3. BEDROC20 exceeds the corresponding null.
+
+I expect this run to come out **positive**, which is the opposite of my
+expectation for the two experiments before it. The reason is specific and
+stated above, not optimism.
+
+### 7. Falsification, and what each outcome licenses
+
+**If Vina does not beat the better null, or the paired interval includes zero:**
+the protocol has no demonstrated screening power on a benchmark constructed to
+be favourable to it, and **O5 closes**. That would be reported as the headline
+and the screening arm would be presented as a cautionary methodological result
+only.
+
+**If Vina does beat the null:** the protocol has screening power **on
+chemotypes resembling the co-crystal ligand**, and the 0.601 is confirmed as a
+benchmark artifact rather than a protocol failure.
+
+### 8. The limit that a positive result does *not* remove
+
+DUD-E A2AR actives come from the same literature as ZM241385. They are closer
+to the co-crystal ligand than the natural-product library is, and
+`control_representativeness` already reports 0.000 / 0.000 scaffold and
+similarity coverage between that library and the control.
+
+> **A good DUD-E result would validate the protocol for the chemotypes DUD-E
+> contains. It would not, by itself, license ranking orchid flavones.**
+
+Closing that gap needs the receptor ensemble of M5.2, not this run. This is
+recorded now so that a favourable number cannot later be read as licensing more
+than it does.
+
+### 9. What will not be done
+
+- **No re-docking under different settings.** One protocol, one run. If the
+  result is unfavourable, no sweep of exhaustiveness, conformer count or box
+  size will be performed in search of a better number. The settings are the
+  frozen production ones precisely so that this temptation is unavailable.
+- **No post-hoc selection of the null.** Both nulls are reported whichever way
+  they fall.
+- **No subsetting of the benchmark** after seeing results.
+
+### 10. Cost and scope
+
+Measured at 30.5 s per compound at this protocol: **≈ 20 h single-process, ≈ 10 h
+across four workers.** Output to `20_new_runs/dude_enrichment_2026-09-22/`,
+resumable, per-compound scores retained.
+
+This validates **one protocol on one target against one decoy set**. It does not
+speak to docking in general, to other targets, or to the natural-product library
+beyond what §8 allows.
+
+---
+
+## ADR-AIIM-215 — Amendment to ADR-AIIM-214: dock the minimum-energy conformer, not eight
+
+**Date:** 2026-09-22
+**Status:** accepted — **amendment made before any result was analysed**
+**Amends:** ADR-AIIM-214
+**Raised by:** the author, during the run
+
+### What was wrong with the frozen protocol
+
+ADR-AIIM-214 fixed the protocol as eight pooled conformers, identical to
+production, so the DUD-E figure would be comparable with the 0.601.
+
+The cost estimate behind that decision was wrong. It came from two compounds
+that happened to be easy — 31.3 s and 29.7 s. Once the run started, the first
+seven compounds recorded 45.8, 37.1, 341.8, 130.7, 461.6 and 184.0 seconds:
+**22.7 s per individual dock on average, and eight docks per compound.**
+
+| Protocol | Projected |
+|---|---|
+| Eight conformers docked, best kept | **121 hours** |
+| Minimum-energy conformer only | **15.1 hours** |
+
+121 hours is not affordable, and reducing the benchmark instead would weaken
+the design to protect a protocol choice.
+
+### Why the change is defensible on its own merits
+
+The author's point is the scientific one, not only the arithmetic. **AutoDock
+Vina performs flexible-ligand docking**: it samples rotatable-bond torsions
+internally during its Monte Carlo search. Supplying eight input conformers is
+therefore largely redundant for precisely the degrees of freedom Vina already
+explores. What input conformers *do* fix is ring geometry, which Vina holds
+rigid — and for drug-like molecules with aromatic or small saturated rings, a
+single MMFF-minimised conformer is standard practice.
+
+Eight pooled conformers is a conservative choice above the field norm, not a
+requirement.
+
+The amended procedure is the author's: generate eight conformers, minimise all
+eight with MMFF94, **dock only the lowest-energy one**.
+
+### The cost, stated rather than hidden
+
+This now validates a **standard-practice protocol that differs in one respect
+from the eight-conformer protocol that produced the study's own screening
+results**. A DUD-E result under it does not fully validate what was actually
+run on the natural-product library.
+
+Two things bound that gap:
+
+- `bridge_8conformer_reference.csv` retains the seven compounds already scored
+  under the production protocol, so the two can be compared directly on
+  identical molecules.
+- The ChEMBL 245 benchmark will be re-run under the amended protocol
+  (≈ 1.5 hours), so the two benchmarks share a protocol and the cross-benchmark
+  comparison stays clean.
+
+### What is unchanged
+
+Everything else in ADR-AIIM-214 stands: exhaustiveness 32, ten retained poses,
+seed 20260729, the receptor and box with their recorded hashes, both trivial
+nulls including cLogP, the predictions, the falsification conditions, and the
+rule that no settings will be swept in search of a better number. **The
+predictions were not revised.**
+
+### Why this is an amendment and not a rescue
+
+No metric has been computed. Seven compounds of 2,402 are docked, all actives,
+and no enrichment figure exists. The change is made on a cost measurement and a
+methodological argument, both stated before any result is visible.
+
+---
+
+## ADR-AIIM-229 — PRE-REGISTRATION: spike-in recovery through the expansion funnel (M2.1)
+
+**Date:** 2026-09-22
+**Status:** accepted — frozen before anything ran
+**Approval:** author, 2026-09-22 — including the 105-vs-50 decision below
+**Executes:** M2.1 of `29_OBJECTIVES_AND_METHOD_DESIGN_v6.md`
+**Builds on:** ADR-AIIM-222 (the unseen subset), ADR-AIIM-210 (the domain gate on real drugs)
+**Depends on:** ADR-AIIM-230, which is why one derived column sits outside the frozen artifact
+
+### The question
+
+If compounds known to be active are placed in the screening library, does the
+expansion funnel return them, and if not, **which stage loses them?** This is the
+positive control that should have gated the campaign; §3.5's finding arrived at
+manuscript-writing time because it did not exist.
+
+### Source: the 169, not the 482
+
+ADR-AIIM-222 measured that **313 of 482** DUD-E A2AR actives already share their
+InChIKey connectivity block with the ChEMBL set the ligand-based arm was fitted
+on. Drawing from those would measure memory. The draw is from the **169 unseen**,
+`benchmark_overlap_2026-09-22/dude_actives_unseen_by_training_set.csv`,
+sha256 `6a6e697ec868…`.
+
+### The independent unit is a fingerprint cluster, and the scaffold key would have hidden that
+
+The obvious independence key is the Bemis–Murcko scaffold: it is the key this
+project's own scaffold-disjoint splits use, and ADR-AIIM-212 reports 482 distinct
+scaffolds for 482 actives. On the 169 it returns **169 clusters of size one**,
+which is not a measurement of independence but the absence of one. The key cannot
+see that two of these compounds differ by a methylene, or that another pair are
+tautomers of each other.
+
+Morgan radius 2 / 2048 bits with Butina at Tanimoto ≥ 0.70 — the project's own
+fingerprint (`evaluators/_control_representativeness.py:116`) at the conventional
+series cutoff — returns **105 clusters**, largest 12, 78 singletons. **97 of the
+169 have a nearest neighbour at Tanimoto ≥ 0.70** (mean 0.707, median 0.730, max
+1.000).
+
+> Treating 50 compounds drawn from ~105 series as 50 independent tests is
+> pseudoreplication. It would not show up as a wrong number; it would show up as
+> a Wilson interval narrower than the evidence supports.
+
+One representative per cluster — the Butina centroid, which is deterministic —
+and the recovery rate is then a rate over series rather than over analogues.
+
+### The draw, and why an order is frozen rather than a set
+
+`numpy.random.default_rng(42)` permutes the 105 clusters. **The primary panel is
+the first 50 of that order; the remaining 55 are labelled `replication`.** The
+order is fixed before any result exists, so extending the analysis from 50 to 105
+is a pre-registered replication rather than a choice made after seeing the first
+50.
+
+Random sampling rather than a MaxMin diversity pick: **MaxMin was considered and
+rejected.** It selects the extremes of the chemical space, which would bias the
+panel toward unusual chemistry — exactly the chemistry an applicability-domain
+gate is designed to refuse — and a non-recovery result would then be arguable as
+a property of the panel rather than of the pipeline. A seeded random draw selects
+for nothing.
+
+### The panel is not filtered by the pipeline's own criteria
+
+Four of the 169 exceed the funnel's rotatable-bond limit; three of them are cluster
+representatives (**85419, 85418, 85023**) and they stay in the draw. A positive
+control pre-filtered by the rule it is meant to test cannot test that rule.
+Dropping them would be selecting on the outcome, and a stage-1 loss of real
+actives is itself a reportable property of the funnel.
+
+### Two leak checks, run before the panel was frozen
+
+| Check | Result |
+|---|---|
+| Panel compounds already in the LOTUS background | **0 of 169** by skeleton InChIKey, against 16,486 distinct LOTUS skeletons |
+| Panel compounds in the stage-2 reference set (the 52 known A2AR ligands the 2D screen ranks against) | **0 of 169** share a skeleton; max ECFP4 similarity to any reference **0.807**, three compounds at ≥ 0.70 |
+
+Had either been non-zero the control would have been rigged and the result
+worthless.
+
+### What stages 1 and 2 will do is derived, not predicted — and neither is a test
+
+Stages 1 and 2 are deterministic functions of frozen inputs, so they are computed
+here rather than guessed. Importing the rule from `np_library_prefilter` rather
+than restating it, for the reason ADR-AIIM-227 gives.
+
+| | Panel of 105 | Primary 50 |
+|---|---|---|
+| Survive stage 1 (MW ≤ 700, rotatable ≤ 10) | **102** | **50** |
+| Survive stage 2 (top 8,000 by 2D pharmacophore/ErG) | **94** | **47** |
+
+The stage-2 cut moves from **0.5201** unspiked to **0.5207** spiked; 16 rows tie
+at it and pandas resolves ties arbitrarily, so the count is exact only up to
+those. The panel's median score is **0.7012** against a kept-background maximum
+of **0.6250**: **78 of the 105 outrank the entire surviving background.**
+
+That number is the reason for the following, which the manuscript must carry:
+
+> **Recovery through stages 1 and 2 is not evidence that the pipeline works.**
+> The stage-2 screen ranks by similarity to known A2A ligands, and the panel are
+> known A2A ligands. It could hardly do otherwise. These two stages are an
+> implementation check — a run that disagrees with the table above has a fault,
+> not a finding — and the scientific content of M2.1 is at stage 3 and later.
+
+### The predictions that are predictions
+
+Stages 3 (3D O3A refinement, 8,000 → 5,000), 4 (G4 docking), 5 (conformal
+predictor and AD gate) and 6 (the dual-criterion rule) are not derivable without
+running. Pre-registered, from the plan:
+
+1. **The AD gate and the ligand-based arm admit most surviving spike-ins.** Basis:
+   the gate admits **9 of 10** real A2A drugs (ADR-AIIM-210).
+2. **The structure-based rank step loses the majority.** Basis: measured screening
+   power near chance (§3.4).
+3. If 1 and 2 both hold, the loss is localised to docking rank, and §3.5's
+   undifferentiated negative becomes a diagnosis.
+
+**Falsification.** If most spike-ins survive every stage and reach the shortlist,
+prediction 2 is wrong and the funnel recovers known actives end to end — the
+control passes and §3.5's negative needs a different explanation. If the AD gate
+rather than docking is the largest loss, prediction 1 is wrong and ADR-AIIM-210's
+9-of-10 does not generalise past clinical-stage chemistry.
+
+### Metric
+
+Count surviving each stage, with a **Wilson 95 % interval**, beside the same rates
+for the background pool. Precision bought:
+
+| | p = 0.5 | p = 0.9 |
+|---|---|---|
+| n = 50 | ±0.134 | ±0.085 |
+| n = 105 | ±0.094 | ±0.059 |
+
+### The one decision that was not deferrable, and how it went
+
+**Spike 105 or spike 50?** The approved plan fixed 50 before the clustering had
+been measured. The marginal cost of the extra 55 is ~55 docks against a funnel
+that docks thousands — negligible **if decided before the run**, and a **full
+funnel re-run** if decided after, because the shortlist depends on the pool. So
+it could not be left open.
+
+**Decided by the author, 2026-09-22: spike all 105.** The frozen first 50 are the
+primary arm and the remaining 55 the pre-registered replication. This is a change
+to the plan's stated n, taken on a measurement the plan did not have — that the
+169 hold 105 independent series — and it buys the precision in the table above
+(Wilson half-width at p = 0.5 falls from ±0.134 to ±0.094) for no extra funnel
+run. **Nothing about the primary arm changes:** the same 50 compounds in the same
+frozen order, chosen before any of this was known.
+
+The artifacts as frozen already carry the decision: `n_spiked` 105, `n_primary`
+50, `spiked_pool_25709.csv`. Nothing was regenerated to record the approval.
+
+### Not claimed
+
+- That any panel compound is active in any assay run by this project. **No
+  compound reported anywhere in this project has been assayed.**
+- That the LOTUS background is a property-matched decoy set. This is a **recovery
+  control, not an enrichment benchmark**; enrichment is M5.1's job, and Verdonk's
+  condition for a meaningful enrichment comparison is not met here.
+- That the pipeline would find *novel* actives.
+- That the single-conformer protocol was validated. It was decided (ADR-AIIM-215).
+
+### Artifacts, frozen 2026-09-22
+
+`20_new_runs/spikein_panel_2026-09-22/`
+
+| File | sha256 |
+|---|---|
+| `spikein_cluster_order_105.csv` | `db0c06c0a6ac…` |
+| `spikein_panel_primary_50.csv` | `4ba40392cfb4…` |
+| `spiked_pool_25709.csv` | `76dfd640d6e3…` |
+| `derived_stage12_expectation.csv` | `90d9a4bc56c5…` — **not reproducible; see ADR-AIIM-230** |
+
+Produced by `select_spikein_panel.py`, checked by `verify_spikein_panel.py`: 13
+structural checks, bit-exact reproduction of the frozen selection in every fresh
+process, and the derived counts invariant across all of them. **PASS.**
+
+The spiked pool needs **no edit to the funnel**: it is the LOTUS schema plus a
+`spike_in` column, the LOTUS rows carried through unchanged, and the spike-ins are
+identifiable downstream by InChIKey.
+
+### What must happen before the run
+
+1. ~~Author approval of this entry.~~ **Given 2026-09-22.**
+2. The CPU is held by the DUD-E docking run and then the ChEMBL 245 re-run.
+   The M2.1 funnel is **not** chained behind them; whether to queue it is a
+   separate call, and a third job started unattended behind two others is how a
+   failure in the first becomes three.
+3. `run_g4_on_np_library.py:42` hardcodes its run directory. Add a `--run-dir`
+   flag or a thin wrapper. **Do not edit the contracts or the evaluators.**
+4. The shortlist must be re-docked under the unified protocol; the 2026-08-15
+   scores are 8-conformer and cannot be mixed.
+
+---
+
 ## ADR-AIIM-236 — PRE-REGISTRATION: does the benchmark measure the system, or only its evaluators? (E1)
 
 **Date:** 2026-09-22
@@ -1390,6 +1789,391 @@ separate cost: the frozen tree is what every published G6 number was produced
 with, and §3.5 and §3.6 came through that gate. Nothing has been changed there —
 `10_new_system` G6 remains version 1.3.0 with nine checks, asserted by the
 harness's own self-test.
+
+## ADR-AIIM-240 — M5.1 result: the docking protocol does have screening power, and §3.4's 0.601 was the benchmark
+
+**Date:** 2026-09-23
+**Status:** accepted — result
+**Approval:** *pending author*
+**Executes:** ADR-AIIM-214, amended by ADR-AIIM-215, analysis written under ADR-AIIM-228, fixed under ADR-AIIM-233
+**Artifacts:** `20_new_runs/dude_enrichment_2026-09-22/analysis/`
+
+### The run
+
+2,402 compounds docked under the unified protocol — eight ETKDGv3 conformers
+generated, all MMFF94-minimised, the lowest-energy one docked, exhaustiveness 32,
+10 poses, seed 20260729 — in 8.9 hours at 13.4 s per compound. **One compound
+failed** (`C39559757`, a decoy, RDKit embedding), so the analysed set is **2,401:
+482 actives and 1,919 decoys**, against the 482 / 1,920 that ADR-AIIM-214
+pre-registered. The shortfall is recorded in the artifact rather than absorbed.
+
+`analyse_dude_enrichment.py` was written while the run stood at roughly half its
+compounds and no score had been read (ADR-AIIM-228); the row-count defect found
+in it on 2026-09-22 was fixed **before** the first real score was analysed
+(ADR-AIIM-233). It graded the predictions mechanically and wrote the verdicts to
+the artifact.
+
+### Result
+
+| Arm | ROC-AUC | 95 % CI | BEDROC20 | EF 1 % |
+|---|---|---|---|---|
+| **Vina, one minimised conformer** | **0.6689** | [0.6414, 0.6935] | **0.4520** | 2.59 |
+| heavy-atom count | 0.5400 | [0.5107, 0.5691] | 0.3720 | 3.59 |
+| cLogP | 0.5939 | [0.5668, 0.6219] | 0.2401 | 1.00 |
+
+**Primary outcome**, paired against the better-performing trivial null, which the
+script selects by AUC rather than by hand:
+
+> **ΔAUC = +0.0751, 95 % CI [+0.0365, +0.1109]**, interval excludes zero, and
+> **0 of 1,000 bootstrap replicates** put the difference at or below zero.
+
+Against the weaker null the margin is +0.1289 [+0.0967, +0.1601].
+
+### All three pre-registered predictions were met
+
+| | Prediction | Observed | |
+|---|---|---|---|
+| **P1** | Vina ROC-AUC lands in 0.62–0.78 | **0.6689** | **MET** |
+| **P2** | paired ΔAUC against the better null is positive and its interval excludes zero | +0.0751 [+0.0365, +0.1109] | **MET** |
+| **P3** | BEDROC20 exceeds the corresponding null | 0.4520 against 0.2401 | **MET** |
+
+The favourable branch of ADR-AIIM-214 §7, pre-written and therefore not
+negotiable after the fact, fires:
+
+> The protocol has demonstrated screening power on chemotypes resembling the
+> co-crystal ligand, and **the 0.601 of §3.4 is a benchmark artifact rather than
+> a protocol failure.**
+
+### What it changes, and what it very deliberately does not
+
+**It changes the reading of §3.4.** The 245-compound ChEMBL benchmark put Vina at
+0.601 and heavy-atom count at 0.584, p = 0.722 — indistinguishable from counting
+atoms. On a property-matched decoy set built for the purpose, the same protocol
+separates actives from decoys with an interval that clears both trivial nulls.
+The earlier number described the benchmark, not the method. The ChEMBL 245 re-run
+under this same protocol (ADR-AIIM-227) is now complete and lets that comparison
+be made without the protocol confounding it.
+
+**It does not license ranking the natural-product library.** ADR-AIIM-214 §8
+recorded that in advance, and the reason stands untouched by this result: DUD-E
+A2AR decoys are property-matched to A2A actives, so this measures performance on
+chemotypes resembling the co-crystal ligand, while `control_representativeness`
+measures 0.000 scaffold and 0.000 similarity coverage between the reference
+ligands and the LOTUS library. A protocol that discriminates on familiar
+chemistry has not been shown to discriminate on unfamiliar chemistry, and §3.5's
+finding is about the latter.
+
+**EF at 1 % is the one place the nulls win.** Heavy-atom count reaches 3.59
+against Vina's 2.59 in the top 1 %. The early-recognition advantage BEDROC20
+reports for Vina does not survive at the very top of the list, and the manuscript
+should report the EF row rather than only the AUC and BEDROC that favour the
+protocol.
+
+**Nothing here is a wet-laboratory claim.** No compound in this project has been
+assayed.
+
+### Consequences
+
+- **O5's central measurement now exists.** Whether it closes O5 is a separate
+  judgement and belongs with the author.
+- **M2.2 is unblocked.** ADR-AIIM-231's amendment made the exhaustiveness arm's
+  *analysis* wait on M5.1 being adjudicated, which this entry does. The
+  exhaustiveness-8 docking is at 2,167 of 2,402 and finishing.
+- **M1.4's open thread closes.** ADR-AIIM-221 recorded that whether the corrected
+  decision architecture rescues anything "waits on M5.1". It does not rescue the
+  natural-product ranking, for the reason above.
+- §3.4 and §3.6 need rewriting around this, and that is **held by the length
+  decision** and interacts with ADR-AIIM-234's restatement of §3.5/§3.6 under the
+  unified protocol. The same paragraphs are in play; it should be one edit.
+
+## ADR-AIIM-246 — The M2.1 analysis exists before its data, and it fixes the one thing ADR-AIIM-229 left open
+
+**Date:** 2026-09-23
+**Status:** accepted — record of fact
+**Approval:** author, 2026-09-23
+**Follows:** ADR-AIIM-245 (step 4 launched), ADR-AIIM-228 (the precedent)
+
+### Written mid-run, on purpose
+
+`scripts/analyse_spikein_recovery.py` implements the analysis ADR-AIIM-229
+pre-registered. **It was written while the docking was still running and before
+any `vina_score` of that run had been read.**
+
+The M5.1 analysis got this guarantee and all three of its predictions were then
+graded mechanically against a script that could not have been shaped by them
+(ADR-AIIM-240). The M2.2 arm got the weaker one — written after docking
+finished, before any score was read — and ADR-AIIM-241 states that rather than
+glossing it. This one gets the stronger guarantee, and it is the last of the
+three where the choice was still available.
+
+`wilson` is imported from `analyse_r4_funnel_recall.py`, so the interval
+convention is the project's own rather than a second implementation.
+
+### The gap in the pre-registration, closed before any score
+
+ADR-AIIM-229 fixes the metric as *"count surviving each stage, with a Wilson
+95 % interval"*. That does not define what surviving **stage 4** means: docking
+returns a score for every compound, not a pass or a fail. A cut-off is needed,
+and choosing one after seeing where the spike-ins land would be choosing the
+answer.
+
+> **Primary cut-off: the top 500 by docking score**, because that is the cut the
+> production funnel used — §3.6 reports that the 500 highest-ranked compounds
+> went to full-protocol redocking — so recovery at 500 speaks to the campaign
+> this project actually ran.
+
+The whole curve at **100 / 250 / 500 / 1,000 / 2,500** is reported beside it, so
+no reader depends on that cut-off having been well chosen. All of it was written
+down before a single score of this run was read.
+
+### P1 is reported as pending, not guessed
+
+Stages 5 and 6 — the conformal predictor, the AD gate and the dual-criterion
+rule — need `run_g6_on_np_library` executed against the spiked shortlist. That is
+a further run, not an analysis, so **P1 and P3 are emitted as `PENDING`** and the
+script grades only **P2**, which the docking alone can answer. A script that
+guessed the other two would have produced three verdicts from one experiment.
+
+### Verified on synthetic data, over the real shortlist
+
+Eleven checks, all passing, with fabricated scores on the real 5,000-row
+shortlist and its real 89 spike-ins:
+
+| Scenario | Spike-ins in top 500 | P2 |
+|---|---|---|
+| spike-ins score like the background | 10 of 89 | **MET** |
+| spike-ins score systematically better | 86 of 89 | **MISSED** |
+
+The second scenario is the one that matters: it shows **P2 is falsifiable by
+this script**, not merely assertable. Also checked: P1 and P3 stay `PENDING`,
+the stage-2 implementation check agrees with ADR-AIIM-229's derived 94, every
+stage carries a Wilson interval, a partial file is refused, and a mixed-protocol
+row aborts.
+
+**No score from the live run was read.**
+
+### Artifacts
+
+`scripts/analyse_spikein_recovery.py`, not yet run against the real data.
+
+## ADR-AIIM-256 — M2.1 complete: the similarity funnel keeps 85 %, the docking rank loses the majority
+
+**Status:** Proposed, awaiting author approval
+**Date:** 2026-09-24
+**Pre-registration:** ADR-AIIM-229; step 4 authorised in ADR-AIIM-245
+**Artifacts:** `20_new_runs/spike_in_dock_2026-09-23/`
+(`scores.csv`, `analysis/spikein_recovery.json`,
+`analysis/spikein_docked_ranked.csv`)
+
+### The run
+
+Complete. **5,000 compounds scored, 0 failed, 89 of them spike-ins, 36.74 h**,
+exit code 0, every row at one minimised conformer — the protocol imported from
+`run_dude_enrichment.py`, never restated (ADR-AIIM-234). The measured rate,
+26.6 s per compound, sits between the 22.6 s median and 29.8 s mean the 30-
+compound probe forecast, and the run took 36.7 h against that probe's 31.4–41.3 h
+window.
+
+### The result
+
+105 known A2A actives the ligand-based arm has never seen (ADR-AIIM-222), one
+per Butina series, spiked into the 25,604-compound LOTUS pool and carried through
+the production funnel.
+
+| Stage | Recovered | Rate | Wilson 95 % |
+|---|---|---|---|
+| spiked into the pool | 105 / 105 | 1.000 | [0.965, 1.000] |
+| stage 2, 2D pharmacophore, top 8,000 | 94 / 105 | 0.895 | [0.822, 0.941] |
+| stage 3, 3D O3A, shortlist 5,000 | **89 / 105** | **0.848** | [0.767, 0.904] |
+| stage 4, docked | 89 / 105 | 0.848 | [0.767, 0.904] |
+
+**Implementation check: stage 2 observed 94 against the 94 derived in
+ADR-AIIM-229 — AGREES.** That pre-registration stated that a run disagreeing
+with its own derived stage-1/2 table has a fault rather than a finding, so this
+is the control that licenses reading the rest.
+
+Then the docking rank, at the cut the production funnel actually used:
+
+| Docking cut-off | Spike-ins | Rate of the 89 | Enrichment over background |
+|---|---|---|---|
+| top 100 | 9 | 0.101 | 5.06 |
+| top 250 | 22 | 0.247 | 4.94 |
+| **top 500 (primary)** | **32** | **0.360** | **3.60** |
+| top 1,000 | 52 | 0.584 | 2.92 |
+| top 2,500 | 76 | 0.854 | 1.71 |
+
+### What it establishes
+
+**P2 — "the structure-based rank step loses the majority" — is MET.** Of the 89
+known actives that reached docking, **57 do not survive the top-500 cut**. The
+primary cut-off was fixed before any score was read, and it is the cut §3.6
+reports the production campaign as having used.
+
+> **The similarity gate is not where the actives are lost. The docking rank
+> is.** Stages 1–3 keep **84.8 %** of known actives; the rank step that follows
+> keeps **36.0 %** of what it is handed.
+
+That is a diagnosis rather than another negative, and it is the one §3.5's
+undifferentiated result could not supply. It also cuts both ways and the entry
+says so: docking *does* enrich, **3.60-fold at the primary cut and 5.06-fold at
+the top 100**, so the rank step is informative and lossy at the same time.
+
+**P1 and P3 remain PENDING and are not guessed.** Stages 5 and 6 — the conformal
+predictor, the applicability-domain gate and the dual-criterion rule — are a
+further run, not an analysis. ADR-AIIM-245 recorded in advance that the script
+would emit `PENDING` for both rather than infer them, and it did.
+
+### Why this result is readable at all
+
+The analysis was written **while the docking was still running and before any
+`vina_score` of this run had been read**, and was falsification-tested on
+fabricated scores over the real 5,000-row shortlist: spike-ins scoring like the
+background gave P2 **MET**, spike-ins scoring systematically better gave P2
+**MISSED**. A prediction that cannot fail is not a prediction, and this one was
+shown capable of failing before the data existed.
+
+### Consequences
+
+1. **The scope of §3.5's negative narrows.** It reported that a similarity-based
+   gate excluded the library. This shows the gate would have passed 85 % of
+   genuine actives through, so the exclusion of *this* library is a statement
+   about that library's novelty, while the compound-level loss is downstream.
+2. **§3.6's 500-compound cut acquires a measured cost**: at that cut the campaign
+   would have discarded 57 of 89 known actives it had already found.
+3. **RUN_INDEX** rows for `spike_in_dock_2026-09-23` and
+   `spike_in_recovery_2026-09-23` move from **PENDING** to **CORE**.
+4. **The manuscript must now carry this**, which adds words to an article being
+   cut (ADR-AIIM-251, -254, -255). The result is worth more than the words: it
+   converts a null into a localisation. Placement is §3.5 or §3.6 and is an
+   author decision, not an agent's.
+
+### Not claimed
+
+No compound here has been assayed. The spike-ins are ChEMBL A2A actives and the
+recovery rate is over **series**, one representative per Butina cluster, not over
+analogues — so this measures whether the funnel finds *a* member of a known
+active series, not how many actives it would find. Nothing here bears on the
+natural-product library's own activity.
+
+---
+
+## ADR-AIIM-260 — M2.1 complete: P1 and P3 MISSED. The domain gate, not the docking rank, is the largest loss
+
+**Status:** Proposed, awaiting author approval
+**Date:** 2026-09-24
+**Approval to run:** Adisorn Sirichotejirakul ("รัน stage 5-6 ปิด O2 เลย", 2026-09-24)
+**Pre-registration:** ADR-AIIM-229, operationalised in
+`run_spikein_stage56.py`'s docstring **before any result was read**
+**Artifacts:** `20_new_runs/spike_in_dock_2026-09-23/analysis/`
+(`spikein_stage56.json`, `spikein_stage56_per_compound.csv`,
+`spikein_conformal_predictions.csv`)
+
+### Result
+
+Nothing docked, nothing refit. The frozen conformal predictor was loaded and
+run; the AD gate's constants — ECFP4 radius 2, 2048 bits, 5-NN mean Tanimoto,
+threshold **0.6810766499582288** — were **imported** from
+`run_clinical_reference_ad_gate.py` rather than restated, so the two gates
+cannot drift.
+
+| Population | AD gate admits | Ligand arm admits | Both |
+|---|---|---|---|
+| **32 spike-ins inside the top-500 cut** (primary) | **5 / 32 = 0.156** [0.069, 0.318] | 31 / 32 = 0.969 | **5 / 32** |
+| 89 docked spike-ins (secondary) | **18 / 89 = 0.202** [0.132, 0.297] | 79 / 89 = 0.888 | 17 / 89 |
+
+| | Verdict |
+|---|---|
+| **P1a** — AD gate admits most | **FALSE** |
+| **P1b** — ligand arm admits most | TRUE |
+| **P1** | **MISSED** |
+| P2 (from stage 4, not recomputed) | MET |
+| **P3** | **MISSED** |
+
+### What was falsified, and it was my reading, not the pipeline
+
+**ADR-AIIM-229's falsification condition fired exactly as written:** *"If the AD
+gate rather than docking is the largest loss, **P1 is wrong** and ADR-AIIM-210's
+9-of-10 does not generalise past clinical-stage chemistry."*
+
+Stage by stage, as a fraction of what each stage is handed:
+
+| Stage | Keeps | Loses |
+|---|---|---|
+| Similarity funnel (1–3) | 89 / 105 = **84.8 %** | 16 |
+| Docking rank, top-500 cut (4) | 32 / 89 = **36.0 %** | 57 |
+| **Applicability-domain gate (5)** | **5 / 32 = 15.6 %** | **27** |
+
+**The domain gate is proportionally the largest single loss in the pipeline**,
+and end to end **5 of 105** known actives survive — **4.8 %**.
+
+**P3 said the loss was localised to the docking rank. It is not.** I wrote that
+localisation into §3.5, the abstract and §4 earlier today on P2's evidence while
+P1 was still PENDING, and ADR-AIIM-259 had already flagged that as an
+overstatement of my own. The measurement has now settled it against me. The
+manuscript is corrected in the same session (below).
+
+### Why this result is worth more than the one predicted
+
+The paper's central argument is that similarity-based applicability-domain gates
+exclude novel chemotypes for being unfamiliar rather than unpromising. Until
+now the evidence was **library-level**: 0 % structural coverage for the
+natural-product library, which a reader may read as a fact about orchids.
+
+This is **compound-level and adversarial**: handed 105 compounds that are
+*known actives for this exact target*, chosen because the model has never seen
+them (ADR-AIIM-222), the production gate **refuses about four in five**.
+
+It also bounds ADR-AIIM-210 rather than contradicting it. That control found the
+gate admits **9 of 10** real A2A drugs — but those are clinical-stage compounds
+inside the training set's own chemistry, and each was scored with its own record
+removed. **The two results together say what neither says alone: the gate
+admits actives that resemble its training chemistry and refuses actives that do
+not, which is what an applicability domain is for and exactly why it must not
+be used as a selection veto** — the argument §4 already makes, now with a
+direct measurement behind it.
+
+### Controls that make the number readable
+
+* **Membership control.** A spike-in inside the domain-defining set would pass
+  by construction. The script **refuses to run** if any is found; **0 of 89**
+  were, consistent with ADR-AIIM-222 having drawn the panel from the 169 DUD-E
+  actives absent from the A2A set. No self-exclusion was needed and none was
+  applied.
+* **Falsifiability shown before the data.** The self-test grades four synthetic
+  scenarios and a knife-edge case; P1 fails when either arm refuses, P3 fails
+  when either P1 or P2 fails, and exactly half is not "most". All pass.
+* **P2 is read from the stage-4 artifact, not recomputed**, so this run cannot
+  quietly move it.
+* **Primary population fixed in advance** as the 32 inside the production cut,
+  because that is what a deployed run hands to stage 5; the 89 are reported
+  beside it and say the same thing.
+
+### What is not evaluable, and is not fudged
+
+The **dual-criterion tier rule was not applied**: Tier A requires an on-pocket
+pose and the spike-in docking recorded scores, not poses. It is reported as *not
+evaluable from this run* rather than approximated. P1 names the AD gate and the
+ligand-based arm and does not depend on it.
+
+### Consequence for O2
+
+**O2 closes.** The objectives document states the criterion: *"Either outcome is
+publishable: recovery validates the pipeline end to end; **non-recovery
+localises the failure gate by gate**, which is more useful than the current
+undifferentiated negative."* M2.1 has now done exactly that, for every stage.
+The result is unfavourable to the pipeline and it is the evidence O2 asked for.
+
+**All five objectives are now closed** (ADR-AIIM-259 for the other four).
+
+### Not claimed
+
+That the gate is wrong. It is behaving as an applicability domain should — it
+reports that these compounds are unlike its training set, which is true. The
+finding is about the **role** the gate was given, not its arithmetic. No
+compound here has been assayed, and one panel against one target in one
+representation does not establish a general refusal rate.
+
+---
 
 ## ADR-AIIM-285 — PRE-REGISTRATION: the split convention as a 2×2×2 factorial — three defects, two fixed, and the one nobody touched
 
