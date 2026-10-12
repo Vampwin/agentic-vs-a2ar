@@ -1,8 +1,8 @@
 {
   "assembled": "2026-10-12",
-  "n_files": 1240,
-  "total_bytes": 88298026,
-  "n_files_excluded_by_rule": 9264,
+  "n_files": 1296,
+  "total_bytes": 92548851,
+  "n_files_excluded_by_rule": 9265,
   "n_duplicates_removed": 159,
   "n_files_refused_by_screening": 0,
   "refused": [],
@@ -662,8 +662,8 @@
     {
       "path": "pipeline/scripts/build_deposit.py",
       "source": "10_new_system/scripts/build_deposit.py",
-      "bytes": 32707,
-      "sha256": "77003ab7f51bccdfd73b08a7c225b772090c76b55994fc646653959c3094fb0b"
+      "bytes": 33114,
+      "sha256": "eab1e5dd7e67ee92066c2872f80c5777c6043f64009e4597919f98a75ac7bfe5"
     },
     {
       "path": "pipeline/scripts/build_evidence_index.py",
@@ -7494,10 +7494,346 @@
       "sha256": "a4bbb9fbd4c5d337aca9a616fdcd5829eb345133dd62d7fafa3fb2cc2ba86dfc"
     },
     {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/analysis/clean_anchor.py",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/analysis/clean_anchor.py",
+      "bytes": 2685,
+      "sha256": "8acb7b8667972a629098029ce6f721ce81cdc0e13532ea9d8de39c2ec982c24a"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/analysis/dock_clean.py",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/analysis/dock_clean.py",
+      "bytes": 656,
+      "sha256": "c5ce6a84dccda3872ce02b048b3de7b54b8203c13912ed4b4cddd7b27c2a7fff"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/analysis/dock_f07.py",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/analysis/dock_f07.py",
+      "bytes": 674,
+      "sha256": "84045b1a1077ab1f58d90e0b5c1957f7fd363a593f4e078bf7dab3cf39b81675"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/analysis/ext2.py",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/analysis/ext2.py",
+      "bytes": 16632,
+      "sha256": "1a3042f00a73495c4015093cc08f438e54d4fe97a2bd81ad2760bbb9ce453eed"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/analysis/run_extension.py",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/analysis/run_extension.py",
+      "bytes": 10019,
+      "sha256": "2fce56a8505468190d1804ecd512a5dbd58e65512da5574992d9e5b8c9793882"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/anchor_clean.json",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/anchor_clean.json",
+      "bytes": 12813,
+      "sha256": "e59119568724879955835cbe546871501776a62b8795a9eea44efa8dd1acd86e"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_clean/redock_seed20260730.energies.json",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_clean/redock_seed20260730.energies.json",
+      "bytes": 1568,
+      "sha256": "dc97dac2fb23e9c364190b0643326da16d3bd0b605851d8d9b322a3e6003840d"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_clean/redock_seed20260730.sdf",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_clean/redock_seed20260730.sdf",
+      "bytes": 178021,
+      "sha256": "a1ba2b2f6f8291ef658e657be289af0a1d56c9972a4f1a0ea5392e0682ab687d"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_clean/redock_seed20260731.energies.json",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_clean/redock_seed20260731.energies.json",
+      "bytes": 1569,
+      "sha256": "e1e5f3c9f641b48d0819045a83b85b9aba92d73e4fe1b02025555415daee32b6"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_clean/redock_seed20260731.sdf",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_clean/redock_seed20260731.sdf",
+      "bytes": 178022,
+      "sha256": "161662b9dd272a2d97fc0ce6e919af7b30b0b0948567c137ec1b573d7cf959df"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_clean/redock_seed20260732.energies.json",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_clean/redock_seed20260732.energies.json",
+      "bytes": 1584,
+      "sha256": "4d579a1d355d8485168de2204984c78f22e4067329b3e3c7579ad5c986d5a89b"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_clean/redock_seed20260732.sdf",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_clean/redock_seed20260732.sdf",
+      "bytes": 180272,
+      "sha256": "f2a5bdd59e380774b8b9560c83bc1b5db826b6400e27007d3129d9be874233dd"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_clean/redock_seed20260733.energies.json",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_clean/redock_seed20260733.energies.json",
+      "bytes": 1581,
+      "sha256": "ed4d62e48c395de8c90b70679908adcbcbd70309bb2a1c27e81999d0b4fae2cc"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_clean/redock_seed20260733.sdf",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_clean/redock_seed20260733.sdf",
+      "bytes": 180269,
+      "sha256": "fbec9440bf3f1be785b8d050b89786e8ffa9106bd060d732272e19f05fee45e3"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_clean/redock_seed20260734.energies.json",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_clean/redock_seed20260734.energies.json",
+      "bytes": 1584,
+      "sha256": "f324601db1256b927c62ae459612d9f98b4dca879de58af90478bcd8f27de084"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_clean/redock_seed20260734.sdf",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_clean/redock_seed20260734.sdf",
+      "bytes": 180272,
+      "sha256": "45e356fe10f539d9001e90b7719d19b557c3efb01c171b2d284f03a6875066cb"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_clean/redock_seed20260735.energies.json",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_clean/redock_seed20260735.energies.json",
+      "bytes": 1583,
+      "sha256": "7b0e4fc6bb1cc6670f0221eb072ffd5429fc49045c93ecfac0170a05fe310643"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_clean/redock_seed20260735.sdf",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_clean/redock_seed20260735.sdf",
+      "bytes": 180271,
+      "sha256": "45f975d1610d650b545c962bc60afda535b0a6bc6987560c3e55df7b2206b2e0"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_clean/redock_seed20260736.energies.json",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_clean/redock_seed20260736.energies.json",
+      "bytes": 1563,
+      "sha256": "b5875885d62db0cda53ddae2ef0aef46e68e1f6a0eb7d3948d23e2919ea9cf95"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_clean/redock_seed20260736.sdf",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_clean/redock_seed20260736.sdf",
+      "bytes": 178016,
+      "sha256": "49b0fb921c1a5f8b261ae1f9388841f30996d855055b48e49a44857e12186ced"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_clean/redock_seed20260737.energies.json",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_clean/redock_seed20260737.energies.json",
+      "bytes": 1568,
+      "sha256": "0314412d7eeb7b6107423a8dbbc622bd16b16b5542599c3a9a7ae1851483d394"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_clean/redock_seed20260737.sdf",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_clean/redock_seed20260737.sdf",
+      "bytes": 178021,
+      "sha256": "e1fa1f8ba42adb7d68de4af9d2585d3a31e7bba7fcc2ff5f79372b5d46697517"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_f07/F07_00_x5.energies.json",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_f07/F07_00_x5.energies.json",
+      "bytes": 1554,
+      "sha256": "859ac7901d9c48f06befd74ec4f8afbfae93d6117c3e15be6ce04c9258351b99"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_f07/F07_00_x5.sdf",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_f07/F07_00_x5.sdf",
+      "bytes": 175772,
+      "sha256": "db190ad39e783f3e014de1a3b817382376694eac739e79ccf68b9fc2b1d94f9d"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_f07/F07_01_y5.energies.json",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_f07/F07_01_y5.energies.json",
+      "bytes": 1534,
+      "sha256": "d6479c3d34ae6eea3b63020f3f71e281eaf72a2b0e2fb69bb6f2c7e50403991a"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_f07/F07_01_y5.sdf",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_f07/F07_01_y5.sdf",
+      "bytes": 173517,
+      "sha256": "03c864bfb506dd71ae340eb1f68936890d5ac88032177cd7749b6b7ab7de8de2"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_f07/F07_02_z5.energies.json",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_f07/F07_02_z5.energies.json",
+      "bytes": 1584,
+      "sha256": "121b01020d95a46b1cdd25b943c4b8175870627ca93d08ae996a5a855c4c3347"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_f07/F07_02_z5.sdf",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_f07/F07_02_z5.sdf",
+      "bytes": 180272,
+      "sha256": "e5426ae8efc1535e3252d050b6113a4f002dcdf7869c8227bd9c1a827322470b"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_f07/F07_03_x10.energies.json",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_f07/F07_03_x10.energies.json",
+      "bytes": 1580,
+      "sha256": "ac2c5e4430be5caf9576266fae2a070b19b3ff8870d184ab4862b6075be84947"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_f07/F07_03_x10.sdf",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_f07/F07_03_x10.sdf",
+      "bytes": 180268,
+      "sha256": "d628df1d2bda4470a9c3a3d6d2b4703d36be3010bbc29f13e70d7100b548298a"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_f07/F07_04_y10.energies.json",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_f07/F07_04_y10.energies.json",
+      "bytes": 1582,
+      "sha256": "1bb51b6acd0fe3422b1c59acfd687125a575f0b5622da85489273a40d7a87476"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_f07/F07_04_y10.sdf",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_f07/F07_04_y10.sdf",
+      "bytes": 180270,
+      "sha256": "4ff374656b7073dba96e0a5219c6e9423121e25b486141876f5787bc75e0d624"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_f07/F07_05_z10.energies.json",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_f07/F07_05_z10.energies.json",
+      "bytes": 1583,
+      "sha256": "ecc62612262f1392a9ddfeb1a68a33faa7cc1be4a550105a3aaf9c2f45c6a2eb"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_f07/F07_05_z10.sdf",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_f07/F07_05_z10.sdf",
+      "bytes": 180271,
+      "sha256": "ea018feb24011412ff13bfa4c75969e6b9bff3a4a6ae347a9ecd120b52cccf51"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_f07/F07_06_x15.energies.json",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_f07/F07_06_x15.energies.json",
+      "bytes": 1562,
+      "sha256": "995984d93012661c2c66be5c389923bb4dacfb83edd3323143a4ee15c767c156"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_f07/F07_06_x15.sdf",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_f07/F07_06_x15.sdf",
+      "bytes": 178015,
+      "sha256": "503d2c660e6ef80f80691ca253df6f3b6e8deefe1db4a40768b063e4a0eac646"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_f07/F07_07_y15.energies.json",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_f07/F07_07_y15.energies.json",
+      "bytes": 1584,
+      "sha256": "2f2585a502af9ccb77ad46c948afc84fc8697c705b41e67501ffff392e33d215"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_f07/F07_07_y15.sdf",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_f07/F07_07_y15.sdf",
+      "bytes": 180272,
+      "sha256": "87931b64edf71f801af9efac31a35aef2900d48ce980825186fba87473f12118"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_f07/F07_08_z15.energies.json",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_f07/F07_08_z15.energies.json",
+      "bytes": 1578,
+      "sha256": "aca51cbaa2fca8d1bcf71afac12c21c83de7f77a78799b3583b80e48c4e2b094"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_f07/F07_08_z15.sdf",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_f07/F07_08_z15.sdf",
+      "bytes": 180266,
+      "sha256": "e6eb32ee2cde9f3c39a6a339f510d7e852102f5089613f20f22c7385d24525c0"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_f07/F07_09_x20.energies.json",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_f07/F07_09_x20.energies.json",
+      "bytes": 1531,
+      "sha256": "8d6b17f329e5bb9b831631c2df9c3edf6f266c4d2738ea1ce48b5efd1bf2494d"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_f07/F07_09_x20.sdf",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_f07/F07_09_x20.sdf",
+      "bytes": 173514,
+      "sha256": "595df8a4ac8bc03e476c8d48bf813ec000aab4dde9bab483fbae439029d57111"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_f07/F07_10_y20.energies.json",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_f07/F07_10_y20.energies.json",
+      "bytes": 1561,
+      "sha256": "9cd609cc7b30b5aea62811e4a362cc727c77dcb9654825e607001e3b3d0ad08e"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_f07/F07_10_y20.sdf",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_f07/F07_10_y20.sdf",
+      "bytes": 178014,
+      "sha256": "885a3c2ac27ed1ca44291156cd931df3494b3d5927cc44d7e51a8d366e8aa707"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_f07/F07_11_z20.energies.json",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_f07/F07_11_z20.energies.json",
+      "bytes": 1550,
+      "sha256": "c9a20d9ccc76307a77b397e93edb8f0b7c4cbcd6adac54de02bea38a66436ce9"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_f07/F07_11_z20.sdf",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_f07/F07_11_z20.sdf",
+      "bytes": 175768,
+      "sha256": "2db843832fd03ff0056686ba64360a003ac27d77afc8c61942ce5e70b8dc4e9b"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_f07/F07_12_x25.energies.json",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_f07/F07_12_x25.energies.json",
+      "bytes": 1552,
+      "sha256": "b9f203538ded555107b8fb1380c6d0c9dd1f43821ab53d9a511a2ed26d95429e"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_f07/F07_12_x25.sdf",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_f07/F07_12_x25.sdf",
+      "bytes": 175770,
+      "sha256": "dacf567125b7e92af80855581520131783f3f2a16e564009678c040b89031a3f"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_f07/F07_13_y25.energies.json",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_f07/F07_13_y25.energies.json",
+      "bytes": 1569,
+      "sha256": "52f26071f82e033d4ab97de04ebf7194e3e4f8db2466fa1e55c915a3ee40010a"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_f07/F07_13_y25.sdf",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_f07/F07_13_y25.sdf",
+      "bytes": 178022,
+      "sha256": "558d706ffa54fdeb75bb10d2519174f71e77fcd991a43ae88601edc9a8906e84"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_f07/F07_14_z25.energies.json",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_f07/F07_14_z25.energies.json",
+      "bytes": 1584,
+      "sha256": "d8619add3c3d053af64d1db33ed20eea4162d70295b962497a19d8884fbddc16"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/poses_f07/F07_14_z25.sdf",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/poses_f07/F07_14_z25.sdf",
+      "bytes": 180272,
+      "sha256": "d9ee8265630e1afb259a0abb395caa4f1ea8862d95d9a1bf0fde9bf708085bb0"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/PREREG_ADR420.md",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/PREREG_ADR420.md",
+      "bytes": 7085,
+      "sha256": "92420efb0dd54b533eb9e74eb1c47fd82aa0b1f9791dd1ba890f9555a7dbcadb"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/PREREG_SHA256.txt",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/PREREG_SHA256.txt",
+      "bytes": 207,
+      "sha256": "083eab50b1e858e88d53f36740ae8bc737db2adab46f60fb4e209e289faf978d"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/results.json",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/results.json",
+      "bytes": 47828,
+      "sha256": "2b038b4f3835216b2e215967daa5a2177e7f1f5a5c85ebcfc74992adaf2d74ff"
+    },
+    {
+      "path": "extension/v9_g3_g5_extension_2026-10-12/run_manifest.json",
+      "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/run_manifest.json",
+      "bytes": 3766,
+      "sha256": "0f9b2ab883b20a2f80808113737a90acb24202dc6610831d5f4037cc67de8308"
+    },
+    {
       "path": "preregistration/PRE_REGISTRATION_ENTRIES.md",
       "source": "00_project_control/08_DECISION_LOG.md",
-      "bytes": 495111,
-      "sha256": "c7b7bd5c495267b3b9fa8d0c23dd639f9d081224a7570cc7a09fbc0046d75270"
+      "bytes": 503629,
+      "sha256": "7f2e5974cb4470d4eeb3a682c5e79f2d0c41408af4a6bf6462550779ba7ea8e2"
     }
   ]
 }

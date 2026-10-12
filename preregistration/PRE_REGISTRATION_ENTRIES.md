@@ -2,8 +2,8 @@
 
 Verbatim copies of the decision-log entries that the article and the supplement describe as pre-registered, and of the entries that record their results. The log is append-only; each entry was written before the run it concerns (or, for a result entry, after it). Each entry fixed the predictions or the decision rule of its analysis before the run, and recorded the SHA-256 of the predictions or of the inputs frozen for it where the run had them. Copied as written: first-person wording and the author's quotations are unchanged. The full log is not deposited.
 
-- source: `00_project_control/08_DECISION_LOG.md`, SHA-256 of the whole log (line ends as LF) `b12fc120abce70c3d82d236639715535d83c1a4cb261a3863785d5b8766474f1`
-- entries: 76 (ADR-AIIM-131, 150, 156, 214, 215, 229, 240, 246, 256, 260, 285 to 336, 353 to 356, 390, 391, 399, 400, 412, 413, 416, 417)
+- source: `00_project_control/08_DECISION_LOG.md`, SHA-256 of the whole log (line ends as LF) `ff140480054adc43e383eafdf9b0c04bd00cee491bff2846a6595e820ae1d371`
+- entries: 78 (ADR-AIIM-131, 150, 156, 214, 215, 229, 240, 246, 256, 260, 285 to 336, 353 to 356, 390, 391, 399, 400, 412, 413, 416, 417, 420, 421)
 
 ---
 
@@ -8498,3 +8498,51 @@ The state under the deployed path equals the state under the direct path in all 
 
 **What the results say.** (1) The G2 and G7 contracts check what the run recorded, not the content of the artifacts: G2 reads residue counts, chain breaks, the reference ligand, the box fields, the retained-water count against the recorded decision, the cofactor decisions and the embedding counts, and no check reads a protonation state; G7 reads the completion log, and `equilibration_verified` only requires the per-frame file to exist, so a silently truncated series passes; `md_results_csv` is declared in the contract but read by no check, so a shifted binding-site definition passes. (2) The same truncation is detected as soon as the completion log records it (10 of 10), which shows that the evaluator's completion check works and that the gap is the missing link between the series and the log. (3) The deployed path adds nothing and loses nothing for these two gates: its states equal those of the direct path. (4) These are gaps of the contract check lists, named as such; the 124 of 128 and 101 of 128 stay what they were.
 **Limits.** The instances of a family share one base system (F06 one receptor; F15, F16 one compound), so they are not independent replicates. The injectors were written knowing the evaluators; the predictions follow from reading the code, so they test that reading and the harness, not an unknown behaviour. The clean workspaces supply the inputs of all nine G2 checks, which the production run did not (its registry lists four passed checks); the faulted workspaces keep the decisions the clean run recorded. The F15 and F16 faults alter the files an analysis would read; a pipeline that recomputes them from the trajectory would differ. G3 and G5 remain without an implemented family. No held-out case is used.
+
+## ADR-AIIM-420 — PRE-REGISTRATION: seeded faults for gates G3 and G5, which carried no implemented fault family (2026-10-12)
+
+**Status:** accepted — **pre-registration. Frozen before any faulted workspace was evaluated or any faulted redocking was run.**
+**Date:** 2026-10-12
+**Decided by:** Adisorn Sirichotejirakul, in chat: "ทำ G3 กับ G5 ต่อเลย", after the G2 and G7 extension (ADR-AIIM-416 to 419).
+**Pre-registration file:** `20_new_runs/v9_g3_g5_extension_2026-10-12/PREREG_ADR420.md`, SHA-256 `7db40ba84d6818ecdbc3ba739d7de280e82a20f105b657b0b1e8e08868c9c48a` (also in `PREREG_SHA256.txt`). **Decision log at freeze (text/LF), before this entry was appended:** `34a8f78c386b99d6b5c0b9533f3c328952b052eb4a341b31ae80eca082020105`.
+**Discipline:** ADR-AIIM-263 — predictions fixed before the run. **Skills invoked:** experimental-design (SKILL.md read in full for ADR-AIIM-416, applied unchanged: the unit is a workspace, instances of a family share a base and are not pooled, the controls are the clean workspaces, the grids are fixed and seeded). Nothing installed.
+
+**Why.** The four gates without an implemented family were G2, G3, G5 and G7. G2 and G7 are done (ADR-AIIM-416 to 419). This entry fixes the injectors and predictions for G3 (F07 off-pocket pose, F08 reference rotated) and G5 (F11 label leakage, F12 evaluation-set mismatch) before they are run.
+
+**What is fixed (details in the file).**
+- No frozen file changes: the frozen evaluators, contracts and orchestrator are called as in ADR-AIIM-236 (direct with the YAML contract, deployed); the redocking uses the frozen multi-conformer script of `run_snp_screen.py` with the production receptor, conformers, box size, exhaustiveness and seed, the box centre being the only parameter of F07.
+- Anchor, observed before this file was written (`anchor_clean.json`): eleven clean G3 workspaces (the production run, its two reproductions, eight redockings with seeds 20260730 to 20260737; rank-1 RMSD 0.356 to 0.405 A) fail only `control_representativeness`, the production run's own outcome, under both paths; eleven clean G5 workspaces (the real 245-compound ChEMBL benchmark under eleven rankings) pass G5a under both paths; the Vina ranking reproduces AUC 0.6014, BEDROC20 0.2752, EF@1% 1.6333; one redocking with the frozen script reproduced the production poses byte for byte.
+- Detection rule: a failed check that the clean base does not fail, or an ERROR; the clean states of these gates are not PASS (G3 escalates on `control_representativeness`; the real benchmark fails `ef_1pct` and `bedroc20` at G5b).
+- Faults: F07 (15 instances, the box centre shifted by 5 to 25 A along x, y or z, and a real redocking), F08 (15, the crystal ligand rotated by 45 to 150 degrees about x, y or z), F11 (10, known actives exposed to the ranking step and ranked first; the file is not the benchmark file) and F11L (10, the same read from the benchmark file; a control), F12 (3, the benchmark labels swapped in full, by half, by a quarter, the metrics recomputed).
+- Predictions P1 to P9: the anchor; F08 with rotation of 90 degrees or more detected (12 of 12); F07 with offset 20 or 25 A detected (6 of 6); F07 with offset 5 A not detected (0 of 3); deployed equals direct for G3; F11 silent not detected (0 of 10); F11L detected (10 of 10, by `label_isolation`); F12 detected (3 of 3, by `auc_roc` at G5b); deployed equals direct for G5.
+
+**What the author had seen.** The source of the G3, G5a and G5b evaluators and contracts, the real artifacts and scores, the clean outcomes. Not seen: the state of any faulted workspace, the RMSD of any faulted pose, any redocking with a shifted box.
+
+**Not allowed to follow from the outcome.** No change of any frozen number, evaluator or contract; the held-out cases are not used; a family with no detection is reported as a gap of the gate's check list; no compound is called active.
+
+## ADR-AIIM-421 — RESULT of the pre-registration of ADR-AIIM-420: the contracts of G3 and G5 detect what moves the numbers they read and not a leak that leaves no trace in the access log (2026-10-12)
+
+**Status:** accepted — record of fact. **Date:** 2026-10-12
+**Pre-registration:** ADR-AIIM-420, SHA-256 `7db40ba84d6818ecdbc3ba739d7de280e82a20f105b657b0b1e8e08868c9c48a`.
+**Run folder:** `20_new_runs/v9_g3_g5_extension_2026-10-12/` (scripts, `anchor_clean.json`, `results.json`, `run_manifest.json`, the 23 redocked pose files; 15 faulted redockings of about 65 s each, the evaluation 14 s). `10_new_system/` unchanged. Nothing was rerun.
+
+**Anchor (P1): met.** Eleven clean G3 workspaces fail only `control_representativeness` under both paths (the production run's own outcome), rank-1 RMSD 0.356 to 0.405 A; eleven clean G5 workspaces pass G5a under both paths; the Vina ranking reproduces AUC 0.6014, BEDROC20 0.2752, EF@1% 1.6333. A redocking with the frozen script and the production seed reproduced the production poses byte for byte.
+
+**Predictions: 8 of 9 met.** Not met: P4 (no 5 A shift would be detected).
+
+| Family | Gate | Cases | Detected, direct | Detected, deployed | New failed check |
+|---|---|---|---|---|---|
+| F07 box centre shifted, control redocked | G3 | 15 | 13 | 13 | `rmsd_rank1_4eiy` |
+| F08 reference ligand rotated | G3 | 15 | 14 | 14 | `rmsd_rank1_4eiy` |
+| F11 known actives exposed, silent | G5 | 10 | 0 | 0 | none |
+| F11L the same, read from the benchmark file | G5 | 10 | 10 | 10 | `label_isolation` (G5a, HALT) |
+| F12 labels swapped | G5 | 3 | 3 | 3 | `auc_roc` (G5b, G5a passing) |
+
+- **F07.** Rank-1 RMSD by instance: 5 A: x 0.36, y 10.25, z 0.47; 10 A: 10.46, 7.48, 11.54; 15 A: 13.3, 11.0, 12.37; 20 A: 13.17, 16.86, 19.44; 25 A: 19.02, 17.15, 20.5. The two undetected are the 5 A shifts along x and z, redocked inside the pocket; every shift of 10 A or more was detected (P3 met, P4 missed: 1 of 3 at 5 A). Each instance is one seed.
+- **F08.** Rank-1 RMSD by rotation (x, y, z): 45 deg 3.71, 1.57, 3.50; 90 deg 6.77, 2.90, 6.46; 120 deg 8.25, 3.54, 7.88; 135 deg 8.79, 3.76, 8.40; 150 deg 9.18, 3.92, 8.78. The undetected one is 45 degrees about y, the long axis of the ligand, which moves its atoms little (1.57 A, under the 2.0 A threshold); every rotation of 90 degrees or more was detected (P2 met).
+- **F11.** With 5 to 100 known actives ranked first the benchmark's AUC rose from 0.6014 to 0.6398, 0.6883, 0.7206, 0.7693, 0.8151, 0.841, 0.9049, then 1.0 (50, 75 and 100), EF@1% to 4.9 and BEDROC20 to 0.52 to 1.0; G5a passed, and **G5b changed from ESCALATE (clean) to PASS in all ten**: the contract waves through a leak that improves the numbers (P6 met). F11L: the access log shows the read of the benchmark file before the gate and `label_isolation` halts all ten (P7 met).
+- **F12.** AUC 0.3986 (full swap), 0.584 (50%), 0.5446 (25%); G5a passes (the compound-ID hash does not see labels) and G5b fails `auc_roc` (P8 met). The clean ranking's AUC sits 0.0014 above the frozen threshold of 0.60, so any lowering of it is flagged; a ranking whose clean AUC was well above the threshold would not have been.
+- The failed checks under the deployed path equal those under the direct path in every G3 and G5 case (P5, P9 met).
+
+**What the results say.** (1) G3 catches a pose or a reference that is wrong by more than 2.0 A and misses a fault that leaves the redocking correct or nearly so (a box shift that the pocket survives, a rotation about the ligand's long axis). (2) G5a catches a leak only if the access log records a read of the labels file; a leak through another file is invisible to it, and G5b then passes the improved result. (3) A swapped label set is caught at G5b only because of where this benchmark's AUC sits relative to a threshold. (4) The deployed path adds and loses nothing at these gates.
+**Limits.** The instances of a family share a base (one control, one benchmark ranking), so they are not independent replicates and no rate is estimated. The injectors were written knowing the evaluators and the predictions follow from reading the code. The leaked actives are ranked first and the swapped labels are re-scored (modelling assumptions); the box shift is a real redocking with one seed. The clean states of these gates are not PASS (G3 escalates; the benchmark fails `ef_1pct` and `bedroc20`), so detection is read as a new failed check. No held-out case is used; with ADR-AIIM-416 and 417 every one of the seven stubs F06 to F08, F11, F12, F15 and F16 now has an implementation outside the frozen tree.

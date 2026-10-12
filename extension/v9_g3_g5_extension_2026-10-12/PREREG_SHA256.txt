@@ -1,0 +1,3 @@
+7db40ba84d6818ecdbc3ba739d7de280e82a20f105b657b0b1e8e08868c9c48a *PREREG_ADR420.md
+
+# decision log (text/LF) after ADR-AIIM-420 was appended: a55ca5cd7306dfe399364da5051d9681b1d84426acf207183f8787b043f279ce

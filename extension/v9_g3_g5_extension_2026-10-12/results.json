@@ -1,0 +1,2683 @@
+{
+ "adr": "ADR-AIIM-420 (pre-registration) / ADR-AIIM-421 (results)",
+ "prereg_sha256": "7db40ba84d6818ecdbc3ba739d7de280e82a20f105b657b0b1e8e08868c9c48a",
+ "anchor": {
+  "n_clean_g3": 11,
+  "n_clean_g5": 11,
+  "g3_failed_set_equals_production_all": true,
+  "g5a_pass_all": true
+ },
+ "cases": [
+  {
+   "family": "F07",
+   "gate": "G3",
+   "instance": 0,
+   "params": {
+    "offset_angstrom": 5,
+    "axis": "x"
+   },
+   "injection": {
+    "box_center": [
+     4.576,
+     8.527,
+     17.127
+    ],
+    "poses": "F07_00_x5.sdf"
+   },
+   "direct": {
+    "state": "ESCALATE",
+    "checks_failed": [
+     "control_representativeness"
+    ],
+    "critical": [],
+    "warned": [
+     "per_atom_distances_recorded_4EIY",
+     "reproducibility_check_4eiy"
+    ],
+    "rank1_rmsd": 0.3644
+   },
+   "deployed": {
+    "state": "ESCALATE",
+    "checks_failed": [
+     "control_representativeness"
+    ],
+    "halted": false
+   },
+   "new_failed_direct": [],
+   "new_failed_deployed": [],
+   "detected_direct": false,
+   "detected_deployed": false
+  },
+  {
+   "family": "F07",
+   "gate": "G3",
+   "instance": 1,
+   "params": {
+    "offset_angstrom": 5,
+    "axis": "y"
+   },
+   "injection": {
+    "box_center": [
+     -0.424,
+     13.527,
+     17.127
+    ],
+    "poses": "F07_01_y5.sdf"
+   },
+   "direct": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "critical": [
+     "rmsd_rank1_4eiy"
+    ],
+    "warned": [
+     "per_atom_distances_recorded_4EIY",
+     "reproducibility_check_4eiy"
+    ],
+    "rank1_rmsd": 10.2545
+   },
+   "deployed": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "halted": true
+   },
+   "new_failed_direct": [
+    "rmsd_rank1_4eiy"
+   ],
+   "new_failed_deployed": [
+    "rmsd_rank1_4eiy"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F07",
+   "gate": "G3",
+   "instance": 2,
+   "params": {
+    "offset_angstrom": 5,
+    "axis": "z"
+   },
+   "injection": {
+    "box_center": [
+     -0.424,
+     8.527,
+     22.127
+    ],
+    "poses": "F07_02_z5.sdf"
+   },
+   "direct": {
+    "state": "ESCALATE",
+    "checks_failed": [
+     "control_representativeness"
+    ],
+    "critical": [],
+    "warned": [
+     "per_atom_distances_recorded_4EIY",
+     "reproducibility_check_4eiy"
+    ],
+    "rank1_rmsd": 0.4658
+   },
+   "deployed": {
+    "state": "ESCALATE",
+    "checks_failed": [
+     "control_representativeness"
+    ],
+    "halted": false
+   },
+   "new_failed_direct": [],
+   "new_failed_deployed": [],
+   "detected_direct": false,
+   "detected_deployed": false
+  },
+  {
+   "family": "F07",
+   "gate": "G3",
+   "instance": 3,
+   "params": {
+    "offset_angstrom": 10,
+    "axis": "x"
+   },
+   "injection": {
+    "box_center": [
+     9.576,
+     8.527,
+     17.127
+    ],
+    "poses": "F07_03_x10.sdf"
+   },
+   "direct": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "critical": [
+     "rmsd_rank1_4eiy"
+    ],
+    "warned": [
+     "per_atom_distances_recorded_4EIY",
+     "reproducibility_check_4eiy"
+    ],
+    "rank1_rmsd": 10.4556
+   },
+   "deployed": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "halted": true
+   },
+   "new_failed_direct": [
+    "rmsd_rank1_4eiy"
+   ],
+   "new_failed_deployed": [
+    "rmsd_rank1_4eiy"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F07",
+   "gate": "G3",
+   "instance": 4,
+   "params": {
+    "offset_angstrom": 10,
+    "axis": "y"
+   },
+   "injection": {
+    "box_center": [
+     -0.424,
+     18.527,
+     17.127
+    ],
+    "poses": "F07_04_y10.sdf"
+   },
+   "direct": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "critical": [
+     "rmsd_rank1_4eiy"
+    ],
+    "warned": [
+     "per_atom_distances_recorded_4EIY",
+     "reproducibility_check_4eiy"
+    ],
+    "rank1_rmsd": 7.4802
+   },
+   "deployed": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "halted": true
+   },
+   "new_failed_direct": [
+    "rmsd_rank1_4eiy"
+   ],
+   "new_failed_deployed": [
+    "rmsd_rank1_4eiy"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F07",
+   "gate": "G3",
+   "instance": 5,
+   "params": {
+    "offset_angstrom": 10,
+    "axis": "z"
+   },
+   "injection": {
+    "box_center": [
+     -0.424,
+     8.527,
+     27.127
+    ],
+    "poses": "F07_05_z10.sdf"
+   },
+   "direct": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "critical": [
+     "rmsd_rank1_4eiy"
+    ],
+    "warned": [
+     "per_atom_distances_recorded_4EIY",
+     "reproducibility_check_4eiy"
+    ],
+    "rank1_rmsd": 11.5422
+   },
+   "deployed": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "halted": true
+   },
+   "new_failed_direct": [
+    "rmsd_rank1_4eiy"
+   ],
+   "new_failed_deployed": [
+    "rmsd_rank1_4eiy"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F07",
+   "gate": "G3",
+   "instance": 6,
+   "params": {
+    "offset_angstrom": 15,
+    "axis": "x"
+   },
+   "injection": {
+    "box_center": [
+     14.576,
+     8.527,
+     17.127
+    ],
+    "poses": "F07_06_x15.sdf"
+   },
+   "direct": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "critical": [
+     "rmsd_rank1_4eiy"
+    ],
+    "warned": [
+     "per_atom_distances_recorded_4EIY",
+     "reproducibility_check_4eiy"
+    ],
+    "rank1_rmsd": 13.3038
+   },
+   "deployed": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "halted": true
+   },
+   "new_failed_direct": [
+    "rmsd_rank1_4eiy"
+   ],
+   "new_failed_deployed": [
+    "rmsd_rank1_4eiy"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F07",
+   "gate": "G3",
+   "instance": 7,
+   "params": {
+    "offset_angstrom": 15,
+    "axis": "y"
+   },
+   "injection": {
+    "box_center": [
+     -0.424,
+     23.527,
+     17.127
+    ],
+    "poses": "F07_07_y15.sdf"
+   },
+   "direct": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "critical": [
+     "rmsd_rank1_4eiy"
+    ],
+    "warned": [
+     "per_atom_distances_recorded_4EIY",
+     "reproducibility_check_4eiy"
+    ],
+    "rank1_rmsd": 11.003
+   },
+   "deployed": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "halted": true
+   },
+   "new_failed_direct": [
+    "rmsd_rank1_4eiy"
+   ],
+   "new_failed_deployed": [
+    "rmsd_rank1_4eiy"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F07",
+   "gate": "G3",
+   "instance": 8,
+   "params": {
+    "offset_angstrom": 15,
+    "axis": "z"
+   },
+   "injection": {
+    "box_center": [
+     -0.424,
+     8.527,
+     32.126999999999995
+    ],
+    "poses": "F07_08_z15.sdf"
+   },
+   "direct": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "critical": [
+     "rmsd_rank1_4eiy"
+    ],
+    "warned": [
+     "per_atom_distances_recorded_4EIY",
+     "reproducibility_check_4eiy"
+    ],
+    "rank1_rmsd": 12.3704
+   },
+   "deployed": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "halted": true
+   },
+   "new_failed_direct": [
+    "rmsd_rank1_4eiy"
+   ],
+   "new_failed_deployed": [
+    "rmsd_rank1_4eiy"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F07",
+   "gate": "G3",
+   "instance": 9,
+   "params": {
+    "offset_angstrom": 20,
+    "axis": "x"
+   },
+   "injection": {
+    "box_center": [
+     19.576,
+     8.527,
+     17.127
+    ],
+    "poses": "F07_09_x20.sdf"
+   },
+   "direct": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "critical": [
+     "rmsd_rank1_4eiy"
+    ],
+    "warned": [
+     "per_atom_distances_recorded_4EIY",
+     "reproducibility_check_4eiy"
+    ],
+    "rank1_rmsd": 13.1721
+   },
+   "deployed": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "halted": true
+   },
+   "new_failed_direct": [
+    "rmsd_rank1_4eiy"
+   ],
+   "new_failed_deployed": [
+    "rmsd_rank1_4eiy"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F07",
+   "gate": "G3",
+   "instance": 10,
+   "params": {
+    "offset_angstrom": 20,
+    "axis": "y"
+   },
+   "injection": {
+    "box_center": [
+     -0.424,
+     28.527,
+     17.127
+    ],
+    "poses": "F07_10_y20.sdf"
+   },
+   "direct": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "critical": [
+     "rmsd_rank1_4eiy"
+    ],
+    "warned": [
+     "per_atom_distances_recorded_4EIY",
+     "reproducibility_check_4eiy"
+    ],
+    "rank1_rmsd": 16.8572
+   },
+   "deployed": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "halted": true
+   },
+   "new_failed_direct": [
+    "rmsd_rank1_4eiy"
+   ],
+   "new_failed_deployed": [
+    "rmsd_rank1_4eiy"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F07",
+   "gate": "G3",
+   "instance": 11,
+   "params": {
+    "offset_angstrom": 20,
+    "axis": "z"
+   },
+   "injection": {
+    "box_center": [
+     -0.424,
+     8.527,
+     37.126999999999995
+    ],
+    "poses": "F07_11_z20.sdf"
+   },
+   "direct": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "critical": [
+     "rmsd_rank1_4eiy"
+    ],
+    "warned": [
+     "per_atom_distances_recorded_4EIY",
+     "reproducibility_check_4eiy"
+    ],
+    "rank1_rmsd": 19.4356
+   },
+   "deployed": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "halted": true
+   },
+   "new_failed_direct": [
+    "rmsd_rank1_4eiy"
+   ],
+   "new_failed_deployed": [
+    "rmsd_rank1_4eiy"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F07",
+   "gate": "G3",
+   "instance": 12,
+   "params": {
+    "offset_angstrom": 25,
+    "axis": "x"
+   },
+   "injection": {
+    "box_center": [
+     24.576,
+     8.527,
+     17.127
+    ],
+    "poses": "F07_12_x25.sdf"
+   },
+   "direct": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "critical": [
+     "rmsd_rank1_4eiy"
+    ],
+    "warned": [
+     "per_atom_distances_recorded_4EIY",
+     "reproducibility_check_4eiy"
+    ],
+    "rank1_rmsd": 19.0176
+   },
+   "deployed": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "halted": true
+   },
+   "new_failed_direct": [
+    "rmsd_rank1_4eiy"
+   ],
+   "new_failed_deployed": [
+    "rmsd_rank1_4eiy"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F07",
+   "gate": "G3",
+   "instance": 13,
+   "params": {
+    "offset_angstrom": 25,
+    "axis": "y"
+   },
+   "injection": {
+    "box_center": [
+     -0.424,
+     33.527,
+     17.127
+    ],
+    "poses": "F07_13_y25.sdf"
+   },
+   "direct": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "critical": [
+     "rmsd_rank1_4eiy"
+    ],
+    "warned": [
+     "per_atom_distances_recorded_4EIY",
+     "reproducibility_check_4eiy"
+    ],
+    "rank1_rmsd": 17.1498
+   },
+   "deployed": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "halted": true
+   },
+   "new_failed_direct": [
+    "rmsd_rank1_4eiy"
+   ],
+   "new_failed_deployed": [
+    "rmsd_rank1_4eiy"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F07",
+   "gate": "G3",
+   "instance": 14,
+   "params": {
+    "offset_angstrom": 25,
+    "axis": "z"
+   },
+   "injection": {
+    "box_center": [
+     -0.424,
+     8.527,
+     42.126999999999995
+    ],
+    "poses": "F07_14_z25.sdf"
+   },
+   "direct": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "critical": [
+     "rmsd_rank1_4eiy"
+    ],
+    "warned": [
+     "per_atom_distances_recorded_4EIY",
+     "reproducibility_check_4eiy"
+    ],
+    "rank1_rmsd": 20.5004
+   },
+   "deployed": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "halted": true
+   },
+   "new_failed_direct": [
+    "rmsd_rank1_4eiy"
+   ],
+   "new_failed_deployed": [
+    "rmsd_rank1_4eiy"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F08",
+   "gate": "G3",
+   "instance": 0,
+   "params": {
+    "rotation_degrees": 45,
+    "rotation_axis": "x"
+   },
+   "injection": {
+    "max_atom_shift_A": 6.185635054486515
+   },
+   "direct": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "critical": [
+     "rmsd_rank1_4eiy"
+    ],
+    "warned": [
+     "per_atom_distances_recorded_4EIY",
+     "reproducibility_check_4eiy"
+    ],
+    "rank1_rmsd": 3.714
+   },
+   "deployed": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "halted": true
+   },
+   "new_failed_direct": [
+    "rmsd_rank1_4eiy"
+   ],
+   "new_failed_deployed": [
+    "rmsd_rank1_4eiy"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F08",
+   "gate": "G3",
+   "instance": 1,
+   "params": {
+    "rotation_degrees": 45,
+    "rotation_axis": "y"
+   },
+   "injection": {
+    "max_atom_shift_A": 2.487959070082008
+   },
+   "direct": {
+    "state": "ESCALATE",
+    "checks_failed": [
+     "control_representativeness"
+    ],
+    "critical": [],
+    "warned": [
+     "per_atom_distances_recorded_4EIY",
+     "reproducibility_check_4eiy"
+    ],
+    "rank1_rmsd": 1.5726
+   },
+   "deployed": {
+    "state": "ESCALATE",
+    "checks_failed": [
+     "control_representativeness"
+    ],
+    "halted": false
+   },
+   "new_failed_direct": [],
+   "new_failed_deployed": [],
+   "detected_direct": false,
+   "detected_deployed": false
+  },
+  {
+   "family": "F08",
+   "gate": "G3",
+   "instance": 2,
+   "params": {
+    "rotation_degrees": 45,
+    "rotation_axis": "z"
+   },
+   "injection": {
+    "max_atom_shift_A": 6.075862929482933
+   },
+   "direct": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "critical": [
+     "rmsd_rank1_4eiy"
+    ],
+    "warned": [
+     "per_atom_distances_recorded_4EIY",
+     "reproducibility_check_4eiy"
+    ],
+    "rank1_rmsd": 3.5033
+   },
+   "deployed": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "halted": true
+   },
+   "new_failed_direct": [
+    "rmsd_rank1_4eiy"
+   ],
+   "new_failed_deployed": [
+    "rmsd_rank1_4eiy"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F08",
+   "gate": "G3",
+   "instance": 3,
+   "params": {
+    "rotation_degrees": 90,
+    "rotation_axis": "x"
+   },
+   "injection": {
+    "max_atom_shift_A": 11.429563244848861
+   },
+   "direct": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "critical": [
+     "rmsd_rank1_4eiy"
+    ],
+    "warned": [
+     "per_atom_distances_recorded_4EIY",
+     "reproducibility_check_4eiy"
+    ],
+    "rank1_rmsd": 6.7653
+   },
+   "deployed": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "halted": true
+   },
+   "new_failed_direct": [
+    "rmsd_rank1_4eiy"
+   ],
+   "new_failed_deployed": [
+    "rmsd_rank1_4eiy"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F08",
+   "gate": "G3",
+   "instance": 4,
+   "params": {
+    "rotation_degrees": 90,
+    "rotation_axis": "y"
+   },
+   "injection": {
+    "max_atom_shift_A": 4.5971489251491615
+   },
+   "direct": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "critical": [
+     "rmsd_rank1_4eiy"
+    ],
+    "warned": [
+     "per_atom_distances_recorded_4EIY",
+     "reproducibility_check_4eiy"
+    ],
+    "rank1_rmsd": 2.9026
+   },
+   "deployed": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "halted": true
+   },
+   "new_failed_direct": [
+    "rmsd_rank1_4eiy"
+   ],
+   "new_failed_deployed": [
+    "rmsd_rank1_4eiy"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F08",
+   "gate": "G3",
+   "instance": 5,
+   "params": {
+    "rotation_degrees": 90,
+    "rotation_axis": "z"
+   },
+   "injection": {
+    "max_atom_shift_A": 11.2267308057867
+   },
+   "direct": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "critical": [
+     "rmsd_rank1_4eiy"
+    ],
+    "warned": [
+     "per_atom_distances_recorded_4EIY",
+     "reproducibility_check_4eiy"
+    ],
+    "rank1_rmsd": 6.4565
+   },
+   "deployed": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "halted": true
+   },
+   "new_failed_direct": [
+    "rmsd_rank1_4eiy"
+   ],
+   "new_failed_deployed": [
+    "rmsd_rank1_4eiy"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F08",
+   "gate": "G3",
+   "instance": 6,
+   "params": {
+    "rotation_degrees": 120,
+    "rotation_axis": "x"
+   },
+   "injection": {
+    "max_atom_shift_A": 13.998298966374449
+   },
+   "direct": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "critical": [
+     "rmsd_rank1_4eiy"
+    ],
+    "warned": [
+     "per_atom_distances_recorded_4EIY",
+     "reproducibility_check_4eiy"
+    ],
+    "rank1_rmsd": 8.2549
+   },
+   "deployed": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "halted": true
+   },
+   "new_failed_direct": [
+    "rmsd_rank1_4eiy"
+   ],
+   "new_failed_deployed": [
+    "rmsd_rank1_4eiy"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F08",
+   "gate": "G3",
+   "instance": 7,
+   "params": {
+    "rotation_degrees": 120,
+    "rotation_axis": "y"
+   },
+   "injection": {
+    "max_atom_shift_A": 5.630334569099791
+   },
+   "direct": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "critical": [
+     "rmsd_rank1_4eiy"
+    ],
+    "warned": [
+     "per_atom_distances_recorded_4EIY",
+     "reproducibility_check_4eiy"
+    ],
+    "rank1_rmsd": 3.5381
+   },
+   "deployed": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "halted": true
+   },
+   "new_failed_direct": [
+    "rmsd_rank1_4eiy"
+   ],
+   "new_failed_deployed": [
+    "rmsd_rank1_4eiy"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F08",
+   "gate": "G3",
+   "instance": 8,
+   "params": {
+    "rotation_degrees": 120,
+    "rotation_axis": "z"
+   },
+   "injection": {
+    "max_atom_shift_A": 13.749880976881219
+   },
+   "direct": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "critical": [
+     "rmsd_rank1_4eiy"
+    ],
+    "warned": [
+     "per_atom_distances_recorded_4EIY",
+     "reproducibility_check_4eiy"
+    ],
+    "rank1_rmsd": 7.8825
+   },
+   "deployed": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "halted": true
+   },
+   "new_failed_direct": [
+    "rmsd_rank1_4eiy"
+   ],
+   "new_failed_deployed": [
+    "rmsd_rank1_4eiy"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F08",
+   "gate": "G3",
+   "instance": 9,
+   "params": {
+    "rotation_degrees": 135,
+    "rotation_axis": "x"
+   },
+   "injection": {
+    "max_atom_shift_A": 14.933444040431786
+   },
+   "direct": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "critical": [
+     "rmsd_rank1_4eiy"
+    ],
+    "warned": [
+     "per_atom_distances_recorded_4EIY",
+     "reproducibility_check_4eiy"
+    ],
+    "rank1_rmsd": 8.7943
+   },
+   "deployed": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "halted": true
+   },
+   "new_failed_direct": [
+    "rmsd_rank1_4eiy"
+   ],
+   "new_failed_deployed": [
+    "rmsd_rank1_4eiy"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F08",
+   "gate": "G3",
+   "instance": 10,
+   "params": {
+    "rotation_degrees": 135,
+    "rotation_axis": "y"
+   },
+   "injection": {
+    "max_atom_shift_A": 6.006464529621136
+   },
+   "direct": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "critical": [
+     "rmsd_rank1_4eiy"
+    ],
+    "warned": [
+     "per_atom_distances_recorded_4EIY",
+     "reproducibility_check_4eiy"
+    ],
+    "rank1_rmsd": 3.7575
+   },
+   "deployed": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "halted": true
+   },
+   "new_failed_direct": [
+    "rmsd_rank1_4eiy"
+   ],
+   "new_failed_deployed": [
+    "rmsd_rank1_4eiy"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F08",
+   "gate": "G3",
+   "instance": 11,
+   "params": {
+    "rotation_degrees": 135,
+    "rotation_axis": "z"
+   },
+   "injection": {
+    "max_atom_shift_A": 14.668430687477622
+   },
+   "direct": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "critical": [
+     "rmsd_rank1_4eiy"
+    ],
+    "warned": [
+     "per_atom_distances_recorded_4EIY",
+     "reproducibility_check_4eiy"
+    ],
+    "rank1_rmsd": 8.4033
+   },
+   "deployed": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "halted": true
+   },
+   "new_failed_direct": [
+    "rmsd_rank1_4eiy"
+   ],
+   "new_failed_deployed": [
+    "rmsd_rank1_4eiy"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F08",
+   "gate": "G3",
+   "instance": 12,
+   "params": {
+    "rotation_degrees": 150,
+    "rotation_axis": "x"
+   },
+   "injection": {
+    "max_atom_shift_A": 15.613073746624444
+   },
+   "direct": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "critical": [
+     "rmsd_rank1_4eiy"
+    ],
+    "warned": [
+     "per_atom_distances_recorded_4EIY",
+     "reproducibility_check_4eiy"
+    ],
+    "rank1_rmsd": 9.1835
+   },
+   "deployed": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "halted": true
+   },
+   "new_failed_direct": [
+    "rmsd_rank1_4eiy"
+   ],
+   "new_failed_deployed": [
+    "rmsd_rank1_4eiy"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F08",
+   "gate": "G3",
+   "instance": 13,
+   "params": {
+    "rotation_degrees": 150,
+    "rotation_axis": "y"
+   },
+   "injection": {
+    "max_atom_shift_A": 6.2798222167340825
+   },
+   "direct": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "critical": [
+     "rmsd_rank1_4eiy"
+    ],
+    "warned": [
+     "per_atom_distances_recorded_4EIY",
+     "reproducibility_check_4eiy"
+    ],
+    "rank1_rmsd": 3.9183
+   },
+   "deployed": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "halted": true
+   },
+   "new_failed_direct": [
+    "rmsd_rank1_4eiy"
+   ],
+   "new_failed_deployed": [
+    "rmsd_rank1_4eiy"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F08",
+   "gate": "G3",
+   "instance": 14,
+   "params": {
+    "rotation_degrees": 150,
+    "rotation_axis": "z"
+   },
+   "injection": {
+    "max_atom_shift_A": 15.335999482153971
+   },
+   "direct": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "critical": [
+     "rmsd_rank1_4eiy"
+    ],
+    "warned": [
+     "per_atom_distances_recorded_4EIY",
+     "reproducibility_check_4eiy"
+    ],
+    "rank1_rmsd": 8.7828
+   },
+   "deployed": {
+    "state": "HALT",
+    "checks_failed": [
+     "rmsd_rank1_4eiy",
+     "control_representativeness"
+    ],
+    "halted": true
+   },
+   "new_failed_direct": [
+    "rmsd_rank1_4eiy"
+   ],
+   "new_failed_deployed": [
+    "rmsd_rank1_4eiy"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F11",
+   "gate": "G5",
+   "instance": 0,
+   "params": {
+    "n_leaked_ids": 5
+   },
+   "injection": {
+    "n_leaked": 5
+   },
+   "metrics": {
+    "n": 245,
+    "n_active": 50,
+    "n_inactive": 195,
+    "auc_roc": 0.6398,
+    "bedroc20": 0.5196,
+    "ef_1pct": 4.9,
+    "ef_5pct": 2.6385,
+    "ef_10pct": 1.96
+   },
+   "direct": {
+    "G5a": {
+     "state": "PASS",
+     "checks_failed": [],
+     "warned": []
+    },
+    "G5b": {
+     "state": "PASS",
+     "checks_failed": [],
+     "warned": []
+    }
+   },
+   "deployed": {
+    "G5a": {
+     "state": "PASS",
+     "checks_failed": [],
+     "halted": false
+    },
+    "G5b": {
+     "state": "PASS",
+     "checks_failed": [],
+     "halted": false
+    }
+   },
+   "new_failed_direct": [],
+   "new_failed_deployed": [],
+   "detected_direct": false,
+   "detected_deployed": false
+  },
+  {
+   "family": "F11",
+   "gate": "G5",
+   "instance": 1,
+   "params": {
+    "n_leaked_ids": 10
+   },
+   "injection": {
+    "n_leaked": 10
+   },
+   "metrics": {
+    "n": 245,
+    "n_active": 50,
+    "n_inactive": 195,
+    "auc_roc": 0.6883,
+    "bedroc20": 0.6841,
+    "ef_1pct": 4.9,
+    "ef_5pct": 4.1462,
+    "ef_10pct": 2.744
+   },
+   "direct": {
+    "G5a": {
+     "state": "PASS",
+     "checks_failed": [],
+     "warned": []
+    },
+    "G5b": {
+     "state": "PASS",
+     "checks_failed": [],
+     "warned": []
+    }
+   },
+   "deployed": {
+    "G5a": {
+     "state": "PASS",
+     "checks_failed": [],
+     "halted": false
+    },
+    "G5b": {
+     "state": "PASS",
+     "checks_failed": [],
+     "halted": false
+    }
+   },
+   "new_failed_direct": [],
+   "new_failed_deployed": [],
+   "detected_direct": false,
+   "detected_deployed": false
+  },
+  {
+   "family": "F11",
+   "gate": "G5",
+   "instance": 2,
+   "params": {
+    "n_leaked_ids": 15
+   },
+   "injection": {
+    "n_leaked": 15
+   },
+   "metrics": {
+    "n": 245,
+    "n_active": 50,
+    "n_inactive": 195,
+    "auc_roc": 0.7206,
+    "bedroc20": 0.7877,
+    "ef_1pct": 4.9,
+    "ef_5pct": 4.9,
+    "ef_10pct": 3.332
+   },
+   "direct": {
+    "G5a": {
+     "state": "PASS",
+     "checks_failed": [],
+     "warned": []
+    },
+    "G5b": {
+     "state": "PASS",
+     "checks_failed": [],
+     "warned": []
+    }
+   },
+   "deployed": {
+    "G5a": {
+     "state": "PASS",
+     "checks_failed": [],
+     "halted": false
+    },
+    "G5b": {
+     "state": "PASS",
+     "checks_failed": [],
+     "halted": false
+    }
+   },
+   "new_failed_direct": [],
+   "new_failed_deployed": [],
+   "detected_direct": false,
+   "detected_deployed": false
+  },
+  {
+   "family": "F11",
+   "gate": "G5",
+   "instance": 3,
+   "params": {
+    "n_leaked_ids": 20
+   },
+   "injection": {
+    "n_leaked": 20
+   },
+   "metrics": {
+    "n": 245,
+    "n_active": 50,
+    "n_inactive": 195,
+    "auc_roc": 0.7693,
+    "bedroc20": 0.8646,
+    "ef_1pct": 4.9,
+    "ef_5pct": 4.9,
+    "ef_10pct": 4.312
+   },
+   "direct": {
+    "G5a": {
+     "state": "PASS",
+     "checks_failed": [],
+     "warned": []
+    },
+    "G5b": {
+     "state": "PASS",
+     "checks_failed": [],
+     "warned": []
+    }
+   },
+   "deployed": {
+    "G5a": {
+     "state": "PASS",
+     "checks_failed": [],
+     "halted": false
+    },
+    "G5b": {
+     "state": "PASS",
+     "checks_failed": [],
+     "halted": false
+    }
+   },
+   "new_failed_direct": [],
+   "new_failed_deployed": [],
+   "detected_direct": false,
+   "detected_deployed": false
+  },
+  {
+   "family": "F11",
+   "gate": "G5",
+   "instance": 4,
+   "params": {
+    "n_leaked_ids": 25
+   },
+   "injection": {
+    "n_leaked": 25
+   },
+   "metrics": {
+    "n": 245,
+    "n_active": 50,
+    "n_inactive": 195,
+    "auc_roc": 0.8151,
+    "bedroc20": 0.9156,
+    "ef_1pct": 4.9,
+    "ef_5pct": 4.9,
+    "ef_10pct": 4.9
+   },
+   "direct": {
+    "G5a": {
+     "state": "PASS",
+     "checks_failed": [],
+     "warned": []
+    },
+    "G5b": {
+     "state": "PASS",
+     "checks_failed": [],
+     "warned": []
+    }
+   },
+   "deployed": {
+    "G5a": {
+     "state": "PASS",
+     "checks_failed": [],
+     "halted": false
+    },
+    "G5b": {
+     "state": "PASS",
+     "checks_failed": [],
+     "halted": false
+    }
+   },
+   "new_failed_direct": [],
+   "new_failed_deployed": [],
+   "detected_direct": false,
+   "detected_deployed": false
+  },
+  {
+   "family": "F11",
+   "gate": "G5",
+   "instance": 5,
+   "params": {
+    "n_leaked_ids": 30
+   },
+   "injection": {
+    "n_leaked": 30
+   },
+   "metrics": {
+    "n": 245,
+    "n_active": 50,
+    "n_inactive": 195,
+    "auc_roc": 0.841,
+    "bedroc20": 0.947,
+    "ef_1pct": 4.9,
+    "ef_5pct": 4.9,
+    "ef_10pct": 4.9
+   },
+   "direct": {
+    "G5a": {
+     "state": "PASS",
+     "checks_failed": [],
+     "warned": []
+    },
+    "G5b": {
+     "state": "PASS",
+     "checks_failed": [],
+     "warned": []
+    }
+   },
+   "deployed": {
+    "G5a": {
+     "state": "PASS",
+     "checks_failed": [],
+     "halted": false
+    },
+    "G5b": {
+     "state": "PASS",
+     "checks_failed": [],
+     "halted": false
+    }
+   },
+   "new_failed_direct": [],
+   "new_failed_deployed": [],
+   "detected_direct": false,
+   "detected_deployed": false
+  },
+  {
+   "family": "F11",
+   "gate": "G5",
+   "instance": 6,
+   "params": {
+    "n_leaked_ids": 40
+   },
+   "injection": {
+    "n_leaked": 40
+   },
+   "metrics": {
+    "n": 245,
+    "n_active": 50,
+    "n_inactive": 195,
+    "auc_roc": 0.9049,
+    "bedroc20": 0.9787,
+    "ef_1pct": 4.9,
+    "ef_5pct": 4.9,
+    "ef_10pct": 4.9
+   },
+   "direct": {
+    "G5a": {
+     "state": "PASS",
+     "checks_failed": [],
+     "warned": []
+    },
+    "G5b": {
+     "state": "PASS",
+     "checks_failed": [],
+     "warned": []
+    }
+   },
+   "deployed": {
+    "G5a": {
+     "state": "PASS",
+     "checks_failed": [],
+     "halted": false
+    },
+    "G5b": {
+     "state": "PASS",
+     "checks_failed": [],
+     "halted": false
+    }
+   },
+   "new_failed_direct": [],
+   "new_failed_deployed": [],
+   "detected_direct": false,
+   "detected_deployed": false
+  },
+  {
+   "family": "F11",
+   "gate": "G5",
+   "instance": 7,
+   "params": {
+    "n_leaked_ids": 50
+   },
+   "injection": {
+    "n_leaked": 50
+   },
+   "metrics": {
+    "n": 245,
+    "n_active": 50,
+    "n_inactive": 195,
+    "auc_roc": 1.0,
+    "bedroc20": 1.0,
+    "ef_1pct": 4.9,
+    "ef_5pct": 4.9,
+    "ef_10pct": 4.9
+   },
+   "direct": {
+    "G5a": {
+     "state": "PASS",
+     "checks_failed": [],
+     "warned": []
+    },
+    "G5b": {
+     "state": "PASS",
+     "checks_failed": [],
+     "warned": []
+    }
+   },
+   "deployed": {
+    "G5a": {
+     "state": "PASS",
+     "checks_failed": [],
+     "halted": false
+    },
+    "G5b": {
+     "state": "PASS",
+     "checks_failed": [],
+     "halted": false
+    }
+   },
+   "new_failed_direct": [],
+   "new_failed_deployed": [],
+   "detected_direct": false,
+   "detected_deployed": false
+  },
+  {
+   "family": "F11",
+   "gate": "G5",
+   "instance": 8,
+   "params": {
+    "n_leaked_ids": 75
+   },
+   "injection": {
+    "n_leaked": 50
+   },
+   "metrics": {
+    "n": 245,
+    "n_active": 50,
+    "n_inactive": 195,
+    "auc_roc": 1.0,
+    "bedroc20": 1.0,
+    "ef_1pct": 4.9,
+    "ef_5pct": 4.9,
+    "ef_10pct": 4.9
+   },
+   "direct": {
+    "G5a": {
+     "state": "PASS",
+     "checks_failed": [],
+     "warned": []
+    },
+    "G5b": {
+     "state": "PASS",
+     "checks_failed": [],
+     "warned": []
+    }
+   },
+   "deployed": {
+    "G5a": {
+     "state": "PASS",
+     "checks_failed": [],
+     "halted": false
+    },
+    "G5b": {
+     "state": "PASS",
+     "checks_failed": [],
+     "halted": false
+    }
+   },
+   "new_failed_direct": [],
+   "new_failed_deployed": [],
+   "detected_direct": false,
+   "detected_deployed": false
+  },
+  {
+   "family": "F11",
+   "gate": "G5",
+   "instance": 9,
+   "params": {
+    "n_leaked_ids": 100
+   },
+   "injection": {
+    "n_leaked": 50
+   },
+   "metrics": {
+    "n": 245,
+    "n_active": 50,
+    "n_inactive": 195,
+    "auc_roc": 1.0,
+    "bedroc20": 1.0,
+    "ef_1pct": 4.9,
+    "ef_5pct": 4.9,
+    "ef_10pct": 4.9
+   },
+   "direct": {
+    "G5a": {
+     "state": "PASS",
+     "checks_failed": [],
+     "warned": []
+    },
+    "G5b": {
+     "state": "PASS",
+     "checks_failed": [],
+     "warned": []
+    }
+   },
+   "deployed": {
+    "G5a": {
+     "state": "PASS",
+     "checks_failed": [],
+     "halted": false
+    },
+    "G5b": {
+     "state": "PASS",
+     "checks_failed": [],
+     "halted": false
+    }
+   },
+   "new_failed_direct": [],
+   "new_failed_deployed": [],
+   "detected_direct": false,
+   "detected_deployed": false
+  },
+  {
+   "family": "F11L",
+   "gate": "G5",
+   "instance": 0,
+   "params": {
+    "n_leaked_ids": 5
+   },
+   "injection": {
+    "n_leaked": 5
+   },
+   "metrics": {
+    "n": 245,
+    "n_active": 50,
+    "n_inactive": 195,
+    "auc_roc": 0.6398,
+    "bedroc20": 0.5196,
+    "ef_1pct": 4.9,
+    "ef_5pct": 2.6385,
+    "ef_10pct": 1.96
+   },
+   "direct": {
+    "G5a": {
+     "state": "HALT",
+     "checks_failed": [
+      "label_isolation"
+     ],
+     "warned": []
+    },
+    "G5b": null
+   },
+   "deployed": {
+    "G5a": {
+     "state": "HALT",
+     "checks_failed": [
+      "label_isolation"
+     ],
+     "halted": true
+    },
+    "G5b": null
+   },
+   "new_failed_direct": [
+    "G5a:label_isolation"
+   ],
+   "new_failed_deployed": [
+    "G5a:label_isolation"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F11L",
+   "gate": "G5",
+   "instance": 1,
+   "params": {
+    "n_leaked_ids": 10
+   },
+   "injection": {
+    "n_leaked": 10
+   },
+   "metrics": {
+    "n": 245,
+    "n_active": 50,
+    "n_inactive": 195,
+    "auc_roc": 0.6883,
+    "bedroc20": 0.6841,
+    "ef_1pct": 4.9,
+    "ef_5pct": 4.1462,
+    "ef_10pct": 2.744
+   },
+   "direct": {
+    "G5a": {
+     "state": "HALT",
+     "checks_failed": [
+      "label_isolation"
+     ],
+     "warned": []
+    },
+    "G5b": null
+   },
+   "deployed": {
+    "G5a": {
+     "state": "HALT",
+     "checks_failed": [
+      "label_isolation"
+     ],
+     "halted": true
+    },
+    "G5b": null
+   },
+   "new_failed_direct": [
+    "G5a:label_isolation"
+   ],
+   "new_failed_deployed": [
+    "G5a:label_isolation"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F11L",
+   "gate": "G5",
+   "instance": 2,
+   "params": {
+    "n_leaked_ids": 15
+   },
+   "injection": {
+    "n_leaked": 15
+   },
+   "metrics": {
+    "n": 245,
+    "n_active": 50,
+    "n_inactive": 195,
+    "auc_roc": 0.7206,
+    "bedroc20": 0.7877,
+    "ef_1pct": 4.9,
+    "ef_5pct": 4.9,
+    "ef_10pct": 3.332
+   },
+   "direct": {
+    "G5a": {
+     "state": "HALT",
+     "checks_failed": [
+      "label_isolation"
+     ],
+     "warned": []
+    },
+    "G5b": null
+   },
+   "deployed": {
+    "G5a": {
+     "state": "HALT",
+     "checks_failed": [
+      "label_isolation"
+     ],
+     "halted": true
+    },
+    "G5b": null
+   },
+   "new_failed_direct": [
+    "G5a:label_isolation"
+   ],
+   "new_failed_deployed": [
+    "G5a:label_isolation"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F11L",
+   "gate": "G5",
+   "instance": 3,
+   "params": {
+    "n_leaked_ids": 20
+   },
+   "injection": {
+    "n_leaked": 20
+   },
+   "metrics": {
+    "n": 245,
+    "n_active": 50,
+    "n_inactive": 195,
+    "auc_roc": 0.7693,
+    "bedroc20": 0.8646,
+    "ef_1pct": 4.9,
+    "ef_5pct": 4.9,
+    "ef_10pct": 4.312
+   },
+   "direct": {
+    "G5a": {
+     "state": "HALT",
+     "checks_failed": [
+      "label_isolation"
+     ],
+     "warned": []
+    },
+    "G5b": null
+   },
+   "deployed": {
+    "G5a": {
+     "state": "HALT",
+     "checks_failed": [
+      "label_isolation"
+     ],
+     "halted": true
+    },
+    "G5b": null
+   },
+   "new_failed_direct": [
+    "G5a:label_isolation"
+   ],
+   "new_failed_deployed": [
+    "G5a:label_isolation"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F11L",
+   "gate": "G5",
+   "instance": 4,
+   "params": {
+    "n_leaked_ids": 25
+   },
+   "injection": {
+    "n_leaked": 25
+   },
+   "metrics": {
+    "n": 245,
+    "n_active": 50,
+    "n_inactive": 195,
+    "auc_roc": 0.8151,
+    "bedroc20": 0.9156,
+    "ef_1pct": 4.9,
+    "ef_5pct": 4.9,
+    "ef_10pct": 4.9
+   },
+   "direct": {
+    "G5a": {
+     "state": "HALT",
+     "checks_failed": [
+      "label_isolation"
+     ],
+     "warned": []
+    },
+    "G5b": null
+   },
+   "deployed": {
+    "G5a": {
+     "state": "HALT",
+     "checks_failed": [
+      "label_isolation"
+     ],
+     "halted": true
+    },
+    "G5b": null
+   },
+   "new_failed_direct": [
+    "G5a:label_isolation"
+   ],
+   "new_failed_deployed": [
+    "G5a:label_isolation"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F11L",
+   "gate": "G5",
+   "instance": 5,
+   "params": {
+    "n_leaked_ids": 30
+   },
+   "injection": {
+    "n_leaked": 30
+   },
+   "metrics": {
+    "n": 245,
+    "n_active": 50,
+    "n_inactive": 195,
+    "auc_roc": 0.841,
+    "bedroc20": 0.947,
+    "ef_1pct": 4.9,
+    "ef_5pct": 4.9,
+    "ef_10pct": 4.9
+   },
+   "direct": {
+    "G5a": {
+     "state": "HALT",
+     "checks_failed": [
+      "label_isolation"
+     ],
+     "warned": []
+    },
+    "G5b": null
+   },
+   "deployed": {
+    "G5a": {
+     "state": "HALT",
+     "checks_failed": [
+      "label_isolation"
+     ],
+     "halted": true
+    },
+    "G5b": null
+   },
+   "new_failed_direct": [
+    "G5a:label_isolation"
+   ],
+   "new_failed_deployed": [
+    "G5a:label_isolation"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F11L",
+   "gate": "G5",
+   "instance": 6,
+   "params": {
+    "n_leaked_ids": 40
+   },
+   "injection": {
+    "n_leaked": 40
+   },
+   "metrics": {
+    "n": 245,
+    "n_active": 50,
+    "n_inactive": 195,
+    "auc_roc": 0.9049,
+    "bedroc20": 0.9787,
+    "ef_1pct": 4.9,
+    "ef_5pct": 4.9,
+    "ef_10pct": 4.9
+   },
+   "direct": {
+    "G5a": {
+     "state": "HALT",
+     "checks_failed": [
+      "label_isolation"
+     ],
+     "warned": []
+    },
+    "G5b": null
+   },
+   "deployed": {
+    "G5a": {
+     "state": "HALT",
+     "checks_failed": [
+      "label_isolation"
+     ],
+     "halted": true
+    },
+    "G5b": null
+   },
+   "new_failed_direct": [
+    "G5a:label_isolation"
+   ],
+   "new_failed_deployed": [
+    "G5a:label_isolation"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F11L",
+   "gate": "G5",
+   "instance": 7,
+   "params": {
+    "n_leaked_ids": 50
+   },
+   "injection": {
+    "n_leaked": 50
+   },
+   "metrics": {
+    "n": 245,
+    "n_active": 50,
+    "n_inactive": 195,
+    "auc_roc": 1.0,
+    "bedroc20": 1.0,
+    "ef_1pct": 4.9,
+    "ef_5pct": 4.9,
+    "ef_10pct": 4.9
+   },
+   "direct": {
+    "G5a": {
+     "state": "HALT",
+     "checks_failed": [
+      "label_isolation"
+     ],
+     "warned": []
+    },
+    "G5b": null
+   },
+   "deployed": {
+    "G5a": {
+     "state": "HALT",
+     "checks_failed": [
+      "label_isolation"
+     ],
+     "halted": true
+    },
+    "G5b": null
+   },
+   "new_failed_direct": [
+    "G5a:label_isolation"
+   ],
+   "new_failed_deployed": [
+    "G5a:label_isolation"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F11L",
+   "gate": "G5",
+   "instance": 8,
+   "params": {
+    "n_leaked_ids": 75
+   },
+   "injection": {
+    "n_leaked": 50
+   },
+   "metrics": {
+    "n": 245,
+    "n_active": 50,
+    "n_inactive": 195,
+    "auc_roc": 1.0,
+    "bedroc20": 1.0,
+    "ef_1pct": 4.9,
+    "ef_5pct": 4.9,
+    "ef_10pct": 4.9
+   },
+   "direct": {
+    "G5a": {
+     "state": "HALT",
+     "checks_failed": [
+      "label_isolation"
+     ],
+     "warned": []
+    },
+    "G5b": null
+   },
+   "deployed": {
+    "G5a": {
+     "state": "HALT",
+     "checks_failed": [
+      "label_isolation"
+     ],
+     "halted": true
+    },
+    "G5b": null
+   },
+   "new_failed_direct": [
+    "G5a:label_isolation"
+   ],
+   "new_failed_deployed": [
+    "G5a:label_isolation"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F11L",
+   "gate": "G5",
+   "instance": 9,
+   "params": {
+    "n_leaked_ids": 100
+   },
+   "injection": {
+    "n_leaked": 50
+   },
+   "metrics": {
+    "n": 245,
+    "n_active": 50,
+    "n_inactive": 195,
+    "auc_roc": 1.0,
+    "bedroc20": 1.0,
+    "ef_1pct": 4.9,
+    "ef_5pct": 4.9,
+    "ef_10pct": 4.9
+   },
+   "direct": {
+    "G5a": {
+     "state": "HALT",
+     "checks_failed": [
+      "label_isolation"
+     ],
+     "warned": []
+    },
+    "G5b": null
+   },
+   "deployed": {
+    "G5a": {
+     "state": "HALT",
+     "checks_failed": [
+      "label_isolation"
+     ],
+     "halted": true
+    },
+    "G5b": null
+   },
+   "new_failed_direct": [
+    "G5a:label_isolation"
+   ],
+   "new_failed_deployed": [
+    "G5a:label_isolation"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F12",
+   "gate": "G5",
+   "instance": 0,
+   "params": {
+    "swap_mode": "full_swap"
+   },
+   "injection": {
+    "n_labels_changed": 245
+   },
+   "metrics": {
+    "n": 245,
+    "n_active": 195,
+    "n_inactive": 50,
+    "auc_roc": 0.3986,
+    "bedroc20": 0.7248,
+    "ef_1pct": 0.8376,
+    "ef_5pct": 0.9665,
+    "ef_10pct": 0.9549
+   },
+   "direct": {
+    "G5a": {
+     "state": "PASS",
+     "checks_failed": [],
+     "warned": []
+    },
+    "G5b": {
+     "state": "ESCALATE",
+     "checks_failed": [
+      "auc_roc",
+      "ef_1pct"
+     ],
+     "warned": []
+    }
+   },
+   "deployed": {
+    "G5a": {
+     "state": "PASS",
+     "checks_failed": [],
+     "halted": false
+    },
+    "G5b": {
+     "state": "ESCALATE",
+     "checks_failed": [
+      "auc_roc",
+      "ef_1pct"
+     ],
+     "halted": false
+    }
+   },
+   "new_failed_direct": [
+    "G5b:auc_roc"
+   ],
+   "new_failed_deployed": [
+    "G5b:auc_roc"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F12",
+   "gate": "G5",
+   "instance": 1,
+   "params": {
+    "swap_mode": "partial_50pct"
+   },
+   "injection": {
+    "n_labels_changed": 50
+   },
+   "metrics": {
+    "n": 245,
+    "n_active": 50,
+    "n_inactive": 195,
+    "auc_roc": 0.584,
+    "bedroc20": 0.2271,
+    "ef_1pct": 0.0,
+    "ef_5pct": 1.1308,
+    "ef_10pct": 1.372
+   },
+   "direct": {
+    "G5a": {
+     "state": "PASS",
+     "checks_failed": [],
+     "warned": []
+    },
+    "G5b": {
+     "state": "ESCALATE",
+     "checks_failed": [
+      "auc_roc",
+      "ef_1pct",
+      "bedroc20"
+     ],
+     "warned": []
+    }
+   },
+   "deployed": {
+    "G5a": {
+     "state": "PASS",
+     "checks_failed": [],
+     "halted": false
+    },
+    "G5b": {
+     "state": "ESCALATE",
+     "checks_failed": [
+      "auc_roc",
+      "ef_1pct",
+      "bedroc20"
+     ],
+     "halted": false
+    }
+   },
+   "new_failed_direct": [
+    "G5b:auc_roc"
+   ],
+   "new_failed_deployed": [
+    "G5b:auc_roc"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  },
+  {
+   "family": "F12",
+   "gate": "G5",
+   "instance": 2,
+   "params": {
+    "swap_mode": "partial_25pct"
+   },
+   "injection": {
+    "n_labels_changed": 24
+   },
+   "metrics": {
+    "n": 245,
+    "n_active": 50,
+    "n_inactive": 195,
+    "auc_roc": 0.5446,
+    "bedroc20": 0.2294,
+    "ef_1pct": 1.6333,
+    "ef_5pct": 0.7538,
+    "ef_10pct": 0.98
+   },
+   "direct": {
+    "G5a": {
+     "state": "PASS",
+     "checks_failed": [],
+     "warned": []
+    },
+    "G5b": {
+     "state": "ESCALATE",
+     "checks_failed": [
+      "auc_roc",
+      "ef_1pct",
+      "bedroc20"
+     ],
+     "warned": []
+    }
+   },
+   "deployed": {
+    "G5a": {
+     "state": "PASS",
+     "checks_failed": [],
+     "halted": false
+    },
+    "G5b": {
+     "state": "ESCALATE",
+     "checks_failed": [
+      "auc_roc",
+      "ef_1pct",
+      "bedroc20"
+     ],
+     "halted": false
+    }
+   },
+   "new_failed_direct": [
+    "G5b:auc_roc"
+   ],
+   "new_failed_deployed": [
+    "G5b:auc_roc"
+   ],
+   "detected_direct": true,
+   "detected_deployed": true
+  }
+ ],
+ "by_family": {
+  "F07": {
+   "n": 15,
+   "detected_direct": 13,
+   "detected_deployed": 13,
+   "new_failed_checks": [
+    "rmsd_rank1_4eiy"
+   ]
+  },
+  "F08": {
+   "n": 15,
+   "detected_direct": 14,
+   "detected_deployed": 14,
+   "new_failed_checks": [
+    "rmsd_rank1_4eiy"
+   ]
+  },
+  "F11": {
+   "n": 10,
+   "detected_direct": 0,
+   "detected_deployed": 0,
+   "new_failed_checks": []
+  },
+  "F11L": {
+   "n": 10,
+   "detected_direct": 10,
+   "detected_deployed": 10,
+   "new_failed_checks": [
+    "G5a:label_isolation"
+   ]
+  },
+  "F12": {
+   "n": 3,
+   "detected_direct": 3,
+   "detected_deployed": 3,
+   "new_failed_checks": [
+    "G5b:auc_roc"
+   ]
+  }
+ },
+ "grading": {
+  "P1_anchor": {
+   "verdict": "MET"
+  },
+  "P2_F08_ge90_all_detected": {
+   "detected_direct": 12,
+   "detected_deployed": 12,
+   "n": 12,
+   "verdict": "MET"
+  },
+  "P3_F07_far_all_detected": {
+   "detected_direct": 6,
+   "detected_deployed": 6,
+   "n": 6,
+   "verdict": "MET"
+  },
+  "P4_F07_5A_none_detected": {
+   "detected_direct": 1,
+   "detected_deployed": 1,
+   "n": 3,
+   "verdict": "MISSED"
+  },
+  "P5_G3_deployed_equals_direct": {
+   "verdict": "MET"
+  },
+  "P6_F11_silent_none_detected": {
+   "detected_direct": 0,
+   "detected_deployed": 0,
+   "n": 10,
+   "verdict": "MET"
+  },
+  "P7_F11L_all_detected_by_label_isolation": {
+   "detected_direct": 10,
+   "detected_deployed": 10,
+   "n": 10,
+   "via_label_isolation": true,
+   "verdict": "MET"
+  },
+  "P8_F12_all_detected_by_auc_roc": {
+   "detected_direct": 3,
+   "detected_deployed": 3,
+   "n": 3,
+   "via_auc_roc_with_G5a_passing": true,
+   "verdict": "MET"
+  },
+  "P9_G5_deployed_equals_direct": {
+   "verdict": "MET"
+  }
+ },
+ "F07_by_offset": {
+  "5": {
+   "detected": 1,
+   "n": 3
+  },
+  "10": {
+   "detected": 3,
+   "n": 3
+  },
+  "15": {
+   "detected": 3,
+   "n": 3
+  },
+  "20": {
+   "detected": 3,
+   "n": 3
+  },
+  "25": {
+   "detected": 3,
+   "n": 3
+  }
+ },
+ "F08_by_angle": {
+  "45": {
+   "detected": 2,
+   "n": 3
+  },
+  "90": {
+   "detected": 3,
+   "n": 3
+  },
+  "120": {
+   "detected": 3,
+   "n": 3
+  },
+  "135": {
+   "detected": 3,
+   "n": 3
+  },
+  "150": {
+   "detected": 3,
+   "n": 3
+  }
+ },
+ "F07_rank1_rmsd": {
+  "x5": 0.3644,
+  "y5": 10.2545,
+  "z5": 0.4658,
+  "x10": 10.4556,
+  "y10": 7.4802,
+  "z10": 11.5422,
+  "x15": 13.3038,
+  "y15": 11.003,
+  "z15": 12.3704,
+  "x20": 13.1721,
+  "y20": 16.8572,
+  "z20": 19.4356,
+  "x25": 19.0176,
+  "y25": 17.1498,
+  "z25": 20.5004
+ },
+ "F08_rank1_rmsd": {
+  "x45": 3.714,
+  "y45": 1.5726,
+  "z45": 3.5033,
+  "x90": 6.7653,
+  "y90": 2.9026,
+  "z90": 6.4565,
+  "x120": 8.2549,
+  "y120": 3.5381,
+  "z120": 7.8825,
+  "x135": 8.7943,
+  "y135": 3.7575,
+  "z135": 8.4033,
+  "x150": 9.1835,
+  "y150": 3.9183,
+  "z150": 8.7828
+ },
+ "n_met": 8,
+ "seconds": 14.4
+}
