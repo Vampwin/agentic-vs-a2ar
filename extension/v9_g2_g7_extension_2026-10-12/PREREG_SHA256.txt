@@ -1,0 +1,3 @@
+90e0820e14bf1c5ab82817f38aafc296916b555f13b96aaa2632bff77638647b *PREREG_ADR416.md
+
+# decision log (text/LF) after ADR-AIIM-416 was appended: c5d3a8315b4a717372ec112b01a144bf5473806de7af1578bdcbc48ee752fbb4

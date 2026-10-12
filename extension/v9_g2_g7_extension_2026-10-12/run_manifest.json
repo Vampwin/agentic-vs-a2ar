@@ -1,0 +1,24 @@
+{
+ "adr": "ADR-AIIM-417 (results of ADR-AIIM-416)",
+ "date": "2026-10-12",
+ "prereg_sha256": "90e0820e14bf1c5ab82817f38aafc296916b555f13b96aaa2632bff77638647b",
+ "environment": {
+  "python": "3.12.10",
+  "numpy": "2.4.6",
+  "rdkit": "2026.03.3",
+  "pandas": "3.0.3",
+  "pyyaml": "6.0.3"
+ },
+ "frozen_tree": "10_new_system (imported and read, not modified); evaluators G2 and G7, contracts G2_preparation.yaml and G7_md.yaml, orchestrator and report lock",
+ "artifacts": {
+  "PREREG_ADR416.md": "90e0820e14bf1c5ab82817f38aafc296916b555f13b96aaa2632bff77638647b",
+  "PREREG_SHA256.txt": "0e9737d35d0fc6fcf64a5356bb3f0b4aa97ab84f5ac244bbf40515163a80dd2f",
+  "anchor_clean.json": "d8b2908a8d67dce2009e6d41cffac7ed19f284e8ed5106e0c6183a072908a9c8",
+  "results.json": "fbfe7fcd2e21b3734331912b1866a04c25baa30e882a0d9bfbeabc8678f865dc",
+  "verify_injections.json": "b452e99f49870e19c0bc0056535c8dc62a9b2e7afc77973bfca6d75de4fecb5d",
+  "analysis/ext.py": "b8b2eb3c12f8d37a10c2aa60611a2e964641510ccfe8d4e4aa726f9bbdf05143",
+  "analysis/clean_anchor.py": "c7156cd89d357acbc3d028e91fba7d7ff84f588a436933e0f73770183dc84250",
+  "analysis/run_extension.py": "903909feb6ef3b883db67ea7a232b7785436271fbf1e1379a71d25ab54581506",
+  "analysis/verify_injections.py": "bd8f3efabcc92297d084669296abb67299f22082a59e2dfd4f9918ba2be93714"
+ }
+}

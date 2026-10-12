@@ -1,7 +1,7 @@
 {
   "assembled": "2026-10-12",
-  "n_files": 1230,
-  "total_bytes": 88211549,
+  "n_files": 1240,
+  "total_bytes": 88298026,
   "n_files_excluded_by_rule": 9264,
   "n_duplicates_removed": 159,
   "n_files_refused_by_screening": 0,
@@ -662,8 +662,8 @@
     {
       "path": "pipeline/scripts/build_deposit.py",
       "source": "10_new_system/scripts/build_deposit.py",
-      "bytes": 32363,
-      "sha256": "7c8ccf4230db4a3ebc892ad027bf10540916b17e0f78718c4b913a3e5b80b958"
+      "bytes": 32707,
+      "sha256": "77003ab7f51bccdfd73b08a7c225b772090c76b55994fc646653959c3094fb0b"
     },
     {
       "path": "pipeline/scripts/build_evidence_index.py",
@@ -7434,10 +7434,70 @@
       "sha256": "91c81092b18aa302d00a4b1650bb8e631c176e09fc133d6f9ba9c631804c7d3b"
     },
     {
+      "path": "extension/v9_g2_g7_extension_2026-10-12/analysis/clean_anchor.py",
+      "source": "20_new_runs/v9_g2_g7_extension_2026-10-12/analysis/clean_anchor.py",
+      "bytes": 1342,
+      "sha256": "c7156cd89d357acbc3d028e91fba7d7ff84f588a436933e0f73770183dc84250"
+    },
+    {
+      "path": "extension/v9_g2_g7_extension_2026-10-12/analysis/ext.py",
+      "source": "20_new_runs/v9_g2_g7_extension_2026-10-12/analysis/ext.py",
+      "bytes": 16452,
+      "sha256": "b8b2eb3c12f8d37a10c2aa60611a2e964641510ccfe8d4e4aa726f9bbdf05143"
+    },
+    {
+      "path": "extension/v9_g2_g7_extension_2026-10-12/analysis/run_extension.py",
+      "source": "20_new_runs/v9_g2_g7_extension_2026-10-12/analysis/run_extension.py",
+      "bytes": 5294,
+      "sha256": "903909feb6ef3b883db67ea7a232b7785436271fbf1e1379a71d25ab54581506"
+    },
+    {
+      "path": "extension/v9_g2_g7_extension_2026-10-12/analysis/verify_injections.py",
+      "source": "20_new_runs/v9_g2_g7_extension_2026-10-12/analysis/verify_injections.py",
+      "bytes": 2755,
+      "sha256": "bd8f3efabcc92297d084669296abb67299f22082a59e2dfd4f9918ba2be93714"
+    },
+    {
+      "path": "extension/v9_g2_g7_extension_2026-10-12/anchor_clean.json",
+      "source": "20_new_runs/v9_g2_g7_extension_2026-10-12/anchor_clean.json",
+      "bytes": 11464,
+      "sha256": "961bbcfa94b5c05656c356a89d933a7fff04a14dc864fd26b3de3925300bb422"
+    },
+    {
+      "path": "extension/v9_g2_g7_extension_2026-10-12/PREREG_ADR416.md",
+      "source": "20_new_runs/v9_g2_g7_extension_2026-10-12/PREREG_ADR416.md",
+      "bytes": 6465,
+      "sha256": "b962a575a7d418e729c52487fff9c4050f2ab72586fecd5a28ca31efc92df738"
+    },
+    {
+      "path": "extension/v9_g2_g7_extension_2026-10-12/PREREG_SHA256.txt",
+      "source": "20_new_runs/v9_g2_g7_extension_2026-10-12/PREREG_SHA256.txt",
+      "bytes": 207,
+      "sha256": "852e8ab233ee324143bf8e453d6d34595b09bcfb913d0c4e5bbc9d120b715442"
+    },
+    {
+      "path": "extension/v9_g2_g7_extension_2026-10-12/results.json",
+      "source": "20_new_runs/v9_g2_g7_extension_2026-10-12/results.json",
+      "bytes": 28252,
+      "sha256": "c12b76e97683dc96dbd3db706257289eb7a2a4f9076ac1ecca6f533801e9b185"
+    },
+    {
+      "path": "extension/v9_g2_g7_extension_2026-10-12/run_manifest.json",
+      "source": "20_new_runs/v9_g2_g7_extension_2026-10-12/run_manifest.json",
+      "bytes": 1318,
+      "sha256": "7f2f97bdd47c8ceb10bf81c45e605e895aa7b046e2987a70807054a19d797a5b"
+    },
+    {
+      "path": "extension/v9_g2_g7_extension_2026-10-12/verify_injections.json",
+      "source": "20_new_runs/v9_g2_g7_extension_2026-10-12/verify_injections.json",
+      "bytes": 5287,
+      "sha256": "a4bbb9fbd4c5d337aca9a616fdcd5829eb345133dd62d7fafa3fb2cc2ba86dfc"
+    },
+    {
       "path": "preregistration/PRE_REGISTRATION_ENTRIES.md",
       "source": "00_project_control/08_DECISION_LOG.md",
-      "bytes": 487814,
-      "sha256": "19d8ed08e9dbd3503986399f600a0fc858f150e31def2c4840ffd0821b8c6efa"
+      "bytes": 495111,
+      "sha256": "c7b7bd5c495267b3b9fa8d0c23dd639f9d081224a7570cc7a09fbc0046d75270"
     }
   ]
 }

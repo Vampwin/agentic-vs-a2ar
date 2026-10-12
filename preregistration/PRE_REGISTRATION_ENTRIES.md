@@ -2,8 +2,8 @@
 
 Verbatim copies of the decision-log entries that the article and the supplement describe as pre-registered, and of the entries that record their results. The log is append-only; each entry was written before the run it concerns (or, for a result entry, after it). Each entry fixed the predictions or the decision rule of its analysis before the run, and recorded the SHA-256 of the predictions or of the inputs frozen for it where the run had them. Copied as written: first-person wording and the author's quotations are unchanged. The full log is not deposited.
 
-- source: `00_project_control/08_DECISION_LOG.md`, SHA-256 of the whole log (line ends as LF) `ea6bafab645550cecf96120e714e03b309eac7b565b85bd48a3852e80b67f8a0`
-- entries: 74 (ADR-AIIM-131, 150, 156, 214, 215, 229, 240, 246, 256, 260, 285 to 336, 353 to 356, 390, 391, 399, 400, 412, 413)
+- source: `00_project_control/08_DECISION_LOG.md`, SHA-256 of the whole log (line ends as LF) `b12fc120abce70c3d82d236639715535d83c1a4cb261a3863785d5b8766474f1`
+- entries: 76 (ADR-AIIM-131, 150, 156, 214, 215, 229, 240, 246, 256, 260, 285 to 336, 353 to 356, 390, 391, 399, 400, 412, 413, 416, 417)
 
 ---
 
@@ -8456,3 +8456,45 @@ New fault families for G2, G3, G5 and G7, a replacement of the ten-pass censored
 **What the results say.** (1) The ten-pass loop does not converge by its own criterion and its output at pass 10 is one point of a jitter, not a limit. (2) In this data it acts as censored records entered at their bound: the projection is nearly the identity on records the forest already fits (a forest reproduces its training targets), so any start inside the interval is almost a fixed point, and the result depends on the start; in simulation it is not distinguishable from entering the bound, and it is better than dropping censored records. (3) The selection of the fifteen and the eight depends on that choice: a different start inside the interval gives a different set (Jaccard 0.47 to 0.56 for the fifteen; 5 of the eight kept), and a censored-likelihood linear model gives another (8 of its 13 among the fifteen; 4 of the eight). (4) One-thread execution is exactly reproducible; three threads are not.
 **Consequence for the documents.** The Methods sentence on the censored fit says what the loop does and that it did not reach its tolerance; Section 3.8.1 and a new supplementary section report these checks beside the earlier sensitivity analyses; the focus-library selection is a case-study set (already stated) whose membership is shown to depend on the treatment of censored records. No frozen number changes; the fifteen and the eight stay.
 **Not claimed.** That ridge-Tobit or any other choice is the better selection; that any compound is active; any validation of a binding prediction. The simulations use one bound on each side and a share of censored records equal to the real one, not the real distribution of bounds.
+
+## ADR-AIIM-416 — PRE-REGISTRATION: seeded faults for gates G2 and G7, which carried no implemented fault family (2026-10-12)
+
+**Status:** accepted — **pre-registration. Frozen before any faulted workspace was evaluated.**
+**Date:** 2026-10-12
+**Decided by:** Adisorn Sirichotejirakul, in chat: "ทำ G2 กับ G7 ก่อนเลย", after the estimate of the four gates without an implemented family (G2, G3, G5, G7) and the choice of G2 and G7 as the first two.
+**Pre-registration file:** `20_new_runs/v9_g2_g7_extension_2026-10-12/PREREG_ADR416.md`, SHA-256 `90e0820e14bf1c5ab82817f38aafc296916b555f13b96aaa2632bff77638647b` (also in `PREREG_SHA256.txt`). **Decision log at freeze (text/LF), before this entry was appended:** `82e1e4c9893168c2b2fd69406a300f9a80597d2691aa669513d927199cb18867`.
+**Discipline:** ADR-AIIM-263 — predictions fixed before the run. **Skills invoked:** experimental-design (SKILL.md read in full: the unit is a workspace, instances of one family share a base system and are not pooled, controls are the clean workspaces, the grids are fixed and seeded). Nothing installed.
+
+**Why.** The article and Supplementary Section 15 state that G2, G3, G5 and G7 carry no implemented fault family (stubs F06 to F08, F11, F12, F15, F16), so the detection rates cover eleven of eighteen families. The held-out cases that were not detected include two at G2 and G3. This entry fixes the injectors and predictions for G2 and G7 before they are run.
+
+**What is fixed (details in the file).**
+- No frozen file changes: the frozen evaluators and contracts are imported, the frozen tree's orchestrator, engine and report lock are called as in ADR-AIIM-236 (arm B direct with the YAML contract, arm C deployed); the injectors are written in the run folder to the grids of the stubs. The extension is reported beside the 124 of 128 and 101 of 128, not pooled with them.
+- Clean workspaces from real artifacts: ten distinct prepared 4EIY receptors with the real reference ligand and box (G2); eleven systems built from the real ligand-RMSD series and run parameter files of the molecular-dynamics runs (G7). Anchor, observed before this file was written: all 21 pass under both paths (`anchor_clean.json`).
+- Faults: F06 (9 instances: the ring hydrogen of selected histidines moved from ND1 to NE2 in the prepared receptor; every histidine of these receptors is HID; three instances are the same all-eight operation); F15 (10 instances: the per-frame series cut to a fraction of the planned 50 ns, the completion log unchanged) and F15L (10: the same with the log updated, a control); F16 (10: the binding-site residue indices of the results table shifted by an offset).
+- Predictions P1 to P7: F06, F15 and F16 not detected (0 of 9, 0 of 10, 0 of 10) under both paths; F15L detected 10 of 10; the state under the deployed path equals the state under the direct path for every case; containment equals detection; the clean anchor.
+
+**What the author had seen.** The source of the G2 and G7 evaluators and contracts (the predictions therefore test a reading of the code), the real inputs, and the clean outcomes. Not seen: the state of any faulted workspace.
+
+**Not allowed to follow from the outcome.** No change of any frozen number, evaluator or contract; the held-out cases are not used; a family with no detection is reported as a gap of the contract's check list, not tuned away; no compound is called active.
+
+## ADR-AIIM-417 — RESULT of the pre-registration of ADR-AIIM-416: none of 29 silent faults at G2 and G7 was detected, and the contracts read the record, not the artifact (2026-10-12)
+
+**Status:** accepted — record of fact. **Date:** 2026-10-12
+**Pre-registration:** ADR-AIIM-416, SHA-256 `90e0820e14bf1c5ab82817f38aafc296916b555f13b96aaa2632bff77638647b`.
+**Run folder:** `20_new_runs/v9_g2_g7_extension_2026-10-12/` (scripts, `anchor_clean.json`, `results.json`, `verify_injections.json`, `run_manifest.json`; the 39 faulted cases and 21 clean cases took 2 s). `10_new_system/` unchanged. Nothing was rerun.
+
+**Anchor (P7): met.** All 21 clean workspaces (ten prepared 4EIY receptors; eleven molecular-dynamics systems) pass under the direct path and under the deployed path and are not contained. `verify_injections.json`: all 39 faulted cases differ from their clean base in the file the fault targets, and every file the fault does not target is byte-identical to the clean one; the completion log is unchanged in F15 and F16 and changed in F15L.
+
+**Predictions: 7 of 7 met.**
+
+| Family | Gate | Cases | Detected, direct | Detected, deployed | Contained, deployed | Check that fired |
+|---|---|---|---|---|---|---|
+| F06 wrong protonation (HID to HIE) | G2 | 9 | 0 | 0 | 0 | none |
+| F15 truncated trajectory (silent) | G7 | 10 | 0 | 0 | 0 | none |
+| F15L truncated trajectory, log updated | G7 | 10 | 10 | 10 | 10 | `trajectory_completion` |
+| F16 residue index error | G7 | 10 | 0 | 0 | 0 | none |
+
+The state under the deployed path equals the state under the direct path in all 60 cases (21 clean, 39 faulted) (P5), and containment equals detection in every faulted case (P6). F06 holds seven distinct operations (the three "all" instances are the same flip of all eight histidines). Of the 29 silent faults (F06, F15, F16), none was detected, none was contained and all passed every check of their contract; with the rule of three the upper 95% bound of the detection failure rate per family is 1/3 (F06), 3/10 (F15, F16), read as "no detection in these instances" and not as a rate.
+
+**What the results say.** (1) The G2 and G7 contracts check what the run recorded, not the content of the artifacts: G2 reads residue counts, chain breaks, the reference ligand, the box fields, the retained-water count against the recorded decision, the cofactor decisions and the embedding counts, and no check reads a protonation state; G7 reads the completion log, and `equilibration_verified` only requires the per-frame file to exist, so a silently truncated series passes; `md_results_csv` is declared in the contract but read by no check, so a shifted binding-site definition passes. (2) The same truncation is detected as soon as the completion log records it (10 of 10), which shows that the evaluator's completion check works and that the gap is the missing link between the series and the log. (3) The deployed path adds nothing and loses nothing for these two gates: its states equal those of the direct path. (4) These are gaps of the contract check lists, named as such; the 124 of 128 and 101 of 128 stay what they were.
+**Limits.** The instances of a family share one base system (F06 one receptor; F15, F16 one compound), so they are not independent replicates. The injectors were written knowing the evaluators; the predictions follow from reading the code, so they test that reading and the harness, not an unknown behaviour. The clean workspaces supply the inputs of all nine G2 checks, which the production run did not (its registry lists four passed checks); the faulted workspaces keep the decisions the clean run recorded. The F15 and F16 faults alter the files an analysis would read; a pipeline that recomputes them from the trajectory would differ. G3 and G5 remain without an implemented family. No held-out case is used.

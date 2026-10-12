@@ -1,0 +1,541 @@
+{
+ "adr": "ADR-AIIM-416 anchor (clean cases only)",
+ "n_clean": 21,
+ "all_pass_both_paths": true,
+ "rows": [
+  {
+   "gate": "G2",
+   "case": "snp_screen",
+   "direct": {
+    "state": "PASS",
+    "checks_failed": [],
+    "checks_passed": [
+     "receptor_integrity_4eiy",
+     "reference_ligand_present",
+     "box_derivation_recorded",
+     "embedding_count",
+     "embedding_failure_accounting",
+     "structural_waters_recorded",
+     "water_shell_selection_criterion_registered",
+     "no_assay_constants_in_box",
+     "cofactor_decision_recorded"
+    ],
+    "warned": []
+   },
+   "deployed": {
+    "state": "PASS",
+    "checks_failed": [],
+    "halted": false,
+    "reportable": true,
+    "contained": false
+   }
+  },
+  {
+   "gate": "G2",
+   "case": "snp_screen_repro1",
+   "direct": {
+    "state": "PASS",
+    "checks_failed": [],
+    "checks_passed": [
+     "receptor_integrity_4eiy",
+     "reference_ligand_present",
+     "box_derivation_recorded",
+     "embedding_count",
+     "embedding_failure_accounting",
+     "structural_waters_recorded",
+     "water_shell_selection_criterion_registered",
+     "no_assay_constants_in_box",
+     "cofactor_decision_recorded"
+    ],
+    "warned": []
+   },
+   "deployed": {
+    "state": "PASS",
+    "checks_failed": [],
+    "halted": false,
+    "reportable": true,
+    "contained": false
+   }
+  },
+  {
+   "gate": "G2",
+   "case": "snp_screen_repro2",
+   "direct": {
+    "state": "PASS",
+    "checks_failed": [],
+    "checks_passed": [
+     "receptor_integrity_4eiy",
+     "reference_ligand_present",
+     "box_derivation_recorded",
+     "embedding_count",
+     "embedding_failure_accounting",
+     "structural_waters_recorded",
+     "water_shell_selection_criterion_registered",
+     "no_assay_constants_in_box",
+     "cofactor_decision_recorded"
+    ],
+    "warned": []
+   },
+   "deployed": {
+    "state": "PASS",
+    "checks_failed": [],
+    "halted": false,
+    "reportable": true,
+    "contained": false
+   }
+  },
+  {
+   "gate": "G2",
+   "case": "shell_cut3",
+   "direct": {
+    "state": "PASS",
+    "checks_failed": [],
+    "checks_passed": [
+     "receptor_integrity_4eiy",
+     "reference_ligand_present",
+     "box_derivation_recorded",
+     "embedding_count",
+     "embedding_failure_accounting",
+     "structural_waters_recorded",
+     "water_shell_selection_criterion_registered",
+     "no_assay_constants_in_box",
+     "cofactor_decision_recorded"
+    ],
+    "warned": []
+   },
+   "deployed": {
+    "state": "PASS",
+    "checks_failed": [],
+    "halted": false,
+    "reportable": true,
+    "contained": false
+   }
+  },
+  {
+   "gate": "G2",
+   "case": "shell_cut4",
+   "direct": {
+    "state": "PASS",
+    "checks_failed": [],
+    "checks_passed": [
+     "receptor_integrity_4eiy",
+     "reference_ligand_present",
+     "box_derivation_recorded",
+     "embedding_count",
+     "embedding_failure_accounting",
+     "structural_waters_recorded",
+     "water_shell_selection_criterion_registered",
+     "no_assay_constants_in_box",
+     "cofactor_decision_recorded"
+    ],
+    "warned": []
+   },
+   "deployed": {
+    "state": "PASS",
+    "checks_failed": [],
+    "halted": false,
+    "reportable": true,
+    "contained": false
+   }
+  },
+  {
+   "gate": "G2",
+   "case": "shell_cut5",
+   "direct": {
+    "state": "PASS",
+    "checks_failed": [],
+    "checks_passed": [
+     "receptor_integrity_4eiy",
+     "reference_ligand_present",
+     "box_derivation_recorded",
+     "embedding_count",
+     "embedding_failure_accounting",
+     "structural_waters_recorded",
+     "water_shell_selection_criterion_registered",
+     "no_assay_constants_in_box",
+     "cofactor_decision_recorded"
+    ],
+    "warned": []
+   },
+   "deployed": {
+    "state": "PASS",
+    "checks_failed": [],
+    "halted": false,
+    "reportable": true,
+    "contained": false
+   }
+  },
+  {
+   "gate": "G2",
+   "case": "clinical_reference",
+   "direct": {
+    "state": "PASS",
+    "checks_failed": [],
+    "checks_passed": [
+     "receptor_integrity_4eiy",
+     "reference_ligand_present",
+     "box_derivation_recorded",
+     "embedding_count",
+     "embedding_failure_accounting",
+     "structural_waters_recorded",
+     "water_shell_selection_criterion_registered",
+     "no_assay_constants_in_box",
+     "cofactor_decision_recorded"
+    ],
+    "warned": []
+   },
+   "deployed": {
+    "state": "PASS",
+    "checks_failed": [],
+    "halted": false,
+    "reportable": true,
+    "contained": false
+   }
+  },
+  {
+   "gate": "G2",
+   "case": "crossdock_zma",
+   "direct": {
+    "state": "PASS",
+    "checks_failed": [],
+    "checks_passed": [
+     "receptor_integrity_4eiy",
+     "reference_ligand_present",
+     "box_derivation_recorded",
+     "embedding_count",
+     "embedding_failure_accounting",
+     "structural_waters_recorded",
+     "water_shell_selection_criterion_registered",
+     "no_assay_constants_in_box",
+     "cofactor_decision_recorded"
+    ],
+    "warned": []
+   },
+   "deployed": {
+    "state": "PASS",
+    "checks_failed": [],
+    "halted": false,
+    "reportable": true,
+    "contained": false
+   }
+  },
+  {
+   "gate": "G2",
+   "case": "crossdock_validation",
+   "direct": {
+    "state": "PASS",
+    "checks_failed": [],
+    "checks_passed": [
+     "receptor_integrity_4eiy",
+     "reference_ligand_present",
+     "box_derivation_recorded",
+     "embedding_count",
+     "embedding_failure_accounting",
+     "structural_waters_recorded",
+     "water_shell_selection_criterion_registered",
+     "no_assay_constants_in_box",
+     "cofactor_decision_recorded"
+    ],
+    "warned": []
+   },
+   "deployed": {
+    "state": "PASS",
+    "checks_failed": [],
+    "halted": false,
+    "reportable": true,
+    "contained": false
+   }
+  },
+  {
+   "gate": "G2",
+   "case": "redock_9xt",
+   "direct": {
+    "state": "PASS",
+    "checks_failed": [],
+    "checks_passed": [
+     "receptor_integrity_4eiy",
+     "reference_ligand_present",
+     "box_derivation_recorded",
+     "embedding_count",
+     "embedding_failure_accounting",
+     "structural_waters_recorded",
+     "water_shell_selection_criterion_registered",
+     "no_assay_constants_in_box",
+     "cofactor_decision_recorded"
+    ],
+    "warned": []
+   },
+   "deployed": {
+    "state": "PASS",
+    "checks_failed": [],
+    "halted": false,
+    "reportable": true,
+    "contained": false
+   }
+  },
+  {
+   "gate": "G7",
+   "case": "NPLIB01185_all",
+   "direct": {
+    "state": "PASS",
+    "checks_failed": [],
+    "checks_passed": [
+     "trajectory_completion",
+     "equilibration_verified",
+     "replicate_consistency",
+     "claim_boundary",
+     "md_not_used_for_ranking",
+     "seed_recorded"
+    ],
+    "warned": []
+   },
+   "deployed": {
+    "state": "PASS",
+    "checks_failed": [],
+    "halted": false,
+    "reportable": true,
+    "contained": false
+   }
+  },
+  {
+   "gate": "G7",
+   "case": "NPLIB01643_all",
+   "direct": {
+    "state": "PASS",
+    "checks_failed": [],
+    "checks_passed": [
+     "trajectory_completion",
+     "equilibration_verified",
+     "replicate_consistency",
+     "claim_boundary",
+     "md_not_used_for_ranking",
+     "seed_recorded"
+    ],
+    "warned": []
+   },
+   "deployed": {
+    "state": "PASS",
+    "checks_failed": [],
+    "halted": false,
+    "reportable": true,
+    "contained": false
+   }
+  },
+  {
+   "gate": "G7",
+   "case": "NPLIB03056_all",
+   "direct": {
+    "state": "PASS",
+    "checks_failed": [],
+    "checks_passed": [
+     "trajectory_completion",
+     "equilibration_verified",
+     "replicate_consistency",
+     "claim_boundary",
+     "md_not_used_for_ranking",
+     "seed_recorded"
+    ],
+    "warned": []
+   },
+   "deployed": {
+    "state": "PASS",
+    "checks_failed": [],
+    "halted": false,
+    "reportable": true,
+    "contained": false
+   }
+  },
+  {
+   "gate": "G7",
+   "case": "SNP00157_all",
+   "direct": {
+    "state": "PASS",
+    "checks_failed": [],
+    "checks_passed": [
+     "trajectory_completion",
+     "equilibration_verified",
+     "replicate_consistency",
+     "claim_boundary",
+     "md_not_used_for_ranking",
+     "seed_recorded"
+    ],
+    "warned": []
+   },
+   "deployed": {
+    "state": "PASS",
+    "checks_failed": [],
+    "halted": false,
+    "reportable": true,
+    "contained": false
+   }
+  },
+  {
+   "gate": "G7",
+   "case": "SNP00163_all",
+   "direct": {
+    "state": "PASS",
+    "checks_failed": [],
+    "checks_passed": [
+     "trajectory_completion",
+     "equilibration_verified",
+     "replicate_consistency",
+     "claim_boundary",
+     "md_not_used_for_ranking",
+     "seed_recorded"
+    ],
+    "warned": []
+   },
+   "deployed": {
+    "state": "PASS",
+    "checks_failed": [],
+    "halted": false,
+    "reportable": true,
+    "contained": false
+   }
+  },
+  {
+   "gate": "G7",
+   "case": "ZM241385_all",
+   "direct": {
+    "state": "PASS",
+    "checks_failed": [],
+    "checks_passed": [
+     "trajectory_completion",
+     "equilibration_verified",
+     "replicate_consistency",
+     "claim_boundary",
+     "md_not_used_for_ranking",
+     "seed_recorded"
+    ],
+    "warned": []
+   },
+   "deployed": {
+    "state": "PASS",
+    "checks_failed": [],
+    "halted": false,
+    "reportable": true,
+    "contained": false
+   }
+  },
+  {
+   "gate": "G7",
+   "case": "NPLIB01185_r1r2",
+   "direct": {
+    "state": "PASS",
+    "checks_failed": [],
+    "checks_passed": [
+     "trajectory_completion",
+     "equilibration_verified",
+     "replicate_consistency",
+     "claim_boundary",
+     "md_not_used_for_ranking",
+     "seed_recorded"
+    ],
+    "warned": []
+   },
+   "deployed": {
+    "state": "PASS",
+    "checks_failed": [],
+    "halted": false,
+    "reportable": true,
+    "contained": false
+   }
+  },
+  {
+   "gate": "G7",
+   "case": "NPLIB01643_r1r2",
+   "direct": {
+    "state": "PASS",
+    "checks_failed": [],
+    "checks_passed": [
+     "trajectory_completion",
+     "equilibration_verified",
+     "replicate_consistency",
+     "claim_boundary",
+     "md_not_used_for_ranking",
+     "seed_recorded"
+    ],
+    "warned": []
+   },
+   "deployed": {
+    "state": "PASS",
+    "checks_failed": [],
+    "halted": false,
+    "reportable": true,
+    "contained": false
+   }
+  },
+  {
+   "gate": "G7",
+   "case": "NPLIB03056_r1r2",
+   "direct": {
+    "state": "PASS",
+    "checks_failed": [],
+    "checks_passed": [
+     "trajectory_completion",
+     "equilibration_verified",
+     "replicate_consistency",
+     "claim_boundary",
+     "md_not_used_for_ranking",
+     "seed_recorded"
+    ],
+    "warned": []
+   },
+   "deployed": {
+    "state": "PASS",
+    "checks_failed": [],
+    "halted": false,
+    "reportable": true,
+    "contained": false
+   }
+  },
+  {
+   "gate": "G7",
+   "case": "SNP00157_r1r2",
+   "direct": {
+    "state": "PASS",
+    "checks_failed": [],
+    "checks_passed": [
+     "trajectory_completion",
+     "equilibration_verified",
+     "replicate_consistency",
+     "claim_boundary",
+     "md_not_used_for_ranking",
+     "seed_recorded"
+    ],
+    "warned": []
+   },
+   "deployed": {
+    "state": "PASS",
+    "checks_failed": [],
+    "halted": false,
+    "reportable": true,
+    "contained": false
+   }
+  },
+  {
+   "gate": "G7",
+   "case": "SNP00163_r1r2",
+   "direct": {
+    "state": "PASS",
+    "checks_failed": [],
+    "checks_passed": [
+     "trajectory_completion",
+     "equilibration_verified",
+     "replicate_consistency",
+     "claim_boundary",
+     "md_not_used_for_ranking",
+     "seed_recorded"
+    ],
+    "warned": []
+   },
+   "deployed": {
+    "state": "PASS",
+    "checks_failed": [],
+    "halted": false,
+    "reportable": true,
+    "contained": false
+   }
+  }
+ ]
+}
