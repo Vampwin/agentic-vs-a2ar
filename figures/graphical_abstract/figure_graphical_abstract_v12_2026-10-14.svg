@@ -1,0 +1,109 @@
+<svg viewBox="0 0 590 236" width="208.1mm" height="83.3mm" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Helvetica, Arial, sans-serif">
+  <title>Auditing agent-generated biomedical code with executable contracts</title>
+  <desc>Left, the work in four steps, once: (1) build and freeze, an agent-written A2A receptor screen of an expanded library, 497 docked, 3 met the original two-part rule; (2) audit; (3) correct, once, human-approved and pre-registered, returning to the SNP-Lib, 236, 69, 15, then 8 compounds; (4) report as persistence, 3 of the 15 selected compounds persist under every choice tested, which is not a prediction of activity. Right, the audit as three questions. Do the checks catch planted errors? Of 128 planted errors, the contract checks caught 124 with the benchmark's check set and 101 as deployed, and a simple file-comparison test caught 128. What lies outside the written checks? Errors written blind to the project were caught in 1 of 5 cases in a first round and in 3 of 6 evaluable cases in a second round, and rewriting the same molecules as equivalent SMILES strings changed 25 of 25 docking scores. Is the final selection stable? Of 5,000 compounds, 72 passed one filter in the released run; over 200 reorderings of the same data the number ranged from 6 to 4,119 (median 1,004).</desc>
+  <rect x="0" y="0" width="590" height="236" fill="#FFFFFF"/>
+  <defs><marker id="a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0.5 L8,4 L0,7.5 z" fill="#6E7C74"/></marker></defs>
+  <text x="295" y="14.5" font-size="11.5" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">Auditing agent-generated biomedical code with executable contracts</text>
+  <rect x="6" y="23" width="216" height="183" rx="3" fill="#FFFFFF" stroke="#2C5F8A" stroke-width="0.9"/>
+  <rect x="6" y="23" width="216" height="14.5" rx="3" fill="#E3EBF3" stroke="#2C5F8A" stroke-width="0.9"/>
+  <text x="14" y="32.9" font-size="8.6" fill="#2C5F8A" font-weight="bold" font-style="normal" text-anchor="start">The work in four steps, once</text>
+  <rect x="13" y="45" width="202" height="34" rx="2.5" fill="#EEF2EE" stroke="#9AA79F" stroke-width="0.6"/>
+  <text x="20" y="55.8" font-size="8.8" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="start">1  Build and freeze</text>
+  <text x="20" y="65.6" font-size="7.4" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="start">an agent-written screen of an expanded library:</text>
+  <text x="20" y="74.4" font-size="7.4" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="start">497 docked, 3 met the original two-part rule</text>
+  <line x1="114" y1="79.4" x2="114" y2="86.6" stroke="#6E7C74" stroke-width="0.7" marker-end="url(#a)"/>
+  <rect x="13" y="87" width="202" height="34" rx="2.5" fill="#EEF2EE" stroke="#9AA79F" stroke-width="0.6"/>
+  <text x="20" y="97.8" font-size="8.8" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="start">2  Audit</text>
+  <text x="20" y="107.6" font-size="7.4" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="start">checks against planted and blind errors, rewritten</text>
+  <text x="20" y="116.4" font-size="7.4" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="start">molecules and reordered data (the three panels at right)</text>
+  <line x1="114" y1="121.4" x2="114" y2="128.6" stroke="#6E7C74" stroke-width="0.7" marker-end="url(#a)"/>
+  <rect x="13" y="129" width="202" height="34" rx="2.5" fill="#EEF2EE" stroke="#9AA79F" stroke-width="0.6"/>
+  <text x="20" y="139.8" font-size="8.8" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="start">3  Correct, once</text>
+  <text x="20" y="149.6" font-size="7.4" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="start">human-approved, each pre-registered and tested;</text>
+  <text x="20" y="158.4" font-size="7.4" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="start">back to the SNP-Lib: 236, 69, 15, then 8 compounds</text>
+  <line x1="114" y1="163.4" x2="114" y2="170.6" stroke="#6E7C74" stroke-width="0.7" marker-end="url(#a)"/>
+  <rect x="13" y="171" width="202" height="34" rx="2.5" fill="#E3EBF3" stroke="#2C5F8A" stroke-width="0.9"/>
+  <text x="20" y="181.8" font-size="8.8" fill="#2C5F8A" font-weight="bold" font-style="normal" text-anchor="start">4  Report as persistence</text>
+  <text x="20" y="191.6" font-size="7.4" fill="#1B2420" font-weight="normal" font-style="normal" text-anchor="start">3 of the 15 selected compounds persist under every</text>
+  <text x="20" y="200.4" font-size="7.4" fill="#1B2420" font-weight="normal" font-style="normal" text-anchor="start">choice tested; persistence is not a prediction of activity</text>
+  <rect x="232" y="23" width="352" height="56.6667" rx="3" fill="#FFFFFF" stroke="#4F7130" stroke-width="0.9"/>
+  <rect x="232" y="23" width="352" height="14.5" rx="3" fill="#E7EEDC" stroke="#4F7130" stroke-width="0.9"/>
+  <text x="240" y="33" font-size="8.6" fill="#4F7130" font-weight="bold" font-style="normal" text-anchor="start">Audit: do the checks catch planted errors?</text>
+  <rect x="232" y="86.1667" width="352" height="56.6667" rx="3" fill="#FFFFFF" stroke="#A85C18" stroke-width="0.9"/>
+  <rect x="232" y="86.1667" width="352" height="14.5" rx="3" fill="#F7E9D8" stroke="#A85C18" stroke-width="0.9"/>
+  <text x="240" y="96.1667" font-size="8.6" fill="#A85C18" font-weight="bold" font-style="normal" text-anchor="start">Audit: what lies outside the written checks?</text>
+  <rect x="232" y="149.333" width="352" height="56.6667" rx="3" fill="#FFFFFF" stroke="#6B4E8C" stroke-width="0.9"/>
+  <rect x="232" y="149.333" width="352" height="14.5" rx="3" fill="#EFE8F5" stroke="#6B4E8C" stroke-width="0.9"/>
+  <text x="240" y="159.333" font-size="8.6" fill="#6B4E8C" font-weight="bold" font-style="normal" text-anchor="start">Audit: is the final selection stable? (5,000 compounds)</text>
+  <text x="240" y="45.3" font-size="7.4" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="start">128 errors deliberately planted in the workflow</text>
+  <text x="240" y="56.4" font-size="7.8" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="start">contract checks, benchmark set</text>
+  <rect x="382" y="50.9" width="128" height="6.4" rx="1.2" fill="#FFFFFF" stroke="#9AA79F" stroke-width="0.5"/>
+  <rect x="382" y="50.9" width="124" height="6.4" rx="1.2" fill="#4F7130" stroke="#4F7130" stroke-width="0.5"/>
+  <text x="516" y="56.8" font-size="8.6" fill="#4F7130" font-weight="bold" font-style="normal" text-anchor="start">124 / 128</text>
+  <text x="240" y="65.8" font-size="7.8" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="start">contract checks, as deployed</text>
+  <rect x="382" y="60.3" width="128" height="6.4" rx="1.2" fill="#FFFFFF" stroke="#9AA79F" stroke-width="0.5"/>
+  <rect x="382" y="60.3" width="101" height="6.4" rx="1.2" fill="#4F7130" stroke="#4F7130" stroke-width="0.5"/>
+  <text x="516" y="66.2" font-size="8.6" fill="#4F7130" font-weight="bold" font-style="normal" text-anchor="start">101 / 128</text>
+  <text x="240" y="75.2" font-size="7.8" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="start">simple file comparison</text>
+  <rect x="382" y="69.7" width="128" height="6.4" rx="1.2" fill="#FFFFFF" stroke="#9AA79F" stroke-width="0.5"/>
+  <rect x="382" y="69.7" width="128" height="6.4" rx="1.2" fill="#7C8A82" stroke="#7C8A82" stroke-width="0.5"/>
+  <text x="516" y="75.6" font-size="8.6" fill="#7C8A82" font-weight="bold" font-style="normal" text-anchor="start">128 / 128</text>
+  <circle cx="241" cy="112.15" r="2" fill="#A85C18" stroke="#A85C18" stroke-width="0.8"/>
+  <circle cx="245.8" cy="112.15" r="2" fill="#FFFFFF" stroke="#A85C18" stroke-width="0.8"/>
+  <circle cx="250.6" cy="112.15" r="2" fill="#FFFFFF" stroke="#A85C18" stroke-width="0.8"/>
+  <circle cx="255.4" cy="112.15" r="2" fill="#FFFFFF" stroke="#A85C18" stroke-width="0.8"/>
+  <circle cx="260.2" cy="112.15" r="2" fill="#FFFFFF" stroke="#A85C18" stroke-width="0.8"/>
+  <circle cx="268.36" cy="112.15" r="2" fill="#A85C18" stroke="#A85C18" stroke-width="0.8"/>
+  <circle cx="273.16" cy="112.15" r="2" fill="#A85C18" stroke="#A85C18" stroke-width="0.8"/>
+  <circle cx="277.96" cy="112.15" r="2" fill="#A85C18" stroke="#A85C18" stroke-width="0.8"/>
+  <circle cx="282.76" cy="112.15" r="2" fill="#FFFFFF" stroke="#A85C18" stroke-width="0.8"/>
+  <circle cx="287.56" cy="112.15" r="2" fill="#FFFFFF" stroke="#A85C18" stroke-width="0.8"/>
+  <circle cx="292.36" cy="112.15" r="2" fill="#FFFFFF" stroke="#A85C18" stroke-width="0.8"/>
+  <text x="302" y="115.15" font-size="7.8" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="start">errors written blind caught: 1 of 5, then 3 of 6</text>
+  <rect x="240" y="123.15" width="1.8" height="5.4" rx="0.4" fill="#A85C18" stroke="#A85C18" stroke-width="0.2"/>
+  <rect x="242.2" y="123.15" width="1.8" height="5.4" rx="0.4" fill="#A85C18" stroke="#A85C18" stroke-width="0.2"/>
+  <rect x="244.4" y="123.15" width="1.8" height="5.4" rx="0.4" fill="#A85C18" stroke="#A85C18" stroke-width="0.2"/>
+  <rect x="246.6" y="123.15" width="1.8" height="5.4" rx="0.4" fill="#A85C18" stroke="#A85C18" stroke-width="0.2"/>
+  <rect x="248.8" y="123.15" width="1.8" height="5.4" rx="0.4" fill="#A85C18" stroke="#A85C18" stroke-width="0.2"/>
+  <rect x="251" y="123.15" width="1.8" height="5.4" rx="0.4" fill="#A85C18" stroke="#A85C18" stroke-width="0.2"/>
+  <rect x="253.2" y="123.15" width="1.8" height="5.4" rx="0.4" fill="#A85C18" stroke="#A85C18" stroke-width="0.2"/>
+  <rect x="255.4" y="123.15" width="1.8" height="5.4" rx="0.4" fill="#A85C18" stroke="#A85C18" stroke-width="0.2"/>
+  <rect x="257.6" y="123.15" width="1.8" height="5.4" rx="0.4" fill="#A85C18" stroke="#A85C18" stroke-width="0.2"/>
+  <rect x="259.8" y="123.15" width="1.8" height="5.4" rx="0.4" fill="#A85C18" stroke="#A85C18" stroke-width="0.2"/>
+  <rect x="262" y="123.15" width="1.8" height="5.4" rx="0.4" fill="#A85C18" stroke="#A85C18" stroke-width="0.2"/>
+  <rect x="264.2" y="123.15" width="1.8" height="5.4" rx="0.4" fill="#A85C18" stroke="#A85C18" stroke-width="0.2"/>
+  <rect x="266.4" y="123.15" width="1.8" height="5.4" rx="0.4" fill="#A85C18" stroke="#A85C18" stroke-width="0.2"/>
+  <rect x="268.6" y="123.15" width="1.8" height="5.4" rx="0.4" fill="#A85C18" stroke="#A85C18" stroke-width="0.2"/>
+  <rect x="270.8" y="123.15" width="1.8" height="5.4" rx="0.4" fill="#A85C18" stroke="#A85C18" stroke-width="0.2"/>
+  <rect x="273" y="123.15" width="1.8" height="5.4" rx="0.4" fill="#A85C18" stroke="#A85C18" stroke-width="0.2"/>
+  <rect x="275.2" y="123.15" width="1.8" height="5.4" rx="0.4" fill="#A85C18" stroke="#A85C18" stroke-width="0.2"/>
+  <rect x="277.4" y="123.15" width="1.8" height="5.4" rx="0.4" fill="#A85C18" stroke="#A85C18" stroke-width="0.2"/>
+  <rect x="279.6" y="123.15" width="1.8" height="5.4" rx="0.4" fill="#A85C18" stroke="#A85C18" stroke-width="0.2"/>
+  <rect x="281.8" y="123.15" width="1.8" height="5.4" rx="0.4" fill="#A85C18" stroke="#A85C18" stroke-width="0.2"/>
+  <rect x="284" y="123.15" width="1.8" height="5.4" rx="0.4" fill="#A85C18" stroke="#A85C18" stroke-width="0.2"/>
+  <rect x="286.2" y="123.15" width="1.8" height="5.4" rx="0.4" fill="#A85C18" stroke="#A85C18" stroke-width="0.2"/>
+  <rect x="288.4" y="123.15" width="1.8" height="5.4" rx="0.4" fill="#A85C18" stroke="#A85C18" stroke-width="0.2"/>
+  <rect x="290.6" y="123.15" width="1.8" height="5.4" rx="0.4" fill="#A85C18" stroke="#A85C18" stroke-width="0.2"/>
+  <rect x="292.8" y="123.15" width="1.8" height="5.4" rx="0.4" fill="#A85C18" stroke="#A85C18" stroke-width="0.2"/>
+  <text x="302" y="128.35" font-size="7.8" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="start">25 of 25 docking scores changed when molecules were rewritten</text>
+  <text x="302" y="137.15" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="start">(same structures, written as different SMILES strings)</text>
+  <rect x="252" y="181.433" width="312" height="6" rx="1.2" fill="#FFFFFF" stroke="#9AA79F" stroke-width="0.5"/>
+  <rect x="317.635" y="181.433" width="239.264" height="6" rx="1.2" fill="#EFE8F5" stroke="#6B4E8C" stroke-width="0.7"/>
+  <line x1="505.19" y1="179.933" x2="505.19" y2="188.933" stroke="#6B4E8C" stroke-width="1.1"/>
+  <path d="M408.662,180.433 L405.662,174.933 L411.662,174.933 z" fill="#6B4E8C" stroke="#6B4E8C" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="408.662" y="172.833" font-size="7.6" fill="#6B4E8C" font-weight="bold" font-style="normal" text-anchor="middle">72 released run</text>
+  <text x="507.19" y="172.833" font-size="7.6" fill="#6B4E8C" font-weight="bold" font-style="normal" text-anchor="start">1,004 median</text>
+  <line x1="252" y1="187.433" x2="252" y2="189.633" stroke="#9AA79F" stroke-width="0.5"/>
+  <text x="252" y="196.033" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">1</text>
+  <line x1="336.348" y1="187.433" x2="336.348" y2="189.633" stroke="#9AA79F" stroke-width="0.5"/>
+  <text x="336.348" y="196.033" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">10</text>
+  <line x1="420.696" y1="187.433" x2="420.696" y2="189.633" stroke="#9AA79F" stroke-width="0.5"/>
+  <text x="420.696" y="196.033" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">100</text>
+  <line x1="505.043" y1="187.433" x2="505.043" y2="189.633" stroke="#9AA79F" stroke-width="0.5"/>
+  <text x="505.043" y="196.033" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">1,000</text>
+  <line x1="564" y1="187.433" x2="564" y2="189.633" stroke="#9AA79F" stroke-width="0.5"/>
+  <text x="564" y="196.033" font-size="7.2" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">5,000</text>
+  <text x="408" y="204.1" font-size="7.4" fill="#55625B" font-weight="normal" font-style="normal" text-anchor="middle">compounds passing one filter, over 200 reorderings of the same data</text>
+  <rect x="6" y="213" width="578" height="18.5" rx="3" fill="#EEF2EE" stroke="#9AA79F" stroke-width="0.7"/>
+  <text x="295" y="225.2" font-size="8.6" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="middle">Contract coverage, decision stability and biomedical validation are reported separately.</text>
+</svg>

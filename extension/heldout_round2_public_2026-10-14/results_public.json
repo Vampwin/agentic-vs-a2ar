@@ -1,0 +1,95 @@
+{
+  "arm": "primary (frozen tree 10_new_system)",
+  "summary": {
+    "classification": {
+      "N04": "INCONCLUSIVE",
+      "N01": "DETECTED",
+      "N02": "MISSED",
+      "N03": "DETECTED",
+      "N05": "DETECTED",
+      "N06": "MISSED",
+      "N07": "MISSED"
+    },
+    "detected": 3,
+    "eligible": 6,
+    "inconclusive": 1,
+    "proportion": 0.5,
+    "prediction": "2 of 7 (range 1 to 3)"
+  },
+  "cases": {
+    "N01": {
+      "gate": "G5",
+      "check": "threshold_immutability",
+      "declared": "critical -> HALT",
+      "classification": "DETECTED",
+      "baseline_state": "PASS",
+      "faulted_state": "HALT",
+      "target_check_failed_on_fault": true,
+      "target_check_warned_on_fault": false,
+      "severity_mismatch": false
+    },
+    "N02": {
+      "gate": "G1",
+      "check": "duplicate_inchikey_check",
+      "declared": "high -> ESCALATE",
+      "classification": "MISSED",
+      "baseline_state": "PASS",
+      "faulted_state": "PASS",
+      "target_check_failed_on_fault": false,
+      "target_check_warned_on_fault": true,
+      "severity_mismatch": false
+    },
+    "N03": {
+      "gate": "G2",
+      "check": "box_derivation_recorded",
+      "declared": "high -> ESCALATE",
+      "classification": "DETECTED",
+      "baseline_state": "PASS",
+      "faulted_state": "HALT",
+      "target_check_failed_on_fault": true,
+      "target_check_warned_on_fault": false,
+      "severity_mismatch": false
+    },
+    "N04": {
+      "gate": "G8",
+      "check": "contract_coverage",
+      "declared": "critical -> HALT",
+      "classification": "INCONCLUSIVE",
+      "note": "declared inconclusive at the mapping step: the evaluator has no input for the record on which the fault acts; not run"
+    },
+    "N05": {
+      "gate": "G4",
+      "check": "seed_repeatability",
+      "declared": "high -> ESCALATE",
+      "classification": "DETECTED",
+      "baseline_state": "PASS",
+      "faulted_state": "HALT",
+      "target_check_failed_on_fault": true,
+      "target_check_warned_on_fault": false,
+      "severity_mismatch": false
+    },
+    "N06": {
+      "gate": "G6",
+      "check": "frozen_rule_applied",
+      "declared": "critical -> HALT",
+      "classification": "MISSED",
+      "baseline_state": "PASS",
+      "faulted_state": "PASS",
+      "target_check_failed_on_fault": false,
+      "target_check_warned_on_fault": false,
+      "severity_mismatch": false
+    },
+    "N07": {
+      "gate": "G7",
+      "check": "replicate_consistency",
+      "declared": "high -> ESCALATE",
+      "classification": "MISSED",
+      "baseline_state": "PASS",
+      "faulted_state": "PASS",
+      "target_check_failed_on_fault": false,
+      "target_check_warned_on_fault": false,
+      "severity_mismatch": false
+    }
+  },
+  "secondary_arm": "the *_added_checks modules were run on N03 and N07 only (no added module exists for the other gates); they need inputs that the minimal fixtures do not hold and failed closed on the baseline and on the faulted workspace alike; they carry no information about these faults"
+}

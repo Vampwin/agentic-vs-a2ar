@@ -5,7 +5,7 @@
     "MANIFEST.json source fields",
     "build_supplement_s10.origin_map()"
   ],
-  "n_entries": 1342,
+  "n_entries": 1356,
   "map": {
     "00_project_control/08_DECISION_LOG.md": "preregistration/PRE_REGISTRATION_ENTRIES.md",
     "10_new_system/benchmark/__init__.py": "pipeline/benchmark/__init__.py",
@@ -741,6 +741,10 @@
     "20_new_runs/heldout_case_analysis_2026-08-29/heldout_case_analysis.json": "verification/seeded_defects/heldout_case_analysis.json",
     "20_new_runs/heldout_evaluation_2026-08-08/fix_verification_summary.json": "verification/heldout_outcome/fix_verification_summary.json",
     "20_new_runs/heldout_evaluation_2026-08-08/heldout_evaluation_summary.json": "verification/heldout_outcome/heldout_evaluation_summary.json",
+    "20_new_runs/heldout_round2_public_2026-10-14/PUBLIC_PREREG_ADR452.md": "extension/heldout_round2_public_2026-10-14/PUBLIC_PREREG_ADR452.md",
+    "20_new_runs/heldout_round2_public_2026-10-14/README.md": "extension/heldout_round2_public_2026-10-14/README.md",
+    "20_new_runs/heldout_round2_public_2026-10-14/evaluator_fingerprint.txt": "extension/heldout_round2_public_2026-10-14/evaluator_fingerprint.txt",
+    "20_new_runs/heldout_round2_public_2026-10-14/results_public.json": "extension/heldout_round2_public_2026-10-14/results_public.json",
     "20_new_runs/label_balance_domain_2026-10-05/analysis/label_balance_domain.py": "extension/label_balance_domain_2026-10-05/analysis/label_balance_domain.py",
     "20_new_runs/label_balance_domain_2026-10-05/label_balance_domain.json": "extension/label_balance_domain_2026-10-05/label_balance_domain.json",
     "20_new_runs/label_balance_domain_2026-10-05/run_manifest.json": "extension/label_balance_domain_2026-10-05/run_manifest.json",
@@ -1335,6 +1339,9 @@
     "30_manuscript/figures/figure_graphical_abstract_2026-08-21.svg": "figures/figure_graphical_abstract_2026-08-21.svg",
     "30_manuscript/v7_graphical_abstract_2026-10-03/build_graphical_abstract_v10.py": "figures/graphical_abstract/build_graphical_abstract_v10.py",
     "30_manuscript/v7_graphical_abstract_2026-10-03/build_graphical_abstract_v11.py": "figures/graphical_abstract/build_graphical_abstract_v11.py",
+    "30_manuscript/v7_graphical_abstract_2026-10-03/build_graphical_abstract_v12.py": "figures/graphical_abstract/build_graphical_abstract_v12.py",
+    "30_manuscript/v7_graphical_abstract_2026-10-03/build_graphical_abstract_v13.py": "figures/graphical_abstract/build_graphical_abstract_v13.py",
+    "30_manuscript/v7_graphical_abstract_2026-10-03/build_graphical_abstract_v14.py": "figures/graphical_abstract/build_graphical_abstract_v14.py",
     "30_manuscript/v7_graphical_abstract_2026-10-03/build_graphical_abstract_v7.py": "figures/graphical_abstract/build_graphical_abstract_v7.py",
     "30_manuscript/v7_graphical_abstract_2026-10-03/build_graphical_abstract_v8_funnel.py": "figures/graphical_abstract/build_graphical_abstract_v8_funnel.py",
     "30_manuscript/v7_graphical_abstract_2026-10-03/build_graphical_abstract_v9.py": "figures/graphical_abstract/build_graphical_abstract_v9.py",
@@ -1342,12 +1349,19 @@
     "30_manuscript/v7_graphical_abstract_2026-10-03/figure_graphical_abstract_v10_2026-10-13.svg": "figures/graphical_abstract/figure_graphical_abstract_v10_2026-10-13.svg",
     "30_manuscript/v7_graphical_abstract_2026-10-03/figure_graphical_abstract_v11_2026-10-13.png": "figures/graphical_abstract/figure_graphical_abstract_v11_2026-10-13.png",
     "30_manuscript/v7_graphical_abstract_2026-10-03/figure_graphical_abstract_v11_2026-10-13.svg": "figures/graphical_abstract/figure_graphical_abstract_v11_2026-10-13.svg",
+    "30_manuscript/v7_graphical_abstract_2026-10-03/figure_graphical_abstract_v12_2026-10-14.png": "figures/graphical_abstract/figure_graphical_abstract_v12_2026-10-14.png",
+    "30_manuscript/v7_graphical_abstract_2026-10-03/figure_graphical_abstract_v12_2026-10-14.svg": "figures/graphical_abstract/figure_graphical_abstract_v12_2026-10-14.svg",
+    "30_manuscript/v7_graphical_abstract_2026-10-03/figure_graphical_abstract_v13_2026-10-14.png": "figures/graphical_abstract/figure_graphical_abstract_v13_2026-10-14.png",
+    "30_manuscript/v7_graphical_abstract_2026-10-03/figure_graphical_abstract_v13_2026-10-14.svg": "figures/graphical_abstract/figure_graphical_abstract_v13_2026-10-14.svg",
+    "30_manuscript/v7_graphical_abstract_2026-10-03/figure_graphical_abstract_v14_2026-10-14.png": "figures/graphical_abstract/figure_graphical_abstract_v14_2026-10-14.png",
+    "30_manuscript/v7_graphical_abstract_2026-10-03/figure_graphical_abstract_v14_2026-10-14.svg": "figures/graphical_abstract/figure_graphical_abstract_v14_2026-10-14.svg",
     "30_manuscript/v7_graphical_abstract_2026-10-03/figure_graphical_abstract_v7_2026-10-03.png": "figures/graphical_abstract/figure_graphical_abstract_v7_2026-10-03.png",
     "30_manuscript/v7_graphical_abstract_2026-10-03/figure_graphical_abstract_v7_2026-10-03.svg": "figures/graphical_abstract/figure_graphical_abstract_v7_2026-10-03.svg",
     "30_manuscript/v7_graphical_abstract_2026-10-03/figure_graphical_abstract_v8_funnel_2026-10-10.png": "figures/graphical_abstract/figure_graphical_abstract_v8_funnel_2026-10-10.png",
     "30_manuscript/v7_graphical_abstract_2026-10-03/figure_graphical_abstract_v8_funnel_2026-10-10.svg": "figures/graphical_abstract/figure_graphical_abstract_v8_funnel_2026-10-10.svg",
     "30_manuscript/v7_graphical_abstract_2026-10-03/figure_graphical_abstract_v9_2026-10-11.png": "figures/graphical_abstract/figure_graphical_abstract_v9_2026-10-11.png",
     "30_manuscript/v7_graphical_abstract_2026-10-03/figure_graphical_abstract_v9_2026-10-11.svg": "figures/graphical_abstract/figure_graphical_abstract_v9_2026-10-11.svg",
-    "30_manuscript/v7_graphical_abstract_2026-10-03/make_v11.py": "figures/graphical_abstract/make_v11.py"
+    "30_manuscript/v7_graphical_abstract_2026-10-03/make_v11.py": "figures/graphical_abstract/make_v11.py",
+    "30_manuscript/v7_graphical_abstract_2026-10-03/make_v12.py": "figures/graphical_abstract/make_v12.py"
   }
 }

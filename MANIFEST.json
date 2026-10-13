@@ -1,7 +1,7 @@
 {
-  "assembled": "2026-10-13",
-  "n_files": 1345,
-  "total_bytes": 94608122,
+  "assembled": "2026-10-14",
+  "n_files": 1359,
+  "total_bytes": 96920946,
   "n_files_excluded_by_rule": 9267,
   "n_duplicates_removed": 159,
   "n_files_refused_by_screening": 0,
@@ -704,8 +704,8 @@
     {
       "path": "pipeline/scripts/build_deposit.py",
       "source": "10_new_system/scripts/build_deposit.py",
-      "bytes": 35049,
-      "sha256": "931dea1f9527898d7a634076feebabcdd8eefb23a4c1fe37b8a59bdbe6aabbff"
+      "bytes": 35602,
+      "sha256": "9f46923d1b2b23bb988c76ab1df9ebf324f032b1e7d55349954160929a1785e3"
     },
     {
       "path": "pipeline/scripts/build_evidence_index.py",
@@ -2364,6 +2364,24 @@
       "sha256": "d79bd4c3b7feb78dc73e470730e1c2319c8f60fb8a264482a5bace7dec41236f"
     },
     {
+      "path": "figures/graphical_abstract/build_graphical_abstract_v12.py",
+      "source": "30_manuscript/v7_graphical_abstract_2026-10-03/build_graphical_abstract_v12.py",
+      "bytes": 10767,
+      "sha256": "6fb782dbb02631af754605b0c4c230abc0b0f0931c84ee09534f1ed3922c4899"
+    },
+    {
+      "path": "figures/graphical_abstract/build_graphical_abstract_v13.py",
+      "source": "30_manuscript/v7_graphical_abstract_2026-10-03/build_graphical_abstract_v13.py",
+      "bytes": 13514,
+      "sha256": "90f93fa11af4530e52a23a29863e5944b628d7099dbece899f2ee1b9787c4c07"
+    },
+    {
+      "path": "figures/graphical_abstract/build_graphical_abstract_v14.py",
+      "source": "30_manuscript/v7_graphical_abstract_2026-10-03/build_graphical_abstract_v14.py",
+      "bytes": 14332,
+      "sha256": "e23bc935a8ff65509acea72c770d14e9d2ad7ae56e3d255870a962904d8a69ae"
+    },
+    {
       "path": "figures/graphical_abstract/build_graphical_abstract_v7.py",
       "source": "30_manuscript/v7_graphical_abstract_2026-10-03/build_graphical_abstract_v7.py",
       "bytes": 20829,
@@ -2406,6 +2424,42 @@
       "sha256": "cfce05d5e2c38de3484c7af0d60ffbbfb68fa3a42e94203d062897ce4c545beb"
     },
     {
+      "path": "figures/graphical_abstract/figure_graphical_abstract_v12_2026-10-14.png",
+      "source": "30_manuscript/v7_graphical_abstract_2026-10-03/figure_graphical_abstract_v12_2026-10-14.png",
+      "bytes": 680287,
+      "sha256": "edf80a0e403190a0d253d32e8edc3bf7db2ddaab54fd13987c4855af9fa80ce4"
+    },
+    {
+      "path": "figures/graphical_abstract/figure_graphical_abstract_v12_2026-10-14.svg",
+      "source": "30_manuscript/v7_graphical_abstract_2026-10-03/figure_graphical_abstract_v12_2026-10-14.svg",
+      "bytes": 14629,
+      "sha256": "bfcedbec6c981efb213636f6a1bb6475c0c5289e035104a4bcb12a835055be65"
+    },
+    {
+      "path": "figures/graphical_abstract/figure_graphical_abstract_v13_2026-10-14.png",
+      "source": "30_manuscript/v7_graphical_abstract_2026-10-03/figure_graphical_abstract_v13_2026-10-14.png",
+      "bytes": 697179,
+      "sha256": "82e8e438c07dc61e3ea200b831760535bf17cd35264350968ee890df6c770566"
+    },
+    {
+      "path": "figures/graphical_abstract/figure_graphical_abstract_v13_2026-10-14.svg",
+      "source": "30_manuscript/v7_graphical_abstract_2026-10-03/figure_graphical_abstract_v13_2026-10-14.svg",
+      "bytes": 36332,
+      "sha256": "3da23d552d58ae0abc3919a6772053ea51bcf1ae39720cc941c1d1e4cdf4985a"
+    },
+    {
+      "path": "figures/graphical_abstract/figure_graphical_abstract_v14_2026-10-14.png",
+      "source": "30_manuscript/v7_graphical_abstract_2026-10-03/figure_graphical_abstract_v14_2026-10-14.png",
+      "bytes": 780087,
+      "sha256": "f0b416c3d186e7d7c3708634df49d09cb37a613ece50ea82da1346aa7e710375"
+    },
+    {
+      "path": "figures/graphical_abstract/figure_graphical_abstract_v14_2026-10-14.svg",
+      "source": "30_manuscript/v7_graphical_abstract_2026-10-03/figure_graphical_abstract_v14_2026-10-14.svg",
+      "bytes": 36992,
+      "sha256": "920d274b0fe66b2cec6982a678d218a1a82663ce82d5d29337e052e02ad644d1"
+    },
+    {
       "path": "figures/graphical_abstract/figure_graphical_abstract_v7_2026-10-03.png",
       "source": "30_manuscript/v7_graphical_abstract_2026-10-03/figure_graphical_abstract_v7_2026-10-03.png",
       "bytes": 492300,
@@ -2446,6 +2500,12 @@
       "source": "30_manuscript/v7_graphical_abstract_2026-10-03/make_v11.py",
       "bytes": 5226,
       "sha256": "b4ed0c58070d4c185eb3bcdfb62c24024f79a49ac41a0e6dfccd4049802f8c54"
+    },
+    {
+      "path": "figures/graphical_abstract/make_v12.py",
+      "source": "30_manuscript/v7_graphical_abstract_2026-10-03/make_v12.py",
+      "bytes": 2198,
+      "sha256": "0198d925a3881eaf0304f85d179ea6d7805eabbe6ad5380b481b771b2625cbd2"
     },
     {
       "path": "verification/summary/g8_number_traceability_v8_accepted_2026-10-09.json",
@@ -8100,6 +8160,30 @@
       "sha256": "5f3761184653037d986868931dc54dc3691b467a7340b0d1b9362acbbe952502"
     },
     {
+      "path": "extension/heldout_round2_public_2026-10-14/evaluator_fingerprint.txt",
+      "source": "20_new_runs/heldout_round2_public_2026-10-14/evaluator_fingerprint.txt",
+      "bytes": 3674,
+      "sha256": "428a0bc6e48010b5b5db891f1cc743a0dce6c9836abf8cbaafae32059b55e9b3"
+    },
+    {
+      "path": "extension/heldout_round2_public_2026-10-14/PUBLIC_PREREG_ADR452.md",
+      "source": "20_new_runs/heldout_round2_public_2026-10-14/PUBLIC_PREREG_ADR452.md",
+      "bytes": 16959,
+      "sha256": "bdec3e5a0cbc2bf3d35fd8ebc1781e3074dca5d0055bd26e950e2eb7ca7c9cf8"
+    },
+    {
+      "path": "extension/heldout_round2_public_2026-10-14/README.md",
+      "source": "20_new_runs/heldout_round2_public_2026-10-14/README.md",
+      "bytes": 2292,
+      "sha256": "e1bddda23776a9f4e92a1d92e3b67d8581f58256da9f6682a15d322fbdb5578d"
+    },
+    {
+      "path": "extension/heldout_round2_public_2026-10-14/results_public.json",
+      "source": "20_new_runs/heldout_round2_public_2026-10-14/results_public.json",
+      "bytes": 3029,
+      "sha256": "90652123ac441754f1e0048773f404ca4bdf74df512ea6634d7f4186a298f1f5"
+    },
+    {
       "path": "extension/rank_prioritisation_2026-10-05/analysis/rank_prioritisation.py",
       "source": "20_new_runs/rank_prioritisation_2026-10-05/analysis/rank_prioritisation.py",
       "bytes": 14007,
@@ -8127,7 +8211,7 @@
       "path": "preregistration/PRE_REGISTRATION_ENTRIES.md",
       "source": "00_project_control/08_DECISION_LOG.md",
       "bytes": 535959,
-      "sha256": "f751200566ab4967bafe1223255805bdaec810d6ec8b63caf8cd84d6b5187857"
+      "sha256": "36d9c43f683ba9b7d90165d2e0cd1c886c9d8cd58fb2aff8897868e152e67faa"
     }
   ]
 }

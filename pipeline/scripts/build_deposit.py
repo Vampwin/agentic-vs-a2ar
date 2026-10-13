@@ -193,6 +193,9 @@ EXTENSION_TREE: list[tuple[str, str, str, set, set]] = [
         ("snplib_canonical_2026-10-02", "the SNP-Lib and the 500 docked compounds of the expanded library under a canonical row order, of 2026-10-02: pre-registration, script and results", set(), set()),
         # Added 2026-10-13 (ADR-AIIM-447, approved by the author): the persistence of the fifteen compounds across the analytic choices, a tabulation of registered results
         ("v9_persistence_2026-10-13", "the persistence of the fifteen selected compounds across the analytic choices that were tested, of 2026-10-13: a tabulation of registered results (script, table)", set(), set()),
+        # Added 2026-10-14 (ADR-AIIM-454, approved by the author): the second blind round of fault cases, public part only (registration, evaluator fingerprint,
+        # redacted per-case result, digests of what is withheld); the case file, the workspaces, the mapping and the scripts stay out (the same reason as ADR-AIIM-113)
+        ("heldout_round2_public_2026-10-14", "the second blind round of fault cases (N01 to N07): registration, evaluator fingerprint, per-case result without evidence, and the digests of the withheld files", set(), set()),
         ("rank_prioritisation_2026-10-05", "the ranking of the expanded library with the corrected ligand model, of 2026-10-05: pre-registration, script, per-convention top 20 and shortlist", set(), set()),
     ]
 ]
