@@ -2,8 +2,8 @@
 
 Verbatim copies of the decision-log entries that the article and the supplement describe as pre-registered, and of the entries that record their results. The log is append-only; each entry was written before the run it concerns (or, for a result entry, after it). Each entry fixed the predictions or the decision rule of its analysis before the run, and recorded the SHA-256 of the predictions or of the inputs frozen for it where the run had them. Copied as written: first-person wording and the author's quotations are unchanged. The full log is not deposited.
 
-- source: `00_project_control/08_DECISION_LOG.md`, SHA-256 of the whole log (line ends as LF) `02eb8e13851fad2b51e941bf1b6150dcbef94b367288739bbad164d6adabee2e`
-- entries: 79 (ADR-AIIM-131, 150, 156, 214, 215, 229, 240, 246, 256, 260, 285 to 336, 353 to 356, 390, 391, 399, 400, 412, 413, 416, 417, 420, 421, 423)
+- source: `00_project_control/08_DECISION_LOG.md`, SHA-256 of the whole log (line ends as LF) `2cae6c4739323c4895cdb25147e1182aff812aaf7e019fa076d5c3d6f783a79f`
+- entries: 81 (ADR-AIIM-131, 150, 156, 214, 215, 229, 240, 246, 256, 260, 285 to 336, 353 to 356, 390, 391, 399, 400, 412, 413, 416, 417, 420, 421, 423, 427, 428)
 
 ---
 
@@ -8563,3 +8563,54 @@ The state under the deployed path equals the state under the direct path in all 
 **Change.** A comment line stating both forms was appended to the `PREREG_SHA256.txt` of the two run folders (those files are not themselves registered), the `run_manifest.json` of both folders was regenerated (new hash of `PREREG_SHA256.txt`, a note on the line ends), and this entry was added to the pre-registration file of the deposit (`PREREGISTRATION_ADRS` extended by 423, the header's list extended; the same kind of edit as in ADR-AIIM-414, 418 and 422, made without a fresh question and open to reversal). The pre-registration files themselves and every registered hash stay as they were. A reader who hashes the repository's copy gets the LF value; the registered value is for the file with CRLF line ends, which converts to the LF value by replacing CRLF with LF.
 
 **Limits.** As before: a check that the public repository holds what the documents cite and that its manifests are true, not a second person's rerun from a clean clone. The `.npz` arrays of the censored-fit folder are not deposited.
+
+## ADR-AIIM-427 — PRE-REGISTRATION: four added checks for the faults that the G2, G7 and G5 evaluators did not detect (2026-10-13)
+
+**Status:** accepted — **pre-registration. Frozen before any faulted workspace was built or evaluated.**
+**Date:** 2026-10-13
+**Decided by:** Adisorn Sirichotejirakul, in chat: "เริ่มข้อ 1" (add the checks that are missing, in answer to the list of open items after ADR-AIIM-426).
+**Pre-registration file:** `20_new_runs/v9_added_checks_2026-10-13/PREREG_ADR427.md`, SHA-256 `46ca6a7cf054d8101771c424a9a66f7e8395957e6dcb437bc334d05207f773f2` (also in `PREREG_SHA256.txt`; the file is ASCII with LF line ends). **Decision log at freeze (text/LF), before this entry was appended:** `f86ca377e6a25ba70fadf98225f3ed14418eeda1d00f648ae42898ce0a5ad366`.
+**Discipline:** ADR-AIIM-263 — predictions fixed before the run. **Skills invoked:** experimental-design (SKILL.md read in full for ADR-AIIM-416 and applied unchanged: the unit is a workspace, instances of a family share a base and are not pooled, the controls are the clean workspaces, the grids are fixed and seeded). Nothing installed.
+
+**Why.** ADR-AIIM-417 and 421 found that the evaluators detected none of the 29 silent faults at G2 and G7 (F06 wrong protonation, F15 silent truncation, F16 residue-index error) and none of the ten silent label leaks at G5 (F11). Four checks that would see them are written outside the frozen tree and tested.
+
+**Scope decision (mine, stated here because it is the author's to reverse).** `10_new_system/` is frozen, and a change to an evaluator or contract there needs the author's approval file by file. The checks are therefore not added there: wrapper evaluators in the run folder call the frozen evaluators unchanged and append the checks to their output, and the frozen contracts are copied to `contracts_plus/` with the checks declared, so that the deployed orchestrator and contract engine load them. Nothing in the tree changes (242 files hashed before and after). Putting the checks into the frozen tree, with a new contract version, is a separate act that needs approval and is not done.
+
+**What is fixed (details in the file).**
+- The four checks, all critical: G2 `protonation_matches_record` (the ring hydrogens of every histidine equal the preparation step's recorded decision; a missing record fails); G7 `trajectory_covers_plan` (every series reaches 0.95 of the planned 50 ns); G7 `binding_site_matches_receptor` (the site residues in the results table equal the receptor C-alpha residues within 10 A of the reference ligand, recomputed); G5a `benchmark_ids_not_exposed` (no file read before the gate, outside the registered ranking inputs, holds a benchmark compound ID).
+- Anchor, observed before the file was written (`anchor_clean.json`): 37 clean workspaces (ten G2 receptors, eleven G7 systems, sixteen G5 rankings, five of them with a context file of unrelated IDs) all PASS under the frozen evaluators, with the added checks and deployed with them.
+- Fault sets: A, B, C, D, E, F are new instances (other receptors, systems, seeds, severities, rankings, IDs) of the same fault families; G re-evaluates the faults of ADR-AIIM-416 and 420 and is reported as seen. Held-out here means held out from the design of the checks by instance only; the families are the same, so no rate is read as detection of an unseen family.
+- Predictions P1 to P11, among them: sets A to D detected in full by their own added check and by nothing in the frozen evaluators; the two truncations inside the 0.95 tolerance (0.96 and 0.99 kept) not detected; decoy-ID exposure detected (the check is strict about IDs); a leak through a file the access log does not name not detected; state under direct and deployed paths equal; every detected case halted; the frozen tree unchanged.
+- An observation made while building the anchor, outside the gate checks: the histidine atom types in two prepared receptors of the cross-docking analyses are inconsistent with the hydrogens they carry (HIS 333 of the cross-docking receptor; eight histidines without ring hydrogens in the validation receptor). Reported as an observation; its effect on any result was not evaluated.
+
+**What the author had seen.** The results of ADR-AIIM-417 and 421 and the evaluator source; not the state of any faulted workspace under the added checks.
+
+**Not allowed to follow from the outcome.** No change of any frozen number, evaluator or contract; the 124 of 128 and 101 of 128 stay as they are and are not pooled with this run; the sealed held-out cases are not used; a family with no detection is reported as a gap; no compound is called active.
+
+## ADR-AIIM-428 — RESULT of the pre-registration of ADR-AIIM-427: four added checks detect every instance of the faults they were written for, and nothing outside them (2026-10-13)
+
+**Status:** accepted — record of fact. **Date:** 2026-10-13
+**Pre-registration:** ADR-AIIM-427, SHA-256 `46ca6a7cf054d8101771c424a9a66f7e8395957e6dcb437bc334d05207f773f2`.
+**Run folder:** `20_new_runs/v9_added_checks_2026-10-13/` (wrapper evaluators `analysis/v9ac/`, copied contracts `contracts_plus/`, scripts, `anchor_clean.json`, `results.json` SHA-256 prefix `0855b0c8b970df03`, `run_manifest.json`; 160 faulted cases evaluated in 16 s). `10_new_system/` unchanged: 242 files byte-identical before and after. Nothing was rerun.
+
+**Predictions: 11 of 11 met** (P1 to P11). Anchor: the 37 clean workspaces pass under the frozen evaluators, with the added checks and deployed with them; 0 false escalations.
+
+| Set | Fault | Cases | Frozen evaluators | Added checks, direct | Added checks, deployed | Check that fired |
+|---|---|---|---|---|---|---|
+| A (held out) | F06 wrong protonation, 9 other receptors, 1 and 3 histidines | 16 (2 vacuous) | 0 | 16 | 16 | `protonation_matches_record` |
+| B (held out) | F15 silent truncation, 0.02 to 0.94 of 50 ns kept | 18 | 0 | 18 | 18 | `trajectory_covers_plan` |
+| B (held out) | F15 silent truncation, 0.96 and 0.99 kept | 6 | 0 | 0 | 0 | none (inside the 0.95 tolerance) |
+| C (held out) | F16 residue offset, 8 offsets of 1 to 100 | 24 | 0 | 24 | 24 | `binding_site_matches_receptor` |
+| D (held out) | F11 known actives in a logged file, 1 to 30 IDs | 20 | 0 | 20 | 20 | `benchmark_ids_not_exposed` |
+| E (held out) | decoy IDs in a logged file, 3 and 30 | 10 | 0 | 10 | 10 | `benchmark_ids_not_exposed` |
+| F (held out) | 10 active IDs in a file the access log does not name | 5 | 0 | 0 | 0 | none |
+| G (seen) | F06 9, F15 10, F16 10, F11 10 (ADR-AIIM-416, 420) | 39 | 0 | 39 | 39 | the check of each family |
+| G (seen) | F15L 10 (log updated), F11L 10 (read from the benchmark file) | 20 | 20 | 20 | 20 | `trajectory_covers_plan`, `benchmark_ids_not_exposed` as well as the frozen check |
+
+Under the deployed path every case detected by an added check was halted, and the state was the same as in the direct path in all 160 cases.
+
+**How to read it.** The checks compare what a step recorded with what the file holds, or recompute a quantity from the inputs; the faults of these families are exactly such discrepancies, so detection of every instance is what a correct implementation should give. It shows that the checks work across receptors, systems, severities, rankings and IDs (sets A to E), not that they find a fault of a kind nobody anticipated. The boundaries found are three: a truncation of 4% or less is accepted by the registered tolerance (0.96 and 0.99 kept); a leak through a file that the access log does not name is not seen (set F); and the protonation check compares the file with the record and cannot tell that the recorded state is itself wrong. The ID check is strict: any benchmark ID in an unregistered file halts, which includes inactive IDs (set E) and so would also halt a legitimate overlap of a training file with the benchmark; that is a design choice, not an incidental result. No rate here is comparable with the 124 of 128 and 101 of 128, which are unchanged, and the sets were built after the families were known.
+
+**Observation, outside the gate checks.** In the receptor of the cross-docking set, HIS 333 carries HD1 and its ND1 is typed as an acceptor; the receptor of the cross-docking validation set has eight histidines without any ring hydrogen; the receptors of the screening, its two reproductions, the water-shell, clinical-reference and 9XT redocking analyses are consistent. The effect on any cross-docking result was not evaluated, and none of the reported numbers is changed by this entry.
+
+**What this entry does not do.** It does not change a frozen evaluator or contract; integrating the four checks into `10_new_system/` as a new contract version needs the author's approval and is open. Nothing is added to the article, the supplement or the deposit by this entry.

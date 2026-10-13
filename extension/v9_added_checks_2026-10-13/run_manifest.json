@@ -1,0 +1,36 @@
+{
+ "adr": "ADR-AIIM-428 (results of ADR-AIIM-427)",
+ "date": "2026-10-13",
+ "prereg_sha256": "46ca6a7cf054d8101771c424a9a66f7e8395957e6dcb437bc334d05207f773f2",
+ "prereg_stored_copy_note": "see PREREG_SHA256.txt (one phrase changed after the run, ADR-AIIM-429)",
+ "environment": {
+  "python": "3.12.10",
+  "numpy": "2.4.6",
+  "pandas": "3.0.3",
+  "rdkit": "2026.03.3"
+ },
+ "frozen_tree": "10_new_system (imported and read, not modified; 242 files hashed before and after)",
+ "n_cases": 160,
+ "n_clean": 37,
+ "n_predictions_met": 11,
+ "seconds": 16.1,
+ "artifacts": {
+  "analysis/anchor_clean.py": "363a58e3d4ae0b3718b47c1dcd5b6c637293f15d9ece72cc9a4b2a99f8c84db9",
+  "analysis/harness.py": "1abf459eb0b7d9d4783088bf0a4d3ed3e05fc849a89dfffb106f3a17aa2f95e6",
+  "analysis/run_added.py": "ceb2bf0c46950537db72ba69c5e257747b9d620aa0dcb68a0ae91279e147ce54",
+  "analysis/v9ac/__init__.py": "41cb4c4bb659860f5405a0db2b93fca0c19a934b1a12c19deb26a5fd80281ec4",
+  "analysis/v9ac/checks.py": "e06f38b2ee9c9eb7fc139bdeb64ce2b02054d85dfb4427c36d7f1c53ab471d30",
+  "analysis/v9ac/G2_plus.py": "5ea88f3b3ce6b5014c5a1daa4060661a0ad34a4835ad7e438ea6cb51c35e1827",
+  "analysis/v9ac/G5a_plus.py": "25a1d2c8a055fa07026bbfd88b4e3363c9cc82517a604358288aeba1a1566f0b",
+  "analysis/v9ac/G7_plus.py": "e75cd0cae5a30104037f9a497643e55a6cba52e4a4282ddaf5fe6e891ddcfbfb",
+  "anchor_clean.json": "aedf563dc8fe6ce687587adedf9aec75b88f1f023d89ee66a2c089a5c0b91a6a",
+  "contracts_plus/G2_preparation.yaml": "330779bb52a642c49a1afb63a78acc6dbf7d1b86ae9fdc99208a5bba90f707cd",
+  "contracts_plus/G5a_validity.yaml": "7d9dddff714eb97fbfb4e107596f95106c6f0f34b3941c2e6fd1383d5dec886d",
+  "contracts_plus/G5b_performance.yaml": "20e66fa1131e7b8028738d94d1d358f185e1809b2552b1860f3a8d60e43bbf04",
+  "contracts_plus/G7_md.yaml": "68f3dc689bb90f9d6b1f2fb459169e815a56af1acb0dfb522d9c640f326790de",
+  "PREREG_ADR427.md": "d62151b849061ceb9ed062e6072ef65c879e62cf3fa8ec961aa9615170cfe569",
+  "PREREG_SHA256.txt": "7b232b74ea7709f8754af9feeeb56793295156b02f6065ff69cbfab3bd3053d2",
+  "results.json": "0855b0c8b970df038854ededf2c5e086b94f972e4b1a699d8b402aa1661282d6",
+  "run_added.log": "d12e3b903b51ffc0e2aaa189414c2a7ab08f90138597e427d10b3910699c44a8"
+ }
+}

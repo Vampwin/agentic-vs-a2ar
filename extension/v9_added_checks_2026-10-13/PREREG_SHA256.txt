@@ -1,0 +1,6 @@
+46ca6a7cf054d8101771c424a9a66f7e8395957e6dcb437bc334d05207f773f2 *PREREG_ADR427.md
+
+# wording (ADR-AIIM-429): the hash above is of the file as registered. The stored copy differs by one phrase, changed after the run because the deposit
+# excludes any identifier of the sealed held-out families: the last sentence of the file, which named those families by the range of their identifiers
+# (the first and the last of the twelve, joined by 'to'), now reads 'The sealed held-out cases are not used; no compound is called active.'
+# SHA-256 of the stored copy: d62151b849061ceb9ed062e6072ef65c879e62cf3fa8ec961aa9615170cfe569. Putting the registered sentence back in place of the new one gives the registered hash.

@@ -1,0 +1,65 @@
+contract_id: G5b_performance_v1
+stage: external_validation_performance
+description: 'Performance criteria for external validation. Conditional on G5a passing.
+  Thresholds are frozen (2026-07-30) and must not be adjusted after any run. The reporting
+  language for results depends on the benchmark_role declared in G5a: Option A requires
+  a caveat that this is a development benchmark; Option B allows held-out language.
+
+  '
+inputs:
+- ranked_scores_csv
+- benchmark_labels
+- g5a_passed_artifact
+preconditions:
+- G5a_passed
+evaluator: evaluators.G5b_evaluator
+checks:
+- id: auc_roc
+  description: ROC-AUC for Vina score ranking vs. ChEMBL benchmark labels
+  threshold_min: 0.6
+  report_with_bootstrap_ci: true
+  severity: high
+- id: ef_1pct
+  description: Enrichment Factor at 1% of ranked library
+  threshold_min: 3.0
+  report_absolute_count: true
+  severity: high
+- id: bedroc20
+  description: BEDROC (alpha=20) for Vina score ranking
+  threshold_min: 0.4
+  report_with_bootstrap_ci: true
+  severity: medium
+- id: threshold_immutability
+  description: 'Confirmed that the thresholds in this contract (auc_min, ef1pct_min,
+    bedroc20_min) match the values in the artifact registry from before any run. The
+    contract engine version-controls this check.
+
+    '
+  severity: critical
+- id: reporting_language_check
+  description: 'Based on benchmark_role: if Option A, the output artifact includes
+    a required_caveat field stating this is a development benchmark. If Option B,
+    labels the result as held-out external validation.
+
+    '
+  severity: critical
+thresholds:
+  pass_auc_min: 0.6
+  pass_ef1pct_min: 3.0
+  pass_bedroc20_min: 0.4
+  pass_conditions: all_three_metrics_meet_threshold
+severity: high
+on_pass: continue_to_G6
+on_fail:
+- log_failure_to_registry
+- escalate_to_human
+on_warn:
+- log_to_ledger
+evidence:
+- auc_with_ci
+- ef1pct_with_count
+- bedroc20_with_ci
+- threshold_comparison_table
+- reporting_language_field
+version: 1.0.0
+frozen_date: '2026-07-30'
