@@ -1,3 +1,5 @@
 90e0820e14bf1c5ab82817f38aafc296916b555f13b96aaa2632bff77638647b *PREREG_ADR416.md
 
 # decision log (text/LF) after ADR-AIIM-416 was appended: c5d3a8315b4a717372ec112b01a144bf5473806de7af1578bdcbc48ee752fbb4
+
+# line ends (ADR-AIIM-423): the hash above is of the file as written, with CRLF line ends; the copy stored in the repository has LF line ends (.gitattributes eol=lf) and the same text: SHA-256 b962a575a7d418e729c52487fff9c4050f2ab72586fecd5a28ca31efc92df738 (LF)

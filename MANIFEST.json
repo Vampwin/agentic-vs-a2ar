@@ -1,7 +1,7 @@
 {
-  "assembled": "2026-10-12",
+  "assembled": "2026-10-13",
   "n_files": 1296,
-  "total_bytes": 92548851,
+  "total_bytes": 92553439,
   "n_files_excluded_by_rule": 9265,
   "n_duplicates_removed": 159,
   "n_files_refused_by_screening": 0,
@@ -662,8 +662,8 @@
     {
       "path": "pipeline/scripts/build_deposit.py",
       "source": "10_new_system/scripts/build_deposit.py",
-      "bytes": 33114,
-      "sha256": "eab1e5dd7e67ee92066c2872f80c5777c6043f64009e4597919f98a75ac7bfe5"
+      "bytes": 33124,
+      "sha256": "a1c10e7a8956cb0d103044f54a4c3f8bbaf46f5c6b33bc6f3f0b27584d2a64d8"
     },
     {
       "path": "pipeline/scripts/build_evidence_index.py",
@@ -7472,8 +7472,8 @@
     {
       "path": "extension/v9_g2_g7_extension_2026-10-12/PREREG_SHA256.txt",
       "source": "20_new_runs/v9_g2_g7_extension_2026-10-12/PREREG_SHA256.txt",
-      "bytes": 207,
-      "sha256": "852e8ab233ee324143bf8e453d6d34595b09bcfb913d0c4e5bbc9d120b715442"
+      "bytes": 471,
+      "sha256": "04258841a89254375775ec49611c2038dd60f69fb35358199b85fd17ff5544af"
     },
     {
       "path": "extension/v9_g2_g7_extension_2026-10-12/results.json",
@@ -7484,8 +7484,8 @@
     {
       "path": "extension/v9_g2_g7_extension_2026-10-12/run_manifest.json",
       "source": "20_new_runs/v9_g2_g7_extension_2026-10-12/run_manifest.json",
-      "bytes": 1318,
-      "sha256": "7f2f97bdd47c8ceb10bf81c45e605e895aa7b046e2987a70807054a19d797a5b"
+      "bytes": 1518,
+      "sha256": "5e8dd3dfd075ecadf4adf80d87b9820ba7bb31a482b903acbe66630219fb6a5f"
     },
     {
       "path": "extension/v9_g2_g7_extension_2026-10-12/verify_injections.json",
@@ -7814,8 +7814,8 @@
     {
       "path": "extension/v9_g3_g5_extension_2026-10-12/PREREG_SHA256.txt",
       "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/PREREG_SHA256.txt",
-      "bytes": 207,
-      "sha256": "083eab50b1e858e88d53f36740ae8bc737db2adab46f60fb4e209e289faf978d"
+      "bytes": 471,
+      "sha256": "4117f7e89723dd0815fcef5900f39964c776d51b0117845642e3bac069d50f3a"
     },
     {
       "path": "extension/v9_g3_g5_extension_2026-10-12/results.json",
@@ -7826,14 +7826,14 @@
     {
       "path": "extension/v9_g3_g5_extension_2026-10-12/run_manifest.json",
       "source": "20_new_runs/v9_g3_g5_extension_2026-10-12/run_manifest.json",
-      "bytes": 3766,
-      "sha256": "0f9b2ab883b20a2f80808113737a90acb24202dc6610831d5f4037cc67de8308"
+      "bytes": 3966,
+      "sha256": "7a0a246c288646e2e2564de7d5ca961edba88efcab0a1891d3a0488c2834bc4a"
     },
     {
       "path": "preregistration/PRE_REGISTRATION_ENTRIES.md",
       "source": "00_project_control/08_DECISION_LOG.md",
-      "bytes": 503629,
-      "sha256": "7f2e5974cb4470d4eeb3a682c5e79f2d0c41408af4a6bf6462550779ba7ea8e2"
+      "bytes": 507279,
+      "sha256": "86ea194d43c872c783798e55e9e32e991fc1f71ce7cc8edd82fcec3f794299a3"
     }
   ]
 }

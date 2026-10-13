@@ -12,7 +12,7 @@
  "frozen_tree": "10_new_system (imported and read, not modified)",
  "artifacts": {
   "PREREG_ADR420.md": "7db40ba84d6818ecdbc3ba739d7de280e82a20f105b657b0b1e8e08868c9c48a",
-  "PREREG_SHA256.txt": "8495056225de68f8f518a2316d823de2c9b34f05c570bdc3a45ac948d0890268",
+  "PREREG_SHA256.txt": "4a253825ac5b929bf323774425c285608a131b2cfe919fdda9bb18fe92e33687",
   "anchor_clean.json": "abbf033e256346b67c5b04c5dc00b8b1e13dcfd11c6a683356a3bef9b6397a00",
   "results.json": "715ac5ab03d47321657fd0852a206eabd0a7d917b698e0b4b42198ee334d49fa",
   "analysis/ext2.py": "20f15303018fbbc44c7468b27af675089f3cde8bf92b2fd4254f499fdb71e3ce",
@@ -43,5 +43,6 @@
   "poses_f07\\F07_12_x25.sdf": "dacf567125b7e92af80855581520131783f3f2a16e564009678c040b89031a3f",
   "poses_f07\\F07_13_y25.sdf": "558d706ffa54fdeb75bb10d2519174f71e77fcd991a43ae88601edc9a8906e84",
   "poses_f07\\F07_14_z25.sdf": "d9ee8265630e1afb259a0abb395caa4f1ea8862d95d9a1bf0fde9bf708085bb0"
- }
+ },
+ "note_line_ends": "PREREG_ADR420.md was written with CRLF line ends; the registered SHA-256 is of that form; LF form 92420efb0dd54b533eb9e74eb1c47fd82aa0b1f9791dd1ba890f9555a7dbcadb (ADR-AIIM-423)"
 }

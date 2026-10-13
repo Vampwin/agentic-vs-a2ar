@@ -2,8 +2,8 @@
 
 Verbatim copies of the decision-log entries that the article and the supplement describe as pre-registered, and of the entries that record their results. The log is append-only; each entry was written before the run it concerns (or, for a result entry, after it). Each entry fixed the predictions or the decision rule of its analysis before the run, and recorded the SHA-256 of the predictions or of the inputs frozen for it where the run had them. Copied as written: first-person wording and the author's quotations are unchanged. The full log is not deposited.
 
-- source: `00_project_control/08_DECISION_LOG.md`, SHA-256 of the whole log (line ends as LF) `ff140480054adc43e383eafdf9b0c04bd00cee491bff2846a6595e820ae1d371`
-- entries: 78 (ADR-AIIM-131, 150, 156, 214, 215, 229, 240, 246, 256, 260, 285 to 336, 353 to 356, 390, 391, 399, 400, 412, 413, 416, 417, 420, 421)
+- source: `00_project_control/08_DECISION_LOG.md`, SHA-256 of the whole log (line ends as LF) `02eb8e13851fad2b51e941bf1b6150dcbef94b367288739bbad164d6adabee2e`
+- entries: 79 (ADR-AIIM-131, 150, 156, 214, 215, 229, 240, 246, 256, 260, 285 to 336, 353 to 356, 390, 391, 399, 400, 412, 413, 416, 417, 420, 421, 423)
 
 ---
 
@@ -8546,3 +8546,20 @@ The state under the deployed path equals the state under the direct path in all 
 
 **What the results say.** (1) G3 catches a pose or a reference that is wrong by more than 2.0 A and misses a fault that leaves the redocking correct or nearly so (a box shift that the pocket survives, a rotation about the ligand's long axis). (2) G5a catches a leak only if the access log records a read of the labels file; a leak through another file is invisible to it, and G5b then passes the improved result. (3) A swapped label set is caught at G5b only because of where this benchmark's AUC sits relative to a threshold. (4) The deployed path adds and loses nothing at these gates.
 **Limits.** The instances of a family share a base (one control, one benchmark ranking), so they are not independent replicates and no rate is estimated. The injectors were written knowing the evaluators and the predictions follow from reading the code. The leaked actives are ranked first and the swapped labels are re-scored (modelling assumptions); the box shift is a real redocking with one seed. The clean states of these gates are not PASS (G3 escalates; the benchmark fails `ef_1pct` and `bedroc20`), so detection is read as a new failed check. No held-out case is used; with ADR-AIIM-416 and 417 every one of the seven stubs F06 to F08, F11, F12, F15 and F16 now has an implementation outside the frozen tree.
+
+## ADR-AIIM-423 — The deposit commit ee9fb9b pushed and checked on a sixth fresh clone; one discrepancy found in two registered hashes: line ends (2026-10-13)
+
+**Decided by:** Adisorn Sirichotejirakul, who ran `git push origin main` in `40_deposit` and asked in chat for the check to be repeated.
+**Follows:** ADR-AIIM-422; repeats the checks of ADR-AIIM-402, 407, 411, 415 and 419. **Skills invoked:** none (read-only verification, then one record-keeping change); nothing installed.
+
+**Result of the check.** Cloned anonymously with `core.longpaths=true`. `git ls-remote origin main` and the clone give `ee9fb9bbc765bb84f49eb2ea737cdf6b88a31436`, the commit cited in the article and the supplement; the local `40_deposit` is in step with `origin/main`. Author Vampwin, no Co-Authored-By line; 1,304 tracked files, 1,304 in the working tree, `git status` clean. `MANIFEST.json` 1,296 entries and `verification/MANIFEST.json` 102 entries: 0 missing, 0 mismatches against the committed blobs. The folders of ADR-AIIM-401, of the censored-fit checks (50 files), of the G2 and G7 extension (10) and of the G3 and G5 extension (56, with 23 pose files) are present; `preregistration/` holds 78 entries including 412, 413, 416, 417, 420 and 421, the nine removed by ADR-AIIM-410 absent, no mention of the sealed families; `results.json` of the G3 and G5 extension records 8 of 9 predictions met and the detections of ADR-AIIM-421.
+
+**Discrepancy found.** The SHA-256 registered in ADR-AIIM-416 (`90e0820e14bf1c5a…`) and ADR-AIIM-420 (`7db40ba84d6818ec…`) does not equal the SHA-256 of `PREREG_ADR416.md` and `PREREG_ADR420.md` as the clone holds them (`b962a575a7d418e7…`, `92420efb0dd54b53…`). The cause is line ends: both files were last saved by a text-mode rewrite on Windows, which gave them CRLF line ends; the hash was taken of that form, after the rewrite and before the run, and the repository stores LF (`.gitattributes`: `eol=lf`), the same text. The text is unchanged (the other pre-registration files of this project, 353, 355, 390, 399 and 412, have LF line ends and match in both forms). Nothing was registered late or altered: the registered hash is correct for the file as written.
+
+**Full values.**
+- `PREREG_ADR416.md`: as written (CRLF) `90e0820e14bf1c5ab82817f38aafc296916b555f13b96aaa2632bff77638647b`; stored in the repository (LF) `b962a575a7d418e729c52487fff9c4050f2ab72586fecd5a28ca31efc92df738`.
+- `PREREG_ADR420.md`: as written (CRLF) `7db40ba84d6818ecdbc3ba739d7de280e82a20f105b657b0b1e8e08868c9c48a`; stored in the repository (LF) `92420efb0dd54b533eb9e74eb1c47fd82aa0b1f9791dd1ba890f9555a7dbcadb`.
+
+**Change.** A comment line stating both forms was appended to the `PREREG_SHA256.txt` of the two run folders (those files are not themselves registered), the `run_manifest.json` of both folders was regenerated (new hash of `PREREG_SHA256.txt`, a note on the line ends), and this entry was added to the pre-registration file of the deposit (`PREREGISTRATION_ADRS` extended by 423, the header's list extended; the same kind of edit as in ADR-AIIM-414, 418 and 422, made without a fresh question and open to reversal). The pre-registration files themselves and every registered hash stay as they were. A reader who hashes the repository's copy gets the LF value; the registered value is for the file with CRLF line ends, which converts to the LF value by replacing CRLF with LF.
+
+**Limits.** As before: a check that the public repository holds what the documents cite and that its manifests are true, not a second person's rerun from a clean clone. The `.npz` arrays of the censored-fit folder are not deposited.

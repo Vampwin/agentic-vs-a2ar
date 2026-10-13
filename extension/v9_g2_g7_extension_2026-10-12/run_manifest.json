@@ -12,7 +12,7 @@
  "frozen_tree": "10_new_system (imported and read, not modified); evaluators G2 and G7, contracts G2_preparation.yaml and G7_md.yaml, orchestrator and report lock",
  "artifacts": {
   "PREREG_ADR416.md": "90e0820e14bf1c5ab82817f38aafc296916b555f13b96aaa2632bff77638647b",
-  "PREREG_SHA256.txt": "0e9737d35d0fc6fcf64a5356bb3f0b4aa97ab84f5ac244bbf40515163a80dd2f",
+  "PREREG_SHA256.txt": "3226daaf0e1bbf2a785cdcf140d07d9831daa832ecf04c9f9da2f0052038232d",
   "anchor_clean.json": "d8b2908a8d67dce2009e6d41cffac7ed19f284e8ed5106e0c6183a072908a9c8",
   "results.json": "fbfe7fcd2e21b3734331912b1866a04c25baa30e882a0d9bfbeabc8678f865dc",
   "verify_injections.json": "b452e99f49870e19c0bc0056535c8dc62a9b2e7afc77973bfca6d75de4fecb5d",
@@ -20,5 +20,6 @@
   "analysis/clean_anchor.py": "c7156cd89d357acbc3d028e91fba7d7ff84f588a436933e0f73770183dc84250",
   "analysis/run_extension.py": "903909feb6ef3b883db67ea7a232b7785436271fbf1e1379a71d25ab54581506",
   "analysis/verify_injections.py": "bd8f3efabcc92297d084669296abb67299f22082a59e2dfd4f9918ba2be93714"
- }
+ },
+ "note_line_ends": "PREREG_ADR416.md was written with CRLF line ends; the registered SHA-256 is of that form; LF form b962a575a7d418e729c52487fff9c4050f2ab72586fecd5a28ca31efc92df738 (ADR-AIIM-423)"
 }
