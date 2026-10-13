@@ -2,8 +2,8 @@
 
 Verbatim copies of the decision-log entries that the article and the supplement describe as pre-registered, and of the entries that record their results. The log is append-only; each entry was written before the run it concerns (or, for a result entry, after it). Each entry fixed the predictions or the decision rule of its analysis before the run, and recorded the SHA-256 of the predictions or of the inputs frozen for it where the run had them. Copied as written: first-person wording and the author's quotations are unchanged. The full log is not deposited.
 
-- source: `00_project_control/08_DECISION_LOG.md`, SHA-256 of the whole log (line ends as LF) `9f7ec92c679c620b818ae4e27f7d8fc1ea3ba53ed14a45667ee8abf7b9c99483`
-- entries: 84 (ADR-AIIM-131, 150, 156, 214, 215, 229, 240, 246, 256, 260, 285 to 336, 353 to 356, 390, 391, 399, 400, 412, 413, 416, 417, 420, 421, 423, 427, 428, 431, 432, 433)
+- source: `00_project_control/08_DECISION_LOG.md`, SHA-256 of the whole log (line ends as LF) `401a24002c914441845dff0670b55f800201a9332945db894bd0bd38ff32b5a4`
+- entries: 86 (ADR-AIIM-131, 150, 156, 214, 215, 229, 240, 246, 256, 260, 285 to 336, 353 to 356, 390, 391, 399, 400, 412, 413, 416, 417, 420, 421, 423, 276, 277, 427, 428, 431, 432, 433)
 
 ---
 
@@ -1046,6 +1046,230 @@ compound here has been assayed, and one panel against one target in one
 representation does not establish a general refusal rate.
 
 ---
+
+## ADR-AIIM-276 — PRE-REGISTRATION: was the library expansion's empirical justification an artefact of row order?
+
+**Status:** proposed — **pre-registration. Frozen before the run.**
+**Date:** 2026-10-02
+**Raised by:** Adisorn Sirichotejirakul — *"เพราะถ้าเกิดจะเปลี่ยนจริง ๆ อาจจะไม่จำเป็นต้องขยาย library ก็ได้ถ้า library แรกให้ active compound ออกมาได้"* (2026-10-02)
+**Follows:** ADR-AIIM-275 (canonical ordering), ADR-AIIM-271 (the distribution)
+**Bears on:** ADR-AIIM-078 (expansion authorised), ADR-AIIM-077, ADR-AIIM-081,
+ADR-AIIM-264, §3.5, §3.6
+
+### The question the author asked
+
+If the original 236-compound library would have produced candidates under a
+procedure that does not depend on row order, then the expansion to 5,000 may
+not have been necessary — and the evidence offered for it was not evidence.
+
+### What is already measured, and is therefore not predicted
+
+ADR-AIIM-075's record rests partly on SNP-Lib being **uniformly** confidently
+inactive. ADR-AIIM-081 states the contrast directly: *"unlike SNP-Lib, the
+expanded library is not uniformly 'confidently inactive' … the flat `{0}`
+every SNP-Lib compound received at every significance level tested"*. And
+ADR-AIIM-078's record of the expansion says *"its exclusion is what motivated
+the expansion"*.
+
+Under canonical row order, at α = 0.05, SNP-Lib returns **17, 28, 7 and 1**
+possibly-active compounds across the four configurations of ADR-AIIM-275.
+None is zero. Over the 200 orderings of ADR-AIIM-271, only **10 %** return
+zero.
+
+**So the "flat {0}" is already known to be a low draw rather than a property
+of the library.** This entry does not re-establish that. It asks the three
+things that decide how much the finding matters.
+
+### Predictions
+
+**R1 — the stronger claim survives at the stricter bars.** ADR-AIIM-077's
+statement is about *every* significance level tested, not only 0.05. Under
+canonical ordering SNP-Lib returns **zero** possibly-active at α = 0.10 and
+α = 0.20, in all four configurations. *Falsified if any configuration returns
+one or more at either level.* If R1 holds, the expansion's premise is damaged
+at the loosest bar and intact at the others, which is a much narrower finding
+than the headline suggests — and naming that possibility first is the point
+of writing this down before looking.
+
+**R2 — identity is not determined even where counts are.** The *sets* of
+SNP-Lib compounds flagged under the released-split and fixed-split canonical
+variants differ by at least one compound. *Falsified if the two sets are
+identical.* Counts being reproducible says nothing about which molecules a
+chemist would be handed.
+
+**R3 — the eligible pool was not 3.** Among the 500 full-protocol compounds
+(`20_new_runs/np_library_funnel_2026-08-15/top500_for_full_protocol.csv`),
+the number whose conformal set does not exclude activity **exceeds 3** under
+canonical ordering, in at least one configuration. *Falsified if all four
+give 3 or fewer.* ADR-AIIM-264 reports 3 of 497 as the binding constraint on
+the whole screening arm; if that 3 is itself an ordering artefact, §3.6's
+central claim about where the bottleneck sits is affected.
+
+### What this cannot settle, stated before the run
+
+**The expansion had two justifications and only one is in question.**
+ADR-AIIM-078 accepted the root cause as **scale, not method**: at a ~0.1 %
+true-active rate a 236-compound library has an expected yield below one, and
+the entry says in terms that *"no methodological correction changes this"*.
+That argument is a prior about library size and is untouched by anything
+measured here.
+
+So the most this run can show is that **the empirical half of the
+justification was not robust** — that SNP-Lib was not uniformly inactive, and
+that the contrast ADR-AIIM-081 drew between the two libraries dissolves. It
+cannot show that expanding was the wrong decision, and no outcome here will
+be written up as though it had. A candidate under a conformal rule is a
+compound the model declines to exclude; it is not an active compound, and
+nothing in this project has been assayed.
+
+### Constraints
+
+1. `10_new_system` is not modified; nothing re-docked; no model promoted; no
+   published number changed.
+2. The released selection and the expansion both stay in the record whatever
+   this returns.
+3. **No compound flagged here may be called a hit.** The tier rule's own
+   reading, quoted in §3.6, is *"compounds the ligand-based model declines to
+   exclude, not compounds it supports"*.
+4. Every outcome is reported, including R1 holding — which would make this a
+   narrow finding — and including an unchanged eligible pool.
+5. Appended to the decision log and its SHA-256 recorded before the run.
+
+Output: `20_new_runs/snplib_canonical_2026-10-02/`.
+
+## ADR-AIIM-277 — ADR-AIIM-276 result: the two libraries were never different, the eligible pool was never 3, and neither fact means the expansion was unnecessary
+
+**Status:** accepted — record of fact
+**Date:** 2026-10-02
+**Approver:** Adisorn Sirichotejirakul — *"เพราะถ้าเกิดจะเปลี่ยนจริง ๆ อาจจะไม่จำเป็นต้องขยาย library ก็ได้ถ้า library แรกให้ active compound ออกมาได้"* (2026-10-02)
+**Pre-registration:** ADR-AIIM-276, SHA-256
+`00eeda4d6074caa619e207e53e98cb34319e36e48fe2373d521a880b1b18a118`; log
+SHA-256 at freeze
+`3284c5a280f816fc4d36035db85eae00ce17c0355c527f410e56910ff3b38410`
+**Artifacts:** `20_new_runs/snplib_canonical_2026-10-02/`
+
+### Grading: all three met
+
+| | prediction | verdict |
+|---|---|---|
+| **R1** | SNP-Lib still returns zero at α = 0.10 and 0.20 | **MET** — zero in all four configurations |
+| **R2** | the two split rules flag different compounds | **MET** — and in arm B they share none |
+| **R3** | the eligible pool among the 500 exceeds 3 | **MET** — 9 to 312 |
+
+### The measurements
+
+Canonical row order throughout. Four configurations, three significance
+levels:
+
+| configuration | library | α=0.05 | α=0.10 | α=0.20 | max *p* |
+|---|---|---|---|---|---|
+| A, released split | SNP-Lib | 17 | 0 | 0 | 0.0737 |
+| | top500 | 33 | 0 | 0 | 0.0988 |
+| A, fixed split | SNP-Lib | 28 | 0 | 0 | 0.0773 |
+| | top500 | 312 | 1 | 0 | 0.1160 |
+| B, released split | SNP-Lib | 7 | 0 | 0 | 0.0744 |
+| | top500 | 64 | 0 | 0 | 0.0781 |
+| B, fixed split | SNP-Lib | 1 | 0 | 0 | 0.0545 |
+| | top500 | 9 | 0 | 0 | 0.0554 |
+
+### R1 narrows the finding, which is why it was predicted first
+
+ADR-AIIM-077's claim is that SNP-Lib received the flat `{0}` **at every
+significance level tested**. Under canonical ordering that claim **fails only
+at α = 0.05** and holds at 0.10 and 0.20 everywhere. The maximum conformal
+*p* SNP-Lib ever reaches across all four configurations is **0.0773** — above
+the 0.05 cut and nowhere near 0.10.
+
+So the original library does produce candidates under a procedure that does
+not depend on row order, and they are **marginal**: compounds sitting just
+past the loosest bar the project evaluated.
+
+### The contrast that justified the expansion does not survive
+
+ADR-AIIM-081 states it directly: *"**unlike SNP-Lib**, the expanded library is
+not uniformly 'confidently inactive'"*, resting on 23 of 5,000 at α = 0.05
+against the flat `{0}` for all 236. That difference was always only at α=0.05;
+both libraries collapsed to `{0}` at 0.10 and 0.20.
+
+Under canonical ordering, **both libraries behave the same way at every
+level** — candidates at 0.05, nothing at 0.10 or 0.20 — and at comparable
+rates: SNP-Lib 7.2 % against top500 6.6 % in arm A's released split, 11.9 %
+against 62.4 % in its fixed split, 3.0 % against 12.8 % in arm B's released
+split.
+
+**The two libraries were never distinguishable in the way the record says they
+were.** The word "unlike" is doing work the data does not support.
+
+### R3: "3 of 497" is an ordering artefact
+
+ADR-AIIM-264 reports 3 of 497 full-protocol compounds clearing the
+ligand-based criterion, and §3.6 calls that **"the binding constraint on the
+screening arm"**. Under canonical ordering the same criterion on the same 500
+compounds admits **9, 33, 64 or 312** depending on configuration.
+
+The claim that the eligible pool is what binds — rather than the gates after
+it — rests on a number that moves by a factor of 35 under a convention
+nobody argued for. §3.6's central structural claim about the screening arm is
+affected, and ADR-AIIM-264's M6 conclusion that the completed gate "shrinks
+the panel rather than changing it" was computed on an eligible set of 3 that
+this does not reproduce.
+
+### R2: reproducible procedures that agree on nothing
+
+The two split rules are each perfectly reproducible (ADR-AIIM-275) and flag
+**different molecules**:
+
+| arm | shared | released-split only | fixed-split only |
+|---|---|---|---|
+| A | 11 | 6 | 17 |
+| **B** | **0** | 7 | 1 |
+
+In arm B the two procedures have **no compound in common**. A chemist handed
+one list and a chemist handed the other would be working on disjoint sets,
+from the same data, the same model and the same rule, differing only in how
+ties among equal-sized scaffolds are broken.
+
+### What this does **not** show, and the author's question answered plainly
+
+**It does not show the expansion was unnecessary.** Three reasons, and they
+matter more than the headline:
+
+1. **The scale argument is untouched.** ADR-AIIM-078 authorised the expansion
+   on the ground that a 236-compound library has an expected yield below one
+   at a ~0.1 % true-active rate — *"no methodological correction changes
+   this"*. Nothing measured here is a methodological correction to that.
+2. **SNP-Lib's candidates are marginal.** Maximum conformal *p* of 0.0773,
+   zero survivors at α = 0.10. These are compounds the model declines to
+   exclude at the loosest bar, which is what §3.6 already says the tier rule
+   means: *"not compounds it supports"*.
+3. **The expanded library is not better in a way that rescues the comparison,
+   but it is not worse either.** Both are marginal at 0.05 and empty above it.
+
+> So the answer to *"if the first library gives actives, was the expansion
+> needed?"* is: **the first library does not give actives — it gives the same
+> marginal non-exclusions the expanded one gives.** What changes is not the
+> verdict on either library but the verdict on the comparison between them,
+> which the record treats as evidence and which turns out to be an artefact.
+
+**No compound in this project has been assayed.** Nothing here is a hit.
+
+### Deliberately not done
+
+* `10_new_system` unmodified; nothing re-docked; no model promoted; no
+  contract amended; no published number changed.
+* **The released selection and the expansion both stand in the record.**
+* **No compound named here is put forward.** The SNP-Lib identifiers in the
+  artifact are recorded so that R2 is checkable, not as a candidate list.
+* ADR-AIIM-264's M6 result was **not** re-run under canonical ordering,
+  though R3 implies it should be before §3.6's bottleneck claim is relied on.
+
+### Artifacts
+
+```
+20_new_runs/snplib_canonical_2026-10-02/snplib_canonical.json
+  four configurations × two libraries × three significance levels,
+  with compound identities for R2 and R3
+```
 
 ## ADR-AIIM-285 — PRE-REGISTRATION: the split convention as a 2×2×2 factorial — three defects, two fixed, and the one nobody touched
 

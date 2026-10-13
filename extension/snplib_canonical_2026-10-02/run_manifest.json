@@ -1,0 +1,10 @@
+{
+ "adr": "ADR-AIIM-277",
+ "date": "2026-10-02",
+ "prereg_sha256": "00eeda4d6074caa619e207e53e98cb34319e36e48fe2373d521a880b1b18a118",
+ "status": "Run evidence. 10_new_system unmodified; no model promoted, no contract amended, no published number changed.",
+ "sha256": {
+  "analysis/snplib_canonical.py": "31fe16474805a776120ac8e3bca882721d513a8db12560a19c3a3c00adae265a",
+  "snplib_canonical.json": "2fb377ee484f7bec7e2a6472a0322b50a6eddfaa93d276d7334c2f06e5c33238"
+ }
+}

@@ -139,7 +139,6 @@ EXTENSION_TREE: list[tuple[str, str, str, set, set]] = [
     for d, why, allow, skip in [
         ("pki_regression_2026-10-05", "random-forest regression on pKi", set(), set()),
         ("pki_censored_em_2026-10-05", "censored-record EM refit", set(), set()),
-        ("rank_prioritisation_2026-10-05", "rank prioritisation", set(), set()),
         ("orthogonal_intersection_2026-10-05", "orthogonal intersection", set(), set()),
         ("majority_rule_validation_2026-10-05", "majority-rule validation", set(), set()),
         ("snplib_dedup_2026-10-05", "SNP-Lib de-duplication", set(), set()),
@@ -190,6 +189,9 @@ EXTENSION_TREE: list[tuple[str, str, str, set, set]] = [
         ("v9_added_checks_2026-10-13", "four added checks for the faults that the evaluators of G2, G7 and G5 did not detect, of 2026-10-13: pre-registration, the wrapper evaluators and copied contracts that carry the checks, scripts and per-case results under the frozen evaluators, with the checks called directly and deployed", set(), set()),
         # Added 2026-10-13 (ADR-AIIM-433, approved by the author): the added checks placed in the tree as new files, and the equivalence run (ADR-AIIM-431, 432)
         ("v9_contracts_added_checks_2026-10-13", "the four added checks as new contract and evaluator files of the tree, of 2026-10-13: pre-registration, the script that wrote the files, the equivalence run against the earlier one and its results", set(), set()),
+        # Added 2026-10-13 (ADR-AIIM-441, approved by the author): the earlier analysis that the account of the sequence of the work cites (ADR-AIIM-276, 277); the ranking of ADR-AIIM-300 and 302 was already deposited
+        ("snplib_canonical_2026-10-02", "the SNP-Lib and the 500 docked compounds of the expanded library under a canonical row order, of 2026-10-02: pre-registration, script and results", set(), set()),
+        ("rank_prioritisation_2026-10-05", "the ranking of the expanded library with the corrected ligand model, of 2026-10-05: pre-registration, script, per-convention top 20 and shortlist", set(), set()),
     ]
 ]
 
@@ -244,7 +246,7 @@ from deposit_screen import (  # noqa: E402
 # verbatim into one file, with the SHA-256 of the whole log at the time of copying. Which entries is decided
 # here, in the open: the extension (285-336), the matched search-space program (353-356) and the earlier
 # pre-registered verification and simulation entries that the text cites.
-PREREGISTRATION_ADRS = sorted({131, 150, 156} | set(range(285, 337)) | {353, 354, 355, 356} | {390, 391} | {399, 400} | {412, 413} | {416, 417} | {420, 421, 423} | {427, 428} | {431, 432, 433} | {214, 215, 229, 246} | {240, 256, 260})   # 412, 413: the censored-target fit under four checks, pre-registration and result (ADR-AIIM-414, approved by the author); ADR-AIIM-111, 112, 161, 171, 193, 194, 236, 237 and 238 were removed on 2026-10-12 (ADR-AIIM-410, approved by the author): the text calls them prespecified, since no hash of the entry, the predictions or the inputs is recorded for them; 214, 215, 229, 246 and 240, 256, 260: the DUD-E enrichment and the spike-in recovery, pre-registration, amendment and results (ADR-AIIM-406, approved by the author); 390, 391: the third replicates of SNP00157 and SNP00163, pre-registration and result (ADR-AIIM-396, approved by the author); 236 to 238: the seeded benchmark through the deployed contracts; 399, 400: the six sensitivity analyses of 2026-10-11 (ADR-AIIM-401, approved by the author)
+PREREGISTRATION_ADRS = sorted({131, 150, 156} | set(range(285, 337)) | {353, 354, 355, 356} | {390, 391} | {399, 400} | {412, 413} | {416, 417} | {420, 421, 423} | {427, 428} | {431, 432, 433} | {276, 277} | {214, 215, 229, 246} | {240, 256, 260})   # 412, 413: the censored-target fit under four checks, pre-registration and result (ADR-AIIM-414, approved by the author); ADR-AIIM-111, 112, 161, 171, 193, 194, 236, 237 and 238 were removed on 2026-10-12 (ADR-AIIM-410, approved by the author): the text calls them prespecified, since no hash of the entry, the predictions or the inputs is recorded for them; 214, 215, 229, 246 and 240, 256, 260: the DUD-E enrichment and the spike-in recovery, pre-registration, amendment and results (ADR-AIIM-406, approved by the author); 390, 391: the third replicates of SNP00157 and SNP00163, pre-registration and result (ADR-AIIM-396, approved by the author); 236 to 238: the seeded benchmark through the deployed contracts; 399, 400: the six sensitivity analyses of 2026-10-11 (ADR-AIIM-401, approved by the author)
 PREREGISTRATION_DST = "preregistration/PRE_REGISTRATION_ENTRIES.md"
 SEALED_MENTION = re.compile(r"\bH(0[6-9]|1[0-2])\b")   # the held-out families that were never exposed
 
@@ -277,7 +279,7 @@ def write_preregistration(out: Path) -> dict:
         "are unchanged. The full log is not deposited.\n\n"
         f"- source: `00_project_control/08_DECISION_LOG.md`, SHA-256 of the whole log (line ends as LF) "
         f"`{hashlib.sha256(text.encode('utf-8')).hexdigest()}`\n"
-        f"- entries: {len(chosen)} (ADR-AIIM-131, 150, 156, 214, 215, 229, 240, 246, 256, 260, 285 to 336, 353 to 356, 390, 391, 399, 400, 412, 413, 416, 417, 420, 421, 423, 427, 428, 431, 432, 433)\n\n---\n\n")
+        f"- entries: {len(chosen)} (ADR-AIIM-131, 150, 156, 214, 215, 229, 240, 246, 256, 260, 285 to 336, 353 to 356, 390, 391, 399, 400, 412, 413, 416, 417, 420, 421, 423, 276, 277, 427, 428, 431, 432, 433)\n\n---\n\n")
     dst = out / PREREGISTRATION_DST
     dst.parent.mkdir(parents=True, exist_ok=True)
     dst.write_text(head + body + "\n", encoding="utf-8", newline="\n")

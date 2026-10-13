@@ -1,7 +1,7 @@
 {
   "assembled": "2026-10-13",
-  "n_files": 1331,
-  "total_bytes": 93177375,
+  "n_files": 1337,
+  "total_bytes": 93891161,
   "n_files_excluded_by_rule": 9267,
   "n_duplicates_removed": 159,
   "n_files_refused_by_screening": 0,
@@ -704,8 +704,8 @@
     {
       "path": "pipeline/scripts/build_deposit.py",
       "source": "10_new_system/scripts/build_deposit.py",
-      "bytes": 34088,
-      "sha256": "2bf1e9de07e11cd00552aa800b49650f3056af2513e02ddbb89c368858b83de7"
+      "bytes": 34659,
+      "sha256": "7bd09c641babad5236fcfb4b9325142144a4c4bb80f7d6c55344dcd55b49291f"
     },
     {
       "path": "pipeline/scripts/build_evidence_index.py",
@@ -2352,6 +2352,12 @@
       "sha256": "601133b14f8c15c34074c8708fadd5d83a1791cee4a5033c919f5b5df9b67899"
     },
     {
+      "path": "figures/graphical_abstract/build_graphical_abstract_v10.py",
+      "source": "30_manuscript/v7_graphical_abstract_2026-10-03/build_graphical_abstract_v10.py",
+      "bytes": 9634,
+      "sha256": "377f5d01313b726e1a2cc13afa609b5cda3cf613e54f9bf1539b5fd8bfb7b897"
+    },
+    {
       "path": "figures/graphical_abstract/build_graphical_abstract_v7.py",
       "source": "30_manuscript/v7_graphical_abstract_2026-10-03/build_graphical_abstract_v7.py",
       "bytes": 20829,
@@ -2368,6 +2374,18 @@
       "source": "30_manuscript/v7_graphical_abstract_2026-10-03/build_graphical_abstract_v9.py",
       "bytes": 7969,
       "sha256": "e40f58bb804ca9b0ab89fab1c1d2e7f62e41f5469133f2a5101644d006569965"
+    },
+    {
+      "path": "figures/graphical_abstract/figure_graphical_abstract_v10_2026-10-13.png",
+      "source": "30_manuscript/v7_graphical_abstract_2026-10-03/figure_graphical_abstract_v10_2026-10-13.png",
+      "bytes": 654129,
+      "sha256": "e4ec85f7207e7aa92c994468a9d6a8101430d6f4a10978f25509d1c9215ef0c2"
+    },
+    {
+      "path": "figures/graphical_abstract/figure_graphical_abstract_v10_2026-10-13.svg",
+      "source": "30_manuscript/v7_graphical_abstract_2026-10-03/figure_graphical_abstract_v10_2026-10-13.svg",
+      "bytes": 15247,
+      "sha256": "2551094ea157d0a0755e0308deb754ab7b5ec3047d85c31957595d28ec212a50"
     },
     {
       "path": "figures/graphical_abstract/figure_graphical_abstract_v7_2026-10-03.png",
@@ -2704,30 +2722,6 @@
       "source": "20_new_runs/pki_censored_em_2026-10-05/run_manifest.json",
       "bytes": 480,
       "sha256": "c90a34af76245a0fb4e141f8e4cfbc6ba6e22fac8938fab7e050997b29dcf163"
-    },
-    {
-      "path": "extension/rank_prioritisation_2026-10-05/analysis/rank_prioritisation.py",
-      "source": "20_new_runs/rank_prioritisation_2026-10-05/analysis/rank_prioritisation.py",
-      "bytes": 14007,
-      "sha256": "3264907584fd7be83b52a84350e619ed5f4919323574b99d928332331abf6c4d"
-    },
-    {
-      "path": "extension/rank_prioritisation_2026-10-05/rank_prioritisation.json",
-      "source": "20_new_runs/rank_prioritisation_2026-10-05/rank_prioritisation.json",
-      "bytes": 11262,
-      "sha256": "011d8ed281206d49b4146ffc83fe0447037c9dca26370d9d1e1d0a7e993c3a86"
-    },
-    {
-      "path": "extension/rank_prioritisation_2026-10-05/run_manifest.json",
-      "source": "20_new_runs/rank_prioritisation_2026-10-05/run_manifest.json",
-      "bytes": 438,
-      "sha256": "7989d7f9dcc4fe573c2127759a44ff315daa1250665bd1b0e3ce093b3aaa80e3"
-    },
-    {
-      "path": "extension/rank_prioritisation_2026-10-05/shortlist.csv",
-      "source": "20_new_runs/rank_prioritisation_2026-10-05/shortlist.csv",
-      "bytes": 815,
-      "sha256": "083bcd65c6cced6a0b48628d2856f35fd122ac46ab7d3162adc02ffdd8e77d9e"
     },
     {
       "path": "extension/orthogonal_intersection_2026-10-05/analysis/orthogonal_intersection.py",
@@ -8040,10 +8034,52 @@
       "sha256": "7756e08ff73250de58287217d3aa463149645092ce0580b96b6e0f84ab091822"
     },
     {
+      "path": "extension/snplib_canonical_2026-10-02/analysis/snplib_canonical.py",
+      "source": "20_new_runs/snplib_canonical_2026-10-02/analysis/snplib_canonical.py",
+      "bytes": 7828,
+      "sha256": "31fe16474805a776120ac8e3bca882721d513a8db12560a19c3a3c00adae265a"
+    },
+    {
+      "path": "extension/snplib_canonical_2026-10-02/run_manifest.json",
+      "source": "20_new_runs/snplib_canonical_2026-10-02/run_manifest.json",
+      "bytes": 471,
+      "sha256": "007583b65ce5178b5717ababecd456f4130000bfbd3fb85bde596c57c9d7cd00"
+    },
+    {
+      "path": "extension/snplib_canonical_2026-10-02/snplib_canonical.json",
+      "source": "20_new_runs/snplib_canonical_2026-10-02/snplib_canonical.json",
+      "bytes": 14485,
+      "sha256": "673fa017ac4035d69c645d61f9078bb74c40bd867f1bc0dddf7ebb1711ca7f37"
+    },
+    {
+      "path": "extension/rank_prioritisation_2026-10-05/analysis/rank_prioritisation.py",
+      "source": "20_new_runs/rank_prioritisation_2026-10-05/analysis/rank_prioritisation.py",
+      "bytes": 14007,
+      "sha256": "3264907584fd7be83b52a84350e619ed5f4919323574b99d928332331abf6c4d"
+    },
+    {
+      "path": "extension/rank_prioritisation_2026-10-05/rank_prioritisation.json",
+      "source": "20_new_runs/rank_prioritisation_2026-10-05/rank_prioritisation.json",
+      "bytes": 11262,
+      "sha256": "011d8ed281206d49b4146ffc83fe0447037c9dca26370d9d1e1d0a7e993c3a86"
+    },
+    {
+      "path": "extension/rank_prioritisation_2026-10-05/run_manifest.json",
+      "source": "20_new_runs/rank_prioritisation_2026-10-05/run_manifest.json",
+      "bytes": 438,
+      "sha256": "7989d7f9dcc4fe573c2127759a44ff315daa1250665bd1b0e3ce093b3aaa80e3"
+    },
+    {
+      "path": "extension/rank_prioritisation_2026-10-05/shortlist.csv",
+      "source": "20_new_runs/rank_prioritisation_2026-10-05/shortlist.csv",
+      "bytes": 815,
+      "sha256": "083bcd65c6cced6a0b48628d2856f35fd122ac46ab7d3162adc02ffdd8e77d9e"
+    },
+    {
       "path": "preregistration/PRE_REGISTRATION_ENTRIES.md",
       "source": "00_project_control/08_DECISION_LOG.md",
-      "bytes": 524538,
-      "sha256": "80a562805ae895e707cff65c92dba70fbf34ab4e0b94ca7c2b69369c9a867477"
+      "bytes": 535959,
+      "sha256": "c9defb3f7cfc30b3a51f6801777c8a495c089e84b0abcd1bdbe8918544447197"
     }
   ]
 }
