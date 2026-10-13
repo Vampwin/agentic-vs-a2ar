@@ -76,7 +76,7 @@ def build(out: Path) -> Path:
                anchor="start", weight="bold" if last else "normal")
         if i < len(ROWS) - 1:
             s.arrow(rx + 22, ys[i] + rh + 0.4, rx + 22, ys[i + 1] - 0.4, sw=0.6)
-    s.text(px + pw / 2, bot - 4.2, fits("none of the three is put forward as a candidate", 7.6, pw - 10), size=7.6,
+    s.text(px + pw / 2, bot - 4.2, fits("the outcome of the frozen run", 7.6, pw - 10), size=7.6,
            fill=SOFT, style="italic")
 
     # ------------------------------------------------------------ right: three questions

@@ -2,7 +2,7 @@
 
 Verbatim copies of the decision-log entries that the article and the supplement describe as pre-registered, and of the entries that record their results. The log is append-only; each entry was written before the run it concerns (or, for a result entry, after it). Each entry fixed the predictions or the decision rule of its analysis before the run, and recorded the SHA-256 of the predictions or of the inputs frozen for it where the run had them. Copied as written: first-person wording and the author's quotations are unchanged. The full log is not deposited.
 
-- source: `00_project_control/08_DECISION_LOG.md`, SHA-256 of the whole log (line ends as LF) `401a24002c914441845dff0670b55f800201a9332945db894bd0bd38ff32b5a4`
+- source: `00_project_control/08_DECISION_LOG.md`, SHA-256 of the whole log (line ends as LF) `e155b9205f7b47d8088ba28ac458f66d1077cf712e63c235d7f26342bb1eeff9`
 - entries: 86 (ADR-AIIM-131, 150, 156, 214, 215, 229, 240, 246, 256, 260, 285 to 336, 353 to 356, 390, 391, 399, 400, 412, 413, 416, 417, 420, 421, 423, 276, 277, 427, 428, 431, 432, 433)
 
 ---

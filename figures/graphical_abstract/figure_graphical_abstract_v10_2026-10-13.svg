@@ -38,7 +38,7 @@
   <rect x="12" y="179.2" width="196" height="15.2" rx="2.5" fill="#E3EBF3" stroke="#2C5F8A" stroke-width="0.9"/>
   <text x="54" y="190" font-size="9.8" fill="#2C5F8A" font-weight="bold" font-style="normal" text-anchor="end">3</text>
   <text x="59" y="189.8" font-size="7.8" fill="#1B2420" font-weight="bold" font-style="normal" text-anchor="start">met the original two-part rule</text>
-  <text x="114" y="201.8" font-size="7.6" fill="#55625B" font-weight="normal" font-style="italic" text-anchor="middle">none of the three is put forward as a candidate</text>
+  <text x="114" y="201.8" font-size="7.6" fill="#55625B" font-weight="normal" font-style="italic" text-anchor="middle">the outcome of the frozen run</text>
   <rect x="232" y="23" width="352" height="56.6667" rx="3" fill="#FFFFFF" stroke="#4F7130" stroke-width="0.9"/>
   <rect x="232" y="23" width="352" height="14.5" rx="3" fill="#E7EEDC" stroke="#4F7130" stroke-width="0.9"/>
   <text x="240" y="33" font-size="8.6" fill="#4F7130" font-weight="bold" font-style="normal" text-anchor="start">2 Do the checks catch planted errors?</text>

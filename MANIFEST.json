@@ -1,7 +1,7 @@
 {
   "assembled": "2026-10-13",
   "n_files": 1337,
-  "total_bytes": 93891161,
+  "total_bytes": 93883580,
   "n_files_excluded_by_rule": 9267,
   "n_duplicates_removed": 159,
   "n_files_refused_by_screening": 0,
@@ -2354,8 +2354,8 @@
     {
       "path": "figures/graphical_abstract/build_graphical_abstract_v10.py",
       "source": "30_manuscript/v7_graphical_abstract_2026-10-03/build_graphical_abstract_v10.py",
-      "bytes": 9634,
-      "sha256": "377f5d01313b726e1a2cc13afa609b5cda3cf613e54f9bf1539b5fd8bfb7b897"
+      "bytes": 9616,
+      "sha256": "bf1d3817adb6f2f25ad51ba42dc955a227edd0653fe2dcf50ce65aa1a2c193a5"
     },
     {
       "path": "figures/graphical_abstract/build_graphical_abstract_v7.py",
@@ -2378,14 +2378,14 @@
     {
       "path": "figures/graphical_abstract/figure_graphical_abstract_v10_2026-10-13.png",
       "source": "30_manuscript/v7_graphical_abstract_2026-10-03/figure_graphical_abstract_v10_2026-10-13.png",
-      "bytes": 654129,
-      "sha256": "e4ec85f7207e7aa92c994468a9d6a8101430d6f4a10978f25509d1c9215ef0c2"
+      "bytes": 646584,
+      "sha256": "223487cb156ee7743115b43b890d3106b8e562b33c7611db8815be22a6f9ac9c"
     },
     {
       "path": "figures/graphical_abstract/figure_graphical_abstract_v10_2026-10-13.svg",
       "source": "30_manuscript/v7_graphical_abstract_2026-10-03/figure_graphical_abstract_v10_2026-10-13.svg",
-      "bytes": 15247,
-      "sha256": "2551094ea157d0a0755e0308deb754ab7b5ec3047d85c31957595d28ec212a50"
+      "bytes": 15229,
+      "sha256": "bedb4cee175cae7c2b43d558c4d8e5a056a0d2eb419e9bc5889d9f09880acd78"
     },
     {
       "path": "figures/graphical_abstract/figure_graphical_abstract_v7_2026-10-03.png",
@@ -8079,7 +8079,7 @@
       "path": "preregistration/PRE_REGISTRATION_ENTRIES.md",
       "source": "00_project_control/08_DECISION_LOG.md",
       "bytes": 535959,
-      "sha256": "c9defb3f7cfc30b3a51f6801777c8a495c089e84b0abcd1bdbe8918544447197"
+      "sha256": "ff4fcdd6d59578c2128756d3fcaa0ac1888553135dbcf1abc0267d7c3ea0ed82"
     }
   ]
 }
