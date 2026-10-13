@@ -2,8 +2,8 @@
 
 Verbatim copies of the decision-log entries that the article and the supplement describe as pre-registered, and of the entries that record their results. The log is append-only; each entry was written before the run it concerns (or, for a result entry, after it). Each entry fixed the predictions or the decision rule of its analysis before the run, and recorded the SHA-256 of the predictions or of the inputs frozen for it where the run had them. Copied as written: first-person wording and the author's quotations are unchanged. The full log is not deposited.
 
-- source: `00_project_control/08_DECISION_LOG.md`, SHA-256 of the whole log (line ends as LF) `2cae6c4739323c4895cdb25147e1182aff812aaf7e019fa076d5c3d6f783a79f`
-- entries: 81 (ADR-AIIM-131, 150, 156, 214, 215, 229, 240, 246, 256, 260, 285 to 336, 353 to 356, 390, 391, 399, 400, 412, 413, 416, 417, 420, 421, 423, 427, 428)
+- source: `00_project_control/08_DECISION_LOG.md`, SHA-256 of the whole log (line ends as LF) `9f7ec92c679c620b818ae4e27f7d8fc1ea3ba53ed14a45667ee8abf7b9c99483`
+- entries: 84 (ADR-AIIM-131, 150, 156, 214, 215, 229, 240, 246, 256, 260, 285 to 336, 353 to 356, 390, 391, 399, 400, 412, 413, 416, 417, 420, 421, 423, 427, 428, 431, 432, 433)
 
 ---
 
@@ -8614,3 +8614,49 @@ Under the deployed path every case detected by an added check was halted, and th
 **Observation, outside the gate checks.** In the receptor of the cross-docking set, HIS 333 carries HD1 and its ND1 is typed as an acceptor; the receptor of the cross-docking validation set has eight histidines without any ring hydrogen; the receptors of the screening, its two reproductions, the water-shell, clinical-reference and 9XT redocking analyses are consistent. The effect on any cross-docking result was not evaluated, and none of the reported numbers is changed by this entry.
 
 **What this entry does not do.** It does not change a frozen evaluator or contract; integrating the four checks into `10_new_system/` as a new contract version needs the author's approval and is open. Nothing is added to the article, the supplement or the deposit by this entry.
+
+## ADR-AIIM-431 — PRE-REGISTRATION: the four added checks placed in the frozen tree as new files; an equivalence check (2026-10-13)
+
+**Status:** accepted — **pre-registration. Frozen before the equivalence run was made.**
+**Date:** 2026-10-13
+**Decided by:** Adisorn Sirichotejirakul, in chat: asked to put the four checks into the contracts of the frozen tree, then chose "ข้อ 1 แบบเพิ่มไฟล์ใหม่ (Recommended)", i.e. add new files to `10_new_system/` and edit none.
+**Pre-registration file:** `20_new_runs/v9_contracts_added_checks_2026-10-13/PREREG_ADR431.md`, SHA-256 `e2c195bba565b4730f59c605f207a897dc861dfdafafa88b304b41e4ba166a31` (also in `PREREG_SHA256.txt`). **Decision log at freeze (text/LF), before this entry was appended:** `fac0e2946507991df8f6ce850a18885da41752f33be576a0574dfb885e3400d2`.
+**Discipline:** ADR-AIIM-263. **Skills invoked:** none beyond ADR-AIIM-427; nothing installed.
+
+**What was done.** Eight new files in `10_new_system/`: `evaluators/added_checks.py`, `G2_evaluator_added_checks.py`, `G7_evaluator_added_checks.py`, `G5a_evaluator_added_checks.py`; `contracts/G2_preparation_added_checks.yaml`, `G7_md_added_checks.yaml`, `G5a_validity_added_checks.yaml`; `tests/test_added_checks.py` (eight tests). Each evaluator calls the frozen evaluator unchanged and appends the checks of ADR-AIIM-427; each contract is the frozen contract text with the identifier `..._added_checks`, the new evaluator, the check entries (critical) and a version suffix `+added-checks-2026-10-13`. The earlier plan called these "v1.1"; the G2 contract already carries version 1.1.0 (ADR-AIIM-073), so they are named by what they add. A record key of the G2 check is columns 22 to 27 of the ATOM line; the contract says so. The 271 files that stood in the tree before (hashes in `tree_before.json`) are not opened for writing. The frozen contracts and evaluators are the ones that the seeded benchmark of the article measured and remain so.
+
+**What is fixed.** Predictions P1 to P5: no existing file changed, the files added are these eight; the 715 existing tests and the eight new ones pass; the 37 clean cases PASS and the 160 faulted cases give the same states and failed-check lists as ADR-AIIM-428 in the frozen evaluators, the in-tree evaluators called directly and the deployed path; the eleven predictions of ADR-AIIM-427 are met again. Nothing is written into the tree by the run.
+
+**Not allowed to follow from the outcome.** No change of any frozen number, contract or evaluator; the 124 of 128 and 101 of 128 are not recomputed; the sealed held-out cases are not used; no compound is called active.
+
+## ADR-AIIM-432 — RESULT of the pre-registration of ADR-AIIM-431: the contracts and evaluators that now stand in the tree reproduce the earlier run case for case (2026-10-13)
+
+**Status:** accepted — record of fact. **Date:** 2026-10-13
+**Pre-registration:** ADR-AIIM-431, SHA-256 `e2c195bba565b4730f59c605f207a897dc861dfdafafa88b304b41e4ba166a31`.
+**Run folder:** `20_new_runs/v9_contracts_added_checks_2026-10-13/` (`make_files.py`, `run_equivalence.py`, `results.json`, `anchor_clean.json`, `equivalence.json`, `tree_before.json`, `written_files.json`, `run_manifest.json`; the evaluation took 16 s). Nothing was rerun.
+
+**Predictions: 5 of 5 met.**
+- P1: none of the 271 files that stood in the tree changed (hashes compared before and after); the files added are `evaluators/added_checks.py`, `G2_evaluator_added_checks.py`, `G7_evaluator_added_checks.py`, `G5a_evaluator_added_checks.py`, `contracts/G2_preparation_added_checks.yaml`, `G7_md_added_checks.yaml`, `G5a_validity_added_checks.yaml` and `tests/test_added_checks.py`. One of the new files, the G2 contract, was edited once after it was written and before the run, to state the format of a record key; its hash in `run_manifest.json` is the one in the tree.
+- P2: the test suite of the tree: 723 passed (715 existing, 8 new).
+- P3: the 37 clean cases PASS in the frozen evaluators, the in-tree added-check evaluators called directly and the deployed path on the in-tree contracts.
+- P4: the 160 faulted cases give the same state and the same failed-check list as ADR-AIIM-428 in all three (`cases_equal_to_earlier_run` true).
+- P5: the eleven predictions of ADR-AIIM-427 are met again.
+
+**What this does and does not establish.** The checks work from the tree's own files exactly as they did from the run folder's copies. It does not change what the article's benchmark measured: the frozen contracts and evaluators are byte-identical, so 124 of 128 and 101 of 128 stand. The deployed system in the tree still uses the frozen contracts unless a run names a `*_added_checks` contract file; making them the default is a further decision of the author.
+
+**Records changed.** Deposit (next entry), documents, package README, memory, hand-over note.
+
+## ADR-AIIM-433 — The added checks as new files of the tree deposited at commit 335c7c0 and written into the documents; the unit tests moved out of the tree's test directory (2026-10-13)
+
+**Status:** accepted — record of fact. **Date:** 2026-10-13
+**Decided by:** Adisorn Sirichotejirakul (approval of ADR-AIIM-431 in chat, and the pattern of the earlier extensions: deposit, supplement and article). **Follows:** ADR-AIIM-431, 432. **Skills invoked:** none beyond ADR-AIIM-397; nothing installed.
+
+**A deviation from ADR-AIIM-431, stated as it happened.** The pre-registered file list put `tests/test_added_checks.py` in the tree, and predictions P1 and P2 (the eight files added; 715 existing plus 8 new tests pass) were met when the run was made (ADR-AIIM-432, unchanged). The G8 check `test_count` then reported 98 pass and 2 value mismatches, because it counts the tests collected from the tree (723) against the 715 that the article reports for the audited suite of 13 September; the sentence is a statement about that audit and is not true of a different suite. Rather than rewrite the audit's number, the eight tests were moved to `20_new_runs/v9_contracts_added_checks_2026-10-13/analysis/test_added_checks.py` (they import the tree and pass from there: 8 of 8), and the file was deleted from `tests/`. The tree's own suite is again 715 cases, all passing. The entries ADR-AIIM-431 and 432 stay as registered and recorded; `run_manifest.json` of that folder still lists the test file among the files added and is not rewritten. The tree therefore holds seven new files: `evaluators/added_checks.py`, `G2_evaluator_added_checks.py`, `G7_evaluator_added_checks.py`, `G5a_evaluator_added_checks.py` and `contracts/G2_preparation_added_checks.yaml`, `G7_md_added_checks.yaml`, `G5a_validity_added_checks.yaml`.
+
+**Deposit.** `10_new_system/scripts/build_deposit.py` edited (the author's approval of the pattern, as in ADR-AIIM-429): the new run folder in the extension list, ADR-AIIM-431 to 433 in the pre-registration list, and the header sentence. The seven new files reach the deposit through the existing copies of `contracts/` and `evaluators/`. Rebuilt (screening refused none; no identifier of the sealed families in the new files). Committed locally, author Vampwin, no Co-Authored-By line; both manifests checked against the committed blobs, 0 missing, 0 mismatched. **Not pushed:** the author runs `git push origin main`.
+
+**Documents.** Article: Section 3.1 now says that the four checks were added as new contract and evaluator files that call the frozen ones unchanged; Section 4 says the next step is to make them the contracts a run uses by default; Data availability gives the new commit and counts. Supplement, Section 15: the paragraph says that the new files stand in the tree (none of its 271 existing files changed) and that the 37 clean and 160 faulted cases gave the same states and failed-check lists with them, directly and deployed; the frozen contracts, which the benchmark measured, are unchanged and remain what a run uses unless it names an added-checks contract. Section 17: the commit.
+
+**Checks.** The checks of the documents (reject-all and accept-all, G8, the number audit, pages) and of the pushed commit are recorded in the entry that follows the push; this entry is deposited, so it carries no count that depends on the commit it is part of.
+
+**Limits.** As in ADR-AIIM-429: the deposit shows that the files and manifests are what the documents cite, not a second person's rerun.

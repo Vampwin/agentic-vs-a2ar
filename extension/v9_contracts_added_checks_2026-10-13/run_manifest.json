@@ -1,0 +1,34 @@
+{
+ "adr": "ADR-AIIM-432 (results of ADR-AIIM-431)",
+ "date": "2026-10-13",
+ "prereg_sha256": "e2c195bba565b4730f59c605f207a897dc861dfdafafa88b304b41e4ba166a31",
+ "environment": {
+  "python": "3.12.10",
+  "numpy": "2.4.6",
+  "pandas": "3.0.3",
+  "rdkit": "2026.03.3"
+ },
+ "files_added_to_10_new_system": {
+  "evaluators/added_checks.py": "518c12163ce17ce2e9280e35b629d306fd2febfe9a08f7368ea71a915a261e90",
+  "evaluators/G2_evaluator_added_checks.py": "0d20695604de3568c451beec512ca5b0dabb3181bb09c7fdd3839f502c9e39d6",
+  "evaluators/G5a_evaluator_added_checks.py": "e227038745940d5f7f0929edeb4fe44fd6ce471b435e9d891346a74cd91b5516",
+  "evaluators/G7_evaluator_added_checks.py": "a74705e361c3288471736353b5c6bcbf7be84df2774708a64bd1782f47f996ec",
+  "contracts/G2_preparation_added_checks.yaml": "13197ba29461f734e44e84700c831c691b472d68dde05e19d8e3ceb9311e6420",
+  "contracts/G7_md_added_checks.yaml": "7d9e3842e7d6f9351879db77620e6aa79c6c3c02c88664da3c4caf70267c470b",
+  "contracts/G5a_validity_added_checks.yaml": "f483b3528cb74eb50de1a910c08169d366d90a30f71d15086a5b18ec3be87004",
+  "tests/test_added_checks.py": "ffbeb65bdd6b9622f1f4f1bc3330d0cf243da92f319d1344b5e9fe678a51751a"
+ },
+ "note": "the contract G2_preparation_added_checks.yaml was edited once after make_files.py wrote it (one sentence on the record key); its hash is the one in the tree",
+ "artifacts": {
+  "analysis/make_files.py": "a7dad3c9a13cff4671e27560b64ca4bb3568551161654125e7a4ea361d715315",
+  "analysis/run_equivalence.py": "67c349332f293ddea95e9b1ecf5eaa20785332c1c594e9f329387b72ace827bc",
+  "anchor_clean.json": "69d2de2b40a937149295d70e2a56574053a2a82e8c6ef6c63925fea650b26b19",
+  "equivalence.json": "3c6c38249364fe096e97eda4ca693f12032ca6ad1d153fcc8b65a828ae601661",
+  "PREREG_ADR431.md": "e2c195bba565b4730f59c605f207a897dc861dfdafafa88b304b41e4ba166a31",
+  "PREREG_SHA256.txt": "dc0285ad9e3c6324080027e029b04f40ac0d4104477650b7734a4a48d995a93c",
+  "results.json": "fa01e8307b595923141eeb6e545f49cf04d245b2aae8ef1c0af80d255287e9ce",
+  "run_equivalence.log": "cb49a8d47e891bc789181de3389477a2997e762cee2e3447d57d57819c7bfef1",
+  "tree_before.json": "8501ad387257f54ce7d3fb8154b128e948d36e3801d4ef08ab393baf0108ff8c",
+  "written_files.json": "6c21e69e8a52f350286567e4b25811daa162bd17036018c1c9cad62da32a57ed"
+ }
+}

@@ -1,0 +1,9 @@
+{
+ "evaluators/added_checks.py": "518c12163ce17ce2e9280e35b629d306fd2febfe9a08f7368ea71a915a261e90",
+ "evaluators/G2_evaluator_added_checks.py": "0d20695604de3568c451beec512ca5b0dabb3181bb09c7fdd3839f502c9e39d6",
+ "evaluators/G5a_evaluator_added_checks.py": "e227038745940d5f7f0929edeb4fe44fd6ce471b435e9d891346a74cd91b5516",
+ "evaluators/G7_evaluator_added_checks.py": "a74705e361c3288471736353b5c6bcbf7be84df2774708a64bd1782f47f996ec",
+ "contracts/G2_preparation_added_checks.yaml": "4b58c339d7ae3263ce1b20c09fb788f8f77c8c17c7243f55854dfc1a912f21e4",
+ "contracts/G7_md_added_checks.yaml": "7d9e3842e7d6f9351879db77620e6aa79c6c3c02c88664da3c4caf70267c470b",
+ "contracts/G5a_validity_added_checks.yaml": "f483b3528cb74eb50de1a910c08169d366d90a30f71d15086a5b18ec3be87004"
+}

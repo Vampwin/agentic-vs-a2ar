@@ -1,0 +1,20 @@
+{
+ "n_cases": 160,
+ "cases_equal_to_earlier_run": true,
+ "n_clean": 37,
+ "clean_equal_to_earlier_run": true,
+ "predictions_met_now": 11,
+ "predictions_met_before": 11,
+ "existing_files_in_tree": 271,
+ "existing_files_changed": [],
+ "files_added_to_tree": [
+  "contracts/G2_preparation_added_checks.yaml",
+  "contracts/G5a_validity_added_checks.yaml",
+  "contracts/G7_md_added_checks.yaml",
+  "evaluators/G2_evaluator_added_checks.py",
+  "evaluators/G5a_evaluator_added_checks.py",
+  "evaluators/G7_evaluator_added_checks.py",
+  "evaluators/added_checks.py",
+  "tests/test_added_checks.py"
+ ]
+}

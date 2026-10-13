@@ -1,0 +1,103 @@
+contract_id: G5a_validity_v1_added_checks
+stage: external_validation_validity
+description: >
+  Hard gate for external validation setup integrity. Must pass before any
+  performance metrics (G5b) are computed or inspected. Verifies that the
+  benchmark cannot introduce label leakage and that the metric implementations
+  are independent of the docking pipeline.
+
+  IMPORTANT: benchmark_role in configs/a2a_frozen_config.yaml must be set
+  (Option A or Option B) by a human before this gate runs. The gate engine
+  checks this and HALTS if benchmark_role is null.
+
+inputs:
+  - chembl_benchmark_csv
+  - benchmark_role_declaration   # Human-signed record in artifact registry
+  - docking_scores_for_validation_set  # Subset of G4 output for benchmark compounds
+  - g5a_evaluator_source_hash    # SHA-256 of evaluators/G5a_evaluator.py
+
+preconditions:
+  - G4_passed
+  - benchmark_role_declared      # Verifies benchmark_role_declaration exists in registry
+
+evaluator: evaluators.G5a_evaluator_added_checks
+
+checks:
+  - id: benchmark_role_set
+    description: >
+      Confirms that configs/a2a_frozen_config.yaml benchmark_role is not null
+      and that a human-signed benchmark_role_declaration exists in the artifact
+      registry with a timestamp before this gate's run.
+    severity: critical
+  - id: label_isolation
+    description: >
+      ChEMBL benchmark labels (active/inactive) were not accessible to the
+      acting agent during any step of method selection, threshold setting,
+      or score computation. Verified by checking that the labels file was not
+      read by the orchestrator or any evaluator prior to this gate.
+      The artifact registry read-access log is the source of truth.
+    severity: critical
+  - id: set_identity
+    description: >
+      SHA-256 of the benchmark compound ID list computed at the start of the
+      run matches the hash registered in the artifact registry at gate start.
+      Detects any post-hoc addition or removal of compounds.
+    severity: critical
+  - id: no_training_overlap
+    description: >
+      No compound in the benchmark set (by InChIKey) appears in any QSAR
+      training set used by the pipeline. If QSAR scoring was not used, this
+      check is skipped with a record that it was not applicable.
+    severity: critical
+  - id: independent_metric_implementation
+    description: >
+      SHA-256 of evaluators/G5a_evaluator.py does not match SHA-256 of any
+      script in 10_new_system/kdss_audit/ or the docking scripts.
+      Verifies that metric code shares no compiled module with the docking engine.
+    severity: high
+  - id: bootstrap_pairs_together
+    description: >
+      Bootstrap resampling implementation draws (compound, score, label) triplets
+      together — does not resample scores and labels independently.
+      Verified by inspecting the evaluator source or running a known-answer test.
+    severity: critical
+  - id: bootstrap_n_resamples
+    description: Bootstrap n_resamples ≥ 1000
+    severity: high
+  - id: enrichment_counts_positive
+    description: >
+      EF@1% numerator (active compounds in top 1%) is reported as an absolute
+      count, not only as a ratio. Allows verification of enrichment arithmetic.
+    severity: high
+
+  - id: benchmark_ids_not_exposed
+    description: >
+      No file read before the gate by a step other than G5a and G5b, and not listed in registered_ranking_inputs, contains a compound ID of the benchmark (active or inactive) or cannot be opened.
+    severity: critical
+
+thresholds:
+  pass_conditions: all_critical_checks_pass
+
+severity: critical
+on_pass: continue_to_G5b
+on_fail:
+  - halt
+  # G5a failures are not auto-repairable; they indicate a design flaw
+  # that requires human investigation before any performance numbers are seen
+on_warn:
+  - log_to_ledger
+
+evidence:
+  - benchmark_role_declaration
+  - label_isolation_log
+  - set_identity_hash_comparison
+  - evaluator_source_hashes
+  - bootstrap_implementation_confirmation
+
+version: "1.0.0+added-checks-2026-10-13"
+frozen_date: "2026-07-30"
+added_checks:
+  - date: "2026-10-13"
+    checks: [benchmark_ids_not_exposed]
+    extra_inputs: [registered_ranking_inputs]
+    note: "A separate file: the frozen G5a_validity.yaml and its evaluator are unchanged. This contract is evaluated by evaluators.G5a_evaluator_added_checks, which calls the frozen evaluator and appends the checks."
