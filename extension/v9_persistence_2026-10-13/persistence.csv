@@ -1,0 +1,17 @@
+compound,name,conventions_of_8,distinct_splits_of_5,selected_at_threshold_0.269,selected_at_threshold_0.30,selected_by_ridge_tobit,shortlist_rank,dropped_by_scaffold_uniqueness,murcko_framework,persists_under_every_choice_tested
+SNP00157,N-trans-feruloyl tyramine,8,5,True,True,True,1,False,O=C(C=Cc1ccccc1)NCCc1ccccc1,True
+SNP00163,Phoyunbene C,8,5,True,False,False,2,False,C(=Cc1ccccc1)c1ccccc1,False
+SNP00223,Thunalbene,8,5,True,True,True,,True,C(=Cc1ccccc1)c1ccccc1,True
+SNP00154,"1-(4-Hydroxylbenzyl)-4-methoxy 9,10-dihydrophenanthrene 2,7-diol",8,5,False,False,False,3,False,c1ccc(Cc2cccc3c2CCc2ccccc2-3)cc1,False
+SNP00097,Dengibsinin,8,5,True,True,True,4,False,O=C1c2ccccc2-c2ccccc21,True
+SNP00052,Denchrysan B,7,4,False,False,True,5,False,c1ccc2c(c1)Cc1ccccc1-2,False
+SNP00033,"4,5-Dihydroxy-2,3-dimethoxy-9,10-
+dihydrophenanthrene",7,4,False,False,True,6,False,c1ccc2c(c1)CCc1ccccc1-2,False
+SNP00095,Dihydrodengibsinin,7,4,False,False,True,,True,c1ccc2c(c1)Cc1ccccc1-2,False
+SNP00010,Hircinol,6,4,False,False,True,,True,c1ccc2c(c1)CCc1ccccc1-2,False
+SNP00142,Dendrocrumenol A,6,4,False,False,False,7,False,c1ccc2c(c1)ccc1ccccc12,False
+SNP00006,2-(p-Hydroxyphenyl)ethyl p-coumarate,6,4,False,False,True,8,False,O=C(C=Cc1ccccc1)OCCc1ccccc1,False
+SNP00144,Dendrocrumenol C,5,3,True,False,False,,True,O=C1c2ccccc2-c2ccccc21,False
+SNP00051,Dendroflorin,5,3,True,False,False,,True,O=C1c2ccccc2-c2ccccc21,False
+SNP00087,"4,5-Dihydroxy-2-methoxy-9,10-dihydrophenanthrene",5,3,False,False,False,,True,c1ccc2c(c1)CCc1ccccc1-2,False
+SNP00198,Pinadensin B,5,3,False,False,False,,True,c1ccc2c(c1)ccc1ccccc12,False

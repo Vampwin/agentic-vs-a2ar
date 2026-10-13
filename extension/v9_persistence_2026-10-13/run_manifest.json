@@ -1,0 +1,13 @@
+{
+ "adr": "ADR-AIIM-447",
+ "date": "2026-10-13",
+ "environment": {
+  "python": "3.12.10"
+ },
+ "note": "descriptive tabulation of registered results, made after they were seen; no fit",
+ "artifacts": {
+  "analysis/persistence.py": "173c551b745ef11650e244596c0c66e7d43cd56b56737a6515f6838d1c35df91",
+  "persistence.csv": "e457784a4c193eb2ddbba07b9f4482f79a3cd55fa2513cbcfc27b6a9e757d1a4",
+  "persistence.json": "c8ee0c1b1442a1169a51023857771c6e8d8769a74afef48530ba9119c6c22eaa"
+ }
+}

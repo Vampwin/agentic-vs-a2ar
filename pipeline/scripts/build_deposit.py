@@ -191,6 +191,8 @@ EXTENSION_TREE: list[tuple[str, str, str, set, set]] = [
         ("v9_contracts_added_checks_2026-10-13", "the four added checks as new contract and evaluator files of the tree, of 2026-10-13: pre-registration, the script that wrote the files, the equivalence run against the earlier one and its results", set(), set()),
         # Added 2026-10-13 (ADR-AIIM-441, approved by the author): the earlier analysis that the account of the sequence of the work cites (ADR-AIIM-276, 277); the ranking of ADR-AIIM-300 and 302 was already deposited
         ("snplib_canonical_2026-10-02", "the SNP-Lib and the 500 docked compounds of the expanded library under a canonical row order, of 2026-10-02: pre-registration, script and results", set(), set()),
+        # Added 2026-10-13 (ADR-AIIM-447, approved by the author): the persistence of the fifteen compounds across the analytic choices, a tabulation of registered results
+        ("v9_persistence_2026-10-13", "the persistence of the fifteen selected compounds across the analytic choices that were tested, of 2026-10-13: a tabulation of registered results (script, table)", set(), set()),
         ("rank_prioritisation_2026-10-05", "the ranking of the expanded library with the corrected ligand model, of 2026-10-05: pre-registration, script, per-convention top 20 and shortlist", set(), set()),
     ]
 ]
